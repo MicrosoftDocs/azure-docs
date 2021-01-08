@@ -116,17 +116,49 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ## Plan Migration
 
-Migration between Windows Consumption and Premium plans is supported and can be done through the CLI. 
+You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. This migration isn't supported on Linux.
 
-First, create a new function app plan in the same region and resource group as your existing function app.
+### Consumption to Premium
 
-Then, run the below CLI command where MyNewPlan is the new 'App Service Plan' id (Ex: ASP-MyNewPlan-bf74 (EP: 1)):
+Use the following procedure to migrate from a Consumption plan to a Premium plan on Windows:
 
-```azurecli-interactive
-az functionapp update --name MyFunctionApp --resource-group MyResourceGroup --plan MyNewPlan
-```
+1. Run the following command to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app.  
 
-If you no longer need your previous function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
+    ```azurecli-interactive
+    az functionapp plan create --name MyPremiumPlan --resource-group MyResourceGroup --location <REGION> --sku EP1
+    ```
+
+1. Run the following CLI command to migrate your consumption plan to the elastic premium plan.
+
+    ```azurecli-interactive
+    az functionapp update --name MyFunctionApp --resource-group MyResourceGroup --plan MyNewPlan
+    ```
+
+1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
+
+### Premium to Consumption
+
+Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
+
+1. Run the following commands to create a new function app (Consumption) in the same region and resource group as your existing function app. This will also create a new App Service plan (Consumption).
+
+    ```azurecli-interactive
+    az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
+    ```
+
+1. Run the following CLI command to migrate your elastic premium plan to the consumption plan.
+
+    ```azurecli-interactive
+    az functionapp update --name MyFunctionApp --resource-group MyResourceGroup --plan MyNewPlan
+    ```
+
+1. Delete the Consumption function app created in step 1. Only the App Service plan that was created is needed.
+
+    ```azurecli-interactive
+    az functionapp delete --name MyFunctionApp --resource-group MyResourceGroup
+    ```
+
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
 
 ## Platform features
 
