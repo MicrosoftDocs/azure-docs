@@ -62,7 +62,7 @@ If you do not have a root CA certificate, you need to generate one and export it
 
 ## Enable LDAP over TLS and upload root CA certificate 
 
-1. Go to the NetApp account that is used for the volume, click **Active Directory connections**, then click **Join** (to create a new AD connection) or **Edit** (to edit an existing AD connection).  
+1. Go to the NetApp account that is used for the volume, and click **Active Directory connections**. Then, click **Join** to create a new AD connection or **Edit** to edit an existing AD connection.  
 
 2. In the **Join Active Directory** or **Edit Active Directory** window that appears, select the **LDAP over TLS** checkbox to enable LDAP over TLS for the volume. Then click **Server root CA Certificate** and upload the [generated root CA certificate](#generate-and-export-root-ca-certificate) to use for LDAP over TLS.  
 
