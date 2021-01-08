@@ -36,6 +36,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 ### Query and write operation commands
 
 - delete
+- deleteMany
 - find
 - findAndModify
 - getLastError
