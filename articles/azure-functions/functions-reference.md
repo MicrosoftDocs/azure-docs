@@ -35,11 +35,11 @@ For more information, see [Azure Functions triggers and bindings concepts](funct
 
 The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings which are specific to a particular type of binding. Every binding requires the following settings:
 
-| Property | Values/Types | Comments |
-| --- | --- | --- |
-| `type` |string |Binding type. For example, `queueTrigger`. |
-| `direction` |'in', 'out' |Indicates whether the binding is for receiving data into the function or sending data from the function. |
-| `name` |string |The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
+| Property    | Values/Types | Comments                                                                                                                                      |
+|-------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`      | string       | Binding type. For example, `queueTrigger`.                                                                                                    |
+| `direction` | 'in', 'out'  | Indicates whether the binding is for receiving data into the function or sending data from the function.                                      |
+| `name`      | string       | The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
 
 ## Function app
 A function app provides an execution context in Azure in which your functions run. As such, it is the unit of deployment and management for your functions. A function app is comprised of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
@@ -86,6 +86,83 @@ Here is a table of all supported bindings.
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 Having issues with errors coming from the bindings? Review the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
+
+
+## Connections
+
+Your function project references connection information by name from its configuration provider. It does not directly accept the connection details, allowing them to be changed across environments. For example, a trigger definition might include a `connection` property. This might refer to a connection string, but you cannot set the connection string directly in a `function.json`. Instead, you would set `connection` to the name of an environment variable that contains the connection string.
+
+The default configuration provider uses environment variables. These might be set by [Application Settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure Functions service, or from the [local settings file](functions-run-local.md#local-settings-file) when developing locally.
+
+### Connection values
+
+When the connection name resolves to a single exact value, it is assumed to be a _connection string_, which typically includes a secret. The details of a given connection string are defined by the service you wish to connect to.
+
+However, a connection name can also refer to a collection of multiple configuration items. Environment variables can be treated as a collection by using a shared prefix that ends in double underscores "\_\_". The group could then be referenced by setting the connection name to this prefix.
+
+For example, the `connection` property for a Azure Blob trigger definition might be "Storage1". As long as there is no single string value configured with "Storage1" as its name, "Storage1\_\_serviceUri" would be used for the "serviceUri" property of the connection. What properties are allowed for a connection depends on the service you are connecting to. Refer to the documentation for the component that uses the connection.
+
+### Configure an identity-based connection
+
+Some connections in Azure Functions can be configured to use an identity instead of a secret. This support depends on the component using the connection, and there may be cases where a connection string is still required in Functions even though the service to which you are connecting supports identity-based connections itself.
+
+> [!IMPORTANT]
+> Even if a binding extension supports identity-based connections, use of that configuration may not yet be supported in the Consumption plan. This is noted in the support table below.
+
+Identity-based connections are supported by the following trigger and binding extensions:
+
+| Extension name | Extension version                                                                                     | Supports identity-based connections in the Consumption plan |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
+| Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+
+> [!NOTE]
+> Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that "AzureWebJobsStorage" must use a connection string.
+
+#### Connection properties
+
+An identity-based connection for an Azure service accepts the following properties:
+
+| Property    | Environment variable                       | Description                                                              |
+|-------------|--------------------------------------------|--------------------------------------------------------------------------|
+| Service URI | _\<connection-name-prefix\>_\_\_serviceUri | Required. The data plane URI of the service to which you are connecting. |
+
+Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
+
+When hosted in the Azure Functions service, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized using alternative connection parameters.
+
+##### Local development
+
+When running locally, the above configuration indicates that your local developer identity should be used. The connection will attempt to get a token from the following locations, in order:
+
+- a local cache shared between Microsoft applications
+- the current user context in Visual Studio
+- the current user context in Visual Studio Code
+- the current user context in the Azure CLI
+
+If none of these options are successful, an error will occur.
+
+In some cases, you may wish to specify that a different identity be used. You can add configuration properties for the connection that specify the identity to be used.
+
+> [!NOTE]
+> The following configuration options are not supported when hosted in the Azure Functions service.
+
+To connect using an Azure Active Directory service principal with a client ID and secret, define the connection with the following properties:
+
+| Property    | Environment variable                       | Description                                                              |
+|-------------|--------------------------------------------|--------------------------------------------------------------------------|
+| Service URI | _\<connection-name-prefix\>_\_\_serviceUri | Required. The data plane URI of the service to which you are connecting. |
+| Tenant ID | _\<connection-name-prefix\>_\_\_tenantId | Required. The Azure Active Directory tenant (directory) ID. |
+| Client ID | _\<connection-name-prefix\>_\_\_clientId | Required. The client (application) ID of an app registration in the tenant. |
+| Client secret | _\<connection-name-prefix\>_\_\_clientSecret | Required. A client secret that was generated for the app registration. |
+
+#### Grant permission to the identity
+
+Whatever identity is being used must have permissions to perform the intended actions. This is typically done by assigning a role in Azure RBAC or specifying the identity in an access policy, depending on the service to which you are connecting. Refer to the documentation for each service on what permissions are needed and how they can be set.
+
+> [!IMPORTANT]
+> Some permissions might be exposed by the service that are not necessary for the given context. Where possible, adhere to the **principle of least privilege**, granting the identity only what it needs. For example, if the app just needs to read from a blob, the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) has excessive permissions and should not be used, as the [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role would be more appropriate.
+
 
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
