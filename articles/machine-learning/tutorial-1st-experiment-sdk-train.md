@@ -94,7 +94,7 @@ python src/train.py                             # train model
 After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
 
 > [!div class="nextstepaction"]
-> [I created the environment file](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-local"></a> Create the control script
 
@@ -157,7 +157,7 @@ if __name__ == "__main__":
 Switch back to the *tutorial* environment that has the Azure Machine Learning SDK for Python installed. Since the training code isn't running on your computer, you don't need to have PyTorch installed.  But you do need the `azureml-sdk`, which is in the *tutorial* environment.
 
 ```bash
-conda deactiveate
+conda deactivate
 conda activate tutorial
 python 04-run-pytorch.py
 ```
