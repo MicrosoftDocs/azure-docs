@@ -1,6 +1,7 @@
 ---
 title: Updating .NET for Apache Spark to version v1.0 in HDI
 description: Learn about updating .NET for Apache Spark version to 1.0 in HDI and how that affects your existing code and clusters.
+author: Niharikadutta
 ms.author: nidutta
 ms.service: hdinsight
 ms.topic: how-to
@@ -25,7 +26,7 @@ While current HDI clusters will not be affected (i.e. they will still have the s
 If you don't want to update the current version of .NET for Apache Spark in your application, no further steps are necessary.  
 
 2. **You have a new HDI cluster**: If you want to upgrade your Spark .NET application to v1.0.0 (recommended), no steps are needed to change the worker on HDI, however you will have to refer to the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand the steps needed to update your code and pipelines.
-If you don't want to change the current version of .NET for Apache Spark in your application, you would have to change the version on your HDI cluster from v1.0 (default on new clusters) to whichever version you are using. Refer to the [changing versions of .NET for Apache Spark on HDI cluster section](#changing-version-of-.net-for-apache-spark-on-hdinsight-cluster) to learn how to do that.  
+If you don't want to change the current version of .NET for Apache Spark in your application, you would have to change the version on your HDI cluster from v1.0 (default on new clusters) to whichever version you are using. Refer to the [changing versions of .NET for Apache Spark on HDI cluster section](#changing-version-of-net-for-apache-spark-on-hdinsight-cluster) to learn how to do that.  
 
 ## Changing version of .NET for Apache Spark on HDInsight cluster
 
@@ -37,13 +38,13 @@ If you don't want to change the current version of .NET for Apache Spark in your
 
 2. Download [install-worker.sh](https://github.com/dotnet/spark/blob/master/deployment/install-worker.sh) script to install the worker binaries downloaded in Step 1 to all the worker nodes of your HDI cluster.  
 
-3. Upload the above mentioned files to the Azure Storage account your cluster has access to. You can refer to [the .NET for Apache Spark HDI deployment article](https://docs.microsoft.com/en-us/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure) for more details.
+3. Upload the above mentioned files to the Azure Storage account your cluster has access to. You can refer to [the .NET for Apache Spark HDI deployment article](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure) for more details.
 
 4. Run the `install-worker.sh` script on all worker nodes of your cluster, using Script actions. Refer to [the .NET for Apache Spark HDI deployment article](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action) for more information.
 
 ### Update your application to use specific version
 
-You can update your .NET for Apache Spark application to use a specific version by choosing the required version of the [Microsoft.Spark nuget package](https://www.nuget.org/packages/Microsoft.Spark/) in your project. Be sure to check out the release notes of the particular version as well as the [migration guide]((https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10)) as mentioned above, if choosing to update your application to v1.0.0.
+You can update your .NET for Apache Spark application to use a specific version by choosing the required version of the [Microsoft.Spark nuget package](https://www.nuget.org/packages/Microsoft.Spark/) in your project. Be sure to check out the release notes of the particular version as well as the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) as mentioned above, if choosing to update your application to v1.0.0.
 
 ## FAQs
 
