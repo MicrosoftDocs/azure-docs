@@ -146,27 +146,9 @@ You can connect by using Azure Active Directory (AD) or by using an account key.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-```powershell
-Connect-AzAccount
-```
-
-If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Next, choose how you want your commands to obtain authorization to the storage account. 
-
-### Option 1: Obtain authorization by using Azure Active Directory (AD)
+#### Connect by using Azure Active Directory (AD)
 
 With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
 
 The following table shows each of the supported roles and their ACL setting capability.
 
@@ -175,13 +157,29 @@ The following table shows each of the supported roles and their ACL setting capa
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
 |[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
-### Option 2: Obtain authorization by using the storage account key
+1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-With this approach, the system doesn't check Azure RBAC or ACL permissions.
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ```
+3. Get the storage account context.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
+
+#### Connect by using an account key
+
+With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ### [Azure CLI](#tab/azure-cli)
