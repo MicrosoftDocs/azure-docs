@@ -75,13 +75,12 @@ For a list of libraries that work with the Microsoft identity platform endpoint,
 
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
 
-## Desktop
+## Desktop application
 
 Use the following libraries to build applications that run on the desktop. Desktop apps include Universal Windows Platform (UWP), Windows Presentation Foundation (WPF), macOS, and Electron apps.
 
 |Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
-|Platform Name | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
 | Electron |[MSAL Node.js](./msal-js-initializing-client-applications.md) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public Preview |
 | WPF |[MSAL.NET](tutorial-v2-windows-desktop.md) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | UWP |[MSAL.NET](tutorial-v2-windows-uwp.md) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
@@ -92,24 +91,25 @@ Use the following libraries to build applications that run on the desktop. Deskt
 
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
 
-## Mobile
+## Mobile application
 
 Use the following libraries to build mobile applications that run on Android and iOS.
 
 |Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
-|Platform Name | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
 | Xamarin (.NET) |[MSAL.NET](https://github.com/azure-samples/active-directory-xamarin-native-v2) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | iOS (Swift/Obj-C) |[MSAL](tutorial-v2-ios.md) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | Android (Java) |[MSAL](quickstart-v2-android.md) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
-| Android (Kotlin) | |[MSAL](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| Android (Kotlin) | [MSAL](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
 
 ## Service / daemon
 
-Provide authorized web API access to background services and daemons using the identity of the application as opposed to a user. Commonly used for server-to-server and other unattended (sometimes called *headless*) communication, these applications need to authenticate as themselves because there's no user at the keyboard to enter credentials or consent to resource access.
+Provide authorized web API access to background services and daemons using the identity of the application as opposed to a user.
+
+Commonly used for server-to-server and other unattended (sometimes called *headless*) communication, these applications need to authenticate as themselves because there's no user at the keyboard to enter credentials or consent to resource access.
 
 | Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
@@ -122,7 +122,7 @@ Provide authorized web API access to background services and daemons using the i
 
 ___
 
-## :warning: CURRENT DOC CONTENT BELOW THIS HEADING :warning:
+## :warning: LEGACY DOC CONTENT BELOW THIS HEADING :warning:
 
 :information_source: Everything below this sentence is what's *currently* published. As appropriate, use it for reference as you build out your tables.
 
