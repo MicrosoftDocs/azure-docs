@@ -174,8 +174,9 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
         ```
 
 > [!NOTE]
-> Please make sure that you either replace the storage account and container names with those from the environment file or you supply your own.
-> Going forward, please make sure that you are supplying valid parameters in request bodies in all future steps.
+> Be sure to either replace the storage account and container names with those from the environment file or supply your own.
+>
+> As you complete the steps described in the rest of this article, make sure that you supply valid parameters in request bodies.
 
 ### Create a transform
 
