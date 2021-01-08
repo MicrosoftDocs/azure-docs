@@ -1681,7 +1681,7 @@ Updates are not made automatically upon function exit. Instead, use `context.bin
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+Updates to documents are not made automatically upon function exit. To update documents in a function use an [output binding](./functions-bindings-cosmosdb-v2-input.md). See the [PowerShell example](#example) for more detail.
 
 # [Python](#tab/python)
 
