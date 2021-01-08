@@ -52,6 +52,22 @@ We recommend that you make _no more than one request_ to the Usage Details API p
 
 Use the API to get all the data you need at the highest-level scope available. Wait until all needed data is ingested before doing any filtering, grouping, or aggregated analysis. The API is optimized specifically to provide large amounts of unaggregated raw cost data. To learn more about scopes available in Cost Management, see [Understand and work with scopes](./understand-work-scopes.md). Once you've downloaded the needed data for a scope, use Excel to analyze data further with filters and pivot tables.
 
+### Notes about pricing
+
+If you want to reconcile usage and charges with your price sheet or invoice, note the following information.
+
+Price Sheet price behavior - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure at which the actual resource usage and charges are emitted.
+
+Usage Details price behavior - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
+
+- Unit Price - The price is scaled to match the unit of measure at which the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
+- Unit of Measure - Represents the unit of measure at which charges are actually emitted by Azure resources.
+- Effective Price / Resource Rate - The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the Quantity to do Price * Quantity calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price.
+  - Tiered pricing - For example: $10 for the first 100 units, $8 for the next 100 units.
+  - Included quantity - For example: The first 100 units are free and then $10 per unit.
+  - Reservations
+  - Rounding that occurs during calculation – Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
+
 ## Example Usage Details API requests
 
 The following example requests are used by Microsoft customers to address common scenarios that you might come across.
@@ -317,22 +333,6 @@ Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /p
 ### Configure cost-based orchestration for budget alerts
 
 You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](../manage/cost-management-budget-scenario.md).
-
-## Notes about pricing
-
-If you want to reconcile usage and charges with your price sheet or invoice, note the following information.
-
-Price Sheet price behavior - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure at which the actual resource usage and charges are emitted.
-
-Usage Details price behavior - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
-
-- Unit Price - The price is scaled to match the unit of measure at which the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
-- Unit of Measure - Represents the unit of measure at which charges are actually emitted by Azure resources.
-- Effective Price / Resource Rate - The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the Quantity to do Price * Quantity calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price.
-  - Tiered pricing - For example: $10 for the first 100 units, $8 for the next 100 units.
-  - Included quantity - For example: The first 100 units are free and then $10 per unit.
-  - Reservations
-  - Rounding that occurs during calculation – Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
 
 ## Data latency and rate limits
 
