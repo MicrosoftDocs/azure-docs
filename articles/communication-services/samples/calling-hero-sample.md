@@ -18,15 +18,11 @@ zone_pivot_groups: acs-web-ios
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Web Calling Hero Sample](./includes/chat-js.md)]
+[!INCLUDE [Web Calling Hero Sample](./includes/web-calling-hero.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [iOS Calling Hero Sample](./includes/chat-python.md)]
-::: zone-end
-
-::: zone pivot="platform-android"
-[!INCLUDE [Android Calling Hero Sample](./includes/chat-java.md)]
+[!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
 ::: zone-end
 
 ## Additional reading
