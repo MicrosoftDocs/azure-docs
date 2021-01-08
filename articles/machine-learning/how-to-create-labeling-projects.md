@@ -107,7 +107,7 @@ You can find the timestamp for the latest refresh in the **Incremental refresh**
 
 ## Specify label classes
 
-On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use a field code or abbreviate the genus.
+On the **Label classes** page, specify the set of classes to categorize your data. Your labelers' accuracy and speed are affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use a field code or abbreviate the genus.
 
 Enter one label per row. Use the **+** button to add a new row. If you have more than 3 or 4 labels but fewer than 10, you may want to prefix the names with numbers ("1: ", "2: ") so the labelers can use the number keys to speed their work.
 
@@ -152,7 +152,7 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 After a certain number of labels are submitted, the machine learning model for image classification starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
 
-Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images which are nearest neighbors in the space are used for clustering tasks. 
+Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks. 
 
 The clustering phase does not appear for object detection models.
 
@@ -160,7 +160,7 @@ The clustering phase does not appear for object detection models.
 
 After enough image labels are submitted, a classification model is used to predict image tags. Or an object detection model is used to predict bounding boxes. The labeler now sees pages that contain predicted labels already present on each image. For object detection, predicted boxes are also shown. The task is then to review these predictions and correct any mis-labeled images before submitting the page.  
 
-Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled images to determine its accuracy at a variety of different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Images with predictions more confident than this threshold are used for pre-labeling.
+Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled images to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Images with predictions more confident than this threshold are used for pre-labeling.
 
 ## Initialize the data labeling project
 
@@ -198,7 +198,7 @@ Additionally, when ML assisted labeling is enabled, a small progress bar shows w
 * Inference - prediction run for new items
 * Featurization - clusters items (only for image classification projects)
 
-On the right hand side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
+On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
 ### Data tab
 
@@ -217,7 +217,7 @@ View details of your project.  In this tab you can:
 
 ### Access for labelers
 
-Anyone who has access to your workspace can label data in your project.  You can also customize the permissions for your labelers so that the can access labeling but not other parts of the workspace or your labeling project.  For more details, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md), and learn how to create the [labeler custom role](how-to-assign-roles.md#labeler).
+Anyone who has access to your workspace can label data in your project.  You can also customize the permissions for labelers so that they can access labeling but not other parts of the workspace or your labeling project.  For more details, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md), and learn how to create the [labeler custom role](how-to-assign-roles.md#labeler).
 
 ## Add new label class to a project
 
