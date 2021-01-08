@@ -43,7 +43,7 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 
 ## Base setup
 
-1. Set up PostgreSQL database if you haven't already. 
+### Set up PostgreSQL database if you haven't already. 
 
 This could be an existing on-premise database or you could [download and install one](https://www.postgresql.org/download/) on your local machine. It's also possible to use a [Docker container](https://hub.docker.com/_/postgres).
 
@@ -73,7 +73,7 @@ CREATE TABLE retail.orders_info (
 );
 ```
 
-2. Using the Azure portal, create the Cassandra Keyspace and the tables required for the demo application.
+### Using the Azure portal, create the Cassandra Keyspace and the tables required for the demo application.
 
 > [!NOTE]
 > Use the same Keyspace and table names as below
@@ -86,7 +86,7 @@ CREATE TABLE retail.orders_by_customer (order_id int, customer_id int, purchase_
 CREATE TABLE retail.orders_by_city (order_id int, customer_id int, purchase_amount int, city text, purchase_time timestamp, PRIMARY KEY (city,order_id)) WITH cosmosdb_cell_level_timestamp=true AND cosmosdb_cell_level_timestamp_tombstones=true AND cosmosdb_cell_level_timetolive=true;
 ```
 
-3. Setup Apache Kafka 
+### Setup Apache Kafka 
 
 This article uses a local cluster, but you can choose any other option. [Download Kafka](https://kafka.apache.org/downloads), unzip it, start the Zookeeper and Kafka cluster.
 
@@ -100,7 +100,7 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 bin/kafka-server-start.sh config/server.properties
 ```
 
-4. Setup connectors
+### Setup connectors
 
 Install the Debezium PostgreSQL and DataStax Apache Kafka connector. Download the Debezium PostgreSQL connector plug-in archive. For example, to download version 1.3.0 of the connector (latest at the time of writing), use [this link](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz). Download the DataStax Apache Kafka connector from [this link](https://downloads.datastax.com/#akc).
 
@@ -116,14 +116,14 @@ cp <path_to_cassandra_connector>/*.jar <KAFKA_HOME>/libs
 
 ## Configure Kafka Connect and start data pipeline
 
-1. Start Kafka Connect cluster
+### Start Kafka Connect cluster
 
 ```bash
 cd <KAFKA_HOME>/bin
 ./connect-distributed.sh ../config/connect-distributed.properties
 ```
 
-2. Start PostgreSQL connector instance
+### Start PostgreSQL connector instance
 
 Save the connector configuration (JSON) to a file example `pg-source-config.json`
 
@@ -139,7 +139,7 @@ Save the connector configuration (JSON) to a file example `pg-source-config.json
         "database.dbname": "postgres",
         "database.server.name": "myserver",
         "plugin.name": "wal2json",
-        "table.whitelist": "retail.orders_info",
+        "table.include.list": "retail.orders_info",
         "value.converter": "org.apache.kafka.connect.json.JsonConverter"
     }
 }
@@ -155,7 +155,7 @@ curl -X POST -H "Content-Type: application/json" --data @pg-source-config.json h
 > To delete, you can use: `curl -X DELETE http://localhost:8083/connectors/pg-orders-source`
 
 
-3. Insert data
+### Insert data
 
 The `orders_info` table contains order details such as order ID, customer ID, city etc. Populate the table with random data using the below SQL.
 
@@ -192,7 +192,7 @@ cd <KAFKA_HOME>/bin
 
 You should see the change data events in JSON format.
 
-4. Start DataStax Apache Kafka connector instance
+### Start DataStax Apache Kafka connector instance
 
 Save the connector configuration (JSON) to a file example, `cassandra-sink-config.json` and update the properties as per your environment.
 
@@ -235,7 +235,7 @@ curl -X POST -H "Content-Type: application/json" --data @cassandra-sink-config.j
 
 The connector should spring into action and the end to end pipeline from PostgreSQL to Azure Cosmos DB will be operational.
 
-5. Query Azure Cosmos DB
+### Query Azure Cosmos DB
 
 Check the Cassandra tables in Azure Cosmos DB. Here are some of the queries you can try:
 
