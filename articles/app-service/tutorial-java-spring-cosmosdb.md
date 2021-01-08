@@ -51,7 +51,7 @@ yes | cp -rf .prep/* .
 
 Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-1. Login your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
     ```bash
     az login
@@ -144,7 +144,7 @@ mvn package spring-boot:run
 
 The output should look like the following.
 
-```bash
+```output
 bash-3.2$ mvn package spring-boot:run
 [INFO] Scanning for projects...
 [INFO] 

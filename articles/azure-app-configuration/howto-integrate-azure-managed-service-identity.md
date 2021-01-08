@@ -76,7 +76,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. Add a reference to the *Azure.Identity* package:
 
-    ```cli
+    ```azurecli
     dotnet add package Azure.Identity
     ```
 

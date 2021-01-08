@@ -65,7 +65,7 @@ During the installation, an Azure public IP address is created for the ingress c
 
 To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
 
-```
+```console
 $ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
 NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
@@ -89,7 +89,7 @@ az network dns record-set a add-record \
 > [!NOTE]
 > Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain. Note that this sample is for a Bash shell.
 > 
-> ```azurecli-interactive
+> ```Bash
 > # Public IP address of your ingress controller
 > IP="MY_EXTERNAL_IP"
 > 
@@ -335,7 +335,7 @@ Next, a certificate resource must be created. The certificate resource defines t
 
 To verify that the certificate was created successfully, use the `kubectl get certificate --namespace ingress-basic` command and verify *READY* is *True*, which may take several minutes.
 
-```
+```console
 $ kubectl get certificate --namespace ingress-basic
 
 NAME         READY   SECRET       AGE
@@ -368,7 +368,7 @@ kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 
 List the Helm releases with the `helm list` command. Look for charts named *nginx* and *cert-manager*, as shown in the following example output:
 
-```
+```console
 $ helm list --namespace ingress-basic
 
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
@@ -378,7 +378,7 @@ nginx                   ingress-basic   1               2020-01-15 10:09:45.9826
 
 Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.
 
-```
+```console
 $ helm uninstall cert-manager nginx --namespace ingress-basic
 
 release "cert-manager" uninstalled
