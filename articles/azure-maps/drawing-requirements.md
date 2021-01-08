@@ -37,7 +37,7 @@ For easy reference, here are some terms and definitions that are important as yo
 | Layer | An AutoCAD DWG layer.|
 | Level | An area of a building at a set elevation. For example, the floor of a building. |
 | Xref  |A file in AutoCAD DWG file format (.dwg), attached to the primary drawing as an external reference.  |
-| Feature | An object that combines a geometry with additional metadata information. |
+| Feature | An object that combines a geometry with more metadata information. |
 | Feature classes | A common blueprint for features. For example, a *unit* is a feature class, and an *office* is a feature. |
 
 ## Drawing package structure
@@ -75,7 +75,7 @@ DWG layers must also follow the following criteria:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels.
-* Self-intersecting polygons are automatically repaired, and the [Azure Maps Conversion service](/rest/api/maps/conversion) raises a warning. You should manually inspect the repaired results, because they might not match the expected results.
+* Self-intersecting polygons are automatically repaired, and the [Azure Maps Conversion service](/rest/api/maps/conversion) raises a warning. It is advisable to manually inspect the repaired results, because they might not match the expected results.
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Ellipse (closed), or Text (single line). Any other entity types are ignored.
 
@@ -154,7 +154,7 @@ You can see an example of the Zone layer in the [sample Drawing package](https:/
 
 ### UnitLabel layer
 
-The DWG file for each level can contain a UnitLabel layer. The UnitLabel layer adds a name property to units extracted from the Unit layer. Units with a name property can have additional details specified in the manifest file.
+The DWG file for each level can contain a UnitLabel layer. The UnitLabel layer adds a name property to units extracted from the Unit layer. Units with a name property can have more details specified in the manifest file.
 
 * Unit labels must be single-line text entities.
 * Unit labels must fall inside the bounds of their unit.
@@ -164,7 +164,7 @@ You can see an example of the UnitLabel layer in the [sample Drawing package](ht
 
 ### ZoneLabel layer
 
-The DWG file for each level can contain a ZoneLabel layer. This layer adds a name property to zones extracted from the Zone layer. Zones with a name property can have additional details specified in the manifest file.
+The DWG file for each level can contain a ZoneLabel layer. This layer adds a name property to zones extracted from the Zone layer. Zones with a name property can have more details specified in the manifest file.
 
 * Zones labels must be single-line text entities.
 * Zones labels must fall inside the bounds of their zone.
@@ -187,8 +187,8 @@ Although there are requirements when you use the manifest objects, not all objec
 | `buildingLevels` | true | Specifies the levels of the buildings and the files containing the design of the levels. |
 | `georeference` | true | Contains numerical geographic information for the facility drawing. |
 | `dwgLayers` | true | Lists the names of the layers, and each layer lists the names of its own features. |
-| `unitProperties` | false | Can be used to insert additional metadata for the unit features. |
-| `zoneProperties` | false | Can be used to insert additional metadata for the zone features. |
+| `unitProperties` | false | Can be used to insert more metadata for the unit features. |
+| `zoneProperties` | false | Can be used to insert more metadata for the zone features. |
 
 The next sections detail the requirements for each object.
 
@@ -261,7 +261,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`.|
 | `nonPublic` | bool | false | Indicates if the unit is open to the public. |
 | `isRoutable` | bool | false | When this property is set to `false`, you can't go to or through the unit. The default value is `true`. |
-| `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning. This is because the resulting unit won't be reachable by a navigating agent.|
+| `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit won't be reachable by a navigating agent.|
 
 ### `zoneProperties`
 
@@ -277,7 +277,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 ### Sample Drawing package manifest
 
-The following is a sample manifest file for the sample Drawing package. To download the entire package, see [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Below is the manifest file for the sample Drawing package. To download the entire package, see [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 #### Manifest file
 
