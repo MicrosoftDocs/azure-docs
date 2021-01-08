@@ -44,7 +44,7 @@ We use Azure Machine Learning Studio to host the two Jupyter Notebooks and suppo
 > Once set up, the Azure Machine Learning service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
 
 ### Install Azure Machine Learning Visual Studio Code extension
-VS Code on the development VM should have this extension installed. If you are running on a different instance, please reinstall the extension as described [here.](../machine-learning/tutorial-setup-vscode-extension)
+VS Code on the development VM should have this extension installed. If you are running on a different instance, please reinstall the extension as described [here.](../machine-learning/tutorial-setup-vscode-extension.md)
 
 ### Create an Azure Machine Learning account  
 In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials.
