@@ -45,7 +45,10 @@ Starting March 1st 2021, you no longer will be able to sign up and sign in to th
 You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
 
 > [!NOTE]
-> You are advised to export your content before January 1st of 2021, since accounts connected to LinkedIn and Facebook will be deleted and the content will no longer be accessible.
+> The Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021. 
+> 
+> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Indexer account so you will still have access.<br/>
+> Alternatively, you can create a paid account and migrate the data.
 
 ## August 2020
 
