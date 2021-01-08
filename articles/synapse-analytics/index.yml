@@ -26,8 +26,8 @@ landingContent:
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
-          - text: Tips and best practices
-            url: overview-cheat-sheet.md
+          - text: Terminology
+            url: overview-terminology.md
           - text: FAQ
             url: overview-faq.md
 
@@ -42,7 +42,7 @@ landingContent:
         links:
           - text: Use serverless SQL pool
             url: quickstart-sql-on-demand.md
-          - text: Create adedicated SQL pool using Synapse Studio
+          - text: Create a dedicated SQL pool using Synapse Studio
             url: quickstart-create-sql-pool-studio.md
 
 

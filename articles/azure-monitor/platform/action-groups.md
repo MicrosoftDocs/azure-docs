@@ -127,6 +127,18 @@ Send email to the members of the subscription's role. Email will only be sent to
 
 A notification email is sent only to the *primary email* address.
 
+If you are not receiving Notifications on your *primary email*, then you can try following steps:
+
+1. In Azure portal go to *Active Directory*.
+2. Click on All users (in left pane), you will see list of users (in right pane).
+3. Select the user for which you want to review the *primary email* information.
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example on how to review user profile."border="true":::
+
+4. In User profile under Contact Info if "Email" tab is blank then click on *edit* button on the top and add your *primary email* and hit *save* button on the top.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example on how to add primary email."border="true":::
+
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function
@@ -244,7 +256,47 @@ You may have a limited number of SMS actions in an Action Group.
 > If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**List of Countries where SMS Notification is supported**
+
+| Country Code | Country Name |
+|:---|:---|
+| 61 | Australia |
+| 43 | Austria |
+| 32 | Belgium |
+| 55 | Brazil |
+| 1	|Canada |
+| 56 | Chile |
+| 86 | China |
+| 420 | Czech Republic |
+| 45 | Denmark |
+| 372 | Estonia |
+| 358 | Finland |
+| 33 | France |
+| 49 | Germany |
+| 852 | Hong Kong |
+| 91 | India |
+| 353 | Ireland |
+| 972 | Israel |
+| 39 | Italy |
+| 81 | Japan |
+| 352 | Luxembourg |
+| 60 | Malaysia |
+| 52 | Mexico |
+| 31 | Netherlands |
+| 64 | New Zealand |
+| 47 | Norway |
+| 351 | Portugal |
+| 1 | Puerto Rico |
+| 40 | Romania |
+| 65 | Singapore |
+| 27 | South Africa |
+| 82 | South Korea |
+| 34 | Spain |
+| 41 | Switzerland |
+| 886 | Taiwan |
+| 44 | United Kingdom |
+| 1 | United States |
 
 ### Voice
 See the [rate limiting information](./alerts-rate-limiting.md) article for additional important behavior.
@@ -253,13 +305,18 @@ You may have a limited number of Voice actions in an Action Group.
 
 > [!NOTE]
 > If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
+> Only Country code supported today in Azure portal action group for Voice Notification is +1(United States). 
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Webhook
 
 > [!NOTE]
-> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. 
+
+> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object Ids through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
+
+> If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
 
 Webhooks are processed using the following rules
 - A webhook call is attempted a maximum of 3 times.

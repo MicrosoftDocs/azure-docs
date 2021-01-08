@@ -70,7 +70,7 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How to Enable Monitoring and Protection of App Service](/azure/security-center/defender-for-app-service-intro)
+- [How to Enable Monitoring and Protection of App Service](/azure/security-center/defender-for-app-service-introduction)
 
 **Azure Security Center monitoring**: Yes
 

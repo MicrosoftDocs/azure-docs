@@ -168,7 +168,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
         |where count_ > 3
         ```
         
-    - Map entity
+    - Map entities
     - Query scheduling
     - Alert threshold
     - Event grouping

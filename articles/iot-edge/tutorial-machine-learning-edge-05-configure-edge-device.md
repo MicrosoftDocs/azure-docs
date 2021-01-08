@@ -16,6 +16,14 @@ In this article, we configure an Azure virtual machine running Linux to be an Io
 
 The steps in this article are typically performed by a cloud developer.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create certificates to allow your gateway device to connect securely to your downstream devices.
+> * Create an IoT Edge device.
+> * Create an Azure virtual machine to simulate your IoT Edge device.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
@@ -289,6 +297,10 @@ Next we will update the certificates and hostname by directly editing the config
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 We just completed configuring an Azure VM as Azure IoT Edge Transparent Gateway. We started by generating test certificates that we uploaded to Azure Key Vault. Next, we used a script and Resource Manager template to deploy the VM with the "Ubuntu Server 16.04 LTS + Azure IoT Edge runtime" image from the Azure Marketplace. With the VM up and running we connected via SSH, we signed into Azure and downloaded certificates from Key Vault. We made several updates to the configuration of the IoT Edge Runtime by updating the config.yaml file.

@@ -289,7 +289,7 @@ In the [Azure portal](https://portal.azure.com/), you will first [create a user 
 
 Explicit user authorization in AD FS:
 
-![Screenshot shows the Edit Rule dialog box for the Allow domain admins Claim rule with an Incoming claim type of Primary S I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Screenshot shows the Edit Rule dialog box for the Allow a specific user Claim rule with an Incoming claim type of Primary S I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 This is how the rule maps to Azure AD:
 

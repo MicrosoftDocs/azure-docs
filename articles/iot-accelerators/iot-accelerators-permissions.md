@@ -16,10 +16,10 @@ ms.author: dobett
 
 You can deploy Azure IoT solution accelerators to your Azure subscription from [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hosts both the Microsoft open source and partner solution accelerators. These solution accelerators align with the [Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot). You can use the site to quickly deploy a solution accelerator as a demo or production environment.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="IoT solutions home page":::
 
 > [!TIP]
-> If you need more control over the deployment process, you can use  the [CLI to deploy a solution accelerator](iot-accelerators-remote-monitoring-deploy-cli.md).
+> If you need more control over the deployment process, you can use  the CLI to deploy a solution accelerator.
 
 You can deploy the solution accelerators in the following configurations:
 
@@ -61,9 +61,4 @@ If you're a hardware manufacturer, click **Become a Partner** to learn about par
 
 ## Next steps
 
-To try out one of the IoT solution accelerators, check out the quickstarts:
-
-* [Try a remote monitoring solution](quickstart-remote-monitoring-deploy.md)
-* [Try a connected factory solution](quickstart-connected-factory-deploy.md)
-* [Try a predictive maintenance solution](quickstart-predictive-maintenance-deploy.md)
-* [Try a device simulation solution](quickstart-device-simulation-deploy.md)
+To try out one of the IoT solution accelerators, check out the quickstart: [Try a connected factory solution](quickstart-connected-factory-deploy.md).
