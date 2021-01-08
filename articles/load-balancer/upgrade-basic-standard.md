@@ -118,7 +118,7 @@ Yes. The Azure PowerShell script not only upgrades the Public IP address, copies
 
 ### I ran into some issues with using this script. How can I get help?
   
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
+You can open a support case with Azure Support, or do both.
 
 ## Next steps
 
