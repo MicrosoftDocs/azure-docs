@@ -22,7 +22,10 @@ The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version 
 
 ## Query language support
 
-Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
+Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. The following sections show the detailed list of server operations, operators, stages, commands, and options currently supported by Azure Cosmos DB.
+
+> [!NOTE]
+> This article only lists the server commands supported by Azure Cosmos DB and it excludes any client-side wrapper functions such as `deleteMany()` or `updateMany()`.
 
 ## Database commands
 
@@ -33,7 +36,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |Command  |Supported |
 |---------|---------|
 |delete | Yes |
-|deleteMany | Yes |
 |find | Yes     |
 |findAndModify | Yes  |
 |getLastError|   Yes |
