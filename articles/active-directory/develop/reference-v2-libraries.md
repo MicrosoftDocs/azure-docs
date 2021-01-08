@@ -60,10 +60,10 @@ For a list of libraries that work with the Microsoft identity platform endpoint,
 
 | Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
-| .NET | [MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+| .NET | [MSAL.NET](msal-overview.md) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
 | ASP.NET Core | [Microsoft.Identity.Web](https://aka.ms/ms-id-web/conceptual-doc) | [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | ASP.NET Core | [ASP.NET Security](https://docs.microsoft.com/en-us/aspnet/core/security/) | [Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) | ![Green check mark.][y] | ![Green check mark.][y] | ![X indicating no.][n] | Generally available (GA) |
-| Node.js | [MSAL.js for Node](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-nodejs-webapp-msal) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public Preview |
+| Node.js | [MSAL.js for Node](quickstart-v2-nodejs-webapp-msal.md) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public Preview |
 | Node.js | [Azure AD Passport](https://github.com/AzureAD/passport-azure-ad) | [passport-azure-ad](https://www.npmjs.com/package/passport-azure-ad) | ![Green check mark.][y] | ![Green check mark.][y] | ![X indicating no.][n] | Public Preview |
 | Java | [MSAL4J](https://aka.ms/msaljavadocs) | [msal4j](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | General availability (GA) |
 | Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [msal](https://pypi.org/project/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | General availability (GA) |
@@ -83,11 +83,11 @@ Use the following libraries to build applications that run on the desktop. Deskt
 |--|--|--|:-:|:-:|:-:|:-:|
 |Platform Name | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
 | Electron |[MSAL Node.js](./msal-js-initializing-client-applications.md) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Public Preview |
-| WPF |[MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-desktop) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
-| UWP |[MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-uwp) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| WPF |[MSAL.NET](tutorial-v2-windows-desktop.md) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| UWP |[MSAL.NET](tutorial-v2-windows-uwp.md) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | Java |[MSAL4J](https://github.com/Azure-Samples/ms-identity-java-desktop/) | [Msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | Java |Scribe | [Scribe Java](https://mvnrepository.com/artifact/org.scribe/scribe) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
-| MacOS (Swift/Obj-C) |[MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-ios) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| MacOS (Swift/Obj-C) |[MSAL](tutorial-v2-ios.md) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
@@ -100,12 +100,25 @@ Use the following libraries to build mobile applications that run on Android and
 |--|--|--|:-:|:-:|:-:|:-:|
 |Platform Name | Library Name | package-name | yes/no | yes/no | yes/no | Generally available (GA)<br/>Public preview |
 | Xamarin (.NET) |[MSAL.NET](https://github.com/azure-samples/active-directory-xamarin-native-v2) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
-| iOS (Swift/Obj-C) |[MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-ios) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
-| Android (Java) |[MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-android) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| iOS (Swift/Obj-C) |[MSAL](tutorial-v2-ios.md) | [MSAL](https://cocoapods.org/pods/MSAL) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
+| Android (Java) |[MSAL](quickstart-v2-android.md) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | Android (Kotlin) | |[MSAL](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | ![Green check mark.][y] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 | React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | Generally available (GA) |
 
 <sup>1</sup> :warning: *TODO: Explanation of what it means to be "Supported by Microsoft"* :warning:
+
+## Service / daemon
+
+Provide authorized web API access to background services and daemons using the identity of the application as opposed to a user. Commonly used for server-to-server and other unattended (sometimes called *headless*) communication, these applications need to authenticate as themselves because there's no user at the keyboard to enter credentials or consent to resource access.
+
+| Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
+|--|--|--|:-:|:-:|:-:|:-:|
+|.NET| [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-credential-flows) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA)|
+|Java| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki/Client-Credentials) | [msal4j](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+|Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [msal-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ![Green check mark.][y] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+|PHP| [The PHP League oauth2-client](https://oauth2-client.thephpleague.com/usage/) | [League\OAuth2](https://oauth2-client.thephpleague.com/) | ![Green check mark.][n] | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA) |
+
+<sup>1</sup>  Supported by Microsoft : SDK created and maintained by Microsoft.
 
 ___
 
