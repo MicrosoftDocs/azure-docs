@@ -443,7 +443,7 @@
   - name: Billing model
     href: billing.md
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+    href: /samples/browse/?terms=b2c
   - name: Cookie definitions
     href: cookie-definitions.md
     displayName: cookies, SameSite
