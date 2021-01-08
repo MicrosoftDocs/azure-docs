@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 01/15/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -299,6 +299,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
+## Configure LDAP over TLS
+
+Follow instructions in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) to configure LDAP over TLS for a volume.  
+
 ## Control access to an SMB volume  
 
 Access to an SMB volume is managed through permissions.  
@@ -320,6 +324,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [SMB FAQs](./azure-netapp-files-faqs.md#smb-faqs)
+* [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
+* [SMB FAQs](azure-netapp-files-faqs.md#smb-faqs)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

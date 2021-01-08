@@ -117,11 +117,15 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
+## Configure LDAP over TLS
+
+Follow instructions in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) to configure LDAP over TLS for a volume.  
 
 ## Next steps  
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
+* [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
