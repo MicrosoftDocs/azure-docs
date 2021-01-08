@@ -374,7 +374,11 @@ These steps show how to use the managed identity with a trigger or action throug
    > [!NOTE]
    > Not all triggers and actions support letting you add an authentication type. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
+1. Based on the type of trigger or action that you added, see:
+
    * **Supported built-in triggers and actions**
+
+     For built-in triggers and actions such as HTTP, follow these steps:
 
      1. Add the **Authentication** property if the property doesn't already appear.
 
@@ -384,11 +388,39 @@ These steps show how to use the managed identity with a trigger or action throug
  
    * **Supported managed connector triggers and actions**
 
+     Connections that you created to use a managed identity are a special connection type that you can use only with a managed identity.
+
      1. On the Azure AD tenant selection page, select **Connect with managed identity**.
 
-     1. When the connection name page appears, from the managed identity list, select the type for the managed identity that you want to use.
+     1. When the connection name page appears, from the managed identity list, select the managed identity that you want to use.
 
      For more information, see [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
+
+     At runtime, the connection uses the managed identity that's enabled on the logic app. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource name and if the user-assigned identity is enabled, the identity's name.
+
+     This example shows what the configuration looks like when the logic app enables a user-assigned managed identity:
+
+     ```json
+     "parameters": {
+        "$connections": {
+            "value": {
+               "arm": {
+                  "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+                  "connectionName": "{connection-name}",
+                  "connectionProperties": {
+                     "authentication": {
+                        "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                        "type": "ManagedServiceIdentity"
+                     }
+                  },
+                  "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+               }
+            }
+        }
+     }
+     ```
+
+     During runtime, the Logic Apps service checks whether any managed connector trigger and actions in the logic app are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, the Logic Apps service retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
 
 <a name="authenticate-built-in-managed-identity"></a>
 
@@ -471,7 +503,7 @@ Here is the example HTTP action that shows all these property values:
 
 #### Example: Authenticate managed connector trigger or action with a managed identity
 
-The Azure Resource Manager action, **Read a resource**, can use the system-assigned managed identity that you enabled for your logic app. This example shows how to use the system-assigned managed identity.
+The Azure Resource Manager action, **Read a resource**, can use the managed identity that you enabled for your logic app. This example shows how to use the system-assigned managed identity.
 
 1. After you add the action to your workflow, on the tenant selection page, select **Connect with managed identity**.
 
@@ -479,7 +511,7 @@ The Azure Resource Manager action, **Read a resource**, can use the system-assig
 
    The action now shows the connection name page with the managed identity list, which includes the managed identity type that's currently enabled on the logic app.
 
-1. On the connection name page, provide a name for the connection. From the managed identity list, select the managed identity type, which is **System-assigned managed identity** in this example, and select **Create**.
+1. On the connection name page, provide a name for the connection. From the managed identity list, select the managed identity, which is **System-assigned managed identity** in this example, and select **Create**. If you enabled a user-assigned managed identity, select that identity instead.
 
    ![Screenshot that shows Azure Resource Manager action with the connection name entered and "System-assigned managed identity" selected.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
 
