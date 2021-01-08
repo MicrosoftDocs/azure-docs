@@ -41,7 +41,9 @@ For a list of libraries that work with the Microsoft identity platform endpoint,
 
 ## Single-page application (SPA)
 
-:warning: DESCRIPTION HERE :warning:
+A single-page application runs entirely on the browser surface and fetches page data (HTML, CSS, and JavaScript) dynamically or at application load time. It can call web APIs to interact with back-end data sources.
+
+Because a SPA's code runs entirely in the browser, it's considered a *public client* that's unable to store secrets securely.
 
 | Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
@@ -56,7 +58,9 @@ For a list of libraries that work with the Microsoft identity platform endpoint,
 
 ## Web application
 
-:warning: DESCRIPTION HERE :warning:
+A web application runs code on a server and sends that code as HTML, CSS, and JavaScript to be rendered in a user's web browser. The user's identity is maintained as a session between the user's browser (the front end) and the web server (the back end).
+
+Because a web application's code runs on the web server, it's considered a *confidential client* that can store secrets securely.
 
 | Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
@@ -77,7 +81,9 @@ For a list of libraries that work with the Microsoft identity platform endpoint,
 
 ## Desktop application
 
-Use the following libraries to build applications that run on the desktop. Desktop apps include Universal Windows Platform (UWP), Windows Presentation Foundation (WPF), macOS, and Electron apps.
+A desktop application is typically binary (compiled) code that surfaces a user interface and is intended to run on a user's desktop.
+
+Because a desktop application runs on the user's desktop, it's considered a *public client* that's unable to store secrets securely.
 
 |Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
@@ -93,7 +99,9 @@ Use the following libraries to build applications that run on the desktop. Deskt
 
 ## Mobile application
 
-Use the following libraries to build mobile applications that run on Android and iOS.
+A mobile application is typically binary (compiled) code that surfaces a user interface and is intended to run on a user's mobile device.
+
+Because a mobile application runs on the the user's mobile device, it's considered a *public client* that's unable to store secrets securely.
 
 |Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
@@ -107,9 +115,9 @@ Use the following libraries to build mobile applications that run on Android and
 
 ## Service / daemon
 
-Provide authorized web API access to background services and daemons using the identity of the application as opposed to a user.
+Services and daemons are commonly used for server-to-server and other unattended (sometimes called *headless*) communication. Because there's no user at the keyboard to enter credentials or consent to resource access, these applications authenticate as themselves, not a user, when requesting authorized access to a web API's resources.
 
-Commonly used for server-to-server and other unattended (sometimes called *headless*) communication, these applications need to authenticate as themselves because there's no user at the keyboard to enter credentials or consent to resource access.
+A service or daemon that runs on a server is considered a *confidential client* that can store its secrets securely.
 
 | Platform | Library | Package | Supported by<br/>Microsoft<sup>1</sup> | Signs in users | Gets access tokens | Release status |
 |--|--|--|:-:|:-:|:-:|:-:|
