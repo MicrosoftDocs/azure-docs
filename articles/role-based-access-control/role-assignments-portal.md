@@ -118,8 +118,6 @@ In Azure RBAC, to remove access from an Azure resource, you remove a role assign
 
    ![Role assignment selected to be removed](./media/role-assignments-portal/rg-role-assignments-select.png)
 
-   ![Role assignment selected to be removed](./media/role-assignments-portal/remove-role-assignment-select.png)
-
 1. Click **Remove**.
 
    ![Remove role assignment message](./media/role-assignments-portal/remove-role-assignment.png)
