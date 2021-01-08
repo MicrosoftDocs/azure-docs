@@ -35,20 +35,21 @@ To use the Azure CLI to enable zone redundancy, you need Azure CLI version 2.17.
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/az/group#az_group_create) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*.
+If needed, run the [az group create](/cli/az/group#az_group_create) command to create a resource group for the registry.
 
 ```azurecli
-az group create --name <resource-group-name> --location eastus
+az group create --name <resource-group-name> --location <location>
 ```
 
 ### Create zone-enabled registry
 
-Run the [az acr create](/cli/az/acr#az_acr_create) command to create a registry in the Premium service tier and enable zone redundancy. See the `az acr create` command help for more registry options.
+Run the [az acr create](/cli/az/acr#az_acr_create) command to create a zone-redundant registry in the Premium service tier. In the following example, zone redundancy is enabled in the *eastus* region, which [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry. See the `az acr create` command help for more registry options.
 
 ```azurecli
 az acr create \
   --resource-group <resource-group-name> \
   --name <container-registry-name> \
+  --location eastus \
   --zone-redundancy enabled \
   --sku Premium
 ```
@@ -106,7 +107,7 @@ To create a zone-redundant replication:
 
 ### Create a resource group
 
-If needed, run the [az group create](/cli/az/group#az_group_create) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*.
+If needed, run the [az group create](/cli/az/group#az_group_create) command to create a resource group for the registry in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *eastus*. This region is used by the template to set the registry location.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
