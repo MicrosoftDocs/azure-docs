@@ -15,9 +15,8 @@ ms.custom: data4ml
 
 Learn how to create and run data labeling projects to tag data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
-Labeling large amounts data in machine learning projects can be difficult. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images. 
 
-## Tools to manage data labeling
+## Data labeling capabilities
 
 > [!Important]
 > Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
