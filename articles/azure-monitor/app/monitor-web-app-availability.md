@@ -23,6 +23,9 @@ There are three types of availability tests:
 
 **You can create up to 100 availability tests per Application Insights resource.**
 
+> [!IMPORTANT]
+> If you are using a private DNS, you must use the [custom track availability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet).
+
 ## Create an Application Insights resource
 
 In order to create an availability test, you first need to create an Application Insights resource. If you have already created a resource, proceed to the next section to [create a URL Ping test](#create-a-url-ping-test).
