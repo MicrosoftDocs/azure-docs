@@ -23,6 +23,15 @@ To index additional fields, you apply the MongoDB index-management commands. As 
 
 To apply a sort to a query, you must create an index on the fields used in the sort operation.
 
+### Editing indexing policy
+
+We recommend editing your indexing policy in the Data Explorer within the Azure Portal. You can add single field and wilcard indexes from the indexing policy editor in the Data Explorer:
+
+    :::image type="content" source="./media/mongodb-indexing/IndexingPolicyEditor.png" alt-text="Indexing policy editor":::
+
+> [!NOTE]
+> You can't create compound indexes using the indexing policy editor in the Data Explorer
+
 ## Index types
 
 ### Single field
@@ -30,6 +39,10 @@ To apply a sort to a query, you must create an index on the fields used in the s
 You can create indexes on any single field. The sort order of the single field index does not matter. The following command creates an index on the field `name`:
 
 `db.coll.createIndex({name:1})`
+
+You could create the same single field index on `name` in the Azure Portal:
+
+:::image type="content" source="./media/mongodb-indexing/AddIndex.png" alt-text="Add name index in indexing policy editor":::
 
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per container.
 
@@ -128,6 +141,10 @@ You can create the following index types using wildcard syntax:
 Here's how you can create a wildcard index on all fields:
 
 `db.coll.createIndex( { "$**" : 1 } )`
+
+You can also create wildcard indexes using the Data Explorer in the Azure Portal:
+
+:::image type="content" source="./media/mongodb-indexing/AddWildcardIndex.png" alt-text="Add wildcard index in indexing policy editor":::
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
