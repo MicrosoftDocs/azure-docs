@@ -34,7 +34,7 @@ Bi-directional communication between Windows process and the Linux virtual machi
 
 ## Samples
 
-IoT Edge for Linux on Windows emphasizes interoperability between the Linux and WIndows components.
+IoT Edge for Linux on Windows emphasizes interoperability between the Linux and Windows components.
 
 For samples that demonstrate communication between Windows applications and IoT Edge modules, see [Windows 10 IoT Samples](https://github.com/microsoft/Windows-IoT-Samples).
 
