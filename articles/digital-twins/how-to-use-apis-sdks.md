@@ -182,9 +182,9 @@ The following list provides additional detail and general guidelines for using t
 * All service functions exist in synchronous and asynchronous versions.
 * All service functions throw an exception for any return status of 400 or above. Make sure you wrap calls into a `try` section, and catch at least `RequestFailedExceptions`. For more about this type of exception, see [here](/dotnet/api/azure.requestfailedexception?preserve-view=true&view=azure-dotnet).
 * Most service methods return `Response<T>` or (`Task<Response<T>>` for the asynchronous calls), where `T` is the class of return object for the service call. The [`Response`](/dotnet/api/azure.response-1?preserve-view=true&view=azure-dotnet) class encapsulates the service return and presents return values in its `Value` field.  
-* Service methods with paged results return `Pageable<T>` or `AsyncPageable<T>` as results. For more about the `Pageable<T>` class, see [here](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet-preview); for more about `AsyncPageable<T>`, see [here](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet-preview).
+* Service methods with paged results return `Pageable<T>` or `AsyncPageable<T>` as results. For more about the `Pageable<T>` class, see [here](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet); for more about `AsyncPageable<T>`, see [here](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet).
 * You can iterate over paged results using an `await foreach` loop. For more about this process, see [here](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](/dotnet/api/azure?preserve-view=true&view=azure-dotnet-preview) for reference on the SDK infrastructure and types.
+* The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](/dotnet/api/azure?preserve-view=true&view=azure-dotnet) for reference on the SDK infrastructure and types.
 
 Service methods return strongly-typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
 
