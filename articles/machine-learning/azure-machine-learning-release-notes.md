@@ -22,8 +22,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
-  + **azureml-automl-core**
-    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
   + **azureml-automl-runtime**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
   + **azureml-contrib-optimization**
@@ -35,9 +33,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
     + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
     + Edited Model.register method documentation to mention how to register model from run directly
-  + **azureml-train-automl-client**
-    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
-  
+   
 
 ## 2020-12-31
 ### Azure Machine Learning Studio Notebooks Experience (December Update)
