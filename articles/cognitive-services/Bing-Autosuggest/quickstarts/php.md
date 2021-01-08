@@ -1,33 +1,40 @@
 ---
-title: "Quickstart: Bing Autosuggest API, PHP"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP"
+titleSuffix: Azure Cognitive Services
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and PHP.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
+ms.date: 05/06/2020
+ms.author: aahi
 ---
-# Quickstart for Bing Autosuggest API with PHP
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with PHP. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple PHP application sends a partial search query to the API, and returns suggestions for searches. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+* [PHP 5.6.x](https://php.net/downloads.php) or later
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## Get Autosuggest results
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+3. Replace the `subscriptionKey` value with an access key that's valid for your subscription.
+4. Use the global endpoint in the code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php
@@ -56,7 +63,7 @@ function get_suggestions ($host, $path, $key, $mkt, $query) {
     "Ocp-Apim-Subscription-Key: $key\r\n";
 
   // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-  // http://php.net/manual/en/function.stream-context-create.php
+  // https://php.net/manual/en/function.stream-context-create.php
   $options = array (
     'http' => array (
       'header' => $headers,
@@ -74,7 +81,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-### Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -150,4 +157,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

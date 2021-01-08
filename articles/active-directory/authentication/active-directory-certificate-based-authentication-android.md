@@ -1,18 +1,19 @@
 ---
-title: Azure Active Directory certificate-based authentication on Android
+title: Android certificate-based authentication - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 01/15/2018
+ms.subservice: authentication
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: justinha
+author: justinha
+manager: daveba
 ms.reviewer: annaba
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory certificate-based authentication on Android
 
@@ -23,7 +24,7 @@ Android devices can use certificate-based authentication (CBA) to authenticate t
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
-This topic provides you with the requirements and the supported scenarios for configuring CBA on an iOS(Android) device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.
+This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.
 
 This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
@@ -31,16 +32,16 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 
 | Apps | Support |
 | --- | --- |
-| Azure Information Protection app |![Check][1] |
-| Intune Company Portal |![Check][1] |
-| Microsoft Teams |![Check][1] |
-| OneNote |![Check][1] |
-| OneDrive |![Check][1] |
-| Outlook |![Check][1] |
-| Power BI |![Check][1] |
-| Skype for Business |![Check][1] |
-| Word / Excel / PowerPoint |![Check][1] |
-| Yammer |![Check][1] |
+| Azure Information Protection app |![Check mark signifying support for this application][1] |
+| Intune Company Portal |![Check mark signifying support for this application][1] |
+| Microsoft Teams |![Check mark signifying support for this application][1] |
+| OneNote |![Check mark signifying support for this application][1] |
+| OneDrive |![Check mark signifying support for this application][1] |
+| Outlook |![Check mark signifying support for this application][1] |
+| Power BI |![Check mark signifying support for this application][1] |
+| Skype for Business |![Check mark signifying support for this application][1] |
+| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
+| Yammer |![Check mark signifying support for this application][1] |
 
 ### Implementation requirements
 
@@ -62,10 +63,10 @@ As a best practice, you should update your organization's ADFS error pages with 
 * The requirement for installing the Microsoft Authenticator on Android.
 * Instructions on how to get a user certificate.
 
-For more information, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
+For more information, see [Customizing the AD FS Sign-in Pages](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
-Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ to Azure AD in their request. By default, Azure AD translates ‘*prompt=login*’ in the request to ADFS as ‘*wauth=usernamepassworduri*’ (asks ADFS to do U/P Auth) and ‘*wfresh=0*’ (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Set the ‘*PromptLoginBehavior*’ in your federated domain settings to ‘*Disabled*‘.
-You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task:
+Some Office apps (with modern authentication enabled) send '*prompt=login*' to Azure AD in their request. By default, Azure AD translates '*prompt=login*' in the request to ADFS as '*wauth=usernamepassworduri*' (asks ADFS to do U/P Auth) and '*wfresh=0*' (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Set the '*PromptLoginBehavior*' in your federated domain settings to '*Disabled*'.
+You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet to perform this task:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

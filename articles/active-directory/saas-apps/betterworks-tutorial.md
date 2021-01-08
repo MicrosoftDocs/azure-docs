@@ -1,254 +1,150 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with BetterWorks | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BetterWorks | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BetterWorks.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 5bb9505a-be02-46ae-9979-5308715d2b47
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2017
+ms.topic: tutorial
+ms.date: 08/26/2019
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with BetterWorks
 
-In this tutorial, you learn how to integrate BetterWorks with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with BetterWorks
 
-Integrating BetterWorks with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate BetterWorks with Azure Active Directory (Azure AD). When you integrate BetterWorks with Azure AD, you can:
 
-- You can control in Azure AD who has access to BetterWorks
-- You can enable your users to automatically get signed-on to BetterWorks (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* Control in Azure AD who has access to BetterWorks.
+* Enable your users to be automatically signed-in to BetterWorks with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with BetterWorks, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A BetterWorks single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* BetterWorks single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding BetterWorks from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* BetterWorks supports **SP and IDP** initiated SSO
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding BetterWorks from the gallery
+
 To configure the integration of BetterWorks into Azure AD, you need to add BetterWorks from the gallery to your list of managed SaaS apps.
 
-**To add BetterWorks from the gallery, perform the following steps:**
-
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
-
-	![Active Directory][1]
-
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
-
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
-
-	![Applications][3]
-
-1. In the search box, type **BetterWorks**.
-
-	![Creating an Azure AD test user](./media/betterworks-tutorial/tutorial_betterworks_search.png)
-
-1. In the results panel, select **BetterWorks**, and then click **Add** button to add the application.
-
-	![Creating an Azure AD test user](./media/betterworks-tutorial/tutorial_betterworks_addfromgallery.png)
-
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with BetterWorks based on a test user called "Britta Simon."
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in BetterWorks is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in BetterWorks needs to be established.
-
-In BetterWorks, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
-
-To configure and test Azure AD single sign-on with BetterWorks, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a BetterWorks test user](#creating-a-betterworks-test-user)** - to have a counterpart of Britta Simon in BetterWorks that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your BetterWorks application.
-
-**To configure Azure AD single sign-on with BetterWorks, perform the following steps:**
-
-1. In the Azure portal, on the **BetterWorks** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_samlbase.png)
-
-1. On the **BetterWorks Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**:
-
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_url.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://app.betterworks.com/saml2/metadata/`
-
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.betterworks.com/saml2/acs/`
-
-1. On the **BetterWorks Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
-	
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_url1.png)
-
-	a. Click on the **Show advanced URL settings**.
-
-	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://app.betterworks.com`
-
-	> [!NOTE] 
-	> These are not real values. Update these values with the Reply URL, Identifier and actual Sign On URL. Contact [BetterWorks support team](mailto:support@betterworks.com) to get these values.
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_certificate.png)  
-
-1. BetterWorks application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**Attribute**" tab of the application. The following screenshot shows an example for this. 
-
-    ![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_attribute.png)
-
-1. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
- 
-   | Attribute Name | Attribute Value |
-   | -------------- |  ------------ |
-   | saml_token     | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
-
-   a. Click **Add attribute** to open the **Add Attribute** dialog.
-
-    ![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_officespace_04.png)
-
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_officespace_05.png)
-
-   b. In the **Name** textbox, type the attribute name shown for that row. 
-
-   c. From the **Value** list, type the attribute value shown for that row.
-	
-   d. Click **Ok**.
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_general_400.png)
-
-1. To configure single sign-on on **BetterWorks** side, you need to send the downloaded **Metadata XML** to [BetterWorks support team](mailto:support@betterworks.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **BetterWorks** in the search box.
+1. Select **BetterWorks** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
+## Configure and test Azure AD single sign-on for BetterWorks
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+Configure and test Azure AD SSO with BetterWorks using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BetterWorks.
 
-![Create Azure AD User][100]
+To configure and test Azure AD SSO with BetterWorks, complete the following building blocks:
 
-**To create a test user in Azure AD, perform the following steps:**
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure BetterWorks SSO](#configure-betterworks-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create BetterWorks test user](#create-betterworks-test-user)** - to have a counterpart of B.Simon in BetterWorks that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+## Configure Azure AD SSO
 
-	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_01.png) 
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_02.png) 
+1. In the [Azure portal](https://portal.azure.com/), on the **BetterWorks** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_03.png) 
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_04.png) 
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+    a. In the **Identifier** text box, type a URL:
+    `https://app.betterworks.com/saml2/metadata/`
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    b. In the **Reply URL** text box, type a URL:
+    `https://app.betterworks.com/saml2/acs/`
 
-	c. Select **Show Password** and write down the value of the **Password**.
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    d. Click **Create**.
- 
-### Creating a BetterWorks test user
+    In the **Sign-on URL** text box, type a URL:
+    `https://app.betterworks.com`
 
-In this section, you create a user called Britta Simon in BetterWorks. Work with [BetterWorks support team](mailto:support@betterworks.com) to add the users in the BetterWorks platform.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-### Assigning the Azure AD test user
+	![The Certificate download link](common/metadataxml.png)
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to BetterWorks.
+1. On the **Set up BetterWorks** section, copy the appropriate URL(s) based on your requirement.
 
-![Assign User][200] 
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-**To assign Britta Simon to BetterWorks, perform the following steps:**
+### Create an Azure AD test user
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Assign User][201] 
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to BetterWorks.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **BetterWorks**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_app.png) 
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+	![The Add User link](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Assign User][203]
+## Configure BetterWorks SSO
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+To configure single sign-on on **BetterWorks** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [BetterWorks support team](mailto:support@betterworks.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create BetterWorks test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+In this section, you create a user called Britta Simon in BetterWorks. Work with [BetterWorks support team](mailto:support@betterworks.com) to add the users in the BetterWorks platform. Users must be created and activated before you use single sign-on.
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+## Test SSO 
 
-When you click the BetterWorks tile in the Access Panel, you should get automatically signed-on to your BetterWorks application.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the BetterWorks tile in the Access Panel, you should be automatically signed in to the BetterWorks for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-[1]: ./media/betterworks-tutorial/tutorial_general_01.png
-[2]: ./media/betterworks-tutorial/tutorial_general_02.png
-[3]: ./media/betterworks-tutorial/tutorial_general_03.png
-[4]: ./media/betterworks-tutorial/tutorial_general_04.png
-
-[100]: ./media/betterworks-tutorial/tutorial_general_100.png
-
-[200]: ./media/betterworks-tutorial/tutorial_general_200.png
-[201]: ./media/betterworks-tutorial/tutorial_general_201.png
-[202]: ./media/betterworks-tutorial/tutorial_general_202.png
-[203]: ./media/betterworks-tutorial/tutorial_general_203.png
-
+- [Try BetterWorks with Azure AD](https://aad.portal.azure.com/)

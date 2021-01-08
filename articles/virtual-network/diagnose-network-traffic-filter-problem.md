@@ -3,21 +3,21 @@ title: Diagnose a virtual machine network traffic filter problem | Microsoft Doc
 description: Learn how to diagnose a virtual machine network traffic filter problem by viewing the effective security rules for a virtual machine.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
-ms.author: jdial
-
+ms.author: kumud
 ---
+
 # Diagnose a virtual machine network traffic filter problem
 
 In this article, you learn how to diagnose a network traffic filter problem by viewing the network security group (NSG) security rules that are effective for a virtual machine (VM).
@@ -36,7 +36,7 @@ The steps that follow assume you have an existing VM to view the effective secur
 2. At the top of the Azure portal, enter the name of the VM in the search box. When the name of the VM appears in the search results, select it.
 3. Under **SETTINGS**, select **Networking**, as shown in the following picture:
 
-   ![View security rules](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Screenshot shows the Azure portal with Networking settings for my V M V M Nic.](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
    The rules you see listed in the previous picture are for a network interface named **myVMVMNic**. You see that there are **INBOUND PORT RULES** for the network interface from two different network security groups:
    
@@ -49,13 +49,13 @@ The steps that follow assume you have an existing VM to view the effective secur
 
 4. Ensure that the VM is in the running state, and then select **Effective security rules**, as shown in the previous picture, to see the effective security rules, shown in the following picture:
 
-   ![View effective security rules](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Screenshot shows the Effective security rules pane with Download selected and AllowAzureLoadBalancerInbound Inbound rule selected.](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
    The rules listed are the same as you saw in step 3, though there are different tabs for the NSG associated to the network interface and the subnet. As you can see in the picture, only the first 50 rules are shown. To download a .csv file that contains all of the rules, select **Download**.
 
    To see which prefixes each service tag represents, select a rule, such as the rule named **AllowAzureLoadBalancerInbound**. The following picture shows the prefixes for the **AzureLoadBalancer** service tag:
 
-   ![View effective security rules](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Screenshot shows Address prefixes for AllowAzureLoadBalancerInbound entered.](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
    Though the **AzureLoadBalancer** service tag only represents one prefix, other service tags represent several prefixes.
 
@@ -63,7 +63,7 @@ The steps that follow assume you have an existing VM to view the effective secur
 
    To see the rules for the **myVMVMNic2** network interface, select it. As shown in the picture that follows, the network interface has the same rules associated to its subnet as the **myVMVMNic** network interface, because both network interfaces are in the same subnet. When you associate an NSG to a subnet, its rules are applied to all network interfaces in the subnet.
 
-   ![View security rules](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Screenshot shows the Azure portal with Networking settings for my V M V M Nic 2.](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
    Unlike the **myVMVMNic** network interface, the **myVMVMNic2** network interface does not have a network security group associated to it. Each network interface and subnet can have zero, or one, NSG associated to it. The NSG associated to each network interface or subnet can be the same, or different. You can associate the same network security group to as many network interfaces and subnets as you choose.
 
@@ -73,13 +73,15 @@ Though effective security rules were viewed through the VM, you can also view ef
 
 ## Diagnose using PowerShell
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.0.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Get the effective security rules for a network interface with [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). The following example gets the effective security rules for a network interface named *myVMVMNic*, that is in a resource group named *myResourceGroup*:
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
+
+Get the effective security rules for a network interface with [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). The following example gets the effective security rules for a network interface named *myVMVMNic*, that is in a resource group named *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
-  -NetworkInterfaceName myVMVMNic interface `
+Get-AzEffectiveNetworkSecurityGroup `
+  -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -91,13 +93,13 @@ If you're still having a connectivity problem, see [additional diagnosis](#addit
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
 ```azurepowershell-interactive
-$VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 
 You receive output similar to the following example:
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -132,7 +134,7 @@ az vm show \
 
 Within the returned output, you see information similar to the following example:
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
@@ -177,7 +179,7 @@ After you create the rule, port 80 is allowed inbound from the internet, because
 
 When Azure processes inbound traffic, it processes rules in the NSG associated to the subnet (if there is an associated NSG), and then it processes the rules in the NSG associated to the network interface. If there is an NSG associated to the network interface and the subnet, the port must be open in both NSGs, for the traffic to reach the VM. To ease administration and communication problems, we recommend that you associate an NSG to a subnet, rather than individual network interfaces. If VMs within a subnet need different security rules, you can make the network interfaces members of an application security group (ASG), and specify an ASG as the source and destination of a security rule. Learn more about [application security groups](security-overview.md#application-security-groups).
 
-If you're still having communication problems, see [Considerations](#considerations) and [Additional diagnosis](#additional-dignosis).
+If you're still having communication problems, see [Considerations](#considerations) and Additional diagnosis.
 
 ## Considerations
 

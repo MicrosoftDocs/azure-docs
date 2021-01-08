@@ -1,23 +1,19 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array system requirements| Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array system requirements
 description: Learn about the software and networking requirements for your StorSimple Virtual Array
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/14/2017
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 ## Overview
+
 This article describes the important system requirements for your Microsoft Azure StorSimple Virtual Array and for the storage clients accessing the array. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
 The system requirements include:
@@ -27,7 +23,7 @@ The system requirements include:
 
 The StorSimple system requirements information published in this article applies to StorSimple Virtual Arrays only.
 
-* For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](storsimple-system-requirements.md).
+* For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](./storsimple-8000-system-requirements.md).
 * For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## Software requirements
@@ -37,7 +33,7 @@ The software requirements include the information on the supported web browsers,
 | **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
-| VMware ESXi |5.0, 5.5, and 6.0 <br> (6.5 is not supported.) |
+| VMware ESXi |5.0, 5.5, 6.0, and 6.5. |
 
 > [!IMPORTANT]
 > Do not install VMware tools on your StorSimple Virtual Array; this will result in an unsupported configuration.
@@ -82,7 +78,7 @@ The following software requirements are for the SMB clients that access your Sto
 
 
 ### Supported storage format
-Only the Azure block blob storage is supported. Page blobs are not supported. More information [about block blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Only the Azure block blob storage is supported. Page blobs are not supported. More information [about block blobs and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## Networking requirements
 The following table lists the ports that need to be opened in your firewall to allow for iSCSI, SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
@@ -100,7 +96,7 @@ The following table lists the ports that need to be opened in your firewall to a
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 > 
 > 
 
@@ -120,12 +116,12 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service|
 | `http://*.backup.windowsazure.com` |Device registration |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Certificate revocation |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servers<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Support package |
-| `http://*.data.microsoft.com ` |Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## Next steps
 * [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

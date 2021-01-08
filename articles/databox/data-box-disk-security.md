@@ -1,21 +1,18 @@
 ---
-title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
-description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
+title: Microsoft Azure Data Box Disk security features | Microsoft Docs in data 
+description: Describes security features implemented for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
 ---
-# Azure Data Box Disk security and data protection (Preview)
+# Azure Data Box Disk security and data protection
 
 This article describes the Azure Data Box Disk security features that help protect each of the Data Box solution components and the data stored on them. 
-
-> [!IMPORTANT]
-> Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## Data flow through components
 
@@ -32,7 +29,7 @@ The following diagram indicates the flow of data through the Azure Data Box Disk
 
 ## Security features
 
-Data Box Disk provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them. 
+Data Box Disk provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them.
 
 ### Data Box Disk protection
 
@@ -46,7 +43,7 @@ The Data Box Disk is protected by the following features:
 
 The data that flows in and out of Data Box Disk is protected by the following features:
 
-- BitLocker encryption of data at all times. 
+- BitLocker encryption of data at all times.
 - Secure erasure of data from disk once data upload to Azure is complete. Data erasure is in accordance with NIST 800-88r1 standards.
 
 ### Data Box service protection
@@ -54,10 +51,9 @@ The data that flows in and out of Data Box Disk is protected by the following fe
 The Data Box service is protected by the following features.
 
 - Access to the Data Box Disk service requires that your organization has an Azure subscription that includes Data Box Disk. Your subscription governs the features that you can access in the Azure portal.
-- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
+- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - The Data Box Disk stores disk passkey that is used to unlock the disk in the service. 
-- The Data box Disk service stores order details and status in the service. This information is deleted when the order is deleted. 
-
+- The Data box Disk service stores order details and status in the service. This information is deleted when the order is deleted.
 
 ## Managing personal data
 
@@ -69,17 +65,17 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
 
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Drive ID
-    - Carrier account number
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Drive ID
+  - Carrier account number
+  - Shipping tracking number
 
     The order details are deleted by the Data Box service when the job completes or when you delete the order.
 

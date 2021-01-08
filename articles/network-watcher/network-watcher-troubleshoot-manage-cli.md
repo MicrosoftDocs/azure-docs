@@ -1,20 +1,17 @@
 ---
-title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI | Microsoft Docs
+title: Troubleshoot Azure VNET Gateway and Connections - Azure CLI
+titleSuffix: Azure Network Watcher
 description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor:
-
-ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 06/19/2017
-ms.author: jdial
+ms.date: 01/07/2021
+ms.author: damendo
 
 ---
 
@@ -90,7 +87,7 @@ Once you run the cmdlet, Network Watcher reviews the resource to verify the heal
 
 The action text provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. In the case where there is no additional guidance, the response provides the url to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md)
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array Updates release notes| Microsoft Docs
+title: StorSimple Virtual Array Update 0.3 release notes
 description: Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.3.
 services: storsimple
 documentationcenter: ''
@@ -38,7 +38,7 @@ The following table provides a summary of issues fixed in this release.
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-| 1 |Backups |A problem was seen in the earlier release where the backups would fail to complete for a file share. If this issue occured, the backup job would fail and a critical alert was raised on the StorSimple Manager service to notify the user. This issue did not affect the data on the shares or access to the data. The root cause was identified and fixed in this release. <br></br> The fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.3, then contact Microsoft Support to perform a full system backup to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for the affected shares. |
+| 1 |Backups |A problem was seen in the earlier release where the backups would fail to complete for a file share. If this issue occurred, the backup job would fail and a critical alert was raised on the StorSimple Manager service to notify the user. This issue did not affect the data on the shares or access to the data. The root cause was identified and fixed in this release. <br></br> The fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.3, then contact Microsoft Support to perform a full system backup to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for the affected shares. |
 | 2 |iSCSI |An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online via the Azure classic portal, perform a backup for these volumes, and then restore these volumes to new volumes. |
 
 ## Known issues in the Update 0.3
@@ -62,11 +62,10 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
 
 ## Next step
-[Install Update 0.3](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+[Install Update 0.3](./storsimple-virtual-array-install-update-06.md) on your StorSimple Virtual Array.
 
 ## References
 Looking for an older release note? Go to: 
 
 * [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple Virtual Array General Availability Release Notes](./storsimple-virtual-array-update-06-release-notes.md)

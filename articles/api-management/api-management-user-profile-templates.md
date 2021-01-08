@@ -11,9 +11,8 @@ ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # User profile templates in Azure API Management
@@ -30,7 +29,11 @@ Azure API Management provides you the ability to customize the content of develo
 -   [Update account info](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="Profile"></a> Profile  
  The **profile** template allows you to customize the user profile section of the user profile page in the developer portal.  
@@ -99,17 +102,17 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|firstName|string|First name of the current user.|  
-|lastName|string|Last name of the current user.|  
-|companyName|string|The company name of the current user.|  
-|addresserEmail|string|Email address of the current user.|  
-|developersUsageStatisticsLinkk|string|Relative URL to view analytics for the current user.|  
-|subscriptions|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
-|applications|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
-|changePasswordUrl|string|The relative URL to change the current user's password.|  
-|changeNameOrEmailUrl|string|The relative URL to change the name and email for the current user.|  
-|canChangePassword|boolean|Whether the current user can change their password.|  
-|isSystemUser|boolean|Whether the current user is a member of one of the built-in [groups](api-management-key-concepts.md#groups).|  
+|`firstName`|string|First name of the current user.|  
+|`lastName`|string|Last name of the current user.|  
+|`companyName`|string|The company name of the current user.|  
+|`addresserEmail`|string|Email address of the current user.|  
+|`developersUsageStatisticsLink`|string|Relative URL to view analytics for the current user.|  
+|`subscriptions`|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
+|`applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
+|`changePasswordUrl`|string|The relative URL to change the current user's password.|  
+|`changeNameOrEmailUrl`|string|The relative URL to change the name and email for the current user.|  
+|`canChangePassword`|boolean|Whether the current user can change their password.|  
+|`isSystemUser`|boolean|Whether the current user is a member of one of the built-in [groups](api-management-key-concepts.md#groups).|  
   
 ### Sample template data  
   
@@ -320,17 +323,17 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|firstName|string|First name of the current user.|  
-|lastName|string|Last name of the current user.|  
-|companyName|string|The company name of the current user.|  
-|addresserEmail|string|Email address of the current user.|  
-|developersUsageStatisticsLinkk|string|Relative URL to view analytics for the current user.|  
-|subscriptions|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
-|applications|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
-|changePasswordUrl|string|The relative URL to change the current user's password.|  
-|changeNameOrEmailUrl|string|The relative URL to change the name and email for the current user.|  
-|canChangePassword|boolean|Whether the current user can change their password.|  
-|isSystemUser|boolean|Whether the current user is a member of one of the built-in [groups](api-management-key-concepts.md#groups).|  
+|`firstName`|string|First name of the current user.|  
+|`lastName`|string|Last name of the current user.|  
+|`companyName`|string|The company name of the current user.|  
+|`addresserEmail`|string|Email address of the current user.|  
+|`developersUsageStatisticsLink`|string|Relative URL to view analytics for the current user.|  
+|`subscriptions`|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
+|`applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
+|`changePasswordUrl`|string|The relative URL to change the current user's password.|  
+|`changeNameOrEmailUrl`|string|The relative URL to change the name and email for the current user.|  
+|`canChangePassword`|boolean|Whether the current user can change their password.|  
+|`isSystemUser`|boolean|Whether the current user is a member of one of the built-in [groups](api-management-key-concepts.md#groups).|  
   
 ### Sample template data  
   
@@ -445,7 +448,7 @@ Azure API Management provides you the ability to customize the content of develo
           <strong>  
             {% case app.state %}  
             {% when ApplicationStateModel.Registered %}  
-            {% localized "ApplicationListStrings|WebDevelopersAppNotSubminted" %}  
+            {% localized "ApplicationListStrings|WebDevelopersAppNotSubmitted" %}  
   
             {% when ApplicationStateModel.Unpublished %}  
             {% localized "ApplicationListStrings|WebDevelopersAppNotPublished" %}  
@@ -483,17 +486,17 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|firstName|string|First name of the current user.|  
-|lastName|string|Last name of the current user.|  
-|companyName|string|The company name of the current user.|  
-|addresserEmail|string|Email address of the current user.|  
-|developersUsageStatisticsLinkk|string|Relative URL to view analytics for the current user.|  
-|subscriptions|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
-|applications|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
-|changePasswordUrl|string|The relative URL to change the current user's password.|  
-|changeNameOrEmailUrl|string|The relative URL to change the name and email for the current user.|  
-|canChangePassword|boolean|Whether the current user can change their password.|  
-|isSystemUser|boolean|Whether the current user is a member of one of the built-in [groups](api-management-key-concepts.md#groups).|  
+|`firstName`|string|First name of the current user.|  
+|`lastName`|string|Last name of the current user.|  
+|`companyName`|string|The company name of the current user.|  
+|`addresserEmail`|string|Email address of the current user.|  
+|`developersUsageStatisticsLink`|string|Relative URL to view analytics for the current user.|  
+|`subscriptions`|Collection of [Subscription](api-management-template-data-model-reference.md#Subscription) entities.|The subscriptions for the current user.|  
+|`applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications of the current user.|  
+|`changePasswordUrl`|string|The relative URL to change the current user's password.|  
+|`changeNameOrEmailUrl`|string|The relative URL to change the name and email for the current user.|  
+|`canChangePassword`|boolean|Whether the current user can change their password.|  
+|`isSystemUser`|boolean|Whether the current user is a member of one of the built-in [groups](api-management-key-concepts.md#groups).|  
   
 ### Sample template data  
   

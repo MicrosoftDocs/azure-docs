@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -23,7 +24,7 @@ The policies available in Azure API Management service can do a wide range of us
 You have previously seen how to interact with the [Azure Event Hub service for logging, monitoring, and analytics](api-management-log-to-eventhub-sample.md). This article demonstrates policies that allow you to interact with any external HTTP-based service. These policies can be used for triggering remote events or for retrieving information that is used to manipulate the original request and response in some way.
 
 ## Send-One-Way-Request
-Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. The control flow policy `choose` can be used to detect any kind of condition that you are interested in.  If the condition is satisfied, you can make an external HTTP request using the [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that can be invoked.
+Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. The control flow policy `choose` can be used to detect any kind of condition that you are interested in.  If the condition is satisfied, you can make an external HTTP request using the [send-one-way-request](./api-management-advanced-policies.md#SendOneWayRequest) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that can be invoked.
 
 ### Alerting with Slack
 The following example demonstrates how to send a message to a Slack chat room if the HTTP response status code is greater than or equal to 500. A 500 range error indicates a problem with the backend API that the client of the API cannot resolve themselves. It usually requires some kind of intervention on API Management part.  
@@ -58,19 +59,19 @@ Slack has the notion of inbound web hooks. When configuring an inbound web hook,
 ![Slack Web Hook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### Is fire and forget good enough?
-There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure is not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy is a better option.
+There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure will not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./api-management-advanced-policies.md#SendRequest) policy is a better option.
 
 ## Send-Request
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](http://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](https://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
 
 ### Standardized introspection
 In the past, there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.
 
 ### Extracting the token
-The first step is to extract the token from the Authorization header. The header value should be formatted with the `Bearer` authorization scheme, a single space, and then the authorization token as per [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Unfortunately there are cases where the authorization scheme is omitted. To account for this when parsing, API Management splits the header value on a space and selects the last string from the returned array of strings. This provides a workaround for badly formatted authorization headers.
+The first step is to extract the token from the Authorization header. The header value should be formatted with the `Bearer` authorization scheme, a single space, and then the authorization token as per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Unfortunately there are cases where the authorization scheme is omitted. To account for this when parsing, API Management splits the header value on a space and selects the last string from the returned array of strings. This provides a workaround for badly formatted authorization headers.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -98,6 +99,10 @@ The `response-variable-name` attribute is used to give access the returned respo
 
 From the response object, you can retrieve the body and RFC 7622 tells API Management that the response must be a JSON object and must contain at least a property called `active` that is a boolean value. When `active` is true then the token is considered valid.
 
+Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use a tool like Postman to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
+
+<when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
+
 ### Reporting failure
 You can use a `<choose>` policy to detect if the token is invalid and if so, return a 401 response.
 
@@ -114,7 +119,7 @@ You can use a `<choose>` policy to detect if the token is invalid and if so, ret
 </choose>
 ```
 
-As per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) which describes how `bearer` tokens should be used, API Management also returns a `WWW-Authenticate` header with the 401 response. The WWW-Authenticate is intended to instruct a client on how to construct a properly authorized request. Due to the wide variety of approaches possible with the OAuth2 framework, it is difficult to communicate all the needed information. Fortunately there are efforts underway to help [clients discover how to properly authorize requests to a resource server](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+As per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) which describes how `bearer` tokens should be used, API Management also returns a `WWW-Authenticate` header with the 401 response. The WWW-Authenticate is intended to instruct a client on how to construct a properly authorized request. Due to the wide variety of approaches possible with the OAuth2 framework, it is difficult to communicate all the needed information. Fortunately there are efforts underway to help [clients discover how to properly authorize requests to a resource server](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### Final solution
 At the end, you get the following policy:
@@ -169,7 +174,7 @@ The first step to building the dashboard resource is to configure a new operatio
 ### Making the requests
 Once the  operation has been created, you can configure a policy specifically for that operation. 
 
-![Dashboard operation](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Screenshot that shows the Policy scope screen.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 The first step  is to extract any query parameters from the incoming request, so that you can forward them to the backend. In this example, the dashboard is showing information based on a period of time and therefore has a `fromDate` and `toDate` parameter. You can use the `set-variable` policy to extract the information from the request URL.
 
@@ -197,7 +202,7 @@ Once you have this information, you can make requests to all the backend systems
 </send-request>
 
 <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+<set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
   <set-method>GET</set-method>
 </send-request>
 ```
@@ -205,7 +210,7 @@ Once you have this information, you can make requests to all the backend systems
 These requests execute in sequence, which is not ideal. 
 
 ### Responding
-To construct the composite response, you can use the [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
+To construct the composite response, you can use the [return-response](./api-management-advanced-policies.md#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -248,7 +253,7 @@ The complete policy looks as follows:
     </send-request>
 
     <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+    <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
       <set-method>GET</set-method>
     </send-request>
 
@@ -279,4 +284,3 @@ In the configuration of the placeholder operation, you can configure the dashboa
 
 ## Summary
 Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.
-

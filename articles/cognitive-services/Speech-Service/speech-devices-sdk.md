@@ -1,44 +1,59 @@
 ---
-title: About the Speech Devices SDK
+title: Speech Devices SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Get an introduction to the Speech Devices SDK.
+description: Get started with the Speech Devices SDK. The Speech service works with a wide variety of devices and audio sources. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 03/11/2020
 ms.author: erhopf
 ---
-# About the Speech Devices SDK (Preview)
 
-The [Speech Service](overview.md) works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits. 
+# What is the Speech Devices SDK?
+
+The [Speech service](overview.md) works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
 
 The Speech Devices SDK can help you:
-* Rapidly test new voice scenarios.
-* More easily integrate the cloud-based Speech service into your device.
-* Create an exceptional user experience for your customers. 
 
-The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md). It uses the Speech SDK to send the audio that's processed by our advanced audio processing algorithm from the device's microphone array to the [Speech service](overview.md). It uses multichannel audio to provide more accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
+- Rapidly test new voice scenarios.
+- More easily integrate the cloud-based Speech service into your device.
+- Create an exceptional user experience for your customers.
 
-You can also use the Speech Devices SDK to build ambient devices that have your own [customized wake word](speech-devices-sdk-create-kws.md)—so the cue that initiates a user interaction is unique to your brand. 
+The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md). Using our advanced audio processing algorithms with the device's microphone array to send the audio to the [Speech service](overview.md). It provides accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
 
-The Speech Devices SDK facilitates a variety of voice-enabled scenarios, such as drive-thru ordering systems, in-store or in-home assistants, and smart speakers. You can respond to users with text, speak back to them in a default or [custom voice](how-to-customize-voice-font.md), provide search results, [translate](speech-translation.md) to other languages, and more. We look forward to seeing what you build!
+You can also use the Speech Devices SDK to build ambient devices that have your own [customized keyword](./custom-keyword-basics.md). A Custom Keyword provides a cue that starts a user interaction which is unique to your brand.
 
-## Development kit providers
+The Speech Devices SDK enables a variety of voice-enabled scenarios, such as [voice assistants](./voice-assistants.md), drive-thru ordering systems, [conversation transcription](./conversation-transcription.md), and smart speakers. You can respond to users with text, speak back to them in a default or [custom voice](./how-to-custom-voice-create-voice.md), provide search results, [translate](speech-translation.md) to other languages, and more. We look forward to seeing what you build!
 
-Currently, these complete, end-to-end system reference designs are available: 
+## Get the Speech Devices SDK
 
-|||
-|-|-|
-|[![ROOBO logo](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO provides complete artificial intelligence (AI) system solutions for household electric appliances, automobiles, robots, toys, and other industries. ROOBO's reference designs greatly reduce development time-to-market via integration with the Microsoft Speech service. [Visit ROOBO](http://ddk.roobo.com/).|
+### Android
+
+The Speech Devices SDK for Android supports the [Roobo v1](speech-devices-sdk-roobo-v1.md) and equivalent devices, for these download the latest version of the [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
+
+
+If you have a different Android device, like a phone or mobile, start with the [Android Speech SDK](speech-sdk.md)
+
+
+### Windows
+
+For Windows, the sample application is provided as a cross-platform Java application. Download the latest version of the [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
+
+### Linux
+
+For Linux, the sample application is provided as a cross-platform Java application. Download the latest version of the [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). It runs on a 64-bit Java 8 runtime environment (JRE).
+
+Additional binaries are provided to support upcoming devices, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter), [GGEC Speaker](https://aka.ms/sdsdk-download-speaker), [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32), and [Linux ARM64](https://aka.ms/sdsdk-download-linux-arm64).
 
 ## Next steps
 
-To get started, get a [free Azure account](https://azure.microsoft.com/free/ai/) and sign up for the Speech Devices SDK.
-
 > [!div class="nextstepaction"]
-> [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
-
+> [Choose your speech device](get-speech-devices-sdk.md)
+> [!div class="nextstepaction"]
+> [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)

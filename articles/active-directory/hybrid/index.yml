@@ -1,75 +1,102 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Hybrid identity documentation
+summary:  Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.
+
+
+
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
-  title: Hybrid identity documentation
-  meta.description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
-  services: active-directory
   author: billmath
-  manager: mtillman
-  ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/18/2018
+  description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD.
+  manager: daveba
   ms.author: billmath
-abstract:
-  description: Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.</br></br></br>Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area. 
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/index/video2.png
-      width: 250  
-    title: Extend on-premises directories to the cloud (1:11:12)
-    href: https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player
-    width: 250
+  ms.collection: na
+  ms.date: 08/15/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
 
-sections:
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
+landingContent: 
+  # Card
+  - title: About Hybrid Identity
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is hybrid identity?
+            url: whatis-hybrid-identity.md
+ 
+  # Card
+  - title: Determine the best solution to manage the lifecycle of your users and groups
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD Connect and Connect Health?
+            url: whatis-azure-ad-connect.md
+      - linkListType: tutorial
+        links:
+          - text: Integrate a single AD forest using password hash sync (PHS)
+            url: tutorial-password-hash-sync.md
+          - text: Integrate a single AD forest using pass-through authentication (PTA)
+            url: tutorial-passthrough-authentication.md
+          - text: Integrate a single AD forest using federation
+            url: tutorial-federation.md
 
   
-    
-        
+  # Card
+  - title: Choose the authentication method that works best for your organization
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is password hash sync?
+            url: whatis-phs.md
+          - text: What is passthrough authentication?
+            url: how-to-connect-pta.md
+          - text: What is federation?
+            url: whatis-fed.md
+          - text: What is single sign-on?
+            url: how-to-connect-sso.md
+      - linkListType: concept
+        links:
+          - text: Determine which authentication method is right for you
+            url: ./choose-ad-authn.md
 
 
-   
-  - title: Step-by-step tutorials
-    items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
-          html: <p>Learn how to get started extending your identities to the cloud using password hash sync</p>
-          image:
-            src: media/index/azuread2.png
-          title: Integrate a single AD forest using password hash sync (PHS)
-        - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
-          html: <p>Learn how to get started extending your identities to the cloud using pass-through authentication.</p>
-          image:
-            src: media/index/manage2.png
-          title: Integrate a single AD forest using pass-through authentication (PTA)
-        - href: /azure/active-directory/hybrid/tutorial-federation 
-          html: <p>Find out how to federate Azure Active Directory (Azure AD) Connect with on-premises Active Directory Federation Services (AD FS) and Azure AD.</p>
-          image:
-            src: media/index/federate2.png
-          title: Integrate a single AD forest using federation
 
-  - title: How-to Guides
-    items:
-    
-    - type: paragraph
-      text: Learn how to accomplish various tasks for hybrid identity
+  # Card
+  - title: Get started with hybrid identity
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Install Azure AD Connect with express settings
+            url: how-to-connect-install-express.md
+          - text: Install Azure AD Connect with custom settings
+            url: how-to-connect-install-custom.md
+          - text: Configure the AD DS Connector account
+            url: how-to-connect-configure-ad-ds-connector-account.md
+          - text: Change the ADSync service account password
+            url: how-to-connect-sync-change-serviceacct-pass.md
+          - text: Change the Azure AD Connector account password
+            url: how-to-connect-azureadaccount.md   
+          - text: Change the AD DS account password
+            url: how-to-connect-sync-change-addsacct-pass.md
+      - linkListType: reference
+        links:
+          - text: Required ports and protocols
+            url: reference-connect-ports.md
+          - text: Accounts and permissions
+            url: reference-connect-accounts-permissions.md
+          - text: Azure AD Connect version history
+            url: reference-connect-version-history.md
+ 
 
-    - type: list
-      style: unordered
-      items:
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-custom">Install Azure AD Connect in your hybrid identity environment</a>
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-sso">Seamless single Sign-On with Azure AD Connect</a>
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-prerequisites">Azure AD Connect pre-requisites</a>
-      - html: <a href="/azure/active-directory/hybrid/reference-connect-version-history">Azure AD Connect version release history</a>
-      - html: <a href="/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler">Manage the Azure AD Connect Sync scheduler</a>      
-     
+
+
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+### YamlMime:Landing
+
+title: User help documentation
+summary: As an employee, IT worker, or end-user, set up authentication for your work or school account, reset your own password, set up and join devices, set up the Microsoft Authenticator app, and use the various portals.
+
+metadata:
+  title: User help for authentication, apps, and devices
+  description: As an employee or end-user, learn how to set up and use authentication, the Microsoft Authenticator app, and the My Apps portal.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  author: curtand
+  ms.author: curtand
+  ms.date: 08/26/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Set up and use the Microsoft Authenticator app
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Microsoft Authenticator app?
+            url: user-help-auth-app-overview.md
+      - linkListType: download
+        links:
+          - text: Download and install the app
+            url: user-help-auth-app-download-install.md
+      - linkListType: how-to-guide
+        links:
+          - text: Backup and recover account info
+            url: user-help-auth-app-backup-recovery.md
+          - text: Sign in using the app
+            url: user-help-auth-app-sign-in.md
+  
+  # Card
+  - title: Manage your info on the My Account portal
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the My Account portal?
+            url: my-account-portal-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your connected devices
+            url: my-account-portal-devices-page.md
+          - text: Manage your organizations
+            url: my-account-portal-organizations-page.md
+          - text: View your recent sign-in activity
+            url: my-account-portal-sign-ins-page.md
+
+  # Card
+  - title: Set up and manage your security info (preview)
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up an authenticator app for security verification
+            url: security-info-setup-auth-app.md
+          - text: Set up text messaging for security verification
+            url: security-info-setup-text-msg.md
+          - text: Set up phone calls for security verification
+            url: security-info-setup-phone-number.md          
+          - text: Add info during sign-in prompt
+            url: security-info-setup-signin.md
+
+  # Card
+  - title:  Access and start apps from the My Apps (preview) portal
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Access the My Apps portal
+            url: my-apps-portal-end-user-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Access and use workspaces
+            url: my-applications-portal-workspaces.md
+  
+  # Card
+  - title: Choose your two-step verification methods
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Additional verification page?
+            url: ./multi-factor-authentication-end-user-first-time.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your verification methods
+            url: multi-factor-authentication-end-user-first-time.md
+          - text: Manage settings
+            url: multi-factor-authentication-end-user-manage-settings.md
+          - text: Get help
+            url: multi-factor-authentication-end-user-troubleshoot.md
+
+  # Card
+  - title: Reset your own password
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Sign up for password reset
+            url: active-directory-passwords-reset-register.md
+          - text: Reset your password
+            url: active-directory-passwords-update-your-own-password.md

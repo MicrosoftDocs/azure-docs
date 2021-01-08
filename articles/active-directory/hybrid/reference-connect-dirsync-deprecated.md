@@ -4,7 +4,7 @@ description: Describes how to upgrade from DirSync and Azure AD Sync to Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -12,17 +12,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
 
 # Upgrade Windows Azure Active Directory Sync and Azure Active Directory Sync
-Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and are no longer supported as of April 13, 2017.
+Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Microsoft 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and are no longer supported as of April 13, 2017.
 
-The two identity synchronization tools that are deprecated were offered for single forest customers (DirSync) and for multi-forest and other advanced customers (Azure AD Sync). These older tools have been replaced with a single solution that is available for all scenarios: Azure AD Connect. It offers new functionality, feature enhancements, and support for new scenarios. To be able to continue to synchronize your on-premises identity data to Azure AD and Office 365, we strongly recommend that you upgrade to Azure AD Connect. Microsoft does not guarantee these older versions to work after December 31, 2017.
+The two identity synchronization tools that are deprecated were offered for single forest customers (DirSync) and for multi-forest and other advanced customers (Azure AD Sync). These older tools have been replaced with a single solution that is available for all scenarios: Azure AD Connect. It offers new functionality, feature enhancements, and support for new scenarios. To be able to continue to synchronize your on-premises identity data to Azure AD and Microsoft 365, we strongly recommend that you upgrade to Azure AD Connect. Microsoft does not guarantee these older versions to work after December 31, 2017.
 
 The last release of DirSync was released in July 2014 and the last release of Azure AD Sync was released in May 2015.
 
@@ -51,7 +52,7 @@ If you want to see how to do an in-place upgrade from DirSync to Azure AD Connec
 >
 
 ## FAQ
-**Q: I have received an email notification from the Azure Team and/or a message from the Office 365 message center, but I am using Connect.**  
+**Q: I have received an email notification from the Azure Team and/or a message from the Microsoft 365 message center, but I am using Connect.**  
 The notification was also sent to customers using Azure AD Connect with a build number 1.0.\*.0 (using a pre-1.1 release). Microsoft recommends customers to stay current with Azure AD Connect releases. The [automatic upgrade](how-to-connect-install-automatic-upgrade.md) feature introduced in 1.1 makes it easy to always have a recent version of Azure AD Connect installed.
 
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  

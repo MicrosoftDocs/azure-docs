@@ -3,17 +3,22 @@ title: Language support - Bing News Search API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages, countries and regions that are supported by the Bing News Search API.
 services: cognitive-services
-author: MikeDodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.author: v-gedod
+ms.date: 1/10/2019
+ms.author: aahi
 ---
 
 # Language and region support for the Bing News Search API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing News Search API supports numerous countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
@@ -158,4 +163,4 @@ The following are the country/region codes that you may specify in the `cc` quer
 |United States|US|
 
 ## Next steps
-For more information about the Bing News Search endpoints, see [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+For more information about the Bing News Search endpoints, see [News Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

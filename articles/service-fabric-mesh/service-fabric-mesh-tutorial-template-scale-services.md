@@ -1,20 +1,11 @@
 ---
-title: Tutorial- Scale an app running in Azure Service Fabric Mesh | Microsoft Docs
+title: Tutorial- Scale an app running in Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to scale the services in an application running in Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
-author: rwike77
-manager: jeconnoc
-editor: ''
-ms.assetid:  
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
+author: georgewallace
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/18/2018
-ms.author: ryanwi
-ms.custom: mvc, devcenter
+ms.date: 01/11/2019
+ms.author: gwallace
+ms.custom: mvc, devcenter, devx-track-azurecli
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
 
@@ -43,7 +34,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## Manually scale your services in or out
 

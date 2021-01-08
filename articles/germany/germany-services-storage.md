@@ -1,23 +1,18 @@
 ---
 title: Azure Germany storage services | Microsoft Docs
-description: Provides a comparison of storage services for Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: This topic provides a comparison of storage services for Azure Germany. You will also find other relevant information.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Azure Germany storage services
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## Storage
 For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.yml).
 
@@ -35,14 +30,13 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 ### Storage service availability by Azure Germany region
 
 | Service | Germany Central | Germany Northeast |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
 | [Azure Files](../storage/common/storage-introduction.md#azure-files) | GA | GA |
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
 | [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
 | [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
-| [Premium Storage](../virtual-machines/windows/premium-storage.md) |GA |GA |
 | Import/Export |NA |NA |
 | StorSimple |NA |NA |
 
@@ -61,7 +55,7 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 >
 >
 
-For more information on APIs, see [Cloud Storage Account Constructor](https://msdn.microsoft.com/library/azure/mt616540.aspx).
+For more information on APIs, see [Cloud Storage Account Constructor](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.-ctor).
 
 The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
@@ -73,4 +67,4 @@ The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

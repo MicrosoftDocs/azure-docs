@@ -1,6 +1,6 @@
 ---
 title: Deploy the StorSimple Device Manager service in Azure | Microsoft Docs
-description: Explains how to create and delete the StorSimple Device Manager service in the Azure portal, and describes how to manage the service registration key.
+description: Learn about the steps required for the creation, deletion, migration of the service and the management of the service registration key.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -19,6 +19,8 @@ ms.author: alkohli
 ---
 # Deploy the StorSimple Device Manager service for StorSimple 8000 series devices
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage all the devices that are connected to the StorSimple Device Manager service from a single, central location, thereby minimizing administrative burden.
@@ -28,7 +30,7 @@ This tutorial describes the steps required for the creation, deletion, migration
 > [!NOTE]
 > -  The Azure portal supports devices running Update 5.0 or later. If your device is not up to date, install Update 5 immediately. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). 
 > - If you're using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0,  and then fail over to the new cloud appliance created. 
-> - All devices running Update 4.0 or earlier will experience [reduced management functionality](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - All devices running Update 4.0 or earlier will experience reduced management functionality. 
 
 ## Create a service
 To create a StorSimple Device Manager service, you need to have:
@@ -99,7 +101,7 @@ Perform the following steps to regenerate a service registration key.
 ### To regenerate the service registration key
 1. In the **StorSimple Device Manager** blade, go to **Management &gt;** **Keys**.
     
-    ![Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Go to Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. In the **Keys** blade, click **Regenerate**.
 

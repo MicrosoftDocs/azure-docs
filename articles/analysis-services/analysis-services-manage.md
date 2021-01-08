@@ -1,11 +1,10 @@
 ---
 title: Manage Azure Analysis Services | Microsoft Docs
-description: Learn how to manage an Analysis Services server in Azure.
+description: This article describes the tools used to manage administration and management tasks for an Azure Analysis Services server.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,9 +13,9 @@ ms.reviewer: minewiskan
 Once you've created an Analysis Services server in Azure, there may be some administration and management tasks you need to perform right away or sometime down the road. For example, run processing to the refresh data, control who can access the models on your server, or monitor your server's health. Some management tasks can only be performed in Azure portal, others in SQL Server Management Studio (SSMS), and some tasks can be done in either.
 
 ## Azure portal
-[Azure portal](http://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
+[Azure portal](https://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
 
-![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Screenshot that shows the Azure portal where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## SQL Server Management Studio
 Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.
@@ -26,11 +25,11 @@ Connecting to your server in Azure is just like connecting to a server instance 
 ### Download and install SSMS
 To get all the latest features, and the smoothest experience when connecting to your Azure Analysis Services server, be sure you're using the latest version of SSMS. 
 
-[Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### To connect with SSMS
- When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators](#server-administrators) later in this article.
+ When using SSMS, before connecting to your server the first time, make sure your username is included in the Analysis Services Admins group. To learn more, see [Server administrators and database users](#server-administrators-and-database-users) later in this article.
 
 1. Before you connect, you need to get the server name. In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    
@@ -47,7 +46,7 @@ To get all the latest features, and the smoothest experience when connecting to 
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
-    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../azure-sql/database/authentication-mfa-ssms-overview.md). 
    
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
@@ -62,4 +61,3 @@ When connecting using SSMS, if you run into problems, you may need to clear the 
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
 
 If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Get data from Azure Analysis Services server](analysis-services-connect.md).
-

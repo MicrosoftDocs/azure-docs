@@ -1,18 +1,14 @@
 ---
-title: "Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/07/2016"
+title: Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs
+description: Learn about the child elements of the NetworkConfiguration element of the service configuration file, which specifies Virtual Network and DNS values.
+ms.custom: 
+ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ""
-ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
+ms.service: cloud-services
+ms.topic: reference
 caps.latest.revision: 28
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: tgore03
+ms.author: tagore
 ---
 
 # Azure Cloud Services Config NetworkConfiguration Schema
@@ -23,7 +19,7 @@ You can use the following resource to learn more about Virtual Networks and the 
 
 - [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md)
 - [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
-- [Create a Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Create a Virtual Network (classic)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
 ## NetworkConfiguration Element
 The following example shows the `NetworkConfiguration` element and its child elements.
@@ -44,7 +40,7 @@ The following example shows the `NetworkConfiguration` element and its child ele
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>

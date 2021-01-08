@@ -1,22 +1,15 @@
 ---
-title: Azure CLI Samples - Enable host-based autoscale | Microsoft Docs
-description: Azure CLI Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
-editor: ''
+title: Azure CLI Samples - Enable host-based autoscale
+description: This script creates a virtual machine scale set running Ubuntu and uses host-based metrics to automatically scale as CPU load changes.
+author: ju-shim
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
-ms.custom: mvc
+ms.author: jushiman
+ms.custom: mvc, devx-track-azurecli
 
 ---
 
@@ -42,12 +35,10 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Creates a resource group in which all resources are stored. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
-| [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) | Creates and applies autoscale rules to a virtual machine scale set. |
-| [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
+| [az vmss create](/cli/azure/vmss) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
+| [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings) | Creates and applies autoscale rules to a virtual machine scale set. |
+| [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).

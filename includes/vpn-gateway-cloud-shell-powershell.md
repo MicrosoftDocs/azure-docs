@@ -5,16 +5,11 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/14/2018
+ ms.date: 03/11/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. Just click the **Copy** to copy the code, paste it into the Cloud Shell, and then press enter to run it. There are a few ways to launch the Cloud Shell:
+This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-|  |   |
-|-----------------------------------------------|---|
-| Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
-| Open Cloud Shell in your browser. | [![https://shell.azure.com/powershell](./media/vpn-gateway-cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
-| Click the **Cloud Shell** button on the menu in the upper right of the Azure portal. | [![Cloud Shell in the portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
-|  |  |
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.

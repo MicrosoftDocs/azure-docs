@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
-ms.author: narayan;aglick
+ms.author: narayan
+ms.reviewer: aglick
 
 ---
 # Virtual Network – Business Continuity
@@ -22,7 +23,7 @@ ms.author: narayan;aglick
 ## Overview
 A Virtual Network (VNet) is a logical representation of your network in the cloud. It allows you to define your own private IP address space and segment the network into subnets. VNets serves as a trust boundary to host your compute resources such as Azure Virtual Machines and Cloud Services (web/worker roles). A VNet allows direct private IP communication between the resources hosted in it. You can link a virtual network to an on-premises network through a VPN Gateway, or ExpressRoute.
 
-A VNet is created within the scope of a region. You can create VNets with same address space in two different regions (For example, US East and US West), but cannot connect them together. 
+A VNet is created within the scope of a region. You can *create* VNets with same address space in two different regions (For example, US East and US West), but because they have the same address space, you can't connect them together. 
 
 ## Business Continuity
 

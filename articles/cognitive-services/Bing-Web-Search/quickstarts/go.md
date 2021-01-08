@@ -1,37 +1,42 @@
 ---
-title: "Quickstart: Perform a search with Go - Bing Web Search API"
+title: "Quickstart: Perform a web search with Go - Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Go and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using Go, and receive a JSON response
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
-ms.author: erhopf
+ms.date: 05/22/2020
+ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Go.
 ---
 
-# Quickstart: Use Go to call the Bing Web Search API  
+# Quickstart: Search the web using the Bing Web Search REST API and Go
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+Use this quickstart to make your first call to the Bing Web Search API. This Go application sends a search request to the API, and shows the JSON response. Although this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
+
+ The code examples in this quickstart require only core libraries; there are no external dependencies.  
 
 ## Prerequisites
-
 Here are a few things that you'll need before running this quickstart:
 
 * [Go binaries](https://golang.org/dl/)
 * A subscription key
 
-This quickstart only requires **core** libraries, there are no external dependencies.  
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## Create a project and import core libraries
 
-Create a new Go project in your favorite IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, `time` and `encoding/json` to handle the JSON, and `fmt` to print the output.
+Create a new Go project in your favorite IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, `time` and `encoding/json` to handle the JSON, and `fmt` to print the output.
 
 ```go
 package main
@@ -107,7 +112,13 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code declares the main function and sets required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code declares the main function and sets the required variables: 
+
+1. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+2. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. 
+ 
+3. Optionally, customize the search query by replacing the value for `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -166,7 +177,7 @@ if err != nil {
 
 ## Handle the response
 
-Remember the struct we created earlier? We're going to use it to format the response and print the search results.
+Use the struct we created previously to format the response and print the search results.
 
 ```go
 // Create a new answer.  
@@ -183,7 +194,7 @@ for _, result := range ans.WebPages.Value {
 
 ## Put it all together
 
-The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
+The last step is to validate your code and run it. If you'd like to compare your code with ours, here's the complete program:
 
 ```go
 package main
@@ -301,14 +312,13 @@ func main() {
 }
 ```
 
-## Sample response  
+## Example JSON response
 
-Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted using the `BingAnswer` struct and displays the `result.Name` and `result.URL`.
+Responses from the Bing Web Search API are returned as JSON. This sample response has been formatted by using the `BingAnswer` struct and shows the `result.Name` and `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
 Cognitive Services | Microsoft Azure || https://azure.microsoft.com/services/cognitive-services/
-Cognitive Service Try experience | Microsoft Azure || https://azure.microsoft.com/try/cognitive-services/
 What is Microsoft Cognitive Services? | Microsoft Docs || https://docs.microsoft.com/azure/cognitive-services/Welcome
 Microsoft Cognitive Toolkit || https://www.microsoft.com/en-us/cognitive-toolkit/
 Microsoft Customers || https://customers.microsoft.com/en-us/search?sq=%22Microsoft%20Cognitive%20Services%22&ff=&p=0&so=story_publish_date%20desc
@@ -320,6 +330,6 @@ Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

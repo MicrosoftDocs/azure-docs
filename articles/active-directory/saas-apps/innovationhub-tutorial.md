@@ -1,241 +1,160 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with Innovation Hub | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Innovation Hub.
-services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
-ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Innovation Hub
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Innoverse | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Innoverse.
+services: active-directory
+author: jeevansd
+manager: CelesteDG
+ms.reviewer: celested
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.topic: tutorial
+ms.date: 10/18/2019
+ms.author: jeedes
+---
 
-In this tutorial, you learn how to integrate Innovation Hub with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Innoverse
 
-Integrating Innovation Hub with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Innoverse with Azure Active Directory (Azure AD). When you integrate Innoverse with Azure AD, you can:
 
-- You can control in Azure AD who has access to Innovation Hub.
-- You can enable your users to automatically get signed-on to Innovation Hub (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Innoverse.
+* Enable your users to be automatically signed-in to Innoverse with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Innovation Hub, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- An Innovation Hub single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Innoverse single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Innovation Hub from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-## Adding Innovation Hub from the gallery
-To configure the integration of Innovation Hub into Azure AD, you need to add Innovation Hub from the gallery to your list of managed SaaS apps.
 
-**To add Innovation Hub from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+* Innoverse supports **SP and IDP** initiated SSO
+* Innoverse supports **Just In Time** user provisioning
 
-	![The Azure Active Directory button][1]
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+## Adding Innoverse from the gallery
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+To configure the integration of Innoverse into Azure AD, you need to add Innoverse from the gallery to your list of managed SaaS apps.
 
-	![The New application button][3]
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Innoverse** in the search box.
+1. Select **Innoverse** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the search box, type **Innovation Hub**, select **Innovation Hub** from result panel then click **Add** button to add the application.
 
-	![Innovation Hub in the results list](./media/innovationhub-tutorial/tutorial_innovationhub_addfromgallery.png)
+## Configure and test Azure AD single sign-on for Innoverse
 
-## Configure and test Azure AD single sign-on
+Configure and test Azure AD SSO with Innoverse using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Innoverse.
 
-In this section, you configure and test Azure AD single sign-on with Innovation Hub based on a test user called "Britta Simon".
+To configure and test Azure AD SSO with Innoverse, complete the following building blocks:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Innovation Hub is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Innovation Hub needs to be established.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Innoverse SSO](#configure-innoverse-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Innoverse test user](#create-innoverse-test-user)** - to have a counterpart of B.Simon in Innoverse that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-To configure and test Azure AD single sign-on with Innovation Hub, you need to complete the following building blocks:
+## Configure Azure AD SSO
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create an Innovation Hub test user](#create-an-innovation-hub-test-user)** - to have a counterpart of Britta Simon in Innovation Hub that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-### Configure Azure AD single sign-on
+1. In the [Azure portal](https://portal.azure.com/), on the **Innoverse** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Innovation Hub application.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-**To configure Azure AD single sign-on with Innovation Hub, perform the following steps:**
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-1. In the Azure portal, on the **Innovation Hub** application integration page, click **Single sign-on**.
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<domainname>.innover.se`
 
-	![Configure single sign-on link][4]
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<domainname>.innover.se/auth/saml2/login`
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/innovationhub-tutorial/tutorial_innovationhub_samlbase.png)
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-1. On the **Innovation Hub Domain and URLs** section, perform the following steps:
-
-	![Innovation Hub Domain and URLs single sign-on information](./media/innovationhub-tutorial/tutorial_innovationhub_url.png)
-
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<domainname>.innohb.com/auth/saml2/login`
-
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<domainname>.innohb.com`
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<domainname>.innover.se/auth/saml2/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Innovation Hub Client support team](mailto:support@readify.net) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Innoverse Client support team](mailto:support@readify.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Innovation Hub application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+1. Innoverse application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Configure Single Sign-On](./media/innovationhub-tutorial/attribute.png)
+	![image](common/edit-attribute.png)
 
-1. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
+1. In addition to above, Innoverse application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-	| Attribute Name | Attribute Value | Namespace Value|
-	| ---------------| --------------- |----------------|
-	| displayname | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| | |
+	| Name | Namespace | Source Attribute| 
+	| ---------------| --------- | ----------------|
+	| displayname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![Configure Single Sign-On](./media/innovationhub-tutorial/tutorial_attribute_04.png)
-
-	![Configure Single Sign-On](./media/innovationhub-tutorial/tutorial_attribute_05.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. From the **Value** list, type the attribute value shown for that row.
-
-	d. From the **Namespace Value** list, type the namespace value shown for that row.
-
-	e. Click **Ok**.
-
-1. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
-
-	![The Certificate download link](./media/innovationhub-tutorial/tutorial_innovationhub_certificate.png)
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On Save button](./media/innovationhub-tutorial/tutorial_general_400.png)
-
-1. To configure single sign-on on **Innovation Hub** side, you need to send the copied **Federation Metadata Url** to [Innovation Hub support team](mailto:support@readify.net). They set this setting to have the SAML SSO connection set properly on both sides.
+	![The Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/innovationhub-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/innovationhub-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/innovationhub-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/innovationhub-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create an Innovation Hub test user
-
-The objective of this section is to create a user called Britta Simon in Innovation Hub. Innovation Hub supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Innovation Hub if it doesn't exist yet.
->[!Note]
->If you need to create a user manually, contact [Innovation Hub support team](mailto:support@readify.net).
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Innovation Hub.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Innoverse.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Innoverse**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-**To assign Britta Simon to Innovation Hub, perform the following steps:**
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][201] 
+	![The Add User link](common/add-assign-user.png)
 
-1. In the applications list, select **Innovation Hub**.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![The Innovation Hub link in the Applications list](./media/innovationhub-tutorial/tutorial_innovationhub_app.png)  
+## Configure Innoverse SSO
 
-1. In the menu on the left, click **Users and groups**.
+To configure single sign-on on **Innoverse** side, you need to send the **App Federation Metadata Url** to [Innoverse support team](mailto:support@readify.net). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	![The "Users and groups" link][202]
+### Create Innoverse test user
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+In this section, a user called Britta Simon is created in Innoverse. Innoverse supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Innoverse, a new one is created after authentication.
 
-	![The Add Assignment pane][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-
-### Test single sign-on
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Innovation Hub tile in the Access Panel, you should get automatically signed-on to your Innovation Hub application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Innoverse tile in the Access Panel, you should be automatically signed in to the Innoverse for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-<!--Image references-->
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-[1]: ./media/innovationhub-tutorial/tutorial_general_01.png
-[2]: ./media/innovationhub-tutorial/tutorial_general_02.png
-[3]: ./media/innovationhub-tutorial/tutorial_general_03.png
-[4]: ./media/innovationhub-tutorial/tutorial_general_04.png
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-[100]: ./media/innovationhub-tutorial/tutorial_general_100.png
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-[200]: ./media/innovationhub-tutorial/tutorial_general_200.png
-[201]: ./media/innovationhub-tutorial/tutorial_general_201.png
-[202]: ./media/innovationhub-tutorial/tutorial_general_202.png
-[203]: ./media/innovationhub-tutorial/tutorial_general_203.png
-
+- [Try Innoverse with Azure AD](https://aad.portal.azure.com/)

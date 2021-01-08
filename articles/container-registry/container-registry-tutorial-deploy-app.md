@@ -1,17 +1,12 @@
 ---
-title: Azure Container Registry tutorial - Deploy web app from Azure Container Registry
-description: Deploy a Linux-based web app using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
+title: Tutorial - Deploy from geo-replicated registry
+description: Deploy a Linux-based web app to two different Azure regions using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Deploy web app from Azure Container Registry
+# Tutorial: Deploy a web app from a geo-replicated Azure container registry
 
 This is part two in a three-part tutorial series. In [part one](container-registry-tutorial-prepare-registry.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you take advantage of the network-close aspect of the geo-replicated registry by deploying the container to Web App instances in two different Azure regions. Each instance then pulls the container image from the closest registry.
 
@@ -27,7 +22,7 @@ In the next article in the series, you update the application, then push the upd
 
 ## Automatic deployment to Web Apps for Containers
 
-Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/containers/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in the previous tutorial to two web app plans located in different Azure regions.
+Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in the previous tutorial to two web app plans located in different Azure regions.
 
 When you deploy a web app from a container image in your registry, and you have a geo-replicated registry in the same region, Azure Container Registry creates an image deployment [webhook](container-registry-webhook.md) for you. When you push a new image to your container repository, the webhook picks up the change and automatically deploys the new container image to your web app.
 
@@ -50,11 +45,15 @@ Under **Web App for Containers** that's displayed after you select "Deploy to we
 | **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-westus` to easily identify the registry and region the web app is deployed from. |
 | **Resource Group** | **Use existing** > `myResourceGroup` |
 | **App service plan/Location** | Create a new plan named `plan-westus` in the **West US** region. |
-| **Image** | `acr-helloworld:v1`
+| **Image** | `acr-helloworld:v1` |
+| **Operating system** | Linux |
+
+> [!NOTE]
+> When you create a new app service plan to deploy your containerized app, a default plan is automatically selected to host your application. The default plan depends on the operating system setting.
 
 Select **Create** to provision the web app to the *West US* region.
 
-![Web app on Linux configuration in the Azure portal][deploy-app-portal-02]
+![Screenshot shows the Web App for Containers with the Create button highlighted.][deploy-app-portal-02]
 
 ## View the deployed web app
 
@@ -64,11 +63,11 @@ In the portal, select **App Services**, then the web app you provisioned in the 
 
 Select the hyperlinked URL of the web app in the top-right of the **App Service** overview to view the running application in your browser.
 
-![Web app on Linux configuration in the Azure portal][deploy-app-portal-04]
+![Screenshot shows the App Service Overview with web app URL highlighted.][deploy-app-portal-04]
 
 Once the Docker image is deployed from your geo-replicated container registry, the site displays an image representing the Azure region hosting the container registry.
 
-![Deployed web application viewed in a browser][deployed-app-westus]
+![Screenshot shows the deployed web application viewed in a browser.][deployed-app-westus]
 
 ## Deploy second Web App for Containers instance
 
@@ -79,13 +78,14 @@ Use the procedure outlined in the previous section to deploy a second web app to
 | **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-eastus` to easily identify the registry and region the web app is deployed from. |
 | **Resource Group** | **Use existing** > `myResourceGroup` |
 | **App service plan/Location** | Create a new plan named `plan-eastus` in the **East US** region. |
-| **Image** | `acr-helloworld:v1`
+| **Image** | `acr-helloworld:v1` |
+| **Operating system** | Linux |
 
 Select **Create** to provision the web app to the *East US* region.
 
-![Web app on Linux configuration in the Azure portal][deploy-app-portal-06]
+![Screenshot shows the Web App for Containers Create window with the Create button highlighted.][deploy-app-portal-06]
 
-## View the deployed web app
+## View the second deployed web app
 
 As before, you can view the running application by navigating to its URL in your browser.
 

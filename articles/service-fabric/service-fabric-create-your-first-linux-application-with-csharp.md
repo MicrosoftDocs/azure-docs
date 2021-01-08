@@ -1,25 +1,12 @@
 ---
-title: Create your first Azure Service Fabric app on Linux using C#| Microsoft Docs
+title: Create your first Azure Service Fabric app on Linux using C#
 description: Learn how to create and deploy a Service Fabric application using C# and .NET Core 2.0.
-services: service-fabric
-documentationcenter: csharp
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
-ms.service: service-fabric
-ms.devlang: csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
-
 ---
 # Create your first Azure Service Fabric application
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (Preview)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
@@ -41,19 +28,19 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+2. Install [Yeoman](https://yeoman.io/) template generator on your machine from NPM
 
-  ```bash
-  npm install -g yo
-  ```
+   ```bash
+   npm install -g yo
+   ```
 3. Install the Service Fabric Yeoman C# application generator from NPM
 
-  ```bash
-  npm install -g generator-azuresfcsharp
-  ```
+   ```bash
+   npm install -g generator-azuresfcsharp
+   ```
 
 ## Create the application
-A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for C#, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
+A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](https://yeoman.io/) generator for C#, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 
 1. In a terminal, type the following command to start building the scaffolding: `yo azuresfcsharp`
 2. Name your application.
@@ -98,7 +85,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+`http://localhost:19080/Explorer`. Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
 > [!IMPORTANT]
@@ -111,7 +98,7 @@ template includes a simple test script that you can use to interact with the act
 
 1. Run the script using the watch utility to see the output of the actor service.
 
-   In case of MAC OS X, you need to copy the myactorsvcTestClient folder into the some location inside the container by running the following additional commands.
+   In case of MAC OS X, you need to copy the myactorsvcTestClient folder into the same location inside the container by running the following additional commands.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

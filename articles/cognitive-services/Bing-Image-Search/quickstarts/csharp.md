@@ -1,35 +1,38 @@
 ---
-title: "Quickstart: Perform an image search with C# - Bing Image Search API"
+title: "Quickstart: Search for images using the Bing Image Search REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using C#, and receive JSON responses.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 05/08/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
-# Quickstart: Send search queries using the Bing Image Search API and C#
+# Quickstart: Search for images using the Bing Image Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to learn how to send search requests to the Bing Image Search API. This C# application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in C#, the API is a RESTful web service compatible with most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling and annotations.
 
 ## Prerequisites
-
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then add the following namespaces into the main code file.
+1. Create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then, add the following namespaces to the main code file:
 
     ```csharp
     using System;
@@ -39,7 +42,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     using Newtonsoft.Json.Linq;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term.
+2. Create variables for the API endpoint, your subscription key, and search term. For `uriBase`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     //...
@@ -56,7 +59,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Create a struct to format the Bing Image Search response
 
-Define a `SearchResult` struct to contain the image search results, and JSON header information.
+Define a `SearchResult` struct to contain the image search results and JSON header information.
 
 ```csharp
     namespace BingSearchApisQuickstart
@@ -74,7 +77,7 @@ Define a `SearchResult` struct to contain the image search results, and JSON hea
 
 ## Create a method to send search requests
 
-Create a method named `BingImageSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created earlier.
+Create a method named `BingImageSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created previously.
 
 ```csharp
 //...
@@ -92,18 +95,18 @@ namespace BingSearchApisQuickstart
 
 ## Create and handle an image search request
 
-In the `BingImageSearch` method, perform the following steps.
+In the `BingImageSearch` method, perform the following steps:
 
-1. Construct the URI for the search request. Note that the search term `toSearch` must be formatted before being appended to the string.
+1. Construct the URI for the search request. Format the `SearchTerm` search term before you append it to the string.
 
     ```csharp
-    static SearchResult BingImageSearch(string toSearch){
+    static SearchResult BingImageSearch(string SearchTerm){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(SearchTerm);
     //...
     ```
 
-2. Perform the web request and get the response as a JSON string.
+2. Send the web request and get the response as a JSON string.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -112,7 +115,7 @@ In the `BingImageSearch` method, perform the following steps.
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
     ```
 
-3. Create the search result object, and extract the Bing HTTP headers. Then return `searchResult`.
+3. Create the search result object and extract the Bing HTTP headers. Then, return `searchResult`.
 
     ```csharp
     // Create the result object for return
@@ -133,7 +136,7 @@ In the `BingImageSearch` method, perform the following steps.
 
 ## Process and view the response
 
-1. In the main method, call `BingImageSearch()` and store the returned response. Then deserialize the JSON into an object.
+1. In the main method, call `BingImageSearch()` and store the returned response. Then, deserialize the JSON into an object.
 
     ```csharp
     SearchResult result = BingImageSearch(searchTerm);
@@ -149,9 +152,8 @@ In the `BingImageSearch` method, perform the following steps.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. Make sure to remove your subscription key from the application's code.
 
-## JSON response
+## Example JSON response
 
 Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -195,7 +197,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -206,8 +208,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 
 ## See also
 
-* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [What is the Bing Image Search API?](../overview.md)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Azure Cognitive Services documentation](../../index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

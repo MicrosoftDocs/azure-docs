@@ -1,20 +1,21 @@
-﻿---
-title: Use a Linux VM system-assigned managed identity to access Azure Storage
-description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage.
+---
+title: Tutorial`:` Use a managed identity to access Azure Storage via access key - Linux - Azure AD
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage via an access key.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: barclayn
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
-ms.author: daveba
+ms.date: 03/04/2020
+ms.author: barclayn
+ms.collection: M365-identity-device-management
 ---
 
 
@@ -30,15 +31,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Create a storage account 
 
@@ -66,11 +59,11 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's system-assigned managed identity access to use storage account access keys
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use managed identities for Azure resources to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM's system-assigned managed identity access to the keys to your storage account.   
+In this step, you grant your VM's system-assigned managed identity access to the keys to your storage account.   
 
 1. Navigate back to your newly created storage account.
 2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add** on top of the page to add a new role assignment for your VM
+3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
 4. Set **Role** to "Storage Account Key Operator Service Role", on the right side of the page. 
 5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
@@ -82,7 +75,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install-win10). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
@@ -131,10 +124,10 @@ Create a sample blob file to upload to your blob storage container. On a Linux V
 echo "This is a test file." > test.txt
 ```
 
-Next, authenticate with the CLI `az storage` command using the storage access key, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) on your VM, if you haven't already.
+Next, authenticate with the CLI `az storage` command using the storage access key, and upload the file to the blob container. For this step, you will need to [install the latest Azure CLI](/cli/azure/install-azure-cli) on your VM, if you haven't already.
  
 
-```azurecli-interactive
+```azurecli
 az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -152,7 +145,7 @@ Additionally, you can download the file using the Azure CLI and authenticating w
 
 Request: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -203,4 +196,4 @@ Response:
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using an access key.  To learn more about Azure Storage access keys see:
 
 > [!div class="nextstepaction"]
->[Manage your storage access keys](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Manage your storage access keys](../../storage/common/storage-account-create.md)

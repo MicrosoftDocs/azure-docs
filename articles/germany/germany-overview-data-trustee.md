@@ -1,26 +1,19 @@
 ---
 title: Azure Germany data trustee | Microsoft Docs
-description: This article provides information about the data trustee model.
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: This article provides information about the data trustee model. You will also find relevant links.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
-ms.author: ralfwi
-
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
+
 # Data trustee principle
 
-Microsoft developed Azure Germany to help meet the needs of customers and prospective customers in the European Union (EU), the European Free Trade
-Association (EFTA), and the UK. These needs include addressing concerns about security and privacy of online data. Azure Germany comprises industry-leading cloud services *hosted and operated entirely under special security measures in Germany.*
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+Microsoft developed Azure Germany to help meet the needs of customers and prospective customers in the European Union (EU), the European Free Trade Association (EFTA), and the UK. These needs include addressing concerns about security and privacy of online data. Azure Germany comprises industry-leading cloud services *hosted and operated entirely under special security measures in Germany.*
 
 A local company controls access to customer data, as long as access is not granted by the customer or end users. This model ensures that the data owners keep
 sovereignty and the decision-making powers over their data--especially against third parties such as domestic or foreign supervisory and law enforcement authorities. These authorities can access customer data only in regulatory and compliant cases under the requirements of the German law.
@@ -34,8 +27,6 @@ Microsoft administers all aspects of operation and provisioning of Azure Germany
 
 In contrast, the German data trustee is responsible for all tasks and processes that require physical or logical access to infrastructure in 
 Germany that stores customer data. The data trustee controls all access to customer data other than access initiated by the customer or end users. 
-
-
 
 The following features are characteristic for Azure Germany:
 

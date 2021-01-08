@@ -1,248 +1,161 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Collaborative Innovation | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Collaborative Innovation | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Collaborative Innovation.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/14/2017
+ms.topic: tutorial
+ms.date: 10/22/2019
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Collaborative Innovation
 
-In this tutorial, you learn how to integrate Collaborative Innovation with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Collaborative Innovation
 
-Integrating Collaborative Innovation with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Collaborative Innovation with Azure Active Directory (Azure AD). When you integrate Collaborative Innovation with Azure AD, you can:
 
-- You can control in Azure AD who has access to Collaborative Innovation
-- You can enable your users to automatically get signed-on to Collaborative Innovation (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* Control in Azure AD who has access to Collaborative Innovation.
+* Enable your users to be automatically signed-in to Collaborative Innovation with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Collaborative Innovation, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Collaborative Innovation single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Collaborative Innovation single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Collaborative Innovation from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* Collaborative Innovation supports **SP** initiated SSO
+
+
+* Collaborative Innovation supports **Just In Time** user provisioning
 
 ## Adding Collaborative Innovation from the gallery
+
 To configure the integration of Collaborative Innovation into Azure AD, you need to add Collaborative Innovation from the gallery to your list of managed SaaS apps.
 
-**To add Collaborative Innovation from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Collaborative Innovation** in the search box.
+1. Select **Collaborative Innovation** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+## Configure and test Azure AD single sign-on for Collaborative Innovation
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+Configure and test Azure AD SSO with Collaborative Innovation using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Collaborative Innovation.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+To configure and test Azure AD SSO with Collaborative Innovation, complete the following building blocks:
 
-	![Applications][3]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Collaborative Innovation SSO](#configure-collaborative-innovation-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Collaborative Innovation test user](#create-collaborative-innovation-test-user)** - to have a counterpart of B.Simon in Collaborative Innovation that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the search box, type **Collaborative Innovation**.
+## Configure Azure AD SSO
 
-	![Creating an Azure AD test user](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_search.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the results panel, select **Collaborative Innovation**, and then click **Add** button to add the application.
+1. In the [Azure portal](https://portal.azure.com/), on the **Collaborative Innovation** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	![Creating an Azure AD test user](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Collaborative Innovation based on a test user called "Britta Simon."
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Collaborative Innovation is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Collaborative Innovation needs to be established.
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<instancename>.foundry.<companyname>.com/`
 
-In Collaborative Innovation, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<instancename>.foundry.<companyname>.com`
 
-To configure and test Azure AD single sign-on with Collaborative Innovation, you need to complete the following building blocks:
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Collaborative Innovation Client support team](https://www.unilever.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Collaborative Innovation test user](#creating-a-collaborative-innovation-test-user)** - to have a counterpart of Britta Simon in Collaborative Innovation that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. Collaborative Innovation application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-### Configuring Azure AD single sign-on
+	![image](common/edit-attribute.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Collaborative Innovation application.
+1. In addition to above, Collaborative Innovation application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-**To configure Azure AD single sign-on with Collaborative Innovation, perform the following steps:**
-
-1. In the Azure portal, on the **Collaborative Innovation** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_samlbase.png)
-
-1. On the **Collaborative Innovation Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
-
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.foundry.<companyname>.com/`
-
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.foundry.<companyname>.com`
-	
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Collaborative Innovation Client support team](https://www.unilever.com/contact/) to get these values.  
-
-1. Collaborative Innovation application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-	
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/attribute.png)
-	
-1. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
-
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
+	| Name | Source Attribute|
+	| ---------------| --------------- |
 	| givenname | user.givenname |
 	| surname | user.surname |
 	| emailaddress | user.userprincipalname |
 	| name | user.userprincipalname |
 
-	a. Click the attribute to open the **Edit Attribute** window.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/url_update.png)
+	![The Certificate download link](common/metadataxml.png)
 
-	b. Delete the URL value from the **Namespace**.
-	
-	c. Click **Ok** to save the setting.
+1. On the **Set up Collaborative Innovation** section, copy the appropriate URL(s) based on your requirement.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
+### Create an Azure AD test user
 
-1. Click **Save** button.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_general_400.png)
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-1. To configure single sign-on on **Collaborative Innovation** side, you need to send the downloaded **Metadata XML** to [Collaborative Innovation support team](https://www.unilever.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
+### Assign the Azure AD test user
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Collaborative Innovation.
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/collaborativeinnovation-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/collaborativeinnovation-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/collaborativeinnovation-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/collaborativeinnovation-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Collaborative Innovation test user
-
-To enable Azure AD users to log in to Collaborative Innovation, they must be provisioned into Collaborative Innovation.  
-
-In case of this application provisioning is automatic as the application supports just in time user provisioning. So there is no need to perform any steps here.
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Collaborative Innovation.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Collaborative Innovation, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Collaborative Innovation**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_app.png) 
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+	![The Add User link](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Assign User][203]
+## Configure Collaborative Innovation SSO
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+To configure single sign-on on **Collaborative Innovation** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Collaborative Innovation support team](https://www.unilever.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create Collaborative Innovation test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+In this section, a user called B.Simon is created in Collaborative Innovation. Collaborative Innovation supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Collaborative Innovation, a new one is created when you attempt to access Collaborative Innovation.
+
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Collaborative Innovation tile in the Access Panel, you should get login page of Collaborative Innovation application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Collaborative Innovation tile in the Access Panel, you should be automatically signed in to the Collaborative Innovation for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-<!--Image references-->
-
-[1]: ./media/collaborativeinnovation-tutorial/tutorial_general_01.png
-[2]: ./media/collaborativeinnovation-tutorial/tutorial_general_02.png
-[3]: ./media/collaborativeinnovation-tutorial/tutorial_general_03.png
-[4]: ./media/collaborativeinnovation-tutorial/tutorial_general_04.png
-
-[100]: ./media/collaborativeinnovation-tutorial/tutorial_general_100.png
-
-[200]: ./media/collaborativeinnovation-tutorial/tutorial_general_200.png
-[201]: ./media/collaborativeinnovation-tutorial/tutorial_general_201.png
-[202]: ./media/collaborativeinnovation-tutorial/tutorial_general_202.png
-[203]: ./media/collaborativeinnovation-tutorial/tutorial_general_203.png
-
+- [Try Collaborative Innovation with Azure AD](https://aad.portal.azure.com/)

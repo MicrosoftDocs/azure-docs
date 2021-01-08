@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
@@ -21,7 +21,7 @@ ms.author: alkohli
 
 This tutorial describes the steps you should follow to install and use the Multipath I/O (MPIO) feature on a host running Windows Server 2012 R2 and connected to a StorSimple physical device. The guidance in this article applies to StorSimple 8000 series physical devices only. MPIO is currently not supported on a StorSimple Cloud Appliance.
 
-Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant iSCSI network configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by rebalancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").
+Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant iSCSI network configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by rebalancing the load across all these paths. For more information, see [MPIO overview](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "MPIO overview and features").
 
 For the high-availability of your StorSimple solution, MPIO should be configured on your StorSimple device. When MPIO is installed on your host servers running Windows Server 2012 R2, the servers can then tolerate a link, network, or interface failure.
 
@@ -100,8 +100,8 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
    1. Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
    2. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-     > [!IMPORTANT]
-     > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
+      > [!IMPORTANT]
+      > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
     
 4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. For more information, see [Modify network interfaces](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
@@ -187,4 +187,3 @@ The following procedure describes how to add sessions when a StorSimple device w
 ## Next steps
 
 Learn more about [using the StorSimple Device Manager service to modify your StorSimple device configuration](storsimple-8000-modify-device-config.md).
-

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017 
@@ -41,6 +41,7 @@ Questions and answers are arranged into the following categories
 Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following tables summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
 
 #### Update 3.0 
+
 | Locally pinned volumes provisioned capacity | Available capacity to be provisioned for tiered volumes - 8100 | Available capacity to be provisioned for tiered volumes - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
@@ -158,7 +159,7 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 
 **Q.** Can I change the type of a volume during restore?
 
-**A.**No, you cannot change the volume type during restore.
+**A.** No, you cannot change the volume type during restore.
 
 * Volumes that have been deleted are restored as the type stored in the snapshot.
 * Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).

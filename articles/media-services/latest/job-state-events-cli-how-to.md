@@ -1,31 +1,38 @@
 ---
 title: Monitor Azure Media Services events with Event Grid using CLI  | Microsoft Docs
-description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events.
+description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events by using Azure CLI.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 10/15/2018
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and monitor Media Services events with Event Grid using the Azure CLI
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, you send the events to a web app that collects and displays the messages.
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Azure Event Grid is an eventing service for the cloud. This service uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.". For more information, see [Media Services event schemas](media-services-event-schemas.md).
+
+In this article, you use the Azure CLI to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, you send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
 
-- Have an active Azure subscription.
-- [Create a Media Services account](create-account-cli-how-to.md).
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+    Currently, not all [Media Services v3 CLI](/cli/azure/ams) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+
+- [Create a Media Services account](./create-account-howto.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name.
-
-- Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Create a message endpoint
 
@@ -33,7 +40,7 @@ Before subscribing to the events for the Media Services account, let's create th
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
@@ -42,23 +49,13 @@ If you switch to the "Azure Event Grid Viewer" site, you see it has no events ye
    
 [!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
-## Log in to Azure
-
-Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
 ## Set the Azure subscription
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-```azurecli-interactive
+```azurecli
 az account set --subscription mySubscriptionId
 ```
- 
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 ## Subscribe to Media Services events
 
@@ -68,7 +65,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
 1. Get the resource id
 
-    ```azurecli-interactive
+    ```azurecli
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
@@ -80,9 +77,9 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
 2. Subscribe to the events
 
-    ```azurecli-interactive
+    ```azurecli
     az eventgrid event-subscription create \
-    --resource-id $amsResourceId \
+    --source-resource-id $amsResourceId \
     --name <event_subscription_name> \
     --endpoint <endpoint_URL>
     ```
@@ -90,7 +87,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
     For example:
 
     ```
-    az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
+    az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
     ```    
 
     > [!TIP]
@@ -112,4 +109,3 @@ View your web app again, and notice that a subscription validation event has bee
 ## Next steps
 
 [Upload, encode, and stream](stream-files-tutorial-with-api.md)
-

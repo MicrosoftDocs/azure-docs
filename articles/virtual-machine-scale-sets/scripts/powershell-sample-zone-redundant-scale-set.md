@@ -1,40 +1,33 @@
 ---
-title: Azure PowerShell Samples - Zone-redundant scale set | Microsoft Docs
-description: Azure PowerShell Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machine-scale-sets
-ms.devlang: na
+title: Azure PowerShell Samples - Zone-redundant scale set
+description: This script creates a virtual machine scale set running Windows Server 2016 across multiple Availability Zones.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 04/05/2018
-ms.author: zarhoads
-ms.custom: mvc
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
 # Create a zone-redundant virtual machine scale set with PowerShell
 This script creates a virtual machine scale set running Windows Server 2016 across multiple Availability Zones. After running the script, you can access the virtual machine over RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Sample script
+
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.ps1 "Create zone-redundant scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Script explanation
@@ -42,15 +35,13 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) | Creates the virtual machine scale set and all supporting resources, including virtual network, load balancer, and NAT rules. |
-| [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Gets information on a virtual machine scale set. |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) | Adds a VM extension for Custom Script to install a basic web application. |
-| [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) | Updates the virtual machine scale set model to apply the VM extension. |
-| [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) | Gets information on the public IP address assigned used by the load balancer. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
+| [New-AzVmss](/powershell/module/az.compute/new-azvmss) | Creates the virtual machine scale set and all supporting resources, including virtual network, load balancer, and NAT rules. |
+| [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Gets information on a virtual machine scale set. |
+| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) | Adds a VM extension for Custom Script to install a basic web application. |
+| [Update-AzVmss](/powershell/module/az.compute/update-azvmss) | Updates the virtual machine scale set model to apply the VM extension. |
+| [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) | Gets information on the public IP address assigned used by the load balancer. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

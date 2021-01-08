@@ -1,20 +1,17 @@
 ---
-title: Manage packet captures with Azure Network Watcher - Azure portal | Microsoft Docs
+title: Manage packet captures - Azure portal
+titleSuffix: Azure Network Watcher
 description: Learn how to manage the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: 
-
-ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 09/10/2018
-ms.author: jdial
+ms.date: 01/07/2021
+ms.author: damendo
 ---
 
 # Manage packet captures with Azure Network Watcher using the portal
@@ -25,12 +22,16 @@ In this article, you learn to start, stop, download, and delete a packet capture
 
 ## Before you begin
 
-Packet capture requires the following connectivity:
-* Outbound connectivity to a storage account over port 443.
-* Inbound and outbound connectivity to 169.254.169.254
-* Inbound and outbound connectivity to 168.63.129.16
+Packet capture requires the following outbound TCP connectivity:
+- to the chosen storage account over port 443
+- to 169.254.169.254 over port 80
+- to 168.63.129.16 over port 8037
 
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. 
+> [!NOTE]
+> The ports mentioned in the latter two cases above are common across all Network Watcher features that involve the Network Watcher extension and might occasionally change.
+
+
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. Similarly, adding user-defined traffic routes to your network may prevent connectivity to the above mentioned IPs and ports. Please ensure they are reachable. 
 
 ## Start a packet capture
 
@@ -58,8 +59,8 @@ If a network security group is associated to the network interface, or subnet th
      - **Remote IP address**: Filters the packet capture for packets where the remote IP address matches this value.
      - **Remote port**: Filters the packet capture for packets where the remote port matches this value.
     
-    > [!NOTE]
-    > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
+     > [!NOTE]
+     > Port and IP address values can be a single value, range of values, or a range, such as 80-1024, for port. You can define as many filters as you need.
 
 4. Select **OK**.
 
@@ -68,7 +69,7 @@ After the time limit set on the packet capture has expired, the packet capture i
 > [!NOTE]
 > The portal automatically:
 >  * Creates a  network watcher in the same region as the region the virtual machine you selected exists in, if the region doesn't already have a network watcher.
->  * Adds the *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) or [Windows](../virtual-machines/windows/extensions-nwa.md) virtual machine extension to the virtual machine, if it's not already installed.
+>  * Adds the *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) or [Windows](../virtual-machines/extensions/network-watcher-windows.md) virtual machine extension to the virtual machine, if it's not already installed.
 
 ## Delete a packet capture
 
@@ -84,7 +85,7 @@ In the packet capture view, select **...** on the right-side of the packet captu
 
 ## Download a packet capture
 
-Once your packet capture session has completed, the capture file is uploaded to blob storage or to a local file on the virtual machine. The storage location of the packet capture is defined during creation of the packet capture. A convenient tool to access capture files saved to a storage account is Microsoft Azure Storage Explorer, which you can [download](http://storageexplorer.com/).
+Once your packet capture session has completed, the capture file is uploaded to blob storage or to a local file on the virtual machine. The storage location of the packet capture is defined during creation of the packet capture. A convenient tool to access capture files saved to a storage account is Microsoft Azure Storage Explorer, which you can [download](https://storageexplorer.com/).
 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 

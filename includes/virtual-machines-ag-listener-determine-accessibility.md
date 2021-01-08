@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 It is important to realize that there are two ways to configure an availability group listener in Azure. The ways differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
 
 | Load balancer type | Implementation | Use when: |
@@ -10,5 +17,4 @@ It is important to realize that there are two ways to configure an availability 
 > 
 > 
 
-An ILB can be configured only on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use an ILB. For more information, see [Internal load balancer overview](../articles/load-balancer/load-balancer-internal-overview.md).
-
+An ILB can be configured only on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use an ILB. For more information, see [Internal load balancer overview](../articles/load-balancer/load-balancer-overview.md#internalloadbalancer).

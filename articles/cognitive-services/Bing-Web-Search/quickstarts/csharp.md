@@ -1,37 +1,43 @@
 ---
-title: "Quickstart: Perform a search with C# - Bing Web Search API"
+title: "Quickstart: Perform a web search with C# - Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using C# and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using C#, and receive a JSON response.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
-ms.author: erhopf
+ms.date: 10/19/2020
+ms.author: aahi
+ms.custom: "seodec2018, devx-track-csharp"
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
 ---
 
-# Quickstart: Use C# to call the Bing Web Search API  
+# Quickstart: Search the web using the Bing Web Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.  
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+Use this quickstart to make your first call to the Bing Web Search API. This C# application sends a search request to the API, and shows the JSON response. Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+
+This example program in this quickstart uses only .NET Core classes.
 
 ## Prerequisites
 
 Here are a few things that you'll need before running this quickstart:
 
-* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
-* A subscription key
+* Windows: [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
+* Linux/macOS: [Visual Studio Code](https://code.visualstudio.com/) and [.NET Core](https://dotnet.microsoft.com/download)
+* [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
 
-This example program only uses .NET Core classes.
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and declare dependencies
 
-Create a new project in Visual Studio or Mono. Then use this code to import required namespaces and types.
+Create a console project in Visual Studio or VS Code. Use the following code to import the required namespaces and types:
 
 ```csharp
 using System;
@@ -57,7 +63,13 @@ namespace BingSearchApisQuickstart
 
 ## Define variables
 
-A few variables must be set before we can continue. Confirm that the `uriBase` is valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+A few variables must be set before we can continue. Add this code to the `Program` class you created in the previous section: 
+
+1. For the `uriBase` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+2. Confirm that `uriBase` is valid and replace the `accessKey` value with a subscription key from your Azure account. 
+
+3. Optionally, customize the search query by replacing the value for `searchTerm`. 
 
 ```csharp
 // Enter a valid subscription key.
@@ -73,9 +85,9 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## Declare the Main method
 
-The `Main()` is required and it's the first method invoked when the program is started. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
+The `Main()` method is required and is the first method invoked when you start the program. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
 
-Keep in mind that `main()` is dependent on methods that are created in the next few sections.
+The `main()` method is dependent on methods that you create in the next sections.
 
 ```csharp
 static void Main()
@@ -104,7 +116,7 @@ static void Main()
 
 ## Create a struct for search results
 
-This struct returns search results with relevant headers. It is called when making a request to the Bing Web Search API to create a result object.
+Create a struct that returns search results with relevant headers. You call it when you make a request to the Bing Web Search API to create a result object.
 
 ```csharp
 // Returns search results with headers.
@@ -153,7 +165,7 @@ static SearchResult BingWebSearch(string searchQuery)
 
 ## Format the response
 
-This method formats the JSON response, primarily indenting and adding line breaks.
+This method formats the JSON response, primarily by indenting and adding line breaks.
 
 ```csharp
 /// <summary>
@@ -230,9 +242,9 @@ static string JsonPrettyPrint(string json)
 
 ## Put it all together
 
-The last step is to run your code! If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
+The last step is to run your code. If you'd like to compare your code with ours, see the [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingWebSearchv7.cs).
 
-## Sample response
+## Example JSON response
 
 Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.  
 
@@ -254,9 +266,9 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",
@@ -361,6 +373,6 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

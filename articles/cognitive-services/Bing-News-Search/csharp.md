@@ -1,191 +1,126 @@
 ---
-title: "Quickstart: Bing News Search API, C#"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing News Search API.
+title: "Quickstart: Perform a news search with C# - Bing News Search REST API"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send a request to the Bing News Search REST API using C#, and receive a JSON response.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.date: 05/22/2020
+ms.author: aahi
+ms.custom: "seodec2018, devx-track-csharp"
 ---
 
-# Quickstart: Bing News Search API with C#
+# Quickstart: Search for news using C# and the Bing News Search REST API
 
-This article shows you how use the Bing Search API, part of Microsoft Cognitive Services on Azure. While this article employs C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-The example code was written in C# as a .NET Core application, with minimal external dependencies, so you can also run it on Linux or Mac OS X using Mono.
+Use this quickstart to make your first call to the Bing News Search API. This simple C# application sends a news search query to the API, and displays the JSON response. 
 
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+
+The full code to this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
+* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
+* If you're using Linux/MacOS, you can run this application by using [Mono](https://www.mono-project.com/).
 
-## Bing News search
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News search results from the Bing search engine.
+## Create and initialize a project
 
-1. Create a new Console solution in Visual Studio (the Community Edition is fine).
-1. Replace Program.cs with the code provided below.
-1. Replace the `accessKey` value with an access key valid for your subscription.
-1. Run the program.
+1. Create a new C# console solution in Visual Studio. Then, add the following namespaces to the main code file:
+    
+    ```csharp
+    using System;
+    using System.Text;
+    using System.Net;
+    using System.IO;
+    using System.Collections.Generic;
+    ```
+
+2. Create variables for the API endpoint, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+
+    ```csharp
+    const string accessKey = "enter key here";
+    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
+    const string searchTerm = "Microsoft";
+    ```
+   
+## Create a struct to format the Bing News Search response
+
+Define a `SearchResult` struct to contain the news search results and JSON header information.
 
 ```csharp
-using System;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Collections.Generic;
-
-namespace BingNewsSearchCSharpCore
+struct SearchResult
 {
-
-    class Program
-    {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the accessKey string value with your valid access key.
-        const string accessKey = "enter key here";
-
-        // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-        // search APIs.  In the future, regional endpoints may be available.  If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing News search instance in your Azure dashboard.
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
-
-        const string searchTerm = "Microsoft";
-
-        // Used to return news search results including relevant headers
-        struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-
-        static void Main()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("Searching news for: " + searchTerm);
-
-            SearchResult result = BingNewsSearch(searchTerm);
-
-            Console.WriteLine("\nRelevant HTTP Headers:\n");
-            foreach (var header in result.relevantHeaders)
-                Console.WriteLine(header.Key + ": " + header.Value);
-
-            Console.WriteLine("\nJSON Response:\n");
-            Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-
-            Console.Write("\nPress Enter to exit ");
-            Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Performs a Bing News search and return the results as a SearchResult.
-        /// </summary>
-        static SearchResult BingNewsSearch(string searchQuery)
-        {
-            // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
-
-            // Perform the Web request and get the response
-            WebRequest request = HttpWebRequest.Create(uriQuery);
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            // Create result object for return
-            var searchResult = new SearchResult();
-            searchResult.jsonResult = json;
-            searchResult.relevantHeaders = new Dictionary<String, String>();
-
-            // Extract Bing HTTP headers
-            foreach (String header in response.Headers)
-            {
-                if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                    searchResult.relevantHeaders[header] = response.Headers[header];
-            }
-
-            return searchResult;
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
-    }
+    public String jsonResult;
+    public Dictionary<String, String> relevantHeaders;
 }
 ```
 
-**Response**
+## Create and handle a news search request
+
+1. Create a method named `BingNewsSearch()` to call the API, and set the return type to the `SearchResult` struct created previously. 
+
+   Add code to this method in the steps that follow.
+
+1. Construct the URI for the search request. The `toSearch` search term must be formatted before it's appended to the string.
+
+    ```csharp
+    static SearchResult BingNewsSearch(string toSearch){
+
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+    //...
+    ```
+
+1. Perform the web request and get the response as a JSON string.
+
+    ```csharp
+    WebRequest request = WebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
+    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+    ```
+
+1. Create the search result object, and extract the Bing HTTP headers. Then, return `searchResult`.
+
+    ```csharp
+    // Create the result object for return
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
+
+    // Extract Bing HTTP headers
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
+    ```
+
+## Process the response
+
+In the main method, call `BingNewsSearch()` and store the returned response. Then, deserialize the JSON into an object where you can view the values of the response.
+
+```csharp
+SearchResult result = BingNewsSearch(searchTerm);
+//deserialize the JSON response
+dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
+Console.WriteLine(jsonObj["value"][0])
+```
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 
@@ -283,7 +218,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging news](paging-news.md)
-> [Using decoration markers to highlight text](hit-highlighting.md)
-> [Searching the web for news](search-the-web.md)  
-> [Try it](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

@@ -4,16 +4,17 @@ description: Explains how to troubleshoot SQL connectivity issues that occur wit
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
-ms.component: hybrid
+ms.topic: troubleshooting
+ms.date: 11/30/2020
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot SQL connectivity issues with Azure AD Connect
@@ -24,24 +25,26 @@ The following screenshot shows a typical error, if the SQL Server cannot be foun
 ![SQL error](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## Troubleshooting steps
-Open a powershell window and Import the ADSyncTools Powershell module
+Open a PowerShell window and Import the ADSyncTools Powershell module
 
 ``` powershell
-Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 ```
 
 >[!NOTE]
 >Install-Module requires updating to [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) or later;  
-Or install [PackageManagement PowerShell Modules Preview - March 2016 for PowerShell 3.0/4.0](https://www.microsoft.com/download/details.aspx?id=51451) 
+Or install [PackageManagement PowerShell Modules Preview - March 2016 for PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
 - **Show all commands**: `Get-Command -Module AdSyncTools` 
-- **Execute the powershell function**: `Connect-ADSyncDatabase` with the following parameters
+- **Execute the PowerShell function**: `Connect-ADSyncDatabase` with the following parameters
     - Server. The SQL Server name.
     - Instance. (Optional) The SQL Server Instance name and optionally Port number, that you would like to use. Do not specify this parameter to use the default instance.
-    - UserName. (Optional) The user account to connect with. If left blank the currently logged in user will be used. If you are connecting to a remote SQL Server this should be the custom service account you have created for Azure ADConnect SQL Connectivity. Azure AD Connect uses the Azure AD Connect sync service account as to authenticate to a remote SQL server.
+    - UserName. (Optional) The user account to connect with. If left blank the currently logged in user will be used. If you are connecting to a remote SQL Server this should be the custom service account you have created for Azure AD Connect SQL Connectivity. Azure AD Connect uses the Azure AD Connect sync service account as to authenticate to a remote SQL server.
     - Password. (Optional) Password for the UserName provided.
 
-This powershell function will attempt to bind to the specified SQL Server and Instance using the credentials passed in OR use the credentials of the current user. If the SQL Server cannot be found the script will attempt to connect to the SQL Browser service to determine enabled protocols and ports.
+This PowerShell function will attempt to bind to the specified SQL Server and Instance using the credentials passed in OR use the credentials of the current user. If the SQL Server cannot be found the script will attempt to connect to the SQL Browser service to determine enabled protocols and ports.
 
 Example using just a Server name:
 ```

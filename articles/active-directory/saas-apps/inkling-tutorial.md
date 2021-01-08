@@ -2,242 +2,191 @@
 title: 'Tutorial: Azure Active Directory integration with Inkling | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Inkling.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/06/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Inkling
 
 In this tutorial, you learn how to integrate Inkling with Azure Active Directory (Azure AD).
-
 Integrating Inkling with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Inkling
-- You can enable your users to automatically get signed-on to Inkling (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+* You can control in Azure AD who has access to Inkling.
+* You can enable your users to be automatically signed-in to Inkling (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Inkling, you need the following items:
 
-- An Azure AD subscription
-- An Inkling single-sign on enabled subscription
-
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Inkling single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Inkling from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
+* Inkling supports **IDP** initiated SSO
 
 ## Adding Inkling from the gallery
+
 To configure the integration of Inkling into Azure AD, you need to add Inkling from the gallery to your list of managed SaaS apps.
 
 **To add Inkling from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. Click **Add** button on the top of the dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Inkling**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/inkling-tutorial/tutorial_inkling_001.png)
+4. In the search box, type **Inkling**, select **Inkling** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **Inkling**, and then click **Add** button to add the application.
+	 ![Inkling in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/inkling-tutorial/tutorial_inkling_0001.png)
+## Configure and test Azure AD single sign-on
 
-
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Inkling based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Inkling is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Inkling needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Inkling.
+In this section, you configure and test Azure AD single sign-on with Inkling based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Inkling needs to be established.
 
 To configure and test Azure AD single sign-on with Inkling, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating an Inkling test user](#creating-an-inkling-test-user)** - to have a counterpart of Britta Simon in Inkling that is linked to the Azure AD representation of her.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Inkling Single Sign-On](#configure-inkling-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Inkling test user](#create-inkling-test-user)** - to have a counterpart of Britta Simon in Inkling that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your Inkling application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Inkling, perform the following steps:**
+To configure Azure AD single sign-on with Inkling, perform the following steps:
 
-1. In the Azure Management portal, on the **Inkling** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Inkling** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
- 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_general_300.png)
-	
-1. On the **Inkling Domain and URLs** section, perform the following steps:
-	
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_inkling_01.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-	a. In the **Identifier** textbox, type a URL using the following pattern: `https://api.inkling.com/saml/v2/metadata/<user-id>`
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://api.inkling.com/saml/v2/acs/<user-id>`
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Contact [Inkling support team](mailto:press@inkling.com) to get these values.
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **SAML Signing Certificate** section, click **Create new certificate**.
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_general_400.png) 	
+    ![Inkling Domain and URLs single sign-on information](common/idp-intiated.png)
 
-1. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_general_500.png)
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://api.inkling.com/saml/v2/acs/<user-id>`
 
-1. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Inkling Client support team](mailto:press@inkling.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_inkling_02.png)
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-1. On the pop-up **Rollover certificate** window, click **OK**.
+	![The Certificate download link](common/metadataxml.png)
 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_general_600.png)
+6. On the **Set up Inkling** section, copy the appropriate URL(s) as per your requirement.
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_inkling_03.png) 
+	a. Login URL
 
-1. To get SSO configured for your application, contact [Inkling support team](mailto:press@inkling.com) and provide them with downloaded **metadata**. 
+	b. Azure AD Identifier
 
+	c. Logout URL
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+### Configure Inkling Single Sign-On
 
-![Create Azure AD User][100]
+To configure single sign-on on **Inkling** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Inkling support team](mailto:press@inkling.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-**To create a test user in Azure AD, perform the following steps:**
+### Create an Azure AD test user 
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-	![Creating an Azure AD test user](./media/inkling-tutorial/create_aaduser_01.png) 
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-1. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/inkling-tutorial/create_aaduser_02.png) 
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. At the top of the dialog click **Add** to open the **User** dialog.
- 
-	![Creating an Azure AD test user](./media/inkling-tutorial/create_aaduser_03.png) 
+2. Select **New user** at the top of the screen.
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/inkling-tutorial/create_aaduser_04.png) 
+    ![New user Button](common/new-user.png)
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+3. In the User properties, perform the following steps.
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    ![The User dialog box](common/user-properties.png)
 
-	c. Select **Show Password** and write down the value of the **Password**.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    d. Click **Create**. 
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
+    d. Click **Create**.
 
+### Assign the Azure AD test user
 
-### Creating an Inkling test user
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Inkling.
 
-In this section, you create a user called Britta Simon in Inkling. Please work with [Inkling support team](mailto:press@inkling.com) to add the users in the Inkling platform.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Inkling**.
 
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-### Assigning the Azure AD test user
+2. In the applications list, select **Inkling**.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Inkling.
+	![The Inkling link in the Applications list](common/all-applications.png)
 
-![Assign User][200] 
+3. In the menu on the left, select **Users and groups**.
 
-**To assign Britta Simon to Inkling, perform the following steps:**
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][201] 
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. In the applications list, select **Inkling**.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![Configure Single Sign-On](./media/inkling-tutorial/tutorial_inkling_50.png) 
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. In the menu on the left, click **Users and groups**.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-	![Assign User][202] 
+### Create Inkling test user
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+In this section, you create a user called Britta Simon in Inkling. Work with [Inkling support team](mailto:press@inkling.com) to add the users in the Inkling platform. Users must be created and activated before you use single sign-on.
 
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-
-
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Inkling tile in the Access Panel, you should get automatically signed-on to your Inkling application.
+When you click the Inkling tile in the Access Panel, you should be automatically signed in to the Inkling for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
+## Additional Resources
 
-## Additional resources
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
-<!--Image references-->
-
-[1]: ./media/inkling-tutorial/tutorial_general_01.png
-[2]: ./media/inkling-tutorial/tutorial_general_02.png
-[3]: ./media/inkling-tutorial/tutorial_general_03.png
-[4]: ./media/inkling-tutorial/tutorial_general_04.png
-
-[100]: ./media/inkling-tutorial/tutorial_general_100.png
-
-[200]: ./media/inkling-tutorial/tutorial_general_200.png
-[201]: ./media/inkling-tutorial/tutorial_general_201.png
-[202]: ./media/inkling-tutorial/tutorial_general_202.png
-[203]: ./media/inkling-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

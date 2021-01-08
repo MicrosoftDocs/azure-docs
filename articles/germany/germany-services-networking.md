@@ -1,23 +1,18 @@
 ---
 title: Azure Germany networking services | Microsoft Docs
 description: Provides a comparison of features and guidance for private connectivity to Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Azure Germany networking services
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## ExpressRoute (private connectivity)
 Azure ExpressRoute is generally available in Azure Germany. For more information (including partners and peering locations), see the [ExpressRoute global documentation](../expressroute/index.yml).
 
@@ -29,7 +24,7 @@ Azure ExpressRoute is generally available in Azure Germany. For more information
 * Azure Germany ExpressRoute locations provide optimized pathways (including shortest hops, low latency, and high performance) for customers and Azure Germany geo-redundant regions.
 * The Azure Germany ExpressRoute private connection does not use, traverse, or depend on the Internet.
 * The Azure Germany physical and logical infrastructure is physically dedicated and separated from the international Microsoft cloud network.
-* Azure Germany ExpressRoute provides private connectivity to Microsoft Azure cloud services, but not to Office 365 or Dynamics 365 cloud services.
+* Azure Germany ExpressRoute provides private connectivity to Microsoft Azure cloud services, but not to Microsoft 365 or Dynamics 365 cloud services.
 
 ### Considerations
 Two basic services provide private network connectivity to Azure Germany: ExpressRoute and VPN (site-to-site for a typical organization).
@@ -66,4 +61,4 @@ Azure VPN Gateway is generally available in Azure Germany. For more information,
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

@@ -1,17 +1,12 @@
 ---
-title: Azure Container Registry tutorial - Push an updated image to regional deployments
-description: Push a modified Docker image to your geo-replicated Azure contain registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
+title: Tutorial - Push update to geo-replicated registry
+description: Push an updated Docker image to your geo-replicated Azure container registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Push an updated image to regional deployments
+# Tutorial: Push an updated container image to a geo-replicated container registry for regional web app deployments
 
 This is part three in a three-part tutorial series. In the [previous tutorial](container-registry-tutorial-deploy-app.md), geo-replication was configured for two different regional Web App deployments. In this tutorial, you first modify the application, then build a new container image and push it to your geo-replicated registry. Finally, you view the change, deployed automatically by Azure Container Registry webhooks, in both Web App instances.
 

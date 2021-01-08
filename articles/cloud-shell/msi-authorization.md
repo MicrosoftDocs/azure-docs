@@ -1,20 +1,15 @@
 ---
-title: Use managed identities for Azure resources in Azure Cloud Shell | Microsoft Docs
+title: Use managed identities for resources in Azure Cloud Shell
 description: Authenticate code with MSI in Azure Cloud Shell
 services: azure
-documentationcenter: ''
-author: jluk
-manager: timlt
+author: maertendMSFT
+ms.author: damaerte
 tags: azure-resource-manager
- 
-ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
-ms.author: juluk
 ---
 
 # Use managed identities for Azure resources in Azure Cloud Shell
@@ -43,8 +38,8 @@ The local MSI subsystem caches tokens. Therefore, you can call it as often as yo
 
 If you cache the token in your code, you should be prepared to handle scenarios where the resource indicates that the token is expired.
 
-To handle token errors, visit the [MSI page about curling MSI access tokens](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+To handle token errors, visit the [MSI page about curling MSI access tokens](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling).
 
 ## Next steps
-[Learn more about MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Acquiring access tokens from MSI VMs](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Learn more about MSI](../active-directory/managed-identities-azure-resources/overview.md)  
+[Acquiring access tokens from MSI VMs](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)

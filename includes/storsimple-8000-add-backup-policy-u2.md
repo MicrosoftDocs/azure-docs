@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 02/10/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To add a StorSimple backup policy
 
@@ -16,11 +22,11 @@
        
    3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Add a backup policy 2](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
 
    4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Add a backup policy 3](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
        1. For **Snapshot type**, select **Cloud** or **Local**.
 
@@ -34,9 +40,9 @@
 
    5. Click **Create** to create a backup policy.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Add a backup policy 4](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
    6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Add a backup policy 5](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 

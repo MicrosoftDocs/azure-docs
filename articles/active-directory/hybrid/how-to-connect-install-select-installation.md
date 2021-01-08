@@ -4,7 +4,7 @@ description: This topic walks you through how to select the installation type to
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid:
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Select which installation type to use for Azure AD Connect
 Azure AD Connect has two installation types for new installation: Express and customized. This topic helps you to decide which option to use during installation.

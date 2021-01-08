@@ -1,31 +1,22 @@
 ---
-title: Attach a managed data disk to a Windows VM - Azure | Microsoft Docs
+title: Attach a managed data disk to a Windows VM - Azure 
 description: How to attach a managed data disk to a Windows VM by using the Azure portal.
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
+author: roygara
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 10/08/2018
-ms.author: cynthn
+ms.topic: how-to
+ms.date: 02/06/2020
+ms.author: rogarana
+ms.subservice: disks
 
 ---
 # Attach a managed data disk to a Windows VM by using the Azure portal
 
-This article shows you how to attach a new managed data disk to a Windows virtual machine (VM) by using the Azure portal. The size of the VM determines how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md).
+This article shows you how to attach a new managed data disk to a Windows virtual machine (VM) by using the Azure portal. The size of the VM determines how many data disks you can attach. For more information, see [Sizes for virtual machines](../sizes.md).
 
 
 ## Add a data disk
 
-1. In the [Azure portal](https://portal.azure.com), from the menu on the left, select **Virtual machines**.
+1. Go to the [Azure portal](https://portal.azure.com) to add a data disk. Search for and select **Virtual machines**.
 2. Select a virtual machine from the list.
 3. On the **Virtual machine** page, select **Disks**.
 4. On the **Disks** page, select **Add data disk**.
@@ -49,31 +40,7 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 9. A warning appears notifying you that formatting the disks erases all of the data. Select **OK**.
 10. When the formatting is complete, select **OK**.
 
-## Use TRIM with standard storage
-
-If you use standard storage (HDD), you should enable the **TRIM** command. The **TRIM** command discards unused blocks on the disk so that you're billed only for storage that you're actually using. By using **TRIM**, you can save on costs if you create large files and then later delete them. 
-
-To check the **TRIM** setting, open a command prompt on your Windows VM and enter the following command:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-If the command returns 0, **TRIM** is enabled correctly. Otherwise, if it returns 1, run the following command to enable **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-After you delete data from your disk, you can ensure the **TRIM** operations flush properly by running defrag with **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-You can also format the volume to ensure the entire volume is trimmed.
-
 ## Next steps
 
 - You can also [attach a data disk by using PowerShell](attach-disk-ps.md).
-- If your application needs to use the *D:* drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- If your application needs to use the *D:* drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md).

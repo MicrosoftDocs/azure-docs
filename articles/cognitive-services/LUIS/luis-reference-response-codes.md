@@ -1,23 +1,24 @@
 ---
-title: Language Understanding (LUIS) API HTTP response codes - Azure | Microsoft Docs
-titleSuffix: Azure
+title: API HTTP response codes - LUIS
+titleSuffix: Azure Cognitive Services
 description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
-author: diberry
-manager: cgronlun
 
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 04/16/2018
-ms.author: diberry
+ms.subservice: language-understanding
+ms.topic: reference
+ms.date: 03/04/2019
+
 ---
 
-# LUIS API HTTP response codes
-The [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
+# Common API response codes and their meaning
+
+The [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general.
 
 ## Common status codes
-The following table lists some of the most common HTTP response status codes for the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
+The following table lists some of the most common HTTP response status codes for the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs:
 
 |Code|API|Explanation|
 |:--|--|--|
@@ -33,3 +34,7 @@ The following table lists some of the most common HTTP response status codes for
 |410|Endpoint|application needs to be retrained and republished|
 |414|Endpoint|query exceeds maximum character limit|
 |429|Authoring, Endpoint|Rate limit is exceeded (requests/second)|
+
+## Next steps
+
+* REST API [authoring](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) and [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) documentation

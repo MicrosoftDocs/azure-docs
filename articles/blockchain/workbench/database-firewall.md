@@ -1,16 +1,10 @@
 ---
-title: Configure the Azure Blockchain Workbench SQL DB firewall
-description: Learn how to configure the Azure Blockchain Workbench SQL DB firewall.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
-ms.service: azure-blockchain
+title: Configure Azure Blockchain Workbench database firewall
+description: Learn how to configure the Azure Blockchain Workbench Preview database firewall to allow external clients and applications to connect.
+ms.date: 09/09/2019
+ms.topic: how-to
 ms.reviewer: mmercuri
-manager: femila
-
+#Customer intent: As an administrator, I want to configure Azure Blockchain Workbench's SQL Server firewall to allow external clients to connect.
 ---
 
 # Configure the Azure Blockchain Workbench database firewall
@@ -21,7 +15,7 @@ This article shows how to configure a firewall rule using the Azure portal. Fire
 
 To connect to the database where you want to configure a rule:
 
-1. Sign in to the Azure Portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
+1. Sign in to the Azure portal with an account that has **Owner**     permissions for the Azure Blockchain Workbench resources.
 2. In the left navigation pane, choose **Resource groups**.
 3. Choose the name of the resource group for your Blockchain Workbench deployment.
 4. Select **Type** to sort the list of resources, and then choose your **SQL server**.

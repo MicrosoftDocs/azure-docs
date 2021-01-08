@@ -1,21 +1,9 @@
 ---
-title: Assign access policies to Azure Service Fabric service endpoints | Microsoft Docs
+title: Assign access policies to service endpoints 
 description: Learn how to assign security access polices to HTTP or HTTPS endpoints in your Service Fabric service.
-services: service-fabric
-documentationcenter: .net
-author: msfussell
-manager: timlt
-editor: ''
 
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-
 ---
 
 # Assign a security access policy for HTTP and HTTPS endpoints
@@ -23,9 +11,9 @@ If you apply a run-as policy and the service manifest declares HTTP endpoint res
 
 ```xml
 <Policies>
-   <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
-   <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
-   <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
+  <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
+  <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
 </Policies>
 ```
 
@@ -33,16 +21,16 @@ For an HTTPS endpoint, also indicate the name of the certificate to return to th
 
 ```xml
 <Policies>
-   <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
   <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
-   <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
+  <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
   <!--EndpointBindingPolicy is needed if the EndpointName is secured with https -->
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
-</Policies
+</Policies>
 ```
 
 > [!WARNING] 
-> When using HTTPS, do not use the same port and certificate for different service instances (independant of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
+> When using HTTPS, do not use the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
 ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 

@@ -4,7 +4,7 @@ description: This topic describes quotas and limitations associated with Microso
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
@@ -13,11 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 09/16/2020
 ms.author: juliako
 
 ---
 # Quotas and Limitations
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article describes quotas and limitations associated with Microsoft Azure Media Services.
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]

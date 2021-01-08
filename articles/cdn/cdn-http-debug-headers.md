@@ -3,18 +3,18 @@ title:  X-EC-Debug HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: The X-EC-Debug debug cache request header provides additional information about the cache policy that is applied to the requested asset. These headers are specific to Verizon.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # X-EC-Debug HTTP headers for Azure CDN rules engine
@@ -23,7 +23,7 @@ The debug cache request header, `X-EC-Debug`, provides additional information ab
 ## Usage
 The response sent from the POP servers to a user includes the `X-EC-Debug` header only when the following conditions are met:
 
-- The [Debug Cache Response Headers feature](cdn-rules-engine-reference-features.md#debug-cache-response-headers) has been enabled on the rules engine for the specified request.
+- The [Debug Cache Response Headers feature](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) has been enabled on the rules engine for the specified request.
 - The specified request defines the set of debug cache response headers that will be included in the response.
 
 ## Requesting debug cache information
@@ -147,7 +147,7 @@ The terms used in the above response header syntax are defined as follows:
 
 - MATimePeriod: Converts the max-age value (that is, MASeconds) to the approximate equivalent of a larger unit (for example, days). 
 
-- UnixTime: Indicates the cache timestamp of the requested content in Unix time (a.k.a. POSIX time or Unix epoch). The cache timestamp indicates the starting date/time from which an asset's TTL will be calculated. 
+- UnixTime: Indicates the cache timestamp of the requested content in Unix time (also known as POSIX time or Unix epoch). The cache timestamp indicates the starting date/time from which an asset's TTL will be calculated. 
 
     If the origin server does not utilize a third-party HTTP caching server or if that server does not return the Age response header, then the cache timestamp will always be the date/time when the asset was retrieved or revalidated. Otherwise, the POP servers will use the Age field to calculate the asset's TTL as follows: Retrieval/RevalidateDateTime - Age.
 

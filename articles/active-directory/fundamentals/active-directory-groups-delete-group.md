@@ -1,28 +1,29 @@
 ---
-title: How to delete a group using Azure Active Directory | Microsoft Docs
-description: Learn how to delete a group using Azure Active Directory.
+title: Delete a group - Azure Active Directory | Microsoft Docs
+description: Instructions about how to delete a group using Azure Active Directory.
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: ajburnle
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
-ms.topic: conceptual
+ms.subservice: fundamentals
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
-ms.custom: it-pro                         
+ms.custom: "it-pro, seodec18"                      
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Delete a group using Azure Active Directory
-You can delete a group for any number of reasons, but typically it will be because you:
+# Delete a group using Azure Active Directory
+You can delete an Azure Active Directory (Azure AD) group for any number of reasons, but typically it will be because you:
 
-- Incorrectly set the **Group type** to the wrong option
+- Incorrectly set the **Group type** to the wrong option.
 
-- Created the wrong or a duplicate group by mistake 
+- Created the wrong or a duplicate group by mistake. 
 
-- No longer need the group
+- No longer need the group.
 
 ## To delete a group
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
@@ -43,4 +44,4 @@ You can delete a group for any number of reasons, but typically it will be becau
 
 - If you delete a group by mistake, you can create it again. For more information, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
-- If you delete an Office 365 group by mistake, you might be able to restore it. For more information, see [Restore a deleted Office 365 group](../users-groups-roles/groups-restore-deleted.md).
+- If you delete a Microsoft 365 group by mistake, you might be able to restore it. For more information, see [Restore a deleted Office 365 group](../enterprise-users/groups-restore-deleted.md).
