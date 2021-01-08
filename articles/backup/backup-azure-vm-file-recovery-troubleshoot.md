@@ -7,11 +7,11 @@ ms.date: 07/12/2020
 
 # Troubleshoot issues in file recovery of an Azure VM backup
 
-This article provides troubleshooting steps that can help you resolve problems you experience when recovering files and folders from an Azure virtual machine (VM) backup.
+This article provides troubleshooting steps that can help you resolve problems recovering files and folders from an Azure virtual machine (VM) backup.
 
 ## Common error messages
 
-This section provides steps to troubleshoot error messages you might see.
+This section provides steps to troubleshoot error messages that you might see.
 
 ### Exception caught while connecting to target
 
@@ -27,24 +27,24 @@ This section provides steps to troubleshoot error messages you might see.
 
 ### This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal
 
-**Possible cause**: The disks have been dismounted from the portal or the 12-hour limit was exceeded.
+**Possible cause**: The disks have been dismounted from the portal or the 12-hour time limit was exceeded.
 
-**Recommended action**: The script is invalid after 12 hours from the time it was downloaded and can't be executed. Visit the portal and download a new script to continue with file recovery.
+**Recommended action**: 12 hours after you download the script, it becomes invalid and can't be executed. Go to the portal, and then download a new script to continue with file recovery.
 
 ## Common problems
 
-This section provides steps to troubleshoot common issues you might come across while downloading and executing the script for file recovery.
+This section provides steps to troubleshoot common issues you might experience while downloading and executing the script for file recovery.
 
 ### Can't download the script
 
 1. Ensure you have the [required permissions to download the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
 
-`nslookup download.microsoft.com`
+   `nslookup download.microsoft.com`
 
-or
+    or
 
-`ping download.microsoft.com`
+    `ping download.microsoft.com`
 
 ### The script downloads successfully, but fails to run in SLES 12 SP4
 
@@ -66,11 +66,11 @@ You might see an **Exception caught while connecting to target** error message.
    or
 
    `ping download.microsoft.com`
-1. Ensure there's access to iSCSI outbound port 3260.
-1. Ensure that no firewall or NSG is blocking traffic to Azure target IPs or recovery service URLs.
-1. Check if antivirus software is blocking the execution of the script.
+1. Ensure access to iSCSI outbound port 3260.
+1. Check for a firewall or NSG blocking traffic to Azure target IPs or recovery service URLs.
+1. Make sure your antivirus software isn't blocking the execution of the script.
 
-### Connected to recovery point but disks didn't get attached (Windows)
+### Connected to the recovery point, but the disks weren't attached (Windows)
 
 On Windows Server 2012 R2 and Windows Server 2016 (with storage pools), when running the script for the first time, the storage pool might be attached to the VM in read-only.
 
@@ -151,4 +151,4 @@ Check if the source server has disk deduplication enabled. If it does, ensure th
 
 ## Next steps
 
-- [Recover files and folders from Azure virtual machine backup](backup-azure-restore-files-from-vm.md)
+- [Recover files and folders from Azure virtual machine backup](backup-azure-restore-files-from-vm.md).
