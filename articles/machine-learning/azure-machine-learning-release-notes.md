@@ -35,8 +35,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Edited Model.register method documentation to mention how to register model from run directly
   + **azureml-train-automl-client**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
-  + **azureml-train-automl-runtime**
-    + n/a
+  
 
 ## 2020-12-31
 ### Azure Machine Learning Studio Notebooks Experience (December Update)
