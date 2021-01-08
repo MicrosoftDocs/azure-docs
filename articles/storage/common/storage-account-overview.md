@@ -30,19 +30,19 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 
 The following table describes the types of storage accounts available:
 
-| Storage account type | Supported services | Replication options | Deployment model<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> |
+| Storage account type | Supported services | Replication options | Deployment model<sup>1</sup> |
 |--|--|--|--|--|--|
-| General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>2</sup></div> | Resource Manager |
+| General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Resource Manager |
 | General-purpose V1 | Blob, File, Queue, Table, and Disk | LRS, GRS, RA-GRS | Resource Manager, Classic |
-| BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>2</sup></div> | Resource Manager |
-| FileStorage | File only | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>2</sup></div> | Resource Manager |
+| BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<sup>3</sup> | Resource Manager |
+| FileStorage | File only | LRS, ZRS<sup>3</sup> | Resource Manager |
 | BlobStorage | Blob (block blobs and append blobs only) | LRS, GRS, RA-GRS | Resource Manager |
 
-<div id="deployment-model"><sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see <a href="/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources</a>.</div><br/>
+<sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../../azure-resource-manager/management/deployment-models.md).
 
-<div id="zone-redundant-storage"><sup>2</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see <a href="/azure/storage/common/storage-redundancy">Azure Storage redundancy</a>.</div><br/>
+<sup>2</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
-<div id="data-lake-gen2"><sup>3</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see <a href="/azure/storage/blobs/data-lake-storage-introduction">Introduction to Azure Data Lake Storage Gen2</a>.</div>
+<sup>3</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
 ### General-purpose v2 accounts
 
@@ -105,13 +105,13 @@ Depending on the type of storage account you create, you can choose between stan
 
 | Storage account type | Supported performance tiers |
 |--|--|
-| General-purpose V2 | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>1</sup></div> |
-| General-purpose V1 | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>1</sup></div> |
+| General-purpose V2 | Standard, Premium<sup>1</sup> |
+| General-purpose V1 | Standard, Premium<sup>1</sup> |
 | BlockBlobStorage | Premium |
 | FileStorage | Premium |
 | BlobStorage | Standard |
 
-<div id="premium-performance"><sup>1</sup>Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only. Premium performance for block or append blobs are only available on BlockBlobStorage accounts. Premium performance for files are only available on FileStorage accounts.</div><br/>
+<sup>1</sup>Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only. Premium performance for block or append blobs are only available on BlockBlobStorage accounts. Premium performance for files are only available on FileStorage accounts.
 
 ### General-purpose storage accounts
 
@@ -144,16 +144,16 @@ The following table shows which access tiers are available for blobs in each typ
 
 | Storage account type | Supported access tiers |
 |--|--|
-| General-purpose V2 | Hot, Cool, Archive<div role="complementary" aria-labelledby="archive"><sup>1</sup></div> |
+| General-purpose V2 | Hot, Cool, Archive<sup>1</sup> |
 | General-purpose V1 | N/A |
 | BlockBlobStorage | N/A |
 | FileStorage | N/A |
-| BlobStorage | Hot, Cool, Archive<div role="complementary" aria-labelledby="archive"><sup>1</sup></div> |
+| BlobStorage | Hot, Cool, Archive<sup>1</sup> |
 
-<div id="archive"><sup>1</sup> Archive storage and blob-level tiering only support block blobs. The Archive tier is available at the level of an individual blob only, not at the storage account level. For more information, see <a href="/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob storage: Hot, Cool, and Archive storage tiers</a>.</div><br/>
+<sup>1</sup> Archive storage and blob-level tiering only support block blobs. The Archive tier is available at the level of an individual blob only, not at the storage account level. For more information, see [Access tiers for Azure Blob Storage - hot, cool, and archive](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
-> Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
+> Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see [Storage account billing](#storage-account-billing).
 
 ## Redundancy
 
@@ -164,7 +164,7 @@ Redundancy options for a storage account include:
 - **Geo-redundant storage (GRS)**: Cross-regional redundancy to protect against regional outages. Data is copied synchronously three times in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
 - **Geo-zone-redundant storage (GZRS)**: Redundancy for scenarios requiring both high availability and maximum durability. Data is copied synchronously across three Azure availability zones in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
 
-For more information about redundancy options in Azure Storage, see [Azure Storage redundancy](../articles/storage/common/storage-redundancy.md).
+For more information about redundancy options in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
 
 ## Encryption
 
