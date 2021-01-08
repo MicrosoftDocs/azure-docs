@@ -84,7 +84,7 @@ This command will print a JSON that will include credential information similar 
 You will need the `username` and one of the `passwords` values for the IoT Edge manifest below.
 
   > [!IMPORTANT]
-  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved.
+  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
 
 More details about tokens and scope maps are available in [Create a token with repository-scoped permissions](container-registry-repository-scoped-permissions.md).
 
@@ -267,6 +267,7 @@ In this quickstart, you learned how to deploy a connected registry to an IoT Edg
 <!-- LINKS - internal -->
 [az-acr-connected-registry-install]: /cli/azure/acr#az-acr-connected-registry-install
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-acr-token-credential-generate]: /cli/azure/acr/credential#az-acr-token-credential-generate
 [container-registry-intro]: container-registry-intro.md
 [quickstart-pull-images-from-connected-registry]: quickstart-pull-images-from-connected-registry.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md
