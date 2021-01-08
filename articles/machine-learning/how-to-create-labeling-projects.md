@@ -13,22 +13,20 @@ ms.custom: data4ml
 
 # Create a data labeling project and export labels 
 
-
-
 Learn how to create and run data labeling projects to tag data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
 Labeling large amounts data in machine learning projects can be difficult. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images. 
 
 ## Tools to manage data labeling
 
+> [!Important]
+> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
+
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
  - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
  - Tracks progress and maintains the queue of incomplete labeling tasks.
  - Start and stop the project and control the labeling progress.
  - Review the labeled data and export labeled in COCO format or as an Azure Machine Learning dataset.
-
-> [!Important]
-> Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
 
 ## Prerequisites
 
