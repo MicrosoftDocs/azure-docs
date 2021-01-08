@@ -23,7 +23,7 @@ This article covers the steps to **set up a new Azure Digital Twins instance**, 
 the instance and setting up authentication. After completing this article, you will have an Azure
 Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-5.3.0).
+This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 * To go through these steps manually using the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
 * To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
@@ -43,7 +43,7 @@ This version of this article goes through these steps manually, one by one, usin
         1. Open a Cloud Shell window by following [this link](https://shell.azure.com) in your browser.
         1. In the Cloud Shell icon bar, make sure your Cloud Shell is set to run the PowerShell version.
     
-          :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell window showing selection of the PowerShell version":::
+            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell window showing selection of the PowerShell version":::
     
 1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
    [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
