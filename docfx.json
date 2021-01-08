@@ -742,6 +742,9 @@
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
       },
+      "recommendations": {
+        "articles/machine-learning/*.md": true
+        },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
         "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
