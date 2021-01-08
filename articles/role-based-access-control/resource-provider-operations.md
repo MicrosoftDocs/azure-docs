@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 12/16/2020
+ms.date: 01/07/2021
 ms.custom: generated
 ---
 
@@ -1451,7 +1451,7 @@ Azure service: [Azure Data Box](../databox/index.yml)
 
 ### Microsoft.ImportExport
 
-Azure service: [Azure Import/Export](../storage/common/storage-import-export-service.md)
+Azure service: [Azure Import/Export](../import-export/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

@@ -14167,6 +14167,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/table-storage-overview.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/documentdb/documentdb-create-mongodb-account.md",
       "redirect_url": "/azure/cosmos-db/create-mongodb-dotnet#create-account",
       "redirect_document_id": false
