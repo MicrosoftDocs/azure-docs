@@ -65,7 +65,8 @@ class MyComponent extends React.Component {
     ...
 }
 
-export default withAITracking(reactPlugin, appInsights, MyComponent);
+// withAITracking takes 4 parameters ( reactPlugin, Component, ComponentName, className) the first two are required and the other two are optional
+export default withAITracking(reactPlugin, MyComponent);
 ```
 
 ## Configuration
