@@ -72,7 +72,7 @@ With this approach, the system ensures that your user account has the appropriat
 
 ### Option 2: Obtain authorization by using the storage account key
 
-With this approach, the system doesn't check Azure RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'

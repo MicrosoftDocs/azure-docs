@@ -146,7 +146,7 @@ You can connect by using Azure Active Directory (AD) or by using an account key.
 
 ### [PowerShell](#tab/azure-powershell)
 
-### Option 1: Obtain authorization by using Azure Active Directory (AD)
+#### Connect by using Azure Active Directory (AD)
 
 With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
 
@@ -174,9 +174,9 @@ The following table shows each of the supported roles and their ACL setting capa
    $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
    ```
 
-### Option 2: Obtain authorization by using the storage account key
+#### Connect by using an account key
 
-With this approach, the system doesn't check Azure RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
