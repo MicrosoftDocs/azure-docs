@@ -58,7 +58,7 @@ Some may choose to use device state instead of location in step 6 above:
 
 > [!WARNING]
 > If you use device state as a condition in your policy this may impact guest users in the directory. [Report-only mode](concept-conditional-access-report-only.md) can help determine the impact of policy decisions.
-> Note that report-only mode is not applicable for CA policies with "User Actions" scope.
+> Note that report-only mode is not applicable for Conditional Access policies with "User Actions" scope.
 
 ## Next steps
 
