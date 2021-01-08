@@ -98,9 +98,17 @@
         - name: Resilience4J Circuit Breaker Metrics
           href: spring-cloud-howto-circuit-breaker-metrics.md
     - name: Network
-      items:
+      items: 
         - name: Deploy Azure Spring Cloud in virtual network
           href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+        - name: Access your application in private network
+          href: spring-cloud-access-app-virtual-network.md
+        - name: Expose applications to the Internet
+          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+        - name: Customer responsibilities running Azure Spring Cloud in VNET
+          href: spring-cloud-vnet-customer-responsibilities.md
+        - name: Troubleshooting Azure Spring Cloud in virtual networks
+          href: spring-cloud-troubleshooting-vnet.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity

@@ -1,0 +1,37 @@
+---
+title: Troubleshooting Azure Spring Cloud in virtual network
+description: Troubleshooting guide for Azure Spring Cloud virtual network.
+author: mikedodaro
+ms.service: spring-cloud
+ms.topic: how-to
+ms.date: 09/19/2020
+ms.author: brendm
+ms.custom: devx-track-java
+---
+
+# Troubleshooting Azure Spring Cloud in virtual networks
+
+This document will help you solve various problems can arise when using Azure Spring Cloud in virtual networks.
+
+## I encountered a problem with creating an Azure Spring Cloud service instance
+
+To create an instance of Azure Spring Cloud, you must have sufficient permission to deploy the instance to the virtual network.  The Spring Cloud service instance must itself [Grant Azure Spring Cloud service permission to the virtual network](spring-cloud-tutorial-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network).
+
+If you use the Azure portal to set up the Azure Spring Cloud service instance, the Azure portal will validate the permissions.
+
+To set up the Azure Spring Cloud service instance by using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), verify that:
+
+- The subscription is active.
+- The location is supported by Azure Spring Cloud.
+- The resource group for the instance is already created.
+- The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
+
+To set up the Azure Spring Cloud service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+
+## My application can't be registered
+
+This problem occurs if your virtual network is configured with custom DNS settings. In this case, the private DNS zone used by Azure Spring Cloud is ineffective. Add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
+
+## Other issues
+
+[Troubleshoot common Azure Spring Cloud issues](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-troubleshoot).
