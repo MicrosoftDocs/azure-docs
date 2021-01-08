@@ -80,7 +80,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will run the multi-step task from the code in that branch. The YAML file specified by `--file` from the repository root defines the steps. 
+This task specifies that any time code is committed to the *main* branch in the repository specified by `--context`, ACR Tasks will run the multi-step task from the code in that branch. The YAML file specified by `--file` from the repository root defines the steps. 
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
@@ -123,7 +123,7 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
@@ -217,7 +217,7 @@ Next, execute the following commands to create, commit, and push a new file to y
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 You may be asked to provide your GitHub credentials when you execute the `git push` command. Provide your GitHub username, and enter the personal access token (PAT) that you created earlier for the password.

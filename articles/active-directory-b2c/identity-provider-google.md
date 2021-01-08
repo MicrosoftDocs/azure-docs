@@ -10,6 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -27,19 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Prerequisites
 
-::: zone pivot="b2c-user-flow"
-
-* [Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
-* If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Complete the steps in the [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
-* If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
 ## Create a Google application
@@ -221,3 +210,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
 1. Select **Run now** and select Google to sign in with Google and test the custom policy.
 
 ::: zone-end
+
+## Next steps
+
+Learn how to [pass Google token to your application](idp-pass-through-user-flow.md).

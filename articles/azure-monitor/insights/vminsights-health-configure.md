@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
+ms.date: 12/14/2020
 
 ---
 
@@ -26,9 +26,15 @@ Both unit monitors and aggregate monitors have a **Health monitor status** setti
 | Disabled | The monitor is disabled regardless of the setting of its parent. |
 | Same as parent | The monitor will be enabled or disabled depending on the setting of its parent. |
 
-When a monitor is disable, any criteria are shown as not available as shown in the following example.
+When a monitor is disabled, any criteria are shown as not available as shown in the following example.
 
 ![Disabled monitor](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> If a parent monitor is disabled, then any child monitors are also disabled. If you explicitly enable the child monitor, then the parent will also be enabled, but its configuration status will remain the same. In this case, you will receive the following message in the parent monitor.
+>
+> *There is a discrepancy as monitor's configured status is 'disabled' but Health state doesn't reflect that. This is because, either the configured changes are being propagated or any of its child monitors have been explicitly enabled.*
 
 ## Enable or disable virtual machine
 You can disable monitoring for a VM to temporarily stop all monitors. You may disable monitoring for a VM for example when you're performing maintenance on it.
