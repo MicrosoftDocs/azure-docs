@@ -53,6 +53,6 @@ When using automated ML within Azure Synapse Analytics, you can leverage the dee
 ## Next steps
 This article provides an overview of the various options to train machine learning models within Apache Spark pools in Azure Synapse Analytics. You can learn more about model training by following the tutorial below:
 
-- Run Automated ML experiments using Azure Machine Learning and Azure Synapse Analytics: [Automated ML Tutorial](./spark/../apache-spark-autoscale.md) 
-- Run SparkML experiments: [Apache SparkML Tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Run Automated ML experiments using Azure Machine Learning and Azure Synapse Analytics: [Automated ML Tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Run SparkML experiments: [Apache SparkML Tutorial](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - View the default libraries: [Azure Synapse Analytics runtime](../spark/apache-spark-version-support.md)
