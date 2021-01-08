@@ -70,7 +70,7 @@ Without the use of any custom helper classes, you can represent a twin's propert
 
 The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object directly. You may still want to build the list of properties using a `Dictionary<string, object>`, which can then be added to the twin object as its `CustomProperties` directly.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_helper":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 >[!NOTE]
 > `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateOrReplaceDigitalTwinAsync()` call. For example:

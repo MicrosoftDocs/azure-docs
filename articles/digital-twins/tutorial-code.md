@@ -78,7 +78,7 @@ To begin, open the file *Program.cs* in any code editor. You will see a minimal 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="A snippet of sample code. There is one 'using System;' statement, a namespace called DigitalTwinsCodeTutorial; a class in the namespace called Program; and a Main method in the class with a standard signature of 'static void Main(string[] args)'. The main method contains a Hello World print statement.":::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="A snippet of sample code. There is one 'using System;' statement, a namespace called DigitalTwinsCodeTutorial; a class in the namespace called Program; and a Main method in the class with a standard signature of 'static void Main(string[] args)'. The main method contains a Hello World print statement." lightbox="media/tutorial-code/starter-template.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -227,7 +227,7 @@ Then, add the following code to the end of the `Main` method to call the `ListRe
 
 In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created in an output statement that looks like this:
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Program output, showing a message that says 'Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2'":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Program output, showing a message that says 'Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2'" lightbox="media/tutorial-code/list-relationships.png":::
 
 ### Query digital twins
 

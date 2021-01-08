@@ -108,7 +108,7 @@ List models:
 
 Create twins:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_helper":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 Query twins and loop through results:
 
@@ -140,7 +140,7 @@ The `BasicDigitalTwin` helper class also gives you access to properties defined 
 
 Using the `BasicDigitalTwin` class, you can prepare data for creating a twin instance:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_helper":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 The code above is equivalent to the following "manual" variant:
 

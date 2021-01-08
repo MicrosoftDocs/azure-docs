@@ -204,11 +204,11 @@ For example, consider a scenario in which *Buildings* contain *Floors* and *Floo
 
 You can **combine** any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
 
-* **Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator**
+* Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator
     :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples1":::
-* **Get twins that have a relationship named *Contains* with another twin that has an ID of *id1***
+* Get twins that have a relationship named *Contains* with another twin that has an ID of *id1*
     :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples2":::
-* **Get all the rooms of this room model that are contained by *floor11***
+* Get all the rooms of this room model that are contained by *floor11*
     :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="OtherExamples3":::
 
 ## Run queries with the API
