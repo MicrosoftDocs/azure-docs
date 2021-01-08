@@ -12,7 +12,7 @@ Each request requires an authorization header. This table illustrates which head
 
 | Supported authorization headers | Speech-to-text | Text-to-speech |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Yes | No |
+| Ocp-Apim-Subscription-Key | Yes | Yes |
 | Authorization: Bearer | Yes | Yes |
 
 When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key. For example:

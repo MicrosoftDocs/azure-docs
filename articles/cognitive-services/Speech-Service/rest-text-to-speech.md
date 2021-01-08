@@ -71,7 +71,10 @@ This table lists required and optional headers for text-to-speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
+| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+
+
 
 ### Request body
 
@@ -85,7 +88,7 @@ This request only requires an authorization header.
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### Sample response
