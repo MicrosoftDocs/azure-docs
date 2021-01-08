@@ -159,7 +159,7 @@ practices to make credentials more secure.
 * Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. While this will not
     compromise your cloud infrastructure, your cloud accounts will not protect these components from on-premises compromise.
 
-*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization#enforcecloudpasswordpolicyforpasswordsyncedusers).
+*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## Provision User Access from the Cloud
 
@@ -305,7 +305,7 @@ monitor access to your business-critical applications and resources.
 
    * You can [integrate on-premises UEBA from Azure ATP](https://docs.microsoft.com/defender-for-identity/install-step2). MCAS reads signals from Azure AD Identity Protection. 
 
-* **Emergency access accounts activity**: Any access using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and [alerts](../roles/security-emergency-access#monitor-sign-in-and-audit-logs.md) created for investigations. This monitoring must include: 
+* **Emergency access accounts activity**: Any access using [emergency access accounts](../roles/security-emergency-access.md) should be monitored and alerts created for investigations. This monitoring must include: 
 
    * Sign-ins. 
 
