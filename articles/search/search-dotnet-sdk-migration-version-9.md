@@ -10,10 +10,11 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # Upgrade to Azure Search .NET SDK version 9
 
-If you're using version 7.0-preview or older of the [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 9.
+If you're using version 7.0-preview or older of the [Azure Search .NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 9.
 
 > [!NOTE]
 > If you wish to use version 8.0-preview to evaluate features that are not generally available yet, you can also follow the instructions in this article to upgrade to 8.0-preview from prior versions.

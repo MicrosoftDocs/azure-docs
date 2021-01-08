@@ -74,7 +74,7 @@ Use the Blockchain Workbench application to manage users and organizations that 
 1. Select the member tile to display a list of the current members.
 1. Select **Add members**.
 
-    ![Add members](./media/manage-users/application-add-members.png)
+    ![Screenshot shows the application membership window with the Add a member button highlighted.](./media/manage-users/application-add-members.png)
 
 1. Search for the user's name.  Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [Add Azure AD users](#add-azure-ad-users).
 

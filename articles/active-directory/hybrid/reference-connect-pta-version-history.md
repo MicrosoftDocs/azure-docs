@@ -51,15 +51,10 @@ Here are related topics:
 ### Release status 
 1/31/2018: Released for download  
 ### Fixed issues 
-
 - Fixed a bug that caused some memory leaks in the agent. 
 - Updated the Azure Service Bus version, which includes a bug fix for connector timeout issues. 
- 
-## 1.5.405.0 
-### Release status 
-11/26/2017: Released for download  
 ### New features and improvements 
-- Added support for websocket based connections between the agent and Azure AD services to improve connection resiliency 
+- Added support for websocket based connections between the agent and Azure AD services to improve connection resiliency
 
 ## 1.5.402.0 
 ### Release status 

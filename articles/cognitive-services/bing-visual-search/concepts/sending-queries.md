@@ -15,11 +15,16 @@ ms.author: aahi
 
 # Sending search queries to the Bing Visual Search API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object. 
 
 You can get insights about an image in three ways:
 
-- Using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
+- Using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
 - Sending the URL of an image.
 - Uploading an image (in binary format).
 

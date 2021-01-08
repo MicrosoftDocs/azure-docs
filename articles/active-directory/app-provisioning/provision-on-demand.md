@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ---
@@ -23,12 +23,17 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 ## How to use on-demand provisioning
 
 1. Sign in to the **Azure portal**.
-2. Go to **All services** > **Enterprise applications**.
-3. Select your application, and then go to the provisioning configuration page.
-4. Configure provisioning by providing your admin credentials.
-5. Select **Provision on demand**.
-6. Search for a user by first name, last name, display name, user principal name, or email address.
-7. Select **Provision** at the bottom of the page.
+1. Go to **All services** > **Enterprise applications**.
+1. Select your application, and then go to the provisioning configuration page.
+1. Configure provisioning by providing your admin credentials.
+1. Select **Provision on demand**.
+1. Search for a user by first name, last name, display name, user principal name, or email address.
+   > [!NOTE]
+   > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
+   > For Workday scenario, please provide "WID" of the user in Workday. 
+   > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
+ 
+1. Select **Provision** at the bottom of the page.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand.":::
 
@@ -42,9 +47,9 @@ The provisioning service attempts to authorize access to the target application 
 
 #### Troubleshooting tips
 
-* Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target application. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
+* Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target application. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](../saas-apps/tutorial-list.md). 
 * Make sure that the target application supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
-* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure Active Directory (Azure AD) provisioning service expects. Have a look at an [example request](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure Active Directory (Azure AD) provisioning service expects. Have a look at an [example request](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### Step 2: Import user
 
@@ -71,7 +76,7 @@ The **View details** section shows the properties of the user that were imported
 
 ### Step 3: Determine if user is in scope
 
-Next, the provisioning service determines whether the user is in [scope](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) for provisioning. The service considers aspects such as:
+Next, the provisioning service determines whether the user is in [scope](./how-provisioning-works.md#scoping) for provisioning. The service considers aspects such as:
 
 * Whether the user is assigned to the application.
 * Whether scope is set to **Sync assigned** or **Sync all**.
@@ -89,8 +94,8 @@ The **View details** section shows the scoping conditions that were evaluated. Y
 
 #### Troubleshooting tips
 
-* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) with a non-integer value.
-* If the user doesn't have the necessary role, review the [tips for provisioning users assigned to the default access role](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a non-integer value.
+* If the user doesn't have the necessary role, review the [tips for provisioning users assigned to the default access role](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### Step 4: Match user between source and target
 
@@ -124,7 +129,7 @@ The **View details** section displays the attributes that were modified in the t
 
 #### Troubleshooting tips
 
-* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) for common failures.
+* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
 
 ## Frequently asked questions
 
@@ -139,10 +144,10 @@ There are currently a few known limitations to on-demand provisioning. Post your
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
 
-* Workday, Amazon Web Services (AWS), and SuccessFactors applications don't support on-demand provisioning. 
+* Amazon Web Services (AWS) application does not support on-demand provisioning. 
 * On-demand provisioning of groups and roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
 
 ## Next steps
 
-* [Troubleshooting provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Troubleshooting provisioning](./application-provisioning-config-problem.md)

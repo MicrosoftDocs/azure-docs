@@ -11,9 +11,14 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Tutorial: Single-page web app
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
@@ -47,7 +52,7 @@ The tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or even image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
-In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](tutorial-bing-entities-search-single-page-app-source.md). Copy and paste this code into a text editor and save it as `bing.html`.
+In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](). Copy and paste this code into a text editor and save it as `bing.html`.
 
 > [!NOTE]
 > This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
@@ -395,7 +400,7 @@ Errors are handled by calling `renderErrorMessage()` with any details known abou
 
 ## Displaying search results
 
-The Bing Entity Search API [requires you to display results in a specified order](use-display-requirements.md). Since the API may return two different kinds of responses, it is not enough to iterate through the top level `Entities` or `Places` collection in the JSON response and display those results. (If you want only one type of result, use the `responseFilter` query parameter.)
+The Bing Entity Search API [requires you to display results in a specified order](../bing-web-search/use-display-requirements.md). Since the API may return two different kinds of responses, it is not enough to iterate through the top level `Entities` or `Places` collection in the JSON response and display those results. (If you want only one type of result, use the `responseFilter` query parameter.)
 
 Instead, we use the `rankingResponse` collection in the search results to order the results for display. This object refers to items in the `Entitiess` and/or `Places` collections.
 

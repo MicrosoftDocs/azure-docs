@@ -27,7 +27,7 @@ When you want to update the credentials for an AKS cluster, you can choose to ei
 * Update the credentials for the existing service principal.
 * Create a new service principal and update the cluster to use these new credentials. 
 
-> ![WARNING]
+> [!WARNING]
 > If you choose to create a *new* service principal, updating a large AKS cluster to use these credentials may take a long time to complete.
 
 ### Check the expiration date of your service principal
@@ -100,7 +100,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 For small and medium size clusters, it takes a few moments for the service principal credentials to be updated in the AKS.

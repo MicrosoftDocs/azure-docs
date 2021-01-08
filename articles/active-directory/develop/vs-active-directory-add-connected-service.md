@@ -5,7 +5,7 @@ author: ghogen
 manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
@@ -67,5 +67,5 @@ When you add the connected service the wizard, Visual Studio adds Azure Active D
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

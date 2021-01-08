@@ -237,7 +237,7 @@ We hope you love hacking node.js and Twilio on Azure!
 [purchase_phone]: https://www.twilio.com/console/phone-numbers/search
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: https://ahoy.twilio.com/azure
-[azure_new_site]: app-service/app-service-web-get-started-nodejs.md
+[azure_new_site]: app-service/quickstart-nodejs.md
 [twilio_console]: https://www.twilio.com/console
 [npm]: https://npmjs.org
 [express]: https://expressjs.com

@@ -111,7 +111,7 @@ In this case, there is only one element in the list, the virtual network from th
 ## Specify scale set properties
 Scale sets have many properties for customizing the VMs in the scale set. For a full list of these properties, see the [template reference](/azure/templates/microsoft.compute/virtualmachinescalesets). For this tutorial, only a few commonly used properties are set.
 ### Supply VM size and capacity
-The scale set needs to know what size of VM to create ("sku name") and how many such VMs to create ("sku capacity"). To see which VM sizes are available, see the [VM Sizes documentation](../virtual-machines/windows/sizes.md).
+The scale set needs to know what size of VM to create ("sku name") and how many such VMs to create ("sku capacity"). To see which VM sizes are available, see the [VM Sizes documentation](../virtual-machines/sizes.md).
 
 ```json
        "sku": {

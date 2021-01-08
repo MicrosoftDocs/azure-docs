@@ -162,7 +162,7 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Identity | The identity from the token that was presented when you made the request. It can be a user account, system account, or service principal. |
 | Level | Provides the type of message. For audit, it's always *Informational*. |
 | Location | Provides the location of the sign-in activity. |
-| Properties | Lists all the properties that are associated with sign-ins. For more information, see [Microsoft Graph API Reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). This schema uses the same attribute names as the sign-in resource, for readability.
+| Properties | Lists all the properties that are associated with sign-ins. For more information, see [Microsoft Graph API Reference](/graph/api/resources/signin?view=graph-rest-beta). This schema uses the same attribute names as the sign-in resource, for readability.
 
 ## Next steps
 

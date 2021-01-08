@@ -3,7 +3,7 @@ title: Review access of an access package in Azure AD entitlement management
 description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory

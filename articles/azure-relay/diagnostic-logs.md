@@ -40,7 +40,7 @@ To enable diagnostics logs, do the following steps:
         ![Sample diagnostic settings](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Select **Save** on the toolbar to save the settings.
 
-The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane. For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane. For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## Schema for hybrid connections events

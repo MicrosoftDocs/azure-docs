@@ -5,9 +5,31 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
+ms.date: 09/23/2020
 ---
-# Changelog #
+# Changelog
+
+## 2.3.6 (Official Update September 21 2020)
+
+### Features 2.3.6
+
+Added audio-only support for the azureHtml5JS tech (DASH)
+Support late start of live transcription
+Support language change in live transcription
+
+### Bug Fixes 2.3.6
+
+When using "playsinline" in HLS playbacks on Apple devices, clicking on the "LIVE" button causes the video to restart
+The AMP poster image sometimes causes an exception
+The volume button was missing when playing HLS FairPlay
+[Accessibility] Tooltips not defined for buttons when the keyboard is used
+[Accessibility] The luminosity ratio is less than 1.3:1 for the progress bar
+[Accessibility] The keyboard focus sometimes does not return to the video quality button
+[Accessibility] Controls are not visible on the Video screen, preventing the Narrator from finding them
+
+### Changes 2.3.6
+
+Return meaningful KeyDelivery errors to calling applications
 
 ## 2.3.5 (Official Update June 1 2020)
 

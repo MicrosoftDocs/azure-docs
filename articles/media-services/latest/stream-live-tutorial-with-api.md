@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn how to stream live with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 06/13/2019
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 

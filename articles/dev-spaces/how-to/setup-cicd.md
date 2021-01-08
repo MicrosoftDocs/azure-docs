@@ -12,6 +12,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 
 # Use CI/CD with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 This article guides you through setting up continuous integration/continuous deployment (CI/CD) to Azure Kubernetes Service (AKS) with Dev Spaces enabled. CI/CD to AKS allows app updates to be automatically deployed whenever committed code is pushed to your source repository. Using CI/CD in conjunction with a Dev Spaces enabled cluster is useful because it can keep a baseline of the application up-to-date for the team to work with.
 
 ![Example CI/CD diagram](../media/common/ci-cd-simple.png)
@@ -19,7 +21,7 @@ This article guides you through setting up continuous integration/continuous dep
 Although this article guides you with Azure DevOps, the same concepts would apply to CI/CD systems like Jenkins, TeamCity, etc.
 
 ## Prerequisites
-* [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled](../get-started-netcore.md)
+* Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled
 * [Azure Dev Spaces CLI installed](upgrade-tools.md)
 * [Azure DevOps organization with a project](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
@@ -181,5 +183,7 @@ Here is an example namespace structure that supports feature development, the 'd
 
 ## Next steps
 
+Learn more about how Azure Dev Spaces works.
+
 > [!div class="nextstepaction"]
-> [Learn about team development using Azure Dev Spaces](../team-development-netcore.md)
+> [How Azure Dev Spaces works](../how-dev-spaces-works.md)

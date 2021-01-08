@@ -23,7 +23,7 @@ This article provides an overview of the workflow processes that occur when you 
 
 The following diagram presents the architecture of Azure resources.
 
-![Azure workflow](./media/cloud-services-workflow-process/workflow.jpg)
+:::image type="content" source="./media/cloud-services-workflow-process/workflow.jpg" alt-text="<alt The image about Azure workflow>":::
 
 ## Workflow basics
    
@@ -48,7 +48,7 @@ The following diagram presents the architecture of Azure resources.
 2. Monitoring all its child processes.
 3. Raising the StatusCheck event on the role host process.
 
-**F**. IISConfigurator runs if the role is configured as a Full IIS web role (it will not run for SDK 1.2 HWC roles). It is responsible for:
+**F**. IISConfigurator runs if the role is configured as a Full IIS web role. It is responsible for:
 
 1. Starting the standard IIS services
 2. Configuring the rewrite module in the web configuration
@@ -63,11 +63,9 @@ The following diagram presents the architecture of Azure resources.
 
 **I**. WaWorkerHost is the standard host process for normal worker roles. This host process  hosts all the role’s DLLs and entry point code, such as OnStart and Run.
 
-**J**. WaWebHost is the standard host process for web roles if they are configured to use the SDK 1.2-compatible Hostable Web Core (HWC). Roles can enable the HWC mode by removing the element from the service definition (.csdef). In this mode, all the service’s code and DLLs run from the WaWebHost process. IIS (w3wp) is not used, and there are no AppPools configured in IIS Manager because IIS is hosted inside WaWebHost.exe.
+**J**. WaIISHost is the host process for role entry point code for web roles that use Full IIS. This process loads the first DLL that is found that uses the **RoleEntryPoint** class and executes the code from this class (OnStart, Run, OnStop). Any **RoleEnvironment** events (such as StatusCheck and Changed) that are created in the RoleEntryPoint class are raised in this process.
 
-**K**. WaIISHost is the host process for role entry point code for web roles that use Full IIS. This process loads the first DLL that is found that uses the **RoleEntryPoint** class and executes the code from this class (OnStart, Run, OnStop). Any **RoleEnvironment** events (such as StatusCheck and Changed) that are created in the RoleEntryPoint class are raised in this process.
-
-**L**. W3WP is the standard IIS worker process that is used if the role is configured to use Full IIS. This runs the AppPool that is configured from IISConfigurator. Any RoleEnvironment events (such as StatusCheck and Changed) that are created here are raised in this process. Note that RoleEnvironment events will fire in both locations (WaIISHost and w3wp.exe) if you subscribe to events in both processes.
+**K**. W3WP is the standard IIS worker process that is used if the role is configured to use Full IIS. This runs the AppPool that is configured from IISConfigurator. Any RoleEnvironment events (such as StatusCheck and Changed) that are created here are raised in this process. Note that RoleEnvironment events will fire in both locations (WaIISHost and w3wp.exe) if you subscribe to events in both processes.
 
 ## Workflow processes
 
@@ -81,8 +79,7 @@ The following diagram presents the architecture of Azure resources.
 8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of `<Sites>` elements defined for the service.
 9. WaHostBootstrapper will start the host process depending on the role type:
     1. **Worker Role**: WaWorkerHost.exe is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation (if InputEndpoints are defined). WaHostBootsrapper then goes into a loop of checking the role status.
-    1. **SDK 1.2 HWC Web Role**: WaWebHost is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaWebHost issues a warmup request (GET /do.rd_runtime_init). All web requests are sent to WaWebHost.exe. WaHostBootsrapper then goes into a loop of checking the role status.
-    1. **Full IIS Web Role**: aIISHost is started. WaHostBootstrapper executes the OnStart() method. After it returns, it starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaHostBootsrapper then goes into a loop of checking the role status.
+    2. **Full IIS Web Role**: aIISHost is started. WaHostBootstrapper executes the OnStart() method. After it returns, it starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaHostBootsrapper then goes into a loop of checking the role status.
 10. Incoming web requests to a Full IIS web role triggers IIS to start the W3WP process and serve the request, the same as it would in an on-premises IIS environment.
 
 ## Log File locations
@@ -97,10 +94,6 @@ This log contains status updates and heartbeat notifications and is updated ever
 **WaHostBootstrapper**
 
 `C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
- 
-**WaWebHost**
-
-`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
@@ -117,7 +110,3 @@ This log contains status updates and heartbeat notifications and is updated ever
 **Windows Event logs**
 
 `D:\Windows\System32\Winevt\Logs`
- 
-
-
-

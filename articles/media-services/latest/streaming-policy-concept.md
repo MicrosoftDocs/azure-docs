@@ -4,15 +4,15 @@ title: Streaming Policies in Azure Media Services | Microsoft Docs
 description: This article gives an explanation of what Streaming Policies are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2019
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 # Streaming Policies
@@ -37,7 +37,7 @@ The following "Decision tree" helps you choose a predefined Streaming Policy for
 
 Click the image to view it full size.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![Diagram showing a decision tree that is designed to help you choose a predefined Streaming Policy for your scenario.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 If encrypting your content, you need to create a [Content Key Policy](content-key-policy-concept.md), the **Content Key Policy** is not needed for clear streaming or downloading. 
 

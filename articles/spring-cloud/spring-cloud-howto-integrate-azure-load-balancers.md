@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Integrate Azure Spring Cloud with Azure Load Balance Solutions
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 Azure Spring Cloud supports microservices on Azure.  Increasing business can require multiple data centers with management of multiple instances of Azure Spring Cloud.
 
 Azure already provides different load-balance solutions. There are three options to integrate Azure Spring Cloud with Azure load-balance solutions:
@@ -21,10 +23,10 @@ Azure already provides different load-balance solutions. There are three options
 
 ## Prerequisites
 
-* Azure Spring Cloud: [How to create an Azure spring cloud service](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
-* Azure Traffic Manager: [How to create a traffic manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Azure App Gateway: [How to create an application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Azure Front Door: [How to create a front door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Azure Spring Cloud: [How to create an Azure spring cloud service](./spring-cloud-quickstart.md)
+* Azure Traffic Manager: [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure App Gateway: [How to create an application gateway](../application-gateway/quick-create-portal.md)
+* Azure Front Door: [How to create a front door](../frontdoor/quickstart-create-front-door.md)
 
 ## Integrate Azure Spring Cloud with Azure Traffic Manager
 
@@ -49,7 +51,7 @@ To finish the configuration:
 
 ## Integrate Azure Spring Cloud with Azure App Gateway
 
-To integrate with azure spring cloud service, complete the following configurations:
+To integrate with Azure Spring Cloud service, complete the following configurations:
 
 ### Configure Backend Pool
 1. Specify **Target type** as *IP address* or *FQDN*.
@@ -86,6 +88,6 @@ To integrate with Azure Spring Cloud service and configure backend pool,
     ![Front Door 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## Next steps
-* [How to create a traffic manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [How to create an application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [How to create a front door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [How to create an application gateway](../application-gateway/quick-create-portal.md)
+* [How to create a front door](../frontdoor/quickstart-create-front-door.md)

@@ -9,6 +9,7 @@ ms.date: 04/09/2020
 ---
 
 # How to monitor throughput or request unit usage of an operation in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The **Total Request Units** metric is used to get the request units usage for different types of operations. Later you can analyze which operations used most of the throughput. By default, the throughput data is aggregated at one-minute interval. However, you can change the aggregation unit by changing the time granularity option.
 

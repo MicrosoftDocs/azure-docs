@@ -25,23 +25,23 @@ If you use the routing feature of the Azure IoT Hub service to forward device me
 
 If you use the Azure Event Grid integration feature of the Azure IoT Hub service, then data requests must be performed by the tenant admin for each subscriber of these events. For more information, see [React to IoT Hub events by using Event Grid](iot-hub-event-grid.md).
 
-If you use the Azure Monitor integration feature of the Azure IoT Hub service to create diagnostic logs, then data requests must be performed by the tenant admin against the stored logs. For more information, see [Monitor the health of Azure IoT Hub](iot-hub-monitor-resource-health.md).
+If you use the Azure Monitor integration feature of the Azure IoT Hub service to create resource logs, then data requests must be performed by the tenant admin against the stored logs. For more information, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ## Deleting customer data
 
 Tenant administrators can use the IoT devices blade of the Azure IoT Hub extension in the Azure portal to delete a device, which deletes the data associated with that device.
 
-It is also possible to perform delete operations for devices using REST APIs. For more information, see [Service - Delete Device](/rest/api/iothub/service/registrymanager/deletedevice).
+It is also possible to perform delete operations for devices using REST APIs. For more information, see [Service - Delete Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice).
 
 ## Exporting customer data
 
 Tenant administrators can utilize copy and paste within the IoT devices pane of the Azure IoT Hub extension in the Azure portal to export data associated with a device.
 
-It is also possible to perform export operations for devices using REST APIs. For more information, see [Service - Get Device](/rest/api/iothub/service/registrymanager/getdevice).
+It is also possible to perform export operations for devices using REST APIs. For more information, see [Service - Get Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice).
 
 > [!NOTE]
 > When you use Microsoft's enterprise services, Microsoft generates some information, known as system-generated logs. Some Azure IoT Hub system-generated logs are not accessible or exportable by tenant administrators. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices.
 
 ## Links to additional documentation
 
-Full documentation for Azure IoT Hub Service APIs is located at [IoT Hub Service APIs](https://docs.microsoft.com/rest/api/iothub/service/configuration).
+Full documentation for Azure IoT Hub Service APIs is located at [IoT Hub Service APIs](/rest/api/iothub/service/configuration).

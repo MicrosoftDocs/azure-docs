@@ -160,8 +160,8 @@ Here are a few examples of normalization automatically performed on the transcri
 
 ## Next Steps
 
-- [Prepare and test your data](how-to-custom-speech-test-data.md)
+- [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 - [Inspect your data](how-to-custom-speech-inspect-data.md)
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Deploy your model](how-to-custom-speech-deploy-model.md)
+- [Deploy your model](./how-to-custom-speech-train-model.md)

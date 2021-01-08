@@ -15,11 +15,11 @@ You use the Azure CLI and the Azure portal to add the resizing functionality to 
 
 # [\.NET v12 SDK](#tab/dotnet)
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot that shows a published web app in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Screenshot that shows a published web app in a browser for the \.NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -296,7 +296,7 @@ Click the **Upload photos** region to select and upload a file. You can also dra
 
 Notice that after the uploaded image disappears, a copy of the uploaded image is displayed in the **Generated Thumbnails** carousel. This image was resized by the function, added to the *thumbnails* container, and downloaded by the web client.
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot that shows a published web app titled "ImageResizer" in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 

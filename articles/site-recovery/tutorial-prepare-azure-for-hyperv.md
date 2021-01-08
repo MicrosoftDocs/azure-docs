@@ -94,7 +94,7 @@ The virtual network takes a few seconds to create. After it's created, you'll se
 
 Learn about:
 - [Azure networks](../virtual-network/virtual-networks-overview.md)
-- [Managed disks](../virtual-machines/windows/managed-disks-overview.md)
+- [Managed disks](../virtual-machines/managed-disks-overview.md)
 
 
 

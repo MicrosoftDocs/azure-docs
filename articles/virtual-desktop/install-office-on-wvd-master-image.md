@@ -1,10 +1,7 @@
 ---
 title: Install Office on a master VHD image - Azure
 description: How to install and customize Office on a Windows Virtual Desktop master image to Azure.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
@@ -53,7 +50,7 @@ Here's what this sample configuration XML won't do:
 
 The Office Deployment Tool contains setup.exe. To install Office, run the following command in a command line:
 
-```batch
+```cmd
 Setup.exe /configure configuration.xml
 ```
 
@@ -76,7 +73,7 @@ The following XML sample will install the Monthly Enterprise Channel release.
   <RemoveMSI/>
   <Updates Enabled="FALSE"/>
   <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Logging Level="Standard" Path="%temp%\WVDOfficeInstall" />
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
   <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
@@ -87,7 +84,7 @@ The following XML sample will install the Monthly Enterprise Channel release.
 
 After installing Office, you can update the default Office behavior. Run the following commands individually or in a batch file to update the behavior.
 
-```batch
+```cmd
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
 rem Must be executed with default registry hive mounted.
@@ -118,37 +115,37 @@ Here's how to install OneDrive in per-machine mode:
 
 3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
 
-    ```batch
+    ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
 4. Run this command from an elevated command prompt to set the **AllUsersInstall** registry value:
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
 5. Run this command to install OneDrive in per-machine mode:
 
-    ```batch
+    ```cmd
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Run this command to configure OneDrive to start at sign in for all users:
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Enable **Silently configure user account** by running the following command.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
 8. Redirect and move Windows known folders to OneDrive by running the following command.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 

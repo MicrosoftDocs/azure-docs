@@ -4,6 +4,7 @@ description: Learn about packaging an Azure Service Fabric application and how t
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-csharp
 ---
 # Package an application
 

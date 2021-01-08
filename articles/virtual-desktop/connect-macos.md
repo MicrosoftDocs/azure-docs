@@ -1,10 +1,7 @@
 ---
 title: Connect to Windows Virtual Desktop from macOS - Azure
 description: How to connect to Windows Virtual Desktop using the macOS client.
-services: virtual-desktop
-author: heidilohr
-
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
@@ -21,7 +18,7 @@ You can access Windows Virtual Desktop resources from your macOS devices with ou
 
 ## Install the client
 
-To get started, [download](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) and install the client on your macOS device.
+To get started, [download](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) and install the client on your macOS device.
 
 ## Subscribe to a feed
 
@@ -33,6 +30,7 @@ To subscribe to a feed:
 2. Enter the Feed URL. This can be a URL or email address:
    - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
+   - To connect through the US Gov portal, use <https://rdweb.wvd.azure.us/api/arm/feeddiscovery>.
 3. Select **Add**.
 4. Sign in with your user account when prompted.
 

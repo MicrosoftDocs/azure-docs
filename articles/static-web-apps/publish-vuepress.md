@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 ---
 
@@ -73,7 +73,7 @@ Create a VuePress app from the Command Line Interface (CLI):
     echo 'node_modules' > .gitignore
     ```
 
-1. Initialize a git repo.
+1. Initialize a Git repo.
 
    ```bash
     git init

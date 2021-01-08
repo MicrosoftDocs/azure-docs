@@ -22,7 +22,7 @@ Direct Line Speech offers the highest levels of customization and sophistication
 
 ## Getting started with Direct Line Speech
 
-The first steps for creating a voice assistant using Direct Line Speech are to [get a speech subscription key](get-started.md), create a new bot associated with that subscription, and connect the bot to the Direct Line Speech channel.
+The first steps for creating a voice assistant using Direct Line Speech are to [get a speech subscription key](overview.md#try-the-speech-service-for-free), create a new bot associated with that subscription, and connect the bot to the Direct Line Speech channel.
 
    ![Conceptual diagram of the Direct Line Speech orchestration service flow](media/voice-assistants/overview-directlinespeech.png "The Speech Channel flow")
 
@@ -32,9 +32,9 @@ We also offer quickstarts designed to have you running code and learning the API
 
 | Quickstart | Platform | API reference |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Browse](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [Browse](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [Browse](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## Sample code
 
@@ -45,21 +45,21 @@ Sample code for creating a voice assistant is available on GitHub. These samples
 
 ## Customization
 
-Voice assistants built using Speech service can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
+Voice assistants built using Speech service can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](./custom-keyword-basics.md).
 
 > [!NOTE]
-> Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
+> Customization options vary by language/locale (see [Supported languages](./language-support.md)).
 
-Direct Line Speech and its associated functionality for voice assistants are an ideal supplement to the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
+Direct Line Speech and its associated functionality for voice assistants are an ideal supplement to the [Virtual Assistant Solution and Enterprise Template](/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
 
 ## Reference docs
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Speech SDK](./speech-sdk.md)
+* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)
-* [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Create and deploy a basic bot](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Get the Virtual Assistant Solution and Enterprise Template](https://github.com/Microsoft/AI)

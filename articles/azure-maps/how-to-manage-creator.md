@@ -1,22 +1,27 @@
 ---
-title: Manage Azure Maps Creator
-description: In this article, you'll learn how to manage Azure Maps Creator.
+title: Manage Microsoft Azure Maps Creator (Preview)
+description: In this article, you'll learn how to manage Microsoft Azure Maps Creator (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Manage Azure Maps Creator
+# Manage Azure Maps Creator (Preview) 
+
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
-## Create Creator Resource
+## Create Creator (Preview) Resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
@@ -47,7 +52,7 @@ This article takes you through the steps to create and delete a Creator resource
    >[!NOTE]
    >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by clicking Azure Maps Account.
 
-## Delete Creator Resource
+## Delete Creator (Preview) Resource
 
 To delete the Creator resource, navigate to your Azure Maps account. Select **Overview** under **Creator**. Click the **Delete** button.
 
@@ -62,19 +67,19 @@ Click the **Delete** button and type your Creator name to confirm deletion. Once
 
 ## Authentication
 
-Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
+Creator (Preview) inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
 
-Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Access to Creator services
 
-Creator services are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services (Preview) are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
 Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
 ## Next steps
 
-Introduction to Creator for indoor mapping:
+Introduction to Creator services (Preview) for indoor mapping:
 
 > [!div class="nextstepaction"]
 > [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
@@ -91,7 +96,7 @@ Introduction to Creator for indoor mapping:
 > [!div class="nextstepaction"]
 > [Feature State set](creator-indoor-maps.md#feature-statesets)
 
-Learn how to use the Creator to render indoor maps in your application:
+Learn how to use the Creator services (Preview) to render indoor maps in your application:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Creator tutorial](tutorial-creator-indoor-maps.md)

@@ -13,7 +13,7 @@ ms.date: 06/05/2020
 ---
 # Latent Dirichlet Allocation module
 
-This article describes how to use the Latent Dirichlet Allocation module in Azure Machine Learning designer (preview), to group otherwise unclassified text into categories. 
+This article describes how to use the Latent Dirichlet Allocation module in Azure Machine Learning designer, to group otherwise unclassified text into categories. 
 
 Latent Dirichlet Allocation (LDA) is often used in natural language processing to find texts that are similar. Another common term is *topic modeling*.
 
@@ -70,7 +70,7 @@ This module requires a dataset that contains a column of text, either raw or pre
     + Values in the feature topic matrix will be represented as a probability where `P(word|topic)`.
 
     > [!NOTE] 
-    > In Azure Machine Learning designer (preview), the scikit-learn library no longer supports unnormalized *doc_topic_distr* output from version 0.19. In this module, the **Normalize** parameter can only be applied to *feature Topic matrix* output. *Transformed dataset* output is always normalized.
+    > In Azure Machine Learning designer, the scikit-learn library no longer supports unnormalized *doc_topic_distr* output from version 0.19. In this module, the **Normalize** parameter can only be applied to *feature Topic matrix* output. *Transformed dataset* output is always normalized.
 
 7. Select the option **Show all options**, and then set it to **TRUE** if you want to set the following advanced parameters.
 

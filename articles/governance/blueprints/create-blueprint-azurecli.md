@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
@@ -25,10 +25,11 @@ To enable Azure CLI to manage blueprint definitions and assignments, the extensi
 This extension works wherever Azure CLI can be used, including
 [bash on Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (both
 standalone and inside the portal), the [Azure CLI Docker
-image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
+image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed,
-   follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+   follow
+   [these instructions](/cli/azure/install-azure-cli-windows).
 
 1. In your Azure CLI environment of choice, import it with the following command:
 
@@ -126,7 +127,7 @@ assignment on the resource group.
      > [!NOTE]
      > Use the filename _blueprint.json_ when importing your blueprint definitions.
      > This file name is used when calling
-     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
      The blueprint object is created in the default subscription by default. To specify the
      management group, use parameter **managementgroup**. To specify the subscription, use parameter

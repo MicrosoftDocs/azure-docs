@@ -2,6 +2,7 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
 
 ---
@@ -10,7 +11,7 @@ ms.date: 12/09/2019
 Azure Functions currently supports three versions of the runtime host: 1.x, 2.x, and 3.x. All three versions are supported for production scenarios.  
 
 > [!IMPORTANT]
-> Version 1.x is in maintenance mode and only supports development in the Azure portal or locally on Windows computers. Enhancements are provided only in later versions. 
+> Version 1.x is in maintenance mode and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. Enhancements are provided only in later versions. 
 
 This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
@@ -21,8 +22,6 @@ Starting with version 2.x, the runtime uses a language extensibility model, and 
 The following table indicates which programming languages are currently supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
-
-For more information, see [Supported languages](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
@@ -112,7 +111,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ##### Version 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 

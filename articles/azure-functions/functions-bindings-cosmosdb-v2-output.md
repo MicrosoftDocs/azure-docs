@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.custom: tracking-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Cosmos DB output binding for Azure Functions 2.x and higher
@@ -294,6 +294,29 @@ Here's the JavaScript code:
         address: context.bindings.myQueueItem.address
       });
 
+      context.done();
+    };
+```
+
+For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
+
+```javascript
+    module.exports = function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    
       context.done();
     };
 ```

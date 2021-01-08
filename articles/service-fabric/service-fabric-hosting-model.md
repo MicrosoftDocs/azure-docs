@@ -6,6 +6,7 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
+ms.custom: devx-track-csharp
 ---
 # Azure Service Fabric hosting model
 This article provides an overview of application hosting models provided by Azure Service Fabric, and describes the differences between the **Shared Process** and **Exclusive Process** models. It describes how a deployed application looks on a Service Fabric node, and the relationship between replicas (or instances) of the service and the service-host process.
@@ -24,19 +25,19 @@ To understand the hosting model, let's walk through an example. Let's say we hav
 Let's say we have a three-node cluster, and we create an *application* **fabric:/App1** of type 'MyAppType'. Inside this application **fabric:/App1**, we create a service **fabric:/App1/ServiceA** of type 'MyServiceType'. This service has two partitions (for example, **P1** and **P2**), and three replicas per partition. The following diagram shows the view of this application as it ends up deployed on a node.
 
 
-![Diagram of node view of deployed application][node-view-one]
+![Diagram that shows the view of this application as it ends up deployed on a node.][node-view-one]
 
 
 Service Fabric activated 'MyServicePackage', which started 'MyCodePackage', which is hosting replicas from both the partitions. All the nodes in the cluster have the same view, because we chose the number of replicas per partition to be equal to the number of nodes in the cluster. Let's create another service, **fabric:/App1/ServiceB**, in the application **fabric:/App1**. This service has one partition (for example, **P3**), and three replicas per partition. The following diagram shows the new view on the node:
 
 
-![Diagram of node view of deployed application][node-view-two]
+![Diagram that shows the new view on the node.][node-view-two]
 
 
 Service Fabric placed the new replica for partition **P3** of service **fabric:/App1/ServiceB** in the existing activation of 'MyServicePackage'. Now. let's create another application **fabric:/App2** of type 'MyAppType'. Inside **fabric:/App2**, create a service **fabric:/App2/ServiceA**. This service has two partitions (**P4** and **P5**), and three replicas per partition. The following diagram shows the new node view:
 
 
-![Diagram of node view of deployed application][node-view-three]
+![Diagram that shows the new node view.][node-view-three]
 
 
 Service Fabric activates a new copy of 'MyServicePackage', which starts a new copy of 'MyCodePackage'. Replicas from both partitions of service **fabric:/App2/ServiceA** (**P4** and **P5**) are placed in this new copy 'MyCodePackage'.
@@ -151,7 +152,7 @@ Now, let's say that we create an application, **fabric:/SpecialApp**. Inside **f
 On a given node, both of the services have two replicas each. Because we used the Exclusive Process model to create the services, Service Fabric activates a new copy of 'MyServicePackage' for each replica. Each activation of 'MultiTypeServicePackage' starts a copy of 'MyCodePackageA' and 'MyCodePackageB'. However, only one of 'MyCodePackageA' or 'MyCodePackageB' hosts the replica for which 'MultiTypeServicePackage' was activated. The following diagram shows the node view:
 
 
-![Diagram of the node view of deployed application][node-view-five]
+![Diagram that shows the node view.][node-view-five]
 
 
 In the activation of 'MultiTypeServicePackage' for the replica of partition **P1** of service **fabric:/SpecialApp/ServiceA**, 'MyCodePackageA' is hosting the replica. 'MyCodePackageB' is running. Similarly, in the activation of 'MultiTypeServicePackage' for the replica of partition **P3** of service **fabric:/SpecialApp/ServiceB**, 'MyCodePackageB' is hosting the replica. 'MyCodePackageA' is running. Hence, the greater the number of *CodePackages* (registering different *ServiceTypes*) per *ServicePackage*, the higher the redundant resource usage. 

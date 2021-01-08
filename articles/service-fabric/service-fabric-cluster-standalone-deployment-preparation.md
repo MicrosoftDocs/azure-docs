@@ -1,11 +1,8 @@
 ---
 title: Standalone Cluster Deployment Preparation 
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
 ---
 # Plan and prepare your Service Fabric Standalone cluster deployment
 
@@ -104,7 +101,7 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
    * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
      Under *properties* set
      *"fabricClusterAutoupgradeEnabled": false*
-   * Alternatively, if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
+   * Alternatively, if network internet access is limited to allowlisted domains, the domains below are required for automatic upgrade:
      go.microsoft.com
      download.microsoft.com
 

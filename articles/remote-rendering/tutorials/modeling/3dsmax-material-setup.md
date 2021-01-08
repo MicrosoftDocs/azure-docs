@@ -1,8 +1,8 @@
 ---
 title: Set up PBR materials in 3ds Max
 description: Explains how to set up physically based rendering materials in 3ds Max and export them into FBX format.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ---
@@ -16,6 +16,10 @@ In this tutorial, you'll learn how to:
 > * Assign materials with advanced lighting to objects in a scene.
 > * Handle instancing of objects and materials.
 > * Export a scene to FBX format, and select important options.
+
+> [!Note]
+> The procedure described in this tutorial works in 3ds Max 2019 and 3ds Max 2020.
+> A change in how 3ds Max 2021 exports bump maps means that normal maps will not be found by the conversion service if that version is used.
 
 Creating [physically based rendering (PBR) materials](../../overview/features/pbr-materials.md) in 3ds Max is a straightforward task. It's similar in many ways to PBR setup in other content-creation apps like Maya. This tutorial is a guide to basic PBR shader setup and FBX export for Azure Remote Rendering projects.
 
