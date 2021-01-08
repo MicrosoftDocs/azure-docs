@@ -179,7 +179,7 @@ The following table shows each of the supported roles and their ACL setting capa
 With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
 
 ```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
+$ctx = New-AzStorageContext -StorageAccountName "<storage-account-name>" -StorageAccountKey "<storage-account-key>"
 ```
 
 ### [Azure CLI](#tab/azure-cli)
