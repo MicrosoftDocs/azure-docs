@@ -46,6 +46,9 @@ Azure Database Migration Service is the preferred method for database migration 
 **Q. How does Azure Database Migration Service compare to the Azure Migrate offering?**
 Azure Migrate assists with migration of on-premises virtual machines to Azure IaaS. The service assesses migration suitability and performance-based sizing, and it provides cost estimates for running your on-premises virtual machines in Azure. Azure Migrate is useful for lift-and-shift migrations of on-premises VM-based workloads to Azure IaaS VMs. However, unlike Azure Database Migration Service, Azure Migrate isn’t a specialized database migration service offering for Azure PaaS relational database platforms such as Azure SQL Database or Azure SQL Managed Instance.
 
+**Q. Does Database Migration Service store customer data?**
+No. Database Migration Service does not store customer data.
+
 ## Setup
 
 **Q. What are the prerequisites for using Azure Database Migration Service?**
