@@ -193,6 +193,7 @@ VMs migrated using Site Recovery | Supported | If a VMware VM or physical machin
 Azure RBAC policies | Not supported | Azure role-based access control (Azure RBAC) policies on VMs are not replicated to the failover VM in target region.
 Extensions | Not supported | Extensions are not replicated to the failover VM in target region. It needs to be installed manually after failover.
 Proximity Placement Groups | Supported | Virtual machines located inside a Proximity Placement Group can be protected using Site Recovery.
+Tags  | Supported | User generated tags applied on source virtual machines are carried over to target virtual machines post test failover or failover.
 
 
 ## Replicated machines - disk actions
@@ -251,6 +252,7 @@ NVMe disks | Not supported
 Azure shared disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
+Tags  | User generated tags are replicated every 24 hours.
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
@@ -297,6 +299,7 @@ Accelerated networking | Supported | Accelerated networking must be enabled on s
 Palo Alto Network Appliance | Not supported | With third party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions and outbound connectivity to be available. But the appliance does not let any outbound activity to be configured inside the Virtual Machine.
 IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are also not supported. Please free up the subnet of the IPv6 range before any Site Recovery operation.
 Private link access to Site Recovery service | Supported | [Learn more](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Tags  | Supported | User generated tags on NICs are replicated every 24 hours.
 
 
 

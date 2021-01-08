@@ -19,29 +19,29 @@ ms.service: digital-twins
 
 Azure Digital Twins is driven with data from IoT devices and other sources. A common source for device data to use in Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md).
 
-The process for ingesting data into Azure Digital Twins is to set up an external compute resource, such as an [Azure function](../azure-functions/functions-overview.md), that receives the data and uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md) accordingly. 
+The process for ingesting data into Azure Digital Twins is to set up an external compute resource, such as a function that's made by using [Azure Functions](../azure-functions/functions-overview.md). The function receives the data and uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md) accordingly. 
 
-This how-to document walks through the process for writing an Azure function that can ingest telemetry from IoT Hub.
+This how-to document walks through the process for writing a function that can ingest telemetry from IoT Hub.
 
 ## Prerequisites
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **An Azure Function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md). 
+* **A function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up a function in Azure for processing data*](how-to-create-azure-function.md). 
 * **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
 
 ### Example telemetry scenario
 
-This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using an Azure function. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
+This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using a function in Azure. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
 * A thermometer device in IoT Hub, with a known device ID
 * A digital twin to represent the device, with a matching ID
 
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermostat device, an Azure function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
+Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart, an IoT Hub device sends Temperature telemetry through IoT Hub to an Azure Function, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart, an IoT Hub device sends Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
@@ -94,9 +94,9 @@ Output of a successful twin create command should look like this:
 }
 ```
 
-## Create an Azure function
+## Create a function
 
-This section uses the same Visual Studio startup steps and Azure function skeleton from [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+This section uses the same Visual Studio startup steps and function skeleton from [*How-to: Set up a function for processing data*](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 In the steps that follow, you'll add specific code to it for processing IoT telemetry events from IoT Hub.  
 
@@ -124,11 +124,11 @@ await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
-### Update your Azure function code
+### Update your function code
 
-Now that you understand the code from the earlier samples, open your Azure function from the [*Prerequisites*](#prerequisites) section in Visual Studio. (If you don't have an Azure function, visit the link in the prerequisites to create one now).
+Now that you understand the code from the earlier samples, open your function from the [*Prerequisites*](#prerequisites) section in Visual Studio. (If you don't have a function that was created in Azure, visit the link in the prerequisites to create one now).
 
-Replace your Azure function's code with this sample code.
+Replace your function's code with this sample code.
 
 ```csharp
 using System;
@@ -190,8 +190,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-Save your function code and publish the function App to Azure. 
-You can do this by referring to [*Publish the Function App*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
+Save your function code and publish the function app to Azure. To learn how, see [*Publish the function app*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) in [*How to set up a function in Azure to process data*](how-to-create-azure-function.md).
 
 After a successful publish, you will see the output in the Visual Studio command window as shown below:
 
@@ -212,7 +211,7 @@ You can also verify your status of the publish process in the [Azure portal](htt
 ## Connect your function to IoT Hub
 
 Set up an event destination for hub data.
-In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](#prerequisites) section. Under **Events**, create a subscription for your Azure function.
+In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](#prerequisites) section. Under **Events**, create a subscription for your function.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot of the Azure portal that shows Adding an event subscription.":::
 
@@ -220,7 +219,7 @@ In the **Create Event Subscription** page, fill the fields as follows:
   1. Under **Name**, name the subscription what you would like.
   2. Under **Event Schema**, choose _Event Grid Schema_.
   3. Under **Event Types**, choose the _Device Telemetry_ checkbox and uncheck other event types.
-  4. Under **Endpoint Type**, Select _Azure function_.
+  4. Under **Endpoint Type**, Select _Azure Function_.
   5. Under **Endpoint**, Choose _Select an endpoint_ link to create an endpoint.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
@@ -230,11 +229,11 @@ In the _Select Azure Function_ page that opens up, verify the below details.
  2. **Resource group**: Your resource group
  3. **Function app**: Your function app name
  4. **Slot**: _Production_
- 5. **Function**: Select your Azure function from the dropdown.
+ 5. **Function**: Select your function from the dropdown.
 
 Save your details by selecting _Confirm Selection_ button.            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot of the Azure portal to select Azure function":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot of the Azure portal to select the function.":::
 
 Select _Create_ button to create event subscription.
 

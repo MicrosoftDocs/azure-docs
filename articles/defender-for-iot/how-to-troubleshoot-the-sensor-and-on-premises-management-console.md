@@ -4,7 +4,7 @@ description: Troubleshoot your sensor and on-premises management console to elim
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -22,23 +22,33 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 
 ### Investigate password failure at initial sign-in
 
-When you're signing in to a preconfigured Arrow sensor for the first time, you'll need to perform the following password recovery:
+When signing into a preconfigured Arrow sensor for the first time, you'll need to perform password recovery.
 
-1. On the Defender for IoT sign-in screen, select the **Password Recovery** option. 
+To recover your password:
 
-   The **Password Recovery** screen opens. There, you're prompted to select the user and subscription, and you're given a unique identifier.
+1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
-1. Go to the Defender for IoT **Sites and sensors** page and select the **Recover my password** tab.
+1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-1. Enter the unique identifier that you received on the **Password Recovery** screen and select **Recover**. The `password_recovery.zip` file
- is downloaded.
+1. Navigate to the Azure portal and select **Sites and Sensors**.  
 
-   > [!NOTE]
-   > Don't alter the activation file. It's a signed file and won't work if you tamper with it.
+1. Select the **Recover on-premises management console password** tab.
 
-1. On the **Password Recovery** screen, upload the `password_recovery.zip` file and select **Next**.
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
 
-You then receive your system-generated password for your management console. 
+1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+
+    > [!NOTE]
+    > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
+
+1. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
+
+1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
+
+1. Select **Next**, and your user, and system-generated password for your management console will then appear.
+
+    > [!NOTE]
+    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Resetting a user's password for the sensor or on-premises management console](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
 
 ### Investigate a lack of traffic
 
@@ -60,35 +70,35 @@ To check system performance:
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot of a sample dashboard."::: 
 
-2. From the side menu, select **Devices**.
+1. From the side menu, select **Devices**.
 
-3. In the **Devices** window, make sure devices are being discovered.
+1. In the **Devices** window, make sure devices are being discovered.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Ensure that devices are discovered.":::
 
-4. From the side menu, select **Data Mining**.
+1. From the side menu, select **Data Mining**.
 
-5. In the **Data Mining** window, select **ALL** and generate a report.
+1. In the **Data Mining** window, select **ALL** and generate a report.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Generate a new report by using data mining.":::
 
-6. Make sure the report contains data.
+1. Make sure the report contains data.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Ensure that the report contains data.":::
 
-7. From the side menu, select **Trends & Statistics**.
+1. From the side menu, select **Trends & Statistics**.
 
-8. In the **Trends & Statistics** window, select **Add Widget**.
+1. In the **Trends & Statistics** window, select **Add Widget**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Add a widget by selecting it.":::
 
-9. Add a widget and make sure it shows data.
+1. Add a widget and make sure it shows data.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Ensure that the widget is showing data.":::
 
-10. From the side menu, select **Alerts**. The **Alerts** window appears.
+1. From the side menu, select **Alerts**. The **Alerts** window appears.
 
-11. Make sure the alerts were created.
+1. Make sure the alerts were created.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Ensure that alerts were created.":::
 
@@ -149,9 +159,9 @@ To fix the configuration:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Generate a new data-mining report for internet connections.
+1. Generate a new data-mining report for internet connections.
 
-3. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
+1. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
 ### Tweak the sensor's quality of service
 
@@ -174,7 +184,7 @@ To tweak the quality of service:
    > [!NOTE]
    > For a physical appliance, use the em1 interface.
 
-2. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
+1. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
 
 ## On-premises management console troubleshooting tools
 
@@ -198,7 +208,7 @@ To tweak the quality of service:
 
 1. Sign in as a Defender for IoT user. 
 
-2. Verify the default values:
+1. Verify the default values:
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -211,20 +221,20 @@ To tweak the quality of service:
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Edit the default settings:
+1. Edit the default settings:
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Edit the settings of the following lines:
+1. Edit the settings of the following lines:
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Save the changes. No restart is required.
+1. Save the changes. No restart is required.
 
 ## Export information for troubleshooting
 
@@ -234,13 +244,13 @@ To export logs:
 
 1. On the left pane, select **System Settings**.
 
-2. Select **Export Logs**.
+1. Select **Export Logs**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to system support.":::
 
-3. In the **File Name** box, enter the file name that you want to use for the log export. The default is the current date.
+1. In the **File Name** box, enter the file name that you want to use for the log export. The default is the current date.
 
-4. To define what data you want to export, select the data categories:  
+1. To define what data you want to export, select the data categories:  
 
     | Export category | Description |
     |--|--|
@@ -256,12 +266,12 @@ To export logs:
     | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
     | **System Backup** | Select this option to export a backup of all the system data for investigating the exact state of the system. |
     | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
-    | **Database Logs** | Select this option to export logs from the system database. Investigating system logs assists in identifying system problems. |
+    | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
     | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
 
-5. To select all the options, select **Select All** next to **Choose Categories**.
+1. To select all the options, select **Select All** next to **Choose Categories**.
 
-6. Select **Export Logs**.
+1. Select **Export Logs**.
 
 The exported logs are added to the **Archived Logs** list. Send the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 

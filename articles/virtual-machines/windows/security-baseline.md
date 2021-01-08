@@ -891,7 +891,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [Information on creating ARM templates](./ps-template.md)
 
-* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center monitoring**: Yes
 
