@@ -128,7 +128,7 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
     az functionapp plan create --name MyPremiumPlan --resource-group MyResourceGroup --location <REGION> --sku EP1
     ```
 
-1. Run the following CLI command to migrate your consumption plan to the elastic premium plan.
+1. Run the following CLI command to migrate from a Consumption plan to a Premium plan.
 
     ```azurecli-interactive
     az functionapp update --name MyFunctionApp --resource-group MyResourceGroup --plan MyNewPlan
@@ -146,7 +146,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
     ```
 
-1. Run the following CLI command to migrate your elastic premium plan to the consumption plan.
+1. Run the following CLI command to migrate from a Premium plan to a Consumption plan.
 
     ```azurecli-interactive
     az functionapp update --name MyFunctionApp --resource-group MyResourceGroup --plan MyNewPlan
