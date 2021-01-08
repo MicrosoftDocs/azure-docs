@@ -28,10 +28,10 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 - **FileStorage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
 - **BlobStorage accounts**: Legacy Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
 
-The following table describes the types of storage accounts available:
+The following table describes the types of storage accounts, the services they support, and the supported deployment models for each account type:
 
-| Storage account type | Supported services | Replication options | Deployment model<sup>1</sup> |
-|--|--|--|--|--|--|
+| Storage account type | Supported services | Redundancy options | Deployment model<sup>1</sup> |
+|--|--|--|--|
 | General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Resource Manager |
 | General-purpose V1 | Blob, File, Queue, Table, and Disk | LRS, GRS, RA-GRS | Resource Manager, Classic |
 | BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<sup>3</sup> | Resource Manager |
@@ -43,6 +43,15 @@ The following table describes the types of storage accounts available:
 <sup>2</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
 <sup>3</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
+
+Redundancy options for a storage account include:
+
+- **Locally redundant storage (LRS)**: A simple, low-cost redundancy strategy. Data is copied synchronously three times within a single physical location in the primary region.
+- **Zone-redundant storage (ZRS)**: Redundancy for scenarios requiring high availability. Data is copied synchronously across three Azure availability zones in the primary region.
+- **Geo-redundant storage (GRS)**: Cross-regional redundancy to protect against regional outages. Data is copied synchronously three times in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
+- **Geo-zone-redundant storage (GZRS)**: Redundancy for scenarios requiring both high availability and maximum durability. Data is copied synchronously across three Azure availability zones in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
+
+For more information about redundancy options in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
 
 ### General-purpose v2 accounts
 
@@ -154,17 +163,6 @@ The following table shows which access tiers are available for blobs in each typ
 
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see [Storage account billing](#storage-account-billing).
-
-## Redundancy
-
-Redundancy options for a storage account include:
-
-- **Locally redundant storage (LRS)**: A simple, low-cost redundancy strategy. Data is copied synchronously three times within a single physical location in the primary region.
-- **Zone-redundant storage (ZRS)**: Redundancy for scenarios requiring high availability. Data is copied synchronously across three Azure availability zones in the primary region.
-- **Geo-redundant storage (GRS)**: Cross-regional redundancy to protect against regional outages. Data is copied synchronously three times in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
-- **Geo-zone-redundant storage (GZRS)**: Redundancy for scenarios requiring both high availability and maximum durability. Data is copied synchronously across three Azure availability zones in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
-
-For more information about redundancy options in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
 
 ## Encryption
 
