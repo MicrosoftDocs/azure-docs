@@ -5,13 +5,13 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 ms.subservice: common
 ---
 # Azure Import/Export system requirements
 
-This article describes the important requirements for your Azure Import/Export service. We recommend that you review the information carefully before you use the Import/Export service and then refer back to it as necessary during the operation.
+This article describes the important requirements for your Azure Import/Export service. We recommend that you review the information carefully before you use the Import/Export service and then refer to it as necessary during the operation.
 
 ## Supported operating systems
 
@@ -39,12 +39,12 @@ Azure Import/Export service supports the following types of storage accounts:
 - Blob Storage accounts
 - General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments),
 
-For more information about storage accounts, see [Azure storage accounts overview](storage-account-overview.md).
+For more information about storage accounts, see [Azure storage accounts overview](../storage/common/storage-account-overview.md).
 
-Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-account-create.md).
+Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job can't span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
 
 > [!IMPORTANT]
-> For storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled, use the **Allow trusted Microsoft services...** setting to [enable Import/Export](./storage-network-security.md) service to perform import/export of data to/from Azure.
+> For storage accounts where the [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled, use the **Allow trusted Microsoft services...** setting to [enable Import/Export](../storage/common/storage-network-security.md) service to perform import/export of data to/from Azure.
 
 ## Supported storage types
 
@@ -82,10 +82,10 @@ A single import/export job can have:
 - A maximum of 10 HDD/SSDs.
 - A mix of HDD/SSD of any size.
 
-Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. For import jobs, only the first data volume on the drive is processed. The data volume must be formatted with NTFS.
+A large number of drives can be spread across multiple jobs, and there's no limit on the number of jobs that can be created. For import jobs, only the first data volume on the drive is processed. The data volume must be formatted with NTFS.
 
 When preparing hard drives and copying the data using the WAImportExport tool, you can use external USB adaptors. Most off-the-shelf USB 3.0 or later adaptors should work.
 
 ## Next steps
 
-* [Transfer data with the AzCopy command-line utility](./storage-use-azcopy-v10.md)
+* [Transfer data with the AzCopy command-line utility](../storage/common/storage-use-azcopy-v10.md)
