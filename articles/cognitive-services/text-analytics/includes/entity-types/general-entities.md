@@ -45,7 +45,9 @@ This category contains the following entities:
    :::column-end:::
    :::column span="2":::
 
-      Job types or roles held by a person. Subcategory of the Person entity.    
+      Job types or roles held by a person. 
+
+      Subcategory of the Person entity.    
    :::column-end:::
 
     :::column span="1":::
@@ -91,7 +93,6 @@ This category contains the following entities:
       Medical companies and groups. Subcategory of the Organization entity.  
    :::column-end:::
     :::column span="1":::
-      **Languages**
 
        `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
           
@@ -106,7 +107,6 @@ This category contains the following entities:
       Stock exchange groups. Subcategory of the Organization entity.  
    :::column-end:::
     :::column span="1":::
-      **Languages**
 
        `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
           
@@ -123,7 +123,6 @@ This category contains the following entities:
 
    :::column-end:::
     :::column span="1":::
-      **Languages**
 
        `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
           
