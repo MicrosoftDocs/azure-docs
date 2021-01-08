@@ -345,7 +345,7 @@ public HttpResponseMessage get(
 }
 ```
 
-The following examples uses the Filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
+The following example uses the Filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
 
 ```java
 @FunctionName("getPersonsByName")
