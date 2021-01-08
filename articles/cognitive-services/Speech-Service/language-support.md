@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
 ---
@@ -48,9 +48,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabic (United Arab Emirates)      | `ar-AE` | Language model                                   |
 | Bulgarian (Bulgaria)               | `bg-BG` | Language model                                   |
 | Catalan (Spain)                    | `ca-ES` | Language model                                   |
-| Chinese (Cantonese, Traditional)   | `zh-HK` | Language model                                   |
+| Chinese (Cantonese, Traditional)   | `zh-HK` | Acoustic model<br>Language model                 |
 | Chinese (Mandarin, Simplified)     | `zh-CN` | Acoustic model<br>Language model                 |
-| Chinese (Taiwanese Mandarin)       | `zh-TW` | Language model                                   |
+| Chinese (Taiwanese Mandarin)       | `zh-TW` | Acoustic model<br>Language model                 |
 | Croatian (Croatia)                 | `hr-HR` | Language model                                   |
 | Czech (Czech Republic)             | `cs-CZ` | Language Model                                   |
 | Danish (Denmark)                   | `da-DK` | Language model                                   |
@@ -78,8 +78,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Hungarian (Hungary)                | `hu-HU` | Language Model                                   |
 | Irish(Ireland)                     | `ga-IE` | Language model                                   |
 | Italian (Italy)                    | `it-IT` | Acoustic model<br>Language model<br>Pronunciation|
-| Japanese (Japan)                   | `ja-JP` | Language model                                   |
-| Korean (Korea)                     | `ko-KR` | Language model                                   |
+| Japanese (Japan)                   | `ja-JP` | Acoustic model<br>Language model                 |
+| Korean (Korea)                     | `ko-KR` | Acoustic model<br>Language model                 |
 | Latvian (Latvia)                   | `lv-LV` | Language model                                   |
 | Lithuanian (Lithuania)             | `lt-LT` | Language model                                   |
 | Maltese(Malta)                     | `mt-MT` | Language model                                   |
