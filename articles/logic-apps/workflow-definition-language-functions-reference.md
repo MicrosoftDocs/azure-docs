@@ -1758,7 +1758,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
+| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling a function in Azure](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
 ||||
 
 *Example 1*
@@ -2143,7 +2143,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "$17.35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Example 4*
@@ -2151,7 +2151,7 @@ formatNumber(17.36, 'C2')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2807,15 +2807,11 @@ lastIndexOf('<text>', '<searchText>')
 
 If the string or substring value is empty, the following behavior occurs:
 
-* If the string value is empty, `-1` is returned:
+* If only the string value is empty, the function returns `-1`.
 
-* If the string and substring values are both empty, `0` is returned.
+* If the string and substring values are both empty, the function returns `0`.
 
-* If only the substring value is empty, the greater of the following two values is returned:
-
-  * `0`
-
-  * The length of the string, minus 1.
+* If only the substring value is empty, the function returns the string length minus 1.
 
 *Examples*
 

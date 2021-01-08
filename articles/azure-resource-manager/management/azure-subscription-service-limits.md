@@ -127,7 +127,7 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
 ## Azure Kubernetes Service limits
 
@@ -170,6 +170,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 ## Azure Policy limits
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+
+## Azure role-based access control limits
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
 ## Azure SignalR Service limits
 
@@ -334,10 +338,6 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 ## Notification Hubs limits
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
-
-## Azure role-based access control limits
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
 ## Service Bus limits
 
