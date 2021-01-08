@@ -142,7 +142,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 
     Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
 
-    ![Certificate information](../media/azure-netapp-files/certificate-information.png)
+    ![Screenshot that shows certificate information](../media/azure-netapp-files/certificate-information.png)
 
 ## Manage LDAP POSIX Attributes
 

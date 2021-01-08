@@ -33,7 +33,7 @@ The LDAP over TLS feature is currently in preview. If you are using this feature
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapOverTls
@@ -60,14 +60,6 @@ If you do not have a root CA certificate, you need to generate one and export it
 
     ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)
 
-4. Go to the NetApp account of the dual-protocol volume, click **Active Directory connections**, and upload the root CA certificate by using the **Join Active Directory** window:  
-
-    ![Server root CA certificate](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
-
-    ![Certificate information](../media/azure-netapp-files/certificate-information.png)
-
 ## Enable LDAP over TLS and upload root CA certificate 
 
 1. Go to the NetApp account that is used for the volume, click **Active Directory connections**, then click **Join** (to create a new AD connection) or **Edit** (to edit an existing AD connection).  
@@ -78,7 +70,7 @@ If you do not have a root CA certificate, you need to generate one and export it
 
     Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
 
-    ![Certificate information](../media/azure-netapp-files/certificate-information.png)
+    ![Screenshot that shows certificate information](../media/azure-netapp-files/certificate-information.png)
 
 If you uploaded an invalid certificate, and you have existing AD configurations, SMB volumes, or Kerberos volumes, an error similar to the following occurs:
 
