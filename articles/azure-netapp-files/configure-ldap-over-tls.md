@@ -76,9 +76,9 @@ If you do not have a root CA certificate, you need to generate one and export it
 
     ![Screenshot that shows the LDAP over TLS option](../media/azure-netapp-files/ldap-over-tls-option.png)
 
-Ensure that the certificate authority name can be resolved by DNS. This name is the **Issued By** or **Issuer** field on the certificate:
+    Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
 
-![Screenshot that shows certification information in the General tab of Certificate window](../media/azure-netapp-files/ldap-over-tls-certificate-information.png)
+    ![Certificate information](../media/azure-netapp-files/certificate-information.png)
 
 If you uploaded an invalid certificate, and you have existing AD configurations, SMB volumes, or Kerberos volumes, an error similar to the following occurs:
 
