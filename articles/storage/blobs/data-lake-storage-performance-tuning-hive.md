@@ -17,9 +17,9 @@ The default settings have been set to provide good performance across many diffe
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **A Data Lake Storage Gen2 account**. For instructions on how to create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md)
-* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Running Hive on HDInsight**.  To learn about running Hive jobs on HDInsight, see [Use Hive on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **A Data Lake Storage Gen2 account**. For instructions on how to create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](../common/storage-account-create.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* **Running Hive on HDInsight**.  To learn about running Hive jobs on HDInsight, see [Use Hive on HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md)
 * **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md)
 
 ## Parameters
@@ -46,7 +46,7 @@ Here are the most important settings to tune for improved Data Lake Storage Gen2
 
 **Set hive.exec.reducer.bytes.per.reducer** – The default value works well when the data is uncompressed.  For data that is compressed, you should reduce the size of the reducer.  
 
-**Set hive.tez.container.size** – In each node, memory is specified by yarn.nodemanager.resource.memory-mb and should be correctly set on HDI cluster by default.  For additional information on setting the appropriate memory in YARN, see this [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Set hive.tez.container.size** – In each node, memory is specified by yarn.nodemanager.resource.memory-mb and should be correctly set on HDI cluster by default.  For additional information on setting the appropriate memory in YARN, see this [post](../../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md).
 
 I/O intensive workloads can benefit from more parallelism by decreasing the Tez container size. This gives the user more containers which increases concurrency.  However, some Hive queries require a significant amount of memory (e.g. MapJoin).  If the task does not have enough memory, you will get an out of memory exception during runtime.  If you receive out of memory exceptions, then you should increase the memory.   
 
@@ -68,6 +68,6 @@ Let's say you have an 8 node D14 cluster.
 ## Further information on Hive tuning
 
 Here are a few blogs that will help tune your Hive queries:
-* [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Optimize Apache Hive queries in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query)
+* [Optimize Hive queries for Hadoop in HDInsight](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Optimize Apache Hive queries in Azure HDInsight](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
 * [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

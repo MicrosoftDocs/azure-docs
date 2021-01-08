@@ -160,7 +160,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
    ![Created function app](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   To create a function app, you can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
+   To create a function app, you can also use [Azure CLI](../azure-functions/create-first-function-cli-csharp.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. In the **Function Apps** list, expand your function app, if not already expanded. Under your function app, select **Functions**. On the functions toolbar, select **New function**.
 

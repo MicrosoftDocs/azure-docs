@@ -1,14 +1,14 @@
 ---
 title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include ml assisted labeling, or human in the loop labeling to aid with the task.
+description: Learn how to create and run labeling projects to tag data for machine learning.  Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-
+ms.custom: data4ml
 ---
 
 # Create a data labeling project and export labels 
@@ -49,7 +49,7 @@ Labeling projects are administered from Azure Machine Learning. You use the **La
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 
-To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
+To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**. Project name cannot be reused, even if the project is deleted in future.
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation wizard":::
 
@@ -105,7 +105,7 @@ If you plan to add new images to your dataset, use incremental refresh to add th
 
 To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
-Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled.
 
 Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
 
@@ -247,11 +247,23 @@ Use these steps to add one or more labels to a project:
 
 ## Export the labels
 
-You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
+You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). Use the **Export** button on the **Project details** page of your labeling project.
 
 The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## Troubleshooting
+
+Use these tips if you see any of these issues.
+
+|Issue  |Resolution  |
+|---------|---------|
+|Only datasets created on blob datastores can be used.     |  This is a known limitation of the current release.       |
+|After creation, the project shows "Initializing" for a long time.     | Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue.         |
+|When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
+|Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
+|Unable to assign set of tasks to a specific labeler.     |   This is a known limitation of the current release.  |
 
 ## Next steps
 

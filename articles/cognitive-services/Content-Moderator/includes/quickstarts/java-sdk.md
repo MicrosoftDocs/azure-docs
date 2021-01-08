@@ -19,8 +19,8 @@ Content Moderator is an AI service that lets you handle content that is potentia
 
 Use the Content Moderator client library for Java to:
 
-* Moderate images
 * Moderate text
+* Moderate images
 
 [Reference documentation](/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator) |[Artifact (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Samples](/samples/browse/?products=azure&term=content-moderator)
 
@@ -98,7 +98,7 @@ In the application's **ContentModeratorQuickstart** class, create variables for 
 > [!IMPORTANT]
 > Go to the Azure portal. If the [Product name] resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later.
 
@@ -122,14 +122,42 @@ The following classes handle some of the major features of the Content Moderator
 These code snippets show you how to do the following tasks with the Content Moderator client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Moderate images](#moderate-images)
 * [Moderate text](#moderate-text)
+* [Moderate images](#moderate-images)
+
 
 ## Authenticate the client
 
 In the application's `main` method, create a [ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) object using your subscription endpoint value and subscription key.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
+
+
+
+## Moderate text
+
+### Set up sample text
+
+At the top of your **ContentModeratorQuickstart** class, define a reference to a local text file. Add a .txt file to your project directory and enter the text you'd like to analyze.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
+
+### Analyze text
+
+Create a new method that reads the .txt file and calls the **screenText** method on each line.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
+
+### Print text moderation results
+
+Add the following code to print the moderation results to a .json file in your project directory.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
+
+Close out the `try` and `catch` statement to complete the method.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
+
 
 ## Moderate images
 
@@ -175,31 +203,6 @@ After the `while` loop, add the following code, which prints the results to the 
 Close out the `try` statement and add a `catch` statement to complete the method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
-
-## Moderate text
-
-### Set up sample text
-
-At the top of your **ContentModeratorQuickstart** class, define a reference to a local text file. Add a .txt file to your project directory and enter the text you'd like to analyze.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
-
-### Analyze text
-
-Create a new method that reads the .txt file and calls the **screenText** method on each line.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
-
-### Print text moderation results
-
-Add the following code to print the moderation results to a .json file in your project directory.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
-
-Close out the `try` and `catch` statement to complete the method.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
-
 
 ## Run the application
 

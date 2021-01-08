@@ -15,7 +15,7 @@ ms.author: yitoh
 
 # DDoS Protection reference architectures
 
-DDoS Protection Standard is designed [for services that are deployed in a virtual network](/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
+DDoS Protection Standard is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default DDoS Protection Basic service applies. The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -51,7 +51,7 @@ A standby region is set up for failover scenarios.
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
 
-All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](/azure/application-gateway/application-gateway-web-app-overview) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
+All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/application-gateway-web-app-overview.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
 
 We recommend that you configure the Application Gateway WAF SKU (prevent mode) to help protect against Layer 7 (HTTP/HTTPS/WebSocket) attacks. Additionally, web apps are configured to [accept only traffic from the Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP address.
 
@@ -61,7 +61,7 @@ For more information about this reference architecture, see [this article](/azur
 
 ### HDInsight on Azure
 
-This reference architecture shows configuring DDoS Protection Standard for an [Azure HDInsight cluster](/azure/hdinsight/). Make sure that the HDInsight cluster is linked to a virtual network and that DDoS Protection is enabled on the virtual network.
+This reference architecture shows configuring DDoS Protection Standard for an [Azure HDInsight cluster](../hdinsight/index.yml). Make sure that the HDInsight cluster is linked to a virtual network and that DDoS Protection is enabled on the virtual network.
 
 !["HDInsight" and "Advanced settings" panes, with virtual network settings](./media/ddos-best-practices/image-12.png)
 
@@ -69,7 +69,7 @@ This reference architecture shows configuring DDoS Protection Standard for an [A
 
 In this architecture, traffic destined to the HDInsight cluster from the internet is routed to the public IP associated with the HDInsight gateway load balancer. The gateway load balancer then sends the traffic to the head nodes or the worker nodes directly. Because DDoS Protection Standard is enabled on the HDInsight virtual network, all public IPs in the virtual network get DDoS protection for Layer 3 and 4. This reference architecture can be combined with the N-Tier and multi-region reference architectures.
 
-For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
+For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 documentation.
 
 

@@ -1,17 +1,17 @@
 ---
-title: Connect to Synapse SQL with Azure Data Studio (preview)
-description: Use Azure Data Studio (preview) to connect to and query Synapse SQL in Azure Synapse Analytics. 
+title: Connect to Synapse SQL with Azure Data Studio
+description: Use Azure Data Studio to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
 ms.subservice: 
 ms.date: 04/15/2020 
-ms.author: v-stazar 
+ms.author: stefanazaric 
 ms.reviewer: jrasnick
 ---
 
-# Connect to Synapse SQL with Azure Data Studio (preview)
+# Connect to Synapse SQL with Azure Data Studio
 
 > [!div class="op_single_selector"]
 >
@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use [Azure Data Studio (preview)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to connect to and query Synapse SQL in Azure Synapse Analytics. 
+You can use [Azure Data Studio)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 
 ## Connect
 
@@ -37,7 +37,7 @@ The connection requires the following parameters:
 * **Database:** Database name
 
 > [!NOTE]
-> If you would like to use **serverless SQL pool (preview)** the URL should look like:
+> If you would like to use **serverless SQL pool** the URL should look like:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >

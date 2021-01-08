@@ -64,6 +64,7 @@ Limitations:
 
 - With a SQL Managed Instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for databases up to 4 TB if backup compression is used.
 - You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup. Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
+- Native backups taken on a Managed Instance cannot be restored to a SQL Server. This is because Managed Instance has higher internal database version compared to any version of SQL Server.
 - The maximum backup stripe size by using the `BACKUP` command in SQL Managed Instance is 195 GB, which is the maximum blob size. Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
     > [!TIP]
@@ -391,9 +392,9 @@ For more information, see [FILESTREAM](/sql/relational-databases/blob/filestream
 
 Linked servers in SQL Managed Instance support a limited number of targets:
 
-- Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL and SQL Server instances. 
+- Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) and dedicated pools, and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
-- Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
+- Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import, or load files using a [serverless SQL pool in Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operations: 
 
@@ -401,11 +402,13 @@ Operations:
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - The `OPENROWSET` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. See [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage. Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### PolyBase
 
-The only supported type of external source is RDBMS, to Azure SQL Database and other Azure SQL Managed Instance. For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+The only available types of external source is RDBMS (in public preview) to Azure SQL database, Azure SQL managed instance, and Azure Synapse pool. You can use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) as an workaround for Polybase external tables that directly reads from the Azure storage. 
+In Azure SQL managed instance you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to read Azure storage data.
+For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 
@@ -512,12 +515,11 @@ The following variables, functions, and views return different results:
 ### Failover groups
 System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
 
-### Failover groups
-System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
-
 ### TEMPDB
-
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+- The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+- `Tempdb` is always split into 12 data files: 1 primary, also called master, data file and 11 non-primary data files. The file structure cannot be changed and new files cannot be added to `tempdb`. 
+- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
+- Objects created in the model database cannot be auto-created in `tempdb` after a restart or a failover because `tempdb` does not get its initial object list from the model database. You must create objects in `tempdb` manually after each restart or a failover.
 
 ### MSDB
 

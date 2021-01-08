@@ -2,11 +2,11 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/30/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 ---
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online. Go to **Cloud storage gateway > Storage accounts**.
 
 2. Select **+ Add storage account** on the device command bar. 
 

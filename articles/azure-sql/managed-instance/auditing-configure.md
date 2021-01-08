@@ -53,7 +53,7 @@ The following section describes the configuration of auditing on your managed in
   
 3. After you create the container for the audit logs, there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
-   - <a id="blobtsql"></a>Configure blob storage for audit logs using T-SQL:
+   - <a id="blobtsql"></a>**Configure blob storage for audit logs using T-SQL:**
 
      1. In the containers list, click the newly created container and then click **Container properties**.
 
@@ -114,7 +114,7 @@ The following section describes the configuration of auditing on your managed in
 
      1. Continue by [creating a server audit specification or database audit specification](#createspec).
 
-   - <a id="blobssms"></a>Configure blob storage for audit logs using  SQL Server Management Studio 18 (Preview):
+   - <a id="blobssms"></a>**Configure blob storage for audit logs using  SQL Server Management Studio 18:**
 
      1. Connect to the managed instance using the SQL Server Management Studio UI.
 
@@ -137,8 +137,8 @@ The following section describes the configuration of auditing on your managed in
         ![Select Azure subscription, storage account, and blob container](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Click **OK** in the **Create Audit** dialog.
-
-4. <a id="createspec"></a>After you configure the blob container as target for the audit logs, create and enable a server audit specification or database audit specification as you would for SQL Server:
+     
+     1. <a id="createspec"></a>After you configure the blob container as target for the audit logs, create and enable a server audit specification or database audit specification as you would for SQL Server:
 
    - [Create server audit specification T-SQL guide](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create database audit specification T-SQL guide](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

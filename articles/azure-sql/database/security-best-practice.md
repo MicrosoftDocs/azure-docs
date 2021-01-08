@@ -28,7 +28,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Deployment offers not covered in this guide
 
-- Azure Synapse Analytics (formerly SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure SQL VMs (IaaS)
 - SQL Server
 
@@ -102,16 +102,16 @@ Central identity management offers the following benefits:
 > [!NOTE]
 >
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
-> - RBAC permissions granted in Azure do not apply to Azure SQL Database or SQL Managed Instance  permissions. Such permissions must be created/mapped manually using existing SQL permissions.
+> - Azure RBAC permissions granted in Azure do not apply to Azure SQL Database or SQL Managed Instance  permissions. Such permissions must be created/mapped manually using existing SQL permissions.
 > - On the client-side, Azure AD authentication needs access to the internet or via User Defined Route (UDR) to a virtual network.
 > - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - For guidance on troubleshooting Azure AD Authentication issues, see the following blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### Azure Multi-Factor Authentication
+### Azure AD Multi-Factor Authentication
 
 > Mentioned in: OSA Practice #2, ISO Access Control (AC)
 
-Azure Multi-Factor Authentication helps provides additional security by requiring more than one form of authentication.
+Azure AD Multi-Factor Authentication helps provides additional security by requiring more than one form of authentication.
 
 **How to implement**:
 
@@ -139,7 +139,7 @@ Azure Multi-Factor Authentication helps provides additional security by requirin
     - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive)
 
 - Implement your applications to connect to Azure SQL Database or Azure SQL Managed Instance using interactive authentication with Multi-Factor Authentication support.
-  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
+  - See the article, [Connect to Azure SQL Database with Azure AD Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
   > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), Multi-Factor Authentication does not apply.
 
@@ -609,7 +609,7 @@ Distributed Denial of Service (DDoS) attacks are attempts by a malicious user to
 
 DDoS protection is automatically enabled as part of the Azure Platform. It includes always-on traffic monitoring and real-time mitigation of network-level attacks on public endpoints.
 
-- Use [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md) to monitor public IP addresses associated to resources deployed in virtual networks.
+- Use [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) to monitor public IP addresses associated to resources deployed in virtual networks.
 
 - Use [Advanced Threat Protection for Azure SQL Database](threat-detection-overview.md) to detect Denial of Service (DoS) attacks against databases.
 

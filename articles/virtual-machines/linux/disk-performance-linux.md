@@ -1,6 +1,6 @@
 ---
-title: Virtual machine and disk performance
-description: Learn more about how VMs and their attached disks work in combination for performance 
+title: Virtual machine and disk performance - Linux
+description: Learn more about how virtual machines and their attached disks work in combination for performance on Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ---
-# Virtual machine and disk performance
+# Virtual machine and disk performance (Linux)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## Virtual machine uncached vs cached limits

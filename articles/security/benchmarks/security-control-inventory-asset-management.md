@@ -96,7 +96,7 @@ Use Azure Security Center's File Integrity Monitoring (Change Tracking) and virt
 
 - [How to use File Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md)
 
-- [Understand Azure Change Tracking](../../automation/change-tracking.md)
+- [Understand Azure Change Tracking](../../automation/change-tracking/overview.md)
 
 - [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
 

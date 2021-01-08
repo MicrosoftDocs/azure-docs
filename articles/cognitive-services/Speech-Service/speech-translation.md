@@ -43,13 +43,13 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Migration guides
 
-If your applications, tools, or products are using the [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), we've created guides to help you migrate to the Speech service.
+If your applications, tools, or products are using the [Translator Speech API](./how-to-migrate-from-translator-speech-api.md), we've created guides to help you migrate to the Speech service.
 
 * [Migrate from the Translator Speech API to the Speech service](how-to-migrate-from-translator-speech-api.md)
 
 ## Reference docs
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: Text-to-speech](rest-text-to-speech.md)

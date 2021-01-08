@@ -31,7 +31,7 @@ The common tasks related to a StorSimple Device Manager service are:
 * Get the service registration key
 * Regenerate the service registration key
 
-This tutorial describes how to perform each of the preceding tasks. The information contained in this article is applicable only to StorSimple Virtual Arrays. For more information on StorSimple 8000 series, go to [deploy a StorSimple Manager service](storsimple-manage-service.md).
+This tutorial describes how to perform each of the preceding tasks. The information contained in this article is applicable only to StorSimple Virtual Arrays. For more information on StorSimple 8000 series, go to [deploy a StorSimple Manager service](./storsimple-8000-manage-service.md).
 
 ## Create a service
 
@@ -84,7 +84,7 @@ The list of services will be refreshed.
  ![Updated list of services](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## Get the service registration key
-After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple security](storsimple-security.md). You can get the registration key by accessing the **Keys** blade for your service.
+After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple security](./storsimple-8000-security.md). You can get the registration key by accessing the **Keys** blade for your service.
 
 Perform the following steps to get the service registration key.
 
@@ -120,4 +120,3 @@ Perform the following steps to regenerate a service registration key.
 ## Next steps
 * Learn how to [get started](storsimple-virtual-array-deploy1-portal-prep.md) with a StorSimple Virtual Array.
 * Learn how to [administer your StorSimple device](storsimple-ova-web-ui-admin.md).
-

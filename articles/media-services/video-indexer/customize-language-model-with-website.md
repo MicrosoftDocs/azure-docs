@@ -23,34 +23,27 @@ You can use the Video Indexer website to create and edit custom Language models 
 ## Create a Language model
 
 1. Go to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-2. To customize a model in your account, select the **Content model customization** button on the top-right corner of the page.
+1. To customize a model in your account, select the **Content model customization** button on the left of the page.
 
-   ![Customize content model in Video Indexer](./media/content-model-customization/content-model-customization.png)
-
-3. Select the **Language** tab.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-language-model/model-customization.png" alt-text="Customize content model in Video Indexer":::
+1. Select the **Language** tab.
 
     You see a list of supported languages.
-
-    ![List of languages models in Video Indexer](./media/customize-language-model/customize-language-model.png)
-
-4. Under the language that you want, select **Add model**.
-5. Type in the name for the Language model and hit enter.
+1. Under the language that you want, select **Add model**.
+1. Type in the name for the Language model and hit enter.
 
     This step creates the model and gives the option to upload text files to the model.
-
-6. To add a text file, select **Add file**. Your file explorer will open.
-
-7. Navigate to and select the text file. You can add multiple text files to a Language model.
+1. To add a text file, select **Add file**. Your file explorer will open.
+1. Navigate to and select the text file. You can add multiple text files to a Language model.
 
     You can also add a text file by selecting the **...** button on the right side of the Language model and selecting **Add file**.
-
-8. Once you're done uploading the text files, select the green **Train** option.
-
-    ![Train language model in Video Indexer](./media/customize-language-model/train-model.png)
+1. Once you're done uploading the text files, select the green **Train** option.
 
 The training process can take a few minutes. Once the training is done, you see **Trained** next to the model. You can preview, download, and delete the file from the model.
 
-![Trained language model in Video Indexer](./media/customize-language-model/preview-model.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/customize-language-model/customize-language-model.png" alt-text="Train the model":::
 
 ### Using a Language model on a new video
 
@@ -59,28 +52,22 @@ To use your Language model on a new video, do one of the following actions:
 * Select the **Upload** button on the top of the page.
 
     ![Upload button Video Indexer](./media/customize-language-model/upload.png)
+* Drop your audio or video file or browse for your file.
 
-* Drop your audio or video file into the circle or browse for your file.
+You're given the option to select the **Video source language**. Select the drop-down and select a Language model that you created from the list. It should say the language of your Language model and the name that you gave it in parentheses. For example:
 
-    ![Upload media file Video Indexer](./media/customize-language-model/upload2.png)
-
-You're given the option to select the **Video source language**. Select the drop-down and select a Language model that you created from the list. It should say the language of your Language model and the name that you gave it in parentheses.
+![Choose video source language—Reindex a video with Video Indexer](./media/customize-language-model/reindex.png)
 
 Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Language model.
 
 ### Using a Language model to reindex
 
-To use your Language model to reindex a video in your collection, go to your **Account videos** on the [Video Indexer](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to reindex.
+To use your Language model to reindex a video in your collection, follow these steps:
 
-You'll see options to edit your video, delete you video, and reindex your video. Select the option to reindex your video.
-
-![Reindex with Video Indexer](./media/customize-language-model/reindex1.png)
-
-You're given the option to select the **Video source language** to reindex your video with. Select the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
-
-![Choose video source language—Reindex a video with Video Indexer](./media/customize-language-model/reindex.png)
-
-Select the **Re-index** button and your video will be reindexed using your Language model.
+1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) home page.
+1. Click on **...** button on the video and select **Re-index**.
+1. You're given the option to select the **Video source language** to reindex your video with. Select the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
+1. Select the **Re-index** button and your video will be reindexed using your Language model.
 
 ## Edit a Language model
 
@@ -140,8 +127,6 @@ Video Indexer supports automatic customization of Language models based on the a
     > Only textual corrections are used for the customization. Corrections that don't involve actual words (for example, punctuation marks or spaces) aren't included.
     
 1. You'll see transcript corrections show up in the Language tab of the Content model customization page.
-
-    ![Customize language model—Video Indexer](./media/customize-language-model/customize.png)
 
    To look at the "From transcript edits" file for each of your Language models, select it to open it.
 

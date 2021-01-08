@@ -12,9 +12,6 @@ ms.custom: devx-track-csharp
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
-> [!NOTE]
-> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
-
 In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
 IoT Edge hub facilitates module to module communication. Using the IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages.
@@ -48,6 +45,19 @@ The following diagram shows the modules, inputs, outputs, and the IoT Edge Hub r
 ![IoT Edge three modules architecture diagram](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 The steps in this article are typically performed by a cloud developer.
+
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create an IoT Edge module from custom code.
+> * Generate a Docker image from your custom module.
+> * Reconfigure IoT Hub routing to support your custom modules.
+> * Build, publish, and deploy your custom modules.
+
+## Prerequisites
+
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
 
 ## Create a new IoT Edge solution
 
@@ -800,6 +810,10 @@ the device.
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
 
 ## Next steps
 

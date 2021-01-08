@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a dedicated dedicated SQL pool using Synapse Studio' 
+title: 'Quickstart: Create a dedicated SQL pool using Synapse Studio' 
 description: Create a dedicated SQL pool using Synapse Studio by following the steps in this guide.  
 services: synapse-analytics 
 author: julieMSFT
@@ -105,6 +105,7 @@ If you want to delete the dedicated SQL pool, do the following:
 1. Confirm the deletion, and press **Delete** button.
 1. When the process completes successfully, the dedicated SQL pool will no longer be listed in the workspace resources.
 
-## Next steps 
+## Next steps
+ 
 - See [Quickstart: Create an Apache Spark notebook](quickstart-apache-spark-notebook.md).
 - See [Quickstart: Create a dedicated SQL pool using the Azure portal](quickstart-create-sql-pool-portal.md).

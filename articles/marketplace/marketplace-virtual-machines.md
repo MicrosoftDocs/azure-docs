@@ -95,7 +95,7 @@ The following example shows a VM offer in Azure Marketplace that has usage-based
 
 You can restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a private plan. Private plans unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private plans enable you to give specific pricing or products to a limited set of customers.
 
-For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private Offers on Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 ## Test drives
 

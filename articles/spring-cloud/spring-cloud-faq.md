@@ -32,7 +32,7 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central and UAE North.
 
 ### Is any customer data stored outside of the specified region?
 
@@ -64,6 +64,23 @@ For the quickest way to get started with Azure Spring Cloud, follow the instruct
 ### What Java runtime does Azure Spring Cloud support?
 
 Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
+
+### Is Spring Boot 2.4.x supported?
+We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, please include these two dependencies to enable TLS authentication between your apps and Eureka.
+
+```xml
+<dependency> 
+	<groupId>com.sun.jersey</groupId>
+	<artifactId>jersey-client</artifactId>
+	<version>1.19.4</version>
+</dependency>
+<dependency>
+	<groupId>com.sun.jersey.contribs</groupId>
+	<artifactId>jersey-apache-client4</artifactId>
+	<version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### Where can I view my Spring Cloud application logs and metrics?
@@ -88,6 +105,21 @@ Three services are currently supported:
 ### Can I view, add, or move persistent volumes from inside my applications?
 
 Yes.
+
+### How many outbound public IP addresses does an Azure Spring Cloud instance have?
+
+The number of outbound public IP addresses may vary according to the tiers and other factors. 
+
+| Azure Spring Cloud instance type | Default number of outbound public IP addresses |
+| -------------------------------- | ---------------------------------------------- |
+| Basic Tier instances             | 1                                              |
+| Standard Tier instances          | 2                                              |
+| VNet injection instances         | 1                                              |
+
+
+### Can I increase the number of outbound public IP addresses?
+
+Yes, you can open a [support ticket](https://azure.microsoft.com/support/faq/)  to request for more outbound public IP addresses.
 
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 

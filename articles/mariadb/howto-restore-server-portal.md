@@ -1,8 +1,8 @@
 ---
 title: Backup and restore - Azure portal - Azure Database for MariaDB
 description: This article describes how to restore a server in Azure Database for MariaDB using the Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
