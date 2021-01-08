@@ -22,31 +22,32 @@ If none of these steps work for you, the following support channels are also ava
 
 The Log Analytics Agent Windows Troubleshooting Tool is a collection of PowerShell scripts designed to help find and diagnose issues with the Log Analytics Agent. It is automatically included with the agent upon installation. Running the tool should be the first step in diagnosing an issue.
 
-### How to Use
-* Open PowerShell prompt as Administrator on the machine where Log Analytics Agent is installed.
-* Navigate to the directory where the tool is located.
-  * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
-* Execute the main script using this command
-  * `.\GetAgentInfo.ps1`
-* Select a troubleshooting scenario.
-* Follow instructions on the console. (Note: trace logs steps requires manual intervention to stop log collection. Based upon the reproducibility of the issue, wait for the time duration and press 's' to stop log collection and proceed to the next step).
-* Locations of the results file is logged upon completion and a new explorer window highlighting it is opened.
+### How to use
+1. Open PowerShell prompt as Administrator on the machine where Log Analytics Agent is installed.
+1. Navigate to the directory where the tool is located.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Execute the main script using this command:
+   * `.\GetAgentInfo.ps1`
+1. Select a troubleshooting scenario.
+1. Follow instructions on the console. (Note: trace logs steps requires manual intervention to stop log collection. Based upon the reproducibility of the issue, wait for the time duration and press 's' to stop log collection and proceed to the next step).
+
+   Locations of the results file is logged upon completion and a new explorer window highlighting it is opened.
 
 ### Installation
 The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent build 10.20.18053.0 and onwards.
 
-### Scenarios Covered
+### Scenarios covered
 Below is a list of scenarios checked by the Troubleshooting Tool:
 
-1. Agent not reporting data or heartbeat data missing
-2. Agent extension deployment failing
-3. Agent crashing
-4. Agent consuming high CPU/memory
-5. Installation/uninstallation failures
-6. Custom logs issue
-7. OMS Gateway issue
-8. Performance counters issue
-9. Collect all logs
+- Agent not reporting data or heartbeat data missing
+- Agent extension deployment failing
+- Agent crashing
+- Agent consuming high CPU/memory
+- Installation/uninstallation failures
+- Custom logs issue
+- OMS Gateway issue
+- Performance counters issue
+- Collect all logs
 
 >[!NOTE]
 >Please run the Troubleshooting tool when you experience an issue. When opening a ticket, having the logs initially will greatly help our support team troubleshoot your issue quicker.
