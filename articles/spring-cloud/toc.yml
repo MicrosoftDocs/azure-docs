@@ -33,8 +33,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Use managed identity to connect Key Vault to Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Deploy Azure Spring Cloud in virtual network
-      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concepts
@@ -99,7 +97,10 @@
           href: spring-cloud-howto-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
           href: spring-cloud-howto-circuit-breaker-metrics.md
-
+    - name: Network
+      items:
+        - name: Deploy Azure Spring Cloud in virtual network
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
