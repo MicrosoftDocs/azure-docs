@@ -58,8 +58,9 @@ To configure and test Azure AD SSO with Resource Central, perform the following 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+      1. **[Create Resource Central test user](#create-resource-central-test-user)** - to have a counterpart of B.Simon in Resource Central that is linked to the Azure AD representation of user.
 1. **[Configure Resource Central SSO](#configure-resource-central-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Resource Central test user](#create-resource-central-test-user)** - to have a counterpart of B.Simon in Resource Central that is linked to the Azure AD representation of user.
+  
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -116,14 +117,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
+### Create Resource Central test user
+
+In this section, a user called **Britta Simon** is created in **Resource Central**.
+Click to Security -> Person -> New  
+   ![New Person](common/new-person.png)
+
+Enter user **Britta Simon** name and his Azure AD user . For example, **B.Simon@contoso.com**
+   ![Person](common/person.png)
 
 ## Configure Resource Central SSO
 
-To configure single sign-on on **Resource Central** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Resource Central support team](mailto:rc@aod.vn). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section, you'll configure single sign-on on **Resource Central System Administrator** :
+1. Select **Yes** in **Enable Configuration**
+   ![Enable Configuration](common/enable.png)
+2. Select **External Authentication**, and then select **SAML2** in **Authentication Protocol** :
+   ![protocol](common/protocol.png)
+3. On the **SAML2 Configuration** section, enter the values for the following fields:
+   In the **Identifier (Entity ID) , Login URL  , Logout URL and Azure AD Identifier** text box, type a URL copy from Set up Resource Central application
+   ![setup](common/setup.png)
+   ![auth](common/auth.png)
+   In **Return URL** , enter **https://<DOMAIN_NAME> /ResourceCentral/ExAuth/Saml2Authentication/CallbackHandler**
+4. On the **Certificate** section, upload your Certificate and enter your password 
+   ![cert](common/cert.png)
+   Go back to **Azure Portal** , in **SAML Signing Certificate** section , upload your Certificate and enter your password
+   ![cert2](common/cert2.png)
+5. Click **Save** button to complete 
 
-### Create Resource Central test user
-
-In this section, a user called Britta Simon is created in Resource Central. Resource Central supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Resource Central, a new one is created after authentication.
 
 ## Test SSO 
 
@@ -131,7 +151,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Resource Central Sign-on URL where you can initiate the login flow. 
 
-* Go to Resource Central Sign-on URL directly and initiate the login flow from there.
+* Go to **Resource Central Sign-on URL** directly and initiate the login flow from there.
+   ![test](common/test.png)
 
 * You can use Microsoft Access Panel. When you click the Resource Central tile in the Access Panel, this will redirect to Resource Central Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
