@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -24,7 +24,7 @@ The following are questions and answers that you may have when you use your Azur
 
 ### Can I copy Azure File storage using the Azure Import/Export service?
 
-Yes. The Azure Import/Export service supports import into Azure File Storage. It doesn't support export of Azure Files at this time.
+Yes. The Azure Import/Export service supports import into Azure File Storage. It does not support export of Azure Files at this time.
 
 ### Is the Azure Import/Export service available for CSP subscriptions?
 
@@ -36,7 +36,7 @@ Yes. For more information, go to [Overview of importing your organization's PST 
 
 ### Can I use the Azure Import/Export service to copy my backups offline to the Azure Backup Service?
 
-Yes. For more information, go to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
+Yes. For more information, go to [Offline Backup workflow in Azure Backup](../../backup/backup-azure-backup-import-export.md).
 
 ### Can I purchase drives for import/export jobs from Microsoft?
 
@@ -48,9 +48,9 @@ No. You need to ship your own drives for import and export jobs.
 
 No. Any drive used to import data must be prepared using the Azure WAImportExport tool. Use the tool to also copy data to the drive.
 
-### Do I need to do any disk preparation when creating an export job?
+### Do I need to perform any disk preparation when creating an export job?
 
-No. Some prechecks are recommended. To check the number of disks required, use the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). The command helps you preview drive usage for the selected blobs based on the size of the drives you're going to use. Also check that you can read from and write to the hard drive that is shipped for the export job.
+No. Some prechecks are recommended. To check the number of disks required, use the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). The command helps you preview drive usage for the selected blobs, based on the size of the drives you are going to use. Also check that you can read from and write to the hard drive that is shipped for the export job.
 
 ## Import/Export jobs
 
@@ -73,12 +73,12 @@ You can ignore the "Lease Expired" field. Import/Export takes lease on the blob 
 
 ## Shipping disks
 
-### What is the maximum number of HDDs in one shipment?
+### What is the maximum number of HDD for in one shipment?
 
 There is no limit to the number of HDDs in one shipment. If the disks belong to multiple jobs, we recommend that you:
 
-- Label the disks with corresponding job names.
-- Update the jobs with a tracking number that has a suffix of -1, -2, and so forth.
+- label the disks with corresponding job names.
+- update the jobs with a tracking number suffixed with -1, -2 etc.
 
 ### Should I include anything other than the HDD in my package?
 
@@ -96,9 +96,9 @@ You can ship drives to the Azure datacenter using any known carrier like FedEx, 
 
 ### Are there any restrictions with shipping and returning my drive internationally?
 
-The physical media that you're shipping may need to cross international borders, and you are responsible for ensuring that your physical media and data are imported and exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. Verifying in advance that your media and data comply with applicable laws will help ensure that your shipment reaches Microsoft in a timely manner.
+Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
 
-After the upload is complete, the process to return drives to an international address can take longer than the typical 2-3 days needed for local shipping. During the Packaging stage, the Data Box team is ensuring that the correct documentation is provided to make sure the shipment complies with the various international import and export requirements.
+After the upload is complete, the process to return drive(s) to an international address can take longer than the typical 2-3 days needed for local shipping. During the stage listed in the Azure portal as Packaging, the Data Box team is ensuring that the correct documentation is provided to ensure the shipment complies with the various international import and export requirements.
 
 ### Are there any special requirements for delivering my disks to a datacenter?
 
@@ -117,9 +117,9 @@ The phone number and DC address is provided as part of job creation.
 
 ## Miscellaneous
 
-### What happens if I accidentally send an HDD that doesn't conform to the supported requirements?
+### What happens if I accidentally send an HDD that does not conform to the supported requirements?
 
-The Azure data center will return the drive that doesn't conform to the supported requirements to you. If only some of the drives in the package meet the supported requirements, those drives will be processed, and the drives that don't meet the requirements will be returned to you.
+The Azure data center will return the drive that does not conform to the supported requirements to you. If only some of the drives in the package meet the support requirements, those drives will be processed, and the drives that do not meet the requirements will be returned to you.
 
 ### Does the service format the drives before returning them?
 
@@ -127,11 +127,11 @@ No. All drives are encrypted with BitLocker.
 
 ### How can I access data that is imported by this service?
 
-Use the Azure portal or [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to access the data under your Azure storage account.  
+Use the Azure portal or [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to access the data under your Azure storage account.  
 
 ### After the import is complete, what does my data look like in the storage account? Is my directory hierarchy preserved?
 
-When you're preparing a hard drive for an import job, specify the destination in the DstBlobPathOrPrefix field in the dataset CSV. This is the destination container in the storage account that data from the hard drive will be copied to. Within this destination container, virtual directories are created for folders from the hard drive, and blobs are created for files.
+When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in the dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files.
 
 ### If a drive has files that already exist in my storage account, does the service overwrite existing blobs or files?
 
@@ -143,8 +143,8 @@ No. The WAImportExport tool is only compatible with 64-bit Windows operating sys
 
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
 
-- Max Block Blob size is approximately 4.768 TB or 5,000,000 MB.
-- Max Page Blob size is 8 TB.
+- Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
+- Max Page Blob size is 8TB.
 
 ### Does Azure Import/Export support AES-256 encryption?
 
