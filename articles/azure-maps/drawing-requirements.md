@@ -3,7 +3,7 @@ title: Drawing package requirements in Microsoft Azure Maps Creator (Preview)
 description: Learn about the Drawing package requirements to convert your facility design files to map data
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 1/08/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -45,9 +45,9 @@ For easy reference, here are some terms and definitions that are important as yo
 A Drawing package is a .zip archive that contains the following files:
 
 * DWG files in AutoCAD DWG file format.
-* A _manifest.json_ file for a single facility.
+* A _manifest.json_ file that describes the DWG files in the Drawing package.
 
-You can organize the DWG files in any way inside the folder, but the manifest file must live at the root directory of the folder. You must zip the folder in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, the manifest file, and the content of these files.  
+The Drawing package must be zipped into a single archive file, with the .zip extension. The DWG files can be organized in any way inside the package, but the manifest file must live at the root directory of the zipped package. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
 
 ## DWG files requirements
 
@@ -56,6 +56,7 @@ A single DWG file is required for each level of the facility. The level's data m
 * Must define the _Exterior_ and _Unit_ layers. It can optionally define the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
 * Must not contain features from multiple levels.
 * Must not contain features from multiple facilities.
+* Must reference the same measurement system and unit of measurement as other DWG files in the Drawing package.
 
 The [Azure Maps Conversion service](/rest/api/maps/conversion) can extract the following feature classes from a DWG file:
 
@@ -76,17 +77,17 @@ DWG layers must also follow the following criteria:
 * Each level must be in the same orientation as the other levels.
 * Self-intersecting polygons are automatically repaired, and the [Azure Maps Conversion service](/rest/api/maps/conversion) raises a warning. You should manually inspect the repaired results, because they might not match the expected results.
 
-All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, or Text (single line). Any other entity types are ignored.
+All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Ellipse (closed), or Text (single line). Any other entity types are ignored.
 
-The following table outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](/rest/api/maps/conversion) ignores these entities.  
+The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Azure Maps Conversion service](/rest/api/maps/conversion) ignores these entities.  
 
-| Layer | Entity types | Features |
+| Layer | Entity types | Converted Features |
 | :----- | :-------------------| :-------
-| [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle | Levels
-| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle | Vertical penetrations, Units
-| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle | Not applicable. For more information, see the [Wall layer](#wall-layer).
+| [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Levels
+| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle, Ellipse (closed) | Vertical penetrations, Unit
+| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Not applicable. For more information, see the [Wall layer](#wall-layer).
 | [Door](#door-layer) | Polygon, PolyLine, Line, CircularArc, Circle | Openings
-| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle | Zone
+| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle, Ellipse (closed) | Zone
 | [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more information, see the [UnitLabel layer](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more information, see the [ZoneLabel layer](#zonelabel-layer).
 
@@ -98,8 +99,10 @@ The DWG file for each level must contain a layer to define that level's perimete
 
 No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only one level feature for each DWG file. Additionally:
 
-* Exteriors must be drawn as Polygon, PolyLine (closed), or Circle.
-* Exteriors can overlap, but are dissolved into one geometry.
+* Exteriors must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
+* Exteriors may overlap, but are dissolved into one geometry.
+* Resulting level feature must be at least 4 square meters.
+* Resulting level feature must not be greater 400 square meters.
 
 If the layer contains multiple overlapping PolyLines, the PolyLines are dissolved into a single Level feature. Alternatively, if the layer contains multiple non-overlapping PolyLines, the resulting Level feature has a multi-polygonal representation.
 
@@ -107,9 +110,11 @@ You can see an example of the Exterior layer as the outline layer in the [sample
 
 ### Unit layer
 
-The DWG file for each level defines a layer containing units. Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. The Units layer should adhere to the following requirements:
+The DWG file for each level defines a layer containing units. Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. If the `VerticalPenetrationCategory` property is defined, navigable units that span multiple levels, such as elevators and stairs, are converted to Vertical Penetration features. Vertical penetration features that overlap each other are assigned one Set Id.
 
-* Units must be drawn as Polygon, PolyLine (closed), or Circle.
+The Units layer should adhere to the following requirements:
+
+* Units must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
 * Units must fall inside the bounds of the facility exterior perimeter.
 * Units must not partially overlap.
 * Units must not contain any self-intersecting geometry.
@@ -122,7 +127,7 @@ You can see an example of the Units layer in the [sample Drawing package](https:
 
 The DWG file for each level can contain a layer that defines the physical extents of walls, columns, and other building structure.
 
-* Walls must be drawn as Polygon, PolyLine (closed), or Circle.
+* Walls must be drawn as Polygon, PolyLine (closed), Circle, or Ellipse (closed).
 * The wall layer or layers should only contain geometry that's interpreted as building structure.
 
 You can see an example of the Walls layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -137,9 +142,9 @@ Door openings in an Azure Maps dataset are represented as a single-line segment 
 
 ### Zone layer
 
-The DWG file for each level can contain a Zone layer that defines the physical extents of zones. A zone can be an indoor empty space or a back yard.
+The DWG file for each level can contain a Zone layer that defines the physical extents of zones. A zone is a non-navigable space that can be named and rendered. Zones can span multiple levels and are grouped together using the zoneSetId property.
 
-* Zones must be drawn as Polygon, PolyLine (closed), or Circle.
+* Zones must be drawn as Polygon, PolyLine (closed), or Ellipse (closed).
 * Zones can overlap.
 * Zones can fall inside or outside the facility's exterior perimeter.
 
