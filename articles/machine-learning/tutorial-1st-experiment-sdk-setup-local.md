@@ -52,7 +52,7 @@ Once you have installed Conda, use a terminal or Anaconda Prompt window to creat
 conda create -n tutorial python=3.7
 ```
 
-Next, install the Azure Machine Learning SDK into the Conda environment you created:
+Next, install the Azure Machine Learning SDK into the conda environment you created:
 
 ```bash
 conda activate tutorial
