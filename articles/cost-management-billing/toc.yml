@@ -189,15 +189,15 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create EA subscriptions - REST
+      - name: Create EA subscriptions programmatically
         href: manage/programmatically-create-subscription-enterprise-agreement.md
-      - name: Create MCA subscriptions - REST
+      - name: Create MCA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-      - name: Create MPA subscriptions - REST
+      - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
       - name: Create subscriptions - ARM template
         href: manage/create-subscription-template.md
-      - name: Create subscriptions - preview REST
+      - name: Create subscriptions programmatically - preview
         href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
@@ -385,6 +385,8 @@
     href: /azure/templates/microsoft.consumption/budgets
   - name: Cost Management REST API Samples
     href: https://github.com/Azure-Samples/Cost-Management-Samples
+  - name: Cost Management - Azure PowerShell
+    href: /powershell/module/Az.CostManagement
   - name: Billing Automation Scenarios
     href: manage/cost-management-automation-scenarios.md
   - name: Azure Billing API overview

@@ -142,7 +142,7 @@
       items:
       - name: Add synonyms
         href: search-synonyms.md
-      - name: Synonyms example
+      - name: Synonyms C# example
         href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
@@ -256,9 +256,11 @@
     items:
     - name: Query types and composition
       href: search-query-overview.md
-    - name: Create a simple query
+    - name: Create a basic query
+      href: search-query-create.md
+    - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
-    - name: Use full Lucene syntax
+    - name: Use full Lucene (examples)
       href: search-query-lucene-examples.md
     - name: Partial terms and special characters
       href: search-query-partial-matching.md
@@ -304,10 +306,12 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Service limits
-      href: search-limits-quotas-capacity.md
+    - name: Estimate capacity and cost
+      href: search-sku-manage-costs.md
     - name: Adjust capacity
       href: search-capacity-planning.md
+    - name: Service limits
+      href: search-limits-quotas-capacity.md
     - name: Scale for performance
       href: search-performance-optimization.md
     - name: Multitenant architecture
@@ -360,12 +364,6 @@
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
-    - name: Identity-based access
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
-        href: search-security-trimming-for-azure-search-with-aad.md
     - name: Outbound security (indexers)  
       items:
       - name: Access over an IP range
@@ -374,6 +372,12 @@
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Access through private endpoints
         href: search-indexer-howto-access-private.md
+    - name: Document-level security
+      items:
+      - name: Security filters
+        href: search-security-trimming-for-azure-search.md
+      - name: Filter on user identities
+        href: search-security-trimming-for-azure-search-with-aad.md
   - name: Manage
     items:
     - name: Portal
@@ -536,6 +540,8 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://www.microsoft.com/en-us/ai/ai-lab-jfk-files
+    - name: NYC Jobs demo
+      href: https://azjobsdemo.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)
@@ -544,6 +550,8 @@
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
+  - name: Partner solutions
+    href: resource-partners-knowledge-mining.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing

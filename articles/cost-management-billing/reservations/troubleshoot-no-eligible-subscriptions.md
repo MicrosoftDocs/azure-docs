@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/15/2020
 ---
 
 # Troubleshoot no eligible subscriptions
@@ -89,8 +89,8 @@ The current reservation order owner or reservation owner can delegate access to 
 1. Type the email address of the user you want to add as owner.
 1. Select the user, and then select **Save**.
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## Next steps
 
-- Review [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) if you need to have a reservation owner grant you access.
+- Review [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default) if you need to have a reservation owner grant you access.

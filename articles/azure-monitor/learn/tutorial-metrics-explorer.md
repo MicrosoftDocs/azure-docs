@@ -35,7 +35,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 1. Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu.
 
-1. Select the **Scope**, which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu.
+1. Select the **Scope**, which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu. To learn more about the various capabilities of the resource scope picker, visit [this article](../platform/metrics-charts.md#resource-scope-picker).
 
     ![Select a scope](media/tutorial-metrics-explorer/scope-picker.png)
 

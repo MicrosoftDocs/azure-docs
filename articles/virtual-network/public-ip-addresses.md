@@ -50,6 +50,7 @@ Standard SKU public IP addresses:
 - Secure by default and closed to inbound traffic. Allow list inbound traffic with a [network security group](security-overview.md#network-security-groups).
 - Assigned to network interfaces, standard public load balancers, or Application Gateways. For more information about Standard load balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Can be zone-redundant (advertized from all 3 zones) or zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where 3 availability zones](https://docs.microsoft.com/azure/availability-zones/az-region) are live.** IPs created before zones are live will not be zone redundant.
+- Can be used as anycast frontend IPs for [cross-region load balancers](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) (preview functionality).
  
 > [!NOTE]
 > Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.

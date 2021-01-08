@@ -21,38 +21,35 @@ In each iteration, the query resumes at the last point changes were read, using 
 # [Java](#tab/java)
 
 ```java
-        Session cassandraSession = utils.getSession();
+    Session cassandraSession = utils.getSession();
 
-        try {
-        	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-        	   LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
-        	   String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
-        	   
-        	 byte[] token=null; 
-        	 System.out.println(query); 
-        	 while(true)
-        	 {
-        		 SimpleStatement st=new  SimpleStatement(query);
-        		 st.setFetchSize(100);
-        		 if(token!=null)
-        			 st.setPagingStateUnsafe(token);
-        		 
-        		 ResultSet result=cassandraSession.execute(st) ;
-        		 token=result.getExecutionInfo().getPagingState().toBytes();
-        		 
-        		 for(Row row:result)
-        		 {
-        			 System.out.println(row.getString("user_name"));
-        		 }
-        	 }
-                  	
-
-        } finally {
-            utils.close();
-            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    try {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+        String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+            + dtf.format(now)+ "'";
+        
+        byte[] token=null; 
+        System.out.println(query); 
+        while(true)
+        {
+            SimpleStatement st=new  SimpleStatement(query);
+            st.setFetchSize(100);
+            if(token!=null)
+                st.setPagingStateUnsafe(token);
+            
+            ResultSet result=cassandraSession.execute(st) ;
+            token=result.getExecutionInfo().getPagingState().toBytes();
+            
+            for(Row row:result)
+            {
+                System.out.println(row.getString("user_name"));
+            }
         }
-
+    } finally {
+        utils.close();
+        LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+    }
 ```
 
 # [C#](#tab/csharp)
@@ -122,7 +119,7 @@ In order to get the changes to a single row by primary key, you can add the prim
 
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
-           			+ dtf.format(now)+ "'";
+                       + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
 ---

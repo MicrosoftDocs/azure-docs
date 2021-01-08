@@ -148,7 +148,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 5. The following step deploys the cluster with monitoring enabled by using the Azure CLI.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     The output resembles the following:
@@ -230,7 +230,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 6. To deploy with Azure CLI, run the following commands:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     The output resembles the following:
