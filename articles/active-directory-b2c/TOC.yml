@@ -440,7 +440,7 @@
   - name: Billing model
     href: billing.md
   - name: Code samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?terms=b2c
+    href: /samples/browse/?terms=b2c
   - name: Cookie definitions
     href: cookie-definitions.md
     displayName: cookies, SameSite
