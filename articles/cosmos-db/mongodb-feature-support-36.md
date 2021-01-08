@@ -18,7 +18,7 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 ## Protocol Support
 
-The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6 version of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts have the endpoint in the format `*.documents.azure.com`.
+The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6 version of account has the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of account has the endpoint in the format `*.documents.azure.com`.
 
 ## Query language support
 
@@ -590,7 +590,7 @@ Azure Cosmos DB supports automatic, server-side sharding. It manages shard creat
 
 ## Sessions
 
-Azure Cosmos DB does not yet support server side sessions commands.
+Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Next steps
 
