@@ -25,7 +25,8 @@ To apply a sort to a query, you must create an index on the fields used in the s
 
 ### Editing indexing policy
 
-We recommend editing your indexing policy in the Data Explorer within the Azure Portal. You can add single field and wildcard indexes from the indexing policy editor in the Data Explorer:
+We recommend editing your indexing policy in the Data Explorer within the Azure portal.
+. You can add single field and wildcard indexes from the indexing policy editor in the Data Explorer:
 
 :::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Indexing policy editor":::
 
@@ -40,7 +41,7 @@ You can create indexes on any single field. The sort order of the single field i
 
 `db.coll.createIndex({name:1})`
 
-You could create the same single field index on `name` in the Azure Portal:
+You could create the same single field index on `name` in the Azure portal:
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Add name index in indexing policy editor":::
 
@@ -142,7 +143,7 @@ Here's how you can create a wildcard index on all fields:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-You can also create wildcard indexes using the Data Explorer in the Azure Portal:
+You can also create wildcard indexes using the Data Explorer in the Azure portal:
 
 :::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
 
