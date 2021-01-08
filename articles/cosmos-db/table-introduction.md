@@ -39,7 +39,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 | Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes. | Automatic and complete indexing on all properties by default, with no index management. |
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. |
 | Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |
-| Pricing | Consumption-based. | Available in both consumption-based and provisioned capacity modes. |
+| Pricing | Consumption-based. | Available in both [consumption-based](serverless.md) and [provisioned capacity](set-throughput.md) modes. |
 | SLAs | 99.9% to 99.99% availability, depending on the replication strategy. | 99.999% read availability, 99.99% write availability on a single-region account and 99.999% write availability on multi-region accounts. [Comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) covering availability, latency, throughput and consistency. |
 
 ## Get started

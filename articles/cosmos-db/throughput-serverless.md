@@ -20,7 +20,7 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 | Criteria | Provisioned throughput | Serverless |
 | --- | --- | --- |
 | Status | Generally available | In preview |
-| Best suited for | Workloads with sustained traffic requiring predictable performance | Workloads with intermittent or unpredictable traffic with low average-to-peak traffic ratio |
+| Best suited for | Workloads with sustained traffic requiring predictable performance | Workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio |
 | How it works | For each of your containers, you provision some amount of throughput expressed in [Request Units](request-units.md) per second. Every second, this amount of Request Units is available for your database operations. Provisioned throughput can be updated manually or adjusted automatically with [autoscale](provision-throughput-autoscale.md). | You run your database operations against your containers without having to provision any capacity. |
 | Geo-distribution | Available (unlimited number of Azure regions) | Unavailable (serverless accounts can only run in 1 Azure region) |
 | Maximum storage per container | Unlimited | 50 GB |
