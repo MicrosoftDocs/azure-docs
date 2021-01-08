@@ -75,7 +75,7 @@ DWG layers must also follow the following criteria:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels.
-* Self-intersecting polygons are automatically repaired, and the [Azure Maps Conversion service](/rest/api/maps/conversion) raises a warning. It is advisable to manually inspect the repaired results, because they might not match the expected results.
+* Self-intersecting polygons are automatically repaired, and the [Azure Maps Conversion service](/rest/api/maps/conversion) raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Ellipse (closed), or Text (single line). Any other entity types are ignored.
 
