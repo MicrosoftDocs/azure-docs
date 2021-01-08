@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
 ---
@@ -30,7 +30,7 @@ Before using this API, understand:
 * The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
 > [!TIP]
-> See the [Azure government documentation](/azure/azure-government/compare-azure-government-global-azure) for government cloud (FairFax) endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 

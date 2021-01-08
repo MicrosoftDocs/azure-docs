@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/29/2019
+ms.date: 01/08/2021
 ms.author: erhopf
 ---
 
