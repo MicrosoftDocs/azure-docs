@@ -12,11 +12,13 @@ ms.custom:
  
 # Azure Cloud Services (extended support) overview
 
-Cloud Services (extended support) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in  Azure Resource Manager. Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as Cloud Services (classic).
+Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the Azure Cloud Services product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in  Azure Resource Manager. Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as Cloud Services (classic).
+
+Cloud Services (extended support) provides a path for customers to migrate away from the Cloud Services (classic) deployment model.
 
 ## Changes in deployment model
 
-Minimal changes are required to cscfg and csdef files to deploy Cloud Services (extended support). No changes are required to runtime code. The deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
+Minimal changes are required to cscfg and csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
 
 - The Azure Resource Manager templates need to be maintained and kept consistent with the cscfg and csdef files for Cloud Services (extended support) deployments.
 - Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
@@ -31,7 +33,7 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 ## Prerequisites for deployment
 ### Required Service Definition updates
  
-1. Update virtual machine size names.
+1. Update previous virtual machine size names to use the Azure Resource Manager naming conventions.
 
     | Previous size name | Updated size name | 
     |---|---|
@@ -56,7 +58,7 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     `ResourceType = virtualMachines ` <br>
     `VMDeploymentTypes = PaaS `
 
-2. If using previous remote desktop plugins, remove the modules from the Service Definition file and any previously associated certificates. 
+2. Deployments that utilized the previous remote desktop plugins need to have the modules removed from the Service Definition file and any previously associated certificates. 
 
     ```xml
     <Imports> 
@@ -85,7 +87,7 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
       </NetworkConfiguration> 
     ```
  
-2. If using previous remote desktop plugins, remove the modules from the Service Definition file and any previously associated certificates. 
+2. Deployments that utilized the previous remote desktop plugins need to have the modules removed from the Service Configuration file and any previously associated certificates. 
 
     ```xml
     <Imports> 
@@ -110,10 +112,6 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
     ```
-
-## Migration
-Cloud Services (extended support) provides a path for customers to migrate from Azure Service Manager to Azure Resource Manager. This migration path utilizes a redeploy feature where the Cloud Service is deployed with Azure Resource Manager and then deleted from Azure Service Manager. 
-
 
 ## Next steps
 To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)
