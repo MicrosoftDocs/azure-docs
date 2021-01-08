@@ -34,7 +34,7 @@ Microsoft 365 cloud environment.
 > This article was initially published as a blog post. It has been moved here for longevity and maintenance. <br>
 To create an offline version of this article, use your browser's print to PDF functionality. Check back here frequently for updates.
 
-## Understanding primary threat vectors from compromised on-premises environments
+## Primary threat vectors from compromised on-premises environments
 
 
 Your Microsoft 365 cloud environment benefits from an extensive
@@ -52,22 +52,22 @@ The two primary threat vectors are **federation trust relationships**
 and **account synchronization.** Both vectors can grant an attacker
 administrative access to your cloud.
 
-1.  **Federated trust relationships**, such as SAML authentication, are
+* **Federated trust relationships**, such as SAML authentication, are
     used to authenticate to Microsoft 365 via your on-premises Identity
     Infrastructure. If a SAML token signing certificate is compromised,
     federation would allow anyone with that certificate to impersonate
-    any user in your cloud**. We recommend you disable federation trust
+    any user in your cloud. **We recommend you disable federation trust
     relationships for authentication to Microsoft 365 when possible.**
 
-2.  **Account synchronization** can be used to modify privileged users
+* **Account synchronization** can be used to modify privileged users
     (including their credentials) or groups granted administrative
     privileges in Microsoft 365. **We recommend you ensure that
-    synchronized objects hold no privileges beyond a user** **in
+    synchronized objects hold no privileges beyond a user in
     Microsoft 365,** either directly or via inclusion in trusted roles
     or groups. Ensure these objects have no direct or nested assignment
     in trusted cloud roles or groups.
 
-## Principles for Protecting Microsoft 365 from on-premises compromise
+## Protecting Microsoft 365 from on-premises compromise
 
 
 To address the threat vectors outlined above, we recommend you adhere to
@@ -75,7 +75,7 @@ the principles illustrated below:
 
 ![Reference architecture for protecting Microsoft 365 ](media/protect-m365/protect-m365-principles.png)
 
-1.  **Fully Isolate your Microsoft 365 administrator accounts.** They
+*  **Fully Isolate your Microsoft 365 administrator accounts.** They
     should be
 
     * Mastered in Azure AD.
@@ -89,12 +89,12 @@ the principles illustrated below:
 These are restricted use accounts. **There should be no on-premises accounts with administrative privileges in Microsoft 365.** For more information, see this [overview of Microsoft 365 administrator roles](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
 Also see [Roles for Microsoft 365 in Azure Active Directory](../roles/m365-workload-docs.md).
 
-1.  **Manage devices from Microsoft 365.** Use Azure AD Join and
+*  **Manage devices from Microsoft 365.** Use Azure AD Join and
     cloud-based mobile device management (MDM) to eliminate dependencies
     on your on-premises device management infrastructure, which can
     compromise device and security controls.
 
-2.  **No on-premises account has elevated privileges to Microsoft 365.**
+* **No on-premises account has elevated privileges to Microsoft 365.**
     Accounts accessing on-premises applications that require NTLM, LDAP,
     or Kerberos authentication need an account in the organization's
     on-premises identity infrastructure. Ensure that these accounts,
@@ -104,8 +104,8 @@ Also see [Roles for Microsoft 365 in Azure Active Directory](../roles/m365-workl
     must not be capable of impacting Microsoft 365 privileged accounts
     or roles.
 
-3.  **Use Azure AD cloud authentication** to eliminate dependencies on
-    your on-premises credentials**.** Always use strong authentication,
+*  **Use Azure AD cloud authentication** to eliminate dependencies on
+    your on-premises credentials. Always use strong authentication,
     such as Windows Hello, FIDO, the Microsoft Authenticator, or Azure
     AD MFA.
 
@@ -121,9 +121,9 @@ principles described above.
 In Azure AD, users with privileged roles such as administrators are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the impact of a compromise.
 
 * Use cloud-only accounts for Azure AD and Microsoft 365 privileged
-    roles.
+    roles.d
 
-* Deploy [Azure Managed Workstations](../devices/howto-azure-managed-workstation.md) for privileged access to manage Microsoft 365 and Azure AD.
+* Deploy [priviledged access devices](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) for privileged access to manage Microsoft 365 and Azure AD.
 
 *  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just in time (JIT) access to all human accounts that have privileged roles, and require strong authentication to activate roles.
 
@@ -236,12 +236,10 @@ Use Azure AD capabilities to securely manage devices.
 
     -   Do not deploy Server OS machines as workstations.
 
-    -   Use [Microsoft
-        Intune](https://www.microsoft.com/en/microsoft-365/enterprise-mobility-security/microsoft-intune)
+    -   Use [Microsoft Intune](https://www.microsoft.com/en/microsoft-365/enterprise-mobility-security/microsoft-intune)
         as the source of authority of all device management workloads.
 
--   [**Deploy Azure Managed
-    Workstations**](../devices/howto-azure-managed-workstation.md)
+-   [**Deploy privileged access devices**](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles)
     for privileged access to manage Microsoft 365 and Azure AD.
 
  ## Workloads, applications, and resources 
@@ -347,8 +345,7 @@ Define a log storage and retention strategy, design, and implementation to facil
 
    * Risk events 
 
-Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](https://aka.ms/AzureADSecuredAzure/32b). You can [stream Azure AD logs to Azure monitor
-logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through [Microsoft Graph API](https://aka.ms/AzureADSecuredAzure/32b). You can [stream Azure AD logs to Azure monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Hybrid Infrastructure OS Security Logs.** All hybrid identity infrastructure OS logs should be archived and carefully monitored as a <br>Tier 0 system, given the surface area implications. This includes: 
 
