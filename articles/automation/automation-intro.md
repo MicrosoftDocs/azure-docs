@@ -29,7 +29,7 @@ Configuration Management in Azure Automation allows access to two features:
 
 ### Change Tracking and Inventory
 
-Change Tracking and Inventory combines change tracking and inventory functions to allow you to track virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking.md).
+Change Tracking and Inventory combines change tracking and inventory functions to allow you to track virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking/overview.md).
 
 ### Azure Automation State Configuration
 
@@ -37,7 +37,7 @@ Change Tracking and Inventory combines change tracking and inventory functions t
 
 ## Update management
 
-Azure Automation includes the [Update Management](update-management/update-mgmt-overview.md) feature for Windows and Linux systems across hybrid environments. Update Management gives you visibility into update compliance across Azure and other clouds, and on-premises. The feature allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use Update Management functionality to exclude it from a deployment.
+Azure Automation includes the [Update Management](./update-management/overview.md) feature for Windows and Linux systems across hybrid environments. Update Management gives you visibility into update compliance across Azure and other clouds, and on-premises. The feature allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use Update Management functionality to exclude it from a deployment.
 
 ## Shared capabilities
 

@@ -20,9 +20,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin to set up a geo-filter policy, set up your PowerShell environment and create a Front Door profile.
 ### Set up your PowerShell environment
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
+Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
 
 #### Connect to Azure with an interactive dialog for sign in
 

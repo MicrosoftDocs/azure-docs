@@ -39,7 +39,7 @@ After the Kubernetes cluster is created, you can access this cluster to create n
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## Configure cluster access via RBAC
+## Configure cluster access via Kubernetes RBAC
 
 After the Kubernetes cluster is created, you can use the *kubectl* via cmdline to access the cluster. 
 

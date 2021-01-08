@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 # Customer intent: As an application developer, I want to learn about initializing a client application in MSAL.js to
 # enable support for authentication and authorization in a JavaScript single-page application (SPA).
 ---
@@ -106,7 +106,7 @@ Invoke [handleRedirectPromise][msal-js-handleredirectpromise] when your applicat
 There are three possible outcomes from the promise:
 
 - `.then` is invoked and `tokenResponse` is truthy: The application is returning from a redirect operation that was successful.
-- `.then` is invoked and `tokenResponse` is falsey (`null`): The application is not returning from a redirect operation.
+- `.then` is invoked and `tokenResponse` is falsy (`null`): The application is not returning from a redirect operation.
 - `.catch` is invoked: The application is returning from a redirect operation and there was an error.
 
 ## Initialize MSAL.js 1.x apps

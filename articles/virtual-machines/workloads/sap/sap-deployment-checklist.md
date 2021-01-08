@@ -8,9 +8,8 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -63,7 +62,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- High availability and disaster recovery architecture.
 		- Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
 		- For high availability within a zone, check what the desired DBMS has to offer in Azure. Most DBMS packages offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP-related documentation for different databases, starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md) and related documents.
-		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), isn't supported. Instead, use solutions like:
+		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true), isn't supported. Instead, use solutions like:
 		   - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
 		   - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
 		   - [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
@@ -240,8 +239,8 @@ In this phase, collect what you experienced and learned during your non-producti
 	- Azure Premium Storage is used for latency-sensitive disks or where the [single-VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) is required.
 	- Azure Write Accelerator is deployed correctly.
 		- Make sure that, within the VMs, storage spaces, or stripe sets were built correctly across disks that need Write Accelerator.
-		- Check the [configuration of software RAID on Linux](../../linux/configure-raid.md).
-		- Check the [configuration of LVM on Linux VMs in Azure](../../linux/configure-lvm.md).
+		- Check the [configuration of software RAID on Linux](/previous-versions/azure/virtual-machines/linux/configure-raid).
+		- Check the [configuration of LVM on Linux VMs in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm).
 	- [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) are used exclusively.
 	- VMs were deployed into the correct availability sets and Availability Zones.
 	- [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer.

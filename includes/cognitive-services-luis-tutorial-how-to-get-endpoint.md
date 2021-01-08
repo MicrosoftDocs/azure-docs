@@ -2,15 +2,15 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 10/08/2018
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: aahi
 ---
 
 In the **Manage** section (top right menu), on the **Keys and endpoints** page (left menu), select the **endpoint** URL at the bottom of the page. This action opens another browser tab with the endpoint URL in the address bar. 

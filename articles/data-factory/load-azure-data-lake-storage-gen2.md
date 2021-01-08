@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
@@ -37,7 +37,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -83,7 +83,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 6. Specify the copy behavior by checking the **Recursively** and **Binary copy** options. Select **Next**.
 
-    ![Specify output folder](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
+    ![Screenshot shows the Choose the input file or folder where you can select Binary copy and Recursively.](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
 	
 7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen2**, and select **Continue**.
 
@@ -98,7 +98,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**. ADF will create the corresponding ADLS Gen2 file system and subfolders during copy if it doesn't exist.
 
-    ![Specify output folder](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
+    ![Screenshot shows the folder path you enter.](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
 10. In the **Settings** page, select **Next** to use the default settings.
 

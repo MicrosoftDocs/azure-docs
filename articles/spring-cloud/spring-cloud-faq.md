@@ -32,8 +32,11 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central and UAE North.
 
+### Is any customer data stored outside of the specified region?
+
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
@@ -61,13 +64,30 @@ For the quickest way to get started with Azure Spring Cloud, follow the instruct
 ### What Java runtime does Azure Spring Cloud support?
 
 Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
+
+### Is Spring Boot 2.4.x supported?
+We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, please include these two dependencies to enable TLS authentication between your apps and Eureka.
+
+```xml
+<dependency> 
+	<groupId>com.sun.jersey</groupId>
+	<artifactId>jersey-client</artifactId>
+	<version>1.19.4</version>
+</dependency>
+<dependency>
+	<groupId>com.sun.jersey.contribs</groupId>
+	<artifactId>jersey-apache-client4</artifactId>
+	<version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
-Find metrics in the App Overview tab and the [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) tab.
+Find metrics in the App Overview tab and the [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer) tab.
 
-Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](../azure-monitor/platform/data-platform-logs.md). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Cloud support distributed tracing?
 
@@ -86,6 +106,21 @@ Three services are currently supported:
 
 Yes.
 
+### How many outbound public IP addresses does an Azure Spring Cloud instance have?
+
+The number of outbound public IP addresses may vary according to the tiers and other factors. 
+
+| Azure Spring Cloud instance type | Default number of outbound public IP addresses |
+| -------------------------------- | ---------------------------------------------- |
+| Basic Tier instances             | 1                                              |
+| Standard Tier instances          | 2                                              |
+| VNet injection instances         | 1                                              |
+
+
+### Can I increase the number of outbound public IP addresses?
+
+Yes, you can open a [support ticket](https://azure.microsoft.com/support/faq/)  to request for more outbound public IP addresses.
+
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
 It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
@@ -101,7 +136,7 @@ You can delete Spring Cloud's diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 build 252 and Java 11 build 7 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 and Java 11 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### Who built these Java runtimes?
 
@@ -158,7 +193,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-No.
+Yes.  For more information, see [Setup autoscale](spring-cloud-tutorial-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?

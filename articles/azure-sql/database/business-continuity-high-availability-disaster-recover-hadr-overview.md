@@ -135,7 +135,7 @@ After recovery from either recovery mechanism, you must perform the following ad
 
 - Redirect clients and client applications to the new server and restored database.
 - Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
-- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Ensure appropriate logins and master database level permissions are in place (or use [contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Configure auditing, as appropriate.
 - Configure alerts, as appropriate.
 

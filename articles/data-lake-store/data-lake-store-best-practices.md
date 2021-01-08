@@ -45,7 +45,7 @@ Data Lake Storage Gen1 supports the option of turning on a firewall and limiting
 
 ![Firewall settings in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall settings in Data Lake Storage Gen1")
 
-Once firewall is enabled, only Azure services such as HDInsight, Data Factory, Azure Synapse Analytics (formerly SQL Data Warehouse), etc. have access to Data Lake Storage Gen1. Due to the internal network address translation used by Azure, the Data Lake Storage Gen1 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
+Once firewall is enabled, only Azure services such as HDInsight, Data Factory, Azure Synapse Analytics, etc. have access to Data Lake Storage Gen1. Due to the internal network address translation used by Azure, the Data Lake Storage Gen1 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
 
 ## Performance and scale considerations
 

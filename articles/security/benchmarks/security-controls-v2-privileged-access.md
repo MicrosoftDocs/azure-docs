@@ -16,7 +16,7 @@ Privileged Access covers controls to protect privileged access to your Azure ten
 
 ## PA-1: Protect and limit highly privileged users
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
@@ -31,11 +31,11 @@ Note: You may have other critical roles that need to be governed if you use cust
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
-- [Administrator role permissions in Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Administrator role permissions in Azure AD](../../active-directory/roles/permissions-reference.md)
 
 - [Use Azure Privileged Identity Management security alerts](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../../active-directory/roles/security-planning.md)
 
 **Responsibility**: Customer
 
@@ -51,7 +51,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 ## PA-2: Restrict administrative access to business-critical systems
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-2 | 13.2, 2.10 | AC-2, SC-3, SC-7 |
 
@@ -80,7 +80,7 @@ Ensure to assign separate privileged accounts that are distinct from the standar
 
 ## PA-3: Review and reconcile user access regularly
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-3 | 4.1, 16.9, 16.10 | AC-2 |
 
@@ -105,14 +105,14 @@ Note: Some Azure services support local users and roles that aren't managed thro
 
 ## PA-4: Set up emergency access in Azure AD
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-4 | 16 | AC-2, CP-2 |
 
 To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [Manage emergency access accounts in Azure AD](../../active-directory/roles/security-emergency-access.md)
 
 **Responsibility**: Customer
 
@@ -128,7 +128,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ## PA-5: Automate entitlement management
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-5 | 16 | AC-2, AC-5, PM-10 |
 
@@ -149,7 +149,7 @@ Use Azure AD entitlement management features to automate access request workflow
 
 ## PA-6: Use privileged access workstations
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3,  SC-7 |
 
@@ -171,7 +171,7 @@ Secured, isolated workstations are critically important for the security of sens
 
 ## PA-7: Follow just enough administration (least privilege principle)
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
@@ -198,7 +198,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 ## PA-8: Choose approval process for Microsoft support 
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-8 | 16 | AC-2, AC-3, AC-4 |
 

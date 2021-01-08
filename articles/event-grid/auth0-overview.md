@@ -38,7 +38,7 @@ Combining security monitoring and incident response procedures is important when
 
 ## Next steps
 
-- [Partner topics overview](partner-topics-overview.md)
+- [Partner topics overview](partner-events-overview.md)
 - [How to use the Auth0 partner topic](auth0-how-to.md)
 - [Auth0 documentation](https://auth0.com/docs/azure-tutorial)
 - [Become an Event Grid partner](partner-onboarding-overview.md)

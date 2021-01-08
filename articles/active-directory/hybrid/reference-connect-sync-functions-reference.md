@@ -699,7 +699,7 @@ The InStr function finds the first occurrence of a substring in a string
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: string to be searched
 * stringmatch: string to be found

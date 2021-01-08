@@ -12,12 +12,13 @@ ms.custom: devx-track-java
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -192,7 +193,7 @@ Azure Web Sites makes deploying Java applications as simple as exporting your ap
    * In the Destination box, choose a destination to save the WAR file.
    * Click **Finish**.
 
-1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
+1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 
 1. To view your finished product, navigate to `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` and start adding your tasks!
 
@@ -212,7 +213,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 
-1. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
+1. On the **Branch Selection** screen, ensure that **main** is selected, and then click **Next**.
 
 1. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 

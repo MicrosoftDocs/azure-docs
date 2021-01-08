@@ -1,6 +1,9 @@
 ---
 title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: [ "MVC", "fasttrack-edit"]
@@ -36,23 +39,8 @@ Before you begin this tutorial, you should:
 2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
 3. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 4. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
-
-   
-## Add the Azure Migrate:Server Migration tool
-
-Add the Azure Migrate:Server Migration tool. If you don't yet have an Azure Migrate project [create that first](how-to-add-tool-first-time.md) to set up an Azure Migrate project. You add the Azure Migrate:Server Migration tool when you create the project.
-
-If you have a project set up, add the tool as follows:
-
-1. In the Azure Migrate project, click **Overview**. 
-2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
-3. In **Migration tools**, select **Click here to add a migration tool when you are ready to migrate**.
-
-    ![Select a tool](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. In the tools list, select **Azure Migrate: Server Migration** > **Add tool**
-
-    ![Server Migration tool](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
+5. Go to the already created project or [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+6. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Download and install the provider
 
@@ -144,7 +132,7 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 - **Service bus**: Azure Migrate: Server Migration uses the Service Bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Azure Migrate: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you [prepared Azure](tutorial-prepare-hyper-v.md#prepare-azure) for Hyper-V VM assessment and migration. 
+- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you [prepared Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) for Hyper-V VM assessment and migration. 
 
 
 ## Track and monitor
@@ -225,7 +213,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

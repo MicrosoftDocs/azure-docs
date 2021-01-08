@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with GitHub | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and GitHub.
+title: 'Tutorial: Azure Active Directory integration with a GitHub Enterprise Cloud Organization | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and a GitHub Enterprise Cloud Organization.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,18 +13,18 @@ ms.date: 08/07/2020
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with a GitHub Enterprise Cloud Organization
 
-In this tutorial, you'll learn how to integrate GitHub with Azure Active Directory (Azure AD). When you integrate GitHub with Azure AD, you can:
+In this tutorial, you'll learn how to integrate a GitHub Enterprise Cloud **Organization** with Azure Active Directory (Azure AD). When you integrate a GitHub Enterprise Cloud Organization with Azure AD, you can:
 
 * Control in Azure AD who has access to your GitHub Enterprise Cloud Organization.
 * Manage access to your GitHub Enterprise Cloud Organization in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with GitHub, you need the following items:
+To configure Azure AD integration with a GitHub Enterprise Cloud Organization, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * GitHub supports **SP** initiated SSO
 
 * GitHub supports [**Automated** user provisioning (organization invitations)](github-provisioning-tutorial.md)
-* Once you configure GitHub you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure GitHub you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding GitHub from the gallery
 
@@ -47,7 +47,7 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **GitHub** in the search box.
-1. Select **GitHub** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **GitHub Enterprise Cloud - Organization** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for GitHub
 
@@ -215,16 +215,16 @@ The objective of this section is to create a user called Britta Simon in GitHub.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the GitHub tile in the Access Panel, you should be automatically signed in to the GitHub for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the GitHub tile in the Access Panel, you should be automatically signed in to the GitHub for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try GitHub with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

@@ -37,5 +37,5 @@ The app registration part that's related to API permissions is classical. The ap
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-web-api-call-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-web-api-call-api-app-registration.md).

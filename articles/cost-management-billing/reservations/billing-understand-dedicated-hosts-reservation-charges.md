@@ -44,17 +44,16 @@ request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are reservations for Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [What are reservations for Azure?](./save-compute-costs-reservations.md)
 
-- [Using Azure Dedicated Hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Using Azure Dedicated Hosts](../../virtual-machines/dedicated-hosts.md)
 
 - [Dedicated Hosts Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Manage reservations for Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Manage reservations for Azure](./manage-reserved-vm-instance.md)
 
-- [Understand reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Understand reservation usage for your Pay-As-You-Go subscription](./understand-reserved-instance-usage.md)
 
-- [Understand reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Understand reservation usage for your Enterprise enrollment](./understand-reserved-instance-usage-ea.md)
 
-- [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)

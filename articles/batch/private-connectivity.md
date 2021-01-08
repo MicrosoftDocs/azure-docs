@@ -35,11 +35,16 @@ Use the following steps to create a private Batch account using the Azure portal
    - **Virtual network**: Select your virtual network.
    - **Subnet**: Select your subnet.
    - **Integrate with private DNS zone**:	Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines.
-   - **Private DNS Zone**:	Select privatelink.<region>.batch.azure.com. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
+   - **Private DNS Zone**:	Select privatelink.\<region\>.batch.azure.com. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
 8. Select **Review + create**, then wait for Azure to validate your configuration.
 9. When you see the **Validation passed** message, select **Create**.
 
-After the private endpoint is provisioned, you can access the Batch account from VMs in the same virtual network using the private endpoint. To view the IP address from the Azure portal:
+After the private endpoint is provisioned, you can access the Batch account from VMs in the same virtual network using the private endpoint.
+
+> [!IMPORTANT]
+> Performing operations outside of the virtual network where the private endpoint is provisioned will result in an "AuthorizationFailure" message in the Azure Portal.
+
+To view the IP address from the Azure portal:
 
 1. Select **All resources**.
 2. Search for the private endpoint that you created earlier.

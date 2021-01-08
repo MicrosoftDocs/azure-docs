@@ -28,7 +28,7 @@ You can configure an app's attributes through the Azure portal or programmatical
 
 To configure the application manifest:
 
-1. Go to the [Azure portal](https://portal.azure.com). Search for and select the **Azure Active Directory** service.
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Search for and select the **Azure Active Directory** service.
 1. Select **App registrations**.
 1. Select the app you want to configure.
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
@@ -189,6 +189,7 @@ Configures the `groups` claim issued in a user or OAuth 2.0 access token that th
 
 - `"None"`
 - `"SecurityGroup"` (for security groups and Azure AD roles)
+- `"ApplicationGroup"` (this option includes only groups that are assigned to the application)
 - `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.
 
 Example:

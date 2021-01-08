@@ -116,7 +116,7 @@ _Microsoft.Identity.Web_ provides the glue between ASP.NET Core, the authenticat
 
 #### Using Microsoft.Identity.Web templates
 
-You can create a web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates)
+You can create a web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates).
 
 #### Starting from an existing ASP.NET Core 3.1 application
 
@@ -172,7 +172,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` in all other cases (for v1.0 [access tokens](access-tokens.md)).
 > For details, see Microsoft.Identity.Web [source code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83).
 
-The preceding code snippet is extracted from the [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). The detail of **AddMicrosoftIdentityWebApiAuthentication** is available in [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). This method calls [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), which itself instructs the middleware on how to validate the token. For details see its [source code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
+The preceding code snippet is extracted from the [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). The detail of **AddMicrosoftIdentityWebApiAuthentication** is available in [Microsoft.Identity.Web](microsoft-identity-web.md). This method calls [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true), which itself instructs the middleware on how to validate the token.
 
 ## Token validation
 
@@ -239,5 +239,5 @@ You can also validate incoming access tokens in Azure Functions. You can find ex
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md)
+Move on to the next article in this scenario,
+[Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md).

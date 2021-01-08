@@ -1,7 +1,7 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint sample controls
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
@@ -39,8 +39,6 @@ accounts and Redis Cache.
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
 - Show audit results from Windows web servers that are not using secure communication protocols
-- Deploy prerequisites to audit Windows web servers that are not using secure communication
-  protocols
 - Web Application should only be accessible over HTTPS
 - Function App should only be accessible over HTTPS
 - API App should only be accessible over HTTPS
@@ -82,9 +80,9 @@ deployed resources and can help you prioritize remediation actions.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerability assessment should be enabled on your SQL servers
-- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerability assessment should be enabled on your SQL managed instance
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
-- Advanced data security should be enabled on your SQL managed instances
+- Advanced data security should be enabled on your SQL managed instance
 - Advanced data security should be enabled on your SQL servers
 
 ## 5.3 Protective Monitoring
@@ -93,10 +91,10 @@ This blueprint helps you protect information system assets by assigning
 [Azure Policy](../../../policy/overview.md) definitions that provide protective monitoring on
 unrestricted access, allow list activity, and threats.
 
-- Audit unrestricted network access to storage accounts
-- Adaptive Application Controls should be enabled on virtual machines
+- Storage accounts should restrict network access
+- Adaptive Application Controls for defining safe applications should be enabled on your machines
 - Audit virtual machines without disaster recovery configured
-- DDoS Protection Standard should be enabled
+- Azure DDoS Protection Standard should be enabled
 - Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data
   Security settings
 - Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security
@@ -164,12 +162,6 @@ Windows VMs that don't enforce minimum strength and other password requirements.
 violation of the password strength policy helps you take corrective actions to ensure passwords for
 all VM user accounts are compliant with policy.
 
-- Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
-- Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
-- Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
-- Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14
-  characters
-- Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
 - Show audit results from Windows VMs that do not have the password complexity setting enabled
 - Show audit results from Windows VMs that do not have a maximum password age of 70 days
 - Show audit results from Windows VMs that do not have a minimum password age of 1 day
@@ -182,9 +174,6 @@ definitions. These policies audit use of resource types and configurations that 
 permissive access to resources. Understanding resources that are in violation of these policies can
 help you take corrective actions to ensure access Azure resources is restricted to authorized users.
 
-- Deploy requirements to audit Linux VMs that have accounts without passwords
-- Deploy requirements to audit Linux VMs that allow remote connections from accounts without
-  passwords
 - Show audit results from Linux VMs that have accounts without passwords
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
@@ -200,15 +189,15 @@ Storage accounts with unrestricted access can allow unintended access to informa
 within the information system. This blueprint also assigns a policy that enables adaptive
 application controls on virtual machines.
 
-- Audit unrestricted network access to storage accounts
-- Adaptive Application Controls should be enabled on virtual machines
+- Storage accounts should restrict network access
+- Adaptive Application Controls for defining safe applications should be enabled on your machines
 - Access through Internet facing endpoint should be restricted
 - Adaptive Network Hardening recommendations should be applied on internet facing virtual machines
 - Endpoint protection solution should be installed on virtual machine scale sets
-- Just-In-Time network access control should be applied on virtual machines
-- Remote debugging should be turned off for Function App
-- Remote debugging should be turned off for Web Application
-- Remote debugging should be turned off for API App
+- Management ports of virtual machines should be protected with just-in-time network access control
+- Remote debugging should be turned off for Function Apps
+- Remote debugging should be turned off for Web Applications
+- Remote debugging should be turned off for API Apps
 
 ## 13 Audit Information for Users
 
@@ -222,6 +211,7 @@ workspace.
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Deploy network watcher when virtual networks are created
+
 
 ## Next steps
 

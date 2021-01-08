@@ -2,11 +2,11 @@
 title: Performance tuning - Hive on Azure Data Lake Storage Gen1
 description: Learn about performance tuning for Hive on HdInsight and Azure Data Lake Storage Gen1. For I/O intensive queries, tune Hive to get better performance.
 
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
+ms.author: twooley
 
 ---
 # Performance tuning guidance for Hive on HDInsight and Azure Data Lake Storage Gen1
@@ -18,8 +18,8 @@ The default settings have been set to provide good performance across many diffe
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **A Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-* **Running Hive on HDInsight**.  To learn about running Hive jobs on HDInsight, see [Use Hive on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Running Hive on HDInsight**.  To learn about running Hive jobs on HDInsight, see [Use Hive on HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md)
+* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](./data-lake-store-performance-tuning-guidance.md)
 
 ## Parameters
 
@@ -45,7 +45,7 @@ Here are the most important settings to tune for improved Data Lake Storage Gen1
 
 **Set hive.exec.reducer.bytes.per.reducer** – The default value works well when the data is uncompressed.  For data that is compressed, you should reduce the size of the reducer.  
 
-**Set hive.tez.container.size** – In each node, memory is specified by yarn.nodemanager.resource.memory-mb and should be correctly set on HDI cluster by default.  For additional information on setting the appropriate memory in YARN, see this [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Set hive.tez.container.size** – In each node, memory is specified by yarn.nodemanager.resource.memory-mb and should be correctly set on HDI cluster by default.  For additional information on setting the appropriate memory in YARN, see this [post](../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md).
 
 I/O intensive workloads can benefit from more parallelism by decreasing the Tez container size. This gives the user more containers which increases concurrency.  However, some Hive queries require a significant amount of memory (e.g. MapJoin).  If the task does not have enough memory, you will get an out of memory exception during runtime.  If you receive out of memory exceptions, then you should increase the memory.   
 
@@ -80,6 +80,6 @@ Restart all the nodes/service for the config to take effect.
 ## Further information on Hive tuning
 
 Here are a few blogs that will help tune your Hive queries:
-* [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Encoding the Hive query file in Azure HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
+* [Optimize Hive queries for Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Encoding the Hive query file in Azure HDInsight](/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
 * [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

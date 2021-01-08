@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,10 +23,7 @@ This article gives you the information you need to configure a Conditional Acces
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Conditional Access. 
 
 ## Scenario description
 
@@ -54,15 +51,15 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 - Include any location 
 
-   ![Conditional Access](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Screenshot of the Azure A D Locations pane, with Configure set to Yes, the Include tab visible, and the Any location option selected and highlighted." border="false":::
 
 - Exclude all trusted locations 
 
-   ![Conditional Access](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Screenshot of the Azure A D Locations pane, with Configure set to Yes, the Exclude tab visible, and the All trusted locations option selected." border="false":::
 
 ## Policy deployment
 
-With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
+With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended.
 
 ## Next steps
 

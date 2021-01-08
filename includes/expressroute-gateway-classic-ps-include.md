@@ -20,7 +20,7 @@ When you add a gateway to a virtual network using the classic resource model, yo
 
 ### Download the network configuration file
 
-1. Download the network configuration file using the steps in [network configuration file](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) article. Open the file using a text editor.
+1. Download the network configuration file using the steps in [network configuration file](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) article. Open the file using a text editor.
 2. Add a local network site to the file. You can use any valid address prefix. You can add any valid IP address for the VPN gateway. The address values in this section are not used for ExpressRoute operations, but are required for file validation. In the example, "branch1" is the name of the site. You may use a different name, but be sure to use the same value in the Gateway section of the file.
 
    ```

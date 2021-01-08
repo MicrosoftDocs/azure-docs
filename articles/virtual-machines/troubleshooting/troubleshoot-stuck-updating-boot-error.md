@@ -77,4 +77,4 @@ Depending on the number of updates that are getting installed or rolled backing,
     > [!NOTE] 
     > Depending on the size of the package, the DISM tool will take a while to process the un-installation. Normally the process will be completed within 16 minutes.
 
-7. [Detach the OS disk and recreate the VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Then check whether the issue is resolved.
+7. [Detach the OS disk and recreate the VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk). Then check whether the issue is resolved.

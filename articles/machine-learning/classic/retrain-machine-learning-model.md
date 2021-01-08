@@ -13,7 +13,7 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
 
-**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio (classic). If you're looking to retrain a classic web service, [view this how-to article.](retrain-classic-web-service.md)
@@ -139,7 +139,7 @@ First, sign in to your Azure account from within the PowerShell environment by u
 
 ### Get the Web Service Definition object
 
-Next, get the Web Service Definition object by calling the [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet.
+Next, get the Web Service Definition object by calling the [Get-AzMlWebService](/powershell/module/az.machinelearning/get-azmlwebservice) cmdlet.
 
 ```azurepowershell
 $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
@@ -162,7 +162,7 @@ Alternatively, to determine the resource group name of an existing web service, 
 
 ### Export the Web Service Definition object as JSON
 
-To modify the definition of the trained model to use the newly trained model, you must first use the [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet to export it to a JSON-format file.
+To modify the definition of the trained model to use the newly trained model, you must first use the [Export-AzMlWebService](/powershell/module/az.machinelearning/export-azmlwebservice) cmdlet to export it to a JSON-format file.
 
 ```azurepowershell
 Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
@@ -189,7 +189,7 @@ In the assets, locate the [trained model], update the *uri* value in the *locati
 
 ### Import the JSON into a Web Service Definition object
 
-Use the [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet to convert the modified JSON file back into a Web Service Definition object that you can use to update the predicative experiment.
+Use the [Import-AzMlWebService](/powershell/module/az.machinelearning/import-azmlwebservice) cmdlet to convert the modified JSON file back into a Web Service Definition object that you can use to update the predicative experiment.
 
 ```azurepowershell
 $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
@@ -197,7 +197,7 @@ $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### Update the web service
 
-Finally, use the [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet to update the predictive experiment.
+Finally, use the [Update-AzMlWebService](/powershell/module/az.machinelearning/update-azmlwebservice) cmdlet to update the predictive experiment.
 
 ```azurepowershell
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'

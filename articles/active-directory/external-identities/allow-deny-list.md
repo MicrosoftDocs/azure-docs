@@ -124,7 +124,7 @@ If the module is not installed, or you don't have a required version, do one of 
 
 ### Use the AzureADPolicy cmdlets to configure the policy
 
-To create an allow or deny list, use the [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. The following example shows how to set a deny list that blocks the "live.com" domain.
+To create an allow or deny list, use the [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. The following example shows how to set a deny list that blocks the "live.com" domain.
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -138,19 +138,19 @@ The following shows the same example, but with the policy definition inline.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-To set the allow or deny list policy, use the [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
+To set the allow or deny list policy, use the [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-To get the policy, use the [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
+To get the policy, use the [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-To remove the policy, use the [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
+To remove the policy, use the [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -160,6 +160,3 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 - For an overview of Azure AD B2B, see [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](conditional-access.md).
-
-
-

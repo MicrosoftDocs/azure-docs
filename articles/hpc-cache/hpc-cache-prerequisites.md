@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
 ---
 
@@ -54,13 +54,26 @@ The best practice is to create a new subnet for each cache. You can create a new
 The cache needs DNS to access resources outside of its virtual network. Depending on which resources you are using, you might need to set up a customized DNS server and configure forwarding between that server and Azure DNS servers:
 
 * To access Azure Blob storage endpoints and other internal resources, you need the Azure-based DNS server.
-* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames.
+* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames. You must do this **before** you create the cache.
 
 If you only need access to Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to other resources, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server.
 
+To use a custom DNS server, you need to do these setup steps before you create your cache:
+
+* Create the virtual network that will host the Azure HPC Cache.
+* Create the DNS server.
+* Add the DNS server to the cache's virtual network.
+
+  Follow these steps to add the DNS server to the virtual network in the Azure portal:
+
+  1. Open the virtual network in the Azure portal.
+  1. Choose **DNS servers** from the **Settings** menu in the sidebar.
+  1. Select **Custom**
+  1. Enter the DNS server's IP address in the field.
+
 A simple DNS server also can be used to load balance client connections among all the available cache mount points.
 
-Learn more about Azure virtual networks and DNS server configurations in [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Learn more about Azure virtual networks and DNS server configurations in [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## Permissions
 
@@ -68,7 +81,7 @@ Check these permission-related prerequisites before starting to create your cach
 
 * The cache instance needs to be able to create virtual network interfaces (NICs). The user who creates the cache must have sufficient privileges in the subscription to create NICs.
 
-* If using Blob storage, Azure HPC Cache needs authorization to access your storage account. Use role-based access control (RBAC) to give the cache access to your Blob storage. Two roles are required: Storage Account Contributor and Storage Blob Data Contributor.
+* If using Blob storage, Azure HPC Cache needs authorization to access your storage account. Use Azure role-based access control (Azure RBAC) to give the cache access to your Blob storage. Two roles are required: Storage Account Contributor and Storage Blob Data Contributor.
 
   Follow the instructions in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to add the roles.
 
@@ -105,7 +118,7 @@ If using an NFS storage system (for example, an on-premises hardware NAS system)
 
 More information is included in [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md).
 
-* **Network connectivity:** The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for additional help troubleshooting VPN settings.
+* **Network connectivity:** The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](../expressroute/index.yml) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for additional help troubleshooting VPN settings.
 
 * **Port access:** The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
 

@@ -148,8 +148,8 @@ Metric alert rules have dedicated PowerShell cmdlets available:
 
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md).
-- [Understand how metric alerts work](alerts-metric-overview.md).
-- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md).
+- [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md)
+- [Understand how metric alerts work](alerts-metric-overview.md)
+- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md)
 - [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema)
-
+- [Troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)

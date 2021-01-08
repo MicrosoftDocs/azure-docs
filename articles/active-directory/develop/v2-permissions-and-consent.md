@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ---
 
 # Permissions and consent in the Microsoft identity platform endpoint
@@ -50,13 +50,13 @@ An app most commonly requests these permissions by specifying the scopes in requ
 
 Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
 
-* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests, and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests, and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
 * **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](#requesting-consent-for-an-entire-tenant).
 
 _Effective permissions_ are the permissions that your app will have when making requests to the target resource. It's important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to the target resource.
 
-- For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+- For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
    For example, assume your app has been granted the _User.ReadWrite.All_ delegated permission. This permission nominally grants your app permission to read and update the profile of every user in an organization. If the signed-in user is a global administrator, your app will be able to update the profile of every user in the organization. However, if the signed-in user isn't in an administrator role, your app will be able to update only the profile of the signed-in user. It will not be able to update the profiles of other users in the organization because the user that it has permission to act on behalf of does not have those privileges.
 
@@ -85,7 +85,7 @@ The `profile` scope can be used with the `openid` scope and any others. It gives
 The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the consent page, this scope appears as the "Maintain access to data you have given it access to" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the Microsoft identity platform token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
 > [!NOTE]
-> This permission appears on all consent screens today, even for flows that don't provide a refresh token (the [implicit flow](v2-oauth2-implicit-grant-flow.md)).  This is to cover scenarios where a client can begin within the implicit flow, and then move onto to the code flow where a refresh token is expected.
+> This permission appears on all consent screens today, even for flows that don't provide a refresh token (the [implicit flow](v2-oauth2-implicit-grant-flow.md)). This is to cover scenarios where a client can begin within the implicit flow, and then move to the code flow where a refresh token is expected.
 
 On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
 
@@ -300,7 +300,7 @@ This produces a consent screen for all registered permissions (if applicable bas
 
 ### Client credentials grant flow and /.default
 
-Another use of `./default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
+Another use of `/.default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
 
 To create application permissions (roles) for a web API, see [How to: Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
 

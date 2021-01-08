@@ -241,5 +241,4 @@ There are two roles to manage data feed permissions: *Administrator*, and *Viewe
 
 ## Next steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)

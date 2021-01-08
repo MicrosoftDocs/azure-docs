@@ -2,10 +2,10 @@
 title: AVS assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of AVS assessment calculations in the Azure Migrate service.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: mahain
 ---
 
 # Server Assessment overview (migrate to Azure VMware Solution)

@@ -59,7 +59,7 @@ The app stores ads in a SQL database, using Entity Framework Code First to creat
 
 When a user uploads an image, the front-end running in a web role stores the image in an [Azure blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and it stores the ad information in the database with a URL that points to the blob. At the same time, it writes a message to an Azure queue. A back-end process running in a worker role periodically polls the queue for new messages. When a new message appears, the worker role creates a thumbnail for that image and updates the thumbnail URL database field for that ad. The following diagram shows how the parts of the application interact.
 
-![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Diagram that shows how the parts of the application interact.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -212,7 +212,7 @@ You'll use a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment
 6. Select and copy the connection string (without the surrounding quotation marks) for use in the following steps for configuring the worker role project.
 7. In **Solution Explorer**, under **Roles** in the cloud service project, right-click **ContosoAdsWorker** and then click **Properties**.
 
-    ![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Screenshot that highlights the Properties menu option.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Click the **Settings** tab.
 9. Change **Service Configuration** to **Cloud**.
 10. Select the **Value** field for the `ContosoAdsDbConnectionString` setting, and then paste the connection string that you copied from the previous section of the tutorial.
@@ -374,7 +374,7 @@ In this section, you configure Azure Storage and SQL connection strings for test
 2. Save your changes.
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
-    ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Screenshot that highlights the Properties menu option under Roles.](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. In the **ContosoAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
     Leave **Service Configuration** set to **All Configurations**.
@@ -740,7 +740,7 @@ This code reads the database to get the image URL, converts the image to a thumb
 In case something doesn't work while you're following the instructions in this tutorial, here are some common errors and how to resolve them.
 
 ### ServiceRuntime.RoleEnvironmentException
-The `RoleEnvironment` object is provided by Azure when you run an application in Azure or when you run locally using the Azure compute emulator.  If you get this error when you're running locally, make sure that you have set the ContosoAdsCloudService project as the startup project. This sets up the project to run using the Azure compute emulator.
+The `RoleEnvironment` object is provided by Azure when you run an application in Azure or when you run locally using the Azure Compute Emulator.  If you get this error when you're running locally, make sure that you have set the ContosoAdsCloudService project as the startup project. This sets up the project to run using the Azure Compute Emulator.
 
 One of the things the application uses the Azure RoleEnvironment for is to get the connection string values that are stored in the *.cscfg* files, so another cause of this exception is a missing connection string. Make sure that you created the StorageConnectionString setting for both Cloud and Local configurations in the ContosoAdsWeb project, and that you created both connection strings for both configurations in the ContosoAdsWorker project. If you do a **Find All** search for StorageConnectionString in the entire solution, you should see it 9 times in 6 files.
 
@@ -750,7 +750,7 @@ Try changing the port number used by the web project. Right-click the ContosoAds
 For another alternative that might resolve the problem, see the following  section.
 
 ### Other errors when running locally
-By default new cloud service projects use the Azure compute emulator express to simulate the Azure environment. This is a lightweight version of the full compute emulator, and under some conditions the full emulator will work when the express version does not.  
+By default new cloud service projects use the Azure Compute Emulator express to simulate the Azure environment. This is a lightweight version of the full compute emulator, and under some conditions the full emulator will work when the express version does not.  
 
 To change the project to use the full emulator, right-click the ContosoAdsCloudService project, and then click **Properties**. In the **Properties** window click the **Web** tab, and then click the **Use Full Emulator** radio button.
 

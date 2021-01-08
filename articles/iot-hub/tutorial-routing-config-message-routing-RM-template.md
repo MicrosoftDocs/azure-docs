@@ -354,7 +354,7 @@ To deploy the template to Azure, upload the template and the parameters file to 
 
 To upload the files, select the **Upload/Download files** icon in the menu bar, then choose Upload.
 
-![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Screenshot that highlights the Upload/Download files icon.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Use the File Explorer that pops up to find the files on your local disk and select them, then choose **Open**.
 

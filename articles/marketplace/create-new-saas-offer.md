@@ -44,13 +44,13 @@ On the **Offer setup** tab, under **Setup details**, you’ll choose whether to 
 1. To sell through Microsoft and have us facilitate transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 
 1. To list your offer through the commercial marketplace and process transactions independently, select **No**, and then do one of the following:
-   + To provide a free subscription for your offer, select **Get it now (Free)**. Then in the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/saas-app`.
-   + To provide a 30-day free trial, select **Free trial**, and then in the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/trial/saas-app`.
+   + To provide a free subscription for your offer, select **Get it now (Free)**. Then in the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/saas-app`.
+   + To provide a 30-day free trial, select **Free trial**, and then in the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure Active Directory (Azure AD)](azure-ad-saas.md). For example, `https://contoso.com/trial/saas-app`.
    + To have potential customers contact you to purchase your offer, select **Contact me**.
 
 ### Enable a test drive (optional)
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To Learn more about test drives, see [What is a test drive?](partner-center-portal/test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To Learn more about test drives, see [What is a test drive?](./what-is-test-drive.md).
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.

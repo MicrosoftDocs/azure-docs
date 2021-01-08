@@ -34,13 +34,13 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 
 Most storage space metrics displayed in the Azure portal and the following APIs only measure the size of used data pages:
 
-- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](/powershell/module/az.monitor/get-azmetric)
+- T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 However, the following APIs also measure the size of space allocated for databases and elastic pools:
 
-- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### Shrinking data files
 
@@ -142,7 +142,7 @@ The query results for determining the space allocated for each database in the p
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020. The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) to install.
+The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](/sql/powershell/download-sql-server-ps-module) to install.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -208,7 +208,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 This command can impact database performance while it is running, and if possible should be run during periods of low usage.  
 
-For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+For more information about this command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### Auto-shrink
 
@@ -220,11 +220,11 @@ To enable auto shrink, modify the name of the database in the following command.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options.
+For more information about this command, see [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options.
 
 ### Rebuild indexes
 
-After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## Next steps
 

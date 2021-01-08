@@ -31,7 +31,7 @@ If your video was previously uploaded into the Media Services account using Medi
 
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
-See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
+See [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
 
 ### How do I stream to Apple iOS devices?
 

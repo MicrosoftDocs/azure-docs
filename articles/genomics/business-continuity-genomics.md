@@ -39,7 +39,7 @@ When the original region is restored, the Microsoft Genomics service does not mi
 If you are concerned about faster recovery in the case of a data center outage, there are a few steps you can take to reduce the time it takes for you to manually resubmit your Microsoft Genomics workflows to a secondary region:
 
 * Identify an appropriate secondary region and pro-actively create a Genomics account in that region
-* Duplicate your data in the primary and secondary region so that your data is immediately available in the secondary region. This could be done manually or using the [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) feature available in Azure storage. 
+* Duplicate your data in the primary and secondary region so that your data is immediately available in the secondary region. This could be done manually or using the [geo-redundant storage](../storage/common/storage-redundancy.md) feature available in Azure storage. 
 
 ## Next steps
-In this article, you learned about your options for business continuity and disaster recovery when using the Microsoft Genomics service. For more information about business continuity and disaster recovery within Azure in general, see [Azure resiliency technical guidance.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+In this article, you learned about your options for business continuity and disaster recovery when using the Microsoft Genomics service. For more information about business continuity and disaster recovery within Azure in general, see [Azure resiliency technical guidance.](/azure/architecture/resiliency/recovery-loss-azure-region)

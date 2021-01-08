@@ -28,7 +28,7 @@ Application Insights has a rich out of the box experience when using Service Fab
 
 On the right panel in the preceding image, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md). Clicking on a request would display further details as shown in the following image, including data specific to Service Fabric, which is collected in the Application Insights Service Fabric NuGet package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
 
-![Application Insights Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Screenshot that shows further details, including data specific to Service Fabric, which is collected in the Application Insights Service Fabric NuGet package.](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Application Insights has a designated view for querying against all the data that comes in. Select "Metrics Explorer" on the top of the Overview page to navigate to the Application Insights portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the Kusto query language. The following example shows all the requests in the last 1 hour.
 

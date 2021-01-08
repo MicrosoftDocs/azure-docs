@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Host your domain and subdomain - Azure DNS'
-description: In this article, learn how to configure Azure DNS to host your DNS zones.
+description: In this tutorial you learn how to configure Azure DNS to host your DNS zones.
 services: dns
 author: rohinkoul
 ms.service: dns

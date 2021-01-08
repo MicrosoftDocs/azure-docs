@@ -78,7 +78,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, enable
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Windows virtual machines to the approved IP addresses for a limited period of time. Also, use Azure Security Center Adaptive Network Hardening recommendations for NSG configurations to limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -218,7 +218,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [Supported regions for linked Log Analytics workspace](./how-to/region-mappings.md)
 
-* [Query Update Management Logs](./update-management/update-mgmt-query-logs.md)
+* [Query Update Management Logs](./update-management/query-logs.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -268,7 +268,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand log queries in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Understand log queries in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -598,7 +598,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 When using Hybrid Runbook Workers, the virtual disks on the virtual machines are encrypted at rest using either server-side encryption or Azure disk encryption (ADE). Azure disk encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure managed disks](../virtual-machines/windows/disk-encryption.md)
+* [Server side encryption of Azure managed disks](../virtual-machines/disk-encryption.md)
 
 * [Azure Disk Encryption for Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -644,9 +644,9 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then use Azure Update Management to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management in Azure](./update-management/update-mgmt-overview.md)
+* [Update Management in Azure](./update-management/overview.md)
 
-* [Manage updates and patches for your VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -658,9 +658,9 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then u
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you can use Azure Update Management to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allows you to publish custom updates into Windows Server Update Services (WSUS). This scenario enables Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](./update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](./update-management/overview.md)
 
-* [Manage updates and patches for your Azure VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your Azure VMs](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1038,7 +1038,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 * [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 

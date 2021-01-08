@@ -55,7 +55,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * Live Output is simpler to use than the Program entity in the v2 APIs. 
 * Improved RTMP support (increased stability and more source encoder support).
 * RTMPS secure ingest.<br/>When you create a Live Event, you get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
-* You have role-based access control (RBAC) over your entities. 
+* You have Azure role-based access control (Azure RBAC) over your entities. 
 
 ## Known issues
 

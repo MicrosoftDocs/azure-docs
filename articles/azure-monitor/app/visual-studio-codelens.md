@@ -26,7 +26,7 @@ CodeLens indicators are shown above method and other declarations in C# and Visu
 > 
 
 ## Exceptions in CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![Screenshot shows 47 exceptions displayed in CodeLens.](./media/visual-studio-codelens/codelens-exceptions.png)
 
 The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occurring exceptions in your application during that period, while processing the request served by the method.
 
@@ -48,7 +48,7 @@ To see more details, click the exceptions CodeLens indicator:
 > 
 
 ## Requests in CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Screenshot shows details of 684 requests, including 7% failures.](./media/visual-studio-codelens/codelens-requests.png)
 
 The request CodeLens indicator shows the number of HTTP requests that been serviced by a method in the past 24 hours, plus the percentage of those requests that failed.
 

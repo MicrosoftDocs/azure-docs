@@ -258,5 +258,5 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Acquire a token for a desktop app](scenario-desktop-acquire-token.md)
+Move on to the next article in this scenario, 
+[Acquire a token for the desktop app](scenario-desktop-acquire-token.md).

@@ -5,10 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ---
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## Add an output binding definition to the function
 
 Although a function can have only one trigger, it can have multiple input and output bindings, which let you connect to other Azure services and resources without writing custom integration code. 
-
+::: zone-end
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 You declare these bindings in the *function.json* file in your function folder. From the previous quickstart, your *function.json* file in the *HttpExample* folder contains two bindings in the `bindings` collection:  
 ::: zone-end

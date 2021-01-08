@@ -169,7 +169,7 @@ With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individ
 
 In this example, you can see that the field where the *1=1* string was entered is called **text1**.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1." border="false":::
 
 This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall request size limits and exclusion lists](application-gateway-waf-configuration.md#waf-exclusion-lists). You can exclude the evaluation in this case by configuring the following exclusion:
 
@@ -294,7 +294,7 @@ The second one (rule 942130) is the interesting one. You can see in the details 
 
 Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see the headers for this GET request, which include *Content-Type*, *User-Agent*, and so on.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." border="false":::
 
 Another way to view request and response headers is to look inside the developer tools of Chrome. You can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load a web page, and click the request you want to inspect.
 

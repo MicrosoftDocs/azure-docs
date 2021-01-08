@@ -86,7 +86,7 @@ To complete the scenario in this tutorial, you need:
 
 12.	On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
 
-    ![Screenshot showing the Microsoft Azure Management app selected](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Screenshot that highlights the Microsoft Azure Management option.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13.	On the **Cloud apps** page, select **Done**.
 14.	On the **New** page, in the **Access controls** section, select **Grant**.
@@ -104,7 +104,7 @@ To complete the scenario in this tutorial, you need:
 
 1.	On the **Conditional Access - Policies** page, select **What If**. 
 
-    ![Screenshot showing where to select the What if option](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Screenshot that highlights where to select the What if option on the Conditional Access - Policies page.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.	Select **User**, choose your test guest user, and then choose **Select**.
 

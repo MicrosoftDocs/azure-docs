@@ -168,7 +168,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
 - [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
 - [Zone-redundant storage](../storage/common/storage-redundancy.md)
-- [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
+- [SQL Database general purpose tier](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
@@ -176,6 +176,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Getting Started Azure Cache for Redis Availability Zones](https://aka.ms/redis/az/getstarted)
 - [Create an Azure Active Directory Domain Services instance](../active-directory-domain-services/tutorial-create-instance.md)
 - [Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones](../aks/availability-zones.md)
+- [Enable zone redundancy in Azure Container Registry](../container-registry/zone-redundancy.md)
 
 ## Next steps
 
