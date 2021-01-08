@@ -13,6 +13,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### January 2021
+
+* The V3 prediction API now supports the [Bing Spellcheck API](luis-how-to-publish-app.md#spelling-correction).
+
 ### December 2020
 
 * All LUIS users are required to [migrate to a LUIS authoring resource](luis-migration-authoring.md)
