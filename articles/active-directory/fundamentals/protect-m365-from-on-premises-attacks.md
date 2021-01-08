@@ -123,7 +123,7 @@ In Azure AD, users with privileged roles such as administrators are the root of 
 * Use cloud-only accounts for Azure AD and Microsoft 365 privileged
     roles.d
 
-* Deploy [priviledged access devices](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) for privileged access to manage Microsoft 365 and Azure AD.
+* Deploy [privileged access devices](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles) for privileged access to manage Microsoft 365 and Azure AD.
 
 *  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just in time (JIT) access to all human accounts that have privileged roles, and require strong authentication to activate roles.
 
