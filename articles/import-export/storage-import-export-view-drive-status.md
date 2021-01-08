@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/17/2018
+ms.date: 01/07/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -41,8 +41,8 @@ The following table describes each state that each drive in a job may pass throu
 | Drive State | Description |
 |:--- |:--- |
 | Specified | For an import job, when the job is created from the Azure portal, the initial state for a drive is **Specified**. For an export job, since no drive is specified when the job is created, the initial drive state is **Received**. |
-| Received | The drive transitions to the **Received** state when the Import/Export service has processed the drives that were received from the shipping company for an import job. For an export job, the initial drive state is the **Received** state. |
-| NeverReceived | The drive moves to the **NeverReceived** state when the package for a job arrives but the package doesn't contain the drive. A drive also moves into this state if the datacenter hasn't yet received the package, and the service received the shipping information at least two weeks ago. |
+| Received | The drive transitions to the **Received** state when the Import/Export service has processed the drives received from the shipping company for an import job. For an export job, the initial drive state is the **Received** state. |
+| NeverReceived | The drive moves to the **NeverReceived** state when the package for a job arrives but the package doesn't contain the drive. A drive also moves into this state if the datacenter hasn't yet received the package at least two weeks after the service received the shipping information. |
 | Transferring | A drive moves to the **Transferring** state when the service begins to transfer data from the drive to Azure Storage. |
 | Completed | A drive moves to the **Completed** state when the service has successfully transferred all the data with no errors.
 | CompletedMoreInfo | A drive moves to the **CompletedMoreInfo** state when the service has experienced issues while copying data from or to the drive. The information can include errors, warnings, or informational messages about overwriting blobs.
@@ -67,11 +67,11 @@ The amount of time it takes to process an import/export job varies based on a nu
 -  Job type and size of the data being copied
 -  Number of disks in a job. 
 
-Import/Export service doesn't have an SLA, but the service strives to complete the copy in 7 to 10 days after the disks are received. 
-In addition to the status posted on Azure portal, you can use REST APIs to track the job progress. Use the percent complete parameter in the [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) operation API call to view  the percentage copy progress.
+The Import/Export service doesn't have an SLA, but the service strives to complete the copy in 7 to 10 days after receiving the disks. 
+In addition to the status posted in the Azure portal, you can use REST APIs to track the job progress. Use the percent complete parameter in the [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) operation API call to view  the percentage copy progress.
 
 
 ## Next steps
 
-* [Transfer data with AzCopy command-line utility](./storage-use-azcopy-v10.md)
+* [Transfer data with AzCopy command-line utility](../storage/common/storage-use-azcopy-v10.md)
 * [Azure Import Export REST API sample](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
