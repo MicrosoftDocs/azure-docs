@@ -99,7 +99,7 @@ Now that you've created your function in Azure, follow the steps to [add functio
 
 You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
-However, before you can create function in Azure, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+However, before you can create your function in Azure, you must already have a function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 

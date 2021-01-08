@@ -594,7 +594,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the function control plane (the Azure portal). 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the function app control plane (the Azure portal). 
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
@@ -642,7 +642,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Adopt a DevSecOps practice to ensure your function applications are secure and remain as secure as possible throughout the duration of their life-cycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security a responsibility of everyone on the team.
+**Guidance**: Adopt a DevSecOps practice to ensure your function apps are secure and remain as secure as possible throughout the duration of their life-cycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security a responsibility of everyone on the team.
 
 In addition, follow recommendations from Azure Security Center to help secure your function apps.
 
@@ -826,7 +826,7 @@ Allowed resource types
 
 **Guidance**: For sensitive or high risk function apps, implement separate subscriptions and/or management groups to provide isolation.
 
-Deploy high risk function apps into their own Virtual Network (VNet). Perimeter security for functions is achieved through VNets. Functions running in the Premium plan or App Service Environment (ASE) can be integrated with VNets. Choose the best architecture for your use case.
+Deploy high risk function apps into their own Virtual Network (VNet). Perimeter security for function apps is achieved through VNets. Functions running in the Premium plan or App Service Environment (ASE) can be integrated with VNets. Choose the best architecture for your use case.
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
@@ -853,7 +853,7 @@ How to create an internal ASE:
 ### 7.1: Establish secure configurations for all Azure resources
 
 **Guidance**: Define and implement standard security configurations for your function app with Azure Policy. Use Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to audit or enforce the configuration of your function apps. You may also make use of built-in policy definitions such as:
-- Managed identity should be used in your function App
+- Managed identity should be used in your function app
 - Remote debugging should be turned off for function apps
 - Function app should only be accessible over HTTPS
 
