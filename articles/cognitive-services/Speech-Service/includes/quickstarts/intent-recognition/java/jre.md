@@ -66,6 +66,13 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 
 This example uses the `addIntent()` function to individually add intents. If you want to add all intents from a model, use `addAllIntents(model)` and pass the model.
 
+> [!NOTE]
+> You can create a LanguageUnderstandingModel by passing an endpoint URL to the FromEndpoint method.
+> Speech SDK only supports LUIS v2.0 endpoints, and
+> LUIS v2.0 endpoints always follow one of these two patterns:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## Recognize an intent
 
 From the `IntentRecognizer` object, you're going to call the `recognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.

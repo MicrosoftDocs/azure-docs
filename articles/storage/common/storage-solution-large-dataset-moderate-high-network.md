@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 01/07/2021
 ms.author: alkohli
 ---
 
@@ -91,7 +91,7 @@ If using online data transfer, use the table in the following section for high n
 
 ## Next steps
 
-- [Learn how to transfer data with Import/Export](./storage-import-export-data-to-blobs.md).
+- [Learn how to transfer data with Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
 - Understand how to
 
     - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
