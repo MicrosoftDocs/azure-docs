@@ -20,7 +20,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 ### Azure Machine Learning SDK for Python v1.20.0
 + **Bug fixes and improvements**
-+ **azure-cli-ml**
+  + **azure-cli-ml**
     + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
   + **azureml-automl-core**
     + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
