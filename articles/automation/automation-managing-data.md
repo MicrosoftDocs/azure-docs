@@ -43,7 +43,7 @@ The following table summarizes the retention policy for different resources.
 |:--- |:--- |
 | Accounts |An account is permanently removed 30 days after a user deletes it. |
 | Assets |An asset is permanently removed 30 days after a user deletes it, or 30 days after a user deletes an account that holds the asset. Assets include variables, schedules, credentials, certificates, Python 2 packages, and connections. |
-| DSC Nodes |A DSC node is permanently removed 30 days after being unregistered from an Automation account using Azure portal or the [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdlet in Windows PowerShell. A node is also permanently removed 30 days after a user deletes the account that holds the node. |
+| DSC Nodes |A DSC node is permanently removed 30 days after being unregistered from an Automation account using Azure portal or the [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) cmdlet in Windows PowerShell. A node is also permanently removed 30 days after a user deletes the account that holds the node. |
 | Jobs |A job is deleted and permanently removed 30 days after modification, for example, after the job completes, is stopped, or is suspended. |
 | Modules |A module is permanently removed 30 days after a user deletes it, or 30 days after a user deletes the account that holds the module. |
 | Node Configurations/MOF Files |An old node configuration is permanently removed 30 days after a new node configuration is generated. |
@@ -72,8 +72,7 @@ You can't retrieve the values for encrypted variables or the password fields of 
 
 ### DSC configurations
 
-You can export your DSC configurations to script files using either the Azure portal or the 
-[Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
+You can export your DSC configurations to script files using either the Azure portal or the [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
 
 ## Geo-replication in Azure Automation
 
