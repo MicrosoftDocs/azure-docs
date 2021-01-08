@@ -37,8 +37,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 The Face service must then download the image from the remote server. If the connection from the Face service to the remote server is slow, that will impact the response time of the Detect method.
 
-Mitigations:
-- Consider [storing the image in Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+To mitigate this, consider [storing the image in Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
 
 ### Large upload size
 
@@ -80,7 +79,8 @@ Mitigations:
 
 In this guide, you learned how to mitigate latency when using the Face service. Next, learn how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively.
 
-- [Example: Use the large-scale feature](how-to-use-large-scale.md)
+> [!div class="nextstepaction"]
+> [Example: Use the large-scale feature](how-to-use-large-scale.md)
 
 ## Related topics
 
