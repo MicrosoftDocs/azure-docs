@@ -72,7 +72,7 @@ These are the parameters required by each of these spatial analysis operations.
 ```json
 {
 "zones":[{
-	"name": "lobbycamera"
+	"name": "lobbycamera",
 	"polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
 	"events":[{
 		"type": "count",
@@ -150,7 +150,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 {
 "zones":[
    {
-       "name": "queuecamera"
+       "name": "queuecamera",
        "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
        "events":[{
            "type": "zonecrossing",
@@ -162,7 +162,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
            }]
    },
    {
-       "name": "queuecamera1"
+       "name": "queuecamera1",
        "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
        "events":[{
            "type": "zonedwelltime",
@@ -201,7 +201,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
    		"trigger": "event",
    		"output_frequency":1,
    		"minimum_distance_threshold":6.0,
-   		"maximum_distance_threshold":35.0，
+   		"maximum_distance_threshold":35.0,
            "threshold": 16.00,
            "focus": "footprint"
      		}
