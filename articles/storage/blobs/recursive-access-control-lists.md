@@ -232,20 +232,7 @@ Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a to
 
 This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using a client ID, a client secret, and a tenant ID.  
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
-    String accountName, String clientID, string clientSecret, string tenantID)
-{
-
-    TokenCredential credential = new ClientSecretCredential(
-        tenantID, clientID, clientSecret, new TokenCredentialOptions());
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
-}
-
-``` 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
 #### Connect by using an account key
 
@@ -253,19 +240,7 @@ This approach is the easiest way to connect to an account.
 
 This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance by using an account key.
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
-    string accountName, string accountKey)
-{
-    StorageSharedKeyCredential sharedKeyCredential =
-        new StorageSharedKeyCredential(accountName, accountKey);
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient
-        (new Uri(dfsUri), sharedKeyCredential);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
 
 > [!NOTE]
 > For more examples, see the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentation.
@@ -433,39 +408,7 @@ If you want to set a **default** ACL entry, then you can set the [PathAccessCont
 
 This example sets the ACL of a directory named `my-parent-directory`. This method accepts a boolean parameter named `isDefaultScope` that specifies whether to set the default ACL. That parameter is used in the constructor of the [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). The entries of the ACL give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
-```cs
-public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
-{
-    DataLakeDirectoryClient directoryClient =
-        serviceClient.GetFileSystemClient("my-container").
-            GetDirectoryClient("my-parent-directory");
-
-    List<PathAccessControlItem> accessControlList = 
-        new List<PathAccessControlItem>() 
-    {
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read | 
-            RolePermissions.Write | 
-            RolePermissions.Execute, isDefaultScope),
-                    
-        new PathAccessControlItem(AccessControlType.Group, 
-            RolePermissions.Read | 
-            RolePermissions.Execute, isDefaultScope),
-                    
-        new PathAccessControlItem(AccessControlType.Other, 
-            RolePermissions.None, isDefaultScope),
-
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read | 
-            RolePermissions.Execute, isDefaultScope,
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-    };
-
-    await directoryClient.SetAccessControlRecursiveAsync
-        (accessControlList, null);
-}
-
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_SetACLRecursively":::
 
 To see an example that sets ACLs recursively in batches by specifying a batch size, see the .NET [sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).
 
@@ -626,28 +569,7 @@ If you want to update a **default** ACL entry, then you can set the [PathAccessC
 
 This example updates an ACL entry with write permission. This method accepts a boolean parameter named `isDefaultScope` that specifies whether to update the default ACL. That parameter is used in the constructor of the [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
-```cs
-public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
-{
-    DataLakeDirectoryClient directoryClient =
-        serviceClient.GetFileSystemClient("my-container").
-        GetDirectoryClient("my-parent-directory");
-
-    List<PathAccessControlItem> accessControlListUpdate = 
-        new List<PathAccessControlItem>()
-    {
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read |
-            RolePermissions.Write | 
-            RolePermissions.Execute, isDefaultScope, 
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-    };
-
-    await directoryClient.UpdateAccessControlRecursiveAsync
-        (accessControlListUpdate, null);
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_UpdateACLsRecursively":::
 
 To see an example that updates ACLs recursively in batches by specifying a batch size, see the .NET [sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).
 
@@ -767,25 +689,7 @@ If you want to remove a **default** ACL entry, then you can set the [PathAccessC
 
 This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. This method accepts a boolean parameter named `isDefaultScope` that specifies whether to remove the entry from the default ACL. That parameter is used in the constructor of the [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
-```cs
-public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isDefaultScope)
-{
-    DataLakeDirectoryClient directoryClient =
-        serviceClient.GetFileSystemClient("my-container").
-            GetDirectoryClient("my-parent-directory");
-
-    List<RemovePathAccessControlItem> accessControlListForRemoval = 
-        new List<RemovePathAccessControlItem>()
-        {
-            new RemovePathAccessControlItem(AccessControlType.User, isDefaultScope,
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-        };
-
-    await directoryClient.RemoveAccessControlRecursiveAsync
-        (accessControlListForRemoval, null);
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_RemoveACLRecursively":::
 
 To see an example that removes ACLs recursively in batches by specifying a batch size, see the .NET [sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).
 
@@ -889,34 +793,7 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of `null` for the continuation token parameter. 
 
-```cs
-public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
-    DataLakeDirectoryClient directoryClient,
-    List<PathAccessControlItem> accessControlList, 
-    string continuationToken)
-{
-    try
-    {
-        var accessControlChangeResult =
-            await directoryClient.SetAccessControlRecursiveAsync(
-                accessControlList, continuationToken: continuationToken, null);
-
-        if (accessControlChangeResult.Value.Counters.FailedChangesCount > 0)
-        {
-            continuationToken =
-                accessControlChangeResult.Value.ContinuationToken;
-        }
-
-        return continuationToken;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.ToString());
-        return continuationToken;
-    }
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ResumeContinuationToken":::
 
 To see an example that sets ACLs recursively in batches by specifying a batch size, see the .NET [sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).
 
@@ -1016,28 +893,7 @@ To ensure that the process completes uninterrupted, pass in an **AccessControlCh
 
 This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
 
-```cs
-public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
-    DataLakeDirectoryClient directoryClient, 
-    List<PathAccessControlItem> accessControlList)
-{
-    var accessControlChangeResult = 
-        await directoryClient.SetAccessControlRecursiveAsync(
-            accessControlList, null, new AccessControlChangeOptions() 
-            { ContinueOnFailure = true });
-
-    var counters = accessControlChangeResult.Value.Counters;
-
-    Console.WriteLine("Number of directories changed: " +
-        counters.ChangedDirectoriesCount.ToString());
-
-    Console.WriteLine("Number of files changed: " +
-        counters.ChangedFilesCount.ToString());
-
-    Console.WriteLine("Number of failures: " +
-        counters.FailedChangesCount.ToString());
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ContinueOnFailure":::
 
 To see an example that sets ACLs recursively in batches by specifying a batch size, see the .NET [sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).
 

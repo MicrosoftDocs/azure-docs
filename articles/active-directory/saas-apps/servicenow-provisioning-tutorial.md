@@ -147,6 +147,11 @@ Once you've configured provisioning, use the following resources to monitor your
    ![Authorizing SOAP request](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
 
    If it resolves your issues then contact ServiceNow support and ask them to turn on SOAP debugging to help troubleshoot. 
+
+* **IP Ranges** 
+
+   The Azure AD provisioning service currently operates under a particular IP ranges.So if required you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application to allow traffic flow from Azure AD provisioning service to your application .Refer the documentation at [IP Ranges](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

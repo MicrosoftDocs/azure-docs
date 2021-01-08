@@ -567,6 +567,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: EPHOTO DAM
+        href: ephoto-dam-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
       - name: Elqano SSO
@@ -998,6 +1000,8 @@
         href: kumolus-tutorial.md
     - name: L - M
       items:
+      - name: LabLog
+        href: lablog-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
       - name: LaunchDarkly
@@ -1200,6 +1204,8 @@
         href: nomadesk-tutorial.md
       - name: Nomadic
         href: nomadic-tutorial.md
+      - name: Notion
+        href: notion-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
       - name: NS1 SSO for Azure
@@ -1212,6 +1218,8 @@
         href: oc-tanner-tutorial.md
       - name: OfficeSpace Software
         href: officespace-tutorial.md
+      - name: Oktopost SAML
+        href: oktopost-saml-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
       - name: OneDesk
@@ -1376,6 +1384,10 @@
         href: proware-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
+      - name: Pulse Secure PCS
+        href: pulse-secure-pcs-tutorial.md
+      - name: Pulse Secure Virtual Traffic Manager
+        href: pulse-secure-virtual-traffic-manager-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1688,9 +1700,11 @@
         href: synchronet-click-tutorial.md
       - name: Syncplicity
         href: syncplicity-tutorial.md
+      - name: Syndio
+        href: syndio-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
-      - name: Synerise AI Growth Ecosystem
+      - name: Synerise AI Growth Operating System
         href: synerise-ai-growth-ecosystem-tutorial.md
       - name: Syxsense
         href: syxsense-tutorial.md
