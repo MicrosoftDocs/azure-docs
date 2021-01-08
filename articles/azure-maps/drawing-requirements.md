@@ -110,7 +110,7 @@ You can see an example of the Exterior layer as the outline layer in the [sample
 
 ### Unit layer
 
-The DWG file for each level defines a layer containing units. Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. If the `VerticalPenetrationCategory` property is defined, navigable units that span multiple levels, such as elevators and stairs, are converted to Vertical Penetration features. Vertical penetration features that overlap each other are assigned one Set Id.
+The DWG file for each level defines a layer containing units. Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. If the `VerticalPenetrationCategory` property is defined, navigable units that span multiple levels, such as elevators and stairs, are converted to Vertical Penetration features. Vertical penetration features that overlap each other are assigned one `setid`.
 
 The Units layer should adhere to the following requirements:
 
