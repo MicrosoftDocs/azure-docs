@@ -120,7 +120,7 @@ This category contains the following entities:
    :::column span="2":::
 
       Sports-related organizations. Subcategory of **Organization**.  
-      Available in the following languages: `en-us`
+
    :::column-end:::
     :::column span="1":::
       **Languages**
