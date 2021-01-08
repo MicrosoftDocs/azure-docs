@@ -366,7 +366,7 @@ Sample JSON for an event output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `face_Mask` | float | The atrribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
+| `face_Mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_noMask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
 
 | SourceInfo Field Name | Type| Description|
@@ -465,7 +465,7 @@ Sample JSON for detections output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `face_Mask` | float | The atrribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
+| `face_Mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_noMask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
 
 | SourceInfo Field Name | Type| Description|
@@ -612,7 +612,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `face_Mask` | float | The atrribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
+| `face_Mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_noMask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights
@@ -730,7 +730,14 @@ Sample JSON for detections output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `centerGroundPoint` | 2 float values| `x`, `y` values with the coordinates of the person's inferred location on the ground in feet. `x` and `y` are coordinates on the floor plane, assuming the floor is level. The camera's location is the origin. `x` is the distance from the camera to the person along a line perpendicular to the camera image plane. `y` is the distance from the camera to the person along a line parallel to the camera image plane ![Example Center Ground Point](./media/spatial-analysis/xy-chart.png) For example, here the centerGroundPoint is {x: 4, y: 5}. This means that there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down. See the diagram above.|
+| `centerGroundPoint` | 2 float values| `x`, `y` values with the coordinates of the person's inferred location on the ground in feet. `x` and `y` are coordinates on the floor plane, assuming the floor is level. The camera's location is the origin. |
+
+When calculating `centerGroundPoint`, `x` is the distance from the camera to the person along a line perpendicular to the camera image plane. `y` is the distance from the camera to the person along a line parallel to the camera image plane. 
+
+![Example center ground point](./media/spatial-analysis/xy-chart.png) 
+
+In this example, `centerGroundPoint` is `{x: 4, y: 5}`. This means there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down.
+
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|

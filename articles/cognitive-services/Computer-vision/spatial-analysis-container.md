@@ -311,7 +311,7 @@ Use the below steps to deploy the container using the Azure CLI.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
 
-An Azure Virtual Machine wih a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
+An Azure Virtual Machine with a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
 
 #### Create the VM
 
@@ -319,19 +319,20 @@ Open the [Create a Virtual Machine](https://ms.portal.azure.com/#create/Microsof
 
 Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size.
 
-![VM configuration details](media/spatial-analysis/virtual-machine-instance-details.png)
+:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.png" alt-text="Virtual machine configuration details." lightbox="media/spatial-analysis/virtual-machine-instance-details.png":::
 
 To locate the VM size, select "See all sizes" and then view the list for "Non-premium storage VM sizes", shown below.
 
-![VM sizes](media/spatial-analysis/virtual-machine-sizes.png)
+:::image type="content" source="media/spatial-analysis/virtual-machine-sizes.png" alt-text="Virtual machine sizes." lightbox="media/spatial-analysis/virtual-machine-sizes.png":::
 
-Then, select either "NC6" or NC6_Promo" if it is available for a discounted price.
+Then, select either **NC6** or **NC6_Promo**.
 
 ![NC6 and NC6_Promo](media/spatial-analysis/promo-selection.png)
+:::image type="content" source="media/spatial-analysis/promo-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promo-selection.png":::
 
-Next, Create the VM. Once created, navigate to the VM resource in the Azure Portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
+Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
-Once the extension is successfully applied, navigate to the VM main page in the Azure Portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpfull as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
+Once the extension is successfully applied, navigate to the VM main page in the Azure portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpful as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
 
 ### Verify Graphics Drivers are Installed
 
@@ -398,7 +399,7 @@ Now that you have set up and configured your VM, follow the steps below to deplo
 
 ### IoT Deployment manifest
 
-To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of a deployment manifest [for Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [other desktop machines](https://go.microsoft.com/fwlink/?linkid=2152270), and [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) on Github.
+To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of a deployment manifest [for Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [other desktop machines](https://go.microsoft.com/fwlink/?linkid=2152270), and [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) on GitHub.
 
 The following table shows the various Environment Variables used by the IoT Edge Module. You can also set them in the deployment manifest linked above, using the `env` attribute in `spatialanalysis`:
 
