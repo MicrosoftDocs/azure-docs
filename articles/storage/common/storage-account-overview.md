@@ -1,7 +1,7 @@
 ---
 title: Storage account overview
 titleSuffix: Azure Storage
-description: Read an overview of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
+description: Learn about the different types of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
 author: tamram
 
@@ -32,19 +32,17 @@ The following table describes the types of storage accounts available:
 
 | Storage account type | Supported services | Replication options | Deployment model<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> |
 |--|--|--|--|--|--|
-| General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>4</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>3</sup></div> | Resource Manager |
+| General-purpose V2 | Blob, File, Queue, Table, Disk, and Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>2</sup></div> | Resource Manager |
 | General-purpose V1 | Blob, File, Queue, Table, and Disk | LRS, GRS, RA-GRS | Resource Manager, Classic |
-| BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>3</sup></div> | Resource Manager |
-| FileStorage | File only | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>3</sup></div> | Resource Manager |
+| BlockBlobStorage | Blob (block blobs and append blobs only) | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>2</sup></div> | Resource Manager |
+| FileStorage | File only | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>2</sup></div> | Resource Manager |
 | BlobStorage | Blob (block blobs and append blobs only) | LRS, GRS, RA-GRS | Resource Manager |
 
 <div id="deployment-model"><sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see <a href="/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources</a>.</div><br/>
 
-<div id="encryption"><sup>2</sup>All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest. For more information, see <a href="/azure/storage/common/storage-service-encryption">Azure Storage Service Encryption for Data at Rest</a>.</div><br/>
+<div id="zone-redundant-storage"><sup>2</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see <a href="/azure/storage/common/storage-redundancy">Azure Storage redundancy</a>.</div><br/>
 
-<div id="zone-redundant-storage"><sup>3</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see <a href="/azure/storage/common/storage-redundancy">Azure Storage redundancy</a>.</div><br/>
-
-<div id="data-lake-gen2"><sup>4</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see <a href="/azure/storage/blobs/data-lake-storage-introduction">Introduction to Azure Data Lake Storage Gen2</a>.</div>
+<div id="data-lake-gen2"><sup>3</sup>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 is only supported on General-purpose V2 storage accounts with Hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see <a href="/azure/storage/blobs/data-lake-storage-introduction">Introduction to Azure Data Lake Storage Gen2</a>.</div>
 
 ### General-purpose v2 accounts
 
@@ -159,7 +157,14 @@ The following table shows which access tiers are available for blobs in each typ
 
 ## Redundancy
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+Redundancy options for a storage account include:
+
+- **Locally redundant storage (LRS)**: A simple, low-cost redundancy strategy. Data is copied synchronously three times within a single physical location in the primary region.
+- **Zone-redundant storage (ZRS)**: Redundancy for scenarios requiring high availability. Data is copied synchronously across three Azure availability zones in the primary region.
+- **Geo-redundant storage (GRS)**: Cross-regional redundancy to protect against regional outages. Data is copied synchronously three times in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
+- **Geo-zone-redundant storage (GZRS)**: Redundancy for scenarios requiring both high availability and maximum durability. Data is copied synchronously across three Azure availability zones in the primary region, then copied asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
+
+For more information about redundancy options in Azure Storage, see [Azure Storage redundancy](../articles/storage/common/storage-redundancy.md).
 
 ## Encryption
 
@@ -169,13 +174,15 @@ All data in your storage account is encrypted on the service side. For more info
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
 
-For example, if your general-purpose storage account is named *mystorageaccount*, then the default endpoints for that account are:
+The following table lists the endpoints for each of the Azure Storage services.
 
-- Blob storage: `https://*mystorageaccount*.blob.core.windows.net`
-- Table storage: `https://*mystorageaccount*.table.core.windows.net`
-- Queue storage: `https://*mystorageaccount*.queue.core.windows.net`
-- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Uses the [ABFS driver optimized specifically for big data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2).)
+| Storage service | Endpoint |
+|--|--|
+| Blob storage | `https://<storage-account>.blob.core.windows.net` |
+| Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Azure Files | `https://<storage-account>.file.core.windows.net` |
+| Queue storage | `https://<storage-account>.queue.core.windows.net` |
+| Table storage | `https://<storage-account>.table.core.windows.net` |
 
 > [!NOTE]
 > Block blob and blob storage accounts expose only the Blob service endpoint.
@@ -226,7 +233,17 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 
 ## Storage account billing
 
-[!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+Azure Storage bills based on your storage account usage. All objects in a storage account are billed together as a group. Storage costs are calculated according to the following factors:
+
+- **Region** refers to the geographical region in which your account is based.
+- **Account type** refers to the type of storage account you're using.
+- **Access tier** refers to the data usage pattern you've specified for your general-purpose v2 or Blob storage account.
+- **Capacity** refers to how much of your storage account allotment you're using to store data.
+- **Replication** determines how many copies of your data are maintained at one time, and in what locations.
+- **Transactions** refer to all read and write operations to Azure Storage.
+- **Data egress** refers to any data transferred out of an Azure region. When the data in your storage account is accessed by an application that isn't running in the same region, you're charged for data egress. For information about using resource groups to group your data and services in the same region to limit egress charges, see [What is an Azure resource group?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
+
+The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
