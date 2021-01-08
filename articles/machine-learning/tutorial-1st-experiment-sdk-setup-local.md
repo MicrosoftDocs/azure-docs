@@ -27,30 +27,38 @@ In part 1 of this tutorial series, you will:
 > * Set up a compute cluster.
 
 > [!NOTE]
-> This tutorial series focuses the Azure Machine Learning concepts suited to Python *jobs-based* machine learning tasks that are compute-intensive and/or require reproducibility. If you are more interested in an exploratory workflow, you could instead use [Jupyter or RStudio on an Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md).
+> This tutorial series focuses on the Azure Machine Learning concepts required to submit **batch jobs** - this is where the code is submitted to the cloud to run in the background without any user interaction. This is useful for finished scripts or code you wish to run repeatedly, or for compute-intensive machine learning tasks. If you are more interested in an exploratory workflow, you could instead use [Jupyter or RStudio on an Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
 - Familiarity with Python and [Machine Learning concepts](concept-azure-machine-learning-architecture.md). Examples include environments, training, and scoring.
 - Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
-
 
 ## Install the Azure Machine Learning SDK
 
-Throughout this tutorial, we make use of the Azure Machine Learning SDK for Python.
+Throughout this tutorial, we make use of the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you can create an isolated environment using either `venv`, `virtualenv`, conda or docker. For this tutorial series you will use conda. You can check if you have conda installed on your system using:
 
- In an Anaconda Prompt window, set up a Python environment to use throughout this tutorial.
+```bash
+conda --version
+```
+
+If this command returns a `conda not found` error then you will need to [download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Once you have installed conda create a new environment:
 
 ```bash
 conda create -n tutorial1 python=3.7
+```
+
+Next, install the Azure Machine Learning SDK into the conda environment you created:
+
+```bash
 conda activate tutorial1
 pip install azureml-sdk
 ```
 
 > [!NOTE]
-> Wait approximately 5 minutes for the install to complete.
+> If you are __not__ using conda (for example, you prefer to use virtualenv), the SDK requires Python versions >=3.5 < 3.9.
+> It takes approximately 5 minutes for the Azure Machine Learning SDK install to complete.
 
 
 > [!div class="nextstepaction"]
