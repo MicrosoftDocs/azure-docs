@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 08/13/2020
+  ms.date: 01/08/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -98,7 +98,7 @@ sections:
           
           > [!NOTE]
           > You must reallocate a firewall and public IP to the original resource group and subscription.
-          
+
       - question: What are the known service limits?
         answer: |
           For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
