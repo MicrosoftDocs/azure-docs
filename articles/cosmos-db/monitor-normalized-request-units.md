@@ -29,8 +29,6 @@ If there is continuous peak of 100% normalized RU/s consumption or close to 100%
 
 In summary, the **Normalized RU Consumption** metric is  used to see which partition key range is more warm in terms of usage. So it gives you the skew of throughput towards a partition key range. You can later follow up to see the **PartitionKeyRUConsumption** log in Azure Monitor logs to get information about which logical partition keys are hot in terms of usage. This will point to change in either the partition key choice, or the change in application logic. To resolve the rate limiting, distribute the load of data say across multiple partitions or just increase in the throughput as it is really required. 
 
-
-
 ## View the normalized request unit consumption metric
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -53,7 +51,7 @@ In summary, the **Normalized RU Consumption** metric is  used to see which parti
 
 You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **PartitionKeyRangeID**, and **Region**. To filter the metrics, select **Add filter** and choose the required property such as **CollectionName** and corresponding value you are interested in. The graph then displays the Normalized RU Consumption units consumed for the container for the selected period.  
 
-You can group metrics by using the **Apply splitting** option.  
+You can group metrics by using the **Apply splitting** option. For shared throughput databases, the normalized RU metric shows data at the database granularity only, it doesn't show any data per collection. So for shared throughput database, you won't see any data when you apply splitting by collection name.
 
 The normalized request unit consumption metric for each container are displayed as shown in the following image:
 
