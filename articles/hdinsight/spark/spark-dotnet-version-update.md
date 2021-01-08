@@ -8,7 +8,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/05/2020
 ---
 
-# .NET for Apache Spark v1.0 release in HDInsight
+# Updating .NET for Apache Spark to version v1.0  in HDInsight
 
 This document talks about the first major version of [.NET for Apache Spark](https://github.com/dotnet/spark), and how it might impact your current production pipelines in HDInsight clusters.
 
