@@ -1,6 +1,6 @@
 ---
 title: Configure LDAP over TLS for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure NFS clients to use with Azure NetApp Files. 
+description: Describes how to configure LDAP over TLS for Azure NetApp Files, including root CA certificate management. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche

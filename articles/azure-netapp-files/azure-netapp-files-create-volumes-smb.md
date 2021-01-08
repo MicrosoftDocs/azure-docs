@@ -301,7 +301,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 ## Configure LDAP over TLS
 
-Follow instructions in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) to configure LDAP over TLS for a volume.  
+If you want to configure LDAP over TLS for a volume, follow the steps described in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md).
 
 ## Control access to an SMB volume  
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/15/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -162,7 +162,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## Configure LDAP over TLS
 
-If you want to configure LDAP over TLS for a volume, follow instructions in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md).  
+If you want to configure LDAP over TLS for a volume, follow the steps described in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md).
 
 ## Next steps  
 

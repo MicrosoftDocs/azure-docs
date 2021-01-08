@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 01/15/2020
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -119,7 +119,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 
 ## Configure LDAP over TLS
 
-Follow instructions in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) to configure LDAP over TLS for a volume.  
+If you want to configure LDAP over TLS for a volume, follow the steps described in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md). 
 
 ## Next steps  
 
