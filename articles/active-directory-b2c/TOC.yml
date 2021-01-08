@@ -131,6 +131,7 @@
       href: add-profile-editing-policy.md
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
+      displayName: ROPC
     - name: Set up self-serve password reset policy (Deprecated)
       href: user-flow-self-service-password-reset.md
     - name: Phone sign-up & sign-in
@@ -163,6 +164,8 @@
       href: identity-provider-microsoft-account.md
     - name: QQ
       href: identity-provider-qq.md
+    - name: Salesforce
+      href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
     - name: Twitter
