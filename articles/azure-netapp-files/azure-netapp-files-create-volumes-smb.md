@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 01/15/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -173,7 +173,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Check the status of the feature registration: 
 
         > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
@@ -195,7 +195,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Check the status of the feature registration: 
 
         > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
@@ -217,7 +217,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Check the status of the feature registration: 
 
         > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
@@ -291,12 +291,47 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * Select your **Active Directory** connection from the drop-down list.
     * Specify the name of the shared volume in  **Share name**.
     * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
-    This functionality enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
-    See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
-    * If you want to enable continuous availability (CA) for the SMB volume, select **Enable Continuous Availability**.    
+        This functionality enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
+        See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
+
+        The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+    * If you want to enable Continuous Availability (CA) for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]
         > You should enable CA only for SQL workloads. Using SMB CA shares for workloads other than SQL server is not supported. 
+
+        The SMB **Enable Continuous Availability** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 

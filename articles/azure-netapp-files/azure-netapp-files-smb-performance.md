@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 01/15/2021
 ms.author: b-juche
 ---
 # FAQs about SMB performance for Azure NetApp Files
