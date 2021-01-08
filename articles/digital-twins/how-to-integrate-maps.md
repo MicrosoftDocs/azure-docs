@@ -31,7 +31,7 @@ This how-to will cover:
     * You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
 * Follow the Azure Maps [*Tutorial: Use Azure Maps Creator to create indoor maps*](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
     * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
-    * You will need your feature *stateset ID* and Azure Maps *subscription ID*.
+    * You will need your feature *stateset ID* and Azure Maps *subscription key*.
 
 ### Topology
 
@@ -72,7 +72,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
 
 ## Create an Azure function to update maps
 
-You're going to create an Event Grid-triggered function inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an *Event Grid-triggered function* inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
 See the following document for reference info: [*Azure Event Grid trigger for Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
