@@ -530,11 +530,7 @@
       - name: Azure Monitor agent
         href: ../azure-monitor/platform/azure-monitor-agent-install.md
       - name: Diagnostics extension
-        items:
-        - name: Linux
-          href: ./extensions/diagnostics-linux.md
-        - name: Windows
-          href: ../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md
       - name: Log Analytics
         items:
         - name: Linux
@@ -1058,7 +1054,11 @@
     - name: Overview
       href: image-builder-overview.md
     - name: Use Azure CLI
+      items:
+      - name: Linux
       href: ./linux/image-builder.md
+      - name: Windows
+      href: ./windows/image-builder.md
     - name: Use a VNET
       items:
       - name: CLI
@@ -1081,7 +1081,11 @@
     - name: Build for image galleries
       href: ./linux/image-builder-gallery.md
     - name: Update an existing image
-      href: ./linux/image-builder-gallery-update-image-version.md
+      items:
+      - name: Linux
+        href: ./linux/image-builder-gallery-update-image-version.md
+      - name: Windows
+        href: ./windows/image-builder-gallery-update-image-version.md
     - name: Store scripts
       href: ./linux/image-builder-user-assigned-identity.md
     - name: Troubleshoot
@@ -1106,6 +1110,8 @@
     items: 
     - name: Linux
       href: ./linux/build-image-with-packer.md
+    - name: Windows
+      href: ./windows/build-image-with-packer.md
   - name: Download existing disk
     items: 
     - name: Linux
@@ -1327,6 +1333,8 @@
           href: ./windows/attach-disk-ps.md
         - name: Azure portal
           href: ./windows/attach-managed-disk-portal.md
+        - name: Change temp disk drive letter 
+          href: ./windows/change-drive-letter.md
     - name: Change disk performance tier
       items: 
       - name: CLI and PowerShell
@@ -1382,7 +1390,7 @@
         href: ./windows/snapshot-copy-managed-disk.md
     - name: Reserve Disk Storage
       href: disks-reserved-capacity.md
-    - name: Create an incremental snapshot 
+    - name: Incremental snapshots
       items: 
       - name: Overview
         href: ./linux/incremental-snapshots.md
