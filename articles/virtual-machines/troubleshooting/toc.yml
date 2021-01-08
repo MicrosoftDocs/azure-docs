@@ -40,8 +40,6 @@
     href: restart-resize-error-troubleshooting.md
   - name: Restarting, Shutting Down, or Stopping services
     href: boot-error-troubleshoot-windows.md
-  - name: Issues with a full OS disk on a Linux virtual machine
-    href: os-disk-full-linux.md
 - name: Unexpected restart
   items:
   - name: Unexpected reboots of VMs with attached VHDs

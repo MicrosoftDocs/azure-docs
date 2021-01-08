@@ -15,11 +15,26 @@ ms.custom:  [amqp, mqtt]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
 >[!NOTE]
 >Currently:
 >
 > * Edge-enabled devices can't connect to IoT Edge gateways.
 > * Downstream devices can't use file upload.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Currently:
+>
+> * Downstream devices can't use file upload.
+
+::: moniker-end
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the first step:
 

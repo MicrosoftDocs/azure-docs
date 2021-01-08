@@ -30,10 +30,9 @@ You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
     :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Digital distribution center application template":::
+1. Select **Retail** tab and select **Create app** under **digital distribution center application**
 
-2. Select **Retail** tab and select **Create app** under **digital distribution center application**
-
-3. **Create app** will open New application form and fill up the requested details as show below.
+1. **Create app** will open New application form and fill up the requested details as show below.
    **Application name**: you can use default suggested name or enter your friendly application name.
    **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. You can start with 7-day free trial pricing plan and choose to convert to a standard pricing plan at any time before the free trail expires.
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.

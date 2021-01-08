@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1"
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1"
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ---
 
@@ -44,7 +44,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.

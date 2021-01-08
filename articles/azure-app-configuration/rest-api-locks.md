@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API - locks
 description: Reference pages for working with key-value locks by using the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
