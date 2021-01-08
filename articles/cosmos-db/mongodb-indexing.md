@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
@@ -25,9 +25,9 @@ To apply a sort to a query, you must create an index on the fields used in the s
 
 ### Editing indexing policy
 
-We recommend editing your indexing policy in the Data Explorer within the Azure Portal. You can add single field and wilcard indexes from the indexing policy editor in the Data Explorer:
+We recommend editing your indexing policy in the Data Explorer within the Azure Portal. You can add single field and wildcard indexes from the indexing policy editor in the Data Explorer:
 
-:::image type="content" source="./media/mongodb-indexing/IndexingPolicyEditor.png" alt-text="Indexing policy editor":::
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Indexing policy editor":::
 
 > [!NOTE]
 > You can't create compound indexes using the indexing policy editor in the Data Explorer.
@@ -42,7 +42,7 @@ You can create indexes on any single field. The sort order of the single field i
 
 You could create the same single field index on `name` in the Azure Portal:
 
-:::image type="content" source="./media/mongodb-indexing/AddIndex.png" alt-text="Add name index in indexing policy editor":::
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Add name index in indexing policy editor":::
 
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per container.
 
@@ -144,7 +144,7 @@ Here's how you can create a wildcard index on all fields:
 
 You can also create wildcard indexes using the Data Explorer in the Azure Portal:
 
-:::image type="content" source="./media/mongodb-indexing/AddWildcardIndex.png" alt-text="Add wildcard index in indexing policy editor":::
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Add wildcard index in indexing policy editor":::
 
 > [!NOTE]
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
