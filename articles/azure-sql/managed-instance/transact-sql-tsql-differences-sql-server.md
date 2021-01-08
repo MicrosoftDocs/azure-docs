@@ -300,12 +300,19 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
 - User must be directly mapped to Azure AD server principal (login) to create, modify or execute SQL Agent jobs. Users that are not directly mapped, e.g. users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
 - The Multi Server Administration feature for master/target (MSX/TSX) jobs are ...
  
-The following SQL Agent features currently aren't supported:
+Some of the SQL Agent features that are available in SQL Server are not supported in SQL Managed Instance:
 
-- Proxies
-- Scheduling jobs on an idle CPU
-- Enabling or disabling an Agent
-- Alerts
+- SQL Agent settings are read only. 
+    - The system stored procedure `sp_set_agent_properties` is not supported in SQL Managed Instance.
+- Enabling/disabling SQL Agent is currently not supported in SQL Managed Instance. SQL Agent is always running.
+- Notifications are partially supported:
+  - Pager is not supported.
+  - NetSend is not supported.
+  - Alerts are not supported.
+- Proxies are not supported.
+- Eventlog is not supported.
+- Job schedule trigger based on an idle CPU is not supported.
+
 
 For information about SQL Server Agent, see [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 

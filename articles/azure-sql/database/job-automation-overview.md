@@ -26,7 +26,9 @@ Every job logs the status of execution and also automatically retries the operat
 
 Elastic Jobs can target [Azure SQL Databases](sql-database-paas-overview.md), [Azure SQL Database elastic pools](elastic-pool-overview.md), and Azure SQL Databases in [shard maps](elastic-scale-shard-map-management.md).
 
-For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-mi.md). For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-mi.md). 
+
+For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
 
 ## When to use elastic jobs
 
@@ -79,7 +81,7 @@ The following image shows a job agent executing jobs across the different types 
 
 An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell-create.md) and REST are also supported).
 
-Creating an **Elastic Job agent** requires an existing database in Azure SQL Database. The agent configures this existing database as the [*Job database*](#job-database).
+Creating an **Elastic Job agent** requires an existing database in Azure SQL Database. The agent configures this existing Azure SQL Database as the [*Job database*](#job-database).
 
 The Elastic Job agent is free. The job database is billed at the same rate as any database in Azure SQL Database.
 
@@ -89,7 +91,7 @@ The *Job database* is used for defining jobs and tracking the status and history
 
 For the current preview, an existing database in Azure SQL Database (S0 or higher) is required to create an Elastic Job agent.
 
-The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service objective. The recommended service objective of the *Job database* is S1 or higher, but the optimal choice depends on the performance needs of your job(s): the number of job steps, the number of job targets, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour targeting less than ten databases, but running a job every minute might not be fast enough with an S0 database, and a higher service tier might be better.
+The *Job database* should be a clean, empty, S0 or higher service objective Azure SQL Database. The recommended service objective of the *Job database* is S1 or higher, but the optimal choice depends on the performance needs of your job(s): the number of job steps, the number of job targets, and how frequently jobs are run. 
 
 If operations against the job database are slower than expected, [monitor](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) database performance and the resource utilization in the job database during periods of slowness using Azure portal or the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. If utilization of a resource, such as CPU, Data IO, or Log Write approaches 100% and correlates with periods of slowness, consider incrementally scaling the database to higher service objectives (either in the [DTU model](service-tiers-dtu.md) or in the [vCore model](service-tiers-vcore.md)) until job database performance is sufficiently improved.
 
@@ -137,7 +139,6 @@ The following examples show how different target group definitions are dynamical
 
 > [!NOTE]
 > The Job database itself can be the target of a job. In this scenario, the Job database is treated just like any other target database. The job user must be created and granted sufficient permissions in the Job database, and the database scoped credential for the job user must also exist in the Job database, just like it does for any other target database.
->
 
 #### Job
 
