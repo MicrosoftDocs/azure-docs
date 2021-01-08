@@ -50,3 +50,14 @@ The controls that address key management in this reference from the CCM are the 
 | EKM-02 | Encryption and Key Management Key Generation |
 | EKM-03 | Encryption and Key Management Sensitive Data Protection |
 | EKM-04 | Encryption and Key Management Storage and Access |
+
+From the CCM, EKM-02, and EKM-03 specifically address the need for policies and procedures to govern cryptographic keys and the use of encryption protocols to protect sensitive data. EKM-01 recommends that all cryptographic keys have identifiable owners so that they can be managed. EKM-04 recommends the use of standard algorithms.
+
+| CIS Control ID | CIS Control Description |
+| :--------- | :------------------ |
+| 8.1 | Ensure that the expiration date is set on all keys |
+| 8.2 | Ensure that the expiration date is set on all secrets |
+| 8.4 | Ensure the key vault is recoverable |
+| 8.5 | Enable the role-based access control within Azure Kubernetes Service |
+
+The CIS controls 8.1 and 8.2 recommend that expiration dates are set for credentials to ensure that rotation is enforced. CIS control 8.4 ensures that the contents of the key vault can be restored to maintain business continuity. CIS control 8.5 ensures that the permissions provided to the cluster are using least privilege.
