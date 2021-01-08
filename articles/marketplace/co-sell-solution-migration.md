@@ -150,4 +150,6 @@ For detailed instructions on the information you need to provide before your off
 ## Next steps
 
 - [Resell through CSP Partners](cloud-solution-providers.md)
+- [How to submit co-sell materials in partner center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - View these [FAQs](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
+
