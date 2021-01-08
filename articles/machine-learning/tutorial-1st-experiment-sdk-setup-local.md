@@ -32,32 +32,34 @@ In part 1 of this tutorial series, you will:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
-- Familiarity with Python and [Machine Learning concepts](concept-azure-machine-learning-architecture.md). Examples include environments, training, and scoring.
-- Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
 
 ## Install the Azure Machine Learning SDK
 
-Throughout this tutorial, we make use of the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you can create an isolated environment using either `venv`, `virtualenv`, conda or docker. For this tutorial series you will use conda. You can check if you have conda installed on your system using:
+Throughout this tutorial, you will use the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you'll create an isolated environment. This tutorial series uses Conda to create that environment. If you prefer to use other solutions, such as `venv`, `virtualenv`, or docker, make sure you use a Python version >=3.5 and < 3.9.
 
+Check if you have Conda installed on your system:
+    
 ```bash
 conda --version
 ```
+    
+If this command returns a `conda not found` error, [download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). 
 
-If this command returns a `conda not found` error then you will need to [download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Once you have installed conda create a new environment:
+Once you have installed Conda, use a terminal or Anaconda Prompt window to create a new environment:
 
 ```bash
-conda create -n tutorial1 python=3.7
+conda create -n tutorial python=3.7
 ```
 
-Next, install the Azure Machine Learning SDK into the conda environment you created:
+Next, install the Azure Machine Learning SDK into the Conda environment you created:
 
 ```bash
-conda activate tutorial1
+conda activate tutorial
 pip install azureml-sdk
 ```
-
+    
 > [!NOTE]
-> If you are __not__ using conda (for example, you prefer to use virtualenv), the SDK requires Python versions >=3.5 < 3.9.
 > It takes approximately 5 minutes for the Azure Machine Learning SDK install to complete.
 
 
@@ -65,6 +67,7 @@ pip install azureml-sdk
 > [I installed the SDK](?success=install-sdk#dir) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
 
 ## <a name="dir"></a>Create a directory structure for code
+
 We recommend that you set up the following simple directory structure for this tutorial:
 
 ```markdown
@@ -77,8 +80,9 @@ tutorial
 
 > [!TIP]
 > You can create the hidden .azureml subdirectory in a terminal window.  Or use the following:
+>
 > * In a Mac Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  
-> * In Windows 10, see [how to view hidden files and folders](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * In a Windows 10 File Explorer, see [how to view hidden files and folders](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * In the Linux Graphical Interface, use **Ctrl + h** or the **View** menu and check the box to **Show hidden files**.
 
 > [!div class="nextstepaction"]

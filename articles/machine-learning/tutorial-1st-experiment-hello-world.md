@@ -31,9 +31,6 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Completion of [part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
-- Introductory knowledge of the Python language and machine learning workflows.
-- Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-- Python (version 3.5 to 3.7).
 
 ## Create and run a Python script locally
 
@@ -59,7 +56,7 @@ tutorial
 
 ### <a name="test"></a>Test your script locally
 
-You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.
+You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.  In the window that has the activated *tutorial1* conda environment, run the Python file:
 
 ```bash
 cd <path/to/tutorial>
@@ -88,8 +85,6 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-
-
 
 ### Understand the code
 
