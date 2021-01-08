@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -15,11 +15,11 @@ Azure Import/Export service is used to securely import large amounts of data to 
 
 Supply your own disk drives and transfer data with the Azure Import/Export service. You can also use disk drives supplied by Microsoft.
 
-If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40-TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../databox/data-box-disk-overview.md).
+If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40 TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../../databox/data-box-disk-overview.md).
 
 ## Azure Import/Export use cases
 
-Consider using Azure Import/Export service when uploading or downloading data over the network is too slow, or getting more network bandwidth is cost-prohibitive. Use this service in the following scenarios:
+Consider using Azure Import/Export service when uploading or downloading data over the network is too slow, or getting additional network bandwidth is cost-prohibitive. Use this service in the following scenarios:
 
 * **Data migration to the cloud**: Move large amounts of data to Azure quickly and cost effectively.
 * **Content distribution**: Quickly send data to your customer sites.
@@ -30,9 +30,9 @@ Consider using Azure Import/Export service when uploading or downloading data ov
 
 Import/Export service uses the following components:
 
-* **Import/Export service**: This service, which is available in Azure portal, helps the user create and track data import (upload) and export (download) jobs.  
+* **Import/Export service**: This service available in Azure portal helps the user create and track data import (upload) and export (download) jobs.  
 
-* **WAImportExport tool**: WAImportExport is a command-line tool that does the following things:
+* **WAImportExport tool**: This is a command-line tool that does the following:
   * Prepares your disk drives that are shipped for import.
   * Facilitates copying your data to the drive.
   * Encrypts the data on the drive with AES 256-bit BitLocker. You can use an external key protector to protect your BitLocker key.
@@ -134,9 +134,9 @@ For import jobs, drives are encrypted in two ways.
 
 * Enable BitLocker encryption manually on the drive. Specify the encryption key in the *driveset.csv* when running WAImportExport tool command line during drive preparation. The BitLocker encryption key can be further protected by using an external key protector (also known as the Microsoft managed key) or a customer managed key. For more information, see how to [Use a customer managed key to protect your BitLocker key](storage-import-export-encryption-key-portal.md).
 
-For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. You'll need to unlock the drive using the WAImportExport tool and providing the encryption key.
+For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. The drive needs to be unlocked using the WAImporExport tool using the key.
 
-[!INCLUDE [storage-import-export-delete-personal-info.md](../../includes/storage-import-export-delete-personal-info.md)]
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ### Pricing
 
@@ -146,11 +146,11 @@ There is a drive handling fee for each drive processed as part of your import or
 
 **Shipping costs**
 
-When you ship drives to Azure, you pay the shipping cost to the shipping carrier. When Microsoft returns the drives to you, the shipping cost is charged to the carrier account that you provided at the time of job creation.
+When you ship drives to Azure, you pay the shipping cost to the shipping carrier. When Microsoft returns the drives to you, the shipping cost is charged to the carrier account which you provided at the time of job creation.
 
 **Transaction costs**
 
-[Standard storage transaction charges](https://azure.microsoft.com/pricing/details/storage/) apply during import and export of data. Standard egress charges are also applicable along with storage transaction charges when data is exported from Azure Storage. For more information on egress costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/).
+[Standard storage transaction charge](https://azure.microsoft.com/pricing/details/storage/) apply during import as well as export of data. Standard egress charges are also applicable along with storage transaction charges when data is exported from Azure Storage. For more information on egress costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Next steps
 
