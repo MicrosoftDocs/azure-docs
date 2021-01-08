@@ -41,5 +41,5 @@ If you are using the Learn & Develop SKU you **cannot** request an increase on y
 
 If you need to request a limit increase, please reach out to Azure Support. 
 
-For more information, please review the Azure Quantum pricing page.
+For more information, please review the [Azure Quantum pricing page](https://aka.ms/AQ/Pricing).
 For information on third party offerings, please review the relevant provider page in the Azure Portal.
