@@ -27,10 +27,10 @@ To apply a sort to a query, you must create an index on the fields used in the s
 
 We recommend editing your indexing policy in the Data Explorer within the Azure Portal. You can add single field and wilcard indexes from the indexing policy editor in the Data Explorer:
 
-    :::image type="content" source="./media/mongodb-indexing/IndexingPolicyEditor.png" alt-text="Indexing policy editor":::
+:::image type="content" source="./media/mongodb-indexing/IndexingPolicyEditor.png" alt-text="Indexing policy editor":::
 
 > [!NOTE]
-> You can't create compound indexes using the indexing policy editor in the Data Explorer
+> You can't create compound indexes using the indexing policy editor in the Data Explorer.
 
 ## Index types
 
