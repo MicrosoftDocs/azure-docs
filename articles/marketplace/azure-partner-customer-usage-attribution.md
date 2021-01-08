@@ -33,7 +33,7 @@ Starting January 2021, tracking Azure usage from Commercial Marketplace Azure Ap
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it along to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center in your plan's Technical Configuration page.
 
 > [!NOTE]
-> For existing Commercial Marketplace Azure Applications, a one-time clean-up was performed to update the tracking IDs in each plan's technical configuration in January 2021. Past deployments of your offer from March 2020 forward will be automatically tracked as part of this migration.
+> For existing Commercial Marketplace Azure Applications, a one-time migration was performed in January 20201 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
 
 ## Other use cases 
 
@@ -165,7 +165,7 @@ To enable customer usage attribution, when you design your API calls, include yo
 
 ```xml
 //Commercial Marketplace Azure Application
-pid-contoso-myoffer-partnercenter //copy your ID exactly as it appears from Partner Center
+pid-contoso-myoffer-partnercenter //copy the tracking ID exactly as it appears in Partner Center
 
 //Other use cases
 pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4 //enter your GUID after "pid-"
@@ -221,7 +221,7 @@ For more information, see [Azure SDK for Go](/azure/developer/go/).
 
 ## Use Terraform
 
-The support for Terraform is available through Azure Provider's 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
+Support for Terraform is available through Azure Provider's 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
 
 Azure provider for Terraform added a new optional field called [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) which is where you specify the tracking GUID that you use for your solution. The value of this field can also be sourced from the *ARM_PARTNER_ID* Environment Variable.
 
@@ -233,10 +233,11 @@ provider "azurerm" {
           # new stuff for ISV attribution
           partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
-Partners who want to get their deployment via Terraform tracked by customer usage attribution need to do the following:
 
-* Create a GUID (the GUID should be added for each Offer or SKU)
-* Update their Azure Provider to set the value of *partner_id* to the GUID (DO NOT pre-fix the GUID with "pid-", just set it to the actual GUID)
+Set the value of *partner_id* to a registered GUID. (DO NOT prefix the GUID with "pid-", just set it to the actual GUID.)
+
+> [!IMPORTANT]
+> - **If you are using Terraform with an Azure Application in Commercial Marketplace, use the entire tracking ID provided in Partner Center. Do NOT use a GUID.**
 
 ## Report
 
