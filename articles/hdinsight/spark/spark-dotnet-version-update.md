@@ -5,7 +5,6 @@ author: Niharikadutta
 ms.author: nidutta
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/05/2020
 ---
 
