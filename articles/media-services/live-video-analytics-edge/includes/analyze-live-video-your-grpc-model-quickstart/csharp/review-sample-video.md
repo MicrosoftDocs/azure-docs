@@ -2,6 +2,6 @@ When you set up the Azure resources, a short video of highway traffic is copied 
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 In this quickstart, you'll use Live Video Analytics on IoT Edge to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.

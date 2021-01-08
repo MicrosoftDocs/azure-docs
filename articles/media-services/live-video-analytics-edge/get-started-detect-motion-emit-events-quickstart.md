@@ -16,7 +16,7 @@ After completing the setup steps, you'll be able to run a simulated live video s
 
 You can view the following video with detailed steps on how to get started with Live Video Analytics on IoT Edge:
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
 
 ## Prerequisites
 
@@ -417,8 +417,7 @@ Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
 * Contains a parameter value for `rtspUrl`, which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
-    <iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
-
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 Within few seconds, you see the following response in the **OUTPUT** window:
 
 ```
