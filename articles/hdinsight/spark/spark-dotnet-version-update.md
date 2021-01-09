@@ -25,7 +25,7 @@ While current HDI clusters will not be affected (i.e. they will still have the s
 If you don't want to update the current version of .NET for Apache Spark in your application, no further steps are necessary.  
 
 2. **You have a new HDI cluster**: If you want to upgrade your Spark .NET application to v1.0.0 (recommended), no steps are needed to change the worker on HDI, however you will have to refer to the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand the steps needed to update your code and pipelines.
-If you don't want to change the current version of .NET for Apache Spark in your application, you would have to change the version on your HDI cluster from v1.0 (default on new clusters) to whichever version you are using. Refer to the [changing versions of .NET for Apache Spark on HDI cluster section](#changing-version-of-net-for-apache-spark-on-hdinsight-cluster) to learn how to do that.  
+If you don't want to change the current version of .NET for Apache Spark in your application, you would have to change the version on your HDI cluster from v1.0 (default on new clusters) to whichever version you are using. Refer to the [changing versions of .NET for Apache Spark on HDI cluster section](spark-dotnet-version-update.md#changing-version-of-net-for-apache-spark-on-hdinsight-cluster) to learn how to do that.  
 
 ## Changing version of .NET for Apache Spark on HDInsight cluster
 
