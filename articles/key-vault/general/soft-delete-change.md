@@ -1,5 +1,5 @@
 ---
-title: Enable soft-delete on all Azure Key Vaults | Microsoft Docs
+title: Enable soft-delete on all key vault objects - Azure Key Vault | Microsoft Docs
 description: Use this document to adopt soft-delete for all key vaults and to make application and administration changes to avoid conflict errors.
 services: key-vault
 author: ShaneBala-keyvault
@@ -54,15 +54,15 @@ If your application assumes that soft-delete isn't enabled and expects that dele
 
 Security principals that need access to permanently delete secrets must be granted more access policy permissions to purge these secrets and the key vault.
 
-Disable any Azure Policy on your key vaults that mandates that soft-delete is turned off. You might need to escalate this issue to an administrator who controls Azure Policies applied to your environment. If this policy isn't disabled, you might lose the ability to create new key vaults in the scope of the applied policy.
+Disable any Azure policy on your key vaults that mandates that soft-delete is turned off. You might need to escalate this issue to an administrator who controls Azure policies applied to your environment. If this policy isn't disabled, you might lose the ability to create new key vaults in the scope of the applied policy.
 
-If your organization is subject to legal compliance requirements and can't allow deleted key vaults and secrets to remain in a recoverable state for an extended period of time, you'll have to adjust the retention period of soft-delete to meet your organization’s standards. You can configure the retention period to last between 7 and 90 days.
+If your organization is subject to legal compliance requirements and can't allow deleted key vaults and secrets to remain in a recoverable state for an extended period of time, you'll have to adjust the retention period of soft-delete to meet your organization’s standards. You can configure the retention period to last from 7 to 90 days.
 
 ## Procedures
 
 ### Audit your key vaults to check if soft-delete is enabled
 
-1. Log in to the Azure portal.
+1. Sign in to the Azure portal.
 1. Search for **Azure Policy**.
 1. Select **Definitions**.
 1. Under **Category**, select **Key Vault** in the filter.
@@ -71,23 +71,23 @@ If your organization is subject to legal compliance requirements and can't allow
 1. Set the scope to your subscription.
 1. Make sure the effect of the policy is set to **Audit**.
 1. Select **Review + Create**. A full scan of your environment might take up to 24 hours to complete.
-1. In the Azure Policy blade, select **Compliance**.
+1. In the Azure Policy pane, select **Compliance**.
 1. Select the policy you applied.
 
 You can now filter and see which key vaults have soft-delete enabled (compliant resources) and which key vaults don't have soft-delete enabled (non-compliant resources).
 
 ### Turn on soft-delete for an existing key vault
 
-1. Log in to the Azure portal.
+1. Sign in to the Azure portal.
 1. Search for your key vault.
 1. Select **Properties** under **Settings**.
-1. Under **Soft-Delete**, select the radio button corresponding to **Enable recovery of this vault and its objects**.
+1. Under **Soft-Delete**, select the **Enable recovery of this vault and its objects** option.
 1. Set the retention period for soft-delete.
 1. Select **Save**.
 
 ### Grant purge access policy permissions to a security principal
 
-1. Log in to the Azure portal.
+1. Sign in to the Azure portal.
 1. Search for your key vault.
 1. Select **Access Policies** under **Settings**.
 1. Select the service principal you'd like to grant access to.
@@ -99,7 +99,7 @@ You can now filter and see which key vaults have soft-delete enabled (compliant 
 
 If you already have soft-delete turned on or if you don't delete and re-create key vault objects with the same name, you likely won't notice any change in the behavior of the key vault.
 
-If you have an application that deletes and re-creates key vault objects with the same naming conventions frequently, you'll have to make changes in your application logic to maintain expected behavior. See the "Application changes" section in this article.
+If you have an application that deletes and re-creates key vault objects with the same naming conventions frequently, you'll have to make changes in your application logic to maintain expected behavior. See the [Application changes](#application-changes) section in this article.
 
 ### How do I benefit from this change?
 
@@ -109,7 +109,7 @@ If a user accidentally deletes a key vault or secret, you can grant them access 
 
 ### How do I find out if I need to take action?
 
-Follow the steps in the "Audit your key vaults to check if soft-delete is enabled" section in this article. Any key vault that doesn't have soft-delete turned on will be affected by this change.
+Follow the steps in the [Audit your key vaults to check if soft-delete is enabled](audit-your-key-vaults-to-check-if-soft-delete-is-enabled) section in this article. This change will affect any key vault that doesn't have soft-delete turned on.
 
 ### What action do I need to take?
 
