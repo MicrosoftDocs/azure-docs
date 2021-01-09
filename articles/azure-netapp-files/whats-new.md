@@ -13,13 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 01/15/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
-Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## January 2021
+
+* SMB3 Protocol Encryption (Preview)
+
+    You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security, but it may impact both the client (CPU overhead for encrypting and decrypting messages) and storage resource utilization (reductions in throughput). You should test the protocol performance impact of enabling encryption against your own applications before deploying workloads into production.
+
+* SMB Continuous Availability (CA) shares (Preview)  
+
+    SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover, Azure NetApp Files now supports the SMB Continuous Availability shares option for use with SQL Server applications over SMB running on Azure VMs. Enabling SMB Continuous Availability shares on Azure NetApp Files volumes provides significant SQL server performance improvements and scale and cost benefits for [Single Instance, Always-On Failover Cluster Instance and Always-On Availability Group deployments](azure-netapp-files-solution-architectures.md#sql-server).
 
 ## December 2020
 
