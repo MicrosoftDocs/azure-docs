@@ -43,7 +43,7 @@ If you don't want to change the current version of .NET for Apache Spark in your
 
 ### Update your application to use specific version
 
-You can update your .NET for Apache Spark application to use a specific version by choosing the required version of the [Microsoft.Spark nuget package](https://www.nuget.org/packages/Microsoft.Spark/) in your project. Be sure to check out the release notes of the particular version as well as the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) as mentioned above, if choosing to update your application to v1.0.0.
+You can update your .NET for Apache Spark application to use a specific version by choosing the required version of the [Microsoft.Spark nuget package](https://www.nuget.org/packages/Microsoft.Spark/) in your project. Be sure to check out the release notes of the particular version and the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) as mentioned above, if choosing to update your application to v1.0.0.
 
 ## FAQs
 
