@@ -101,7 +101,7 @@ To get started with the deployment of Hyperledger Fabric network components, go 
     - **DNS prefix**: Enter a Domain Name System (DNS) name prefix for the AKS cluster. You'll use DNS to connect to the Kubernetes API when managing containers after you create the cluster.
     - **Node size**: For the size of the Kubernetes node, you can choose from the list of VM stock-keeping units (SKUs) available on Azure. For optimal performance, we recommend Standard DS3 v2.
     - **Node count**: Enter the number of Kubernetes nodes to be deployed in the cluster. We recommend keeping this node count equal to or more than the number of Hyperledger Fabric nodes specified on the **Fabric settings** tab.
-    - **Service principal client ID**: Enter the client ID of an existing service principal or create a new one. A service principal is required for AKS authentication. See the [steps to create a service principal](/powershell/azure/create-azure-service-principal-azureps.md#create-a-service-principal).
+    - **Service principal client ID**: Enter the client ID of an existing service principal or create a new one. A service principal is required for AKS authentication. See the [steps to create a service principal](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Service principal client secret**: Enter the client secret of the service principal provided in the client ID for the service principal.
     - **Confirm client secret**: Confirm the client secret for the service principal.
     - **Enable container monitoring**: Choose to enable AKS monitoring, which enables the AKS logs to push to the specified Log Analytics workspace.
