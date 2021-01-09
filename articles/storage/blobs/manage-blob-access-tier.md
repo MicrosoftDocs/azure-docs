@@ -4,7 +4,7 @@ description: Learn how to change the tier of a blob in a GPv2 or Blob Storage ac
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 01/05/2021
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
