@@ -12,6 +12,7 @@
     href: deploy-template.md
   - name: Deploy a Cloud Service - Visual Studio
     href: deploy-visual-studio.md
+  expanded: true
 - name: Concepts
   items: 
   - name: Available VM sizes
