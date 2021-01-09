@@ -149,7 +149,18 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 ## Deploy on premises using Docker containers
 
-[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons. 
+
+## Service availability and redundancy
+
+### Is Form Recognizer service zone-resilient?
+
+Yes. The Form Recognizer service is zone-resilient by default.
+
+### How do I configure the Form Recognizer service to be zone-resilient?
+
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Form Recognizer resources is available by default and managed by the service itself.
+
 
 ## Data privacy and security
 

@@ -1,7 +1,7 @@
 ---
 title: Deploy SWIFT CSP-CSCF v2020 blueprint sample
 description: Deploy steps for the SWIFT CSP-CSCF v2020 blueprint sample including blueprint artifact parameter details.
-ms.date: 08/18/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Deploy the SWIFT CSP-CSCF v2020 blueprint sample
