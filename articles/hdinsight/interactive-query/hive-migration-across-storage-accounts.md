@@ -51,4 +51,4 @@ Then, we'll run another script action on the new cluster to import the Hive tabl
 
 ## Verification
 
-Download and run the script [`hive_contents.sh`](https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive_contents.sh) on the primary node of each cluster, and compare contents of output file `/tmp/hive_contents.out`. See [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Download and run the script as root user [`hive_contents.sh`](https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive_contents.sh) on the primary node of each cluster, and compare contents of output file `/tmp/hive_contents.out`. See [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
