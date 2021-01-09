@@ -14,7 +14,7 @@ This document talks about the first major version of [.NET for Apache Spark](htt
 
 ## About .NET for Apache Spark version 1.0.0
 
-This is the first [major official release](https://github.com/dotnet/spark/releases/tag/v1.0.0) of .NET for Apache Spark and provides DataFrame API completeness for Spark 2.4.x as well as Spark 3.0.x along with other features. For a complete list of all features, improvements and bug fixes, please check out the official [v1.0.0 release notes](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md).
+This is the first [major official release](https://github.com/dotnet/spark/releases/tag/v1.0.0) of .NET for Apache Spark and provides DataFrame API completeness for Spark 2.4.x as well as Spark 3.0.x along with other features. For a complete list of all features, improvements and bug fixes, see the official [v1.0.0 release notes](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md).
 Another important thing to note is that this version is **not** compatible with prior versions of `Microsoft.Spark` and `Microsoft.Spark.Worker`. Please check out the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) if you are planning to upgrade your .NET for Apache Spark application to be compatible with v1.0.0.
 
 ## Using .NET for Apache Spark v1.0 in HDInsight
