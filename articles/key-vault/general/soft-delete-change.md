@@ -109,7 +109,7 @@ If a user accidentally deletes a key vault or secret, you can grant them access 
 
 ### How do I find out if I need to take action?
 
-Follow the steps in the [Audit your key vaults to check if soft-delete is enabled](audit-your-key-vaults-to-check-if-soft-delete-is-enabled) section in this article. This change will affect any key vault that doesn't have soft-delete turned on.
+Follow the steps in the [Audit your key vaults to check if soft delete is enabled](#audit-your-key-vaults-to-check-if-soft-delete-is-enabled) section in this article. This change will affect any key vault that doesn't have soft-delete turned on.
 
 ### What action do I need to take?
 
