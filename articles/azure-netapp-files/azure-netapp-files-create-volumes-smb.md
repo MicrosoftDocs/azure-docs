@@ -311,10 +311,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-    * If you want to enable Continuous Availability (CA) for the SMB volume, select **Enable Continuous Availability**.    
+    * If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]
-        > You should enable CA only for SQL workloads. Using SMB CA shares for workloads other than SQL server is not supported. 
+        > You should enable Continuous Availability only for SQL workloads. Using SMB Continuous Availability shares for workloads other than SQL server is not supported. 
 
         The SMB **Enable Continuous Availability** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
