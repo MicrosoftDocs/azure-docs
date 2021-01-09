@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Pull images from a connected registry
-description: Use Azure Container Registry CLI commands configure a client token and pull images from a connected registry.
+description: Use Azure Container Registry CLI commands to configure a client token and pull images from a connected registry.
 ms.topic: quickstart
 ms.date: 12/04/2020
 ms.author: memladen

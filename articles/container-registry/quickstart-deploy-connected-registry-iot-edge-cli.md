@@ -119,10 +119,10 @@ This will return the configuration for the connected registry including the newl
 }
 ```
 
-The JSON above lists the environment variables that need to be passed to the connected registry container at the run time. The following environment variables are optional:
+The JSON above lists the environment variables that need to be passed to the connected registry container at run time. The following environment variables are optional:
 
 - `ACR_REGISTRY_CERTIFICATE_VOLUME` - this is required if your connected registry will be accessible via HTTPS. The volume should point to the location where the HTTPS certificates are stored. If not set, the default location is `/var/acr/certs`.
-- `ACR_REGISTRY_DATA_VOLUME` - this can optionally be used to overwrite the default location `/var/acr/data` where the images will be stored byt the connected registry. This location must match the volume bind for the container.
+- `ACR_REGISTRY_DATA_VOLUME` - this can optionally be used to overwrite the default location `/var/acr/data` where the images will be stored by the connected registry. This location must match the volume bind for the container.
 
 You will need the information for the IoT Edge manifest below.
 
@@ -255,7 +255,7 @@ az acr connected-registry show \
   --output table
 ```
 
-You may need to wait few minutes until the deployment of the connected registry completes.
+You may need to a wait few minutes until the deployment of the connected registry completes.
 
 ## Next steps
 
