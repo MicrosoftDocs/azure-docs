@@ -115,7 +115,7 @@ Commonly used services in bot applications that are not currently available in A
 - Application Insights
 - Speech Service
 
-For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0&preserve-view=true#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
 ### [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)
 For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](../machine-learning/reference-machine-learning-cloud-parity.md).

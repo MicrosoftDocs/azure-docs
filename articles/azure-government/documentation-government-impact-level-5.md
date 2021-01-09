@@ -868,7 +868,7 @@ Azure Key Vault supports all impact levels in Azure Government in these regions,
 ## Storage and database services 
 
 
-### [Azure Import/Export service](../storage/common/storage-import-export-service.md)
+### [Azure Import/Export service](../import-export/storage-import-export-service.md)
 
 Azure Import/Export service can be used in Azure Government to import and export Impact Level 5 data. By default, the Import/Export service will encrypt data that's written to the hard drive for transport. When you create a target storage account for import and export of Impact Level 5 data, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys) of this document.
 

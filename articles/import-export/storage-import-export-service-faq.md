@@ -36,7 +36,7 @@ Yes. For more information, go to [Overview of importing your organization's PST 
 
 ### Can I use the Azure Import/Export service to copy my backups offline to the Azure Backup Service?
 
-Yes. For more information, go to [Offline Backup workflow in Azure Backup](../../backup/backup-azure-backup-import-export.md).
+Yes. For more information, go to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
 ### Can I purchase drives for import/export jobs from Microsoft?
 
@@ -127,7 +127,7 @@ No. All drives are encrypted with BitLocker.
 
 ### How can I access data that is imported by this service?
 
-Use the Azure portal or [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to access the data under your Azure storage account.  
+Use the Azure portal or [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to access the data under your Azure storage account.  
 
 ### After the import is complete, what does my data look like in the storage account? Is my directory hierarchy preserved?
 
