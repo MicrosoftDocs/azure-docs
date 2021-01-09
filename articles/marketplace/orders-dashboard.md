@@ -16,7 +16,7 @@ This article provides information on the Orders dashboard in Partner Center. Thi
 To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
 ## Orders dashboard
 
@@ -104,14 +104,13 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 - The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1,000.
 - If records number over 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Apply filters to the **Order details** table to display only the data you're interested in. Filter by Country/Region, Azure license type, commercial marketplace license type, Offer type, Order status, Free trails, commercial marketplace subscription ID, Customer ID, and Company name.
-- Because SaaS offers purchased through Azure Marketplace or Microsoft AppSource, do not require an Azure subscription, the Marketplace Subscription ID will appear in the form 00000000-0000-0000-0000-000000000000 in the **Detailed orders data** section.
 - When an order is purchased by a protected customer, information in **Orders Detailed Data** is masked (************).
 
 ***Table 1: Dictionary of data terms***
 
 | Column name | Attribute name | Definition |
 | ------------ | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. |
+| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. |
 | MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. |
 | Offer Type | Offer Type | The type of commercial marketplace offering. |
 | Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
@@ -149,4 +148,4 @@ The **Orders** page filters are applied at the Orders page level. You can select
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./partner-center-portal/faq-terminology.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).

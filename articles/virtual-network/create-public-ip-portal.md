@@ -31,6 +31,7 @@ Use the following steps to create a standard zone-redundant public IP address na
     | ---                     | ---                         |
     | IP Version              | Select IPv4                 |    
     | SKU                     | Select **Standard**         |
+    | Tier (if shown*)                  | Select **Regional**         |
     | Name                    | Enter *myStandardZRPublicIP*          |
     | IP address assignment   | Note this will be locked as "Static"                                        |
     | Idle Timeout (minutes)  | Leave the value at 4        |
@@ -42,30 +43,7 @@ Use the following steps to create a standard zone-redundant public IP address na
 
 Note that these are only valid selections in regions with [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (You can also select a specific zone in these regions, though it will not be resilient to zonal failure.)
 
-# [**Standard SKU - No zones**](#tab/option-create-public-ip-standard)
-
-Use the following steps to create a standard public IP address as a non-zonal resource named **myStandardPublicIP**.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource**. 
-3. In the search box, type *Public IP address*.
-4. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
-5. On the **Create public IP address** page, enter or select the following information: 
-
-    | Setting                 | Value                       |
-    | ---                     | ---                         |
-    | IP Version              | Select IPv4                 |    
-    | SKU                     | Select **Standard**         |
-    | Name                    | Enter *myStandardPublicIP*          |
-    | IP address assignment   | Note this will be locked as "Static"                                        |
-    | Idle Timeout (minutes)  | Leave the value at 4        |
-    | DNS name label          | Leave the value as blank    |
-    | Subscription            | Select your subscription.   |
-    | Resource group          | Select **Create new** , enter myResourceGroup, then select **OK** |
-    | Location                | Select **East US 2**      |
-    | Availability Zone       | Select **No Zone** (and see note below) |
-
-This selection is valid in all regions and is the default selection for Standard Public IP addresses in regions without without [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+\* = Tier relates to the [Cross-Region Load Balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) functionality, currently in Preview.
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 

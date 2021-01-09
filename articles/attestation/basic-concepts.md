@@ -7,9 +7,8 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-
-
 ---
+
 # Basic Concepts
 
 Below are some basic concepts related to Microsoft Azure Attestation.
@@ -34,11 +33,11 @@ Azure Attestation provides a default provider in each region. Customers can choo
 
 | Region | Attest Uri | 
 |--|--|
-| UK South | https://shareduks.uks.attest.azure.net | 
-| US East 2 | https://sharedeus2.eus2.attest.azure.net | 
-| Central US | https://sharedcus.cus.attest.azure.net | 
-| East US| https://sharedeus.eus.attest.azure.net | 
-| Canada Central | https://sharedcac.cac.attest.azure.net | 
+| UK South | `https://shareduks.uks.attest.azure.net` | 
+| US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| Central US | `https://sharedcus.cus.attest.azure.net` | 
+| East US| `https://sharedeus.eus.attest.azure.net` | 
+| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## Attestation request
 

@@ -9,8 +9,8 @@ metadata:
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
-  author: mamccrea
-  ms.author: mamccrea
+  author: sidram
+  ms.author: sidram
   ms.date: 09/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -170,8 +170,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create and manage a job
-            url: stream-analytics-manage-job.md
+          - text: Real-time fraud detection
+            url: stream-analytics-real-time-fraud-detection.md
           - text: Trigger an Azure Function
             url: stream-analytics-with-azure-functions.md
       - linkListType: how-to-guide
@@ -182,8 +182,6 @@ landingContent:
             url: stream-analytics-edge.md
           - text: Build a sentiment analysis solution
             url: stream-analytics-twitter-sentiment-analysis-trends.md 
-          - text: Real-time fraud detection
-            url: stream-analytics-real-time-fraud-detection.md
           - text: Build an IoT solution
             url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
           - text: High-frequency trading simulation
@@ -192,10 +190,6 @@ landingContent:
             url: stream-analytics-threshold-based-rules.md
   - title: Deploy Stream Analytics jobs
     linkLists:
-      - linkListType: tutorial
-        links:
-        - text: Deploy a job with CI/CD using Azure Pipelines
-          url: stream-analytics-tools-visual-studio-cicd-vsts.md
       - linkListType: how-to-guide
         links:
         - text: Set up a CI/CD pipeline with Visual Studio Code

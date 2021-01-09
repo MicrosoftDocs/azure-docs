@@ -43,7 +43,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Cause:** Consent not granted to Windows Virtual Desktop in the Azure Active directory instance.
 
-**Fix:** [Follow this guide](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) to grant consent.
+**Fix:** [Follow this guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to grant consent.
 
 ### Error: The user isn't authorized to query the management service
 
@@ -134,9 +134,9 @@ If your operation template goes over the quota limit, you can do one of the foll
 
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
-1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-resource-manager/resource-group-audit.md).
-3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) to address the issue.
+1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-resource-manager/management/view-activity-logs.md).
+3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
 ### Error: Your deployment failed….\<hostname>/joindomain

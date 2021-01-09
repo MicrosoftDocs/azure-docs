@@ -1,34 +1,66 @@
 ---
-title: Upgrade Azure Kubernetes Service (AKS) node images 
+title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/25/2020
+ms.author: jpalma
 ---
 
 # Azure Kubernetes Service (AKS) node image upgrade
 
-AKS supports upgrading the images on a node so you're up to date with the newest OS and runtime updates. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images as well as how to update node pool images without upgrading the version of Kubernetes.
+AKS supports upgrading the images on a node so you're up to date with the newest OS and runtime updates. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. This article shows you how to upgrade AKS cluster node images and how to update node pool images without upgrading the version of Kubernetes.
 
-If you're interested in learning about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases) for more details.
+For more information about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases).
 
 For information on upgrading the Kubernetes version for your cluster, see [Upgrade an AKS cluster][upgrade-cluster].
 
-## Limitations
+> [!NOTE]
+> The AKS cluster must use virtual machine scale sets for the nodes.
 
-* The AKS cluster must use virtual machine scale sets for the nodes.
+## Check if your node pool is on the latest node image
 
-## Install the AKS CLI Extension
-
-Before the next core CLI version is released, you need the *aks-preview* CLI extension to use node image upgrade. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+You can see what is the latest node image version available for your node pool with the following command: 
 
 ```azurecli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
+az aks nodepool get-upgrades \
+    --nodepool-name mynodepool \
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup
 ```
+
+In the output you can see the `latestNodeImageVersion` like on the example below:
+
+```output
+{
+  "id": "/subscriptions/XXXX-XXX-XXX-XXX-XXXXX/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/upgradeProfiles/default",
+  "kubernetesVersion": "1.17.11",
+  "latestNodeImageVersion": "AKSUbuntu-1604-2020.10.28",
+  "name": "default",
+  "osType": "Linux",
+  "resourceGroup": "myResourceGroup",
+  "type": "Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles",
+  "upgrades": null
+}
+```
+
+So for `nodepool1` the latest node image available is `AKSUbuntu-1604-2020.10.28`. You can now compare it with the current node image version in use by your node pool by running:
+
+```azurecli
+az aks nodepool show \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --query nodeImageVersion
+```
+
+An example output would be:
+
+```output
+"AKSUbuntu-1604-2020.10.08"
+```
+
+So in this example you could upgrade from the current `AKSUbuntu-1604-2020.10.08` image version to the latest version `AKSUbuntu-1604-2020.10.28`. 
 
 ## Upgrade all nodes in all node pools
 
@@ -59,7 +91,7 @@ az aks show \
 
 Upgrading the image on a node pool is similar to upgrading the image on a cluster.
 
-To update the OS image of the node pool without performing a Kubernetes cluster upgrade, use the `--node-image-only` option in the following example:
+To update the OS image of the node pool without doing a Kubernetes cluster upgrade, use the `--node-image-only` option in the following example:
 
 ```azurecli
 az aks nodepool upgrade \
@@ -121,12 +153,12 @@ az aks nodepool show \
 
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
-- [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)][security-update]
+- [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
-[security-update]: node-updates-kured.md
+[github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az-extension-add

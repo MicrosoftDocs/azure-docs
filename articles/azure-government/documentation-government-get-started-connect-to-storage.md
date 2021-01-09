@@ -42,7 +42,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
 
-For more information on Azure Storage Explorer, navigate [here](../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
+For more information on Azure Storage Explorer, navigate [here](../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Connecting to the Storage API 
 

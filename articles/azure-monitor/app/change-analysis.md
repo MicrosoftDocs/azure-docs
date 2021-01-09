@@ -188,6 +188,10 @@ If it's the first time you view Change history after its integration with Applic
 
 ![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
 
+### Azure Lighthouse subscription is not supported
+
+- **Failed to query Microsoft.ChangeAnalysis resource provider** with message *Azure lighthouse subscription is not supported, the changes are only available in the subscription's home tenant*. There is a limitation right now for Change Analysis resource provider to be registered through Azure Lighthouse subscription for users not in home tenant. We expect this limitation to be addressed in the near future. If this is a blocking issue for you, there is a workaround that involves creating a service principal and explicitly assigning the role to allow the access.  Contact changeanalysishelp@microsoft.com to learn more about it.
+
 ## Next steps
 
 - Enable Application Insights for [Azure App Services apps](azure-web-apps.md).

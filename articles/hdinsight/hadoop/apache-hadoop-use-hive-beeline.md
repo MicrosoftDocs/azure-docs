@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.custom: contperfq1, contperfq2
+ms.custom: contperf-fy21q1, contperf-fy21q2
 ---
 # Use the Apache Beeline client with Apache Hive
 

@@ -83,7 +83,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](/azure/azure-monitor/log-query/get-started-portal) 
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
 
@@ -114,7 +114,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Azure Data Share supports SSO authentication with Azure Active Directory. Reduce the number of identities and credentials users must manage by enabling SSO for the service with your organization's pre-existing identities.
 
-- [Understand SSO with Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-o)
+- [Understand SSO with Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -164,7 +164,7 @@ Use a secure, Azure-managed workstation (also known as a Privileged Access Works
 **Guidance**: 
 Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/) 
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md) 
 
@@ -180,7 +180,7 @@ Azure AD provides logs to help discover stale accounts. In addition, use Azure A
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [How to integrate Azure activity logs with Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -190,7 +190,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -236,7 +236,7 @@ In general, follow recommendations from Azure Security Center for performing vul
 
 Use a third-party solution for performing vulnerability assessments on network devices and web applications. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 **Azure Security Center monitoring**: Yes
 
@@ -266,11 +266,11 @@ Use a third-party solution for performing vulnerability assessments on network d
 
 **Guidance**: Use tagging, management groups, and separate subscriptions where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md) 
 
-- [How to create Management Groups](/azure/governance/management-groups/create) 
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md) 
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -301,7 +301,7 @@ Use Azure Resource Graph to query and discover resources within their subscripti
 
 **Guidance**: Remove Azure resources when they are no longer needed, this can be done through the Azure portal, PowerShell or CLI.
 
-- [Azure resource group and resource deletion](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Azure resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure Data Share does not expose the OS or allow you to install 3rd party software applications on its resources.
 
@@ -339,7 +339,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions) 
 
@@ -371,5 +371,5 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

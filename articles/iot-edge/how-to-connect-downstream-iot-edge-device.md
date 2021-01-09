@@ -165,7 +165,7 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
      type: "docker"
      env: {}
      config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
        auth: {}
    ```
 
@@ -195,7 +195,7 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
 
 While this feature is in public preview, you need to configure your IoT Edge device to use the public preview versions of the IoT Edge runtime modules. The previous section provides steps for configuring edgeAgent at startup. You also need to configure the runtime modules in deployments for your device.
 
-1. Configure the edgeHub module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Configure the edgeHub module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
 1. Configure the following environment variables for the edgeHub module:
 
@@ -204,7 +204,7 @@ While this feature is in public preview, you need to configure your IoT Edge dev
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Configure the edgeAgent module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+1. Configure the edgeAgent module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2`.
 
 ## Network isolate downstream devices
 
@@ -359,7 +359,7 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc2"
     auth: {}
 ```
 

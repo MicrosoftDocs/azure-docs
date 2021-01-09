@@ -2,14 +2,14 @@
 author: IngridAtMicrosoft
 ms.service: media-services 
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
-ms.custom: CLI
+ms.custom: REST
 ---
 
 <!--Create a basic audio transform REST-->
 
-The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `amsAccountName` with values you are currently working with. Give your transform a name by setting `transformName`.
+The following Azure REST command creates a basic audio transform. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName`.
 
 ```REST
 
