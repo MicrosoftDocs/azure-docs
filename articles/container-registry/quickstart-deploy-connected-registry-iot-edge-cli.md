@@ -127,7 +127,7 @@ The JSON above lists the environment variables that need to be passed to the con
 You will need the information for the IoT Edge manifest below.
 
   > [!IMPORTANT]
-  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. If you issue the command again, new passwords will be generated.
+  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. If you issue the command again, new passwords will be generated. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
 
 ## Configure a deployment manifest for IoT Edge
 

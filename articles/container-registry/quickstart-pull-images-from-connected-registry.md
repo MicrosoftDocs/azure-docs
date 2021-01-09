@@ -46,7 +46,7 @@ az acr token create \
 The command will return details about the newly generated token including passwords.
 
   > [!IMPORTANT]
-  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved.
+  > Make sure that you save the generated passwords. Those are one-time passwords and cannot be retrieved. You can generate new passwords using the [az acr token credential generate][az-acr-token-credential-generate] command.
 
 ## Update the connected registry with the client token
 
@@ -78,5 +78,6 @@ docker pull <use_the_ip_address_of_the_connected_registry>/hello-world
 In this quickstart, you learned how to configure a client token for the connected registry and pull a container image.
 
 <!-- LINKS - internal -->
+[az-acr-token-credential-generate]: /cli/azure/acr/credential#az-acr-token-credential-generate
 [container-registry-intro]: container-registry-intro.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md
