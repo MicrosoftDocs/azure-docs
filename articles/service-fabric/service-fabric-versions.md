@@ -21,13 +21,22 @@ Refer to the following documents for details on how to keep your cluster running
 
 ### Upgrade Alert for versions between 5.7 and below 6.3.63.*
 
-***All Service Fabric clusters that are on unsupported versions from 5.7 to 6.3.63.* will be impacted by a security breaking change that will be rolled out in Azure on January 7th,2021***.
- 
- To avoid serious service disruptions (including clusters not coming up), you must upgrade your clusters as soon as possible to one of the below supported versions of Service Fabric runtime that includes the fix for the security issue. We have reached out to the impacted customers with guidance. If you have a support plan and you need technical help, please reach out to us via [Azure support channels](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) by opening a support request and mention this context in the support ticket. 
- 
-  #### Supported Service Fabric Runtime versions including the fix for the security breaking change 
-   Upgrade your Service Fabric clusters that are running on older unsupported versions impacted by the security breaking change to one of the below supported version.
+To improve security and availability, Azure infrastructure will make a change that will affect Service Fabric customers. **All Service Fabric clusters on unsupported versions from 5.7 to 6.3.63.* are impacted**. Addressing the change requires an update to the Service Fabric runtime, which is already available for all supported Service Fabric versions in all regions.
 
+ We have reached out to impacted customers to upgrade Service Fabric clusters by Jan 19,2021 to avoid service disruptions. We observed some customers have not taken action to avoid outage to clusters and hence request you all to take the recommended action to upgrade to the latest supported versions applicable to your scenario.  
+ 
+ If you have a support plan and you need technical help, please reach out to us via [Azure support channels](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) by opening a support request and mention this context in the support ticket. 
+ 
+#### Impact If NOT Upgraded to supported versions
+
+**Azure Service Fabric clusters which run on unsupported versions from 5.7 to 6.3.63.* will not come up** if you have not upgraded to one of below supported versions by January 19,2021.
+
+##### Required Action
+Upgrade to the Service Fabric supported versions that contain the fix in all regions, and will prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment.
+
+  ###### Supported Service Fabric Runtime versions 
+ If you are on an unsupported version of Service Fabric, or a version without the fix for the breaking change, please upgrade to one of the below supported versions of Service Fabric which already contain the necessary changes.  
+ 
   | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
   | --- | --- |--- | 
   | Windows | 7.0.* | 7.0.478.9590 |
@@ -39,6 +48,33 @@ Refer to the following documents for details on how to keep your cluster running
   | Ubuntu 16 | 7.2.* | 7.2.447.1 |
   | Ubuntu 1804 | 7.2.* | 7.2.447.1804 |
  
+### Upgrade Alert for versions greater than 6.3 
+To improve security and availability, Azure infrastructure will make a change that will affect Service Fabric customers. **All Service Fabric clusters on  versions greater than 6.3 are impacted**. Addressing the change requires an update to the Service Fabric runtime, which is already available for all supported Service Fabric versions in all regions.
+
+ We have reached out to impacted customers to upgrade Service Fabric clusters by Jan 19,2021 to avoid service disruptions. We observed some customers have not taken action to avoid outage to clusters and hence request you all to take the recommended action to upgrade to the latest supported versions applicable to your scenario.  
+ 
+ #### Impact If NOT Upgraded to supported versions
+
+**Azure Service Fabric clusters which use [Open Networking feature for Containers](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), run on unsupported versions greater than 6.3 and below 7.0 and unpatched supported versions from 7.0 onwards**  if you have not upgraded to one of below supported versions by January 19,2021.
+ 
+ For unpatched clusters running a version of Service Fabric greater than 6.3, the cluster will remain up, however the [Open Networking feature for Containers](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode),  will cease functioning which could cause service interruptions for your workloads.
+  
+##### Required Action
+Upgrade to the Service Fabric supported versions that contain the fix in all regions, and will prevent loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment.
+  
+  ###### Supported Service Fabric Runtime versions 
+ If you are on an unsupported version of Service Fabric, or a version without the fix for the breaking change, please upgrade to one of the below supported versions of Service Fabric which already contain the necessary changes.  
+ 
+  | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.445.9590 |
+  | Ubuntu 16 | 7.0.* | 7.0.472.1  |
+  | Ubuntu 16 | 7.1.* | 7.1.455.1  |
+  | Ubuntu 1804 | 7.1.* | 7.1.455.1804 |
+  | Ubuntu 16 | 7.2.* | 7.2.447.1 |
+  | Ubuntu 1804 | 7.2.* | 7.2.447.1804 |
 
 ## Supported versions
 The following table lists the versions of Service Fabric and their support end dates.
