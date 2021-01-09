@@ -1,6 +1,6 @@
 ---
 title: Access tiers for Azure Blob Storage - hot, cool, and archive
-description: Read about hot, cool, and archive access tiers for Azure Blob Storage. Review storage accounts that support tiering. Compare block blob storage options.
+description: Read about hot, cool, and archive access tiers for Azure Blob Storage. Review storage accounts that support tiering.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -21,8 +21,8 @@ Azure storage offers different access tiers, which allow you to store blob objec
 
 The following considerations apply to the different access tiers:
 
-- Only the hot and cool access tiers can be set at the account level. The archive access tier isn't available at the account level.
 - Hot, cool, and archive tiers can be set at the blob level during upload or after upload.
+- Only the hot and cool access tiers can be set at the account level. The archive access tier isn't available at the account level.
 - Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 - Archive storage stores data offline and offers the lowest storage costs but also the highest data rehydrate and access costs.
 - The hot and cool tiers support all redundancy options. The archive tier supports only LRS, GRS, and RA-GRS. ZRS, GZRS, and RA-GZRS are not supported for the archive tier.
