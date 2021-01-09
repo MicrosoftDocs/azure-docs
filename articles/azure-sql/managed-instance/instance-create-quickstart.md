@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a managed instance of SQL Managed Instance (portal)"
+title: "Quickstart: Create an Azure SQL Managed Instance (portal)"
 description: Create a managed instance, network environment, and client VM for access using the Azure portal in this quickstart. 
 services: sql-database
 ms.service: sql-managed-instance
@@ -12,17 +12,17 @@ ms.author: danil
 ms.reviewer: sstein
 ms.date: 09/26/2019
 ---
-# Quickstart: Create a managed instance of SQL Managed Instance
+# Quickstart: Create an Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This quickstart teaches you to create a managed instance of [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) in the Azure portal.
+This quickstart teaches you to create an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) in the Azure portal.
 
 > [!IMPORTANT]
 > For limitations, see [Supported regions](resource-limits.md#supported-regions) and [Supported subscription types](resource-limits.md#supported-subscription-types).
 
-## Create a managed instance
+## Create an Azure SQL Managed Instance
 
-To create a managed instance, follow these steps: 
+To create a SQL Managed Instance, follow these steps: 
 
 ### Sign in to the Azure portal
 
@@ -39,9 +39,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ### Basics tab
 
-- Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a managed instance.
+- Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a SQL Managed Instance.
 
-   !["Basics" tab for creating a managed instance](./media/instance-create-quickstart/mi-create-tab-basics.png)
+   !["Basics" tab for creating a SQL Managed Instance](./media/instance-create-quickstart/mi-create-tab-basics.png)
 
    Use the table below as a reference for information required at this tab.
 
