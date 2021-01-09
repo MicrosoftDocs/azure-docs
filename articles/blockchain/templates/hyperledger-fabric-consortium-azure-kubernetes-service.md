@@ -1,7 +1,7 @@
 ---
 title: Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
 description: How to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
@@ -389,23 +389,35 @@ Pass the query function name and space-separated list of arguments in `<queryF
 
 ## Troubleshoot
 
-Run the following commands to find the version of your template deployment.
+### Find deployed version
 
-Set environment variables according to the resource group where the template has been deployed.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Run the following command to print the template version.
+Run the following commands to find the version of your template deployment. Set environment variables according to the resource group where the template has been deployed.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### Patch previous version
+
+If you are facing issues with running chaincode on any deployments of template version below v3.0.0, then follow the below steps to patch your peer nodes with a fix.
+
+Download the peer deployment script.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Run the script using the following command replacing the parameters for your peer.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Wait for all your peer nodes to get patched. You can always check the status of your peer nodes, in different instance of the shell using the following command.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## Support and feedback
