@@ -16,7 +16,7 @@ Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-i
 
 ## Where can logic apps use managed identities?
 
-Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) and [specific managed connectors](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) that support Azure AD OAuth can use a managed identity for authentication, for example, here is a selection:
+Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [specific managed connectors](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) that support Azure AD OAuth can use a managed identity for authentication, for example, here is a selection:
 
 * Azure API Management
 * Azure App Services
@@ -28,12 +28,11 @@ Currently, only [specific built-in triggers and actions](../logic-apps/logic-app
 * Azure Resource Manager
 * HTTP, HTTP + Webhook, and HTTP with Azure AD
 
-Support for more connectors are coming in the future. For the current list, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Support for more connectors are coming in the future. For the current list, see [Secure access and data in Azure Logic Apps - Authentication types with supported triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 This article shows how to set up both kinds of managed identities for your logic app. For more information, see these topics:
 
-* [Triggers and actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-* [Supported authentication types on outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* [Triggers and actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 * [Limits on managed identities for logic apps](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Azure services that support Azure AD authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
@@ -45,7 +44,7 @@ This article shows how to set up both kinds of managed identities for your logic
 
 * The target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the logic app authenticate access to the target resource.
 
-* The logic app where you want to use the [trigger or actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* The logic app where you want to use the [trigger or actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 
 ## Enable managed identity
 
@@ -359,20 +358,20 @@ On the target Azure resource where you want the managed identity to have access,
 
 ## Authenticate access with managed identity
 
-After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource or entity](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+After you [enable the managed identity for your logic app](#azure-portal-system-logic-app) and [give that identity access to the target resource or entity](#access-other-resources), you can use that identity in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 > [!IMPORTANT]
 > If you have an Azure function where you want to use the system-assigned identity, 
 > first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. If you haven't done so yet, add the [trigger or action that supports managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
    > [!NOTE]
-   > Not all triggers and actions support letting you add an authentication type. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   > Not all triggers and actions support letting you add an authentication type. For more information, see [Secure acccess and data in Azure Logic Apps - Authentication types with supported triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 1. Based on the type of trigger or action that you added, see:
 
@@ -462,7 +461,7 @@ Here is the example HTTP action that shows all these property values:
    ![Add "Authentication" property to HTTP action](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
-   > Not all triggers and actions support letting you add an authentication type. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   > Not all triggers and actions support letting you add an authentication type. For more information, see [Secure access and data - Authentication types with supported triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 1. From the **Authentication type** list, select **Managed Identity**.
 
@@ -499,7 +498,7 @@ Here is the example HTTP action that shows all these property values:
 
 1. Continue building the logic app the way that you want.
 
-<a name="authenticate-built-in-managed-identity"></a>
+<a name="authenticate-managed-connector-managed-identity"></a>
 
 #### Example: Authenticate managed connector trigger or action with a managed identity
 

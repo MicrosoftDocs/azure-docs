@@ -910,6 +910,10 @@ HTTP and HTTPS endpoints support various kinds of authentication. On some trigge
 > To protect sensitive information that your logic app handles, use secured parameters and encode data as necessary.
 > For more information about using and securing parameters, see [Access to parameter inputs](#secure-action-parameters).
 
+<a name="authentication-types-supported-triggers-actions"></a>
+
+### Authentication types for supported triggers and actions
+
 This table identifies the authentication types that are available on the triggers and actions where you can select an authentication type:
 
 | Authentication type | Supported triggers and actions |
