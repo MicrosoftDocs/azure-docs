@@ -105,7 +105,10 @@ $attestationProvider = New-AzAttestation -Name $attestationProviderName -Resourc
 $attestationProviderId = $attestationProvider.Id
 
 ## Access the attestation provider from local machine ##
-Enter nslookup <provider-name>.attest.azure.net. Replace <provider-name> with the name of the attestation provider instance you created in the previous steps. You'll receive a message similar to what is displayed below:
+Enter nslookup <provider-name>.attest.azure.net. Replace <provider-name> with the name of the attestation provider instance you created in the previous steps. 
+
+You'll receive a message similar to what is displayed below:
+
 ## PowerShell copy. ##
 nslookup myattestationprovider.eus.attest.azure.net
 
@@ -168,7 +171,7 @@ In this section, you'll use the virtual machine you created in the previous step
  
 2. Select **Resource groups** in the left-hand navigation pane.
 
-3. Select **CreatePrivateEndpointQS-rg**.
+3. Select **CreateAttestationPrivateLinkTutorial-rg**.
 
 4. Select **myVM**.
 
@@ -180,7 +183,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 8. Open Windows PowerShell on the server after you connect.
 
-9. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
+9. Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps. You'll receive a message similar to what is displayed below:
 
 ```powershell
 ## Access the attestation provider from local machine ##
