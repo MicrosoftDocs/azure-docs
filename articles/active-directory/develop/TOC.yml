@@ -39,7 +39,8 @@
     - name: Node.js - MSAL | Preview
       href: quickstart-v2-nodejs-webapp-msal.md
     - name: Node.js - Passport.js
-      displayName: OIDC
+      displayName: OIDC, express
+      href: quickstart-v2-nodejs-webapp.md
     - name: Java
       href: quickstart-v2-java-webapp.md
     - name: Python
