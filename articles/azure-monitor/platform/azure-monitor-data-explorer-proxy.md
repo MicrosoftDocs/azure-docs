@@ -17,7 +17,7 @@ The following diagram shows the Azure Monitor cross-service flow:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagram that shows the flow of queries between a user, Azure Monitor, a proxy, and Azure Data Explorer.":::
 
 >[!NOTE]
-> Azure Monitor cross-service query is in private preview. Allowlisting is required. Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
+> Azure Monitor cross-service query is in public preview. Contact the [Service Team](mailto:ADXProxy@microsoft.com) with any questions.
 
 ## Cross-query your Log Analytics or Application Insights resources and Azure Data Explorer
 
