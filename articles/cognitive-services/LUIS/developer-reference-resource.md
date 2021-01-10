@@ -115,10 +115,7 @@ The bot framework is available as [an SDK](https://github.com/Microsoft/botframe
 
 Bot framework provides [several tools](https://github.com/microsoft/botbuilder-tools) to help with Language Understanding, including:
 
-* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) - Build LUIS language understanding models using markdown files
-* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Create and manage your LUIS.ai applications
-* [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- manage parent and child apps
-* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
+* [BF CLI](https://github.com/microsoft/botframework-cli/blob/main/packages/luis/README.md) - Build LUIS language understanding models using markdown files. - Create and manage your LUIS.ai applications. - Manage parent and child apps. - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - an integrated development tool for developers and multi-disciplinary teams to build bots and conversational experiences with the Microsoft Bot Framework
 * [Bot Framework Samples](https://github.com/microsoft/botbuilder-samples) - in #C, JavaScript, TypeScript, and Python
