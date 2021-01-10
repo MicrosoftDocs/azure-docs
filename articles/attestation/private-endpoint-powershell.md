@@ -11,7 +11,6 @@ ms.author: mbaldwin
 
 
 ---
-
 # Quickstart: Create a Private Endpoint using Azure PowerShell
 
 Get started with Azure Private Link by using a Private Endpoint to connect securely to Azure Attestation.
