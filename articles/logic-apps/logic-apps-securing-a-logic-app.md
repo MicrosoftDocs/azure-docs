@@ -912,7 +912,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. On some trigge
 
 <a name="authentication-types-supported-triggers-actions"></a>
 
-### Authentication types for supported triggers and actions
+#### Authentication types for triggers and actions that support authentication
 
 This table identifies the authentication types that are available on the triggers and actions where you can select an authentication type:
 
@@ -927,7 +927,7 @@ This table identifies the authentication types that are available on the trigger
 
 <a name="basic-authentication"></a>
 
-### Basic authentication
+#### Basic authentication
 
 If the [Basic](../active-directory-b2c/secure-rest-api.md) option is available, specify these property values:
 
@@ -958,7 +958,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 <a name="client-certificate-authentication"></a>
 
-### Client Certificate authentication
+#### Client Certificate authentication
 
 If the [Client Certificate](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) option is available, specify these property values:
 
@@ -997,7 +997,7 @@ For more information about securing services by using client certificate authent
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### Azure Active Directory Open Authentication
+#### Azure Active Directory Open Authentication
 
 On Request triggers, you can use [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), for authenticating incoming calls after you [set up Azure AD authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
 
@@ -1037,7 +1037,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 <a name="raw-authentication"></a>
 
-### Raw authentication
+#### Raw authentication
 
 If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that don't follow the [OAuth 2.0 protocol](https://oauth.net/2/). With this type, you manually create the authorization header value that you send with the outgoing request, and specify that header value in your trigger or action.
 
@@ -1080,7 +1080,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 <a name="managed-identity-authentication"></a>
 
-### Managed identity authentication
+#### Managed identity authentication
 
 When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#add-authentication-outbound), your logic app can use the system-assigned identity or a *single* manually created user-assigned identity for authenticating access to Azure resources that are protected by Azure Active Directory (Azure AD), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps you secure your credentials because you don't have manage secrets or directly use Azure AD tokens. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
