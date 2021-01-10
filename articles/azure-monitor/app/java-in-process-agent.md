@@ -30,11 +30,11 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
-Download [applicationinsights-agent-3.0.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
+Download [applicationinsights-agent-3.0.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.1/applicationinsights-agent-3.0.1.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -50,7 +50,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.1.jar`, with the following content:
 
 ```json
 {
@@ -258,7 +258,7 @@ try {
 ### Add request custom dimensions using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.1-BETA and later
+> This feature is only in 3.0.1 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
@@ -282,7 +282,7 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 ### Set the request telemetry user_Id using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.1-BETA and later
+> This feature is only in 3.0.1 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
@@ -306,7 +306,7 @@ requestTelemetry.getContext().getUser().setId("myuser");
 ### Override the request telemetry name using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.1-BETA and later
+> This feature is only in 3.0.1 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
