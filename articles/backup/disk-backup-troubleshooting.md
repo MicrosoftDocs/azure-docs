@@ -57,7 +57,7 @@ Recommended Action: Create a resource group and grant the Backup vault's managed
 
 Error Message: Backup Vault managed identity is missing the necessary permissions to do this operation.
 
-Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the disk to be backed up and on the snapshot data store resource group where the snapshots are stored. Refer to [the documentation]((backup-managed-disks.md)) to understand what permissions are required by the Backup vault's managed identity and how to provide it.
+Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the disk to be backed up and on the snapshot data store resource group where the snapshots are stored. Refer to [the documentation](backup-managed-disks.md) to understand what permissions are required by the Backup vault's managed identity and how to provide it.
 
 ### Error Code: UserErrorSnapshotRGOrMSIPermissionsNotPresent
 
