@@ -66,10 +66,10 @@ The following is a more in-depth look at the full schemas of each entity type. Y
 | ----- | ---- | ----------- |
 | Type | String | ‘account’ |
 | Name | String | The name of the account. This field should hold only the name without any domain added to it. |
-| **FullName** | **?** | **Not part of schema, included for backward and external compatibility?**
-| NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Middleeast, NT AUTHORITY |
-| DnsDomain | String | The fully qualified domain DNS name. Examples: middleeast.corp.microsoft.com |
-| UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: microsoft.com |
+| *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping*
+| NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Finance, NT AUTHORITY |
+| DnsDomain | String | The fully qualified domain DNS name. Examples: finance.contoso.com |
+| UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: contoso.com |
 | Host | Entity | The host which contains the account, if it's a local account. |
 | Sid | String | The account security identifier, such as S-1-5-18 |
 | AadTenantId | Guid? | The Azure AD tenant ID, if known. |
@@ -84,11 +84,10 @@ Strong identifiers of an account entity:
 
 - Name + UPNSuffix
 - AadUserId
-- Sid (except a SID of a builtin account)
-- Sid + Host **(for SIDs of builtin accounts?)**
-- Name + Host + NTDomain (if NTDomain is a builtin domain, i.e. Workgroup)
-- ***Name + Host (if NTDomain is a builtin domain, i.e. Workgroup)?***
-- Name + NTDomain (if NTDomain differs from Host, if Host exists)
+- Sid + Host (required for SIDs of builtin accounts)
+- Sid (except for SIDs of builtin accounts)
+- Name + NTDomain (unless NTDomain is a builtin domain, for example "Workgroup")
+- Name + Host (if NTDomain is a builtin domain, for example "Workgroup")
 - Name + DnsDomain
 - PUID
 - ObjectGuid
@@ -105,8 +104,8 @@ Weak identifiers of an account entity:
 | DnsDomain | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known |
 | NTDomain | String | The NT domain that this host belongs to. |
 | HostName | String | The hostname without the domain suffix. |
-| **FullName** | **?** | **Not part of schema, included for backward and external compatibility?**
-| NetBiosName | String | The host name (pre-windows2000). |
+| *FullName* | *N/A* | *Not part of schema, included for backward compatibility with old version of entity mapping*
+| NetBiosName | String | The host name (pre-Windows 2000). |
 | IoTDevice | IoTDevice (Entity) | The IoT Device entity (if this host represents an IoT Device). |
 | AzureID | String | The Azure resource ID of the VM, if known. |
 | OMSAgentID | String | The OMS agent ID, if the host has OMS agent installed. |
@@ -135,8 +134,8 @@ Weak identifiers of a host entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
-| Address | String | The IP address as string, e.g. 127.0.0.1 (either in Ipv4 or Ipv6) |
-| Location | GeoLocation | The geo-location context attached to the IP entity. ***See structure below?*** |
+| Address | String | The IP address as string, e.g. 127.0.0.1 (either in IPv4 or IPv6) |
+| Location | GeoLocation | The geo-location context attached to the IP entity. |
 |
 
 Strong identifiers of an IP entity:
@@ -248,9 +247,6 @@ Weak identifiers of a DNS entity:
 | TryGetResourceGroup | Bool | The resource group value if it exists |
 | TryGetProvider | Bool | The provider value if it exists |
 | TryGetName | Bool | The name value if it exists |
-|  |  |  |
-|  |  |  |
-|  |  |  |
 |
 
 Strong identifiers of an Azure resource entity:
@@ -394,7 +390,7 @@ Strong identifiers of a mailbox entity:
 | Query | String | The query that was used to identify the messages of the mail cluster. |
 | QueryTime | DateTime? | The query time. |
 | MailCount | int? | The number of mail messages that are part of the mail cluster. |
-| IsVolumeAnomaly | bool? | Is this a volume anomaly mail cluster? |
+| IsVolumeAnomaly | bool? | Determines whether this is a volume anomaly mail cluster. |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
 | ***ClusterSourceIdentifier?*** |  |  |
 | ***ClusterSourceType?*** |  |  |
@@ -404,7 +400,7 @@ Strong identifiers of a mailbox entity:
 |
 
 Strong identifiers of a mail cluster entity:
-- Query + Source ***(together or separate?)***
+- Query + Source
 
 ## Mail message
 
@@ -434,15 +430,15 @@ Strong identifiers of a mail cluster entity:
 | ***BodyFingerprintBin3?*** |  |  |
 | ***BodyFingerprintBin4?*** |  |  |
 | ***BodyFingerprintBin5?*** |  |  |
-| AntispamDirection | AntispamMailDirection? | The directionality of this mail message. |
-| DeliveryAction | DeliveryAction? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
-| DeliveryLocation | DeliveryLocation? | The delivery location of this mail message - Inbox, JunkFolder, and others |
+| AntispamDirection | AntispamMailDirection?<br>**not String**? | The directionality of this mail message. |
+| DeliveryAction | DeliveryAction?<br>**not String**? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
+| DeliveryLocation | DeliveryLocation?<br>**not String**? | The delivery location of this mail message - Inbox, JunkFolder, and others |
 | ***Language?*** |  |  |
 | ***ThreatDetectionMethods?*** |  |  |
 |
 
 Strong identifiers of a mail message entity:
-- NetworkMessageId + Recipient ***(together or separate?)***
+- NetworkMessageId + Recipient
 
 ## Submission mail
 
