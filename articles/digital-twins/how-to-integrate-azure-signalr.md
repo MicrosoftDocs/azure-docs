@@ -35,12 +35,12 @@ You can also go ahead and sign in to the [Azure portal](https://portal.azure.com
 
 You will be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md); in this how-to, you will build on this by adding section D.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario. Depicts data flowing from a device into IoT Hub, through an Azure function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure function for processing (arrow C). Section D shows data flowing from the same Event Grid in arrow C out to an Azure Function labeled 'broadcast'. 'broadcast' communicates with another Azure function labeled 'negotiate', and both 'broadcast' and 'negotiate' communicate with computer devices." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario. Depicts data flowing from a device into IoT Hub, through an Azure Function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure Function for processing (arrow C). Section D shows data flowing from the same Event Grid in arrow C out to an Azure Function labeled 'broadcast'. 'broadcast' communicates with another Azure Function labeled 'negotiate', and both 'broadcast' and 'negotiate' communicate with computer devices." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## Download the sample applications
 
 First, download the required sample apps. You will need both of the following:
-* [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
+* [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure Functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
     - Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_end_to_end_samples.zip**_. Unzip the folder.
 * [**SignalR integration web app sample**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a sample React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
     -  Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Unzip the folder.
@@ -51,7 +51,7 @@ Leave the browser window open to the Azure portal, as you'll use it again in the
 
 ## Configure and run the Azure Functions app
 
-In this section, you will set up two Azure functions:
+In this section, you will set up two Azure Functions:
 * **negotiate** - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
 * **broadcast** - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the *SignalR* instance you created in the previous step to broadcast the message to all connected client applications.
 
@@ -152,15 +152,15 @@ Next, publish your function to Azure, using the steps described in the [*Publish
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
-    The output of this command prints all the app settings set up for your Azure function. Look for `AzureSignalRConnectionString` at the bottom of the list to verify it was added.
+    The output of this command prints all the app settings set up for your Azure Function. Look for `AzureSignalRConnectionString` at the bottom of the list to verify it was added.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Excerpt of output in a command window, showing a list item called 'AzureSignalRConnectionString'":::
 
 #### Connect the function to Event Grid
 
-Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md) prereq. This will allow telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which can be broadcast it to all the clients.
+Next, subscribe the *broadcast* Azure Function to the **event grid topic** you created during the [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md) prereq. This will allow telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which can be broadcast it to all the clients.
 
-To do this, you'll create an **Event Grid subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
+To do this, you'll create an **Event Grid subscription** from your event grid topic to your *broadcast* Azure Function as an endpoint.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
 
@@ -189,7 +189,7 @@ Now, all you have to do is start the simulator project, located in *Azure_Digita
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="The Visual Studio start button (DeviceSimulator project)":::
 
-A console window will open and display simulated temperature telemetry messages. These are being sent through your Azure Digital Twins instance, where they are then picked up by the Azure functions and SignalR.
+A console window will open and display simulated temperature telemetry messages. These are being sent through your Azure Digital Twins instance, where they are then picked up by the Azure Functions and SignalR.
 
 You don't need to do anything else in this console, but leave it running while you complete the next steps.
 
@@ -251,7 +251,7 @@ Finally, delete the project sample folders that you downloaded to your local mac
 
 ## Next steps
 
-In this article, you set up Azure functions with SignalR to broadcast Azure Digital Twins telemetry events to a sample client application.
+In this article, you set up Azure Functions with SignalR to broadcast Azure Digital Twins telemetry events to a sample client application.
 
 Next, learn more about Azure SignalR Service:
 * [*What is Azure SignalR Service?*](../azure-signalr/signalr-overview.md)
