@@ -59,7 +59,7 @@ These bridged platforms help SOC Administrators, IT teams, and analysts:
 
 - For extra troubleshooting information, contact <support@cyberx-labs.com>.
 
-- To access the Defender for IoT User Guide from the Console, select :::image type="content" source="media/integration-sentinel-syslog/person-icon.png" alt-text="The icon used to select the user guide."::: and select **Download User Guide**.
+- To access the Defender for IoT user guide from the Console, select :::image type="content" source="media/integration-sentinel-syslog/person-icon.png" alt-text="The icon used to select the user guide."::: and select **Download User Guide**.
 
 ## System Requirements and Architecture
 

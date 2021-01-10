@@ -1,6 +1,6 @@
 ---
 title: ClearPass integration
-description: This Integration Guide covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling. 
+description: This integration article covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -11,7 +11,7 @@ ms.service: azure
 
 # ClearPass and Defender for IoT integration
 
-This Integration Guide covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling.
+This integration article covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling.
 
 This integration focuses on the ability of Defender for IoT to detect, discover, and classify OT and ICS endpoints and share information directly with ClearPass using the ClearPass Security Exchange framework and the open API.
 

@@ -63,9 +63,9 @@ For example, customers can use Defender for IoT ICS and IoT attributes to create
 
 - Generate reports on PLCs or RTUs running firmware with known vulnerabilities (CVEs).
 
-### About this guide
+### About this article
 
-This guide describes how to set up pxGrid and the Defender for IoT platform to ensure that Defender for IoT injects OT attributes to Cisco ISE.
+This article describes how to set up pxGrid and the Defender for IoT platform to ensure that Defender for IoT injects OT attributes to Cisco ISE.
 
 ### Getting more information
 

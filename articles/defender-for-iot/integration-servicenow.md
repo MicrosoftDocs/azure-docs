@@ -77,7 +77,7 @@ You can set up an on-premises management console to communicate with one instanc
 
 If you are setting up your system to work with an on-premises management console, disable the ServiceNow Sync, Forwarding Rules and proxy configurations in sensors, if they were set up.
 
-These configurations should be set up for the on-premises management console. Configuration instructions are described in this guide.
+These configurations should be set up for the on-premises management console. Configuration instructions are described in this article.
 
 ### Sensor architecture
 
