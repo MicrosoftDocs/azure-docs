@@ -194,7 +194,7 @@ Address:  2001:558:feed::1
 
 *** cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
 
-## Access the attestation provider from VM in teh same virtual network as the private endpoint.   ##
+## Access the attestation provider from the VM created in the same virtual network as the private endpoint.   ##
 nslookup myattestationprovider.eus.attest.azure.net
 
 Server:  UnKnown
