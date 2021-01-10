@@ -27,7 +27,8 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-```Azure PowerShell
+```azurepowershell-interactive
+## Create to your Azure account subscription and create a resource group in a desired location. ##
 Connect-AzAccount
 Set-AzSubscription “mySubscription”
 $rg = “CreateAttestationPrivateLinkTutorial-rg”
