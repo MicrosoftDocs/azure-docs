@@ -5,158 +5,120 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-**Restore Azure Disk**
+# Restore Azure Managed Disks
 
-This article explains how to restore [Azure Managed Disk](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup.
+This article explains how to restore [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup.
 
-**Currently, Original-Location Recovery (OLR) option to restore by replacing existing source disk from** where the backups were taken **is not supported. You can restore from recovery point** to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk as well as restored (new) disk.
+Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
 
 In this article, you'll learn how to:
 
-·     Restore to create new Disk
+- Restore to create a new disk
 
-·     Track restore operation status 
+- Track the restore operation status
 
- 
+## Restore to create a new disk
 
-## Restore to create new disk
+Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
 
-Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires set of permissions on the resource group where the disk is to be restored. 
+Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Backup vault uses a system assigned managed identity which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
+The following pre-requisites are required to perform a restore operation:
 
-Following pre-requisites are required to perform restore operation. 
+1. Assign the **Disk Restore Operator** role to the Backup Vault’s managed identity on the Resource group where the disk will be restored by the Azure Backup service.
 
-\1.  Assign **Disk Restore Operator** role to Backup Vault’s managed identity on the Resource group where the disk is to be restored by Azure Backup service.
+    >[!NOTE]
+    > You can choose the same resource group as that of the source disk from where backups are taken or to any other resource group within the same or a different subscription.
 
-·     You can choose same resource group as that of source disk from where backups are taken or to any other resource group within the same or different subscription. 
+    1. Go to the resource group where the disk is to be restored to. For example, the resource group is *TargetRG*.
 
-Go to the Resource group where the disk is to be restored to (for example, resource group is TargetRG).
+    1. Go to **Access control (IAM)** and select **Add role assignments**
 
-Go to **Access control (IAM)** and select **Add role assignments**
+    1. On the right context pane, select **Disk Restore Operator** in the **Role** dropdown list. Select the backup vault’s managed identity and **Save**.
 
-On the right context blade, select **Disk Restore Operator** in the **Role** dropdown list, select backup vault’s managed identity and **Save**.
+    >[!TIP]
+    >Type the backup vault's name to select the vault’s managed identity.
 
-Tip: type the backup vault name to select the vault’s managed identity. 
+    ![Select disk restore operator role](./media/restore-managed-disks/disk-restore-operator-role.png)
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
+1. Verify that the backup vault's managed identity has the right set of role assignments on the resource group where the disk will be restored.
 
-\2.  Verify that backup vault managed identity has right set of role assignments on the resource group where disk is to be restored.
+    1. Go to **Backup vault - > Identity** and select **Azure role assignments**
 
-Go to **Backup vault - > Identity** and select **Azure role assignments**
+        ![Select Azure role assignments](./media/restore-managed-disks/azure-role-assignments.png)
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg)
+    1. Verify that the role, resource name, and resource type appear correctly.
 
-Verify the Role, resource name and resource type are correctly reflected.
+        ![Verify role, resource name and resource type](./media/restore-managed-disks/verify-role.png)
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)
+    >[!NOTE]
+    >While the role assignments are reflected correctly on the portal, it may take approximately 15 minutes for the permission to be applied on the backup vault’s managed identity.
+    >
+    >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation will fail.
 
-Note:
+Once the prerequisites are met, follow these steps to perform the restore operation.
 
-While the role assignments are reflected correctly on the portal, it may take few minutes (15 minutes, approximately) for the permission to be applied on backup vault’s managed identity. 
+1. In the [Azure portal](https://portal.azure.com/), go to **Backup center**. Select **Backup instances** under the **Manage** section. From the list of backup instances, select the disk backup instance for which you want to perform the restore operation.
 
-During schedule backups or on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during the time of configuring backup of the disk. Azure Backup uses these incremental snapshots during restore operation. For restore operation will fail, if the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group.
+    ![List of backup instances](./media/restore-managed-disks/backup-instances.png)
 
-Upon pre-requisites are met, follow these steps to perform restore operation.
+    Alternately, you can perform this operation from the Backup vault you used to configure backup for the disk.
 
-\1.  In the [Azure portal](https://portal.azure.com/), go to **Backup center**, select **Backup instances** under the **Manage** section. From the list of backup instances, select the disk backup instance for which you want to perform the restore operation. ![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg)
+1. In the **Backup instance** screen, select the restore point that you want to use to perform the restore operation and select **Restore**.
 
-Alternately, you can perform this operation from the Backup vault you used to configure backup for the disk.
+    ![Select restore point](./media/restore-managed-disks/select-restore-point.png)
 
-\2.  In the **backup instance** screen, select the restore point which you want to use to perform the restore operation and click **Restore**.
+1. In the **Restore** workflow, review the **Basics** and **Select recovery point** tab information, and select **Next: Restore parameters**.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)
+    ![Review Basics and Select recovery point information](./media/restore-managed-disks/review-information.png)
 
-1. In     the Restore workflow, review the **Basics** and **Select recovery     point** tab information and click **Next: Restore parameters**
+1. In the **Restore parameters** tab, select the **Target subscription** and **Target resource group** where you want to restore the backup to. Provide the name of the disk to be restored. Select **Next: Review + restore**.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg)
+    ![Restore parameters](./media/restore-managed-disks/restore-parameters.png)
 
- 
+    >[!TIP]
+    >Disks being backed up by Azure Backup using the Disk Backup solution can also be backed up by Azure Backup using the Azure VM backup solution with the Recovery Services vault. If you have configured protection of the Azure VM to which this disk is attached, you can also use the Azure VM restore operation. You can choose to restore the VM, or disks and files or folders from the recovery point of the corresponding Azure VM backup instance. For more information, see [Azure VM backup](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
 
-1. In     the **Restore parameters** tab, select **Target subscription** and **Target     resource group** where you want to restore the backup to. Provide the     name of the disk to be restored. Click **Next: Review + restore>** 
+1. Once the validation is successful, select **Restore** to start the restore operation.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg)
+    ![Initiate restore operation](./media/restore-managed-disks/initiate-restore.png)
 
- 
+    >[!NOTE]
+    > Validation might take few minutes to complete before you can trigger restore operation. Validation may fail if:
+    >
+    > - a disk with the same name  provided in **Restored disk name** already exists in the **Target resource group**
+    > - the Backup vault's managed identity doesn't have valid role assignments on the **Target resource group**
+    > - the Backup vault's managed identity role assignments are revoked on the **Snapshot resource group** where incremental snapshots are stored
+    > - If incremental snapshots are deleted or moved from the snapshot resource group
 
-Tip: 
+Restore will create a new disk from the selected recovery point in the target resource group that was provided during the restore operation. To use the restored disk on an existing virtual machine, you'll need to perform more steps:
 
-Disk being backed up by Azure Backup using Disk backup solution can also be backed up by Azure Backup using Azure VM backup solution using Recovery Services vault. If you have configured protection of the Azure VM to which this disk is attached to, you can also use Azure VM restore operation, you can choose to restore VM or Disks or File/Folder from the recovery point of the corresponding Azure VM backup instance. For more details, refer to [Azure VM backup](https://docs.microsoft.com/azure/backup/about-azure-vm-restore)
+- If the restored disk is a data disk, you can attach an existing disk to a virtual machine. If the restored disk is OS disk, you can swap the OS disk of a virtual machine from the Azure portal under the **Virtual machine** pane - > **Disks** menu in the **Settings** section.
 
- 
+    ![Swap OS disks](./media/restore-managed-disks/swap-os-disks.png)
 
-1. Once     the validation is successful, click **Restore** to initiate restore     operation.
+- For Windows virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) to the virtual machine. Follow the instructions to [swap the OS disk](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) of the virtual machine with the restored disk.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg)
+- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) of  the virtual machine with the restored disk.
 
- 
-
-Note:
-
-Validation might take few minutes to complete before you can trigger restore operation. Validation may fail if,
-
-·     a disk with the same name provided in **Restored disk name** already exists in the **Target resource group**
-
-·     Backup vault managed identity does not have valid role assignments on the **Target resource group**
-
-·     Backup vault managed identity role assignments are revoked on the **Snapshot resource group** where incremental snapshots are stored
-
-·     If incremental snapshot(s) are deleted or moved from Snapshot resource group 
-
- 
-
-Restore will create new disk from the selected recovery point in the Target resource group provided during restore operation. To use the restored disk on an existing virtual machine, you will require to perform additional steps. 
-
- 
-
-If the restored disk is a data disk, you can attach an existing disk to a virtual machine and if the restore disk is OS disk, you can swap OS disk of a virtual machine from Azure portal under **Virtual machine** blade - > **Disks** menu in the **Settings** section
-
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg)
-
- 
-
- 
-
-For Windows Virtual Machine, if the restored disk is a data disk, follow the instruction to [detach the original data disk](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine and then [attach the restored disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) to the virtual machine. Follow the instruction to [swap the OS disk](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) of virtual machine with the restored disk.
-
- 
-
-For Linux Virtual Machine, if the restored disk is a data disk, follow the instruction to [detach the original data disk](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine and then [attach the restored disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) to the virtual machine. Follow the instruction to [swap the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) of virtual machine with the restored disk.
-
- 
-
-It is recommended that you revoke the **Disk Restore Operator** role assignment to Backup vault managed identity on the **Target resource group** after successful completion of restore operation.
-
- 
+It's recommended that you revoke the **Disk Restore Operator** role assignment from the Backup vault's managed identity on the **Target resource group** after the successful completion of restore operation.
 
 ## Track a restore operation
 
-After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress, 
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
 
-\1.  Go to Backup instance screen. It show jobs dashboard with operation and status for past 7 days. 
+1. Go to the **Backup instance** screen. It shows the jobs dashboard with operation and status for the past seven days.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg)
+    ![Jobs dashboard](./media/restore-managed-disks/jobs-dashboard.png)
 
-\2.  To view status of restore operation, click on **View all** to show ongoing and past jobs of this backup instance.
+1. To view the status of the restore operation, select **View all** to show ongoing and past jobs of this backup instance.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg)
+    ![Select View all](./media/restore-managed-disks/view-all.png)
 
-\3.  Review the list of backup & restore jobs and their status. Select a job from the list of jobs to view job details.
+1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
 
-![img](file:///C:/Users/dacurwin/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg)
-
- 
-
- 
-
- 
-
-
-
- 
-
-
+    ![List of jobs](./media/restore-managed-disks/list-of-jobs.png)
 
 ## Next steps
 
-
+- [Azure Disk Backup FAQ](disk-backup-faq.md)
