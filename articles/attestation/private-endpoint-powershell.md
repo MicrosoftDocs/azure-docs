@@ -1,12 +1,11 @@
-
 ---
 title: Create a Private Endpoint using Azure PowerShell
 description: Create a Private Endpoint for Azure Attestation using Azure PowerShell
 services: attestation
 author: msmbaldwin
 ms.service: attestation
-ms.topic: reference
-ms.date: 07/20/2020
+ms.topic: overview
+ms.date: 08/31/2020
 ms.author: mbaldwin
 
 
