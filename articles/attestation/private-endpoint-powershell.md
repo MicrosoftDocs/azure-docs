@@ -96,6 +96,29 @@ $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2" | Set-AzVMOp
 New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 ```
 
+## Create an attestation provider
+
+```azurepowershell-interactive
+## Create an attestation provider ##
+$attestationProviderName = "myattestationprovider"
+$attestationProvider = New-AzAttestation -Name $attestationProviderName -ResourceGroupName $rg -Location $loc
+$attestationProviderId = $attestationProvider.Id
+
+## Access the attestation provider from local machine ##
+Enter nslookup <provider-name>.attest.azure.net. Replace <provider-name> with the name of the attestation provider instance you created in the previous steps. You'll receive a message similar to what is displayed below:
+## PowerShell copy. ##
+nslookup myattestationprovider.eus.attest.azure.net
+
+Server:  cdns01.comcast.net
+Address:  2001:558:feed::1
+
+Non-authoritative answer:
+Name:    eus.service.attest.azure.net
+Address:  20.62.219.160
+Aliases:  myattestationprovider.eus.attest.azure.net
+	attesteusatm.trafficmanager.net
+```
+
 ## Create private endpoint
 
 In this section, you'll create the private endpoint and connection using:
@@ -159,46 +182,21 @@ In this section, you'll use the virtual machine you created in the previous step
 
 9. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
-    ```powershell
-    Server:  UnKnown
-    Address:  168.63.129.16
+```powershell
+## Access the attestation provider from local machine ##
+nslookup myattestationprovider.eus.attest.azure.net
 
-    Non-authoritative answer:
-    Name:    mywebapp8675.privatelink.azurewebsites.net
-    Address:  10.0.0.5
-    Aliases:  mywebapp8675.azurewebsites.net
-    ```
+Server:  cdns01.comcast.net
+Address:  2001:558:feed::1
 
-    A private IP address of **10.0.0.5** is returned for the web app name.  This address is in the subnet of the virtual network you created previously.
+*** cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
 
-10. In the bastion connection to **myVM**, open Internet Explorer.
+## Access the attestation provider from VM in teh same virtual network as the private endpoint.   ##
+nslookup myattestationprovider.eus.attest.azure.net
 
-11. Enter the url of your web app, **https://\<your-webapp-name>.azurewebsites.net**.
-
-12. You'll receive the default web app page if your application hasn't been deployed:
-
-    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Default web app page." border="true":::
-
-13. Close the connection to **myVM**.
-
-## Clean up resources 
-When you're done using the private endpoint and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force
+Server:  UnKnown
+Address:  168.63.129.16
+Non-authoritative answer:
+Name:    myattestationprovider.eastus.test.attest.azure.net
 ```
-
-## Next steps
-
-In this quickstart, you created a:
-
-* Virtual network and bastion host.
-* Virtual machine.
-* Private endpoint for an Azure Web App.
-
-You used the virtual machine to test connectivity securely to the web app across the private endpoint.
-
-For more information on the services that support a private endpoint, see:
-> [!div class="nextstepaction"]
-> [Private Link availability](private-link-overview.md#availability)
 
