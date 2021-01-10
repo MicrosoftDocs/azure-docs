@@ -104,34 +104,15 @@ In this section, you'll create the private endpoint and connection using:
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
-## Replace <your-webapp-name> with your webapp name ##
-$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
-
 ## Create private endpoint connection. ##
-$parameters1 = @{
-    Name = 'myConnection'
-    PrivateLinkServiceId = $webapp.ID
-    GroupID = 'sites'
-}
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection @parameters1
-
-## Place virtual network into variable. ##
-$vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Name 'myVNet'
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" -PrivateLinkServiceId $attestationProviderId -GroupID "Standard"
 
 ## Disable private endpoint network policy ##
-$vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled"
+ $vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled" 
 $vnet | Set-AzVirtualNetwork
 
 ## Create private endpoint
-$parameters2 = @{
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Name = 'myPrivateEndpoint'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    PrivateLinkServiceConnection = $privateEndpointConnection
-}
-New-AzPrivateEndpoint @parameters2
+New-AzPrivateEndpoint  -ResourceGroupName $rg -Name "myPrivateEndpoint" -Location $loc -Subnet $vnet.Subnets[0] -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 ## Configure the private DNS zone
 
@@ -143,40 +124,17 @@ In this section you'll create and configure the private DNS zone using:
 * [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup)
 
 ```azurepowershell-interactive
-## Place virtual network into variable. ##
-$vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Name 'myVNet'
-
 ## Create private dns zone. ##
-$parameters1 = @{
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Name = 'privatelink.azurewebsites.net'
-}
-$zone = New-AzPrivateDnsZone @parameters1
+$zone = New-AzPrivateDnsZone -ResourceGroupName $rg -Name "privatelink.attest.azure.net"
 
 ## Create dns network link. ##
-$parameters2 = @{
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    ZoneName = 'privatelink.azurewebsites.net'
-    Name = 'myLink'
-    VirtualNetworkId = $vnet.Id
-}
-$link = New-AzPrivateDnsVirtualNetworkLink @parameters2
+$link = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $rg -ZoneName "privatelink.attest.azure.net" -Name "myLink" -VirtualNetworkId $vnet.Id
 
 ## Create DNS configuration ##
-$parameters3 = @{
-    Name = 'privatelink.azurewebsites.net'
-    PrivateDnsZoneId = $zone.ResourceId
-}
-$config = New-AzPrivateDnsZoneConfig @parameters3
+$config = New-AzPrivateDnsZoneConfig -Name "privatelink.attest.azure.net" -PrivateDnsZoneId $zone.ResourceId
 
 ## Create DNS zone group. ##
-$parameters4 = @{
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    PrivateEndpointName = 'myPrivateEndpoint'
-    Name = 'myZoneGroup'
-    PrivateDnsZoneConfig = $config
-}
-New-AzPrivateDnsZoneGroup @parameters4
+New-AzPrivateDnsZoneGroup -ResourceGroupName $rg -PrivateEndpointName "myPrivateEndpoint" -Name "myZoneGroup" -PrivateDnsZoneConfig $config
 ```
 
 ## Test connectivity to private endpoint
