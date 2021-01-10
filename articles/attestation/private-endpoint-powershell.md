@@ -56,33 +56,13 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressP
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.1.0/24
 
 ## Create the virtual network. ##
-$parameters1 = @{
-    Name = 'MyVNet'
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnetConfig, $bastsubnetConfig
-}
-$vnet = New-AzVirtualNetwork @parameters1
+$vnet = New-AzVirtualNetwork -Name "myAttestationTutorialVNet" -ResourceGroupName $rg -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnetConfig, $bastsubnetConfig
 
 ## Create public IP address for bastion host. ##
-$parameters2 = @{
-    Name = 'myBastionIP'
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Location = 'eastus'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-}
-$publicip = New-AzPublicIpAddress @parameters2
+$publicip = New-AzPublicIpAddress -Name "myBastionIP" -ResourceGroupName $rg -Location $loc -Sku "Standard" -AllocationMethod "Static"
 
 ## Create bastion host ##
-$parameters3 = @{
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Name = 'myBastion'
-    PublicIpAddress = $publicip
-    VirtualNetwork = $vnet
-}
-New-AzBastion @parameters3
+New-AzBastion -ResourceGroupName $rg -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
