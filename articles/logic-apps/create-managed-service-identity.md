@@ -28,7 +28,7 @@ Currently, only [specific built-in triggers and actions](../logic-apps/logic-app
 * Azure Resource Manager
 * HTTP, HTTP + Webhook, and HTTP with Azure AD
 
-Support for more connectors are coming in the future. For the current list, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+Support for more connectors is coming in the future. For the current list, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 This article shows how to set up both kinds of managed identities for your logic app. For more information, see these topics:
 
@@ -395,7 +395,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
      For more information, see [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
-     Connections that you create to use a managed identity are a special connection type that work only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource name and if the user-assigned identity is enabled, the identity's name.
+     Connections that you create to use a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app. This configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource name and if the user-assigned identity is enabled, the identity's name.
 
      This example shows what the configuration looks like when the logic app enables a user-assigned managed identity:
 
