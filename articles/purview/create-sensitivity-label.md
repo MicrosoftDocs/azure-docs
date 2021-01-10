@@ -30,7 +30,7 @@ Purview uses the same classifications, also known as sensitive information types
 > [!NOTE]
 > Classifications are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
 >
-> In contrast, sensitivity labels are applied when one or more classifications and scenarios are found together. In this context, scenarios refers to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
+> In contrast, sensitivity labels are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refers to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
 
 Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
 
