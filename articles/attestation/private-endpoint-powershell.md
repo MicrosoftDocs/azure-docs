@@ -186,6 +186,7 @@ In this section, you'll use the virtual machine you created in the previous step
 9. Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps. You'll receive a message similar to what is displayed below:
 
 ```powershell
+
 ## Access the attestation provider from local machine ##
 nslookup myattestationprovider.eus.attest.azure.net
 
