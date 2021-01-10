@@ -1,6 +1,6 @@
 ---
-title: Create a Private Endpoint using Azure PowerShell
-description: Create a Private Endpoint for Azure Attestation using Azure PowerShell
+title: Create a private endpoint using Azure PowerShell
+description: Create a private endpoint for Azure Attestation using Azure PowerShell
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Quickstart: Create a Private Endpoint using Azure PowerShell
 
-Get started with Azure Private Link by using a Private Endpoint to connect securely to Azure Attestation.
+Get started with Azure Private Link by using a private endpoint to connect securely to Azure Attestation.
 
 In this quickstart, you'll create a private endpoint for Azure Attestation and deploy a virtual machine to test the private connection.  
 
