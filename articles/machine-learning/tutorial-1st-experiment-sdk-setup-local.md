@@ -62,8 +62,10 @@ tutorial
 - `.azureml`: Hidden subdirectory for storing Azure Machine Learning configuration files.
 
 > [!TIP]
-> If you're on a Mac, in a Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  Or use the command terminal to create the directory.
-
+> You can create the hidden .azureml subdirectory in a terminal window.  Or use the following:
+> * In a Mac Finder window use **Command + Shift + .** to toggle the ability to see and create directories that begin with a dot.  
+> * In Windows 10, see [how to view hidden files and folders](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * In the Linux Graphical Interface, use **Ctrl + h** or the **View** menu and check the box to **Show hidden files**.
 
 > [!div class="nextstepaction"]
 > [I created a directory](?success=create-dir#workspace) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-dir)

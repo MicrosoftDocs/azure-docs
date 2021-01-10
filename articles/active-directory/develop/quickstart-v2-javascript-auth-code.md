@@ -36,7 +36,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
 > 1. Select [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application.
@@ -48,7 +48,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
