@@ -75,7 +75,7 @@
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.md
     - name: FAQ-Backup Center
-      href: backup-center-faq.md
+      href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.md
     - name: FAQ-MARS agent

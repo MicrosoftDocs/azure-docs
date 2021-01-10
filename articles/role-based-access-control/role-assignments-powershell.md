@@ -13,7 +13,7 @@ ms.author: rolyon
 
 # Add or remove Azure role assignments using Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -23,6 +23,7 @@ To add or remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 - [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
 
 ## Steps to add a role assignment
 

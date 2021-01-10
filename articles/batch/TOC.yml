@@ -137,6 +137,8 @@
       href: batch-automatic-scaling.md
     - name: Choose a VM size for compute nodes
       href: batch-pool-vm-sizes.md
+    - name: Move from Cloud Service to Virtual Machine pools
+      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
     - name: Create a pool with the Shared Image Gallery

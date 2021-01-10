@@ -19,7 +19,9 @@ For more information about working with Horizon and the Defender for IoT platfor
 
 - For the Horizon Open Development Environment (ODE) SDK, contact your Defender for IoT representative.
 - For support and troubleshooting information, contact <support@cyberx-labs.com>.
+
 - To access the Defender for IoT user guide from the Defender for IoT console, select :::image type="icon" source="media/references-horizon-api/profile.png"::: and then select **Download User Guide**.
+
 
 ## `horizon::protocol::BaseParser`
 
