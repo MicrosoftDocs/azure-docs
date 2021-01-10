@@ -33,7 +33,7 @@ For best results - for guaranteed unique identification - you should use an iden
 | - | - | - | - |
 | [**User account**](#user-account)<br>*(Account)* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | Name + NTDomain<br>Name + UPNSuffix<br>AADUserId<br>Sid |
 | [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | HostName + NTDomain<br>HostName + DnsDomain<br>NetBiosName + NTDomain<br>NetBiosName + DnsDomain<br>AzureID<br>OMSAgentID |
-| [**IP address**](#ip-address)<br>*(IP)* | Address<br>***Location ?*** (not in list) | Address | |
+| [**IP address**](#ip-address)<br>*(IP)* | Address | Address | |
 | [**Malware**](#malware) | Name<br>Category | Name | |
 | [**File**](#file) | Directory<br>Name | Name | |
 | [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
@@ -66,7 +66,7 @@ The following is a more in-depth look at the full schemas of each entity type. Y
 | ----- | ---- | ----------- |
 | Type | String | ‘account’ |
 | Name | String | The name of the account. This field should hold only the name without any domain added to it. |
-| **FullName** | **?** | **Not part of schema, included for backward and external compatibility ?**
+| **FullName** | **?** | **Not part of schema, included for backward and external compatibility?**
 | NTDomain | String | The NETBIOS domain name as it appears in the alert format – domain\username. Examples: Middleeast, NT AUTHORITY |
 | DnsDomain | String | The fully qualified domain DNS name. Examples: middleeast.corp.microsoft.com |
 | UPNSuffix | String | The user principal name suffix for the account. In some cases this is also the domain name. Examples: microsoft.com |
@@ -87,7 +87,7 @@ Strong identifiers of an account entity:
 - Sid (except a SID of a builtin account)
 - Sid + Host **(for SIDs of builtin accounts?)**
 - Name + Host + NTDomain (if NTDomain is a builtin domain, i.e. Workgroup)
-- ***Name + Host (if NTDomain is a builtin domain, i.e. Workgroup) ?***
+- ***Name + Host (if NTDomain is a builtin domain, i.e. Workgroup)?***
 - Name + NTDomain (if NTDomain differs from Host, if Host exists)
 - Name + DnsDomain
 - PUID
@@ -105,7 +105,7 @@ Weak identifiers of an account entity:
 | DnsDomain | String | The DNS domain that this host belongs to. Should contain the complete DNS suffix for the domain, if known |
 | NTDomain | String | The NT domain that this host belongs to. |
 | HostName | String | The hostname without the domain suffix. |
-| **FullName** | **?** | **Not part of schema, included for backward and external compatibility ?**
+| **FullName** | **?** | **Not part of schema, included for backward and external compatibility?**
 | NetBiosName | String | The host name (pre-windows2000). |
 | IoTDevice | IoTDevice (Entity) | The IoT Device entity (if this host represents an IoT Device). |
 | AzureID | String | The Azure resource ID of the VM, if known. |
@@ -136,7 +136,7 @@ Weak identifiers of a host entity:
 | ----- | ---- | ----------- |
 | Type | String | ‘ip’ |
 | Address | String | The IP address as string, e.g. 127.0.0.1 (either in Ipv4 or Ipv6) |
-| Location | GeoLocation | The geo-location context attached to the IP entity. ***See structure below ?.*** |
+| Location | GeoLocation | The geo-location context attached to the IP entity. ***See structure below?*** |
 |
 
 Strong identifiers of an IP entity:
@@ -169,9 +169,9 @@ Strong identifiers of a malware entity:
 |
 
 Strong identifiers of a file entity:
-- Directory + Name
-- ***Name + FileHash ?***
-- ***Name + Directory + FileHash ?***
+- Name + Directory
+- Name + FileHash
+- Name + Directory + FileHash
 
 ## Process
 
@@ -208,9 +208,9 @@ Weak identifiers of a process entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘cloud-application’ |
-| AppId | int | The technical identifier of the application. ***This should be one of the values defined in the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md) ?***. The value for AppId field is optional. |
+| AppId | int | The technical identifier of the application. ***This should be one of the values defined in the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md)?*** The value for AppId field is optional. |
 | Name | String | The name of the related cloud application. The value of application name is optional. |
-| InstanceName | String | The user defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
+| InstanceName | String | The user-defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
 |
 
 Strong identifiers of a cloud application entity:
@@ -263,7 +263,7 @@ Strong identifiers of an Azure resource entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'filehash' |
-| Algorithm | Enum | The hash algorithm type, can be either one of those value:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
+| Algorithm | Enum | The hash algorithm type, can be any one of these values:<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
 | Value | String | The hash value |
 |
 
@@ -328,10 +328,10 @@ Strong identifiers of a security group entity:
 | Url | Uri | A full URL the entity points to. |
 |
 
-Strong identifiers of an URL entity:
+Strong identifiers of a URL entity:
 - Url (when an absolute URL)
 
-Weak identifiers of an URL entity:
+Weak identifiers of a URL entity:
 - Url (when a relative URL)
 
 ## IoTDevice
@@ -389,18 +389,18 @@ Strong identifiers of a mailbox entity:
 | NetworkMessageIds | IList&lt;String&gt; | The mail message IDs that are part of the mail cluster. |
 | CountByDeliveryStatus | IDictionary&lt;String,int&gt; | Count of mail messages by DeliveryStatus string representation. |
 | CountByThreatType | IDictionary&lt;String,int&gt; | Count of mail messages by ThreatType string representation. |
-| ***CountByProtectionStatus ?*** |  |  |
+| CountByProtectionStatus | IDictionary&lt;String,long&gt; | Count of mail messages by Threat Protection status. |
 | Threats | IList&lt;String&gt; | The threats of mail messages that are part of the mail cluster. |
 | Query | String | The query that was used to identify the messages of the mail cluster. |
 | QueryTime | DateTime? | The query time. |
 | MailCount | int? | The number of mail messages that are part of the mail cluster. |
-| IsVolumeAnomaly | bool? | Is this a volume anomaly mail cluster. |
+| IsVolumeAnomaly | bool? | Is this a volume anomaly mail cluster? |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
-| ***ClusterSourceIdentifier ?*** |  |  |
-| ***ClusterSourceType ?*** |  |  |
-| ***ClusterQueryStartTime ?*** |  |  |
-| ***ClusterQueryEndTime ?*** |  |  |
-| ***ClusterGroup ?*** |  |  |
+| ***ClusterSourceIdentifier?*** |  |  |
+| ***ClusterSourceType?*** |  |  |
+| ***ClusterQueryStartTime?*** |  |  |
+| ***ClusterQueryEndTime?*** |  |  |
+| ***ClusterGroup?*** |  |  |
 |
 
 Strong identifiers of a mail cluster entity:
@@ -418,27 +418,27 @@ Strong identifiers of a mail cluster entity:
 | Urls | IList&lt;String&gt; | The URLs contained in this mail message. |
 | Threats | IList&lt;String&gt; | The threats contained in this mail message. |
 | Sender | String | The sender's email address. |
-| ***P1Sender ?*** |  |  |
-| ***P1SenderDisplayName ?*** |  |  |
-| ***P1SenderDomain ?*** |  |  |
-| ***P2Sender ?*** |  |  |
-| ***P2SenderDisplayName ?*** |  |  |
-| ***P2SenderDomain ?*** |  |  |
+| ***P1Sender?*** |  |  |
+| ***P1SenderDisplayName?*** |  |  |
+| ***P1SenderDomain?*** |  |  |
+| ***P2Sender?*** |  |  |
+| ***P2SenderDisplayName?*** |  |  |
+| ***P2SenderDomain?*** |  |  |
 | SenderIP | String | The sender's IP address. |
 | ReceivedDate | DateTime | The received date of this message. |
 | NetworkMessageId | Guid? | The network message ID of this mail message. |
 | InternetMessageId | String | The internet message ID of this mail message. |
 | Subject | String | The subject of this mail message. |
-| ***BodyFingerprintBin1 ?*** |  |  |
-| ***BodyFingerprintBin2 ?*** |  |  |
-| ***BodyFingerprintBin3 ?*** |  |  |
-| ***BodyFingerprintBin4 ?*** |  |  |
-| ***BodyFingerprintBin5 ?*** |  |  |
+| ***BodyFingerprintBin1?*** |  |  |
+| ***BodyFingerprintBin2?*** |  |  |
+| ***BodyFingerprintBin3?*** |  |  |
+| ***BodyFingerprintBin4?*** |  |  |
+| ***BodyFingerprintBin5?*** |  |  |
 | AntispamDirection | AntispamMailDirection? | The directionality of this mail message. |
 | DeliveryAction | DeliveryAction? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
 | DeliveryLocation | DeliveryLocation? | The delivery location of this mail message - Inbox, JunkFolder, and others |
-| ***Language ?*** |  |  |
-| ***ThreatDetectionMethods ?*** |  |  |
+| ***Language?*** |  |  |
+| ***ThreatDetectionMethods?*** |  |  |
 |
 
 Strong identifiers of a mail message entity:
@@ -463,5 +463,5 @@ Strong identifiers of a mail message entity:
 | ReportType | string | The submission type for the given instance. This maps to Junk, Phish, Malware or NotJunk. |
 |
 
-Strong identifiers of a SubmissionMail entity :
+Strong identifiers of a SubmissionMail entity:
 - SubmissionId, Submitter, NetworkMessageId, Recipient
