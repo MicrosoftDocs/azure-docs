@@ -11,10 +11,6 @@ ms.author: yelevin
 ---
 # Connect Azure SQL database diagnostics and auditing logs
 
-> [!IMPORTANT]
->
-> - The Azure SQL database connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement. 
 
 The Azure SQL database connector lets you stream your databases' auditing and diagnostic logs into Sentinel, allowing you to continuously monitor activity in all your instances.
