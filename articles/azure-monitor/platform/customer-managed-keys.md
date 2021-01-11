@@ -122,7 +122,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 ## Create cluster
 
 > [!INFORMATION]
-> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview#managed-identity-types). System-assigned managed identity is created with the cluster when you enter `SystemAssigned` identity type and this can be used later to grant access to your Key Vault. If you want to create a cluster that is configured for Customer-managed key at creation, create the cluster with User-assigned managed identity that is granted in your Key Vault -- Update the cluster with `UserAssigned` identity type, the identity's resource ID in `UserAssignedIdentities` and provide provide your key details in `keyVaultProperties`.
+> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). System-assigned managed identity is created with the cluster when you enter `SystemAssigned` identity type and this can be used later to grant access to your Key Vault. If you want to create a cluster that is configured for Customer-managed key at creation, create the cluster with User-assigned managed identity that is granted in your Key Vault -- Update the cluster with `UserAssigned` identity type, the identity's resource ID in `UserAssignedIdentities` and provide provide your key details in `keyVaultProperties`.
 
 > [!IMPORTANT]
 > Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet). This limitation isn't applied to System-assigned managed identity.
