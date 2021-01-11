@@ -1,6 +1,6 @@
 ---
-title: Azure customer usage attribution
-description: Get an overview of tracking customer usage for Azure Marketplace applications and other deployable IP developed by partners.
+title: Azure Marketplace customer usage attribution
+description: Get an overview of tracking customer usage for Azure Applications and other deployable IP developed by partners on Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -16,7 +16,7 @@ Customer usage attribution associates usage from Azure resources running in cust
 
 Customer usage attribution supports three deployment options:
 
-1. Azure Resource Manager templates (the common underpinnings of Azure Marketplace apps, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident your resources are deployed in a consistent and repeatable state.
+1. Azure Resource Manager templates (the common underpinnings of Azure Applications, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident your resources are deployed in a consistent and repeatable state.
 1. Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 1. Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
@@ -34,7 +34,7 @@ Tracking Azure usage from Azure apps is largely automatic. When you upload a Res
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page.
 
 > [!NOTE]
-> For existing Azure apps, a one-time migration was performed in January 20201 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+> For existing Azure Applications, a one-time migration was performed in January 20201 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
 
 ## Other use cases 
 
@@ -176,7 +176,7 @@ pid-contoso-myoffer-partnercenter //copy the tracking ID exactly as it appears i
 pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4 //enter your GUID after "pid-"
 ```
 > [!IMPORTANT]
-> If you are using Resource Manager APIs with an Azure app in the commercial marketplace, use the tracking ID provided in Partner Center. Do NOT use a GUID.
+> If you are using Resource Manager APIs with an Azure Application in the commercial marketplace, use the tracking ID provided in Partner Center. Do NOT use a GUID.
 
 Various SDKs interact with the Resource Manager APIs differently and will require some differences in your code. The examples below feature the non-commercial marketplace approach using a GUID and cover a variety of the more popular Azure SDKs.
 
