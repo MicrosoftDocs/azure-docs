@@ -140,7 +140,7 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
 Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
 
-1. Run the following commands to create a new function app (Consumption) in the same region and resource group as your existing function app. This will also create a new App Service plan (Consumption).
+1. Run the following command to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
 
     ```azurecli-interactive
     az functionapp create --resource-group <RESOURCE_GROUP> --name <CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
