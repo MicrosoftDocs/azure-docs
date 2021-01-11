@@ -377,7 +377,7 @@ are case-insensitive. Case-insensitive alternatives are available in **matchInse
 
 ### Fields
 
-Conditions that evaluate whether the values of properties in the resource request payload meets certain criteria can be formed using a **field** expression.
+Conditions that evaluate whether the values of properties in the resource request payload meet certain criteria can be formed using a **field** expression.
 The following fields are supported:
 
 - `name`
@@ -450,7 +450,7 @@ using the `resourcegroup()` lookup function.
 
 ### Value
 
-Conditions that evaluate whether a value meet certain criteria can be formed using a **value** expression. Values can be literals, the values of [parameters](#parameters), or the returned values of any [supported template functions](#policy-functions).
+Conditions that evaluate whether a value meets certain criteria can be formed using a **value** expression. Values can be literals, the values of [parameters](#parameters), or the returned values of any [supported template functions](#policy-functions).
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
@@ -617,22 +617,22 @@ The following limits are enforced:
 - Up to 10 **value count** expressions can be used in a single **policyRule** definition.
 - Each **value count** expressions can perform up to 100 iterations. This number includes the number of iterations performed by any parent **value count** expressions.
 
-#### The `current()` function
+#### The current function
 
 The `current()` function is only available inside the `count.where` condition. It returns the value of the array member that is currently enumerated by a the **count** expression evaluation.
 
 **Value count usage**
 
-- `current(<index name defined in count.name>)`. For example: `current('arrayMember')`
-- `current()`. Allowed only when the **value count** expression is not a child of another **count** expression. Returns the same value as above
+- `current(<index name defined in count.name>)`. For example: `current('arrayMember')`.
+- `current()`. Allowed only when the **value count** expression is not a child of another **count** expression. Returns the same value as above.
 
 If the value returned by the call is an object, property accessors are supported. For example: `current('objectArrayMember').property`.
 
 **Field count usage**
 
-- `current(<the array alias defined in count.field>)`. For example, `current('Microsoft.Test/resource/enumeratedArray[*]')`
-- `current()`. Allowed only when the **field count** expression is not a child of another **count** expression. Returns the same value as above
-- `current(<alias of a property of the array member>)`. For example, `current('Microsoft.Test/resource/enumeratedArray[*].property')`
+- `current(<the array alias defined in count.field>)`. For example, `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Allowed only when the **field count** expression is not a child of another **count** expression. Returns the same value as above.
+- `current(<alias of a property of the array member>)`. For example, `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
 
 #### Field count examples
 
@@ -768,7 +768,7 @@ Example 1: Check if resource name matches any of the given name patterns.
 }
 ```
 
-Example 2: Check if resource name matches any of the given name patterns. The `current()` function doesn't specify an index name.
+Example 2: Check if resource name matches any of the given name patterns. The `current()` function doesn't specify an index name. The outcome is the same is the previous example.
 
 ```json
 {
@@ -967,7 +967,7 @@ The following functions are only available in policy rules:
     - Range defined by start and end IP addresses (examples: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
 
 - `current(indexName)`
-    Special function that can only used inside [count expressions](#count)
+    - Special function that can only used inside [count expressions](#count).
 
 #### Policy function example
 

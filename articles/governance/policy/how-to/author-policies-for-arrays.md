@@ -113,6 +113,7 @@ To use this string with each SDK, use the following commands:
 ## Using arrays in conditions
 
 ### `In` and `notIn`
+
 The `in` and `notIn` conditions only work with array values. They check the existence of a value in an array. The array can be a literal JSON array or a reference to an array parameter. For example:
 
 ```json
@@ -130,6 +131,7 @@ The `in` and `notIn` conditions only work with array values. They check the exis
 ```
 
 ### Value count
+
 The [value count](../concepts/definition-structure.md#value-count) expression count how many array members meet a condition. It provides a way to evaluate the same condition multiple times, using different values on each iteration. For example, the following condition checks whether the resource name matches any pattern from an array of patterns:
 
 ```json
@@ -154,43 +156,9 @@ In order to evaluate the expression, Azure Policy evaluates the `where` conditio
 | 2 | `"dev*"` |
 | 3 | `"prod*"` |
 
-The condition will then be true only if the resulted count is greater than 0.
+The condition is true only if the resulted count is greater than 0.
 
-When the **value count** expression is not under any other **count** expression, `count.name` is optional and the `current()` function can be used without any arguments:
-```json
-{
-    "count": {
-        "value": [ "test*", "dev*", "prod*" ],
-        "where": {
-            "field": "name",
-            "like": "[current()]"
-        }
-    },
-    "greater": 0
-}
-```
-
-Here's an equivalent condition written without using a **value count** expression:
-
-```json
-{
-    "anyOf": [
-        {
-            "field": "name",
-            "like": "test*"
-        },
-        {
-            "field": "name",
-            "like": "dev*"
-        },
-        {
-            "field": "name",
-            "like": "prod*"
-        }
-    ]
-}
-```
-The only way to do that is to apply the `like` condition to each individual name pattern. This is inefficient: it prevents the re-use of the policy rule with different sets of patterns, every change to the list of patterns require changing the policy rule and if the list is very long, the policy rule becomes hard to read and maintain. The **value count** expression solves all these issues. The following rule only contains the evaluation logic and actual list of pattern is dynamic and provided as a parameter to the policy:
+To make the condition above more generic, use parameter reference instead of a literal array:
 
  ```json
 {
@@ -200,6 +168,21 @@ The only way to do that is to apply the `like` condition to each individual name
         "where": {
             "field": "name",
             "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+When the **value count** expression is not under any other **count** expression, `count.name` is optional and the `current()` function can be used without any arguments:
+
+```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "where": {
+            "field": "name",
+            "like": "[current()]"
         }
     },
     "greater": 0
@@ -241,6 +224,7 @@ For useful examples, see [value count examples](../concepts/definition-structure
 Many use cases require working with array properties in the evaluated resource. Some scenarios require referencing an entire array (for example, checking its length). Others require applying a condition to each individual array member (for example, ensure that all firewall rule block access from the internet). Understanding the different ways Azure Policy can reference resource properties, and how these references behave when they refer to array properties is the key for writing conditions that cover these scenarios.
 
 ### Referencing resource properties
+
 Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure.md#aliases) There are two ways to reference the values of a resource property within Azure Policy:
 
 - Use [field](../concepts/definition-structure.md#fields) condition to check whether **all** selected resource properties meet a condition. Example:
@@ -544,7 +528,7 @@ When using template functions, use the `current()` function to access the value 
 | 1 | The value of `property` in the first member of `objectArray[*]`: `value1` | `true` |
 | 2 | The value of `property` in the first member of `objectArray[*]`: `value2` | `true` |
 
-#### The `field()` function inside `where` conditions
+#### The field function inside where conditions
 
 The `field()` function can also be used to access the value of the current array member as long as the **count** expression is not inside an **existence condition** (`field()` function always refer the the resource evaluated in the **if** condition).
 The behavior of `field()` when referring to the evaluated array is based on the following concepts:
