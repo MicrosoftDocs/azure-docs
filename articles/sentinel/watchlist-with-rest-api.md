@@ -34,7 +34,7 @@ The following are the common URI parameters for all watchlist API commands:
 | **{workspaceName}** | path | yes | string | the name of the Log Analytics workspace |
 | **{watchlistAlias}** | path | yes* | string | the name of a given watchlist<br>\* Not required when retrieving all watchlists |
 | **{watchlistItemId}** | path | yes** | GUID | the ID of the item to create in, add to, or delete from the watchlist<br>\*\* Required only for watchlist item commands |
-| **{api-version}** | query | yes | string | the version of the protocol used to make this request. As of 10/29/2020, the Watchlist API version is *2019-01-01-preview* |
+| **{api-version}** | query | yes | string | the version of the protocol used to make this request. As of October 29, 2020, the Watchlist API version is *2019-01-01-preview* |
 | **{bearerToken}** | authorization | yes | token | the bearer authorization token |
 |  
 
@@ -43,10 +43,11 @@ The following are the common URI parameters for all watchlist API commands:
 This command retrieves all watchlists associated with a workspace, without their items.
 
 ### Request URI
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| GET | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/resourceGroups/{{**resourceGroupName**}}/providers/Microsoft.OperationalInsights/workspaces/{{**workspaceName**}}/providers/Microsoft.SecurityInsights/watchlists?api-version={{**api-version**}} |
+| GET | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists?api-version={{**api-version**}} |
 |
 
 ### Responses
@@ -57,15 +58,16 @@ This command retrieves all watchlists associated with a workspace, without their
 | 400 / Bad request |  | Malformed request syntax, invalid request parameter... |
 |
 
-## Lookup a watchlist by alias
+## Look up a watchlist by name
 
 This command retrieves a specific watchlist associated with a workspace, without its items.
 
 ### Request URI
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| GET | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/resourceGroups/{{**resourceGroupName**}}/providers/Microsoft.OperationalInsights/workspaces/{{**workspaceName**}}/providers/Microsoft.SecurityInsights/watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
+| GET | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
 |
 
 ### Responses
@@ -82,15 +84,16 @@ This command retrieves a specific watchlist associated with a workspace, without
 This command creates a watchlist and adds items to it. It takes two calls to this endpoint to create the watchlist and its items: the first one will create the watchlist (parent), and the second will add the items.
 
 ### Request URI
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| PUT | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/resourceGroups/{{**resourceGroupName**}}/providers/Microsoft.OperationalInsights/workspaces/{{**workspaceName**}}/providers/Microsoft.SecurityInsights/watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
+| PUT | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
 |
 
 ### Request body
 
-The following is a sample of the request body of a watchlist create request:
+Here's a sample of the request body of a watchlist create request:
 
 ```json
 {
@@ -119,10 +122,11 @@ The following is a sample of the request body of a watchlist create request:
 This command deletes a watchlist and its items.
 
 ### Request URI
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| DELETE | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/resourceGroups/{{**resourceGroupName**}}/providers/Microsoft.OperationalInsights/workspaces/{{**workspaceName**}}/providers/Microsoft.SecurityInsights/watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
+| DELETE | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
 |
 
 ### Responses
@@ -139,15 +143,16 @@ This command deletes a watchlist and its items.
 When this command is run on an existing watchlisItemId (a GUID), it will update the item with the data provided in the request body. Otherwise, a new item will be created.
 
 ### Request URI
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| PUT | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/resourceGroups/{{**resourceGroupName**}}/providers/Microsoft.OperationalInsights/workspaces/{{**workspaceName**}}/providers/Microsoft.SecurityInsights/watchlists/{{**watchlistAlias**}}/watchlistitems/{{**watchlistItemId**}}?api-version={{**api-version**}} |
+| PUT | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}/<br>watchlistitems/{{**watchlistItemId**}}?api-version={{**api-version**}} |
 |
 
 ### Request body
 
-The following is a sample of the request body of a watchlist item add/update request:
+Here's a sample of the request body of a watchlist item add/update request:
 
 ```json
 {
@@ -177,10 +182,11 @@ The following is a sample of the request body of a watchlist item add/update req
 This command deletes an existing watchlist item.
 
 ### Request URI
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| DELETE | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/resourceGroups/{{**resourceGroupName**}}/providers/Microsoft.OperationalInsights/workspaces/{{**workspaceName**}}/providers/Microsoft.SecurityInsights/watchlists/{{**watchlistAlias**}}/watchlistitems/{{**watchlistItemId**}}?api-version={{**api-version**}} |
+| DELETE | https://{{**endpoint**}}/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}/<br>watchlistitems/{{**watchlistItemId**}}?api-version={{**api-version**}} |
 |
 
 ### Responses
@@ -191,8 +197,6 @@ This command deletes an existing watchlist item.
 | 204 / No content | Empty response body | Nothing deleted |
 | 400 / Bad request |  | Malformed request syntax, invalid request parameter... |
 |
-
-
 
 ## Next steps
 
