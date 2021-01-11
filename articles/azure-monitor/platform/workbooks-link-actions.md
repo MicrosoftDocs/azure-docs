@@ -37,7 +37,7 @@ Link actions can be accessed through Workbook link steps or through column setti
 
 | Link action | Action on click |
 |:------------- |:-------------|
-| `ARM Deployment` | Deploy an Azure Resource Manager template.  When this item is selected, additional fields are displayed to let the author configure which Azure Resource Manager template to open, parameters for the template, etc. [See Azure Resource Manager deployment link settings](#arm-deployment-link-settings). |
+| `ARM Deployment` | Deploy an Azure Resource Manager template.  When this item is selected, additional fields are displayed to let the author configure which Azure Resource Manager template to open, parameters for the template, etc. [See Azure Resource Manager deployment link settings](#azure-resource-manager-deployment-link-settings). |
 | `Create Alert Rule` | Creates an Alert rule for a resource.  |
 | `Custom View` | Opens a custom View. When this item is selected, additional fields are displayed to let the author configure the View extension, View name, and any parameters used to open the View. [See custom view](#custom-view-link-settings). |
 | `Metrics` | Opens a metrics view.  |
@@ -66,7 +66,7 @@ When using the `Make this item a link` option, the following settings are availa
 | `Menu item` | same as above. |
 | `Open link in Context Blade` | same as above. |
 
-## ARM deployment link settings
+## Azure Resource Manager deployment link settings
 
 If the selected link type is `ARM Deployment` the author must specify additional settings to open an Azure Resource Manager deployment. There are two main tabs for configurations.
 
@@ -80,7 +80,7 @@ This section defines where the template should come from and the parameters used
 |`ARM template URI from` | The URI to the Azure Resource Manager template itself. The template URI needs to be accessible to the users who will deploy the template. Select from `Cell`, `Column`, `Parameter`, or `Static Value`  in [link sources](#link-sources). For starters, take a look at our [quickstart templates](https://azure.microsoft.com/resources/templates/).|
 |`ARM Template Parameters` | This section defines the template parameters used for the template URI defined above. These parameters will be used to deploy the template on the run page. The grid contains an expand toolbar button to help fill the parameters using the names defined in the template URI and set it to static empty values. This option can only be used when there are no parameters in the grid and the template URI has been set. The lower section is a preview of what the parameter output looks like. Select Refresh to update the preview with current changes. Parameters are typically values, whereas references are something that could point to keyvault secrets that the user has access to. <br/><br/> **Template Viewer blade limitation** -  does not render reference parameters correctly and will show up as null/value, thus users will not be able to correctly deploy reference parameters from Template Viewer tab.|
 
-![Screenshot of Azure Resource Manager template settings](./media/workbooks-link-actions/arm-template-settings.png)
+![Screenshot of Azure Resource Manager template settings](./media/workbooks-link-actions/template-settings.png)
 
 ### UX settings
 
@@ -90,13 +90,13 @@ This section configures what the users will see before they run the Azure Resour
 |:------------- |:-------------|
 |`Title from` | Title used on the run view. Select from `Cell`, `Column`, `Parameter`, or `Static Value` in [link sources](#link-sources).|
 |`Description from` | This is the markdown text used to provide a helpful description to users when they want to deploy the template. Select from `Cell`, `Column`, `Parameter`, or `Static Value`  in [link sources](#link-sources). <br/><br/> **NOTE:** If `Static Value` is selected, a multi-line text box will appear. In this text box, you can resolve parameters using `{paramName}`. Also you can treat columns as parameters by appending `_column` after the column name like `{columnName_column}`. In the example image below, we can reference the column `VMName` by writing `{VMName_column}`. The value after the colon is the [parameter formatter](workbooks-parameters.md#parameter-options), in this case it is `value`.|
-|`Run button text from` | Label used on the run (execute) button to deploy the ARM template. This is what users will select to start deploying the ARM template.|
+|`Run button text from` | Label used on the run (execute) button to deploy the Azure Resource Manager template. This is what users will select to start deploying the Azure Resource Manager template.|
 
-![Screenshot of Azure Resource Manager UX settings](./media/workbooks-link-actions/arm-ux-settings.png)
+![Screenshot of Azure Resource Manager UX settings](./media/workbooks-link-actions/ux-settings.png)
 
 After these configurations are set, when the users select the link, it will open up the view with the UX described in the UX settings. If the user selects `Run button text from` it will deploy an Azure Resource Manager template using the values from [template settings](#template-settings). View template will open up the template viewer tab for the user to examine the template and the parameters before deploying.
 
-![Screenshot of run Azure Resource Manager view](./media/workbooks-link-actions/run-arm-tab.png)
+![Screenshot of run Azure Resource Manager view](./media/workbooks-link-actions/run-tab.png)
 
 ## Custom view link settings
 
