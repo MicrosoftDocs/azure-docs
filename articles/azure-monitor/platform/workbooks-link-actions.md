@@ -37,9 +37,9 @@ Link actions can be accessed through Workbook link steps or through column setti
 
 | Link action | Action on click |
 |:------------- |:-------------|
-| `ARM Deployment` | Deploy an Azure Resource Manager template.  When this item is selected, additional fields are displayed to let the author configure which Azure Resource Manager template to open, parameters for the template, etc. [See Azure Resource Manager Deployment Link Settings](#ARM-Deployment-link-settings).   |
+| `ARM Deployment` | Deploy an Azure Resource Manager template.  When this item is selected, additional fields are displayed to let the author configure which Azure Resource Manager template to open, parameters for the template, etc. [See Azure Resource Manager deployment link settings](#ARM-Deployment-link-settings).   |
 | `Create Alert Rule` | Creates an Alert rule for a resource.  |
-| `Custom View` | Opens a custom View. When this item is selected, additional fields are displayed to let the author configure the View extension, View name, and any parameters used to open the View. [See Custom View](#custom-view-link-settings). |
+| `Custom View` | Opens a custom View. When this item is selected, additional fields are displayed to let the author configure the View extension, View name, and any parameters used to open the View. [See custom view](#custom-view-link-settings). |
 | `Metrics` | Opens a metrics view.  |
 | `Resource overview` | Open the resource's view in the portal based on the resource ID value in the cell. The author can also optionally set a `submenu` value that will open up a specific menu item in the resource view. |
 | `Workbook (template)` | Open a workbook template.  When this item is selected, additional fields are displayed to let the author configure what template to open, etc.  |
@@ -66,7 +66,7 @@ When using the `Make this item a link` option, the following settings are availa
 | `Menu item` | same as above. |
 | `Open link in Context Blade` | same as above. |
 
-## Azure Resource Manager deployment link settings
+## ARM deployment link settings
 
 If the selected link type is `ARM Deployment` the author must specify additional settings to open an Azure Resource Manager deployment. There are two main tabs for configurations.
 
@@ -88,8 +88,8 @@ This section configures what the users will see before they run the Azure Resour
 
 | Source | Explanation |
 |:------------- |:-------------|
-|`Title from` | Title used on the run view. Select from `Cell`, `Column`, `Parameter`, or `Static Value` in [Link sources](#link-sources).|
-|`Description from` | This is the markdown text used to provide a helpful description to users when they want to deploy the template. Select from `Cell`, `Column`, `Parameter`, or `Static Value`  in [Link sources](#link-sources). <br/><br/> **NOTE:** If `Static Value` is selected, a multi-line text box will appear. In this text box, you can resolve parameters using `{paramName}`. Also you can treat columns as parameters by appending `_column` after the column name like `{columnName_column}`. In the example image below, we can reference the column `VMName` by writing `{VMName_column}`. The value after the colon is the [parameter formatter](../Parameters/Parameters.md#parameter-formatting), in this case it is `value`.|
+|`Title from` | Title used on the run view. Select from `Cell`, `Column`, `Parameter`, or `Static Value` in [link sources](#link-sources).|
+|`Description from` | This is the markdown text used to provide a helpful description to users when they want to deploy the template. Select from `Cell`, `Column`, `Parameter`, or `Static Value`  in [link sources](#link-sources). <br/><br/> **NOTE:** If `Static Value` is selected, a multi-line text box will appear. In this text box, you can resolve parameters using `{paramName}`. Also you can treat columns as parameters by appending `_column` after the column name like `{columnName_column}`. In the example image below, we can reference the column `VMName` by writing `{VMName_column}`. The value after the colon is the [parameter formatter](workbooks-parameters.md#parameter-options), in this case it is `value`.|
 |`Run button text from` | Label used on the run (execute) button to deploy the ARM template. This is what users will select to start deploying the ARM template.|
 
 ![Screenshot of Azure Resource Manager UX settings](./media/workbooks-link-actions/arm-ux-settings.png)
@@ -126,7 +126,7 @@ There are two types of inputs, grids and JSON. Use `Grid` for simple key and val
 
     ![Screenshot of edit column setting show Custom View settings from form.](./media/workbooks-link-actions/custom-tab-settings.png)
 - JSON
-    - Specify your tab input in a JSON format on the editor. Like the `Grid` mode, parameters, and columns may be referenced by using `{paramName}` for parameters, and `{columnName_column}` for columns. By selecting the `Show JSON Sample`, it will show the expected output of all resolved parameters and columns user for the view input.
+    - Specify your tab input in a JSON format on the editor. Like the `Grid` mode, parameters, and columns may be referenced by using `{paramName}` for parameters, and `{columnName_column}` for columns. Selecting `Show JSON Sample`, will show the expected output of all resolved parameters and columns user for the view input.
 
     ![Screenshot showing of open custom view settings with view input on JSON.](./media/workbooks-link-actions/custom-tab-json.png)
 
