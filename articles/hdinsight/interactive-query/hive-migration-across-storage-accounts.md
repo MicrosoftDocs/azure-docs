@@ -34,10 +34,25 @@ Then, we'll run another script action on the new cluster to import the Hive tabl
     |---|---|
     |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/export-hive-data-v01.sh`|
     |Node type(s)|Head|
-    |Parameters|`<hdfs-export-path>` `[--overwrite]`|
+    |Parameters|`<hdfs-export-path>`|
 
-    * `<hdfs-export-path>` is an empty HDFS directory to write export data to. For example: `wasb://containername@storageaccountname.blob.core.windows.net/hdi_hive_export`.
-    * If `--overwrite` option is specified, then `<hdfs-export-path>` is allowed to be non-empty and will be overwritten.
+    ```sh
+    usage: generate Hive export and import scripts and export Hive data to specified HDFS path
+           [--overwrite {true,false}] [--run-script {true,false}]
+           hdfs-export-path
+
+    positional arguments:
+
+        hdfs-export-path      remote HDFS directory to write export data to
+
+    optional arguments:
+        --overwrite {true,false}
+                            whether to allow export directory to be non-empty
+                            overwrite its data (default: false)
+        --run-script {true,false}
+                            whether to execute the generated Hive export script
+                            (default: true)
+    ```
 
 2. After successful completion of export, apply the "import" script action on the new cluster with the following fields.
 
@@ -47,8 +62,28 @@ Then, we'll run another script action on the new cluster to import the Hive tabl
     |Node type(s)|Head|
     |Parameters|`<hdfs-export-path>`|
 
-    * `<hdfs-export-path>` is the HDFS directory to import from.
+    ```sh
+    usage: download Hive import script from specified HDFS path and execute it
+           hdfs-export-path
+
+    positional arguments:
+
+      hdfs-export-path      remote HDFS directory to download Hive import script from
+
+    ```
 
 ## Verification
 
 Download and run the script as root user [`hive_contents.sh`](https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive_contents.sh) on the primary node of each cluster, and compare contents of output file `/tmp/hive_contents.out`. See [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+## Cleanup additional storage usage
+
+After storage migration is complete and verified, you can delete the data in the specified HDFS export path.
+
+## Option: reduce additional storage usage
+
+The export script action likely doubles the storage usage due to Hive. However, it is possible to limit the additional storage usage by migrating manually, one database or table at a time.
+
+1. Specify `--run-script=false` to skip execution of the generated Hive script. The Hive export and import scripts would still be saved to the export path.
+
+2. Execute snippets of the Hive export and import scripts database-by-database or table-by-table, manually cleaning up the export path after each migrated database or table.
