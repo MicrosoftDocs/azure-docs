@@ -83,6 +83,20 @@ See below on how these actions can be rectified.
       1. Enter `dsregcmd.exe /debug /leave`.
       1. Sign out and sign in to trigger the scheduled task that registers the device again with Azure AD. 
 
+> [!**Manual process if the certs are not removed**]
+> Open the command prompt as an administrator.
+> Enter dsregcmd.exe /debug /leave.
+> check if the certificates issued by "MS-Organization-Access" and "MS-Organization-P2P-Access [xxxx]" have been deleted from the local machine Personal certificate store.
+> Once the cert's are removed, run the 'dsregcmd /status' command under user context and it should say 'AzureADJoined: No'
+
+> To re-register the device as hybrid azure ad joined, 
+> Open the task schedular as a administrator
+> Go to Task Scheduler Library > Microsoft > Windows > Workplace Join and manually start the task "Automatic-Device-Join".
+> Check if the certificates issued by "MS-Organization-Access" and "MS-Organization-P2P-Access [xxxx]" have been created in the local machine Personal certificate store.
+> Once the cert's are created, run the 'dsregcmd /status' command under user context and it should say 'AzureADJoined: Yes'
+> Reboot the PC
+> Sart delta synchronization. 
+
       For down-level Windows OS versions that are hybrid Azure AD joined, take the following steps:
 
       1. Open the command prompt as an administrator.
