@@ -1,11 +1,116 @@
 # Azure Spring Cloud Reference Architecture
 
 ## Overview
-This architecture reference is a foundation leveraging a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework.
+This architecture reference is a foundation leveraging a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework. There two typical uses of this architecture are for internal web applications deployed in hybrid cloud environments and externally facing web applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
-### Shared Services Hub
+### Private Web Applications
+The architecture for private web applications builds on the traditional hub and spoke design. This ensures that the application components are segregated from the shared services hub. The infrastructure requirements for a private web application are the following:
 
-### Spring Cloud Spoke
+* No direct egress to the public Internet except for control plane traffic
+* Egress traffic must traverse a central Network Virtual Appliance (NVA) (e.g., Azure Firewall)
+* Data at rest must be encrypted
+* Data in transit must be encrypted
+* Azure DevOps self-hosted build agents must be used
+* Secrets and Credentials must be stored in Azure Key Vault
+* Application host DNS records must be stored in Azure Private DNS
+* Name resolution of hosts on-premise and in the Cloud must be bidirectional
+* Adherence to at least one Security Benchmark must be enforced
+* Azure service dependencies must communicate through Service Endpoints or Private Link
+* Resource Groups managed by the Azure Spring Cloud deployment must not be modified
+* Subnets managed by the Azure Spring Cloud deployment must not be modified
+* A subnet must only have one instance of Azure Spring Cloud
+
+The components that make up the design are the following:
+
+* On-Premises Network
+    * Domain Name Service (DNS)
+    * Gateway
+* Hub Subscription
+    * Azure Firewall Subnet
+    * Application Gateway Subnet
+    * Shared Services Subnet
+* Connected Subscription
+    * Virtual Network Peer
+    * Azure Bastion Subnet
+
+The Azure services that are used in this reference architecture are the following:
+
+* [Azure Spring Cloud][1]
+: provides a managed service that's designed and optimized specifically for Spring microservices that are written in Java
+
+* [Azure Key Vault][2]
+: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
+
+* [Azure Monitor][3]
+: an all-encompassing suite of monitoring services for applications that deploy both in Azure and on-premises
+
+* [Azure Security Center][4]
+: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure
+
+* [Azure Pipelines][5]
+: a fully featured Continuous Integration/Continuous Development (CI/CD) service that can automatically deploy updated Springboot apps to Azure Spring Cloud
+
+The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
+![Reference architecture diagram for private web applications](./media/spring-cloud-reference-architecture/architecture-private.png)
+
+### Public Web Applications
+The architecture for public web applications builds on the traditional hub and spoke design. This ensures that the application components are segregated from the shared services hub. The infrastructure requirements for a public web application are the following:
+
+* Ingress traffic must be managed by at least Application Gateway or Azure Front Door
+* Azure DDoS Protection standard must be enabled
+* No direct egress to the public Internet except for control plane traffic
+* Egress traffic must traverse a central Network Virtual Appliance (NVA) (e.g., Azure Firewall)
+* Data at rest must be encrypted
+* Data in transit must be encrypted
+* Azure DevOps self-hosted build agents must be used
+* Secrets and Credentials must be stored in Azure Key Vault
+* Application host DNS records must be stored in Azure Private DNS
+* Internet routable addresses must be stored in Azure Public DNS
+* Name resolution of hosts on-premise and in the Cloud must be bidirectional
+* Adherence to at least one Security Benchmark must be enforced
+* Azure service dependencies must communicate through Service Endpoints or Private Link
+* Resource Groups managed by the Azure Spring Cloud deployment must not be modified
+* Subnets managed by the Azure Spring Cloud deployment must not be modified
+* A subnet must only have one instance of Azure Spring Cloud
+
+The components that make up the design are the following:
+
+* On-Premises Network
+    * Domain Name Service (DNS)
+    * Gateway
+* Hub Subscription
+    * Azure Firewall Subnet
+    * Application Gateway Subnet
+    * Shared Services Subnet
+* Connected Subscription
+    * Virtual Network Peer
+    * Azure Bastion Subnet
+
+The Azure services that are used in this reference architecture are the following:
+
+* [Azure Spring Cloud][1]
+: provides a managed service that's designed and optimized specifically for Spring microservices that are written in Java
+
+* [Azure Key Vault][2]
+: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
+
+* [Azure Monitor][3]
+: an all-encompassing suite of monitoring services for applications that deploy both in Azure and on-premises
+
+* [Azure Security Center][4]
+: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure
+
+* [Azure Pipelines][5]
+: a fully featured Continuous Integration/Continuous Development (CI/CD) service that can automatically deploy updated Springboot apps to Azure Spring Cloud
+
+* [Azure Application Gateway][6]
+: a web traffic load balancer with TLS offloading which operates at layer 7 for managing traffic to backend service hosts
+
+* [Azure Web Application Firewall][7]
+: is a feature of Azure Application Gateway that provides centralized protection of a web applications from common exploits and vulnerabilities
+
+The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
+![Reference architecture diagram for public web applications](./media/spring-cloud-reference-architecture/architecture-public.png)
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
