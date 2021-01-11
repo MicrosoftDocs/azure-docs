@@ -58,6 +58,8 @@ landingContent:
         links:
           - text: Authoring an attestation policy
             url: author-sign-policy.md
+          - text: Create a Private Endpoint - PowerShell
+            url: private-endpoint-powershell.md
           - text: SGX attestation code samples
             url: /samples/browse/?expanded=azure&terms=attestation
 
