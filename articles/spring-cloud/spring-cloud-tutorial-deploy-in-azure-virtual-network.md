@@ -1,5 +1,5 @@
 ---
-title:  "Tutorial - Deploy Azure Spring Cloud in a virtual network"
+title:  "Deploy Azure Spring Cloud in a virtual network"
 description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
 author:  MikeDodaro
 ms.author: brendm
@@ -9,7 +9,7 @@ ms.date: 07/21/2020
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Deploy Azure Spring Cloud in a virtual network
+# Deploy Azure Spring Cloud in a virtual network
 
 **This article applies to:** ✔️ Java ✔️ C#
 
