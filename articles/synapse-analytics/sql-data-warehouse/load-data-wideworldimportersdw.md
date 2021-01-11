@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 07/17/2019
+ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
@@ -19,9 +19,6 @@ This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from
 
 > [!div class="checklist"]
 >
-> * Create a data warehouse using SQL pool in the Azure portal
-> * Set up a server-level firewall rule in the Azure portal
-> * Connect to the SQL pool with SSMS
 > * Create a user designated for loading data
 > * Create external tables that use Azure blob as the data source
 > * Use the CTAS T-SQL statement to load data into your data warehouse
@@ -35,110 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
-## Create a blank data warehouse in SQL pool
-
-A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Follow these steps to create a blank SQL pool.
-
-1. Select **Create a resource** in the the Azure portal.
-
-1. Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under **Featured** on the **New** page.
-
-    ![create SQL pool](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
-
-1. Fill out the **Project Details** section with the following information:
-
-   | Setting | Example | Description |
-   | ------- | --------------- | ----------- |
-   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-
-1. Under **SQL pool details**, provide a name for your SQL pool. Next, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new server. Fill out the form with the following information:
-
-    | Setting | Suggested value | Description |
-    | ------- | --------------- | ----------- |
-    |**SQL pool name**|SampleDW| For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-    | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
-
-    ![create server](./media/load-data-wideworldimportersdw/create-database-server.png)
-
-1. **Select performance level**. The slider by default is set to **DW1000c**. Move the slider up and down to choose the desired performance scale.
-
-    ![create server 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-1. On the **Additional Settings** page, set the **Use existing data** to None, and leave the **Collation** at the default of *SQL_Latin1_General_CP1_CI_AS*.
-
-1. Select **Review + create** to review your settings, and then select **Create** to create your data warehouse. You can monitor your progress by opening the **deployment in progress** page from the **Notifications** menu.
-
-     ![Screenshot shows Notifications with Deployment in progress.](./media/load-data-wideworldimportersdw/notification.png)
-
-## Create a server-level firewall rule
-
-The Azure Synapse Analytics service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
-
-> [!NOTE]
-> The Azure Synapse Analytics SQL pool communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your server unless your IT department opens port 1433.
->
-
-1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the SQL pool resource. Select the server name.
-
-    ![go to your resource](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
-
-1. Select the server name.
-    ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-1. Select **Show firewall settings**. The **Firewall settings** page for the server opens.
-
-    ![server settings](./media/load-data-wideworldimportersdw/server-settings.png)
-
-1. On the **Firewalls and virtual networks** page, select **Add client IP** to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
-
-    ![server firewall rule](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
-
-1. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the server.
-
-You can now connect to the server using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
-
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
-
-## Get the fully qualified server name
-
-The fully qualified server name is what is used to connect to the server. Go to your SQL pool resource  in the Azure portal and view the fully qualified name under **Server name**.
-
-![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-## Connect to the server as server admin
-
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your server.
-
-1. Open SQL Server Management Studio.
-
-2. In the **Connect to Server** dialog box, enter the following information:
-
-    | Setting      | Suggested value | Description |
-    | ------------ | --------------- | ----------- |
-    | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | For example, **sqlpoolservername.database.windows.net** is a fully qualified server name. |
-    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
-    | Login | The server admin account | This is the account that you specified when you created the server. |
-    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
-
-    ![connect to server](./media/load-data-wideworldimportersdw/connect-to-server.png)
-
-3. Click **Connect**. The Object Explorer window opens in SSMS.
-
-4. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **SampleDW** to view the objects in your new database.
-
-    ![database objects](./media/load-data-wideworldimportersdw/connected.png)
+This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
 
 ## Create a user for loading data
 

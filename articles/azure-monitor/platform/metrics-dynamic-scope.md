@@ -67,7 +67,7 @@ For example, below is a chart of the percentage CPU across 9VMs. By splitting by
 
 ![Screenshot that shows how you can use splitting to see percentage CPU per VM](./media/metrics-charts/026.png)
 
-In addition to splitting, you can use the filtering feature to only display the resource groups that you want to see.  For instance, if you want to view the percentage CPU for VMs for a certain resource group, you can use the "Add filter” tool to filter by resource group. In this example we filter by TailspinToys, which removes metrics associated with resources in TailspinToysDemo. 
+In addition to splitting, you can use the filtering feature to only display the resource groups that you want to see.  For instance, if you want to view the percentage CPU for VMs for a certain resource group, you can use the "Add filter” tool to filter by resource group. In this example we filter by TailspinToysDemo, which removes metrics associated with resources in TailspinToys. 
 
 ![Screenshot that shows how you can filter by resource group](./media/metrics-charts/027.png)
 
@@ -76,7 +76,7 @@ In addition to splitting, you can use the filtering feature to only display the 
 > [!WARNING] 
 > You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups or a subscription. In order to do this, please follow the instructions in [this document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-To pin your multi-resource chart, please follow the instructions [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules). 
+To pin your multi-resource chart, please follow the instructions [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
 
 ## Next steps
 

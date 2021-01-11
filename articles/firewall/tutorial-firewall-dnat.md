@@ -62,7 +62,7 @@ First, create the VNets and then peer them.
 
      The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
      > [!NOTE]
-     > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+     > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 10. For **Address range**, type **10.0.1.0/26**.
 11. Use the other default settings, and then select **Create**.

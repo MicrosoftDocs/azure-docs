@@ -51,7 +51,7 @@ Note: There are some cases where NSG flow logs associated with your Azure Applic
 
 * [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.md#diagnostics-and-logging)
+* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Azure Security Center monitoring**: Yes
 
@@ -98,7 +98,7 @@ Note: There are some cases where NSG flow logs associated with your Azure Applic
 
 * [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.md#diagnostics-and-logging)
+* [FAQ for diagnostic and Logging for Azure Application Gateway](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Azure Security Center monitoring**: Currently not available
 

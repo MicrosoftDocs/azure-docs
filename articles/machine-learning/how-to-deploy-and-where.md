@@ -317,6 +317,8 @@ The following table describes the different service states:
 | Failed | The service has failed to deploy due to an error or crash. | Yes |
 | Healthy | The service is healthy and the endpoint is available. | Yes |
 
+> [!TIP]
+> When deploying, Docker images for compute targets are built and loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and deploy images to your compute targets. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
 
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by Azure Machine Learning. They can be used for batch prediction from Azure Machine Learning pipelines.
@@ -344,7 +346,6 @@ To delete a registered model, use `model.delete()`.
 For more information, see the documentation for [WebService.delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) and [Model.delete()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ---
-
 
 ## Next steps
 

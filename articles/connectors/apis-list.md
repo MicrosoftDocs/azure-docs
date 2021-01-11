@@ -3,9 +3,9 @@ title: Connectors for Azure Logic Apps
 description: Automate workflows with connectors for Azure Logic Apps, such as built-in, managed, on-premises, integration account, ISE, and enterprise connectors
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 01/07/2021
 ---
 
 # Connectors for Azure Logic Apps
@@ -24,7 +24,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="built-in"></a>
 
-* [**Built-in**](#built-ins): Built-in triggers and actions are "native" to Azure Logic Apps and help you perform these tasks for your logic apps:
+* [**Built-in**](#built-ins): Built-in triggers and actions run natively in Azure Logic Apps so they don't require creating a connection before you use them and help you perform these tasks for your logic apps:
 
   * Run on custom and advanced schedules.
 
@@ -389,6 +389,54 @@ Each connector's triggers and actions provide their own properties for you to co
 For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Office 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
 
 Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
+
+<a name="recurrence-behavior"></a>
+
+## Recurrence behavior
+
+The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL connector trigger.
+
+However, for both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
+
+<a name="recurrence-built-in"></a>
+
+### Recurrence for built-in triggers
+
+Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. However, if a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. Also, if you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+To make sure that your logic app runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try these solutions:
+
+* Make sure that you select a time zone so that your logic app runs at your specified start time. Otherwise, DST might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+  When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. By specifying a time zone, the UTC time for your logic app also shifts to counter the seasonal time change. However, some time windows might cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Use the Recurrence trigger and provide a start date and time for the recurrence plus the specific times for when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+
+* Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+
+<a name="recurrence-connection-based"></a>
+
+### Recurrence for connection-based triggers
+
+In recurring connection-based triggers, such as SQL or SFTP-SSH, the schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example:
+
+* Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
+
+* Any failures or retries that the trigger incurs.
+
+* Latency during storage calls.
+
+* Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
+
+* Other factors that can affect when the next run time happens.
+
+To resolve or work around these problems, try these solutions:
+
+* To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your logic app continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends.
+
+* Use the Recurrence trigger so that you can specify a time zone, a start date and time, *plus* the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* To avoid missed recurrences, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
 
 <a name="custom"></a>
 
