@@ -18,6 +18,7 @@ Defender for IoT and Fortinet has established a technology partnership in order 
 Together, Fortinet and Defender for IoT prevent:
 
 - Unauthorized changes to programmable logic controllers.
+
 - Malware that manipulates ICS and IoT devices via their native protocols.
 - Reconnaissance tools from collecting data.
 - Protocol violations caused by misconfigurations or malicious attackers.
@@ -82,7 +83,7 @@ You can configure Defender for IoT to send alerts to the FortiSIEM server, where
 
 Each Defender for IoT alert is parsed without any other configuration on the FortiSIEM side and they are presented in the FortiSIEM as security events. The following event details appear by default:
 
-:::image type="content" source="media/integration-fortinet/event-details.png" alt-text="View your event details in the Event Details window.":::
+:::image type="content" source="media/integration-fortinet/event-detail.png" alt-text="View your event details in the Event Details window.":::
 
 ## Define alert forwarding rules
 
