@@ -37,7 +37,7 @@ Link actions can be accessed through Workbook link steps or through column setti
 
 | Link action | Action on click |
 |:------------- |:-------------|
-| `ARM Deployment` | Deploy an Azure Resource Manager template.  When this item is selected, additional fields are displayed to let the author configure which Azure Resource Manager template to open, parameters for the template, etc. [See Azure Resource Manager deployment link settings](#ARM-Deployment-link-settings).   |
+| `ARM Deployment` | Deploy an Azure Resource Manager template.  When this item is selected, additional fields are displayed to let the author configure which Azure Resource Manager template to open, parameters for the template, etc. [See Azure Resource Manager deployment link settings](#arm-deployment-link-settings). |
 | `Create Alert Rule` | Creates an Alert rule for a resource.  |
 | `Custom View` | Opens a custom View. When this item is selected, additional fields are displayed to let the author configure the View extension, View name, and any parameters used to open the View. [See custom view](#custom-view-link-settings). |
 | `Metrics` | Opens a metrics view.  |
