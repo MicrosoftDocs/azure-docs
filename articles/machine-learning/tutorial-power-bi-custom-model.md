@@ -161,7 +161,7 @@ When you deploy a model that will be integrated into Power BI, you need to defin
 - The `run(data)` function runs when a call to the service includes input data that needs to be scored. 
 
 >[!NOTE]
-> This article uses Python decorators to define the schema of the input and output data. This setup is important for the Power BI integration.
+> The Python decorators used to define the schema of the input and output data is important for seamless integration into Power BI integration.
 
 Copy the following code and paste it into a new *code cell* in your notebook. The following code snippet has cell magic that writes the code to a file named *score.py*.
 
