@@ -16,13 +16,11 @@ The Windows Virtual Desktop Agent can cause connection issues because of multipl
 
 This article will guide you through solutions to these common scenarios and how to address connection issues.
 
-## Restart the boot loader
+## Error: The RDAgentBootLoader and/or Remote Desktop Agent Loader has stopped running
 
-If the agent boot loader isn't running or you're receiving an INVALID_REGISTRATION_TOKEN error, follow the instructions in this section.
-
-### Error: The RDAgentBootLoader has stopped running.
-
-**Cause:** If you're seeing that *RDAgentBootLoader* is either stopped or not running, this means that the boot loader, which loads the agent, was unable to install the agent properly and the agent service isn't running.
+If you're seeing any of the following issues, this means that the boot loader, which loads the agent, was unable to install the agent properly and the agent service isn't running:
+- RDAgentBootLoader* is either stopped or not running.
+- There is no status for **Remote Desktop Agent Loader**.
 
 **Fix:** Start the RDAgent boot loader.
 
@@ -32,9 +30,9 @@ If the agent boot loader isn't running or you're receiving an INVALID_REGISTRATI
 4. Select **Refresh**.
 5. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalid_registration_token).
 
-### Error: INVALID_REGISTRATION_TOKEN
+## Error: INVALID_REGISTRATION_TOKEN
 
-**Cause:** The registration token that you have isn't recognized as valid.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_REGISTRATION_TOKEN** in the description, the registration token that you have isn't recognized as valid.
 
 **Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgent BootLoader, and check that IsRegistered is 1.
 
@@ -59,13 +57,9 @@ If the agent boot loader isn't running or you're receiving an INVALID_REGISTRATI
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 1](media/isregistered.PNG)
 
-## Ensure that your VMs can connect to the broker and gateway
+## Error: Agent cannot connect to broker with INVALID_FORM or NOT_FOUND. URL
 
-Follow these instructions if you're having issues with service connectivity because you cannot connect to the broker, you're receiving an INVALID_FORM error, or you're receiving any 3019, 3703, or 3702 event.
-
-### Error: Agent cannot connect to broker with error NOT_FOUND. URL or INVALID_FORM.
-
-**Cause:** The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_FORM** or **NOT_FOUND. URL** in the description, something went wrong with the communication between the agent and the broker. The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
 
 **Fix:** To check that you can reach BrokerURI and BrokerURIGlobal:
 1. Open the Registry Editor (in Start menu, type *regedit*). 
@@ -99,21 +93,17 @@ Follow these instructions if you're having issues with service connectivity beca
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
 
-### Error: 3703, 3702 or 3019.
+## Error: 3703 or 3019
 
-**Cause:** This error happens when the service can't reach the WebSocket Transport URLs or RDGateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703, that says **RDGateway Url: is not accessible** or any event with ID 3019 in the description, the agent is unable to reach the gateway URLs or the web socket transport URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
 
 **Fix:** Verify that your firewall and/or DNS settings are not blocking these URLs.
 1. [Use Azure Firewall to protect Windows Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
 2. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
 
-## Make sure you don't have any conflicting group policies enabled
+## Error: InstallMsiException
 
-Follow these instructions if you have any group policies enabled. Some group policies disable the agent installation process through Windows Installer or the command prompt. If your policy disables installation, you will receive an InstallMsiException or Win32Exception error.
-
-### Error: InstallMsiException.
-
-**Cause:** This error appears when the installer is already running for another application while you're trying to install the agent, or a policy is blocking the msiexec.exe program from running.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, the installer is already running for another application while you're trying to install the agent, or a policy is blocking the msiexec.exe program from running.
 
 **Fix:** To make sure the installation process goes smoothly, don't enable any policies or configurations that block Windows Installer or msiexec.exe.
 To disable the blocking policies:
@@ -123,9 +113,9 @@ To disable the blocking policies:
 >[!NOTE]
 >This isn't a comprehensive list of policies, just the ones we're currently aware of.
 
-### Error: Win32Exception.
+## Error: Win32Exception
 
-**Cause:** This error appears when an enabled policy blocks cmd.exe from launching. Blocking this program prevents you from running the console window, which is what you need to use to restart the service whenever the agent updates.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, a policy is blocking cmd.exe from launching. Blocking this program prevents you from running the console window, which is what you need to use to restart the service whenever the agent updates.
 
 **Fix:** Disable the following policies:
    - Prevent access to the command prompt   
@@ -134,13 +124,9 @@ To disable the blocking policies:
 >[!NOTE]
 >This isn't a comprehensive list of policies, just the ones we're currently aware of.
 
-## Make Regkey changes
+## Error: Stack listener isn't working on Windows 10 2004 VM
 
-Follow these instructions if you're having issues with the stack listener not working, your VMs show as Unavailable, or your VMs are missing a heartbeat to the service.
-
-### Error: Stack listener isn't working or your VM shows as Unavailable, and you're running on Windows 10 2004.
-
-**Cause:** Run *qwinsta* in your Command Prompt and make note of the version number that appears next to *rdp-sxs*. If you're not seeing the *rdp-tcp* and *rdp-sxs* components say *Listen* next to them or they aren't showing up at all after running *qwinsta*, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
+Run *qwinsta* in your command prompt and make note of the version number that appears next to *rdp-sxs*. If you're not seeing the *rdp-tcp* and *rdp-sxs* components say *Listen* next to them or they aren't showing up at all after running *qwinsta*, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
 
 **Fix:** Change fEnableWinStation and fReverseConnectMode to 1.
 1. Open the Registry Editor.
@@ -153,6 +139,7 @@ Follow these instructions if you're having issues with the stack listener not wo
 
 5. If *fReverseConnectMode* isn't set to 1, select *fReverseConnectMode* and enter **1** in its value field. 
 6. If *fEnableWinStation* isn't set to 1, select **fEnableWinStation** and enter **1** into its value field.
+7. Restart your VM. 
 
 >[!NOTE]
 >To change the *fReverseConnectMode* or *fEnableWinStation* mode for multiple VMs at a time, you can do one of the following two things:
@@ -164,9 +151,9 @@ Follow these instructions if you're having issues with the stack listener not wo
 8. Under *ClusterSettings*, find *SessionDirectoryListener* and make sure its data value is *rdp-sxs...*.
 9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you'll need to [reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-bootloader). This will reinstall the side-by-side stack.
 
-### Error: CheckSessionHostDomainIsReachableAsync -SessionHost unhealthy
+## Error: Users keep getting disconnected from session hosts
 
-**Cause:** Your server isn't picking up a heartbeat from the Windows Virtual Desktop service.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 0, that says **CheckSessionHostDomainIsReachableAsync** in the description and/or users keep getting disconnected from their session hosts, your server isn't picking up a heartbeat from the Windows Virtual Desktop service.
 
 **Fix:** Change the heartbeat threshold:
 1. Open your command prompt as an administrator.
@@ -182,25 +169,70 @@ Follow these instructions if you're having issues with the stack listener not wo
    - HeartbeatDropCount: 60 
 8. Restart your VM.
 
-## My VMs are unavailable or can't connect to the agent
+## Error: DownloadMsiException
 
-If the agent says your VMs are unavailable, or you receive an error that says "Connection not found: RDAgent does not have an active connection to the broker," you'll need to to increase your VM capacity.
-
-### Error: DownloadMsiException
-
-**Cause:** This error appears when there isn't enough space on the disk for the RDAgent.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **DownloadMsiException** in the description, there isn't enough space on the disk for the RDAgent.
 
 **Fix:** Make space on your disk by:
    - Deleting files that are no longer in user
    - Increasing the storage capacity of your VM
 
-### Error: VMs are showing as Unavailable or you're receiving *Connection not found: RDAgent does not have an active connection to the broker* error.
+## Error: VMs are stuck in Unavailable or Upgrading state
 
-**Cause:** Your VMs are at their connection limit, so the VM can't accept new connections.
+Open a PowerShell window as an administrator and run the following cmdlet:
+
+```powershell
+Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+```
+
+If the status listed for the session host(s) in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed
+
+**Fix:** Reinstall the side-by-side stack:
+1. Open a command prompt as an administrator.
+2. Enter **net stop RDAgentBootLoader**. 
+3. Go to **Control Panel** > **Programs** > **Programs and Features**.
+4. Uninstall the **Remote Desktop Services SxS Network Stack**.
+5. Go to **C:\Program Files** > **Microsoft RDInfra**.
+6. Double click on and install the **SxSStack** component.
+7. Go back to the command prompt and run the **qwinsta** command.
+8. Verify that the stack component installed in step 6 says *Listen* next to it.
+   - If so, enter **net stop RDAgentBootLoader** in the command prompt and restart your VM.
+   - If not, you will need to [reinstall the agent](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader) component.
+
+## Error: Connection not found: RDAgent does not have an active connection to the broker
+
+Your VMs may be at their connection limit, so the VM can't accept new connections.
 
 **Fix:** You can resolve this issue by:
    - Decreasing the max session limit. This ensures that resources are more evenly distributed across session hosts and will prevent resource depletion.
    - Increasing the resource capacity of the VMs.
+
+## Error: Operating a Pro VM or other unsupported OS
+
+The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that OSes like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack will be installed on your VM but won't be activated, so you won't see it show up when you run **qwinsta** in your command line.
+
+**Fix:** Create a VM that is Windows Enterprise or Windows Server.
+1. Go to [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details) and follow steps 1-12 to set up one of the following recommended images:
+   - Windows 10 Enterprise multi-session, version 1909
+   - Windows 10 Enterprise multi-session, version 1909 + Microsoft 365 Apps
+   - Windows Server 2019 Datacenter
+   - Windows 10 Enterprise multi-session, version 2004
+   - Windows 10 Enterprise multi-session, version 2004 + Microsoft 365 Apps
+2. Select **Review and Create**.
+
+## Error: NAME_ALREADY_REGISTERED
+
+The name of your VM has already been registered and is probably a duplicate.
+
+**Fix:** Remove the session host from the host pool and create another one.
+1. Follow steps 1-4 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
+2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
+3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
+4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
+5. Wait for 5-10 minutes for the session host status to say *Available*.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of available session host](media/hostpool.PNG)
 
 ## Re-register your VM and reinstall the agent and boot loader
 
@@ -209,8 +241,11 @@ Follow these instructions if one or more of the following apply to you:
 - Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
 - You're receiving an EXPIRED_REGISTRATION_TOKEN error
 - You're not seeing your VMs show up in the session hosts list
+- You don't see the **Remote Desktop Agent Loader** in the Services window
+- You don't see the **RdAgentBootLoader** component in the Task Manager
+- Any of the above troubleshooting steps did not resolve your issue
 
-### Uninstall all agent, boot loader, and stack component programs
+**Uninstall all agent, boot loader, and stack component programs**
 
 1. Sign in to your VM as an administrator. 
 2. Go to **Control Panel** > **Programs** > **Programs and Features**.
@@ -226,81 +261,54 @@ Follow these instructions if one or more of the following apply to you:
    > [!div class="mx-imgBorder"]
    > ![Screenshot of uninstalling programs](media/uninstall.PNG)
 
-### Remove the session host from the host pool.
+**Remove the session host from the host pool**
 
-1. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
-2. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
-3. Look at the list of session hosts and select the VM that you want to remove.
-4. Select **Remove**.  
+4. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
+5. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
+6. Look at the list of session hosts and select the VM that you want to remove.
+7. Select **Remove**.  
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of removing VM from host pool](media/remove.PNG)
 
-### Generate a new registration key for the VM
+**Generate a new registration key for the VM**
 
-1. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
-2. Select **Registration key**.
+8. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
+9. Select **Registration key**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of registration key in portal](media/regkey.PNG)
 
-3. Open the **Registration key** tab and select **Generate new key**.
-4. Enter the expiration date and then select **Ok**.  
+10. Open the **Registration key** tab and select **Generate new key**.
+11. Enter the expiration date and then select **Ok**.  
 
 >[!NOTE]
 >The expiration date can be no less than an hour and no longer than 27 days from its generation time and date. We highly recommend you set the expiration date to the 27 day maximum.
 
-5. Copy the newly generated key to your clipboard. You'll need this key later.
+12. Copy the newly generated key to your clipboard. You'll need this key later.
 
-### Reinstall the agent and boot loader.
+**Reinstall the agent and boot loader**
 
-1. Sign in to your VM as an administrator and follow the instructions in [Create host pools using PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
-2. Download the *Windows Virtual Desktop Agent* and the *Windows Virtual Desktop Agent Bootloader* that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool*.
+13. Sign in to your VM as an administrator and download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader** that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool* in [Create host pools using PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of agent and bootloader download page](media/downloads.PNG)
 
-3. Right-click the agent and boot loader installers you just downloaded.
-4. Select **Properties**.
-5. Select **Unblock**.
-6. Select **Ok**.
-7. Run the agent installer.
-8. When the installer asks you for the registration token, paste the registration key from your clipboard. 
+14. Right-click the agent and boot loader installers you just downloaded.
+15. Select **Properties**.
+16. Select **Unblock**.
+17. Select **Ok**.
+18. Run the agent installer.
+19. When the installer asks you for the registration token, paste the registration key from your clipboard. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of pasted registration token](media/pasted-registration-token.PNG)
 
-9. Run the boot loader installer.
-10. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
-11. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
-12. You should now see the session host registered in the host pool with the status *Available*. 
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/hostpool.PNG)
-
-## Error: Operating a Pro VM or other unsupported OS
-
-**Cause:** The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that OSes like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack will be installed on your VM but won't be activated, so you won't see it show up when you run **qwinsta** in your command line.
-
-**Fix:** Create a VM that is Windows Enterprise or Windows Server.
-1. Go to [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details) and follow steps 1-12 to set up one of the following recommended images:
-   - Windows 10 Enterprise multi-session, version 1909
-   - Windows 10 Enterprise multi-session, version 1909 + Microsoft 365 Apps
-   - Windows Server 2019 Datacenter
-   - Windows 10 Enterprise multi-session, version 2004
-   - Windows 10 Enterprise multi-session, version 2004 + Microsoft 365 Apps
-2. Select **Review and Create**.
-
-### Error: NAME_ALREADY_REGISTERED
-
-**Cause:** The name of your VM has already been registered and is probably a duplicate.
-
-**Fix:** Remove the session host from the host pool and create another one.
-1. Follow steps 1-4 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
-2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
-3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
-4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
-5. Wait for 5-10 minutes for the session host status to say *Available*.
+20. Run the boot loader installer.
+21. Restart your VM. 
+22. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
+23. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
+24. You should now see the session host registered in the host pool with the status *Available*. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool.PNG)
