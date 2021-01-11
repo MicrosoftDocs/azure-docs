@@ -1829,7 +1829,7 @@
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
     href: /azure/architecture/
-  - name: Q&A
+  - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
   - name: Azure Quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
