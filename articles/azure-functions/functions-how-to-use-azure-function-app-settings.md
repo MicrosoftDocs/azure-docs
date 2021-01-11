@@ -114,7 +114,7 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 ---
 
 
-## Plan Migration
+## Plan migration
 
 You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. This migration isn't supported on Linux.
 
