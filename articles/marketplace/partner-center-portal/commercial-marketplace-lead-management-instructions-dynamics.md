@@ -152,11 +152,11 @@ The final step is to enable the user you created to write the leads.
 
     ![Security Roles pane](media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-1. In the security role, select the **Core Records** tab. Search for the **User Entity UI Settings** item. Enable the Create, Read, and Write permissions to User (1/4 yellow circle) for that entity by selecting each of the four corresponding circles.
+1. In the security role, select the **Core Records** tab. Search for the **User Entity UI Settings** item. Enable the Create, Read, and Write permissions to User (1/4 yellow circle) for that entity by selecting the corresponding radio buttons.
 
     ![Microsoft Marketplace Lead Writer Core Records tab](media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-1. On the **Customization** tab, search for the **System Job** item. Enable the Read, Write, and AppendTo permissions to Organization (solid green circles) for that entity by selecting each of the four corresponding circles.
+1. On the **Customization** tab, search for the **System Job** item. Enable the Read, Write, and AppendTo permissions to Organization (solid green radio buttons) for that entity by selecting the corresponding radio buttons.
 
     ![Microsoft Marketplace Lead Writer Customization tab](media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
