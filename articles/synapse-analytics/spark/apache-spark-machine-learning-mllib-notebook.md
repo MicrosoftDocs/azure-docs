@@ -242,7 +242,7 @@ After you have finished running the application, shut down the notebook to relea
 ## Next steps
 
 - [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
