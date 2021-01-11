@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/08/2021
+ms.date: 01/11/2021
 ms.author: rolyon
 ---
 
@@ -23,7 +23,7 @@ If you need to assign administrator roles in Azure Active Directory, see [View a
 
 ## Add a role assignment
 
-In Azure RBAC, to grant access to an Azure resource, you add a role assignment. Follow these steps to assign a role.
+In Azure RBAC, to grant access to an Azure resource, you add a role assignment. Follow these steps to assign a role. For a high-level overview of steps, see [Steps to add a role assignment](role-assignments-steps.md).
 
 ### Step 1: Identify the needed scope
 
@@ -70,7 +70,7 @@ In Azure RBAC, to grant access to an Azure resource, you add a role assignment. 
 
 1. In the **Role** list, search or scroll to find the role that you want to assign.
 
-    You can hover over the info icon to display a description for the role. For additional information, you can view the [Azure built-in roles](built-in-roles.md) article.
+    To help you determine the appropriate role, you can hover over the info icon to display a description for the role. For additional information, you can view the [Azure built-in roles](built-in-roles.md) article.
 
    ![Select role in Add role assignment](./media/role-assignments-portal/add-role-assignment-role.png)
 
@@ -84,13 +84,13 @@ In Azure RBAC, to grant access to an Azure resource, you add a role assignment. 
     | --- | --- |
     | **User, group, or service principal** | If you want to assign the role to a user, group, or service principal (application), select this type. |
     | **User assigned managed identity** | If you want to assign the role to a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select this type. |
-    | *System assigned managed identity* | If you want to assign the role to a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select the Azure service instance. |
+    | *System assigned managed identity* | If you want to assign the role to a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select the Azure service instance where the managed identity is located. |
 
    ![Select security principal type in Add role assignment](./media/role-assignments-portal/add-role-assignment-type.png)
 
 1. If you selected a user-assigned managed identity or a system-assigned managed identity, select the **Subscription** where the managed identity is located.
 
-1. In the **Select** section, search for security principal by entering a string or scrolling through the list.
+1. In the **Select** section, search for the security principal by entering a string or scrolling through the list.
 
    ![Select user in Add role assignment](./media/role-assignments-portal/add-role-assignment-user.png)
 
