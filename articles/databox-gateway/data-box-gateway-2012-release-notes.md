@@ -1,26 +1,25 @@
 ---
-title: <!--Azure Stack Edge & -->Azure Data Box Gateway 2012 release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure <!--Stack Edge and -->Data Box Gateway running 2012 release.
+title: Azure Data Box Gateway 2012 release notes| Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2012 release.
 services: databox
 author: v-dalc
  
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 01/11/2021
 ms.author: alkohli
 ---
 
-# <!--Azure Stack Edge and -->Azure Data Box Gateway 2012 release notes
+# Azure Data Box Gateway 2012 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2012 release of <!--Azure Stack Edge and -->Azure Data Box Gateway.
+The following release notes identify the critical open issues and the resolved issues for the 2012 release of Azure Data Box Gateway.
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure <!--Stack Edge/-->Data Box Gateway, carefully review the information in the release notes.
 
 This release corresponds to the software versions:
 
-<!--- **Azure Stack Edge 2007 (1.6.1280.1667)** - KB XXXXX-->
-- **Data Box Gateway 2012 (XXX)** - KB XXXXX
+- **Data Box Gateway 2012 (XXX)** - KB XXXXX <!--Get KB number for the Data Box Gateway release.-->
 
 > [!NOTE]
 > Update 2012 can be applied only to all devices that are running general availability (GA) versions of the software or later.
@@ -33,11 +32,9 @@ This release contains the following bug fix:
 
 This release also contains the following updates:
 
-<!-- - The base image for the Windows VHD has been updated.-->
 - All cumulative Windows updates and .NET framework updates released through October 2020.
-<!--- The BMC firmware version is upgraded from 3.32.32.32 to 3.36.36.36 during factory install to address incompatibility with newer Dell power supply units.-->
+- The baseboard management controller (BMC) firmware version is upgraded from 3.32.32.32 to 3.36.36.36 during factory installation to address incompatibility with newer Dell power supply units.<!-- Verify. Does this apply only to Data Box Gateway or to the gateway feature of both DBG and Edge FPG?-->
 - The static IP address for Azure Data Box Gateway is retained across software updates.
-<!--- This release supports IoT Edge 1.0.9.3 on Azure Stack Edge devices.-->
 
 ## Known issues in this release
 
@@ -45,5 +42,4 @@ No new issues are release noted for this release. All the release noted issues h
 
 ## Next steps
 
-<!--- [Prepare to deploy Azure Stack Edge](../databox-online/azure-stack-edge-deploy-prep.md)-->
 - [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

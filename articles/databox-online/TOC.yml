@@ -377,7 +377,9 @@
       href: azure-stack-edge-replace-device.md   
   - name: Release notes
     items:
-      - name: 2007 - Current
+      - name: 2012 - Current
+        href: azure-stack-edge-2012-release-notes.md
+      - name: 2007
         href: ../databox-gateway/data-box-gateway-2007-release-notes.md
       - name: 1911
         href: ../databox-gateway/data-box-gateway-1911-release-notes.md
