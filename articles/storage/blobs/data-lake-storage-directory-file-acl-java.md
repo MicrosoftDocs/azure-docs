@@ -61,7 +61,7 @@ This is the easiest way to connect to an account.
 
 This example creates a **DataLakeServiceClient** instance by using an account key.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithKey":::
 
 ### Connect by using Azure Active Directory (Azure AD)
 
@@ -69,7 +69,7 @@ You can use the [Azure identity client library for Java](https://github.com/Azur
 
 This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAzureAD":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
 > [!NOTE]
 > For more examples, see the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentation.
@@ -81,7 +81,7 @@ A container acts as a file system for your files. You can create one by calling 
 
 This example creates a container named `my-file-system`. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_CreateFileSystem":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateFileSystem":::
 
 ## Create a directory
 
@@ -89,7 +89,7 @@ Create a directory reference by calling the **DataLakeFileSystemClient.createDir
 
 This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_CreateDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateDirectory":::
 
 ## Rename or move a directory
 
@@ -97,11 +97,11 @@ Rename or move a directory by calling the **DataLakeDirectoryClient.rename** met
 
 This example renames a sub-directory to the name `my-subdirectory-renamed`.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_RenameDirectory":::
 
 This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_MoveDirectory":::
 
 ## Delete a directory
 
@@ -109,7 +109,7 @@ Delete a directory by calling the **DataLakeDirectoryClient.deleteWithResponse**
 
 This example deletes a directory named `my-directory`.   
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DeleteDirectory":::
 
 ## Upload a file to a directory
 
@@ -117,7 +117,7 @@ First, create a file reference in the target directory by creating an instance o
 
 This example uploads a text file to a directory named `my-directory`.`
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_UploadFile":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_UploadFile":::
 
 > [!TIP]
 > If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append** method. Consider using the **DataLakeFileClient.uploadFromFile** method instead. That way, you can upload the entire file in a single call. 
@@ -128,19 +128,19 @@ This example uploads a text file to a directory named `my-directory`.`
 
 Use the **DataLakeFileClient.uploadFromFile** method to upload large files without having to make multiple calls to the **DataLakeFileClient.append** method.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_UploadFileBulk":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_UploadFileBulk":::
 
 ## Download from a directory
 
 First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file. 
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_DownloadFile":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
 
 ## List directory contents
 
 This example, prints the names of each file that is located in a directory named `my-directory`.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ListFilesInDirectory":::
 
 ## Manage access control lists (ACLs)
 
@@ -156,7 +156,7 @@ This example gets and then sets the ACL of a directory named `my-directory`. Thi
 > [!NOTE]
 > If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_ManageDirectoryACLs":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ManageDirectoryACLs":::
 
 You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`""`) into the **DataLakeFileSystemClient.getDirectoryClient** method.
 
@@ -167,7 +167,7 @@ This example gets and then sets the ACL of a file named `upload-file.txt`. This 
 > [!NOTE]
 > If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.cs" id="Snippet_ManageFileACLs":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ManageFileACLs":::
 
 ### Set an ACL recursively
 
