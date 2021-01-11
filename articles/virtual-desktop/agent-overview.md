@@ -1,6 +1,6 @@
 ---
 title: Get started with the Windows Virtual Desktop Agent
-description: An overview of the WVD Agent and update processes.
+description: An overview of the Windows Virtual Desktop Agent and update processes.
 author: Sefriend
 ms.topic: conceptual
 ms.date: 12/16/2020
@@ -17,22 +17,22 @@ This article will give you a brief overview of the agent installation and update
 >This documentation is not for the FSLogix agent or the Remote Desktop Client agent.
 
 
-## Agent Initial Installation Process
+## Initial installation process
 
-The Windows Virtual Desktop agent gets initially installed in one of two ways. If you provision VMs in the Azure portal and Marketplace, the agent and agent bootloader automatically get installed. If you provision VMs via PowerShell, you must manually download the agent and agent bootloader .msi files when [creating a Windows Virtual Desktop host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). When the agent gets installed, the Windows Virtual Desktop side-by-side stack and Geneva Monitoring agent also get installed simultaneously. The side-by-side stack component is required for users to securely establish reverse connections from the server to the client. The Geneva Monitoring agent monitors the health of the agent. All three of these components are essential for end-to-end user connectivity to function properly.
+The Windows Virtual Desktop agent is initially installed in one of two ways. If you provision virtual machines (VMs) in the Azure portal and Azure Marketplace, the agent and agent bootloader are automatically installed. If you provision VMs using PowerShell, you must manually download the agent and agent bootloader .msi files when [creating a Windows Virtual Desktop host pool with PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). When the agent is installed, the Windows Virtual Desktop side-by-side stack and Geneva Monitoring agent are also installed simultaneously. The side-by-side stack component is required for users to securely establish reverse server-to-client connections. The Geneva Monitoring agent monitors the health of the agent. All three of these components are essential for end-to-end user connectivity to function properly.
 
 >[!IMPORTANT]
->For agent, side-by-side stack, and Geneva Monitoring agent installations to succeed over the network, all the URLs listed in the [Required URL list](https://docs.microsoft.com/azure/virtual-desktop/safe-url-list#virtual-machines) must be whitelisted. Note that unblocking these URLs is a prerequisite to using the Windows Virtual Desktop service.
+>To successfully install the Windows Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, you must unblock all the URLs listed in the [Required URL list](safe-url-list.ms#virtual-machines). Unblocking these URLs is required to use the Windows Virtual Desktop service.
 
-## Agent Update Process
+## Agent update process
 
-The Windows Virtual Desktop service automatically updates the agent whenever an update becomes available. Agent updates can include new functionality or a fix for previous issues. Once the initial version of the Windows Virtual Desktop agent is installed, the agent regularly queries the Windows Virtual Desktop service to determine if there's a newer version of the agent available. If there's a new version, the agent bootloader automatically downloads the latest version of the agent, in addition to the side-by-side stack and Geneva Monitoring agent components.
+The Windows Virtual Desktop service automatically updates the agent whenever an update becomes available. Agent updates can include new functionality or fix previous issues. Once the initial version of the Windows Virtual Desktop agent is installed, the agent regularly queries the Windows Virtual Desktop service to determine if there's a newer version of the agent and its components available. If there's a new version, the agent bootloader automatically downloads the latest version of the agent, the side-by-side stack, and Geneva Monitoring agent.
 
 >[!NOTE]
->- When the Geneva Monitoring agent gets updated, the old GenevaTask is located and disabled prior to creating a new task for the new monitoring agent. The old version of the monitoring agent does not get deleted in the case that the new monitoring agent has a problem. In this case, the old monitoring agent will be re-enabled to continue delivering monitoring data. All older monitoring agents will be deleted from your VM.
->- A minimum of 3 versions of the side-by-side stack are kept on your VM at a time. This allows a quick recovery if something goes wrong with the update. The oldest stack component gets removed from the VM when the stack component gets updated.
+>- When the Geneva Monitoring agent updates to the latest version, the old GenevaTask task is located and disabled before creating a new task for the new monitoring agent. The earlier version of the monitoring agent isn't deleted in case that the most recent version of the monitoring agent has a problem that requires reverting to the earlier version to fix. If the latest version has a problem, the old monitoring agent will be re-enabled to continue delivering monitoring data. All versions of the monitor that are earlier than the last one you installed before the update will be deleted from your VM.
+>- Your VM keeps three versions of the side-by-side stack at a time. This allows for quick recovery if something goes wrong with the update. The earliest version of the stack is removed from the VM whenever the stack updates.
 
-This update installation normally lasts 2-3 minutes on a clean VM and shouldn't cause an outage/shut down of your machine. This update process holds true for both Windows Virtual Desktop (classic) and the latest update of Windows Virtual Desktop with ARM.
+This update installation normally lasts 2-3 minutes on a new VM and shouldn't cause your VM to lose connection or shut down. This update process applies to both Windows Virtual Desktop (classic) and the latest version of Windows Virtual Desktop with Azure Resource Manager.
 
 ## Next steps
 
