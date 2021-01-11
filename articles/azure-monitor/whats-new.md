@@ -46,7 +46,6 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Troubleshooting Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md) - New article.
 
 ### Containers
-- [How to update Azure Monitor for containers for metrics](insights/container-insights-workbooks.md) - New article.
 - [Reports in Azure Monitor for containers](insights/container-insights-reports.md) - New article.
 
 ### Logs
