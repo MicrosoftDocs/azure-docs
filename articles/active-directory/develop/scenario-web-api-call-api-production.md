@@ -17,9 +17,9 @@ ms.custom: aaddev
 
 # A web API that calls web APIs: Move to production
 
-After you've acquired a token to call web APIs, you can move your app to production.
+After you've acquired a token to call web APIs, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Learn more
 

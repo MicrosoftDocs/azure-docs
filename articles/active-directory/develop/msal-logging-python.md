@@ -45,6 +45,10 @@ MSAL for Python does not log personal data or organizational data. There is no p
 
 You can use standard Python logging to log whatever you want, but you are responsible for safely handling sensitive data and following regulatory requirements.
 
-For more information about logging in Python, please refer to Python's  [Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+For more information about logging in Python, please refer to Python's  [Logging: how-to](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+
+## Next steps
+
+For more code samples, refer to [Microsoft identity platform code samples)](sample-v2-code.md).
 
 ---

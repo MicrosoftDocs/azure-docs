@@ -23,4 +23,4 @@ MSAL provides several levels of logging detail:
 
 By default, the MSAL logger doesn't capture any highly sensitive personal or organizational data. The library provides the option to enable logging personal and organizational data if you decide to do so.
 
-The following section provides more details about MSAL error logging for your app
+The following sections provide more details about MSAL error logging for your application.

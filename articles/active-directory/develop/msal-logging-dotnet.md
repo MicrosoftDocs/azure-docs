@@ -19,8 +19,7 @@ ms.custom: aaddev
 
 [!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
 
-> [!NOTE]
- > See the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) for samples of MSAL.NET logging and more.
+## Configure logging in MSAL.NET
 
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
@@ -55,3 +54,10 @@ class Program
   }
  }
  ```
+
+> [!TIP]
+ > See the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) for samples of MSAL.NET logging and more.
+
+## Next steps
+
+For more code samples, refer to [Microsoft identity platform code samples)](sample-v2-code.md).

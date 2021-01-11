@@ -19,6 +19,8 @@ ms.custom: aaddev
 
 [!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
 
+## Configure logging in MSAL.js
+
 Enable logging in MSAL.js (JavaScript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
 
 - `localCallback`: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. Implement the localCallback method depending on how you want to redirect logs.
@@ -48,3 +50,7 @@ var msalConfig = {
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
+
+## Next steps
+
+For more code samples, refer to [Microsoft identity platform code samples)](sample-v2-code.md).

@@ -17,9 +17,9 @@ ms.custom: aaddev
 
 # Web app that signs in users: Move to production
 
-Now that you know how to get a token to call web APIs, learn how to move it to production.
+Now that you know how to get a token to call web APIs, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Troubleshooting
 
