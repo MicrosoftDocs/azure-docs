@@ -24,7 +24,7 @@ In this article, you learn how to work with [Azure Machine Learning datasets](/p
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
-If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-dataset.md#explore-data). 
+If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
 
 ## Prerequisites
 

@@ -197,7 +197,7 @@ mount_context = dataset.mount(mounted_path)
 mount_context.start()
 ```
 
-For TabularDatasets, use the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to view your data in a dataframe. 
+For TabularDatasets, use the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to view your data in a dataframe. 
 
 ```python
 # preview the first 3 rows of titanic_ds
