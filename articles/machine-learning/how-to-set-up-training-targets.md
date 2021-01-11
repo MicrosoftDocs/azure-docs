@@ -215,6 +215,8 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     
     If you are submitting a user-created environment with your run, consider using the latest version of azureml-core in that environment. Versions >= 1.18.0 of azureml-core already pin PyJWT < 2.0.0. If you need to use a version of azureml-core < 1.18.0 in the environment you submit, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
 
+* **Compute target takes a long time to start**: The Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
+
 ## Next steps
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
