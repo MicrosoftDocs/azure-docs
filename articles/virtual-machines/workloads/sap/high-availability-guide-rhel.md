@@ -941,7 +941,8 @@ Follow these steps to install an SAP application server.
 
    Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
 
-   <pre><code>#If using ENSA1 
+   <pre><code>
+    #If using ENSA1 
     [root@nw1-cl-1 ~]# pgrep -f en.sapNW1 | xargs kill -9
     #If using ENSA2
     [root@nw1-cl-1 ~]# pgrep -f enq.sapNW1 | xargs kill -9
@@ -987,7 +988,8 @@ Follow these steps to install an SAP application server.
 
    Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
 
-   <pre><code>#If using ENSA1
+   <pre><code>
+    #If using ENSA1
     [root@nw1-cl-1 ~]# pgrep -f er.sapNW1 | xargs kill -9
     #If using ENSA2
     [root@nw1-cl-1 ~]# pgrep -f enqr.sapNW1 | xargs kill -9
