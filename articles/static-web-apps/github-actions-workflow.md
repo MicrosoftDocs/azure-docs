@@ -190,7 +190,11 @@ jobs:
           HUGO_VERSION: 0.58.0
 ```
 
-## Mono repo support
+## Monorepo support
+
+By default, the workflow file is configured to apply settings for the entire repository. To support a monorepo, you need to add `paths` values in the `push` and `pull_request` sections of the file.
+
+The following example demonstrates how to modify the configuration to support a monorepo.
 
 ```yml
 on:
@@ -208,6 +212,14 @@ on:
       - vue-app/**
       - api/**
 ```
+
+In your case, enter paths to files and folders that you want to trigger a build.
+
+Additional things to consider for a monorepo:
+
+- You'll have 1 Azure Static Web App (SWA) per Web App, and 1 workflow/GitHub Action file per SWA.
+- You'll have multiple SWAs per 1 monorepo
+you may want to include the specific workflow file in the paths, if you want changes to the workflow file to kick off a new build
 
 ## Next steps
 
