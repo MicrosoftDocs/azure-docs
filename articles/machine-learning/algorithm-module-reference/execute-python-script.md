@@ -218,7 +218,7 @@ The Execute Python Script module contains sample Python code that you can use as
 
     If the module is completed, check the output if as expected.
 
-    If the module is failed, select the module, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
+    If the module is failed, you need to do some troubleshooting. Select the module, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
 
 ## Results
 
