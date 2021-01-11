@@ -202,4 +202,5 @@ The CIS controls 8.1 and 8.2 recommend that expiration dates are set for credent
 [3]: /azure/azure-monitor/
 [4]: /azure/security-center/
 [5]: /azure/devops/pipelines/
-[6]: /azure/application-gateway/overview
+[6]: /azure/application-gateway/
+[7]: /azure/web-application-firewall/
