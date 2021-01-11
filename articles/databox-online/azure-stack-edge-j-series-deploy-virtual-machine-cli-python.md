@@ -120,7 +120,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following is a sample output of the above command:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -150,7 +150,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 3. To run the sample script used in this article, you will need the following Python library versions:
 
-    ```powershell
+    ```azurecli
     azure-common==1.1.23
     azure-mgmt-resource==2.1.0
     azure-mgmt-network==2.7.0
@@ -162,13 +162,13 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     To install the versions, run the following command:
 
-    ```powershell
+    ```azurecli
     .\python.exe -m pip install haikunator
     ```
 
     The following sample output shows the installation of Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -184,7 +184,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following sample output shows the installation of pip for `msrestazure`: 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -208,7 +208,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
     The cmdlet returns the certificate location, as seen below:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -320,7 +320,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
    The following shows sample output for a successful sign in after supplying the password:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [

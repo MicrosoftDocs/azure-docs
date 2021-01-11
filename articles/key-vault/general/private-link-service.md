@@ -109,7 +109,7 @@ There are four provisioning states:
 
 ## Establish a private link connection to Key Vault using CLI (Initial Setup)
 
-```console
+```azurecli
 az login                                                         # Login to Azure CLI
 az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
 az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
@@ -133,7 +133,7 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 ```
 
 ### Add Private DNS Records
-```console
+```azurecli
 # https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
 az network private-dns zone list -g $rg_name
 az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
@@ -145,18 +145,18 @@ nslookup $vault_name.privatelink.vaultcore.azure.net
 ```
 
 ### Create a Private Endpoint (Automatically Approve) 
-```console
+```azurecli
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
 ```
 
 ### Create a Private Endpoint (Manually Request Approval) 
-```console
+```azurecli
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
 ```
 
 ### Manage Private Link Connections
 
-```console
+```azurecli
 # Show Connection Status
 az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
 

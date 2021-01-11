@@ -35,7 +35,7 @@ After the account is created, you can find a unique GUID in the **Identity princ
 
 When you create a new Batch account, specify `SystemAssigned` for the `--identity` parameter.
 
-```powershell
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
@@ -48,7 +48,7 @@ az batch account create \
 
 After the account is created, you can verify that system-assigned managed identity has been enabled on this account. Be sure to note the `PrincipalId`, as this value will be needed to grant this batch account access to the Key Vault.
 
-```powershell
+```azurecli
 az batch account show \
     -n $accountName \
     -g $resourceGroupName \
@@ -96,7 +96,7 @@ In the [Azure portal](https://portal.azure.com/), go to the Batch account page. 
 
 After the Batch account is created with system-assigned managed identity and the access to Key Vault is granted, update the Batch account with the `{Key Identifier}` URL under `keyVaultProperties` parameter. Also set **encryption_key_source** as `Microsoft.KeyVault`.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -114,7 +114,7 @@ When you create a new version of a key, update the Batch account to use the new 
 
 You can also use Azure CLI to update the version.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -130,7 +130,7 @@ To change the key used for Batch encryption, follow these steps:
 
 You can  also use Azure CLI to use a different key.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \

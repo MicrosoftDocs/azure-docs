@@ -85,7 +85,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
 
     This command returns a value similar to the following text. You only want the last portion of the text, which is the ACR instance name:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 
