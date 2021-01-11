@@ -15,4 +15,8 @@ ms.custom: "include file"
 - West Europe
 - Southeast Asia
 - UK South
-- Australia East
+- Australia East (LRS and ZRS)
+- France Central
+- KoreaCentral
+- KoreaSouth
+

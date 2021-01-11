@@ -226,6 +226,8 @@
         href: platform/service-providers.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
+      - name: Troubleshooting logs
+        href: platform/azure-monitor-troubleshooting-logs.md
     - name: Log Analytics
       items:
       - name: Overview
@@ -1091,6 +1093,8 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
+    - name: Azure Data Explorer (preview)
+      href: insights/data-explorer.md
     - name: Networks
       href: insights/network-insights-overview.md
     - name: Key Vault

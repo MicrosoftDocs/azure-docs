@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 01/07/2020
 ms.author: memildin
 
 ---
@@ -24,6 +24,122 @@ This page provides you with information about:
 - New features
 - Bug fixes
 - Deprecated functionality
+
+
+## July 2020
+
+Updates in July include:
+- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
+- [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [Adaptive application controls updated with a new recommendation and support for wildcards in path rules](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
+- [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### Vulnerability assessment for virtual machines is now available for non-marketplace images
+
+When deploying a vulnerability assessment solution, Security Center previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
+
+From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
+
+Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploy the integrated vulnerability scanner to standard tier VMs](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
+
+Learn more about the [integrated vulnerability scanner for virtual machines (requires Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
+
+Learn more about using your own privately-licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
+
+
+### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
+
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Security Center displays alerts when it detects attempts to access or exploit your storage accounts. 
+
+Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
+
+
+
+
+### Eight new recommendations to enable threat protection features
+
+Eight new recommendations have been added to provide a simple way to enable Azure Security Center's threat protection features for the following resource types: virtual machines, App Service plans, Azure SQL Database servers, SQL servers on machines, Azure Storage accounts, Azure Kubernetes Service clusters, Azure Container Registry registries, and Azure Key Vault vaults.
+
+The new recommendations are:
+
+- **Advanced data security should be enabled on Azure SQL Database servers**
+- **Advanced data security should be enabled on SQL servers on machines**
+- **Advanced threat protection should be enabled on Azure App Service plans**
+- **Advanced threat protection should be enabled on Azure Container Registry registries**
+- **Advanced threat protection should be enabled on Azure Key Vault vaults**
+- **Advanced threat protection should be enabled on Azure Kubernetes Service clusters**
+- **Advanced threat protection should be enabled on Azure Storage accounts**
+- **Advanced threat protection should be enabled on virtual machines**
+
+These new recommendations belong to the **Enable Azure Defender** security control.
+
+The recommendations also include the quick fix capability. 
+
+> [!IMPORTANT]
+> Remediating any of these recommendations will result in charges for protecting the relevant resources. These charges will begin immediately if you have related resources in the current subscription. Or in the future, if you add them at a later date.
+> 
+> For example, if you don't have any Azure Kubernetes Service clusters in your subscription and you enable the threat protection, no charges will be incurred. If, in the future, you add a cluster on the same subscription, it will automatically be protected and charges will begin at that time.
+
+Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
+
+Learn more about [threat protection in Azure Security Center](azure-defender.md).
+
+
+
+
+### Container security improvements - faster registry scanning and refreshed documentation
+
+As part of the continuous investments in the container security domain, we are happy to share a significant performance improvement in Security Center's dynamic scans of container images stored in Azure Container Registry. Scans now typically complete in approximately two minutes. In some cases, they might take up to 15 minutes.
+
+To improve the clarity and guidance regarding Azure Security Center's container security capabilities, we've also refreshed the container security documentation pages. 
+
+Learn more about Security Center's container security in the following articles:
+
+- [Overview of Security Center's container security features](container-security.md)
+- [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
+- [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
+- [How-to scan your registries and harden your Docker hosts](container-security.md)
+- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster)
+- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
+- [Security recommendations for containers](recommendations-reference.md#recs-containers)
+
+
+
+### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
+
+The adaptive application controls feature has received two significant updates:
+
+* A new recommendation identifies potentially legitimate behavior that hasn't previously been allowed. The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
+
+* Path rules now support wildcards. From this update, you can configure allowed path rules using wildcards. There are two supported scenarios:
+
+    * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
+
+    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with a known executable, automatically generated folder names, etc.).
+
+
+[Learn more about adaptive application controls](security-center-adaptive-application.md).
+
+
+
+### Six policies for SQL advanced data security deprecated
+
+Six policies related to advanced data security for SQL machines are being deprecated:
+
+- Advanced threat protection types should be set to 'All' in SQL managed instance advanced data security settings
+- Advanced threat protection types should be set to 'All' in SQL server advanced data security settings
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
+
+Learn more about [built-in policies](./policy-reference.md).
+
 
 
 ## June 2020
