@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Troubleshooting logs
+title: Azure Monitor Troubleshooting logs (Preview)
 description: Use Azure Monitor to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 author: osalzberg
 ms.author: bwren
@@ -13,6 +13,9 @@ ms.date: 12/29/2020
 # Azure Monitor Troubleshooting logs (Preview)
 Use Azure Monitor to quickly and/or periodically investigate issues, troubleshoot code or configuration problems or address support cases, which often rely upon searching over high volume of data for specific insights.
 
+>[!NOTE]
+> * Troubleshooting Logs is in preview mode.
+>* Contact the [Log Analytics team](mailto:orens@microsoft.com) with any questions or to apply the feature.
 ## Troubleshoot and query your code or configuration issues
 Use Azure Monitor Troubleshooting Logs to fetch your records and investigate problems and issues in a simpler and cheaper way using KQL.
 Troubleshooting Logs decrees your charges by giving you basic capabilities for troubleshooting.
@@ -22,8 +25,6 @@ Troubleshooting Logs decrees your charges by giving you basic capabilities for t
 >* Troubleshooting Logs can be applied to specific tables, currently on "Container Logs" and "App Traces" tables.
 >* There is a 4 days free retention period, can be extended in addition cost.
 >* By default, the tables inherits the workspace retention. To avoid additional charges, it is recommended to change these tables retention. [Click here to learn how to change table retention](https://docs.microsoft.com//azure/azure-monitor/platform/manage-cost-storage).
-> * Troubleshooting Logs is in preview mode.
->* Contact the [CM team](mailto:XXXXXXX@microsoft.com) with any questions or to apply the feature.
 
 ## Turn on Troubleshooting Logs on your tables
 
