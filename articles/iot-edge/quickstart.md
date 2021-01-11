@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: rsameser
 manager: kgremban
 ms.author: riameser
-ms.date: 12/21/2020
+ms.date: 1/11/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
