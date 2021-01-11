@@ -159,7 +159,7 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-    - Integrate with partners
+    - name: Integrate with partners
     - items:
       - name: Cisco ISE pxGrid integration
       - href: integration-cisco-ise-pxgrid.md
