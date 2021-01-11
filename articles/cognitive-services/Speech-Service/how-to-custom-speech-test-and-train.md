@@ -45,7 +45,7 @@ This table lists accepted data types, when each data type should be used, and th
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
-When you train a new model, start with [related text](#related-text-data-for-training). This data will already improve the recognition of special terms and phrases.
+When you train a new model, start with [related text](#related-text-data-for-training). This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
@@ -133,7 +133,9 @@ After you've gathered your audio files and corresponding transcriptions, package
 > [!div class="mx-imgBorder"]
 > ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account) for a list of recommended regions for your Speech service subscriptions. Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model.
+See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account) for a list of recommended regions for your Speech service subscriptions. Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model. In these regions, training can process about 10 hours of audio per day compared to just 1 hour per day in other regions. If model training cannot be completed within a week, the model will be marked as failed.
+
+Not all base models support training with audio data. If the base model does not support it, the service will ignore the audio and just train with the text of the transcriptions. In this case, training will be the same as training with related text.
 
 ## Related text data for training
 
@@ -145,6 +147,8 @@ Product names or features that are unique, should include related text data for 
 | Pronunciations | Improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
 Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+Training with related text usually completes within a few minutes.
 
 ### Guidelines to create a sentences file
 
