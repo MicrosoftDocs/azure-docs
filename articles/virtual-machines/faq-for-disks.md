@@ -72,7 +72,7 @@ Depending on the region where the availability set that uses Managed Disks is lo
 
 You set up a private storage account for VM diagnostics.
 
-**What kind of Role-Based Access Control support is available for Managed Disks?**
+**What kind of Azure role-based access control support is available for Managed Disks?**
 
 Managed Disks supports three key default roles:
 
@@ -147,7 +147,7 @@ Azure disk reservation provides the option to purchase Premium SSDs in the speci
 Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
 **How is Azure disk reservation applied?**    
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./prepay-reserved-vm-instances.md) for more information on VM instances.     
 
 **Can I use my data storage purchased through Azure disks reservation across multiple regions?**    
 Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    

@@ -206,8 +206,10 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
 
 ## Restrict egress traffic using Azure firewall

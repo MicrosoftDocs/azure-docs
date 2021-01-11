@@ -11,7 +11,7 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)

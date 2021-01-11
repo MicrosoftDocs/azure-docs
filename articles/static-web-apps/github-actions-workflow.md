@@ -58,7 +58,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -127,7 +127,7 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
@@ -135,7 +135,7 @@ with:
 |---|---|---|
 | `app_location` | Location of your application code.<br><br>For example, enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory called `app`. | Yes |
 | `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you do not want an API. | No |
-| `app_artifact_location` | Location of the build output directory relative to the `app_location`.<br><br>For example, if your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `app_artifact_location` value. | No |
+| `output_location` | Location of the build output directory relative to the `app_location`.<br><br>For example, if your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `output_location` value. | No |
 
 The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set for you by Azure Static Web Apps shouldn't be manually changed.
 
@@ -158,7 +158,7 @@ You can customize the workflow to look for the [routes.json](routes.md) in any f
 |---------------------|-------------|
 | `routes_location` | Defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository. |
 
- Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `app_artifact_location` by default.
+ Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `output_location` by default.
 
 ## Environment variables
 
@@ -184,7 +184,7 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0

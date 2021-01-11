@@ -52,4 +52,4 @@ Use the following procedure to review issues documented in the pull request.
 
 ## Next steps
 
-After you correct the critical issues documented in the review PR(s), you must [republish your Azure app offer](./create-new-azure-apps-offer.md#publish).
+After you correct the critical issues documented in the review PR(s), you must [republish your Azure app offer](../create-new-azure-apps-offer.md).

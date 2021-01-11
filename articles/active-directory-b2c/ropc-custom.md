@@ -243,7 +243,7 @@ Next, update the relying party file that initiates the user journey that you cre
 
 Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this example with the following information as the body of the POST request:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Replace `<tenant-name>` with the name of your Azure AD B2C tenant.
 - Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.
@@ -265,7 +265,7 @@ Use your favorite API development application to generate an API call, and revie
 The actual POST request looks like the following example:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -288,7 +288,7 @@ A successful response with offline-access looks like the following example:
 
 Construct a POST call like the one shown here. Use the information in the following table as the body of the request:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - Replace `<tenant-name>` with the name of your Azure AD B2C tenant.
 - Replace `B2C_1A_ROPC_Auth` with the full name of your resource owner password credentials policy.

@@ -53,7 +53,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. Once 
 ## Metrics explorer
 Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in your metric database and chart the values of multiple metrics over time. You can pin the charts to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](rest-api-walkthrough.md).
 
-![Metrics Explorer](media/data-platform/metrics-explorer.png)
+![Metrics Explorer](media/data-platform-metrics/metrics-explorer.png)
 
 - See [Getting started with Azure Monitor metrics explorer](metrics-getting-started.md) to get started using metrics explorer.
 

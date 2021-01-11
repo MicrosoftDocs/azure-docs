@@ -1,6 +1,6 @@
 ---
-title: Connect with SSMS 
-description: Use SQL Server Management Studio (SSMS) to connect to and query a dedicated SQL pool in Azure Synapse Analytics. 
+title: Connect to dedicated SQL pool (formerly SQL DW) with SSMS 
+description: Use SQL Server Management Studio (SSMS) to connect to and query a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. 
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Connect to a dedicated SQL pool in Azure Synapse Analytics with SQL Server Management Studio (SSMS)
+# Connect to a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics with SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -23,17 +23,17 @@ ms.custom: seo-lt-2019
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Use SQL Server Management Studio (SSMS) to connect to and query a data warehouse within Azure Synapse.
+Use SQL Server Management Studio (SSMS) to connect to and query a dedicated SQL pool (formerly SQL DW).
 
 ## Prerequisites
 
 To use this tutorial, you need:
 
-* An existing dedicated SQL pool. To create one, see [Create a dedicated SQL pool](create-data-warehouse-portal.md).
+* An existing dedicated SQL pool. To create one, see [Create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) installed. [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for free if you don't already have it.
-* The fully qualified SQL server name. To find this information, see [Connect to dedicated SQL pool](sql-data-warehouse-connect-overview.md).
+* The fully qualified SQL server name. To find this information, see [Dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-connect-overview.md).
 
-## 1. Connect to your dedicated SQL pool
+## 1. Connect to your dedicated SQL pool (formerly SQL DW)
 
 1. Open SSMS.
 2. Open Object Explorer by selecting **File** > **Connect Object Explorer**.

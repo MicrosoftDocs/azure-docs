@@ -2,11 +2,11 @@
 title: Using private endpoints for Azure App Configuration
 description: Secure your App Configuration store using private endpoints
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
-ms.author: lcozzens
+ms.date: 07/15/2020
 
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.
 ---

@@ -55,8 +55,16 @@
           href: manage-vm-extensions-powershell.md
         - name: Deploy extensions using ARM template
           href: manage-vm-extensions-template.md
+    - name: Used managed identities on server
+      href: managed-identity-authentication.md
     - name: Manage agent
       href: manage-agent.md
+  - name: Scenarios
+    items:
+    - name: Onboard to Azure Sentinel
+      href: scenario-onboard-azure-sentinel.md
+    - name: Onboard to Azure Security Center
+      href: ../../security-center/quickstart-onboard-machines.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -78,7 +86,7 @@
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute
     - name: Java
-      href: /java/api/overview/azure/hybridcompute/management
+      href: /java/api/overview/azure/compute/resourcemanagement
     - name: JavaScript
       href: /javascript/api/%40azure/arm-hybridcompute
     - name: Python

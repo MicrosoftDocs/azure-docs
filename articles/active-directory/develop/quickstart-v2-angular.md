@@ -19,7 +19,7 @@ ms.author: janutter
 
 # Quickstart: Sign in users and get an access token in an Angular single-page application
 
-In this quickstart, you download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to obtain an access token to call the Microsoft Graph API or any web API.
+In this quickstart, you download and run a code sample that demonstrates how an Angular single-page application (SPA) can sign in users and call Microsoft Graph. The code sample demonstrates how to get an access token to call the Microsoft Graph API or any web API.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > ### Option 1 (express): Register and automatically configure the app, and then download the code sample
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. If your account has access to more than one tenant, select the account at the upper right, and then set your portal session to the Azure Active Directory (Azure AD) tenant that you want to use.
 > 1. Open the new [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pane in the Azure portal.
 > 1. Enter a name for your application, and then select **Register**.
@@ -43,7 +43,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >
 > #### Step 1: Register the application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. If your account has access to more than one tenant, select your account at the upper right, and set your portal session to the Azure AD tenant that you want to use.
 > 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.

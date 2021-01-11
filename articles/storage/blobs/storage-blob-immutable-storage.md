@@ -72,7 +72,7 @@ The following limits apply to retention policies:
 
 ### Allow protected append blobs writes
 
-Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
 Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
 
@@ -100,7 +100,7 @@ The following limits apply to legal holds:
 
 ## Scenarios
 
-The following table shows the types of Blob storage operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
+The following table shows the types of Blob storage operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) documentation.
 
 | Scenario | Blob state | Blob operations denied | Container and account protection |
 |--|--|--|--|
@@ -113,7 +113,7 @@ The following table shows the types of Blob storage operations that are disabled
 <sup>2</sup> Append Block is only allowed for time-based retention policies with the `allowProtectedAppendWrites` property enabled. For more information, see the [Allow Protected Append Blobs Writes](#allow-protected-append-blobs-writes) section.
 
 > [!IMPORTANT]
-> Some workloads, such as [SQL Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), create a blob and then add to it. If the container has an active time-based retention policy or legal hold in place, this pattern will not succeed.
+> Some workloads, such as [SQL Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), create a blob and then add to it. If the container has an active time-based retention policy or legal hold in place, this pattern will not succeed.
 
 ## Pricing
 
@@ -167,11 +167,11 @@ Yes. When a time-based retention policy is first created, it is in an *unlocked*
 
 **Can I use soft delete alongside Immutable blob policies?**
 
-Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](storage-blob-soft-delete.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
+Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](./soft-delete-blob-overview.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
 
 ## Next steps
 
 - [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
 - [Set rules to automatically tier and delete blob data with lifecycle management](storage-lifecycle-management-concepts.md)
-- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
 - [Protect subscriptions, resource groups, and resources with Azure Resource Manager locks](../../azure-resource-manager/management/lock-resources.md).

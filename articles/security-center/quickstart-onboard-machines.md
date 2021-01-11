@@ -15,7 +15,7 @@ Security Center can monitor the security posture of your non-Azure computers, bu
 
 You can connect your non-Azure computers in any of the following ways:
 
-- Using [Azure Arc enabled servers (**recommended**)
+- Using Azure Arc enabled servers (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
 
 Each of these is described on this page.
@@ -134,4 +134,4 @@ Congratulations! Now you can see your Azure and non-Azure machines together in o
 
 This page showed you how to add your non-Azure machines to Azure Security Center. To monitor their status, use the inventory tools as explained in the following page:
 
-- [Explore and manage your resources with asset inventory and management tools](asset-inventory.md)
+- [Explore and manage your resources with asset inventory](asset-inventory.md)

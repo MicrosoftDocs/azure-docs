@@ -102,4 +102,4 @@ In this tutorial, you've learned how to:
 You can proceed to the next tutorial and learn how to import MongoDB data into Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

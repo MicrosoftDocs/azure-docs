@@ -33,13 +33,13 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 ### Authorize with AWS S3
 
-Gather your AWS access key and secret access key, and then set the these environment variables:
+Gather your AWS access key and secret access key, and then set these environment variables:
 
 | Operating system | Command  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## Copy objects, directories, and buckets
 
@@ -154,7 +154,7 @@ AzCopy performs these steps:
 
 3. Adds the string `rename_key_` to the beginning of a new valid key.
    This key will be used to save original metadata invalid **key**.
-   You can use this key to try and recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
+   You can use this key to try to recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
 
 ## Next steps
 
@@ -162,7 +162,7 @@ Find more examples in any of these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 
-- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data](storage-use-azcopy-v10.md#transfer-data)
 
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 

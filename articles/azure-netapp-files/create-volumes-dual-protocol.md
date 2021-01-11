@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 01/05/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv3, or dual protocol. This article shows you how to create a volume that uses the dual protocol of NFSv3 and SMB with support for LDAP user mapping.  
+Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol. This article shows you how to create a volume that uses the dual protocol of NFSv3 and SMB with support for LDAP user mapping.  
 
 
 ## Before you begin 
@@ -34,7 +34,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Ensure that the Active Directory (AD) LDAP server is up and running on the AD. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
-* Ensure that a certificate authority (CA)  is created on the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
+* Ensure that a certificate authority (CA)  is created for the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
 * Dual-protocol volumes do not currently support Azure Active Directory Domain Services (AADDS).  
 * The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
@@ -44,8 +44,10 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
     
     | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
     |-	|-	|-	|-	|-	|
-    | UNIX 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
-    | NTFS 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
+    | `Unix` 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
+    | `Ntfs` 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
+* UNIX users mounting the NTFS security style volume using NFS will be authenticated as Windows user `root` for UNIX `root` and `pcuser` for all other users. Make sure that these user accounts exist in your Active Directory prior to mounting the volume when using NFS. 
+
 
 ## Create a dual-protocol volume
 
@@ -125,7 +127,11 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
     * A Windows-based client that has joined the domain and has the root certificate installed 
     * Another machine in the domain containing the root certificate  
 
-3. Export the root certificate.  
+3. Export the root CA certificate.  
+    Root CA certificates can be exported from the Personal or Trusted Root Certification Authorities directory, as shown in the following examples:   
+    ![screenshot that shows personal certificates](../media/azure-netapp-files/personal-certificates.png)   
+    ![screenshot that shows trusted root certification authorities](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Ensure that the certificate is exported in the Base-64 encoded X.509 (.CER) format: 
 
     ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)

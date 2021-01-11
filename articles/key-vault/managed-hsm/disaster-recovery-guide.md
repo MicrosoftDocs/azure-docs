@@ -31,7 +31,7 @@ Here are the steps of the disaster recovery procedure:
 1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. Backups allow for easy roll-back.
 1. Restore the recent HSM backup from the source HSM
 
-The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This feature maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
+These steps will enable you to manually replicate contents of the HSM to another region. The HSM name (and the service endpoint URI) will be different, so you may have to change your application configuration to make use of these keys from a different location.
 
 ## Create a new managed HSM
 

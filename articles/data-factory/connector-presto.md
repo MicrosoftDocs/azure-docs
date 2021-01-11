@@ -1,5 +1,5 @@
 ---
-title: Copy data from Presto using Azure Data Factory (Preview) 
+title: Copy data from Presto using Azure Data Factory
 description: Learn how to copy data from Presto to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,17 +12,14 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/18/2020
 ms.author: jingwang
 
 ---
-# Copy data from Presto using Azure Data Factory (Preview)
+# Copy data from Presto using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Presto. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 

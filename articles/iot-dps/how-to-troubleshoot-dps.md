@@ -12,7 +12,7 @@ ms.author: xujing
 ---
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](../azure-monitor/overview.md).
 
 ## Using Azure Monitor to view metrics and set up alerts
 
@@ -76,5 +76,5 @@ Use this table to understand and resolve common errors.
 | 401 | The authorization token cannot be validated; for example, it is expired or does not apply to the request’s URI. This error code is also returned to devices as part of the TPM attestation flow. | 401 Unauthorized|
 | 404 | The Device Provisioning Service instance, or a resource (e.g. an enrollment) does not exist. |404 Not Found |
 | 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
-| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
+| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|

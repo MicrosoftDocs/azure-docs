@@ -14,9 +14,9 @@ ms.custom: references_regions
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see:
 
-* Linux: [Encryption at host - End-to-end encryption for your VM data](./linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Linux: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-* Windows: [Encryption at host - End-to-end encryption for your VM data](./windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+* Windows: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 

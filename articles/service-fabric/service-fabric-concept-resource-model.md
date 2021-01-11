@@ -3,7 +3,6 @@ title: Azure Service Fabric application resource model
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
 ms.date: 10/21/2019
-ms.custom: sfrev
 ---
 
 # Service Fabric application resource model
@@ -86,6 +85,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 >
 >
 
+
 | Parameter              | Description                                 | Example                                                      | Comments                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
@@ -132,6 +132,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## Upgrade the Service Fabric application by using Resource Manager
+
+
+> [!IMPORTANT]
+> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+
 
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
