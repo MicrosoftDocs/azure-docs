@@ -23,7 +23,7 @@ A Hybrid Runbook Worker can run on either the Windows or the Linux operating sys
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and for Linux, see [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
 
-### How does it work?
+## How does it work?
 
 ![Hybrid Runbook Worker overview](media/automation-hybrid-runbook-worker/automation.png)
 
@@ -31,12 +31,9 @@ Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group tha
 
 When you start a runbook on a user Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid worker works on a polling mechanism (every 30 secs) and follows an order of first-come, first-serve. Depending on when a job was pushed, whichever hybrid worker pings the Automation service picks up the job. A single hybrid worker can generally pick up four jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than four per 30 seconds, then there is a high possibility another hybrid worker in the Hybrid Runbook Worker group picked up the job.
 
+A Hybrid Runbook Worker doesn't have many of the [Azure sandbox](automation-runbook-execution.md#runbook-execution-environment) resource [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources, and they aren't constrained by the [fair share](automation-runbook-execution.md#fair-share) time limit that Azure sandboxes have.
+
 To control the distribution of runbooks on Hybrid Runbook Workers and when or how the jobs are triggered, you can register the hybrid worker against different Hybrid Runbook Worker groups within your Automation account. Target the jobs against the specific group or groups in order to support your execution arrangement.
-
-Use a Hybrid Runbook Worker instead of an [Azure sandbox](automation-runbook-execution.md#runbook-execution-environment) because it doesn't have many of the sandbox [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources.
-
-> [!NOTE]
-> Hybrid Runbook Workers aren't constrained by the [fair share](automation-runbook-execution.md#fair-share) time limit that Azure sandboxes have.
 
 ## Hybrid Runbook Worker installation
 
