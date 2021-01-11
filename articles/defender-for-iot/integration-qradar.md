@@ -16,9 +16,13 @@ This document describes how to configure the Defender for IoT solution integrati
 To perform QRadar integration with Defender for IoT:
 
 1. [Define the Defender for IoT appliance name](#defining-defender-for-iot-appliance-name).
+
 1. [Configure Syslog Listener for QRadar](#configuring-syslog-listener-for-qradar).
+
 1. [Deploy appliance QID](#deploying-defender-for-iot-platform-qid).
+
 1. [Set up receiving QRadar notifications](#setting-up-qradar-forwarding-rules).
+
 1. [Add custom fields to alerts](#adding-custom-fields-to-alerts).
 
 ## Defining Defender for IoT appliance name
@@ -27,12 +31,9 @@ You can change the name of the platform at any time.
 
 When building sites and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line.
 
-:::image type="content" source="media/integration-qradar/configuration.png" alt-text="Screenshot of Changing Defender for IoT Appliance Name view":::
-
 To change the appliance name:
 
 1. On the side menu, click on the current appliance name. The **Edit Defender for IoT Platform Configuration** dialog box appears.
-   :::image type="content" source="media/integration-qradar/edit.png" alt-text="Edit your Defender for IoT Platform configuration.":::
 
 1. In the **Defender for IoT Platform Name** text box, type the new appliance name and click **Save**.
 
@@ -45,12 +46,15 @@ To configure the Syslog listener to work with QRadar:
 1. Login to QRadar.
 
 1. From the left pane select **Admin** > **Data Sources**, the **Data Sources** window appears.
+
    :::image type="content" source="media/integration-qradar/log.png" alt-text="Select log sources from the available options.":::
 
 1. In the **Data Sources** window, click **Log Sources**. The **Modal** window appears.
+
    :::image type="content" source="media/integration-qradar/modal.png" alt-text="After selecting Syslog the modal window opens.":::
 
 1. In the **Modal** window, click **Add**. The **Add a log source** dialog box appears.
+
    :::image type="content" source="media/integration-qradar/source.png" alt-text="Add a log source by filling in the appropriate fields.":::
 
 1. In the **Add a log source** dialog box, set the following parameters:

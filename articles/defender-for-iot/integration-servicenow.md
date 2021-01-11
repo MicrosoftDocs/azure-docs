@@ -1,5 +1,5 @@
 ---
-title: About the Servicenow integration
+title: About the ServiceNow integration
 description: The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 author: shhazam-ms
 manager: rkarlin
@@ -109,17 +109,17 @@ To define the rule:
 
 1. Select the :::image type="content" source="media/integration-servicenow/plus.png" alt-text="The plus icon button."::: icon. The Create Forwarding Rule dialog box opens.  
 
-  :::image type="content" source="media/integration-servicenow/forwarding-rule.png" alt-text="Create Forwarding Rule":::
+    :::image type="content" source="media/integration-servicenow/forwarding-rule.png" alt-text="Create Forwarding Rule":::
 
 1. Add a rule name.
 
 1. Define criteria under which Defender for IoT will trigger the forwarding rule. Working with Forwarding rule criteria helps pinpoint and manage the volume of information sent from Defender for IoT to ServiceNow. The following options are available:
 
-- **Severity levels:** This is the minimum-security level incident to forward. For example, if **Minor** is selected, minor alerts, and any alert above this severity level will be forwarded. Levels are pre-defined by Defender for IoT.
+    - **Severity levels:** This is the minimum-security level incident to forward. For example, if **Minor** is selected, minor alerts, and any alert above this severity level will be forwarded. Levels are pre-defined by Defender for IoT.
 
-- **Protocols:** Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
+    - **Protocols:** Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
 
-- **Engines:** Select the required engines or choose them all. Alerts from selected engines will be sent.
+    - **Engines:** Select the required engines or choose them all. Alerts from selected engines will be sent.
 
 1. Verify that **Report Alert Notifications** is selected.
 
@@ -213,7 +213,7 @@ To access the Defender for IoT application:
 
 1. Navigate to <https://store.servicenow.com/>
 
-2. Search for Defender for IoT.
+2. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
 
    :::image type="content" source="media/integration-servicenow/search-results.png" alt-text="Search for CyberX in the search bar.":::
 
@@ -235,7 +235,7 @@ To view device attributes:
 
 1. Sign in to ServiceNow.
 
-2. Navigate to **Defender for IoT Platform**.
+2. Navigate to **CyberX Platform**.
 
 3. Navigate to **Inventory** or **Alert**.
 

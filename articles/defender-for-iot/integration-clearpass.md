@@ -33,12 +33,6 @@ Aruba ClearPass is a world-class Network Access Controller that provides agentle
 
 ## Software requirements
 
-This section covers:
-
-- **Aruba ClearPass requirements**
-
-- **Defender for IoT requirements**
-
 ### Aruba ClearPass requirements
 
 At the time of writing, ClearPass version 6.8.0 is available and the recommended release. CPPM runs on hardware appliances with pre-installed software or as a Virtual Machine under the following hypervisors. Hypervisors that run on a client computer such as VMware Player are not supported.
@@ -59,15 +53,9 @@ At the time of writing, ClearPass version 6.8.0 is available and the recommended
 
 Prior to creating and enabling the integration in Defender for IoT, carryout the following ClearPass configurations.
 
-- **Create a ClearPass ‘API’ User**
+### Create a ClearPass ‘API’ user
 
-- **Create a ClearPass Operator Profile**
-
-- **Create a ClearPass OAuth API Client**
-
-## Create a ClearPass ‘API’ user
-
-As part of the communications channel between the two products, Defender for IoT uses many APIs {both TIPS and REST}, access to the TIPS APIs is validated via username and password combination credentials. This user ID needs to have minimum levels of access. Do not use a Super Administrator profile, use API Administrator as shown below.
+As part of the communications channel between the two products, Defender for IoT uses many APIs (both TIPS and REST). Access to the TIPS APIs is validated via username and password combination credentials. This user ID needs to have minimum levels of access. Do not use a Super Administrator profile, use API Administrator as shown below.
 
 To create a ClearPass API user:
 
@@ -87,7 +75,7 @@ To create a ClearPass API user:
 
 3. Select **Add**.
 
-## Create a ClearPass operator profile
+### Create a ClearPass operator profile
 
 Defender for IoT uses the REST API as part of the integration. REST APIs are authenticated under an OAuth framework. To sync with Defender for IoT, you need to create an API Client.
 
@@ -106,7 +94,7 @@ To create a ClearPass operator profile:
 
 :::image type="content" source="media/integration-clearpass/policy.png" alt-text="Select your option from the Policy Manager screen.":::
 
-## Create a ClearPass OAuth API client
+### Create a ClearPass OAuth API client
 
 1. In the main window, select **Administrator** > **API Services** > **API Clients**.
 
@@ -138,7 +126,7 @@ As part of enabling the Defender for IoT - Aruba integration, Defender for IoT c
 
 :::image type="content" source="media/integration-clearpass/dictionary.png" alt-text="Screenshot of a social media post Description automatically generated":::
 
-The Endpoint data is sent by Defender for IoT. It creates the Endpoints, sets the endpoint classification and also configures custom endpoint attributes.
+The Endpoint data is sent by Defender for IoT. Defender for IoT creates the endpoints, sets the endpoint classification, and also configures custom endpoint attributes.
 
 An example of the data sent:
 
@@ -154,7 +142,7 @@ In addition to the standard data, Defender for IoT supplies other customer attri
 
 :::image type="content" source="media/integration-clearpass/attributes.png" alt-text="A view of the attribute tab.":::
 
-The "cyberx_authorized" flag is a way to distinguish known, recognized devices operating on the network from new, unexpected and potentially rogue devices that are detected.
+The `cyberx_authorized` flag is a way to distinguish known, recognized devices operating on the network from new, unexpected and potentially rogue devices that are detected.
 
 Devices that are imported into the system from the customer's inventory list, or discovered during the learning phase, would have `authorized=true`, and new devices that are seen on the network after the learning phase ended would be added with `authorized=false`, until an administrator reviewed the device, decided it's a valid device operating on the network, at which point you could set it to `authorized=true`.
 

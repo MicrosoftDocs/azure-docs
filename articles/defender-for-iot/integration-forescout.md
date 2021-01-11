@@ -78,6 +78,7 @@ To generate a token:
    > [!NOTE]
    > *Record the token in a safe place. You will need it when configuring the Forescout Platform*.
 1. Select **Finish**.
+
    :::image type="content" source="media/integration-forescout/forescout-access-token-added-successfully.png" alt-text="Finish adding token":::
 
 ### Set up the Forescout platform
@@ -86,19 +87,20 @@ You can set up the Forescout platform to communicate with a Defender for IoT sen
 
 To set up:
 
-1. Install *the Forescout eyeExtended module for Azure Defender for IoT* on the Forescout platform.
+1. Install *the Forescout eyeExtend module for CyberX* on the Forescout platform.
 
 1. Sign in to the CounterACT console and select **Options** from the **Tools** menu. The **Options** dialog box opens.
 
 1. Navigate to and select the **Modules** folder.
 
-1. In the **Modules** pane, select **Defender for IoT Platform**. The Defender for IoT platform pane opens.
+1. In the **Modules** pane, select **CyberX Platform**. The Defender for IoT platform pane opens.
+
    :::image type="content" source="media/integration-forescout/settings-for-module.png" alt-text="Azure Defender for IoT module settings":::
 
    Enter the following information:
 
    - **Server Address** - Enter the IP address of the Defender for IoT sensor that will be queried by the Forescout appliance.
-   - **Access Token** - Enter the access token generated for the Defender for IoT sensor that will connect to the Forescout appliance. See ***Set up the Defender for IoT Platform*** for details about generating a token.
+   - **Access Token** - Enter the access token generated for the Defender for IoT sensor that will connect to the Forescout appliance. To generate a token, see [Set up the Defender for IoT platform](#set-up-the-defender-for-iot-platform).
 
 1. Select **Apply**.
 
@@ -106,8 +108,10 @@ If you want the Forescout platform to communicate with another sensor:
 
 1. Create a new access token in the relevant Defender for IoT sensor.
 
-1. In the **Forescout Modules** > **Azure Defender for IoT Platform** dialog box:
+1. In the **Forescout Modules** > **CyberX Platform** dialog box:
+
    - Delete the information displayed.
+   
    - Enter the new sensor IP address and the new access token information.
 
 ### Verify communication
@@ -124,9 +128,9 @@ If **N/A** is displayed in the **Used** field for this token, the connection bet
 
 To view a device's attributes:
 
-1. Sign in to the Forescout platform and then navigate to the **Device Inventory**.
+1. Sign in to the Forescout platform and then navigate to the **Asset Inventory**.
 
-1. Navigate to the **Defender for IoT Platform**. The following device attributes are displayed for OT devices detected by Defender for IoT.
+1. Navigate to the **CyberX Platform**. The following device attributes are displayed for OT devices detected by Defender for IoT.
 
    | Item | Description |
    |--|--|
@@ -150,6 +154,7 @@ View extra device information for devices directed by Defender for IoT. For exam
 To view extra details:
 
 1. Right-click on a device from the device inventory hosts section. The host details dialog box opens with additional information.
+
    :::image type="content" source="media/integration-forescout/details-dialog-box-in-forescout.png" alt-text="Host Details":::
 
 ## Create Azure Defender for IoT policies in Forescout
@@ -166,6 +171,6 @@ To access Defender for IoT properties:
 
 1. Navigate to the **Properties Tree** from the **Policy Conditions** dialog box.
 
-1. Expand the Defender for IoT folder in the **Properties Tree**. The Defender for IoT following properties are available.
+1. Expand the **CyberX Platform** folder in the **Properties Tree**. The Defender for IoT following properties are available.
 
 :::image type="content" source="media/integration-forescout/forescout-property-tree.png" alt-text="Properties":::

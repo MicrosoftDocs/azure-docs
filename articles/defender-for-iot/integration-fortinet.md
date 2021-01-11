@@ -90,9 +90,11 @@ Use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM.
 
 Options are available to customize the alert rules based on the:
 
-- Specific protocols detected
-- Severity of the event
-- Defender for IoT engine that detects events
+- Specific protocols detected.
+
+- Severity of the event.
+
+- Defender for IoT engine that detects events.
 
 To create a forwarding rule
 
@@ -100,7 +102,7 @@ To create a forwarding rule
 
     :::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="View your forwarding rules in the Forwarding window.":::
 
-2. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window, define rule parameters.
+2. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window, and define your rule's parameters.
 
     :::image type="content" source="media/integration-fortinet/new-rule.png" alt-text="Create a new Forwarding Rule window.":::
 
