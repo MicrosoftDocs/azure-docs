@@ -89,7 +89,7 @@ In this case, start with the list of attributes in this topic and identify those
 | managedBy | | |X | |
 | manager |X |X | | |
 | member | | |X | |
-| mobile |X |X | | |
+| mobile |X |X | | |This attribute will not sync if user/admin has previously updated it in O365
 | msDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
 | msExchArchiveGUID |X | | | |
