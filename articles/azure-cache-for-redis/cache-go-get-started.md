@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis with Go'
+title: Quickstart: Use Azure Cache for Redis with Go
 description: In this quickstart, you learn how to create a Go app that uses Azure Cache for Redis.
 author: abhirockzz
 ms.author: abhishgu
@@ -40,7 +40,7 @@ func main() {
 ...
 ```
 
-Then, we establish connection with Azure Cache for Redis. Note that [tls.Config](https://golang.org/pkg/crypto/tls/#Config) is being used - Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md)
+Then, we establish connection with Azure Cache for Redis. Note that [tls.Config](https://golang.org/pkg/crypto/tls/#Config) is being used - Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
 
 ```go
 ...
@@ -57,7 +57,7 @@ if err != nil {
 
 If the connection is successful, [HTTP handlers](https://golang.org/pkg/net/http/#HandleFunc) are configured to handle `POST` and `GET` operations and the HTTP server is started. 
 
-> [gorilla mux library](https://github.com/gorilla/mux) is used for routing (although it's not strictly necessary and we could have gotten away by using the standard library for this sample application)
+> [gorilla mux library](https://github.com/gorilla/mux) is used for routing (although it's not strictly necessary and we could have gotten away by using the standard library for this sample application).
 
 ```go
 uh := userHandler{client: client}
@@ -100,13 +100,13 @@ Start by cloning the application from GitHub.
     md "C:\git-samples"
     ```
 
-2. Open a git terminal window, such as git bash. Use the `cd` command to change into the new folder and install the sample app.
+1. Open a git terminal window, such as git bash. Use the `cd` command to change into the new folder where you will be cloning the sample app.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-redis-cache-go-quickstart.git
@@ -114,67 +114,68 @@ Start by cloning the application from GitHub.
 
 ## Run the application
 
-The application accepts connectivity and credentials in the form the environment variables. 
+The application accepts connectivity and credentials in the form of environment variables. 
 
 1. Fetch the **Host name** and **Access Keys** (available via Access Keys) for Azure Cache for Redis instance in the [Azure portal](https://portal.azure.com/)
 
-Set them to the respective environment variables
+1. Set them to the respective environment variables:
 
-```shell
-set REDIS_HOST=<Host name e.g. <name of cache>.redis.cache.windows.net>
-set REDIS_PASSWORD=<Primary Access Key>
-```
+    ```shell
+    set REDIS_HOST=<Host name> (e.g. <name of cache>.redis.cache.windows.net)
+    set REDIS_PASSWORD=<Primary Access Key>
+    ```
 
-In the terminal window, change to the correct folder. For example:
+1. In the terminal window, change to the correct folder. For example:
 
-```shell
-cd "C:\git-samples\azure-redis-cache-go-quickstart"
-```
+    ```shell
+    cd "C:\git-samples\azure-redis-cache-go-quickstart"
+    ```
 
-2. In the terminal, run the following command to start the application.
+1. In the terminal, run the following command to start the application.
 
-```shell
-go run main.go
-```
+    ```shell
+    go run main.go
+    ```
 
 The HTTP server will start on port `8080`.
 
 ## Test the application
 
-Create a few user entries. The below example uses curl client:
+1. Create a few user entries. The below example uses curl:
 
-```bash
-curl -i -X POST -d '{"id":"1","name":"foo1", "email":"foo1@baz.com"}' localhost:8080/users/
-curl -i -X POST -d '{"id":"2","name":"foo2", "email":"foo2@baz.com"}' localhost:8080/users/
-curl -i -X POST -d '{"id":"3","name":"foo3", "email":"foo3@baz.com"}' localhost:8080/users/
-```
+    ```bash
+    curl -i -X POST -d '{"id":"1","name":"foo1", "email":"foo1@baz.com"}' localhost:8080/users/
+    curl -i -X POST -d '{"id":"2","name":"foo2", "email":"foo2@baz.com"}' localhost:8080/users/
+    curl -i -X POST -d '{"id":"3","name":"foo3", "email":"foo3@baz.com"}' localhost:8080/users/
+    ```
 
-Fetch an existing user with its `id`:
+1. Fetch an existing user with its `id`:
 
-```bash
-curl -i localhost:8080/users/1
-```
+    ```bash
+    curl -i localhost:8080/users/1
+    ```
 
-you should get JSON response as such
+    You should get JSON response as such:
+    
+    ```json
+    {
+        "email": "foo1@bar",
+        "id": "1",
+        "name": "foo1"
+    }
+    ```
 
-```json
-{
-    "email": "foo1@bar",
-    "id": "1",
-    "name": "foo1"
-}
-```
+1. If you try to fetch a user that does not exist, you will get an HTTP `404`. For example:
 
-If you try to fetch a user that does not exist, you will get an HTTP `404`. For example:
+    ```bash
+    curl -i localhost:8080/users/100
+    
+    #response
 
-```bash
-curl -i localhost:8080/users/100
-
-#response
-HTTP/1.1 404 Not Found
-Date: Fri, 08 Jan 2021 13:43:39 GMT
-Content-Length: 0
-```
+    HTTP/1.1 404 Not Found
+    Date: Fri, 08 Jan 2021 13:43:39 GMT
+    Content-Length: 0
+    ```
 
 ## Clean up resources
 
