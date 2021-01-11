@@ -1,13 +1,11 @@
 ---
 title: Plan to manage costs for Azure Logic Apps
-description: Learn how to plan for and manage costs for Azure Logic Apps by using cost analysis in the Azure portal.
+description: Learn how to plan for and manage costs for Azure Logic Apps by using cost analysis in the Azure portal
 ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 11/20/2020
+ms.date: 01/31/2021
 ---
 
 # Plan and manage costs for Azure Logic Apps
@@ -23,9 +21,9 @@ ms.date: 11/20/2020
 
 <!-- Note for Azure service writer: Modify the following for your service. -->
 
-This article helps you plan and manage costs for Azure Logic Apps. Before you add any resources for the service, estimate costs by using the Azure pricing calculator. After you start using Azure Logic Apps resources, you can set budgets and monitor costs by using Cost Management features. To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
+This article helps you plan and manage costs for Azure Logic Apps. Before you add any resources for this service, estimate costs by using the Azure pricing calculator. After you start using Azure Logic Apps resources, you can set budgets and monitor costs by using Cost Management features. To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
 
-Keep in mind that costs for Azure Logic Apps are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Logic Apps, you're billed for all Azure services and resources that are used in your Azure subscription, including any third-party services. After you're familiar with managing costs for Azure Logic Apps, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Azure Logic Apps are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Logic Apps, you're billed for all the Azure services and resources that are used in your Azure subscription, including any third-party services. After you're familiar with managing costs for Azure Logic Apps, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Prerequisites
 
@@ -41,13 +39,19 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 ## Estimate costs before using Azure Logic Apps
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Azure Logic Apps.
+Before you create resources with Azure Logic Apps, estimate your costs.
 
-<!-- Note for Azure service writer: At a minimum, insert a brief walkthrough of using the calculator for your service. You don't need more than a couple of paragraphs. Add screenshots where useful. Add a screenshot where the estimated cost is shown. -->
+1. On the Azure [Pricing Calculator page](https://azure.microsoft.com/pricing/calculator/), from the left menu, select **Integration** > **Azure Logic Apps**.
 
-<!--Note to Azure service writer: Replace the following example image with one specific to your service. -->
+   ![Screenshot that shows the Azure pricing calculator with "Azure Logic Apps" selected.](./media/plan-manage-costs-logic-apps/add-azure-logic-apps-pricing-calculator.png)
 
-![Example showing estimated cost in the Azure Pricing calculator](../../media/contribute-how-to-write-cost-management-conceptual-article/pricing-calc.png)
+1. Scroll down the page so that you can view the Azure Logic Apps pricing calculator. In the corresponding sections, enter the numbers of resources that you plan to use and the time intervals for how often you plan to use those resources.
+
+   For example, this screenshot shows a sample cost estimation by using the calculator:
+
+   ![Example showing estimated cost in the Azure Pricing calculator](./media/plan-manage-costs-logic-apps/example-logic-apps-pricing-calculator.png)
+
+1. To update your cost estimates as you add new resources to your workspace, return to this calculator, and add the same resources here.
 
 ## Understand the full billing model for Azure Logic Apps
 
@@ -93,9 +97,12 @@ As you create resources for Azure Logic Apps, you see estimated costs.
 To create a <ResourceName> and view the estimated price:
 
 1. Navigate to the service in the Azure portal.
-2. Create the resource.
-3. Review the estimated price shown in the summary.
-4. Finish creating the resource.
+
+1. Create the resource.
+
+1. Review the estimated price shown in the summary.
+
+1. Finish creating the resource.
 
 <!-- Note to Azure service writer: Replace the following example image with one specific to your service. Ensure that you do not show UNIT pricing. Total pricing is okay to show. If you show total pricing, don't show the number of units. -->
 
