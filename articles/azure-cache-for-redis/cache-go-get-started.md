@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 01/08/2021
 #Customer intent: As a Go developer new to Azure Cache for Redis, I want to create a new Go app that uses Azure Cache for Redis.
 ---
+
 # Quickstart: Use Azure Cache for Redis with Go
 
 In this article, you will learn how to build a REST API in Go that will store and retrieve user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md). 
