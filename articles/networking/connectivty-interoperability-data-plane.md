@@ -568,11 +568,4 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
-[Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
-[Data-Analysis]: 
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
-[S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md
-[ExR-S2S-CoEx]: ../expressroute/expressroute-howto-coexist-resource-manager.md
-[Hub-n-Spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: ../virtual-network/virtual-network-manage-peering.md
