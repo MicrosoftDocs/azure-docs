@@ -58,4 +58,4 @@ You can use the command "nslookup \<storage-account-name\>.dfs.core.windows.net"
 
 
 ## Next steps
-If the previous steps don't help to resolve your issue, [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
