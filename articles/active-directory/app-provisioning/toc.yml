@@ -16,7 +16,7 @@
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps
-    - name: Develop and plan provisioning for a SCIM endpoint 
+    - name: Plan provisioning for a SCIM endpoint 
       href: use-scim-to-provision-users-and-groups.md
     - name: Develop a sample SCIM endpoint
       href: use-scim-to-build-users-and-groups-endpoints.md
