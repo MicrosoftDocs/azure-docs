@@ -21,20 +21,10 @@ After you create one or more key vaults, you'll likely want to monitor how and w
 To complete this tutorial, you must have the following:
 
 * An existing key vault that you have been using.  
-* The Azure CLI or Azure PowerShell.
+* [Azure Cloud Shell](https://shell.azure.com) - Bash environment
 * Sufficient storage on Azure for your Key Vault logs.
 
-If you choose to install and use the CLI locally, you will need the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). To sign in to Azure using the CLI you can type:
-
-```azurecli-interactive
-az login
-```
-
-If you choose to install and use PowerShell locally, you will need the Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-```powershell-interactive
-Connect-AzAccount
-```
+This guide commands are formatted for [Cloud Shell](https://shell.azure.com) with Bash as an environment.
 
 ## Connect to your Key Vault subscription
 
