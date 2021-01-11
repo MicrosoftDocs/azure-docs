@@ -373,11 +373,9 @@ These steps show how to use the managed identity with a trigger or action throug
    > [!NOTE]
    > Not all triggers and actions support letting you add an authentication type. For more information, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-1. Based on the type of trigger or action that you added, here are the general steps:
+1. On the trigger or action that you added, follow these steps:
 
-   * **Built-in triggers and actions that support authentication**
-
-     For built-in triggers and actions that run natively in Azure Logic Apps and support managed identities, such as HTTP, follow these steps:
+   * **Built-in triggers and actions that support using a managed identity**
 
      1. Add the **Authentication** property if the property doesn't already appear.
 
@@ -385,13 +383,11 @@ These steps show how to use the managed identity with a trigger or action throug
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
  
-   * **Managed connector triggers and actions that support authentication**
+   * **Managed connector triggers and actions that support using a managed identity**
 
-     For connection-based triggers and actions where you need to create a connection, follow these steps:
+     1. After you select the Azure AD tenant, select **Connect with managed identity**.
 
-     1. On the Azure AD tenant selection page, select **Connect with managed identity**.
-
-     1. When the connection name page appears, from the managed identity list, select the managed identity that you want to use.
+     1. On the next page, provide a connection name. From the managed identity list, select the managed identity to use.
 
      For more information, see [Example: Authenticate managed connector trigger or action with a managed identity](#authenticate-managed-connector-managed-identity).
 
@@ -402,19 +398,19 @@ These steps show how to use the managed identity with a trigger or action throug
      ```json
      "parameters": {
         "$connections": {
-            "value": {
-               "arm": {
-                  "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                  "connectionName": "{connection-name}",
-                  "connectionProperties": {
-                     "authentication": {
-                        "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                        "type": "ManagedServiceIdentity"
-                     }
-                  },
-                  "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-               }
-            }
+           "value": {
+              "arm": {
+                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+                 "connectionName": "{connection-name}",
+                 "connectionProperties": {
+                    "authentication": {
+                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                       "type": "ManagedServiceIdentity"
+                    }
+                 },
+                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+              }
+           }
         }
      }
      ```
