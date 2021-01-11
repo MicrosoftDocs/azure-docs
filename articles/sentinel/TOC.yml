@@ -56,6 +56,8 @@
         href: connect-azure-active-directory.md
       - name: Office 365 (now with Teams!)
         href: connect-office-365.md
+      - name: Dynamics 365 (new!)
+        href: connect-dynamics-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
       - name: Azure Activity Log
