@@ -14,12 +14,6 @@ ms.date: 12/17/2020
 
 This article describes how you plan for and manage costs for Azure SQL Database. First, you use the Azure pricing calculator to help plan for Azure SQL Database costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs (if applicable to Azure SQL Database). After you've started using Azure SQL Database resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure SQL Database are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure SQL Database, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
-When working with Azure SQL Database, there are several cost-saving features to consider:
-
-- [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md)
-- [Reserved capacity](reserved-capacity-overview.md)
-- Elastic pools
-- 
 
 ## Prerequisites
 
@@ -27,14 +21,27 @@ Cost analysis supports most Azure account types, but not all of them. To view th
 
 For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
+
+## SQL Database initial cost considerations
+
+When working with Azure SQL Database, there are several cost-saving features to consider:
+
+- [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md)
+- [Reserved capacity](reserved-capacity-overview.md)
+
+
 ### vCore or DTU purchasing models 
 
-Azure SQL Database supports two purchasing models: vCore and DTU. The way you get charged for your SQL Database varies between these two models, so it's important to understand the model that works best for your workload when planning and considering costs. For information about vCore and DTU purchasing models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
+Azure SQL Database supports two purchasing models: vCore and DTU. The way you get charged varies between the purchasing models so it's important to understand the model that works best for your workload when planning and considering costs. For information about vCore and DTU purchasing models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
 
 
 ### Provisioned or serverless
 
-In the vCore purchasing model, Azure SQL Database also supports two types of compute tiers: provisioned throughput and serverless. The way you get charged for your SQL Database varies between these two tiers, so it's important to understand what works best for your workload when planning and considering costs. For details, see [vCore model overview - compute tiers](service-tiers-vcore.md#compute-tiers).
+In the vCore purchasing model, Azure SQL Database also supports two types of compute tiers: provisioned throughput and serverless. The way you get charged for each compute tier varies so it's important to understand what works best for your workload when planning and considering costs. For details, see [vCore model overview - compute tiers](service-tiers-vcore.md#compute-tiers).
+
+### Elastic pools
+
+For environments with multiple databases that have varying and unpredictable usage demands, elastic pools can provide cost savings compared to provisioning the same amount of single databases. For details, see [Elastic pools](elastic-pool-overview.md).
 
 ## Estimate Azure SQL Database costs
 
@@ -45,6 +52,11 @@ In the vCore purchasing model, Azure SQL Database also supports two types of com
 <!--Note to Azure service writer: Replace the following example image with one specific to your service. -->
 
 :::image type="content" source="media/cost-management/pricing-calc.png" alt-text="Azure SQL Database pricing calculator example":::
+
+You can also estimate storage costs and how different Retention Policy options affect cost:
+
+:::image type="content" source="media/cost-management/backup-storage.png" alt-text="Azure SQL Database pricing calculator example for storage":::
+
 
 ## Understand the full billing model for Azure SQL Database
 
@@ -63,14 +75,7 @@ When you create resources for Azure SQL Database, resources for other Azure serv
 - <OtherAzureService1>
 - <OtherAzureService2>
  
-### Costs might accrue after resource deletion
 
-<!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
-
-After you delete Azure SQL Database resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
-
-- <OtherServiceResource1>
-- <OtherServiceResource2>
 
 ### Using Monetary Credit with Azure SQL Database
 
@@ -87,52 +92,32 @@ If your service doesn't show costs as they create a resource or if estimated cos
 For example, you might start with the following (modify for your service):
 -->
 
-As you create resources for Azure SQL Database, you see estimated costs.
+As you start using Azure SQL Database, you can see the estimated costs in the portal. Use the following steps to review the cost estimate:
 
-To create a <ResourceName> and view the estimated price:
+1. Sign into the Azure portal and navigate to your Azure SQL database's resource group. You can locate teh resource group by navigating to your database and select **Resource group** in the **Overview** section.
+1. In the menu, select **Cost analysis**.
+1. View **Accumulated costs** and set the chart at the bottom to **Service name**. This chart shows an estimate of your current SQL Database costs. For more and information about the different cost analysis settings, see [Start analyzing costs](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
 
-1. Navigate to the service in the Azure portal.
-2. Create the resource.
-3. Review the estimated price shown in the summary.
-4. Finish creating the resource.
+You can see the costs as shown in the following screenshot:
 
-<!-- Note to Azure service writer: Replace the following example image with one specific to your service. Ensure that you do not show UNIT pricing. Total pricing is okay to show. If you show total pricing, don't show the number of units. -->
 
-![Example showing estimated costs while creating a resource](../../media/contribute-how-to-write-cost-management-conceptual-article/create-resource.png)
+:::image type="content" source="media/cost-management/cost-analysis.png" alt-text="Example showing accumulated costs in the Azure portal":::
 
-<!--Note to Azure service writer: Add a paragraph like: -->
+
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit).
 
 ## Monitor costs
 
-<!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
+As you start using Azure SQL Database, you can see the estimated costs in the portal. Use the following steps to review the cost estimate:
 
-As you use Azure resources with Azure SQL Database, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as Azure SQL Database use starts, costs are incurred and you can see the costs in [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+1. Sign into the Azure portal and navigate to your Azure SQL database's resource group. You can locate teh resource group by navigating to your database and select **Resource group** in the **Overview** section.
+1. In the menu, select **Cost analysis**.
+1. View **Accumulated costs** and set the chart at the bottom to **Service name**. This chart shows an estimate of your current SQL Database costs. To narrow costs for the entire page to Azure SQL Database, select **Add filter** and then, select **Azure SQL Database**.
 
-When you use cost analysis, you view Azure SQL Database costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+:::image type="content" source="media/cost-management/cost-analysis.png" alt-text="Example showing accumulated costs in the Azure portal":::
 
-To view Azure SQL Database costs in cost analysis:
-
-1. Sign in to the Azure portal.
-2. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
-3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure SQL Database.
-
-Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
-
-![Example showing accumulated costs for a subscription](../../media/contribute-how-to-write-cost-management-conceptual-article/all-costs.png)
-
-<!-- Note to Azure service writer: This example shows costs for an example Azure subscription. You can see service costs for App Service, Storage, Backup, Virtual Networks, and Advanced Threat Protection. Replace this example image with one that shows costs for your service. Your screenshot should look like the one above. -->
-
-- To narrow costs for a single service, like Azure SQL Database, select **Add filter** and then select **Service name**. Then, select **Azure SQL Database**.
-
-Here's an example showing costs for just Azure SQL Database.
-
-![Example showing accumulated costs for ServiceName](../../media/contribute-how-to-write-cost-management-conceptual-article/service-specific-cost.png)
-
-<!-- Note to Azure service writer: The image shows an example for Azure Storage. Replace the example image with one that shows costs for your service. -->
-
-In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure SQL Database costs by resource group are also shown. From here, you can explore costs on your own.
+In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure SQL Database costs by resource group are also shown. From here, you can explore costs on your own. For more and information about the different cost analysis settings, see [Start analyzing costs](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Create budgets
 
@@ -149,8 +134,7 @@ You can also [export your cost data](https://docs.microsoft.com/azure/cost-manag
 
 ## Other ways to manage and reduce costs for Azure SQL Database
 
-
-Azure SQL Database also enables you to scale-down resources when they are not needed to lower costs. For details, see [Dynamically scale database resources](scale-resources.md).
+Azure SQL Database also enables you to scale resources up or down to control costs based on your application needs. For details, see [Dynamically scale database resources](scale-resources.md).
 
 ## Next steps
 
