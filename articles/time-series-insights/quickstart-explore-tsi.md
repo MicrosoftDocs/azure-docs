@@ -35,25 +35,25 @@ The Azure Time Series Insights Gen2 Explorer demonstrates historical data and ro
 
 1. Select **Contoso WindFarm Hierarchy**.
 
-   [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/quick-start-contoso1.png)](media/quickstart-explore-tsi/quick-start-contoso1.png#lightbox)
+   [![Contoso WindFarm Hierarchy](media/quickstart-explore-tsi/quick-start-contoso1.png)](media/quickstart-explore-tsi/quick-start-contoso1.png#lightbox)
 
 1. In **Contoso Plant 1**, look at wind turbine **W7**.
 
-      [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/quick-start-contoso2.png)](media/quickstart-explore-tsi/quick-start-contoso2.png#lightbox)
+   [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/quick-start-contoso2.png)](media/quickstart-explore-tsi/quick-start-contoso2.png#lightbox)
 
    1. Change the view range to **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
 
-      [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/range-setting1.png)](media/quickstart-explore-tsi/range-setting1.png#lightbox)
+      [![Range view](media/quickstart-explore-tsi/range-setting1.png)](media/quickstart-explore-tsi/range-setting1.png#lightbox)
 
-      [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/range-setting2.png)](media/quickstart-explore-tsi/range-setting2.png#lightbox)
+      [![Range view setting](media/quickstart-explore-tsi/range-setting2.png)](media/quickstart-explore-tsi/range-setting2.png#lightbox)
 
    1. Adjust the range view using the zoom in **(+)** and out **(-)** and moving the slide bar.
 
-         [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/view-range-setting.png)](media/quickstart-explore-tsi/view-range-setting.png#lightbox)
+      [![Adjust range view](media/quickstart-explore-tsi/view-range-setting.png)](media/quickstart-explore-tsi/view-range-setting.png#lightbox)
 
    1. To select a sensor, select **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Then, review the values that are shown.
 
-      [![W7 in Contoso Plant 1](media/quickstart-explore-tsi/quick-start-generator-speed1.png)](media/quickstart-explore-tsi/quick-start-generator-speed1.png#lightbox)
+      [![Generator speed](media/quickstart-explore-tsi/quick-start-generator-speed1.png)](media/quickstart-explore-tsi/quick-start-generator-speed1.png#lightbox)
 
 1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Azure Time Series Insights Gen2, the fire alert sensor that was activated during the fire is displayed.
 
