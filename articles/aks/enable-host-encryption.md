@@ -42,16 +42,12 @@ az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncr
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the `Microsoft.ContainerService` and `Microsoft.Compute` resource providers using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
 az provider register --namespace Microsoft.ContainerService
 ```
 
