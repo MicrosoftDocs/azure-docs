@@ -56,18 +56,16 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 ## Prerequisites
 
 - The supported versions of Windows are:
-  + Windows 7 Service Pack 1
   + Windows 8.1
   + Windows 10
-  + Windows Server 2008 R2 SP1
   + Windows Server 2012
   + Windows Server 2012 R2
   + Windows Server 2016
   + Windows Server 2019
    
-   Installation of the self-hosted integration runtime on a domain controller isn't supported.
-- .NET Framework 4.6.1 or later is required. If you're installing the self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
-- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space.
+Installation of the self-hosted integration runtime on a domain controller isn't supported.
+- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
