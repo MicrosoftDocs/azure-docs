@@ -15,7 +15,7 @@ Part of the ARO cluster lifecycle involves performing periodic upgrades to the l
 
 ## Before you begin
 
-This article requires that you're running the Azure CLI version 2.0.65 of later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+This article requires that you're running the Azure CLI version 2.0.65 of later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 This article assumes you have access to an existing Azure Red Hat OpenShift cluster as a user with `admin` privileges.
 
