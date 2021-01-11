@@ -51,16 +51,6 @@ These bridged platforms help SOC Administrators, IT teams, and analysts:
 
 - Correlate Defender for IoT threat detection with Sentinel threat monitoring and incident management workflows.
 
-### Getting more Defender for IoT information
-
-- For white papers, webinars, videos, more product information, and industrial security news, go to [CyberX.io](https://cyberx-labs.com/).
-
-- For technical support visit [https://cyberx-labs.zendesk.com](https://cyberx-labs.zendesk.com/)
-
-- For extra troubleshooting information, contact <support@cyberx-labs.com>.
-
-- To access the Defender for IoT user guide from the Console, select :::image type="content" source="media/integration-sentinel-syslog/person-icon.png" alt-text="The icon used to select the user guide."::: and select **Download User Guide**.
-
 ## System Requirements and Architecture
 
 - Defender for IoT version 2.8 or above

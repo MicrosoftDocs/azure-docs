@@ -49,12 +49,6 @@ The application allows Splunk administrators to analyze OT alerts that Defender 
 
 - The source and destination of the communication.
 
-## Getting more information
-
-- For support and troubleshooting information, contact <support@cyberx-labs.com>
-
-- For information on an add-on in a distributed Splunk Enterprise deployment, go to <https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall>
-
 ## Requirements
 
 ### Version requirements

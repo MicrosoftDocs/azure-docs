@@ -51,13 +51,6 @@ The Forescout integration helps reduce the time required for industrial and crit
 - Forescout version 8.0 or above
 - A license for the *Forescout eyeExtend* module for the Azure Defender for IoT Platform.
 
-### Getting more Defender for IoT information
-
-- For white papers, webinars, videos, extra product information, and industrial security news, go to [CyberX.io](https://cyberx-labs.com/).
-- For technical support visit [https://cyberx-labs.zendesk.com](https://cyberx-labs.zendesk.com/)
-- For more troubleshooting information, contact <support@cyberx-labs.com>.
-- To access the Defender for IoT user guide from the console, select :::image type="content" source="media/integration-forescout/person-icon.png" alt-text="icon"::: and select **Download User Guide**.
-
 ### Getting more Forescout information
 
 For more information about the Forescout platform, see the [Forescout Resource Center](https://www.forescout.com/company/resources/#resource_filter_group).

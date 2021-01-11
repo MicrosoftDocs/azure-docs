@@ -17,8 +17,6 @@ This integration focuses on the ability of Defender for IoT to detect, discover,
 
 Defender for IoT automatically updates the ClearPass Policy Manager Endpoint Database with endpoint classification data and several custom security attributes.
 
-:::image type="content" source="media/integration-clearpass/compare.png" alt-text="Screenshot of Defender for IoT platform.":::
-
 The integration allows the following:
 
 - Viewing ICS and SCADA security threats identified by Defender for IoT security engines.
