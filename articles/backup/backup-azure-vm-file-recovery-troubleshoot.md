@@ -13,29 +13,29 @@ This article provides troubleshooting steps that can help you resolve problems r
 
 This section provides steps to troubleshoot error messages that you might see.
 
-### Exception caught while connecting to target
+### "Exception caught while connecting to target"
 
 **Possible cause**: The script is unable to access the recovery point.
 
 **Recommended action**: Make sure the VM fulfills the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
 
-### The target has already been logged in via an iSCSI session
+### "The target has already been logged in via an iSCSI session"
 
-**Possible cause**: The script was already executed on the same machine and the drives have been attached.
+**Possible cause**: The script was already run on the same machine and the drives have been attached.
 
-**Recommended action**: The volumes of the recovery point have already been attached. They can't be mounted with the same drive letters of the original VM. Browse through the available volumes in the file explorer.
+**Recommended action**: The volumes of the recovery point have already been attached. They can't be mounted with the same drive letters of the original VM. Browse through the available volumes in File Explorer.
 
-### This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal
+### "This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal"
 
 **Possible cause**: The disks have been dismounted from the portal or the 12-hour time limit was exceeded.
 
-**Recommended action**: 12 hours after you download the script, it becomes invalid and can't be executed. Go to the portal, and then download a new script to continue with file recovery.
+**Recommended action**: 12 hours after you download the script, it becomes invalid and can't be run. Go to the portal, and then download a new script to continue with file recovery.
 
 ## Common problems
 
 This section provides steps to troubleshoot common issues you might experience while downloading and executing the script for file recovery.
 
-### Can't download the script
+### You can't download the script
 
 1. Ensure you have the [required permissions to download the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
@@ -48,7 +48,7 @@ This section provides steps to troubleshoot common issues you might experience w
 
 ### The script downloads successfully, but fails to run in SLES 12 SP4
 
-When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enterprise Server 12 SP4, it fails with the error **iscsi_tcp module can’t be loaded** or **iscsi_tcp_module not found**.
+When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enterprise Server 12 SP4, it fails with the error "iscsi_tcp module can’t be loaded" or "iscsi_tcp_module not found".
 
 **Possible cause**: The ILR module uses **iscsi_tcp** to establish a TCP connection to the backup service. As part of the SLES 12 SP4 release, SUSE removed **iscsi_tcp** from the open-iscsi package, so the ILR operation fails.
 
@@ -56,7 +56,7 @@ When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enter
 
 ### The script runs but the connection to the iSCSI target failed
 
-You might see an **Exception caught while connecting to target** error message.
+You might see an "Exception caught while connecting to target" error message.
 
 1. Ensure the machine where the script is run meets the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
 1. Verify the connection to the Azure target IPs. Run one of the following commands from an elevated command prompt:
@@ -70,7 +70,7 @@ You might see an **Exception caught while connecting to target** error message.
 1. Check for a firewall or NSG blocking traffic to Azure target IPs or recovery service URLs.
 1. Make sure your antivirus software isn't blocking the execution of the script.
 
-### Connected to the recovery point, but the disks weren't attached (Windows)
+### You're connected to the recovery point, but the disks weren't attached (Windows)
 
 On Windows Server 2012 R2 and Windows Server 2016 (with storage pools), when running the script for the first time, the storage pool might be attached to the VM in read-only.
 
@@ -81,43 +81,43 @@ To resolve this issue, manually assign read-write access to the storage pool and
 
 1. Go to **Server Manager** > **File and Storage Services** > **Volumes** > **Storage Pools**.
 
-   ![Screenshot showing Storage Pools options](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
+   ![Screenshot showing Storage Pools options.](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
 
 1. In the **Storage Pool** window, right-click the available storage pool and select **Set Read-Write Access**.
 
-   ![Screenshot showing right-click options for a storage spool](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
+   ![Screenshot showing right-click options for a storage spool.](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
 
 1. After the storage pool is assigned read-write access, right-click in the **Virtual Disks** section, and then select **Attach Virtual Disk**.
 
-   ![Screenshot showing right-click options for a virtual disk](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
+   ![Screenshot showing right-click options for a virtual disk.](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
 
 ### File recovery fails to auto-mount because the disk doesn't contain volumes (Linux)
 
-While performing file recovery, the backup service detects volumes and auto-mounts. However, if the backed up disks have raw partitions, those disks aren't auto-mounted and you can't see the data disk for recovery.
+While performing file recovery, the backup service detects volumes and auto-mounts. However, if the backed-up disks have raw partitions, those disks aren't auto-mounted and you can't see the data disk for recovery.
 
 To resolve this issue, go to [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-### Linux file recovery fails because the OS couldn't identify the filesystem
+### Linux file recovery fails because the OS couldn't identify the file system
 
-When you run the file recovery script, the data disk fails to attach. You see a **The following partitions failed to mount since the OS couldn't identify the filesystem** error.
+When you run the file recovery script, the data disk fails to attach. You see a "The following partitions failed to mount since the OS couldn't identify the filesystem" error.
 
 To resolve this issue, check if the volume is encrypted with a third-party application. If it's encrypted, the disk or VM won't show up as encrypted on the portal.
 
-1. Sign in to the backed up VM and run this command:
+1. Sign in to the backed-up VM and run this command:
 
    `*lsblk -f*`
 
-   ![Screenshot showing the results of the `*lsblk -f*` command](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
+   ![Screenshot showing the results of the `*lsblk -f*` command.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Verify the filesystem and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Verify the file system and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
 
 ### Disks are attached, but the volumes aren't mounted (Windows)
 
-When you run the file recovery script for Windows, you see a ***0 recovery volumes attached*** message. However, the disks are discovered in the disk management console.
+When you run the file recovery script for Windows, you see a "0 recovery volumes attached" message. However, the disks are discovered in the disk management console.
 
 **Possible cause**: When you attached volumes through iSCSI, some volumes that were detected went offline. When the iSCSI channel communicates between the VM and the service, it detects these volumes and brings them online, but they aren't mounted.
 
-   ![Screenshot showing the 0 recovery volumes attached](./media/backup-azure-restore-files-from-vm/disk-not-attached-6.png)
+   ![Screenshot showing the 0 recovery volumes attached.](./media/backup-azure-restore-files-from-vm/disk-not-attached-6.png)
 
 To identify and resolve this issue, perform the following steps:
 
@@ -127,15 +127,15 @@ To identify and resolve this issue, perform the following steps:
 1. In the **cmd** window, run **diskmgmt** to open **Disk Management**.
 1. Look for any additional disks. In the following example, **Disk 2** is an additional disk.
 
-   ![Screenshot of Disk Management window with additional disk](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
+   ![Screenshot of Disk Management window with additional disk.](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
 
 1. Right-click **New Volume**, and then select **Change Drive Letter and Paths**.
 
-   ![Screenshot showing the right-click options on the additional disk](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
+   ![Screenshot showing the right-click options on the additional disk.](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
 
 1. In the **Change Drive Letter or Path** window, select **Assign the following drive letter**, assign an available drive, and then select **OK**.
 
-   ![Screenshot of the Change Drive Letter or Path window](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
+   ![Screenshot of the Change Drive Letter or Path window.](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
 
 1. Open File Explorer to view the drive you chose and explore the files.
 
@@ -143,12 +143,12 @@ To identify and resolve this issue, perform the following steps:
 
 If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-### Can't copy the files from mounted volumes
+### You can't copy the files from mounted volumes
 
-The copy might fail with the error **0x80070780: The file cannot be accessed by the system.** 
+The copy might fail with the error "0x80070780: The file cannot be accessed by the system". 
 
 Check if the source server has disk deduplication enabled. If it does, ensure the restore server also has deduplication enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
 
 ## Next steps
 
-- [Recover files and folders from Azure virtual machine backup](backup-azure-restore-files-from-vm.md).
+- [Recover files and folders from Azure virtual machine backup](backup-azure-restore-files-from-vm.md)
