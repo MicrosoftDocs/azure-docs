@@ -264,7 +264,7 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> ["Ms-python >=2020.5.78807 version is not supported on this extention"](#issues-changed) has been resolved. The latest ms-python version can be used for now.
+> ["Ms-python >=2020.5.78807 version is not supported on this extension"](#issues-changed) has been resolved. Please update the **ms-python** to the **latest version** now.
 
 ## Submit PySpark batch job
 
@@ -487,7 +487,7 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ## Issues Changed
 
-For this issue "ms-python >=2020.5.78807 version is not supported on this extention" has been resolved, the **latest ms-python version** can be used for now.
+For this issue "ms-python >=2020.5.78807 version is not supported on this extension" has been resolved, please update the **ms-python** to the **latest version** now.
 
 
 ## Next steps

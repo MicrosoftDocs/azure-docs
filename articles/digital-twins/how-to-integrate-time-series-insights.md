@@ -95,51 +95,7 @@ For more information about using Event Hubs with Azure functions, see [*Azure Ev
 
 Inside your published function app, replace the function code with the following code.
 
-```C#
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
-using System.Text;
-using System.Collections.Generic;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoTSI
-    { 
-        [FunctionName("ProcessDTUpdatetoTSI")]
-        public static async Task Run(
-            [EventHubTrigger("twins-event-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
-            [EventHub("tsi-event-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
-            ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
-            log.LogInformation("Reading event:" + message.ToString());
-
-            // Read values that are replaced or added
-            Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
-            foreach (var operation in message["patch"]) {
-                if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
-                {
-                    //Convert from JSON patch path to a flattened property for TSI
-                    //Example input: /Front/Temperature
-                    //        output: Front.Temperature
-                    string path = operation["path"].ToString().Substring(1);                    
-                    path = path.Replace("/", ".");                    
-                    tsiUpdate.Add(path, operation["value"]);
-                }
-            }
-            //Send an update if updates exist
-            if (tsiUpdate.Count>0){
-                tsiUpdate.Add("$dtId", myEventHubMessage.Properties["cloudEvents:subject"]);
-                await outputEvents.AddAsync(JsonConvert.SerializeObject(tsiUpdate));
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
 From here, the function will then send the JSON objects it creates to a second event hub, which you will connect to Time Series Insights.
 
@@ -203,14 +159,14 @@ Next, you'll need to set environment variables in your function app from earlier
 Next, you will set up a Time Series Insights instance to receive the data from your second event hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
 1. In the Azure portal, begin creating a Time Series Insights resource. 
-    1. Select the **PAYG(Preview)** pricing tier.
+    1. Select the **Gen2(L1)** pricing tier.
     2. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
 2. Select **Next: Event Source** and select your Event Hubs information from above. You will also need to create a new Event Hubs consumer group.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
 ## Begin sending IoT data to Azure Digital Twins
 

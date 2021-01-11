@@ -21,6 +21,8 @@ Learn what's new with QnA Maker.
 ### November 2020
 
 * New version of QnA Maker launched in free Public Preview. Read more [here](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
 * Simplified resource creation
 * End to End region support
 * Deep learnt ranking model

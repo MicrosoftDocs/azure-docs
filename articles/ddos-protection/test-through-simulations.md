@@ -38,9 +38,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
     |---------      |---------                                          |
     |Target IP address           | Enter one of your public IP address you want to test.                     |
     |Port Number   | Enter _443_.                       |
-    |DDoS Profile | Select **TCP SYN Flood**.|
-    |Test Size       | Select **200K pps, 100 Mbps and 8 source IPs.**                                  |
-    |Test Duration | Select **10 Minutes**.|
+    |DDoS Profile | Possible values include **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B Flood**, **UDP Fragmentation** **UDP Memcached**.|
+    |Test Size       | Possible values include **100K pps, 50 Mbps and 4 source IPs**, **200K pps, 100 Mbps and 8 source IPs**, **400K pps, 200Mbps and 16 source IPs**, **800K pps, 400 Mbps and 32 source IPs**.                                  |
+    |Test Duration | Possible values include **10 Minutes**, **15 Minutes**, **20 Minutes**, **25 Minutes**, **30 Minutes**.|
 
 It should now appear like this:
 
