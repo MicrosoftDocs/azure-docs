@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Expose applications to the Internet using Application Gateway and Azure Firewall
 
-This document explains how to expose applications to the Internet using Application Gateway and Azure Firewall. When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance can only be accessible in private network. To make the applications accessible on Internet, you need to integrate with **Azure Application Gateway**, and optionally, with **Azure Firewall**.
+This document explains how to expose applications to the Internet using Application Gateway and Azure Firewall. When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with **Azure Application Gateway** and, optionally, with **Azure Firewall**.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-## Create applicaiton gateway
+## Create application gateway
 
 Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Then update the HTTP setting using `az network application-gateway http-settings update` to use host name from backend pool.
 
