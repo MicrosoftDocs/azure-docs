@@ -47,25 +47,17 @@ The family of the host OS must always match the family of the guest OS used insi
 
 IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device.
 
-<br>
-<center>
-
-![Host OS matches guest OS](./media/support/edge-on-device.png)
-</center>
-
 ### Tier 1
 
 The systems listed in the following tables are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
 
-Azure IoT Edge supports modules built as either Linux or Windows containers. Linux containers can be deployed to Linux devices or deployed to Windows devices using IoT Edge for Linux on Windows. Windows containers can only be deployed to Windows devices. You can deploy either Linux containers or Windows containers to a Windows device, but not both.
+Azure IoT Edge supports modules built as either Linux or Windows containers. Linux containers can be deployed to Linux devices or deployed to Windows devices using IoT Edge for Linux on Windows. Windows containers can only be deployed to Windows devices.
 
 #### Linux containers
 
 Modules built as Linux containers can be deployed to either Linux or Windows devices. For Linux devices, the IoT Edge runtime is installed directly on the host device. For Windows devices, a Linux virtual machine prebuilt with the IoT Edge runtime runs on the host device.
 
 IoT Edge for Linux on Windows is currently in public preview, but is the recommended way to run IoT Edge on Windows devices.
-
-<!-- TODO: Link to eflow -->
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
