@@ -23,7 +23,7 @@ Customer usage attribution supports three deployment options:
 There are secondary use cases for customer usage attribution outside of the commercial marketplace described [later in this article](#other-use-cases).
 
 >[!IMPORTANT]
->- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure Marketplace.
+>- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure.
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
 >- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
 
