@@ -36,7 +36,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 **Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgent BootLoader, and check that IsRegistered is 1.
 
-1. To create a new registration token, follow steps 1-5 in [Generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm).
+1. To create a new registration token, follow the steps in the **Generate a new registration key for the VM** section under [Re-register your VM and reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader).
 2. Open the Registry Editor (in the Start menu, type *regedit*). 
 3. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent. 
 4. Double-click *IsRegistered*. 
@@ -167,7 +167,7 @@ Run *qwinsta* in your command prompt and make note of the version number that ap
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Under *ClusterSettings*, find *SessionDirectoryListener* and make sure its data value is *rdp-sxs...*.
-9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you'll need to [reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-bootloader). This will reinstall the side-by-side stack.
+9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you'll need to follow the steps in the **Reinstall the agent and boot loader** section under [Re-register your VM and reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
 
 ## Error: Users keep getting disconnected from session hosts
 
@@ -209,12 +209,13 @@ If the status listed for the session host(s) in your host pool always says **Una
 1. Open a command prompt as an administrator.
 2. Enter **net stop RDAgentBootLoader**. 
 3. Go to **Control Panel** > **Programs** > **Programs and Features**.
-4. Uninstall the **Remote Desktop Services SxS Network Stack**.
-5. Go to **C:\Program Files** > **Microsoft RDInfra**.
-6. Double click on and install the **SxSStack** component.
-7. Go back to the command prompt and run the **qwinsta** command.
-8. Verify that the stack component installed in step 6 says *Listen* next to it.
-   - If so, enter **net stop RDAgentBootLoader** in the command prompt and restart your VM.
+4. Uninstall the latest version of the **Remote Desktop Services SxS Network Stack** or the version listed in **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** under **ReverseConnectListener**.
+5. Open a console window as an administrator and go to **C:\Program Files** > **Microsoft RDInfra**.
+6. Double click on the **SxSStack** component or run the **msiexec /i SxsStack-<version>.msi** command to install the MSI.
+8. Restart your VM.
+9. Go back to the command prompt and run the **qwinsta** command.
+10. Verify that the stack component installed in step 6 says *Listen* next to it.
+   - If so, enter **net start RDAgentBootLoader** in the command prompt and restart your VM.
    - If not, you will need to [reinstall the agent](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader) component.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
@@ -243,7 +244,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 The name of your VM has already been registered and is probably a duplicate.
 
 **Fix:** Remove the session host from the host pool and create another one.
-1. Follow steps 1-4 to [remove the session host from the host pool](#remove-the-session-host-from-the-host-pool).
+1. Follow the steps in the **Remove the session host from the host pool** section under [Re-register your VM and reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader).
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
 3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
 4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.

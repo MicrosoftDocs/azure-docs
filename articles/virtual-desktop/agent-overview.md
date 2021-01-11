@@ -22,7 +22,7 @@ This article will give you a brief overview of the agent installation and update
 The Windows Virtual Desktop agent is initially installed in one of two ways. If you provision virtual machines (VMs) in the Azure portal and Azure Marketplace, the agent and agent bootloader are automatically installed. If you provision VMs using PowerShell, you must manually download the agent and agent bootloader .msi files when [creating a Windows Virtual Desktop host pool with PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). When the agent is installed, the Windows Virtual Desktop side-by-side stack and Geneva Monitoring agent are also installed simultaneously. The side-by-side stack component is required for users to securely establish reverse server-to-client connections. The Geneva Monitoring agent monitors the health of the agent. All three of these components are essential for end-to-end user connectivity to function properly.
 
 >[!IMPORTANT]
->To successfully install the Windows Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, you must unblock all the URLs listed in the [Required URL list](safe-url-list.ms#virtual-machines). Unblocking these URLs is required to use the Windows Virtual Desktop service.
+>To successfully install the Windows Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent, you must unblock all the URLs listed in the [Required URL list](safe-url-list.md#virtual-machines). Unblocking these URLs is required to use the Windows Virtual Desktop service.
 
 ## Agent update process
 
@@ -38,5 +38,5 @@ This update installation normally lasts 2-3 minutes on a new VM and shouldn't ca
 
 Now that you have a better understanding of the Windows Virtual Desktop agent, here are some resources that might help you:
 
-- Check out the [Windows Virtual Desktop Agent updates](whats-new.md#windows-virtual-desktop-agent-updates) section to see information about what the new agent update entails.
+- Check out the [Windows Virtual Desktop Agent updates](whats-new.md) section to see information about what the new agent update entails each month.
 - If you're experiencing agent or connectivity-related issues, check out the [Windows Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
