@@ -21,7 +21,7 @@ After you create one or more key vaults, you'll likely want to monitor how and w
 To complete this tutorial, you must have the following:
 
 * An existing key vault that you have been using.  
-* The Azure CLI or Azure PowerShell.
+* Cloud Shell - Bash environment
 * Sufficient storage on Azure for your Key Vault logs.
 
 If you choose to install and use the CLI locally, you will need the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). To sign in to Azure using the CLI you can type:
