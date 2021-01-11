@@ -99,8 +99,8 @@ In the command output, note the `zoneRedundancy` property for the replica. When 
 To create a zone-redundant replication:
 
 1. Navigate to your Premium tier container registry, and select **Replications**.
-1. On the map that appears, select a green hexagon in a region that supports zone redundancy for Azure Container Registry, such as **West US 2**. Then select **Create**.
-1. In the **Create replication** window, in **Availability zones**, select **Enabled**, and then select **Create**.
+1. On the map that appears, select a green hexagon in a region that supports zone redundancy for Azure Container Registry, such as **West US 2**. Or select **+ Add**.
+1. In the **Create replication** window, confirm the **Location**. In **Availability zones**, select **Enabled**, and then select **Create**.
 
     :::image type="content" source="media/zone-redundancy/enable-availability-zones-replication-portal.png" alt-text="Enable zone-redundant replication in Azure portal":::
 
