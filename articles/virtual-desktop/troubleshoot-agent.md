@@ -105,13 +105,23 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, the installer is already running for another application while you're trying to install the agent, or a policy is blocking the msiexec.exe program from running.
 
-**Fix:** To make sure the installation process goes smoothly, don't enable any policies or configurations that block Windows Installer or msiexec.exe.
-To disable the blocking policies:
+**Fix:** Disable the following policies:
    - Turn off Windows Installer  
-      - Category Path: Computer Configuration\Administrative Templates\Windows Component\Windows Installer\ 
-    
+      - Category Path: Computer Configuration\Administrative Templates\Windows Components\Windows Installer\  
+   
 >[!NOTE]
 >This isn't a comprehensive list of policies, just the ones we're currently aware of.
+
+To disable a policy:
+1. Open a command prompt as an administrator.
+2. Enter and run **rsop.msc**.
+3. In the **Resultant Set of Policy** window that pops up, go to the category path.
+4. Double click on the policy.
+5. Select **Disabled**.
+6. Select **Apply**.   
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of Windows Installer policy in Resultant Set of Policy](media/gpopolicy.png)
 
 ## Error: Win32Exception
 
@@ -123,6 +133,14 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
     
 >[!NOTE]
 >This isn't a comprehensive list of policies, just the ones we're currently aware of.
+
+To disable a policy:
+1. Open a command prompt as an administrator.
+2. Enter and run **rsop.msc**.
+3. In the **Resultant Set of Policy** window that pops up, go to the category path.
+4. Double click on the policy.
+5. Select **Disabled**.
+6. Select **Apply**.   
 
 ## Error: Stack listener isn't working on Windows 10 2004 VM
 
