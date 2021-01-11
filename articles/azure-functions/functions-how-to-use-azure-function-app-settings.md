@@ -136,7 +136,7 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
 1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
 
-### Premium to Consumption
+### Premium to consumption
 
 Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
 
