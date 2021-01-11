@@ -436,10 +436,10 @@ The same principle as in Example 1 is applied, but the key element this time is 
 
 Follow these steps to modify your code:
 
-1. Determine application endpoint URL:
+1. Determine the application endpoint URL:
 
    - [Enable logging for your application](how-to-use-logging.md) and run it to log activity.
-   - In the log file, search for `SPEECH-ConnectionUrl`. In matching lines, the `value` parameter contains the full URL your application used to reach the Speech service.
+   - In the log file, search for `SPEECH-ConnectionUrl`. In matching lines, the `value` parameter contains the full URL that your application used to reach the Speech service.
 
    Example:
 
@@ -447,28 +447,28 @@ Follow these steps to modify your code:
    (114917): 41ms SPX_DBG_TRACE_VERBOSE:  property_bag_impl.cpp:138 ISpxPropertyBagImpl::LogPropertyAndValue: this=0x0000028FE4809D78; name='SPEECH-ConnectionUrl'; value='wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?traffictype=spx&language=en-US'
    ```
 
-   So the URL used by the application in this example is:
+   So the URL that the application used in this example is:
 
    ```
    wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
    ```
 
-2. Create `SpeechConfig` instance using full endpoint URL.
+2. Create a `SpeechConfig` instance by using a full endpoint URL.
 
-   1. Modify the endpoint you determined in the previous section as described in [General principle](#general-principles) above.
+   1. Modify the endpoint that you determined in the previous section, as described in the earlier [General principles](#general-principles) section.
 
-   1. Modify how you create the instance of `SpeechConfig`. Most likely your today's application is using something like this:
-   ```csharp
-   var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
-   ```
-   This will not work for private endpoint enabled speech resource because of the hostname and URL changes we described in the previous sections. If you try to run your existing application without any modifications using the Key of a private endpoint enabled resource, you will get Authentication error (401).
+   1. Modify how you create the instance of `SpeechConfig`. Most likely, your application is using something like this:
+      ```csharp
+      var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
+      ```
+   This won't work for private-endpoint-enabled speech resource because of the host name and URL changes that we described in the previous sections. If you try to run your existing application without any modifications by using the key of a private-endpoint-enabled resource, you'll get an authentication error (401).
 
-   To make it work, modify how you instantiate `SpeechConfig` class and use "from endpoint" / "with endpoint" initialization. Suppose we have the following two variables defined:
-     - `subscriptionKey` containing the key of the private endpoint enabled speech resource
-     - `endPoint` containing the full **modified** endpoint URL (using the type required by the correspondent programming language). In our example this variable should contain:
-     ```
-     wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
-     ```
+   To make it work, modify how you instantiate the `SpeechConfig` class and use "from endpoint"/"with endpoint" initialization. Suppose we have the following two variables defined:
+     - `subscriptionKey` contains the key of the private-endpoint-enabled speech resource.
+     - `endPoint` contains the full *modified* endpoint URL (using the type required by the corresponding programming language). In our example, this variable should contain:
+       ```
+       wss://my-private-link-speech.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+       ```
 
    1. Create a `SpeechConfig` instance:
       ```csharp
@@ -489,24 +489,23 @@ Follow these steps to modify your code:
     ```
 
 > [!TIP]
-> The query parameters specified in the endpoint URI are not changed, even if they are set by any other APIs. For example, if the
-> recognition language is defined in the URI as query parameter "language=en-US", and is also set to "ru-RU" via the correspondent
-> property, the language setting in the URI is used, and the effective language is "en-US". Parameters set in the endpoint URI always
-> take precidence. Only parameters that are not specified in the endpoint URI can be overridden by other APIs.
+> The query parameters specified in the endpoint URI are not changed, even if they're set by any other APIs. For example, if the recognition language is defined in the URI as query parameter `language=en-US`, and is also set to `ru-RU` via the corresponding property, the language setting in the URI is used. The effective language is then `en-US`.
+>
+> Parameters set in the endpoint URI always take precidence. Other APIs can override only parameters that are not specified in the endpoint URI.
 
-After this modification your application should work with the private enabled speech resources. We are working on more seamless support of private endpoint scenario.
+After this modification, your application should work with the private enabled speech resources. We're working on more seamless support of private endpoint scenarios.
 
 ### Use a speech resource with a custom domain name and without private endpoints
 
-In this article we have pointed out several times, that enabling custom domain for a speech resource is **irreversible** and such resource will use a different way of communicating with the Speech service comparing to the "usual" ones (that is the ones, that are using [regional endpoint names](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)).
+In this article, we've pointed out several times that enabling a custom domain for a speech resource is *irreversible*. Such a resource will use a different way of communicating with the Speech service, compared to the ones that are using [regional endpoint names](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
-This section explains how to use a speech resource with enabled custom domain name but **without** any private endpoints with the Speech service REST API and [Speech SDK](speech-sdk.md). This may be a resource that was once used in a private endpoint scenario, but then had its private endpoint(s) deleted.
+This section explains how to use a speech resource with an enabled custom domain name but *without* any private endpoints with the Speech service REST API and [Speech SDK](speech-sdk.md). This might be a resource that was once used in a private endpoint scenario, but then had its private endpoints deleted.
 
 #### DNS configuration
 
-Remember how a custom domain DNS name of the private endpoint enabled speech resource is [resolved from public networks](#resolve-dns-from-other-networks). In this case, the IP address resolved points to a VNet Proxy endpoint, which is used for dispatching the network traffic to the private endpoint enabled Cognitive Services resource.
+Remember how a custom domain DNS name of the private-endpoint-enabled speech resource is [resolved from public networks](#resolve-dns-from-other-networks). In this case, the IP address resolved points to a proxy endpoint for a virtual network. That endpoint is used for dispatching the network traffic to the private-endpoint-enabled Cognitive Services resource.
 
-However when **all** resource private endpoints are removed (or right after the enabling of the custom domain name) CNAME record of the speech resource is reprovisioned and now points to the IP address of the correspondent [Cognitive Services regional endpoint](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
+However, when *all* resource private endpoints are removed (or right after the enabling of the custom domain name), the CNAME record of the speech resource is reprovisioned. It now points to the IP address of the corresponding [Cognitive Services regional endpoint](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
 So the output of the `nslookup` command will look like this:
 ```dos
@@ -526,15 +525,15 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
 Compare it with the output from [this section](#resolve-dns-from-other-networks).
 
-#### speech resource with custom domain name without private endpoints. Usage with REST API
+#### REST API
 
 ##### Speech-to-Text REST API v3.0
 
 Speech-to-Text REST API v3.0 usage is fully equivalent to the case of [private-endpoint-enabled speech resources](#speech-to-text-rest-api-v30).
 
-##### Speech-to-Text REST API for short audio and Text-to-Speech REST API
+##### Speech-to-Text REST API for Short Audio and Text-to-Speech REST API
 
-In this case Speech-to-Text REST API for short audio and Text-to-Speech REST API usage has no differences to the general case with one exception for  Speech-to-Text REST API for short audio (see Note below). Both APIs should be used as described in [Speech-to-Text REST API for Short Audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) and [Text-to-Speech REST API](rest-text-to-speech.md) documentation.
+In this case, Speech-to-Text REST API for Short Audio and Text-to-Speech REST API usage have no differences from the general case, with one exception for Speech-to-Text REST API for Short Audio. (See the following note.) You should use both APIs as described in [Speech-to-Text REST API for Short Audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) and [Text-to-Speech REST API](rest-text-to-speech.md) documentation.
 
 > [!NOTE]
 > When you're using the Speech-to-Text REST API for Short Audio in custom domain scenarios, use an authorization token [passed through](rest-speech-to-text.md#request-headers) an `Authorization` [header](rest-speech-to-text.md#request-headers). Passing a speech subscription key to the special endpoint via the `Ocp-Apim-Subscription-Key` header will *not* work and will generate Error 401.
