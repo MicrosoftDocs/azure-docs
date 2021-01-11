@@ -4,9 +4,6 @@
   items:
   - name: About Linux Virtual Machines
     href: ./linux/overview.md
-    items:
-    - name: Endorsed distros
-      href: ./linux/endorsed-distros.md
   - name: About Windows Virtual Machines
     href: ./windows/overview.md
 - name: Quickstarts 
@@ -455,137 +452,6 @@
       href: ./linux/docker-compose-quickstart.md
   - name: Visual Studio 
     href: ./windows/using-visual-studio-vm.md
-  - name: Extensions
-    items:
-    - name: Overview
-      href: ./extensions/overview.md
-    - name: Linux 
-      items: 
-      - name: Linux features 
-        href: ./extensions/features-linux.md
-      - name: Linux VM Agent
-        href: ./extensions/agent-linux.md
-    - name: Windows
-      items:
-      - name: Windows features
-        href: ./extensions/features-windows.md
-      - name: Windows VM Agent
-        href: ./extensions/agent-windows.md
-    - name: Azure Disk Encryption
-      items:
-      - name: Linux
-        href: ./extensions/azure-disk-enc-linux.md
-      - name: Windows
-        href: ./extensions/azure-disk-enc-windows.md
-    - name: Azure Key Vault
-      items:
-      - name: Linux
-        href: ./extensions/key-vault-linux.md
-      - name: Windows
-        href: ./extensions/key-vault-windows.md
-    - name: Azure Backup for SQL Server
-      items:
-      - name: Azure Backup for SQL Server
-        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
-    - name: Custom Script
-      items:
-      - name: Linux - version 2
-        href: ./extensions/custom-script-linux.md
-      - name: Windows
-        href: ./extensions/custom-script-windows.md
-    - name: IaaS antimalware for Windows
-      href: ./extensions/iaas-antimalware-windows.md
-    - name: VM snapshot
-      items:
-      - name: Linux
-        href: ./extensions/vmsnapshot-linux.md
-      - name: Windows
-        href: ./extensions/vmsnapshot-windows.md
-    - name: Network Watcher Extension
-      items:
-      - name: Linux
-        href: ./extensions/network-watcher-linux.md
-      - name: Windows
-        href: ./extensions/network-watcher-windows.md
-      - name: Update to latest version
-        href: ./extensions/network-watcher-update.md
-    - name: InfiniBand Drivers
-      items:
-      - name: Linux
-        href: ./extensions/hpc-compute-infiniband-linux.md
-      - name: Windows
-        href: ./extensions/hpc-compute-infiniband-windows.md
-    - name: NVIDIA GPU Drivers
-      items:
-      - name: Linux
-        href: ./extensions/hpccompute-gpu-linux.md
-      - name: Windows
-        href: ./extensions/hpccompute-gpu-windows.md
-    - name: AMD GPU Drivers
-      items:
-      - name: Windows
-        href: ./extensions/hpccompute-amd-gpu-windows.md
-    - name: Azure Monitor
-      items:
-      - name: Azure Monitor agent
-        href: ../azure-monitor/platform/azure-monitor-agent-install.md
-      - name: Diagnostics extension
-        href: ../azure-monitor/platform/diagnostics-extension-overview.md
-      - name: Log Analytics
-        items:
-        - name: Linux
-          href: ./extensions/oms-linux.md
-        - name: Windows
-          href: ./extensions/oms-windows.md
-      - name: Azure Monitor for VMs
-        items:
-        - name: Linux Dependency agent
-          href: ./extensions/agent-dependency-linux.md
-        - name: Windows Dependency agent
-          href: ./extensions/agent-dependency-windows.md
-    - name: PowerShell DSC
-      href: ./extensions/dsc-overview.md
-      items:
-      - name: DSC and Linux
-        href: ./extensions/dsc-linux.md
-      - name: DSC and Windows
-        href: ./extensions/dsc-windows.md
-      - name: Handle credentials
-        href: ./extensions/dsc-credentials.md
-      - name: Use templates
-        href: ./extensions/dsc-template.md
-    - name: Virtual machine access
-      href: ./extensions/vmaccess.md
-    - name: Third-party extensions
-      items:
-      - name: Chef
-        href: ./extensions/chef.md
-      - name: Stackify Retrace
-        href: ./extensions/stackify-retrace-linux.md
-      - name: Symantec
-        href: ./extensions/symantec.md
-    - name: Deprecated extensions
-      items:
-      - name: Log collector
-        href: ./extensions/log-collector.md
-      - name: Trend Micro Deep Security
-        href: ./extensions/trend.md
-      - name: Linux - version 1 (OSTC)
-        href: ./extensions/custom-script-linuxOstc.md
-    - name: Restrict extension installation
-      items:
-      - name: Linux
-        href: ./extensions/extensions-rmpolicy-howto-cli.md
-      - name: Windows
-        href: ./extensions/extensions-rmpolicy-howto-ps.md
-    - name: Update Linux agent
-      href: ./extensions/update-linux-agent.md
-    - name: Export extensions
-      href: ./extensions/export-templates.md
-    - name: Troubleshoot
-      href: ./extensions/troubleshoot.md
-    - name: Issues with Python 3-enabled Linux systems
-      href: ./extensions/issues-using-vm-extensions-python-3.md
 - name: Instances
   items:
   - name: Sizes
@@ -725,18 +591,18 @@
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
+  - name: Dedicated hosts
+    items: 
+    - name: Overview
+      href: ./linux/dedicated-hosts.md
+    - name: CLI
+      href: ./linux/dedicated-hosts-cli.md
+    - name: Portal
+      href: dedicated-hosts-portal.md
+    - name: PowerShell
+      href: ./windows/dedicated-hosts-powershell.md    
   - name: Purchasing options
     items:
-    - name: Dedicated hosts
-      items: 
-      - name: Overview
-        href: ./linux/dedicated-hosts.md
-      - name: CLI
-        href: ./linux/dedicated-hosts-cli.md
-      - name: Portal
-        href: dedicated-hosts-portal.md
-      - name: PowerShell
-        href: ./windows/dedicated-hosts-powershell.md    
     - name: Spot VMs
       displayName: pre-empt, preempt, spot
       items:
@@ -775,6 +641,8 @@
         href: reserved-vm-instance-size-flexibility.md
   - name: Create Linux VMs
     items:
+    - name: Endorsed distros
+      href: ./linux/endorsed-distros.md
     - name: Use the CLI
       href: ./linux/create-cli-complete.md
     - name: Use an ARM template
@@ -804,6 +672,8 @@
         href: ./linux/tutorial-secure-web-server.md
       - name: Windows
         href: ./windows/tutorial-secure-web-server.md
+  - name: VM template description
+    items: ./windows/template-description.md
   - name: Connect to Linux VMs
     items:
     - name: SSH for Linux VMs
@@ -842,6 +712,137 @@
     items:
     - name: WinRM 
       href: ./windows/winrm.md
+  - name: Extensions
+    items:
+    - name: Overview
+      href: ./extensions/overview.md
+    - name: Linux 
+      items: 
+      - name: Linux features 
+        href: ./extensions/features-linux.md
+      - name: Linux VM Agent
+        href: ./extensions/agent-linux.md
+    - name: Windows
+      items:
+      - name: Windows features
+        href: ./extensions/features-windows.md
+      - name: Windows VM Agent
+        href: ./extensions/agent-windows.md
+    - name: Azure Disk Encryption
+      items:
+      - name: Linux
+        href: ./extensions/azure-disk-enc-linux.md
+      - name: Windows
+        href: ./extensions/azure-disk-enc-windows.md
+    - name: Azure Key Vault
+      items:
+      - name: Linux
+        href: ./extensions/key-vault-linux.md
+      - name: Windows
+        href: ./extensions/key-vault-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+    - name: Custom Script
+      items:
+      - name: Linux - version 2
+        href: ./extensions/custom-script-linux.md
+      - name: Windows
+        href: ./extensions/custom-script-windows.md
+    - name: IaaS antimalware for Windows
+      href: ./extensions/iaas-antimalware-windows.md
+    - name: VM snapshot
+      items:
+      - name: Linux
+        href: ./extensions/vmsnapshot-linux.md
+      - name: Windows
+        href: ./extensions/vmsnapshot-windows.md
+    - name: Network Watcher Extension
+      items:
+      - name: Linux
+        href: ./extensions/network-watcher-linux.md
+      - name: Windows
+        href: ./extensions/network-watcher-windows.md
+      - name: Update to latest version
+        href: ./extensions/network-watcher-update.md
+    - name: InfiniBand Drivers
+      items:
+      - name: Linux
+        href: ./extensions/hpc-compute-infiniband-linux.md
+      - name: Windows
+        href: ./extensions/hpc-compute-infiniband-windows.md
+    - name: NVIDIA GPU Drivers
+      items:
+      - name: Linux
+        href: ./extensions/hpccompute-gpu-linux.md
+      - name: Windows
+        href: ./extensions/hpccompute-gpu-windows.md
+    - name: AMD GPU Drivers
+      items:
+      - name: Windows
+        href: ./extensions/hpccompute-amd-gpu-windows.md
+    - name: Azure Monitor
+      items:
+      - name: Azure Monitor agent
+        href: ../azure-monitor/platform/azure-monitor-agent-install.md
+      - name: Diagnostics extension
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md
+      - name: Log Analytics
+        items:
+        - name: Linux
+          href: ./extensions/oms-linux.md
+        - name: Windows
+          href: ./extensions/oms-windows.md
+      - name: Azure Monitor for VMs
+        items:
+        - name: Linux Dependency agent
+          href: ./extensions/agent-dependency-linux.md
+        - name: Windows Dependency agent
+          href: ./extensions/agent-dependency-windows.md
+    - name: PowerShell DSC
+      href: ./extensions/dsc-overview.md
+      items:
+      - name: DSC and Linux
+        href: ./extensions/dsc-linux.md
+      - name: DSC and Windows
+        href: ./extensions/dsc-windows.md
+      - name: Handle credentials
+        href: ./extensions/dsc-credentials.md
+      - name: Use templates
+        href: ./extensions/dsc-template.md
+    - name: Virtual machine access
+      href: ./extensions/vmaccess.md
+    - name: Third-party extensions
+      items:
+      - name: Chef
+        href: ./extensions/chef.md
+      - name: Stackify Retrace
+        href: ./extensions/stackify-retrace-linux.md
+      - name: Symantec
+        href: ./extensions/symantec.md
+    - name: Deprecated extensions
+      items:
+      - name: Log collector
+        href: ./extensions/log-collector.md
+      - name: Trend Micro Deep Security
+        href: ./extensions/trend.md
+      - name: Linux - version 1 (OSTC)
+        href: ./extensions/custom-script-linuxOstc.md
+    - name: Restrict extension installation
+      items:
+      - name: Linux
+        href: ./extensions/extensions-rmpolicy-howto-cli.md
+      - name: Windows
+        href: ./extensions/extensions-rmpolicy-howto-ps.md
+    - name: Update Linux agent
+      href: ./extensions/update-linux-agent.md
+    - name: Export extensions
+      href: ./extensions/export-templates.md
+    - name: Troubleshoot
+      href: ./extensions/troubleshoot.md
+    - name: Issues with Python 3-enabled Linux systems
+      href: ./extensions/issues-using-vm-extensions-python-3.md
   - name: Migrate from classic to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -914,62 +915,80 @@
         href: ./workloads/redhat/redhat-rhui.md
 - name: Images and snapshots
   items:
-  - name: Overview
-    href: ./linux/imaging.md
   - name: Marketplace images
     items:
     - name: Find Azure Marketplace images
-      href: ./windows/cli-ps-findimage.md
-    - name: Windows client images
-      href: ./windows/client-images.md
-  - name: Linux provisioning
-    href: ./linux/provisioning.md
-  - name: Linux distribution specific requirements
+      items:
+      - name: CLI
+        href: ./linux/cli-ps-findimage.md
+      - name: PowerShell
+        href: ./windows/cli-ps-findimage.md
+      - name: Windows client images
+        href: ./windows/client-images.md
+  - name: Linux custom images
     items:
-    - name: Generic steps
-      href: ./linux/create-upload-generic.md
-    - name: CentOS
-      href: ./linux/create-upload-centos.md
-    - name: Debian
-      href: ./linux/debian-create-upload-vhd.md
-    - name: Flatcar Container Linux
-      href: ./linux/flatcar-create-upload-vhd.md
-    - name: FreeBSD
-      href: ./linux/freebsd-intro-on-azure.md
-    - name: Oracle Linux
-      href: ./linux/oracle-create-upload-vhd.md
-    - name: OpenBSD
-      href: ./linux/create-upload-openbsd.md
-    - name: Red Hat
-      href: ./linux/redhat-create-upload-vhd.md
-    - name: SUSE
-      href: ./linux/suse-create-upload-vhd.md
-    - name: Ubuntu
-      href: ./linux/create-upload-ubuntu.md
-  - name: Use cloud-init
+    - name: Overview
+      href: ./linux/imaging.md
+    - name: Linux provisioning
+      href: ./linux/provisioning.md
+    - name: Linux distribution specific requirements
+      items:
+      - name: Generic steps
+        href: ./linux/create-upload-generic.md
+      - name: CentOS
+        href: ./linux/create-upload-centos.md
+      - name: Debian
+        href: ./linux/debian-create-upload-vhd.md
+      - name: Flatcar Container Linux
+        href: ./linux/flatcar-create-upload-vhd.md
+      - name: FreeBSD
+        href: ./linux/freebsd-intro-on-azure.md
+      - name: Oracle Linux
+        href: ./linux/oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: ./linux/create-upload-openbsd.md
+      - name: Red Hat
+        href: ./linux/redhat-create-upload-vhd.md
+      - name: SUSE
+        href: ./linux/suse-create-upload-vhd.md
+      - name: Ubuntu
+        href: ./linux/create-upload-ubuntu.md
+    - name: Use cloud-init
+      items:
+      - name: Cloud-init overview
+        href: ./linux/using-cloud-init.md
+      - name: Deep dive
+        href: ./linux/cloud-init-deep-dive.md
+      - name: Troubleshooting
+        href: ./linux/cloud-init-troubleshooting.md
+      - name: Configure VM hostname
+        href: ./linux/cloudinit-update-vm-hostname.md
+      - name: Update packages in a VM
+        href: ./linux/cloudinit-update-vm.md
+      - name: Add a user on a VM
+        href: ./linux/cloudinit-add-user.md
+      - name: Configure swapfile
+        href: ./linux/cloudinit-configure-swapfile.md
+      - name: Run existing bash script
+        href: ./linux/cloudinit-bash-script.md
+      - name: Prepare existing VM for cloud-init
+        href: ./linux/cloudinit-prepare-custom-image.md
+    - name: Create Linux images without a provisioning agent
+      href: ./linux/no-agent.md
+    - name: Disable Linux Agent provisioning
+      href: ./linux/disable-provisioning.md
+    - name: Capture VM to managed image
+      href: ./linux/capture-image.md
+  - name: Windows custom images
     items:
-    - name: Cloud-init overview
-      href: ./linux/using-cloud-init.md
-    - name: Deep dive
-      href: ./linux/cloud-init-deep-dive.md
-    - name: Troubleshooting
-      href: ./linux/cloud-init-troubleshooting.md
-    - name: Configure VM hostname
-      href: ./linux/cloudinit-update-vm-hostname.md
-    - name: Update packages in a VM
-      href: ./linux/cloudinit-update-vm.md
-    - name: Add a user on a VM
-      href: ./linux/cloudinit-add-user.md
-    - name: Configure swapfile
-      href: ./linux/cloudinit-configure-swapfile.md
-    - name: Run existing bash script
-      href: ./linux/cloudinit-bash-script.md
-    - name: Prepare existing VM for cloud-init
-      href: ./linux/cloudinit-prepare-custom-image.md
-  - name: Create Linux images without a provisioning agent
-    href: ./linux/no-agent.md
-  - name: Disable Linux Agent provisioning
-    href: ./linux/disable-provisioning.md
+    - name: Prepare a VHD to Upload
+      href: ./windows/prepare-for-upload-vhd-image.md
+    - name: Upload a VHD and create a managed image
+      href: ./windows/upload-generalized-managed.md
+    - name: Capture a managed image
+      href: ./windows/capture-image-resource.md
+    - name: Create a VM from a managed image
+      href: ./windows/create-vm-generalized-managed.md
   - name: Shared Image Galleries
     items:
     - name: Overview
@@ -1049,16 +1068,20 @@
     - name: Using customer-managed keys
       displayName: SSE, CMK, encrypt
       href: image-version-encryption.md
+    - name: Managed disk from image version
+      href: managed-disk-from-image-version.md  
   - name: Image builder (preview)
     items:
     - name: Overview
       href: image-builder-overview.md
-    - name: Use Azure CLI
+    - name: CLI
       items:
       - name: Linux
-      href: ./linux/image-builder.md
+        href: ./linux/image-builder.md
       - name: Windows
-      href: ./windows/image-builder.md
+        href: ./windows/image-builder.md
+    - name: PowerShell
+      href: ./windows/image-builder-powershell.md
     - name: Use a VNET
       items:
       - name: CLI
@@ -1079,7 +1102,11 @@
       displayName: json
       href: ./linux/image-builder-json.md
     - name: Build for image galleries
-      href: ./linux/image-builder-gallery.md
+      items: 
+      - name: Linux
+        href: ./linux/image-builder-gallery.md
+      - name: Windows
+        href: ./windows/image-builder-gallery.md
     - name: Update an existing image
       items:
       - name: Linux
@@ -1090,22 +1117,8 @@
       href: ./linux/image-builder-user-assigned-identity.md
     - name: Troubleshoot
       href: ./linux/image-builder-troubleshoot.md
-  - name: Find and use images
-    href: ./linux/cli-ps-findimage.md
   - name: Purchase plan information
     href: marketplace-images.md
-  - name: Managed images (legacy)
-    items:
-    - name: Capture VM to managed image
-      items:
-      - name: Linux
-        href: ./linux/capture-image.md
-      - name: Windows
-        href: ./windows/capture-image-resource.md
-    - name: Create a VM from a managed image
-      href: ./windows/create-vm-generalized-managed.md
-    - name: Upload a Windows VHD and create a managed image
-      href: ./windows/upload-generalized-managed.md
   - name: Build image with Packer
     items: 
     - name: Linux
@@ -1118,8 +1131,6 @@
       href: ./linux/download-vhd.md
     - name: Windows 
       href: ./windows/download-vhd.md
-  - name: Managed disk from image version
-    href: managed-disk-from-image-version.md
 - name: Availability and scale
   items:
   - name: Scale sets
@@ -1810,6 +1821,8 @@
       href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+- name: Troubleshoot
+  href: ./troubleshooting/index.yml
 - name: Resources
   items:
   - name: Cloud adoption framework
@@ -1854,5 +1867,3 @@
       href: ./linux/faq.md
     - name: Windows
       href: ./windows/faq.md
-- name: Troubleshoot
-  href: ./troubleshooting/index.yml
