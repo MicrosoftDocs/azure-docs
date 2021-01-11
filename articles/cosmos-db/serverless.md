@@ -11,9 +11,6 @@ ms.date: 01/08/2021
 # Azure Cosmos DB serverless (Preview)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-> [!IMPORTANT]
-> Azure Cosmos DB serverless is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Azure Cosmos DB serverless lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. Serverless containers can serve thousands of requests per second with no minimum charge and no capacity planning required.
 
 > [!IMPORTANT] 
