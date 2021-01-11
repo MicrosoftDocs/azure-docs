@@ -1573,7 +1573,7 @@ To Log in to the Horizon Console:
 
     :::image type="content" source="media/references-horizon-sdk/horizon.png" alt-text="Select the horizon option from the left side pane.":::
 
-The Horizon Console opens. This article describes Horizon Console tools.
+    The Horizon Console opens.
 
   :::image type="content" source="media/references-horizon-sdk/plugins.png" alt-text="A view of the Horizon console and all of its plugins.":::
 
