@@ -125,13 +125,13 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 1. Run the following command to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app.  
 
     ```azurecli-interactive
-    az functionapp plan create --name <EP_PLAN_NAME> --resource-group <RESOURCE_GROUP> --location <REGION> --sku EP1
+    az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <RESOURCE_GROUP> --location <REGION> --sku EP1
     ```
 
 1. Run the following CLI command to migrate from a Consumption plan to a Premium plan.
 
     ```azurecli-interactive
-    az functionapp update --name <CONSUMPTION_APP_NAME> --resource-group <RESOURCE_GROUP> --plan <EP_PLAN>
+    az functionapp update --name <CONSUMPTION_APP_NAME> --resource-group <RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
 1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
