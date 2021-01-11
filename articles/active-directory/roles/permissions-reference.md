@@ -1229,7 +1229,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 
 ### Hybrid Identity Administrator permissions
 
-Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning and authentication services. 
+Can manage AD to Azure AD cloud provisioning and federation settings. 
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -1247,8 +1247,10 @@ Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning a
 | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
-| microsoft.directory/federatedAuthentication/allProperties/allTasks | Manage all aspects of Active Directory Federated Services (ADFS) or 3rd party federation provider in Azure AD. |
+| microsoft.directory/domains/allProperties/read | Read all properties of domains. |
+| microsoft.directory/domains/federation/update | Update federation property of domains. |
 | microsoft.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
+| microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 | microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
