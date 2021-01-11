@@ -1,6 +1,6 @@
 ---
 title:  "Customer responsibilities running Azure Spring Cloud in vnet"
-description: This article describes customer repsonsibilities running Azure Spring Cloud in vnet.
+description: This article describes customer responsibilities running Azure Spring Cloud in vnet.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -14,10 +14,10 @@ This document includes specifications for use of Azure Spring Cloud in a virtual
 
 ## Rules and prohibited actions
 
-- Please *do not* modify resource groups created and owned by Azure Spring Cloud.
+- Do not modify resource groups created and owned by Azure Spring Cloud.
   - By default, these resource groups are named as *azure-spring-cloud-service-runtime_[SERVICE-INSTANCE-NAME]_[REGION]* and *azure-spring-cloud-app_[SERVICE-INSTANCE-NAME]_[REGION]*.
-- Please *do not* modify subnets used by Azure Spring Cloud.
-- Please *do not* create more than one Azure Spring Cloud service instance in the same subnet.
+- Do not modify subnets used by Azure Spring Cloud.
+- Do not create more than one Azure Spring Cloud service instance in the same subnet.
 - When using a firewall to control traffic, *do not* block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
 
 - Azure Spring Cloud required network rules

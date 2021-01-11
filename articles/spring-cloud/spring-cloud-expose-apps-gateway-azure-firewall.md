@@ -19,7 +19,7 @@ This document explains how to expose applications to the Internet using Applicat
 
 ## Define variables
 
-Define variables for the resource group and virtual network you created as directed in [Tutorial: Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.
+Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.
 
 ```
 SUBSCRIPTION='subscription-id'
