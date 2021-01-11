@@ -92,7 +92,7 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 ## Assign private FQDN for your application
 
-After following the procedure in [Build and deploy microservice applications](https://github.com/Azure/azure-spring-cloud-docs-pr/tree/vnet-injection/docs/manage-virtual-network), you can assign private FQDN for your application.
+After following the procedure in [Build and deploy microservice applications](spring-cloud-tutorial-deploy-in-azure-virtual-network.md), you can assign private FQDN for your application.
 
 1. Select the Azure Spring Cloud service instance deployed in your virtual network, and open the **Apps** tab in the menu on the left.
 
