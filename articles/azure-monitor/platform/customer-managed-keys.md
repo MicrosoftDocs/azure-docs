@@ -32,7 +32,7 @@ Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../l
 
 ## How Customer-Managed key works in Azure Monitor
 
-Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. to allow multiple workspaces to be protected with Customer-Managed key, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
+Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-Managed key protection on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
 
 After the Customer-managed key configuration, new ingested data to workspaces linked to your dedicated cluster gets encrypted with your key. You can unlink workspaces from the cluster at any time. New data then gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
 
