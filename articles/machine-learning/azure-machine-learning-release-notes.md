@@ -53,7 +53,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixing the xref warnings for documentation in azureml-core package
     + Doc string fixes for Command support feature in SDK
     + Adding command property to RunConfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
-    + Users can delete an empty experiment given the id of that experiment.
+    + Users can delete an empty experiment given the ID of that experiment.
   + **azureml-dataprep**
     + Added dataset support for Spark built with Scala 2.12. This adds to the existing 2.11 support.
   + **azureml-mlflow**
@@ -125,7 +125,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
     + Repurposed `grant_workspace_access` parameter when registering datastores. Set it to `True` to access data behind virtual network from Machine Learning Studio.
       [Learn more](./how-to-enable-studio-virtual-network.md)
-    + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
+    + Linked service API is refined. Instead of providing resource ID, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
   + **azureml-train-automl-client**
