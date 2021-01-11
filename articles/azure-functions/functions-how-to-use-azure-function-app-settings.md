@@ -146,7 +146,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp create --resource-group <RESOURCE_GROUP> --name <CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
     ```
 
-1. Run the following CLI command to migrate from a Premium plan to a Consumption plan.
+1. Run the following command to migrate the function app from a Premium plan to a Consumption plan.
 
     ```azurecli-interactive
     az functionapp update --name <PREMIUM_APP_NAME> --resource-group <RESOURCE_GROUP> --plan <CONSUMPTION_PLAN>
