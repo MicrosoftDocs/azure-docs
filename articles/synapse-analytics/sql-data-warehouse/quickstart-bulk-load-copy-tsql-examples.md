@@ -131,7 +131,7 @@ Managed Identity authentication is required when your storage account is attache
 
     ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Configure Azure AD authentication by going through the following [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
+2. Configure Azure AD authentication by going through the following [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
 
 3. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
@@ -147,9 +147,9 @@ Managed Identity authentication is required when your storage account is attache
 ## E. Service Principal Authentication
 #### Steps
 
-1. [Create an Azure Active Directory application](../../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
-2. [Get application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)
-3. [Get the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+1. [Create an Azure Active Directory application](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [Get application ID](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [Get the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
 4. [Get the V1 OAuth 2.0 token endpoint](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
 5. [Assign read, write, and execution permissions to your Azure AD application](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account
 6. You can now run the COPY statement:
