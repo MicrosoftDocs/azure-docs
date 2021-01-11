@@ -67,7 +67,7 @@ If you do not already have an Android application, follow these steps to set up 
 6. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
 7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `28`.
 
-## Integrate with Microsoft Authentication Library
+## Integrate with the Microsoft Authentication Library
 
 ### Register your application
 
