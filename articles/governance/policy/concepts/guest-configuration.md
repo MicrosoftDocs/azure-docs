@@ -233,8 +233,6 @@ Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
 Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
-Where `<version>` refers to the current version number.
-
 ### Collecting logs remotely
 
 The first step in troubleshooting Guest Configuration configurations or modules should be to use the

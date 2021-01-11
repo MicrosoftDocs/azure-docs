@@ -65,7 +65,29 @@ The following section is an overview of the failover process, and explains how t
 
 ### Setup
 
-You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as often failovers must be performed in sync with the remaining subsystem or infrastructure.
+You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
+
+1. Create the primary namespace.
+1. Create the secondary namespace. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. In the Azure portal, navigate to your primary namespace.
+1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
+1. On the **Initiate pairing** page, select an existing secondary namespace or create one, and then select **Create**. In the following example, an existing secondary namespace is selected. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Select the secondary namespace":::        
+1. Now, when you select **Geo-recovery** for the primary namespace, you should see the **Geo-DR Alias** page that looks like the following image:
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Geo-DR alias page":::    
+1. On this **Overview** page, you can do the following actions: 
+    1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
+    1. Manually failover to the secondary namespace. Select **Failover** on the toolbar. 
+    
+        > [!WARNING]
+        > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair. 
+1. On the **Geo-DR Alias** page, select **Shared access policies** to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. 
+
+Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as often failovers must be performed in sync with the remaining subsystem or infrastructure.
 
 ### Example
 
@@ -128,7 +150,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 ![3][]
 
 ## Private endpoints
-This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).
+This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).
 
 ### New pairings
 If you try to create a pairing between a primary namespace with a private endpoint and a secondary namespace without a private endpoint, the pairing will fail. The pairing will succeed only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created.  

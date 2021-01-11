@@ -38,6 +38,12 @@ You can install the client library with:
 pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
+Also install the Pillow library.
+
+```console
+pip install pillow
+```
+
 ### Create a new Python application
 
 Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE and import the following libraries.

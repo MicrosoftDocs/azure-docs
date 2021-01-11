@@ -76,7 +76,7 @@ In term of supported operating systems vs languages, the mapping is the followin
 | Swift <br> Objective-C |            |            | [MSAL for iOS and macOS](msal-overview.md) | [MSAL for iOS and macOS](msal-overview.md) |            |
 | ![Java](media/sample-v2-code/logo_java.png) Java | msal4j | msal4j | msal4j | | MSAL Android |
 | ![Python](media/sample-v2-code/logo_python.png) Python | MSAL Python | MSAL Python | MSAL Python |
-| ![Node.Js](media/sample-v2-code/logo_nodejs.png) Node.JS | Passport.node | Passport.node | Passport.node |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) Node.js | Passport.node | Passport.node | Passport.node |
 
 See also [Scenarios by supported platforms and languages](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
