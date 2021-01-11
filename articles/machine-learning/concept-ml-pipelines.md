@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/11/2020
 ms.custom: devx-track-python
 ---
 
@@ -124,7 +124,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-The snippet starts with common Azure Machine Learning objects, a `Workspace`, a `Datastore`, a [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), and an `Experiment`. Then, the code creates the objects to hold `input_data` and `output_data`. The `input_data` is an instance of [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) and the `output_data` is an instance of  [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py). For `OutputFileDatasetConfig` the default behavior is to copy the output to the `workspaceblobstore` datastore under the path `/dataset/{run-id}/{output-name}`, where `run-id` is the Run's ID and `output-name` is an auto-generated value if not specified by the developer.
+The snippet starts with common Azure Machine Learning objects, a `Workspace`, a `Datastore`, a [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), and an `Experiment`. Then, the code creates the objects to hold `input_data` and `output_data`. The `input_data` is an instance of [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) and the `output_data` is an instance of  [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). For `OutputFileDatasetConfig` the default behavior is to copy the output to the `workspaceblobstore` datastore under the path `/dataset/{run-id}/{output-name}`, where `run-id` is the Run's ID and `output-name` is an auto-generated value if not specified by the developer.
 
 The array `steps` holds a single element, a `PythonScriptStep` that will use the data objects and run on the `compute_target`. Then, the code instantiates the `Pipeline` object itself, passing in the workspace and steps array. The call to `experiment.submit(pipeline)` begins the Azure ML pipeline run. The call to `wait_for_completion()` blocks until the pipeline is finished. 
 
