@@ -94,13 +94,19 @@ For details, see [App Service plan overview](overview-hosting-plans.md)
 
 ### Non-production workloads
 
-To test App Service or your solution while accruing low or minimal cost, you can begin by using the two entry-level pricing tiers, **Free** and **Shared**. To test pre-production workloads that require higher tiers (except for **Isolated**), Visual Studio subscribers can also take advantage of the [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
+To test App Service or your solution while accruing low or minimal cost, you can begin by using the two entry-level pricing tiers, **Free** and **Shared**, which are hosted on shared instances. To test your app on dedicated instances with better performance, you can upgrade to **Basic** tier, which supports both Windows and Linux apps. 
 
-Both the **Free** and **Shared** tier, as well as the Azure Dev/Test Pricing discounts, are designed for non-production workloads, and don't carry a financially backed SLA.
+> [!NOTE]
+> **Azure Dev/Test Pricing**  To test pre-production workloads that require higher tiers (all tiers except for **Isolated**), Visual Studio subscribers can also take advantage of the [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/), which offers significant discounts.
+>
+> Both the **Free** and **Shared** tier, as well as the Azure Dev/Test Pricing discounts, don't carry a financially backed SLA.
 
 ### Production workloads
 
-Production workloads come with the recommendation of the dedicated pricing tiers, starting with **Basic** tier (which supports both Windows and Linux apps). While the price goes up for higher tiers, it also gives you more memory and storage and higher-performing hardware, giving you higher app density per compute instance. That translates to lower instance count for the same number of apps, and therefore lower cost.
+Production workloads come with the recommendation of the dedicated **Standard** pricing tier or above. While the price goes up for higher tiers, it also gives you more memory and storage and higher-performing hardware, giving you higher app density per compute instance. That translates to lower instance count for the same number of apps, and therefore lower cost. In fact, **Premium V3** (the highest non-**Isolated** tier) is the most cost effective way to serve your app at scale. To add to the savings, you can get deep discounts on [Premium V3 reservations](#azure-reservations).
+
+> [!NOTE]
+> **Premium V3** supports both Windows containers and Linux containers. 
 
 For scale-out deployments, you should use autoscaling, available in **Standard** tier and above, so you can minimize idle instances at any given time, and thus only pay for the instances you need.
 
@@ -112,9 +118,6 @@ If you plan to utilize a known minimum number of compute instances for one year 
 - **Linux specific**  Applies only to Linux instances in your subscription.
 
 The reserved instance pricing applies to the applicable instances in your subscription, up to the number of instances that you reserve. The reserved instances are a billing matter and are not tied to specific compute instances. If you run fewer instances than you reserve at any point during the reservation period, you still pay for the reserved instances. If you run more instances than you reserve at any point during the reservation period, you pay the normal accrued cost for the additional instances.
-
-> [!NOTE]
-> **Premium V3** supports both Windows containers and Linux containers. 
 
 The **Isolated** tier (App Service environment) also supports 1-year and 3-year reservations at reduced pricing. For more information, see [How reservation discounts apply to Azure App Service Isolated Stamps](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
 
