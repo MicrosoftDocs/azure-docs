@@ -28,12 +28,12 @@ The following are the common URI parameters for all watchlist API commands:
 
 | Name | In | Required | Type | Description |
 |-|-|-|-|-|
-| **{endpoint}** | path | yes | string | the Resource Provider (RP) environment<br>**(need a different example)**
+| **{endpoint}** | path | yes | string | the Resource Provider (RP) environment<br>**(wouldn't this be a constant in this context - management.azure.com?)**
 | **{subscriptionId}** | path | yes | GUID | the Azure subscription ID |
 | **{resourceGroupName}** | path | yes | string | the name of the resource group within the subscription |
 | **{workspaceName}** | path | yes | string | the name of the Log Analytics workspace |
-| **{watchlistAlias}** | path | yes* | string | the name of a given watchlist |
-| **{watchlistItemId}** | path | yes** | GUID | the ID of the item to create in or add to the watchlist |
+| **{watchlistAlias}** | path | yes* | string | the name of a given watchlist<br>\* Not required when retrieving all watchlists |
+| **{watchlistItemId}** | path | yes** | GUID | the ID of the item to create in, add to, or delete from the watchlist<br>\*\* Required only for watchlist item commands |
 | **{api-version}** | query | yes | string | the version of the protocol used to make this request. As of 10/29/2020, the Watchlist API version is *2019-01-01-preview* |
 | **{bearerToken}** | authorization | yes | token | the bearer authorization token |
 |  
