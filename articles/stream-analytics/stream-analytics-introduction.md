@@ -1,9 +1,8 @@
 ---
 title: Introduction to Azure Stream Analytics
 description: Learn about Azure Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real time.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q2

@@ -117,9 +117,9 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | --- | --- | --- | --- | --- | --- |
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) | 180 days |10 minutes |180 days<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) | Until-revoked |10 minutes |180 days<sup>1</sup> |
 | Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) | 180 days |10 minutes | 180 days<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) | Until-revoked |10 minutes | 180 days<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
 
@@ -197,9 +197,9 @@ Refresh and session token configuration are affected by the following properties
 |Access Token Lifetime |AccessTokenLifetime |Access tokens, ID tokens, SAML2 tokens |1 hour |
 |Refresh Token Max Inactive Time |MaxInactiveTime  |Refresh tokens |90 days  |
 |Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Refresh tokens (for any users)  |Until-revoked  |
-|Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |180 days  |
+|Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Refresh tokens (for any users) |Until-revoked  |
 |Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent)  |Until-revoked |
-|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |180 days |
+|Multi-Factor Session Token Max Age  |MaxAgeSessionMultiFactor  |Session tokens (persistent and nonpersistent)  |Until-revoked |
 
 You can use PowerShell to find the policies that will be affected by the retirement.  Use the [PowerShell cmdlets](configure-token-lifetimes.md#get-started) to see the all policies created in your organization, or to find which apps and service principals are linked to a specific policy.
 
