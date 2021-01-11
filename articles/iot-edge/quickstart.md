@@ -122,25 +122,25 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 10. Locate the Azure IoT Edge tile, and select **Create new**. This will start the installation wizard.
 
-      :::image type="content" source="media/quickstart/select-tile.png" alt-text="Screenshot - Azure IoT Edge For Linux on Windows Tile":::
+      :::image type="content" source="media/quickstart/select-tile-screen.png" alt-text="Screenshot - Azure IoT Edge For Linux on Windows Tile":::
 
 11. Proceed through the installation wizard to accept the EULA and choose **Next**
 
-      :::image type="content" source="media/quickstart/wizard-welcome.png" alt-text="Screenshot - Wizard Welcome":::
+      :::image type="content" source="media/quickstart/wizard-welcome-screen.png" alt-text="Screenshot - Wizard Welcome":::
 
 12. Choose the **Optional diagnostic data** to provide extended diagnostics data which helps Microsoft monitor and maintain quality of service, and click **Next: Deploy**
 
-      :::image type="content" source="media/quickstart/diagnostic-data.png" alt-text="Screenshot - Diagnostic Data":::
+      :::image type="content" source="media/quickstart/diagnostic-data-screen.png" alt-text="Screenshot - Diagnostic Data":::
 
 13. On **Select target device** screen, select your desired target device to validate that it meets the minimum requirements. Once confirmed, choose **Next** to continue
 
-      :::image type="content" source="media/quickstart/wizard-select-target-device.png" alt-text="Screenshot - Select Target Device":::
+      :::image type="content" source="media/quickstart/wizard-select-target-device-screen.png" alt-text="Screenshot - Select Target Device":::
 
 14. ​Accept the default settings by choosing **Next**
 
 15. This will present the deployment screen and proceed through the process of downloading the package, installing the package, configuring the host and final setting up the Linux VM​.  A successful deployment will look as follows:
 
-      :::image type="content" source="media/quickstart/wizard-deploy-success.png" alt-text="Screenshot - Wizard Deploy Success":::
+      :::image type="content" source="media/quickstart/wizard-deploy-success-screen.png" alt-text="Screenshot - Wizard Deploy Success":::
 
 16. Click **Next: Connect** to continue to the final step to connect your Azure IoT Edge device for deployment to your Azure IoT Hub device instance.
 
@@ -150,7 +150,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 18. Once provisioning is complete, select **Finish** to complete and return to the Windows Admin Center start screen. You should now be able to see your device listed as an Azure IoT Edge for Linux on Windows Device.
 
-      :::image type="content" source="media/quickstart/windows-admin-center-device.png" alt-text="Screenshot - Windows Admin Center Azure IoT Edge Device":::
+      :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Screenshot - Windows Admin Center Azure IoT Edge Device":::
 
 Select your Azure IoT Edge device to view its dashboard​. You should see that the workloads from your device twin in Azure IoT Hub have been deployed.
 ​
@@ -175,13 +175,13 @@ Confirm that the module deployed from the cloud is running on your IoT Edge devi
 
 1. Connect to your newly created IoT Edge Device
 
-      :::image type="content" source="media/quickstart/connect-edge.png" alt-text="Screenshot - Connect Device":::
+      :::image type="content" source="media/quickstart/connect-edge-screen.png" alt-text="Screenshot - Connect Device":::
 
 2. On the **Overview** page you will see the **IoT Edge Module List** and **IoT Edge Status** where you can see the various modules that have been deployed as well as the device status.  
 
 3. Under **Tools** select **Command Shell**. In this prompt you have used ssh (secure shell) to connect to your Azure IoT Edge device's Linux VM on your Windows PC.
 
-      :::image type="content" source="media/quickstart/command-shell.png" alt-text="Screenshot - Command Shell":::
+      :::image type="content" source="media/quickstart/command-shell-screen.png" alt-text="Screenshot - Command Shell":::
 
 To verify the three modules on your device, run the following **bash command**:
 
@@ -189,7 +189,7 @@ To verify the three modules on your device, run the following **bash command**:
 sudo iotedge list
 ```
 
-   :::image type="content" source="media/quickstart/iotedge-list.png" alt-text="Screenshot - Command Shell List":::
+   :::image type="content" source="media/quickstart/iotedge-list-screen.png" alt-text="Screenshot - Command Shell List":::
 
    >[!TIP]
    >IoT Edge commands are case-sensitive when referring to module names.
@@ -200,7 +200,7 @@ View the messages being sent from the temperature sensor module to the cloud.
 iotedge logs SimulatedTemperatureSensor -f
 ```
 
-   :::image type="content" source="media/quickstart/temperature-sensor.png" alt-text="Screenshot - Temperature Sensor":::
+   :::image type="content" source="media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot - Temperature Sensor":::
 
    >[!TIP]
    >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
