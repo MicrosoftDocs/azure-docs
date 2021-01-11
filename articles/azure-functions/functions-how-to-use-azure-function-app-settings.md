@@ -116,7 +116,9 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ## Plan migration
 
-You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. This migration isn't supported on Linux.
+You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. The specific commands depend on the direction of the migration. Direct migration to a Dedicated (App Service) plan isn't currently supported.
+
+This migration isn't supported on Linux.
 
 ### Consumption to Premium
 
