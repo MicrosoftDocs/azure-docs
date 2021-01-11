@@ -13,7 +13,7 @@ ms.reviewer: susabat
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A pipeline run in Azure Data Factory defines an instance of a pipeline execution. For example, you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a Globally Unique Identifier (GUID) that defines that particular pipeline run.
+A pipeline run in Azure Data Factory defines an instance of a pipeline execution. For example, let's say you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a Globally Unique Identifier (GUID) that defines that particular pipeline run.
 
 Pipeline runs are typically instantiated by passing arguments to parameters that you define in the pipeline. You can execute a pipeline either manually or by using a trigger. See [Pipeline execution and triggers in Azure Data Factory](concepts-pipeline-execution-triggers.md) for details.
 
@@ -21,21 +21,21 @@ Pipeline runs are typically instantiated by passing arguments to parameters that
 
 ### An Azure Function pipeline throws an error with private endpoint connectivity
  
-**Issue**: For some context, you have Data Factory and Azure Function App running on a private endpoint. You are trying to get a pipeline that interacts with the Azure Function App to work. You have tried three different methods, but one returns error `Bad Request`, the other two methods return `103 Error Forbidden`.
+You have Data Factory and Azure Function App running on a private endpoint. You are trying to get a pipeline that interacts with the Azure Function App to work. You have tried three different methods, but one returns error `Bad Request`, the other two methods return `103 Error Forbidden`.
 
 **Cause**: Data Factory currently does not support a private endpoint connector for Azure Function App. Azure Function App rejects calls because it is configured to allow only connections from a Private Link.
 
-**Resolution**: Create a private endpoint of type **PrivateLinkService** and provide your function app's DNS, and the connection should work.
+**Resolution**: Create a **PrivateLinkService** endpoint and provide your function app's DNS.
 
-### Pipeline run is killed but the monitor still shows progress status
+### A pipeline run is killed but the monitor still shows progress status
 
-Often when you kill a pipeline run, pipeline monitoring still shows the progress status. This happens because of the cache issue in browser and you are not having right filters for monitoring.
+Often when you kill a pipeline run, pipeline monitoring still shows the progress status. This happens because of a browser cache issue. You also might not have the correct monitoring filters.
 
-**Resolution**: Refresh the browser and apply right filters for monitoring.
+**Resolution**: Refresh the browser and apply the correct monitoring filters.
  
-### Copy Pipeline failure – found more columns than expected column count (DelimitedTextMoreColumnsThanDefined)
+### 'DelimitedTextMoreColumnsThanDefined' error when copying a pipeline
  
-If the files under a particular folder you are copying contains files with different schemas like variable number of columns, different delimiters, quote char settings, or some data issue, the Data Factory pipeline will end up running in this error:
+If a folder you're copying contains files with different schemas, such as variable number of columns, different delimiters, quote char settings, or some data issue, the Data Factory pipeline might throw this error:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -45,9 +45,9 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-**Resolution**: Select "Binary Copy" option while creating the Copy Data activity. In this way, for bulk copy or migrating your data from one Data Lake to another, with **binary** option, Data Factory won't open the files to read schema, but just treat every file as binary and copy them to the other location.
+**Resolution**: Select the **Binary Copy** option while creating the Copy Data activity. This way, for bulk copy or migrating your data from one Data Lake to another, Data Factory won't open the files to read the schema, but will treat each file as binary and copy it to the other location.
 
-### Pipeline run fails when capacity limit of integration runtime is reached
+### A pipeline run fails when you reach the integration runtime limit
 
 Error message:
 
@@ -55,41 +55,42 @@ Error message:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-The error indicates the limitation of per integration runtime, which is currently 50. Refer to [Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) for details.
-
-**Cause**: Executing a large amount of data flow using the same integration runtime at the same time might cause this error.
+**Cause**: You've reached the integration runtime limit. You might be executing a large amount of data flow using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) for details.
 
 **Resolution**:
  
-- Separate these pipelines for different trigger time to execute.
-- Create a new integration runtime, and split these pipelines across multiple integration runtimes.
-
-### Monitor pipeline failures on regular interval
-
-There is often a need to monitor Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory using the endpoint. 
-
-**Resolution**
-1. Set up an Azure Logic App to query all of the failed pipelines every 5 minutes.
-2. Then, you can report incidents to our ticketing system as per [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
-
-For more information, go to [External-Send Notifications from Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+- Execute your pipelines at different trigger times.
+- Create a new integration runtime, and split your pipelines across multiple integration runtimes.
 
 ### Activity-level errors and failures in pipelines
 
-Azure Data Factory orchestration allows conditional logic and enables user to take different paths based upon outcomes of a previous activity. It allows four conditional paths: "Upon Success (default pass)", "Upon Failure", "Upon Completion", and "Upon Skip". Using different paths is allowed.
+Azure Data Factory orchestration allows conditional logic and enables users to take different paths based upon the outcome of a previous activity. It allows four conditional paths*: 
 
-Azure Data Factory defines pipeline run success and failure as follows:
+- **Upon Success** (default pass)
+- **Upon Failure**
+- **Upon Completion**
+- **Upon Skip**
+ 
+*Using multiple paths is allowed.
 
-- Evaluate outcome for all leaf level activities. If a leaf activity was skipped, we evaluate its parent activity instead.
-- Pipeline result is successful if and only if all leaves succeed.
+Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline results are successful only if all leaves succeed. If a leaf activity was skipped, we evaluate its parent activity instead. 
 
 **Resolution**
-- Implement activity level checks following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-- Use Azure Logic App to monitor pipelines in regular intervals following [Query By DataFactory]( https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+
+1. Implement activity level checks following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+1. Use Azure Logic App to monitor pipelines in regular intervals following [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+
+## Monitor pipeline failures on regular interval
+
+You might need to monitor failed Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory using the endpoint. 
+
+Set up an Azure Logic App to query all of the failed pipelines every 5 minutes per [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to our ticketing system.
+
+For more information, go to [Send Notifications from Data Factory, Part 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
 ## Next steps
 
-For more troubleshooting help, try these resources:
+For more troubleshooting help, see these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
