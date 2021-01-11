@@ -243,7 +243,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](../log-query/lo
 You can revoke access to data by disabling your key, or deleting the cluster's access policy in your Key Vault. 
 
 > [!IMPORTANT]
-> - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` to `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn't applied to System-assigned managed identity.
+> - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn't applied to System-assigned managed identity.
 > - The recommended key revocation action is by disabling your key in your Key Vault.
 
 The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible as well.
@@ -411,7 +411,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` property in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
-  - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` to `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
+  - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
 
   - Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet). This limitation isn't applied to System-assigned managed identity.
 
