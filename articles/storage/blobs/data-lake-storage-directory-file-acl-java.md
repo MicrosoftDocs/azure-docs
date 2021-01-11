@@ -115,7 +115,7 @@ This example deletes a directory named `my-directory`.
 
 First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the **DataLakeFileClient.append** method. Make sure to complete the upload by calling the **DataLakeFileClient.FlushAsync** method.
 
-This example uploads a text file to a directory named `my-directory`.`
+This example uploads a text file to a directory named `my-directory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_UploadFile":::
 
