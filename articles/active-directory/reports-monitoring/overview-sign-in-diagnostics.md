@@ -101,7 +101,7 @@ The following scenarios are covered by the sign-in diagnostic:
 
 - MFA proof up required
 
-- MFA proof up required from a risky sign-in location
+- MFA proof up required (risky sign-in location)
 
 - Successful sign-in
 
@@ -156,7 +156,7 @@ Multi-factor authentication proof up occurs when a user is required to use multi
 
 The intent of this diagnostic scenario is to reveal that the multi-factor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up.
 
-### MFA proof up required from a risky sign-in location
+### MFA proof up required (risky sign-in location)
 
 In this scenario, sign-in attempts were interrupted by a request to set up multi-factor authentication from a risky sign-in location.
 
