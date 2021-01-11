@@ -1575,7 +1575,7 @@ To Log in to the Horizon Console:
 
     The Horizon Console opens.
 
-  :::image type="content" source="media/references-horizon-sdk/plugins.png" alt-text="A view of the Horizon console and all of its plugins.":::
+    :::image type="content" source="media/references-horizon-sdk/plugins.png" alt-text="A view of the Horizon console and all of its plugins.":::
 
 ## Plugins pane
 
