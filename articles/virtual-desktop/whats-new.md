@@ -224,18 +224,6 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
-## Windows Virtual Desktop agent updates
-
-Check out the [Get started with the Windows Virtual Desktop agent](agent-overview.md) article to learn about the Windows Virtual Desktop agent. You’ll find the latest update to the agent and what the update entails in this section. 
-
-### Updates for Version 1.0.2682
-
-Date published: 12/08/2020
-
-- Has Intune support
-- Addresses the side-by-side stack being inadvertently disabled
-- Fixes the agent momentarily reporting the wrong health status
-
 ## Next steps
 
 Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
