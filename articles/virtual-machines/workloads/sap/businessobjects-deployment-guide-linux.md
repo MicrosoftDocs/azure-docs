@@ -313,7 +313,8 @@ By default the server created is protected with a firewall and isn't accessible 
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
+   ```
+   
 4. Create user account to connect to schema
 
    ```sql

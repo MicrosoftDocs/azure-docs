@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: "contperf-fy21q2, devx-track-azurecli"
+ms.custom: "contperf-fy21q2"
 # Customer intent: As a developer, I want to understand how to correctly configure monitoring for my functions so I can collect the data that I need.
 ---
 
@@ -193,7 +193,7 @@ To learn more, see [Sampling in Application Insights](../azure-monitor/app/sampl
 
 _This feature is in preview._ 
 
-You can have the [Azure Functions scale controller](./functions-scale.md#runtime-scaling) emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
+You can have the [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
 
 To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. The value of this setting must be of the format `<DESTINATION>:<VERBOSITY>`, based on the following:
 

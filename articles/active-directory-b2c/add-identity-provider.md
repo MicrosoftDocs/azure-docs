@@ -6,7 +6,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 12/07/2020
+ms.date: 01/08/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
@@ -42,6 +42,7 @@ You typically use only one identity provider in your applications, but you have 
 * [Microsoft Account](identity-provider-microsoft-account.md)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
+* [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

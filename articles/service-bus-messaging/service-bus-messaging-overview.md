@@ -6,7 +6,7 @@ ms.date: 11/20/2020
 ---
 
 # What is Azure Service Bus?
-Microsoft Azure Service Bus is a fully managed enterprise message broker with message queues and public-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
+Microsoft Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
 
 - Load-balancing work across competing workers
 - Safely routing and transferring data and control across service and application boundaries
