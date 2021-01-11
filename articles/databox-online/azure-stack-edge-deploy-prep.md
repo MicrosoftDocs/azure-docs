@@ -86,6 +86,8 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
+### [Portal](#tab/azure-portal)
+
 To create a Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to 
@@ -140,6 +142,10 @@ The resource creation takes a few minutes. After the resource is successfully cr
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
 ![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
 
 ## Get the activation key
 
