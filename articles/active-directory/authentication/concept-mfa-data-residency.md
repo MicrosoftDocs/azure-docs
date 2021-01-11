@@ -114,7 +114,7 @@ The following table shows the location for service logs for sovereign clouds.
 | Microsoft Azure Operated by 21Vianet | China                                | US                            | US               |
 | Microsoft Government Cloud           | US                                   | US                            | US               |
 
-The Multi-Factor Authentication activity report data contain personally identifiable information (PII) such as user principal name (UPN) and complete phone number.
+The Multi-Factor Authentication activity report data contain personal data such as user principal name (UPN) and complete phone number.
 
 The Multi-Factor Authentication service logs are used to operate the service.
 
