@@ -334,7 +334,7 @@ server.on("listening", () => {
 
 By default, telemetry is buffered for 15 seconds before it is sent to the ingestion server. If your application has a short lifespan (e.g. a CLI tool), it might be necessary to manually flush your buffered telemetry when application terminates, `appInsights.defaultClient.flush()`.
 
-If the SDK detects that your application is crashing, it will call flush for you, `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state, not suitable for sending telemetry. Instead, the SDK will save all buffered telemetry to [persistent storage](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#nodejs) and let your application terminate. When you application starts again, it will try to send any telemetry that was saved to persistent storage.
+If the SDK detects that your application is crashing, it will call flush for you, `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state, not suitable for sending telemetry. Instead, the SDK will save all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and let your application terminate. When you application starts again, it will try to send any telemetry that was saved to persistent storage.
 
 ### Preprocess data with telemetry processors
 
