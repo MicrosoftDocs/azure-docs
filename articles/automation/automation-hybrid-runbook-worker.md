@@ -23,7 +23,7 @@ A Hybrid Runbook Worker can run on either the Windows or the Linux operating sys
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and for Linux, see [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
 
-### How does it work?
+## How does it work?
 
 ![Hybrid Runbook Worker overview](media/automation-hybrid-runbook-worker/automation.png)
 
