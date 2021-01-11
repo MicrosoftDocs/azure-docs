@@ -121,6 +121,10 @@ An additional aspect to address operational cost of the architecture is in the i
 ### Operational Excellence
 ### Performance Efficiency
 ### Reliability
+Azure Spring Cloud is designed with Azure Kubernetes as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application due to a component failure.
+
+By building on top of a well defined hub and spoke design, the foundation of this architecture ensures that it can be deployed to multiple regions. For the private application use case, Azure Private DNS is used to ensure continued availability in the event of a geographic failure. Similarly, for the public application use case, a combination of Azure Front Door and Azure Application Gateway provides protection from the same ensuring increased availability.
+
 ### Security
 As one of the guiding tenants of the Azure Well-Architected Framework, security of this architecture was addressed by adhering to industry defined controls and benchmarks. The controls used in this architecture are from the Cloud Control Matrix (CCM) by the Cloud Security Alliance and the Microsoft Azure Foundations Benchmark (MAFB) by the Center for Internet Security. The primary security design principles of governance, networking, and application security were the focus of the applied controls. The design principles of Identity and Access Management and Storage are the responsibility of the reader as it relates to their target infrastructure.
 
