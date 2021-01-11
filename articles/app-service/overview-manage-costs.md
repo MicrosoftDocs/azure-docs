@@ -90,6 +90,8 @@ At a basic level, App Service apps are charged by the App Service plan that host
 - **Instance count**  dedicated tiers (Basic and above) can be scaled out, and each scaled out instance accrues costs.
 - **Stamp fee**  In the Isolated tier, a flat fee is accrued on your App Service environment, regardless of how many apps or worker instances are hosted.
 
+An App Service plan can host more than one app. Depending on your deployment, you could save costs hosting more apps on one App Service plans (i.e. hosting your apps on fewer App Service plans).
+
 For details, see [App Service plan overview](overview-hosting-plans.md)
 
 ### Non-production workloads
@@ -108,7 +110,7 @@ Production workloads come with the recommendation of the dedicated **Standard** 
 > [!NOTE]
 > **Premium V3** supports both Windows containers and Linux containers. 
 
-For scale-out deployments, you should use autoscaling, available in **Standard** tier and above, so you can minimize idle instances at any given time, and thus only pay for the instances you need.
+Once you choose the pricing tier you want, you should minimize the idle instances. In a scale-out deployment, you can waste money on underutilized compute instances. You should [configure autoscaling](../azure-monitor/platform/autoscale-get-started.md), available in **Standard** tier and above. By creating scale-out schedules, as well as metric-based scale-out rules, you only pay for the instances you really need at any given time.
 
 ### Azure Reservations
 
