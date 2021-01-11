@@ -114,7 +114,7 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 ---
 
 
-## Plan Migration
+## Plan migration
 
 You can use Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. This migration isn't supported on Linux.
 
@@ -136,11 +136,11 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
 1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
 
-### Premium to Consumption
+### Premium to consumption
 
 Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
 
-1. Run the following commands to create a new function app (Consumption) in the same region and resource group as your existing function app. This will also create a new App Service plan (Consumption).
+1. Run the following command to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
 
     ```azurecli-interactive
     az functionapp create --resource-group <RESOURCE_GROUP> --name <CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
@@ -152,7 +152,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp update --name <PREMIUM_APP_NAME> --resource-group <RESOURCE_GROUP> --plan <CONSUMPTION_PLAN>
     ```
 
-1. Delete the Consumption function app created in step 1. Only the App Service plan that was created is needed.
+1. Delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
 
     ```azurecli-interactive
     az functionapp delete --name <CONSUMPTION_APP_NAME> --resource-group <RESOURCE_GROUP>
