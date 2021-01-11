@@ -7,7 +7,7 @@ ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
 ---
-# Get started with the Windows Virtual Desktop agent
+# Get started with the Windows Virtual Desktop Agent
 
 In the Windows Virtual Desktop Service framework, there are three main components: the Remote Desktop client, the service, and the virtual machines. These virtual machines live in the customer subscription where the Windows Virtual Desktop agent and agent bootloader are installed. The agent acts as the intermediate communicator between the service and the virtual machines, enabling connectivity. Therefore, if you're experiencing any issues with the agent installation, update, or configuration, your virtual machines won't be able to connect to the service. The agent bootloader is the executable that loads the agent. 
 
