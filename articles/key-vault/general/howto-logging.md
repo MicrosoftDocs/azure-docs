@@ -158,7 +158,7 @@ az storage blob list --account-name "<your-unique-storage-account-name>" --conta
 With Azure PowerShell, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) list all the blobs in this container, enter:
 
 ```powershell
-Get-AzStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
 As you will see from the output of either the Azure CLI command or the Azure PowerShell cmdlet, the name of the blobs are in the format `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`. The date and time values use UTC.
@@ -174,7 +174,7 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 With Azure PowerShell, use the [Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) cmdlet to get a list of the blobs, then pipe that to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0) cmdlet to download the logs to your chosen path.
 
 ```powershell-interactive
-$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
+$blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 
 When you run this second cmdlet in PowerShell, the **/** delimiter in the blob names creates a full folder structure under the destination folder. You'll use this structure to download and store the blobs as files.
@@ -184,19 +184,19 @@ To selectively download blobs, use wildcards. For example:
 * If you have multiple key vaults and want to download logs for just one key vault, named CONTOSOKEYVAULT3:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * If you want to download all the logs for the month of January 2019, use `-Blob '*/year=2019/m=01/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
 You're now ready to start looking at what's in the logs. But before we move on to that, you should know two more commands:
