@@ -60,7 +60,7 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
-   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-overview/itsm-connections.png)
+   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. Under **Workspace Data Sources** in the left pane, select **ITSM Connections**:
 
