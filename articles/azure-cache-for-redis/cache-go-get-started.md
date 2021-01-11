@@ -121,7 +121,7 @@ The application accepts connectivity and credentials in the form of environment 
 1. Set them to the respective environment variables:
 
     ```shell
-    set REDIS_HOST=<Host name> (e.g. <name of cache>.redis.cache.windows.net)
+    set REDIS_HOST=<Host name>:<port> (e.g. <name of cache>.redis.cache.windows.net:6380)
     set REDIS_PASSWORD=<Primary Access Key>
     ```
 
