@@ -21,7 +21,7 @@ Azure Machine Learning manages the entire lifecycle of machine learning process,
 
 When to use Event Grid for event driven actions:
 * Send emails on run failure and run completion
-* Use an Azure function after a model is registered
+* Use an Azure Function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
