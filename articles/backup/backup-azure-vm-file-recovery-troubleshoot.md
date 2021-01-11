@@ -72,7 +72,7 @@ You might see an "Exception caught while connecting to target" error message.
 
 ### You're connected to the recovery point, but the disks weren't attached (Windows)
 
-On Windows Server 2012 R2 and Windows Server 2016 (with storage pools), when running the script for the first time, the storage pool might be attached to the VM in read-only.
+When you run the script for the first time on Windows Server 2012 R2 and Windows Server 2016 (with storage pools), the storage pool might be attached to the VM in read-only.
 
 >[!Tip]
 > Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
