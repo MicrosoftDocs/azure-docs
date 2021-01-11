@@ -24,7 +24,7 @@ To complete this tutorial, you must have the following:
 * [Azure Cloud Shell](https://shell.azure.com) - Bash environment
 * Sufficient storage on Azure for your Key Vault logs.
 
-This quickstart assumes you are running [Cloud Shell](https://shell.azure.com) with Bash as an environment
+This guide commands are formatted for [Cloud Shell](https://shell.azure.com) with Bash as an environment.
 
 ## Connect to your Key Vault subscription
 
