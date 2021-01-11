@@ -45,7 +45,9 @@ Due to the greater flexibility of the system to respond to a sign-in attempt, yo
 
 - Analyzes data from sign-in events.
 
-- Displays what happened, and provides recommendations for how to resolve problems.
+- Displays what happened.
+
+- Provides recommendations for how to resolve problems.
 
 The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign-in errors. To complete the diagnostic process, you need to:
 
@@ -57,15 +59,15 @@ The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign
 
 3. **Review** the diagnostic results.
 
-4. **Take** actions.
+4. **Take** action.
 
 ### Define scope
 
-The goal of this step is to define the scope of the sign-ins you want to investigate. Your scope is either based on a user or an identifier (correlationId, requestId) and a time range. To narrow down the scope further, you can also specify an app name. Azure AD uses the scope information to locate the right events for you.  
+The goal of this step is to define the scope of the sign-in events to investigate. Your scope is either based on a user or on an identifier (correlationId, requestId) and a time range. To narrow down the scope further, you can specify an app name. Azure AD uses the scope information to locate the right events for you.  
 
 ### Select sign-in  
 
-Based on your search criteria, Azure AD retrieves all matching sign-ins and presents them in an authentication summary list view.
+Based on your search criteria, Azure AD retrieves all matching sign-in events and presents them in an authentication summary list view.
 
 ![Partial screenshot showing the authentication summary section.](./media/overview-sign-in-diagnostics/authentication-summary.png)
 
@@ -89,17 +91,17 @@ At this point, you should have the information you need to fix your issue.
 
 The following scenarios are covered by the sign-in diagnostic:
 
-- Blocked by conditional access.
+- Blocked by conditional access
 
-- Failed conditional access.
+- Failed conditional access
 
-- MFA from conditional access.
+- MFA from conditional access
 
-- MFA from other requirements.
+- MFA from other requirements
 
-- MFA Proof up required.
+- MFA proof up required
 
-- MFA Proof up required, but the user sign-in attempt isn't from a secure location.
+- MFA proof up required from a risky sign-in location
 
 - Successful sign-in
 
@@ -115,7 +117,7 @@ The diagnostic section for this scenario shows details about the user sign-in ev
 
 This scenario is typically a result of a sign-in attempt that failed because the requirements of a conditional access policy weren't satisfied. Common examples are:
 
-![Screenshot showing access configuration with several policies and Grant access selected.](./media/overview-sign-in-diagnostics/require-controls.png)
+![Screenshot showing access configuration with common policy examples and Grant access selected.](./media/overview-sign-in-diagnostics/require-controls.png)
 
 - Require hybrid Azure AD joined device
 
@@ -123,7 +125,7 @@ This scenario is typically a result of a sign-in attempt that failed because the
 
 - Require app protection policy
 
-The diagnostic section for this scenario shows details about the user sign-in and the applied policies.
+The diagnostic section for this scenario shows details about the user sign-in attempt and the applied policies.
 
 ### MFA from conditional access
 
@@ -131,7 +133,7 @@ In this scenario, a conditional access policy has the requirement to sign in usi
 
 ![Screenshot showing access configuration with Require multi-factor authentication selected.](./media/overview-sign-in-diagnostics/require-mfa.png)
 
-The diagnostic section for this scenario shows details about the user sign-in and the applied policies.
+The diagnostic section for this scenario shows details about the user sign-in attempt and the applied policies.
 
 ### MFA from other requirements
 
@@ -148,35 +150,25 @@ You can also view all details of the user sign-in attempt.
 
 ### MFA proof up required
 
-In this scenario, sign-in attempts were interrupted by requests to set up multi-factor authentication. This setup is also known as "proof up".
+In this scenario, sign-in attempts were interrupted by requests to set up multi-factor authentication. This setup is also known as proof up.
 
 Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but hasn't configured it yet, or an administrator has required the user to configure it.
 
-The intent of this diagnostic scenario is to:
+The intent of this diagnostic scenario is to reveal that the multi-factor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up.
 
-- Reveal that the multi-factor authentication interruption was due to lack of user configuration
-- Recommend that the user complete the proof up
+### MFA proof up required from a risky sign-in location
 
-### MFA proof up required from a risky sign-in
+In this scenario, sign-in attempts were interrupted by a request to set up multi-factor authentication from a risky sign-in location.
 
-In this scenario, sign-in attempts were interrupted by a request to set up multi-factor authentication from a risky sign-on.
-
-The intent of this diagnostic scenario is to:
-
-- Reveal that the multi-factor authentication interruption was due to lack of user configuration
-
-- Recommend that the user complete the proof up, specifically from a network location that doesn't appear risky.
+The intent of this diagnostic scenario is to reveal that the multi-factor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up, specifically from a network location that doesn't appear risky.
 
    For example, if a corporate network is defined as a named location, the user should attempt to do the proof up from the corporate network instead.
 
 ### Successful sign-in
 
-In this scenario, sign-ins weren't interrupted by conditional access or multi-factor authentication.
+In this scenario, sign-in events weren't interrupted by conditional access or multi-factor authentication.
 
-This diagnostic scenario provides details about user sign-in events when the sign-ins were expected to be interrupted due to one or more of the following:
-
-- Conditional access policies
-- Multi-factor authentication
+This diagnostic scenario provides details about user sign-in events that were expected to be interrupted due to conditional access policies or multi-factor authentication.
 
 ## Next steps
 
