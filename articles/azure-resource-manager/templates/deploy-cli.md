@@ -4,6 +4,7 @@ description: Use Azure Resource Manager and Azure CLI to deploy resources to Azu
 ms.topic: conceptual
 ms.date: 10/22/2020
 ---
+
 # Deploy resources with ARM templates and Azure CLI
 
 This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
@@ -12,7 +13,7 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-If you don't have Azure CLI installed, you can use the Cloud Shell. For more information, see [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md).
+If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## Deployment scope
 
@@ -163,7 +164,7 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 
 ### Inline parameters
 
-To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template is a Bash shell, use:
+To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template in a Bash shell, use:
 
 ```azurecli-interactive
 az deployment group create \
@@ -185,7 +186,7 @@ az deployment group create \
 
 Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](../../virtual-machines/linux/using-cloud-init.md).
 
-The arrayContent.json format is:
+The _arrayContent.json_ format is:
 
 ```json
 [
@@ -222,7 +223,7 @@ Rather than passing parameters as inline values in your script, you may find it 
 
 For more information about the parameter file, see [Create Resource Manager parameter file](parameter-files.md).
 
-To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
+To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
 
 ```azurecli-interactive
 az deployment group create \

@@ -76,7 +76,7 @@ The following table lists the properties of resource logs in Azure Cosmos DB. Th
 | --- | --- | --- |
 | **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
 | **resourceId** | **Resource** | The Azure Cosmos DB account for which logs are enabled.|
-| **category** | **Category** | For Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** are the available log types. |
+| **category** | **Category** | For Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests**, **CassandraRequests**, **GremlinRequests** are the available log types. |
 | **operationName** | **OperationName** | Name of the operation. The operation name can be  `Create`, `Update`, `Read`, `ReadFeed`, `Delete`, `Replace`, `Execute`, `SqlQuery`, `Query`, `JSQuery`, `Head`, `HeadFeed`, or `Upsert`.   |
 | **properties** | n/a | The contents of this field are described in the rows that follow. |
 | **activityId** | **activityId_g** | The unique GUID for the logged operation. |
@@ -99,7 +99,7 @@ For a list of all Azure Monitor log categories and links to associated schemas, 
 
 ## Azure Monitor Logs tables
 
-Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto bales uses, see the [Azure Monitor Logs table reference](/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
+Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto bales uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
 
 ## See Also
 

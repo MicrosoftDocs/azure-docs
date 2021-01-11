@@ -357,7 +357,7 @@ The Item function returns one item from a multi-valued string/attribute.
 | **index** |Required |Integer | Index to an item in the multi-valued string|
 
 **Example:**
-`Item([proxyAddresses], 1)`
+`Item([proxyAddresses], 1)` returns the second item in the multi-valued attribute.
 
 ---
 ### Join

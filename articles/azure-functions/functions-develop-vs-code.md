@@ -251,7 +251,7 @@ The following steps publish your project to a new function app created with adva
     | ------ | ----- | ----------- |
     | Select function app in Azure | Create New Function App in Azure | At the next prompt, type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
     | Select an OS | Windows | The function app runs on Windows. |
-    | Select a hosting plan | Consumption plan | A serverless [Consumption plan hosting](functions-scale.md#consumption-plan) is used. |
+    | Select a hosting plan | Consumption plan | A serverless [Consumption plan hosting](consumption-plan.md) is used. |
     | Select a runtime for your new app | Your project language | The runtime must match the project that you're publishing. |
     | Select a resource group for new resources | Create New Resource Group | At the next prompt, type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a storage account | Create new storage account | At the next prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
