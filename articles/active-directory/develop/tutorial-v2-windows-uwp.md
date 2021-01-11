@@ -466,7 +466,7 @@ You also see basic information about the token acquired via `AcquireTokenInterac
 |Property  |Format  |Description |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |The username that identifies the user.|
-|`Token Expires` |`DateTime` |The time when the token expires.The Microsoft Authentication Library extends the expiration date by renewing the token as necessary.|
+|`Token Expires` |`DateTime` |The time when the token expires. The Microsoft Authentication Library extends the expiration date by renewing the token as necessary.|
 
 ### More information about scopes and delegated permissions
 
