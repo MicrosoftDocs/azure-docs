@@ -123,20 +123,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![user role](./media/github-tutorial/user-role.png)
 
-    > [!NOTE]
-    > **Select a role** option will be disabled and default role is USER for selected user.
-
 7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure GitHub SSO
 
 1. In a different web browser window, sign into your GitHub organization site as an administrator.
 
-2. Navigate to **Settings** and click **Security**
+2. Navigate to **Settings** and click **Security**.
 
     ![Screenshot that shows the GitHub "Organization settings" menu with "Security" selected.](./media/github-tutorial/security.png)
 
-3. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields. perform the following steps:
+3. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields, perform the following steps:
 
     ![Screenshot that shows the "S A M L single sign-on" section with "Enable S A M L authentication" with U R L text boxes highlighted.](./media/github-tutorial/saml-sso.png)
 
