@@ -206,7 +206,7 @@ The following table applies to U-SQL.
 
    If the resolution isn't clear, contact the Data Lake Analytics support team and provide the job Universal Resource Locator (URL), which includes your account name and the job ID.
  
-## Azure functions
+## Azure Functions
 
 ### Error code: 3602
 
@@ -220,39 +220,39 @@ The following table applies to U-SQL.
 
 - **Message**: `Response Content is not a valid JObject.`
 
-- **Cause**: The Azure function that was called didn't return a JSON Payload in the response. Azure Data Factory (ADF) Azure function activity only supports JSON response content.
+- **Cause**: The Azure Function that was called didn't return a JSON Payload in the response. Azure Data Factory (ADF) Azure Function activity only supports JSON response content.
 
-- **Recommendation**: Update the Azure function to return a valid JSON Payload such as a C# function may return `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
+- **Recommendation**: Update the Azure Function to return a valid JSON Payload such as a C# function may return `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
 ### Error code: 3606
 
-- **Message**: Azure function activity missing function key.
+- **Message**: Azure Function activity missing function key.
 
-- **Cause**: The Azure function activity definition isn't complete.
+- **Cause**: The Azure Function activity definition isn't complete.
 
-- **Recommendation**: Check that the input Azure function activity JSON definition has a property named `functionKey`.
+- **Recommendation**: Check that the input Azure Function activity JSON definition has a property named `functionKey`.
 
 ### Error code: 3607
 
-- **Message**: `Azure function activity missing function name.`
+- **Message**: `Azure Function activity missing function name.`
 
-- **Cause**: The Azure function activity definition isn't complete.
+- **Cause**: The Azure Function activity definition isn't complete.
 
-- **Recommendation**: Check that the input Azure function activity JSON definition has a property named `functionName`.
+- **Recommendation**: Check that the input Azure Function activity JSON definition has a property named `functionName`.
 
 ### Error code: 3608
 
-- **Message**: `Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
+- **Message**: `Call to provided Azure Function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
 
-- **Cause**: The Azure function details in the activity definition may be incorrect.
+- **Cause**: The Azure Function details in the activity definition may be incorrect.
 
-- **Recommendation**: Fix the Azure function details and try again.
+- **Recommendation**: Fix the Azure Function details and try again.
 
 ### Error code: 3609
 
-- **Message**: `Azure function activity missing functionAppUrl.`
+- **Message**: `Azure Function activity missing functionAppUrl.`
 
-- **Cause**: The Azure function activity definition isn't complete.
+- **Cause**: The Azure Function activity definition isn't complete.
 
 - **Recommendation**: Check that the input Azure Function activity JSON definition has a property named `functionAppUrl`.
 
@@ -266,19 +266,19 @@ The following table applies to U-SQL.
 
 ### Error code: 3611
 
-- **Message**: `Azure function activity missing Method in JSON.`
+- **Message**: `Azure Function activity missing Method in JSON.`
 
-- **Cause**: The Azure function activity definition isn't complete.
+- **Cause**: The Azure Function activity definition isn't complete.
 
-- **Recommendation**: Check that the input Azure function activity JSON definition has a property named `method`.
+- **Recommendation**: Check that the input Azure Function activity JSON definition has a property named `method`.
 
 ### Error code: 3612
 
-- **Message**: `Azure function activity missing LinkedService definition in JSON.`
+- **Message**: `Azure Functionn activity missing LinkedService definition in JSON.`
 
-- **Cause**: The Azure function activity definition isn't complete.
+- **Cause**: The Azure Function activity definition isn't complete.
 
-- **Recommendation**: Check that the input Azure function activity JSON definition has linked service details.
+- **Recommendation**: Check that the input Azure Function activity JSON definition has linked service details.
 
 ## Azure Machine Learning
 
