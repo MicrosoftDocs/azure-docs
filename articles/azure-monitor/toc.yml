@@ -1216,6 +1216,10 @@
         href: platform/workbooks-move-region.md
       - name: Move Workbook Templates to another region
         href: platform/workbook-templates-move-region.md
+    - name: Links
+      items:
+      - name: Link actions
+        href: platform/workbooks-link-actions.md
     - name: Convert views to workbooks
       items:
       - name: Conversion overview
