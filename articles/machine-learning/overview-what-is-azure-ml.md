@@ -5,8 +5,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-author: j-martens
-ms.author: jmartens
+ms.author: larryfr
+author: BlackMist
 ms.date: 11/04/2019
 ms.custom: devx-track-python
 ---
