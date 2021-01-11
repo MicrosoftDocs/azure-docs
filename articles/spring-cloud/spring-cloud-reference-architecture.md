@@ -107,7 +107,7 @@ The Azure services that are used in this reference architecture are the followin
 : a web traffic load balancer with TLS offloading which operates at layer 7 for managing traffic to backend service hosts
 
 * [Azure Web Application Firewall][7]
-: is a feature of Azure Application Gateway that provides centralized protection of a web applications from common exploits and vulnerabilities
+: a feature of Azure Application Gateway that provides centralized protection of a web applications from common exploits and vulnerabilities
 
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for public web applications](./media/spring-cloud-reference-architecture/architecture-public.png)
