@@ -84,7 +84,7 @@ The API response lists all enrollment accounts you have access to:
 
 ```
 
-Note the `id` from one of your `enrollmentAccounts`. It's the billing scope under which a subscription creation request is initiated. 
+The value for a billing scope and `id` are the same thing. The `id` for your enrollment account is the billing scope under which the subscription request is initiated. It’s important to know the ID because it’s a required parameter that you use later in the article to create a subscription.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -125,6 +125,8 @@ In the request body, provide as the `billingScope` the `id` from one of your `en
   }
 }
 ```
+
+Allowed values for `Workload` are `Production` and `DevTest`.
 
 #### Response
 

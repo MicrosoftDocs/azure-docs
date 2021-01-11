@@ -1,11 +1,8 @@
 ---
 title: Create an Azure portal dashboard with Azure CLI
 description: "Quickstart: Learn how to create a dashboard in the Azure portal using the Azure CLI. A dashboard is a focused and organized view of your cloud resources."
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.author: mblythe
 ms.date: 12/4/2020
 ---
 

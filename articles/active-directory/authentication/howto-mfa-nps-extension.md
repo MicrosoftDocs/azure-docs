@@ -222,6 +222,10 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
 
 1. Run the PowerShell script created by the installer.
 
+   You might be required to first enable TLS 1.2 for PowerShell to be able to connect and download packages properly:
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+
    > [!IMPORTANT]
    > For customers that use the Azure Government or Azure China 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
    >

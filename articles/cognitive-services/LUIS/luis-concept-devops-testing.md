@@ -13,7 +13,7 @@ Software engineers who are developing a Language Understanding (LUIS) app can ap
 
 In agile software development methodologies, testing plays an integral role in building quality software. Every significant change to a LUIS app should be accompanied by tests designed to test the new functionality the developer is building into the app. These tests are checked into your source code repository along with the `.lu` source of your LUIS app. The implementation of the change is finished when the app satisfies the tests.
 
-Tests are a critical part of [CI/CD workflows](luis-concept-devops-automation.md). When changes to a LUIS app are proposed in a pull request (PR) or after changes are merged into your master branch, then CI workflows should run the tests to verify that the updates haven't caused any regressions.
+Tests are a critical part of [CI/CD workflows](luis-concept-devops-automation.md). When changes to a LUIS app are proposed in a pull request (PR) or after changes are merged into your main branch, then CI workflows should run the tests to verify that the updates haven't caused any regressions.
 
 ## How to do Unit testing and Batch testing
 
@@ -118,7 +118,7 @@ You can use the [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) package to
 You can also use the NLU.DevOps package to run batch tests at the command line.
 
 * Use the NLU.DevOps [test command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) to submit tests from a test file to an endpoint and to capture the actual prediction results in a file, same as with unit tests.
-* Use the NLU.DevOps [compare command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [Performance test mode](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) to measure the performance of your app You can also compare the performance of your app against a baseline performance benchmark, for example, the results from the latest commit to master or the current release. In Performance test mode, the `compare` command generates NUnit test output and [batch test results](./luis-glossary.md#batch-test) in JSON format.
+* Use the NLU.DevOps [compare command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [Performance test mode](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) to measure the performance of your app You can also compare the performance of your app against a baseline performance benchmark, for example, the results from the latest commit to main or the current release. In Performance test mode, the `compare` command generates NUnit test output and [batch test results](./luis-glossary.md#batch-test) in JSON format.
 
 ## LUIS non-deterministic training and the effect on testing
 

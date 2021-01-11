@@ -40,7 +40,7 @@ There are times when feature releases for Synapse SQL may not include support fo
   - Submit a [support ticket or vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported.
 - Tables with an [identity column](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
 - Certain T-SQL features, such as:
-   - *WITHIN GROUP* clause in the [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=sqlallproducts-allversions) string function.
+   - *WITHIN GROUP* clause in the [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) string function.
 
 ## Next steps
 

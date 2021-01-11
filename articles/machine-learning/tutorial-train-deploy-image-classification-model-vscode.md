@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
-ms.custom: contperfq4 
+ms.custom: contperf-fy20q4 
 
 #Customer intent: As a professional data scientist, I want to learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---

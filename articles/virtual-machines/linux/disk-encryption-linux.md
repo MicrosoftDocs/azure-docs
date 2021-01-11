@@ -284,7 +284,7 @@ We recommend an LVM-on-crypt setup. For all the following examples, replace the 
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Run the Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0) cmdlet with -EncryptFormatAll to encrypt these disks.
+1. Run the Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0&preserve-view=true) cmdlet with -EncryptFormatAll to encrypt these disks.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
@@ -420,6 +420,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
 - [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md); specifically, Dv4, Dsv4, Ev4, and Esv4.
+- Encrypting VMs in failover clusters.
 
 ## Next steps
 

@@ -76,7 +76,7 @@ Looking at the screenshot of the data, we can make the following observations:
 * Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
 
 > [!NOTE]
-> Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4325" that use the WGS84 datum.
+> Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4326" that use the WGS84 datum.
 
 There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data. You can then send the results to the user's browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires more development work and has a higher cost.
 
@@ -427,7 +427,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
             }
         };
 
-        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location.
+        //If the user selects the My Location button, use the Geolocation API (Preview) to get the user's location. Center and zoom the map on that location.
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation;
 
         //Wait until the map resources are ready.
@@ -467,7 +467,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
     function setMapToUserLocation() {
         //Request the user's location.
         navigator.geolocation.getCurrentPosition(function(position) {
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it.
+            //Convert the Geolocation API (Preview) position to a longitude and latitude position value that the map can interpret and center the map over it.
             map.setCamera({
                 center: [position.coords.longitude, position.coords.latitude],
                 zoom: maxClusterZoomLevel + 1

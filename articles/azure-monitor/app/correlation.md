@@ -74,7 +74,6 @@ The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application In
 | `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. If this is a root span, then this field must be empty.     |
 
-
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
 ### Enable W3C distributed tracing support for .NET apps
@@ -99,7 +98,7 @@ W3C TraceContext based distributed tracing is enabled by default in all recent
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - For Spring Boot apps, add these properties:
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -135,7 +134,7 @@ Add the following configuration:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
-  
+
 - **[Snippet based setup](./javascript.md#snippet-based-setup)**
 
 Add the following configuration:
@@ -256,10 +255,8 @@ You might want to customize the way component names are displayed in the [Applic
 
     ```json
     {
-      "instrumentationSettings": {
-        "preview": {
-          "roleName": "my cloud role name"
-        }
+      "role": {
+        "name": "my cloud role name"
       }
     }
     ```

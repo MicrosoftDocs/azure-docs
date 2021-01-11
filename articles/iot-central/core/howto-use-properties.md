@@ -75,7 +75,7 @@ This example shows two properties. These properties relate to the property defin
 
 * `@type` specifies the type of capability: `Property`. The previous example also shows the semantic type `Temperature` for both properties.
 * `name` for the property.
-* `schema` specifies the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types, arrays, and maps are also supported.
+* `schema` specifies the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types and maps are also supported.
 * `writable` By default, properties are read-only. You can mark a property as writeable by using this field.
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.

@@ -45,6 +45,9 @@ While classifications are matched directly (a social security number has a class
 
 Purview uses the same classifications, also known as sensitive information types, as Microsoft 365. This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
+> [!NOTE]
+> After you have scanned your source types, give **Sensitivity labeling** Insights a couple of hours to reflect the new assets.
+
 **To view sensitivity labeling insights:**
 
 1. Go to the **Azure Purview** home page.

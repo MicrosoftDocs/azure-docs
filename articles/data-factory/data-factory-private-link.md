@@ -92,20 +92,26 @@ For more information on configuring your own DNS server to support private endpo
 ## Set up Private Link for Azure Data Factory
 You can create private endpoints by using [the Azure portal](../private-link/create-private-endpoint-portal.md).
 
+You can choose whether to connect your self-hosted integration runtime to Azure Data Factory via public endpoint or private endpoint. 
+
+![Screenshot of blocking public access of Self-hosted Integration Runtime.](./media/data-factory-private-link/disable-public-access-shir.png)
+
+
 You can also go to your Azure data factory in the Azure portal and create a private endpoint, as shown here:
 
 ![Screenshot of the "Private endpoint connections" pane for creating a private endpoint.](./media/data-factory-private-link/create-private-endpoint.png)
 
+In the step of **Resource**, select **Microsoft.Datafactory/factories** as **Resource type**. And if you want to create private endpoint for command communications between the self-hosted integration runtime and the Azure Data Factory service, select **datafactory** as **Target sub-resource**.
 
-If you want to block public access to the Azure data factory and allow access only through Private Link, disable network access to Azure Data Factory in the Azure portal, as shown here:
-
-![Screenshot of the "Network access" pane for creating a private endpoint.](./media/data-factory-private-link/disable-network-access.png)
+![Screenshot of the "Private endpoint connections" pane for selecting resource.](./media/data-factory-private-link/private-endpoint-resource.png)
 
 > [!NOTE]
 > Disabling public network access is applicable only to the self-hosted integration runtime, not to Azure Integration Runtime and SQL Server Integration Services (SSIS) Integration Runtime.
 
+If you want to create private endpoint for authoring and monitoring the data factory in your virtual network, select **portal** as **Target sub-resource**.
+
 > [!NOTE]
-> You can still access the Azure Data Factory portal through a public network after you disable public network access.
+> You can still access the Azure Data Factory portal through a public network after you create private endpoint for portal.
 
 ## Next steps
 

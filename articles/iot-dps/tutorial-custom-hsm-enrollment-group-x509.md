@@ -22,7 +22,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 This tutorial is similar to the previous tutorials demonstrating how to use enrollment groups to provision sets of devices. However, X.509 certificates will be used in this tutorial instead of symmetric keys. Review the previous tutorials in this section for a simple approach using [symmetric keys](./concepts-symmetric-key-attestation.md).
 
-This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is strongly recommended.
+This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is not required, but strongly recommended to help protect sensitive information like your device certificate's private key.
 
 If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. 
 
@@ -192,7 +192,7 @@ To create the certificate chain:
 3. Run the following command to create a full certificate chain .pem file that includes the new device certificate.
 
     ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem
+    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem && cd ..
     ```
 
     Use a text editor and open the certificate chain file, *./certs/new-device-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You will use this text as the certificate chain with the custom HSM code later in this tutorial.
@@ -222,7 +222,9 @@ To create the certificate chain:
 
 ## Configure the custom HSM stub code
 
-The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chain used by the device in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods shown in this sample would then be implemented to read the secrets from that hardware-based storage.
+The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chain used by the device in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods shown in this sample would then be implemented to read the secrets from that hardware-based storage. 
+
+While HSM hardware is not required, it is not recommended to have sensitive information, like the certificate's private key, checked into source code. This exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
 
 To update the custom HSM stub code for this tutorial:
 
@@ -236,55 +238,92 @@ To update the custom HSM stub code for this tutorial:
     static const char* const COMMON_NAME = "custom-hsm-device-01";
     ```
 
-4. In the same file, update the string value of the `CERTIFICATE` constant string using your certificate chain text you saved in *./certs/new-device-full-chain.cert.pem* after generating your certificates.
+4. In the same file, you need to update the string value of the `CERTIFICATE` constant string using your certificate chain text you saved in *./certs/new-device-full-chain.cert.pem* after generating your certificates.
 
-    > [!IMPORTANT]
-    > When copying the text into Visual Studio, you may notice that the text is parsed and updated with code spacing etc. If so, you must remove this spacing and parsing by pressing **Ctrl+Z** once.
-
-    Update the certificate text so that it follows the pattern below with no extra spaces or parsing done by Visual Studio:
+    The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
     ```c
     // <Device/leaf cert>
     // <intermediates>
     // <root>
     static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----\n"
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy"
+    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
         ...
-    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh"
-    "\n-----END CERTIFICATE-----\n"
+    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----";        
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
     ```
 
-5. In the same file, update the string value of the `PRIVATE_KEY` constant string using the private key for your device certificate.
+    Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands into your Git Bash command prompt, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value.
 
-    > [!IMPORTANT]
-    > When copying the text into Visual Studio, you may notice that the text is parsed and updated with code spacing etc. If so, you must remove this spacing and parsing by pressing **Ctrl+Z** once.
+    ```Bash
+    input="./certs/new-device-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then	
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi	
+    done < "$input"
+    ```
 
-    Update the private key text so that it follows the pattern below with no extra spaces or parsing done by Visual Studio:
+    Copy and paste the output certificate text for the new constant value. 
+
+
+5. In the same file, the string value of the `PRIVATE_KEY` constant must also be updated with the private key for your device certificate.
+
+    The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
     ```c
     static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
-    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
         ...
-    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij"
-    "\n-----END RSA PRIVATE KEY-----";
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
     ```
+
+    Updating this string value correctly in this step can also be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value.
+
+    ```Bash
+    input="./private/new-device.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then	
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi	
+    done < "$input"
+    ```
+
+    Copy and paste the output private key text for the new constant value. 
 
 6. Save *custom_hsm_example.c*.
 
 
 ## Verify ownership of the root certificate
 
-1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate and get a verification code from DPS.
+1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
 2. Once you have a verification code from DPS for the root certificate, run the following command from your certificate script working directory to generate a verification certificate.
  
@@ -294,7 +333,7 @@ To update the custom HSM stub code for this tutorial:
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    This script creates a certificate signed by the root certificate with subject name set to the verification code. This certificate allows DPS to verify you have access to the private key of the root certificate. Notice the location of the verification certificate in the output of the script.
+    This script creates a certificate signed by the root certificate with subject name set to the verification code. This certificate allows DPS to verify you have access to the private key of the root certificate. Notice the location of the verification certificate in the output of the script. This certificate is generated in `.pfx` format.
 
     ```output
     Leaf Device PFX Certificate Generated At:

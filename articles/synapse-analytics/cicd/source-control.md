@@ -133,6 +133,24 @@ If you're connecting to GitHub from Synapse Studio for the first time, follow th
 
 Once you follow these steps, your workspace will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
 
+#### Already connected to GitHub using a personal account
+
+If you have already connected to GitHub and only granted permission to access a personal account, follow the below steps to grant permissions to an organization.
+
+1. Go to GitHub and open **Settings**.
+
+    ![Open GitHub settings](media/github-settings.png)
+
+1. Select **Applications**. In the **Authorized OAuth apps** tab, you should see *Azure Synapse*.
+
+    ![Authorize OAuth Apps](media/authorize-app.png)
+
+1. Select the *Azure Synapse* and grant the access to your organization.
+
+    ![Grant organization permission](media/grant-organization-permission.png)
+
+Once you complete these steps, your workspace will be able to connect to both public and private repositories within your organization.
+
 ## Version control
 
 Version control systems (also known as _source control_) allows developers to collaborate on code and track changes.Source control is an essential tool for multi-developer projects.
@@ -158,6 +176,7 @@ By default, Synapse Studio generates the workspace templates and saves them into
 ```
 
 Azure Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
+
 
 ### Publish code changes
 
@@ -187,7 +206,7 @@ After you remove the association with the current repo, you can configure your G
 
 ## Best practices for Git integration
 
--   **Permissions**. After you have a git repository connected to your workspace, anyone who has access to your git repo with any role in your workspace will be able to update artifacts, like sql script, notebook,spark job definition, dataset, dataflow and pipeline in git mode. Typically you don't want every team member to have permissions to update workspace. 
+-   **Permissions**. After you have a git repository connected to your workspace, anyone who can access to your git repo with any role in your workspace will be able to update artifacts, like sql script, notebook,spark job definition, dataset, dataflow and pipeline in git mode. Typically you don't want every team member to have permissions to update workspace. 
 Only grant git repository permission to Synapse workspace artifact authors. 
 -   **Collaboration**. It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 -   **Synapse live mode**. After publishing in git mode,  all changes will be reflected in Synapse live mode. In Synapse live mode, publishing is disabled. And you can view, run artifacts in live mode if you have been granted the right permission. 
