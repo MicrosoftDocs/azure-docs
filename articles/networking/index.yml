@@ -158,7 +158,7 @@ conceptualContent:
         - url: ../application-gateway/quick-create-portal.md
           itemType: quickstart
           text:  Direct web traffic using the portal
-        - url: ../application-gateway/application-gateway-faq.md
+        - url: ../application-gateway/application-gateway-faq.yml
           itemType: concept
           text:  Frequently asked questions
         - url: ../application-gateway/application-gateway-troubleshooting-502.md

@@ -60,7 +60,7 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
-   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-overview/itsm-connections.png)
+   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. Under **Workspace Data Sources** in the left pane, select **ITSM Connections**:
 
@@ -127,11 +127,12 @@ Use the following procedure to create action groups:
 
     >[!NOTE]
     >
-    > * This section is relevant only to Log Search Alerts.
-    > * Metric Alerts and Activity Log Alerts will always create one work item per alert.
+    > * This section is relevant only for Log Search Alerts.
+    > * For all other alert types one work item will be created per alert.
 
-    * In a case you select in the work item dropdown "Incident" or "Alert":
-        * If you check the **"Create individual work items for each Configuration Item"** check box, every configuration item in every alert will create a new work item. There can be more than one work item per configuration item in the ITSM system.
+    * In a case you select in the "Work Item" dropdown "Incident" or "Alert":
+    ![Screenshot that shows the ITSM Incident window.](media/itsmc-overview/itsm-action-configuration.png)
+        * If you check the **"Create individual work items for each Configuration Item"** check box, every configuration item in every alert will create a new work item. As a result of several alert for the same configuration items impacted, there are going to be more than one work item for each configuration item.
 
              For example:
              1) Alert 1 with 3 Configuration Items: A, B, C - will create 3 work items.
@@ -145,15 +146,14 @@ Use the following procedure to create action groups:
 
         For example:
          1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
-         2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
+         2) Alert 2 for the same alert rule as in step a with 1 Configuration Item: D - D will be attached to the impacted configuration items list in the work item created in the step a.
          3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
 
-       ![Screenshot that shows the ITSM Incident window.](media/itsmc-overview/itsm-action-configuration.png)
+    * In a case you select in the "Work Item" dropdown "Event":
+    ![Screenshot that shows the ITSM Event window.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-    * In a case you select in the work item dropdown "Event":
         * If you select **"Create individual work items for each Log Entry (Configuration item field is not filled. Can result in large number of work items.)"** in the radio buttons selection, a work item will be created per each row in the search results of the log search alert query. In the payload of the work item the description property will have the row from the search results.
         * If you select **"Create individual work items for each Configuration Item"** in the radio buttons selection, every configuration item in every alert will create a new work item. There can be more than one work item per configuration item in the ITSM system. This will be the same as the checking the checkbox in Incident/Alert section.
-    ![Screenshot that shows the ITSM Event window.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Select **OK**.
 
