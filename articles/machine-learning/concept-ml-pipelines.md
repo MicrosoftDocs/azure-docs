@@ -8,29 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-python
 ---
 
 # What are Azure Machine Learning pipelines?
 
-In this article, you learn how Azure Machine Learning pipelines help you build, optimize, and manage machine learning workflows. These workflows have a number of benefits: 
-
-+ Simplicity
-+ Speed
-+ Repeatability
-+ Flexibility
-+ Versioning and tracking
-+ Modularity 
-+ Quality assurance
-+ Cost control
-
-These benefits become significant as soon as your machine learning project moves beyond pure exploration and into iteration. Even simple one-step pipelines can be valuable. Machine learning projects are often in a complex state, and it can be a relief to make the precise accomplishment of a single workflow a trivial process.
+In this article, you learn how Azure Machine Learning pipelines help you build, optimize, and manage machine learning workflows. 
 
 <a name="compare"></a>
 ### Which Azure pipeline technology should I use?
 
-The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:
+The Azure cloud provides several types of pipeline, each with a different purpose. The following table lists the different pipelines and what they are used for:
 
 | Scenario | Primary persona | Azure offering | OSS offering | Canonical pipe | Strengths | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
