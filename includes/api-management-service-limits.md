@@ -8,7 +8,7 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 04/14/2020
+ms.date: 01/11/2021
 ms.author: vlvinogr
 ms.custom: include file
 ---
@@ -30,6 +30,7 @@ ms.custom: include file
 | Maximum total request duration<sup>8</sup> | 30 seconds |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
 | Maximum request URL size<sup>9</sup> | 4096 bytes |
+| Maximum length of URL path segment | 260 characters |
 | Maximum number of self-hosted gateways<sup>10</sup> | 25 |
 
 <sup>1</sup>Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>
