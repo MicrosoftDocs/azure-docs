@@ -7,7 +7,7 @@ ms.date: 01/11/2021
 
 # Backup solutions for Azure VMware Solution virtual machines (VMs)
 
-By design, Azure VMware Solution enables you to continue to use your investments and your favorite VMware solutions running on Azure. Independent software vendor (ISV) technology support, validated with Azure VMware Solution, is an important part of this strategy. 
+A key principle of Azure VMware Solution is to enable you to continue to use your investments and your favorite VMware solutions running on Azure. Independent software vendor (ISV) technology support, validated with Azure VMware Solution, is an important part of this strategy. 
 
 Our backup partners have industry-leading backup and restore solutions in VMware-based environments. Customers have widely adopted these solutions for their on-premises deployments. Now these partners have extended their solutions to Azure VMware Solution, using Azure to provide a backup repository and a storage target for long-term retention and archival.
 
