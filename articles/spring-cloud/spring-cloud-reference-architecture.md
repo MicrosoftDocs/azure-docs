@@ -144,7 +144,7 @@ The network design supporting this architecture is derived from the traditional 
 | IPY-04 | Interoperability & Portability Standardized Network Protocols |
 | IVS-06 | Infrastructure & Virtualization SecurityNetwork Security |
 
-The network implementation is further secured by defining controls from the MAFB. The controls address restricting SSH from the Internet (6.2), restricting SQL database ingress from any 0.0.0.0/0 IP (6.3), ensuring that Network Watcher is enabled (6.5), and restricting UDP services from the Internet (6.6)
+The network implementation is further secured by defining controls from the MAFB. The controls address restricting SSH from the Internet (6.2), restricting SQL database ingress from any 0.0.0.0/0 IP (6.3), ensuring that Network Watcher is enabled (6.5), and restricting UDP services from the Internet (6.6). The network egress rules implemented in this reference architecture are defined in the [Appendix](#Appendix).
 
 | CIS Control ID | CIS Control Description |
 | :------------- | :---------------------- |
@@ -174,3 +174,32 @@ From the CCM, EKM-02, and EKM-03 specifically address the need for policies and 
 | 8.5 | Enable the role-based access control within Azure Kubernetes Service |
 
 The CIS controls 8.1 and 8.2 recommend that expiration dates are set for credentials to ensure that rotation is enforced. CIS control 8.4 ensures that the contents of the key vault can be restored to maintain business continuity. CIS control 8.5 ensures that the permissions provided to the cluster are using least privilege.
+
+## Appendix
+
+### Egress Rules
+
+| Service Tag/FQDN | Port | Use |
+| :--------------- | :--- | :-- |
+| AzureCloud | TCP:443 | Azure Spring Cloud Service Management |
+| AzureCloud | UDP:1194 | Azure Kubernetes Cluster Management |
+| AzureCloud | TCP:9000 | Azure Kubernetes Cluster Management |
+| Azure Container Registry (*.azure.io) | TCP:443 | Azure Container Registry |
+| Azure Storage ( *.file.core.windows.net) | TCP:445 | Azure File Storage |
+| ntp.ubuntu.com | UDP:123 | NTP synchronization for Linux nodes |
+| *.azmk8s.io | TCP:443 | Azure Kubernetes Cluster Management |
+| mcr.microsoft.com | TCP:443 | Microsoft Container Registry (MCR) |
+| *.cdn.mscr.io | TCP:443 | MCR storage backed by Azure Content Delivery Network (CDN) |
+| *.data.mcr.microsoft.com | TCP:443 | MCR storage backed by Azure CDN |
+| management.azure.com | TCP:443 | Azure Kubernetes Cluster Management |
+| login.microsoftonline.com | TCP:443 | Azure Active Directory authentication |
+| packages.microsoft.com | TCP:443 | Microsoft Packages Repository |
+| acs-mirror.azureedge.net | TCP:443 | Repository containing binaries for Kubenet and Azure Container Networking Interface (CNI) |
+
+<!-- Reference links in article -->
+[1]: /azure/spring-cloud/
+[2]: /azure/key-vault/
+[3]: /azure/azure-monitor/
+[4]: /azure/security-center/
+[5]: /azure/devops/pipelines/
+[6]: /azure/application-gateway/overview
