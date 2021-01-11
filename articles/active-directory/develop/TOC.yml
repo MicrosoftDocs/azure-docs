@@ -280,7 +280,7 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Work with Microsoft Authentication Library
+  - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
     - name: All platforms
