@@ -51,6 +51,6 @@ You can update your .NET for Apache Spark application to use a specific version 
 
 Existing HDI clusters will continue to have the same previous version for .NET for Apache Spark and your existing application (having previous version of Spark .NET) will not be affected.
 
-## Next Steps
+## Next steps
 
 [Deploy your .NET for Apache Spark application on HDInsight](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment)
