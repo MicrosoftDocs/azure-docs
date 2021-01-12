@@ -1,3 +1,13 @@
+---
+title: Troubleshoot common Azure Device Update issues | Microsoft Docs
+description: This document provides a list of tips and tricks to help remedy many possible issues you may be having with Azure Device Update.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: troubleshooting
+ms.service: iot-hub
+---
+
 # Azure Device Update Troubleshooting Guide
 
 This document provides a list of tips and tricks to help remedy many possible

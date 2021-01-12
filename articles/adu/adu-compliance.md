@@ -1,3 +1,13 @@
+---
+title: Understand Azure Device Updates compliance | Microsoft Docs
+description: Understand how Azure Device Updates measure device update compliance.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: conceptual
+ms.service: iot-hub
+---
+
 # Device Update Compliance
 
 In Device Update, compliance measures how many devices have installed the highest version compatible update. A device

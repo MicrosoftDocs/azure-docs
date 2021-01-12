@@ -1,3 +1,13 @@
+---
+title: Understand Azure Device Update network requirements | Microsoft Docs
+description: Azure Device Update uses a variety of network ports for different purposes.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: conceptual
+ms.service: iot-hub
+---
+
 # Ports Used With Azure Device Update (ADU)
 
 ## Ports

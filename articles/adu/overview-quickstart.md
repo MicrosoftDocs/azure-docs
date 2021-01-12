@@ -1,3 +1,13 @@
+---
+title: Understand Azure Device Updates quickstarts | Microsoft Docs
+description: Learn how to use Azure Device Update (ADU) to publish and manage update content to Internet of Things (IoT) devices.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: quickstart
+ms.service: iot-hub
+---
+
 # Azure Device Update Documentation
 
 Learn how to use Azure Device Update (ADU) to publish and manage update content to Internet of Things (IoT) devices.  Tutorials, API references, videos and other documentation help you deploy reliable and secure updates between IoT devices and IoT Hub.  

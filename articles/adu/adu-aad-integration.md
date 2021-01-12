@@ -1,3 +1,13 @@
+---
+title: Understand Azure Device Updates authentication and authorization | Microsoft Docs
+description: Understand how Azure Device Updates utilizes Azure RBAC to provide authentication and authorization for users and service Apis.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: conceptual
+ms.service: iot-hub
+---
+
 # Azure RBAC and ADU
 
 ADU utilizes Azure RBAC to to provide authentication and authorization for users and service Apis.

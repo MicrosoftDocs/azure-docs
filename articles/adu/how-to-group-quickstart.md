@@ -1,6 +1,15 @@
-en Groups_tag_Device_twin and release/v0.3.0-private-preview and committing changes  Groups_tag_Device_twin
+---
+title: Quickstart - Create update group | Microsoft Docs
+description: Azure Device Update allows deploying an update to a group of IoT devices.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: quickstart
+ms.service: iot-hub
+---
 
 # Create Groups
+en Groups_tag_Device_twin and release/v0.3.0-private-preview and committing changes  Groups_tag_Device_twin
 
 ## Prerequisites
 

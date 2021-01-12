@@ -1,3 +1,13 @@
+---
+title: Introduction to Azure Device Update | Microsoft Docs
+description: Azure Device Update is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: overview
+ms.service: iot-hub
+---
+
 # Azure Device Update (ADU) Overview
 
 ## What is Azure Device Update

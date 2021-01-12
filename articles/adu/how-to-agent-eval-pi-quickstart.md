@@ -1,3 +1,13 @@
+---
+title: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
+description: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: conceptual
+ms.service: iot-hub
+---
+
 # Getting Started with Raspberry Pi 3 B+ Reference Yocto Image
 
 ## Download Yocto image

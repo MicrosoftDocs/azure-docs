@@ -1,3 +1,13 @@
+---
+title: Quickstart - Deploy an update | Microsoft Docs
+description: Deploy an update using IoT Hub Azure Device Update.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: quickstart
+ms.service: iot-hub
+---
+
 # Deploy Update
 
 ## Prerequisites

@@ -1,3 +1,13 @@
+---
+title: Understand how Azure Device Update uses IoT Plug and Play | Microsoft Docs
+description: Azure Device Update uses to discover and manage devices that are over-the-air update capable.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: conceptual
+ms.service: iot-hub
+---
+
 # Azure Device Update and IoT Plug and Play
 
 Azure Device Update uses [IoT Plug and

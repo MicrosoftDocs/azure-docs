@@ -1,3 +1,13 @@
+---
+title: Quickstart - Get started using the Ubuntu Server 18.04 x64 Package agent | Microsoft Docs
+description: Get started using the Ubuntu Server 18.04 x64 Package agent.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: quickstart
+ms.service: iot-hub
+---
+
 # Getting Started using Ubuntu Server 18.04 x64 Package agent
 
 ## Setting up update agents

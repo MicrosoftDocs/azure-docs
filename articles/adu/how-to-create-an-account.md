@@ -1,3 +1,13 @@
+---
+title: Create a device update account | Microsoft Docs
+description: Create a device update account in Azure Device Updates.
+author: philmea
+ms.author: philmea
+ms.date: 1/11/2021
+ms.topic: conceptual
+ms.service: iot-hub
+---
+
 # Azure Device Update Resource Management
 
 To get started with Device Update you will need to create a Device Update account, instance and set access control roles. If you have already been participating in the Device Update Preview, you can skip ahead to the "Configure IoT hub" and "Configure access control roles" below.
