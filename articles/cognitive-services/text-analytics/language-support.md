@@ -85,6 +85,7 @@ ms.author: aahi
 
 | Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Danish                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
 | Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Finnish               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
