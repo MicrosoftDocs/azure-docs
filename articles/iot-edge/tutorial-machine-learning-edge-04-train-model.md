@@ -68,7 +68,7 @@ We will upload sample notebook files into a new Azure ML workspace.
 1. Navigate to ml.azure.com and sign in.
 1. Select your Microsoft Directory, Azure Subscription and the newly created Azure ML workspace.
 
-    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/azure-ml-studio-workspace-selection.png" alt-text="Select your Azure ML workspace." :::
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-studio-workspace.png" alt-text="Select your Azure ML workspace." :::
 
 1. Once logged into your Azure ML workspace, navigate to the **Notebooks** section using the left side menu.
 1. Select the **My files** tab.
@@ -114,7 +114,7 @@ Now that the workspace is created, you can run the notebooks.
 
 1. From your **My files** page, select **01-turbofan\_regression.ipynb**.
 
-    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook-aml.png" alt-text="Select first notebook to run. ":::
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-turbofan-notebook.png" alt-text="Select first notebook to run. ":::
 
 1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
 
