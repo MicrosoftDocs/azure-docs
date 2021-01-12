@@ -377,7 +377,7 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 * [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Azure Security Center monitoring**: Yes
 

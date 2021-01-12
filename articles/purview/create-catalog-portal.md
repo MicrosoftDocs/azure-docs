@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview)'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
-author: hophanms
-ms.author: hophan
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
@@ -24,7 +24,7 @@ In this quickstart, you create an Azure Purview account.
 
 * Your account must have permission to create resources in the subscription
 
-* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which will can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
+* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
 EventHub namespace.
 
     > [!important]

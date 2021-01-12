@@ -15,6 +15,11 @@ By default, the Java 3.0 agent for Application Insights produces a log file name
 
 This log file is the first place to check for hints to any issues you might be experiencing.
 
+## JVM fails to start
+
+If the JVM fails to start with "Error opening zip file or JAR manifest missing",
+try re-downloading the agent jar file because it may have been corrupted during file transfer.
+
 ## Upgrade from the Application Insights Java 2.x SDK
 
 If you're already using the Application Insights Java 2.x SDK in your application, you can keep using it. The Java 3.0 agent will detect it. For more information, see [Upgrade from the Java 2.x SDK](./java-standalone-upgrade-from-2x.md).
@@ -28,6 +33,16 @@ These changes include:
 -  The configuration file name has changed from `ApplicationInsights.json` to `applicationinsights.json`.
 -  The `instrumentationSettings` node is no longer present. All content in `instrumentationSettings` is moved to the root level. 
 -  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation`, and `heartbeat` are moved out of `preview` to the root level.
+
+## Some logging is not auto-collected
+
+Logging is only captured if it first meets the logging frameworks' configured threshold,
+and second also meets the Application Insights configured threshold.
+
+The best way to know if a particular logging statement meets the logging frameworks' configured threshold
+is to confirm that it is showing up in your normal application log (e.g. file or console).
+
+See the [auto-collected logging configuration](./java-standalone-config.md#auto-collected-logging) for more details.
 
 ## Import SSL certificates
 

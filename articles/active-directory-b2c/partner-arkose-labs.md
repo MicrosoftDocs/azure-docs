@@ -116,7 +116,7 @@ Download Git Bash and follow the steps below:
 
    ``git commit -am "updated output"``
 
-   ``git push azure master``  
+   ``git push azure main``  
 
 ### Part 3 –  Final setup
 

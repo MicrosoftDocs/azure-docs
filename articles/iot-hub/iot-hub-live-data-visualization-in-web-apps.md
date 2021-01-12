@@ -194,10 +194,10 @@ In this section, you provision a web app in App Service and deploy your code to 
    git remote add webapp <Git clone URL>
    ```
 
-8. To deploy the code to App Service, enter the following command in your command window. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the master branch of the App Service remote.
+8. To deploy the code to App Service, enter the following command in your command window. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the main branch of the App Service remote.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following output:
@@ -208,7 +208,7 @@ In this section, you provision a web app in App Service and deploy your code to 
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. Run the following command to query the state of your web app and make sure it is running:

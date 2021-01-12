@@ -10,7 +10,7 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
+ms.date: 12/16/2020
 ---
 
 # Manage Azure SQL Database long-term backup retention
@@ -200,6 +200,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## Limitations
 - When restoring from an LTR backup, the read scale property is disabled. To enable, read scale on the restored database, update the database after it has been created.
+- You need to specify the target service level objective, when restoring from a LTR backup, which was created when the database was in an elastic pool. 
 
 ## Next steps
 

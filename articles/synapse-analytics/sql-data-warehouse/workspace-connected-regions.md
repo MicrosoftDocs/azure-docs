@@ -34,7 +34,7 @@ The following table summarizes by region where the ability to enable the Synapse
  
  
 > [!NOTE]
-> The above region list only relates to regions where enabling Synapse workspace features are not currently available. 
+> The above region list only relates to regions where enabling Synapse workspace features is not currently available. 
 
 ## Next steps
 Getting started with [Synapse Workspace and Studio](../get-started.md).

@@ -3,9 +3,9 @@ title: Telemetry processors (preview) - Azure Monitor Application Insights for J
 description: How to configure telemetry processors in Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 10/29/2020
-author: MS-jgol
+author: kryalama
 ms.custom: devx-track-java
-ms.author: jgol
+ms.author: kryalama
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
@@ -15,12 +15,55 @@ ms.author: jgol
 
 Java 3.0 Agent for Application Insights now has the capabilities to process telemetry data before the data is exported.
 
-### Some use cases:
+The following are some use cases of telemetry processors:
  * Mask sensitive data
  * Conditionally add custom dimensions
  * Update the telemetry name used for aggregation and display
+ * Drop or filter span attributes to control ingestion cost
 
-### Supported processors:
+## Terminology
+
+Before we jump into telemetry processors, it is important to understand what are traces and spans.
+
+### Traces
+
+Traces track the progression of a single request, called a `trace`, as it is handled by services that make up an application. The request may be initiated by a user or an application. Each unit of work in a `trace` is called a `span`; a `trace` is a tree of spans. A `trace` is comprised of the single root span and any number of child spans.
+
+### Span
+
+Spans are objects that represent the work being done by individual services or components involved in a request as it flows through a system. A `span` contains a `span context`, which is a set of globally unique identifiers that represent the unique request that each span is a part of. 
+
+Spans encapsulate:
+
+* The span name
+* An immutable `SpanContext` that uniquely identifies the Span
+* A parent span in the form of a `Span`, `SpanContext`, or null
+* A `SpanKind`
+* A start timestamp
+* An end timestamp
+* [`Attributes`](#attributes)
+* A list of timestamped Events
+* A `Status`.
+
+Generally, the lifecycle of a span resembles the following:
+
+* A request is received by a service. The span context is extracted from the request headers, if it exists.
+* A new span is created as a child of the extracted span context; if none exists, a new root span is created.
+* The service handles the request. Additional attributes and events are added to the span that are useful for understanding the context of the request, such as the hostname of the machine handling the request, or customer identifiers.
+* New spans may be created to represent work being done by sub-components of the service.
+* When the service makes a remote call to another service, the current span context is serialized and forwarded to the next service by injecting the span context into the headers or message envelope.
+* The work being done by the service completes, successfully or not. The span status is appropriately set, and the span is marked finished.
+
+### Attributes
+
+`Attributes` are a list of zero or more key-value pairs which are encapsulated in a `span`. An Attribute MUST have the following properties:
+
+The attribute key, which MUST be a non-null and non-empty string.
+The attribute value, which is either:
+* A primitive type: string, boolean, double precision floating point (IEEE 754-1985) or signed 64 bit integer.
+* An array of primitive type values. The array MUST be homogeneous, i.e. it MUST NOT contain values of different types. For protocols that do not natively support array values such values SHOULD be represented as JSON strings.
+
+## Supported processors:
  * Attribute Processor
  * Span Processor
 
@@ -50,9 +93,9 @@ Create a configuration file named `applicationinsights.json`, and place it in th
 }
 ```
 
-## Include/exclude spans
+## Include/Exclude spans
 
-The attribute processor and the span processor expose the option to provide a set of properties of a span to match against, to determine if the span should be included or excluded from the processor. To configure this option, under `include` and/or `exclude` at least one `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified condition. All of the specified conditions must evaluate to true for a match to occur. 
+The attribute processor and the span processor expose the option to provide a set of properties of a span to match against, to determine if the span should be included or excluded from the telemetry processor. To configure this option, under `include` and/or `exclude` at least one `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified condition. All of the specified conditions must evaluate to true for a match to occur. 
 
 **Required field**: 
 * `matchType` controls how items in `spanNames` and `attributes` arrays are interpreted. Possible values are `regexp` or `strict`. 
@@ -64,187 +107,164 @@ The attribute processor and the span processor expose the option to provide a se
 > [!NOTE]
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties.
 
-#### Sample usage
-
-The following demonstrates specifying the set of span properties to
-indicate which spans this processor should be applied to. The `include` of
-properties say which ones should be included and the `exclude` properties
-further filter out spans that shouldn't be processed.
+#### Sample Usage
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+
+"processors": [
+  {
+    "type": "attribute",
+    "include": {
+      "matchType": "strict",
+      "spanNames": [
+        "spanA",
+        "spanB"
+      ]
+    },
+    "exclude": {
+      "matchType": "strict",
+      "attributes": [
+        {
+          "key": "redact_trace",
+          "value": "false"
+        }
+      ]
+    },
+    "actions": [
       {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "spanNames": [
-            "svcA",
-            "svcB"
-          ]
-        },
-        "exclude": {
-          "matchType": "strict",
-          "attributes": [
-            {
-              "key": "redact_trace",
-              "value": "false"
-            }
-          ]
-        },
-        "actions": [
-          {
-            "key": "credit_card",
-            "action": "delete"
-          },
-          {
-            "key": "duplicate_key",
-            "action": "delete"
-          }
-        ]
+        "key": "credit_card",
+        "action": "delete"
+      },
+      {
+        "key": "duplicate_key",
+        "action": "delete"
       }
     ]
   }
-}
+]
 ```
-
-With the above configuration, the following spans match the properties and processor actions are applied:
-
-* Span1 Name: 'svcB' Attributes: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
-
-* Span2 Name: 'svcA' Attributes: {env: staging, test_request: false, redact_trace: true}
-
-The following spans do not match the include properties and processor actions are not applied:
-
-* Span3 Name: 'svcB' Attributes: {env: production, test_request: true, credit_card: 1234, redact_trace: false}
-
-* Span4 Name: 'svcC' Attributes: {env: dev, test_request: false}
+For more understanding, check out the [telemetry processor examples](./java-standalone-telemetry-processors-examples.md) documentation.
 
 ## Attribute processor 
 
-The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans.
-It takes a list of actions which are performed in order specified in the configuration file. The supported actions are:
+The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans. It takes a list of actions which are performed in order specified in the configuration file. The supported actions are:
 
-* `insert` : Inserts a new attribute in spans where the key does not already exist
-* `update` : Updates an attribute in spans where the key does exist
-* `delete` : Deletes an attribute from a span
-* `hash`   : Hashes (SHA1) an existing attribute value
+### `insert`
 
-For the actions `insert` and `update`
-* `key` is required
-* one of `value` or `fromAttribute` is required
-* `action` is required.
-
-For the `delete` action,
-* `key` is required
-* `action`: `delete` is required.
-
-For the `hash` action,
-* `key` is required
-* `action` : `hash` is required.
-
-The list of actions can be composed to create rich scenarios, such as back filling attribute, copying values to a new key, redacting sensitive information.
-
-#### Sample usage
-
-The following example demonstrates inserting keys/values into spans:
+Inserts a new attribute in spans where the key does not already exist.   
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "actions": [
-          {
-            "key": "attribute1",
-            "value": "value1",
-            "action": "insert"
-          },
-          {
-            "key": "key1",
-            "fromAttribute": "anotherkey",
-            "action": "insert"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "value": "value1",
+        "action": "insert"
+      },
     ]
   }
-}
+]
 ```
+For the `insert` action, following are required
+  * `key`
+  * one of `value` or `fromAttribute`
+  * `action`:`insert`
 
-The following example demonstrates configuring the processor to only update existing keys in an attribute:
+### `update`
+
+Updates an attribute in spans where the key does exist
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "actions": [
-          {
-            "key": "piiattribute",
-            "value": "redacted",
-            "action": "update"
-          },
-          {
-            "key": "credit_card",
-            "action": "delete"
-          },
-          {
-            "key": "user.email",
-            "action": "hash"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "value": "newValue",
+        "action": "update"
+      },
     ]
   }
-}
+]
 ```
+For the `update` action, following are required
+  * `key`
+  * one of `value` or `fromAttribute`
+  * `action`:`update`
 
-The following example demonstrates how to process spans that have a span name that match regexp patterns.
-This processor will remove "token" attribute and will obfuscate "password" attribute in spans where span name matches "auth.\*" 
-and where span name does not match "login.\*".
+
+### `delete` 
+
+Deletes an attribute from a span
 
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
       {
-        "type": "attribute",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "auth.*"
-          ]
-        },
-        "exclude": {
-          "matchType": "regexp",
-          "spanNames": [
-            "login.*"
-          ]
-        },
-        "actions": [
-          {
-            "key": "password",
-            "value": "obfuscated",
-            "action": "update"
-          },
-          {
-            "key": "token",
-            "action": "delete"
-          }
-        ]
-      }
+        "key": "attribute1",
+        "action": "delete"
+      },
     ]
   }
-}
+]
 ```
+For the `delete` action, following are required
+  * `key`
+  * `action`: `delete`
+
+### `hash`
+
+Hashes (SHA1) an existing attribute value
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "action": "hash"
+      },
+    ]
+  }
+]
+```
+For the `hash` action, following are required
+* `key`
+* `action` : `hash`
+
+### `extract`
+
+> [!NOTE]
+> This feature is only in 3.0.1 and later
+
+Extracts values using a regular expression rule from the input key to target keys specified in the rule. If a target key already exists, it will be overridden. It behaves similar to the [Span Processor](#extract-attributes-from-span-name) `toAttributes` setting with the existing attribute as the source.
+
+```json
+"processors": [
+  {
+    "type": "attribute",
+    "actions": [
+      {
+        "key": "attribute1",
+        "pattern": "<regular pattern with named matchers>",
+        "action": "extract"
+      },
+    ]
+  }
+]
+```
+For the `extract` action, following are required
+* `key`
+* `pattern`
+* `action` : `extract`
+
+For more understanding, check out the [telemetry processor examples](./java-standalone-telemetry-processors-examples.md) documentation.
 
 ## Span processors
 
@@ -262,28 +282,19 @@ The following setting can be optionally configured:
 > [!NOTE]
 > If renaming is dependent on attributes being modified by the attributes processor, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
-#### Sample usage
-
-The following example specifies the values of attribute "db.svc", "operation", and "id" will form the new name of the span, in that order, separated by the value "::".
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "name": {
-          "fromAttributes": [
-            "db.svc",
-            "operation",
-            "id"
-          ],
-          "separator": "::"
-        }
-      }
-    ]
+"processors": [
+  {
+    "type": "span",
+    "name": {
+      "fromAttributes": [
+        "attributeKey1",
+        "attributeKey2",
+      ],
+      "separator": "::"
+    }
   }
-}
+] 
 ```
 
 ### Extract attributes from span name
@@ -294,60 +305,45 @@ The following settings are required:
 
 `rules` : A list of rules to extract attribute values from span name. The values in the span name are replaced by extracted attribute names. Each rule in the list is regex pattern string. Span name is checked against the regex. If the regex matches, all named subexpressions of the regex are extracted as attributes and are added to the span. Each subexpression name becomes an attribute name and subexpression matched portion becomes the attribute value. The matched portion in the span name is replaced by extracted attribute name. If the attributes already exist in the span, they will be overwritten. The process is repeated for all rules in the order they are specified. Each subsequent rule works on the span name that is the output after processing the previous rule.
 
-#### Sample usage
-
-Let's assume the input span name is /api/v1/document/12345678/update. Applying the following results in the output span name /api/v1/document/{documentId}/update will add a new attribute "documentId"="12345678" to the span.
 ```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "name": {
-          "toAttributes": {
-            "rules": [
-              "^/api/v1/document/(?<documentId>.*)/update$"
-            ]
-          }
-        }
+
+"processors": [
+  {
+    "type": "span",
+    "name": {
+      "toAttributes": {
+        "rules": [
+          "rule1",
+          "rule2",
+          "rule3"
+        ]
       }
-    ]
+    }
   }
-}
+]
+
 ```
 
-The following demonstrates renaming the span name to "{operation_website}" and adding the attribute {Key: operation_website, Value: oldSpanName } when the span has the following properties:
-- The span name contains '/' anywhere in the string.
-- The span name is not 'donot/change'.
-```json
-{
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-  "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "spanNames": [
-            "^(.*?)/(.*?)$"
-          ]
-        },
-        "exclude": {
-          "matchType": "strict",
-          "spanNames": [
-            "donot/change"
-          ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [
-              "(?<operation_website>.*?)$"
-            ]
-          }
-        }
-      }
-    ]
-  }
-}
-```
+## List of Attributes
+
+Following are list of some common span attributes that can be used in the telemetry processors.
+
+### HTTP Spans
+
+| Attribute  | Type | Description | 
+|---|---|---|
+| `http.method` | string | HTTP request method.|
+| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. Usually the fragment is not transmitted over HTTP, but if it is known, it should be included nevertheless.|
+| `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
+| `http.flavor` | string | Kind of HTTP protocol used |
+| `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+
+### JDBC Spans
+
+| Attribute  | Type | Description  |
+|---|---|---|
+| `db.system` | string | An identifier for the database management system (DBMS) product being used. |
+| `db.connection_string` | string | The connection string used to connect to the database. It is recommended to remove embedded credentials.|
+| `db.user` | string | Username for accessing the database. |
+| `db.name` | string | This attribute is used to report the name of the database being accessed. For commands that switch the database, this should be set to the target database (even if the command fails).|
+| `db.statement` | string | The database statement being executed.|

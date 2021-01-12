@@ -56,22 +56,22 @@ formed data enters the workflow. You don't want malformed data
 persisting in your database or triggering a malfunction in a downstream
 component.
 
-Blacklisting and whitelisting are two general approaches to performing
+Blocklisting and allowlisting are two general approaches to performing
 input syntax validation:
 
-  - Blacklisting attempts to check that a given user input doesn't
+  - Blocklisting attempts to check that a given user input doesn't
     contain "known to be malicious" content.
 
-  - Whitelisting attempts to check that a given user input matches a set
-    of "known good" inputs. Character-based whitelisting is a form of
-    whitelisting where an application checks that user input contains
+  - Allowlisting attempts to check that a given user input matches a set
+    of "known good" inputs. Character-based allowlisting is a form of
+    allowlisting where an application checks that user input contains
     only "known good" characters or that input matches a known format.
     For example, this might involve checking that a username contains
     only alphanumeric characters or that it contains exactly two
     numbers.
 
-Whitelisting is the preferred approach for building secure software.
-Blacklisting is prone to error because it's impossible to think of a
+Allowlisting is the preferred approach for building secure software.
+Blocklisting is prone to error because it's impossible to think of a
 complete list of potentially bad input.
 
 Do this work on the server, not on the client side (or on the server and
