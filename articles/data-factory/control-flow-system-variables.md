@@ -26,16 +26,16 @@ These system variables can be referenced anywhere in the pipeline JSON.
 | @pipeline().DataFactory |Name of the data factory the pipeline run is running in |
 | @pipeline().Pipeline |Name of the pipeline |
 | @pipeline().RunId |ID of the specific pipeline run |
-| @pipeline().TriggerType |The type of trigger that invoked the pipeline (e.g. "ScheduleTrigger", "BlobEventsTrigger"). For a list of supported trigger types, see [Pipeline execution and triggers in Azure Data Factory](concepts-pipeline-execution-triggers.md). A trigger type of "Manual" indicates that the pipeline was triggered manually. |
+| @pipeline().TriggerType |The type of trigger that invoked the pipeline (for example, `ScheduleTrigger`, `BlobEventsTrigger`). For a list of supported trigger types, see [Pipeline execution and triggers in Azure Data Factory](concepts-pipeline-execution-triggers.md). A trigger type of `Manual` indicates that the pipeline was triggered manually. |
 | @pipeline().TriggerId|ID of the trigger that invoked the pipeline |
 | @pipeline().TriggerName|Name of the trigger that invoked the pipeline |
-| @pipeline().TriggerTime|Time of the trigger run that invoked the pipeline. This is the time at which the trigger **actually** fired to invoke the pipeline run, and may differ slightly from the trigger's scheduled time.  |
+| @pipeline().TriggerTime|Time of the trigger run that invoked the pipeline. This is the time at which the trigger **actually** fired to invoke the pipeline run, and it may differ slightly from the trigger's scheduled time.  |
 
 >[!NOTE]
->Trigger-related date/time system variables (in both pipeline and trigger scopes) return UTC dates in ISO 8601 format, for example `2017-06-01T22:20:00.4061448Z`.
+>Trigger-related date/time system variables (in both pipeline and trigger scopes) return UTC dates in ISO 8601 format, for example, `2017-06-01T22:20:00.4061448Z`.
 
 ## Schedule trigger scope
-These system variables can be referenced anywhere in the trigger JSON for triggers of type "[ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger)".
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Variable Name | Description |
 | --- | --- |
@@ -43,7 +43,7 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @trigger().startTime |Time at which the trigger **actually** fired to invoke the pipeline run. This may differ slightly from the trigger's scheduled time. |
 
 ## Tumbling window trigger scope
-These system variables can be referenced anywhere in the trigger JSON for triggers of type "[TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger)".
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Variable Name | Description |
 | --- | --- |
@@ -53,12 +53,12 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @trigger().startTime |Time at which the trigger **actually** fired to invoke the pipeline run. This may differ slightly from the trigger's scheduled time. |
 
 ## Event-based trigger scope
-These system variables can be referenced anywhere in the trigger JSON for triggers of type "[BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger)".
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
 | Variable Name | Description |
 | --- | --- |
 | @triggerBody().fileName  |Name of the file whose creation or deletion caused the trigger to fire.   |
-| @triggerBody().folderName  |Path to the folder containing the file specified by "@triggerBody().fileName". The first segment of the folder path is the name of the blob storage container.  |
+| @triggerBody().folderName  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
 | @trigger().startTime |Time at which the trigger fired to invoke the pipeline run. |
 
 ## Next steps
