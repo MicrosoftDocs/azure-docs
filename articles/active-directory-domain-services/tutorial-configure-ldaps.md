@@ -286,6 +286,12 @@ If you added a DNS entry to the local hosts file of your computer to test connec
 1. Browse to and open the file *C:\Windows\System32\drivers\etc\hosts*
 1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
 
+## Change Expiring Certificate
+
+1. Create a replacement secure LDAP certificate by following the steps to create a certificate for secure LDAP above.
+1. Apply the replacement certificate to Azure AD DS by choosing **Secure LDAP** on the left-hand side of the Azure AD DS protal and choosing **Change Certificate**.
+1. Distribute the certificate to any clients that connect using secure LDAP.
+
 ## Next steps
 
 In this tutorial, you learned how to:
