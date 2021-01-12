@@ -97,8 +97,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 These code snippets show you how to do the following tasks with the Form Recognizer client library for JavaScript:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -121,7 +121,7 @@ You'll also need to add references to the URLs for your training and testing dat
 * Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
 
-## Recognize form content
+## Analyze layout
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model. To recognize the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
 
@@ -147,7 +147,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## Recognize receipts
+## Analyze receipts
 
 This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model.
 
