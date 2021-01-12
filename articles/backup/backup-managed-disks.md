@@ -112,6 +112,8 @@ The following prerequisites are required to configure backup of managed disks:
 
    - You can't create an incremental snapshot for a particular disk outside of that disk's subscription. So choose the resource group within the same subscription as that of the disk to be backed up. Learn more about [incremental snapshot](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) for managed disks.
 
+   To assign the role, follow these steps:
+
    1. Go to the Resource group. For example, the resource group is *SnapshotRG*, which is in the same subscription as that of the disk to be backed up.
 
    1. Go to **Access control (IAM)** and select **Add role assignments**.

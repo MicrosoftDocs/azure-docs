@@ -46,7 +46,7 @@ Azure Disk Backup uses incremental snapshots, which are limited to 200 snapshots
 
 Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately every 4 hours so that the backups are distributed equally across the day. If once a day backup is sufficient enough, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups will be taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required to complete the backup operation is dependent on various factors including the churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal) that don't impact the production application performance.
 
-### Why does the backup vault’s redundancy setting not apply to the backups stored in operational tier (the snapshot resource group)?
+### Why does the Backup vault’s redundancy setting not apply to the backups stored in operational tier (the snapshot resource group)?
 
 Azure Backup uses [incremental snapshots](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) of managed disks that store only the delta changes to disks since the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For more reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in regions that support ZRS. Currently, Azure Disk Backup supports operational backups of managed disks that don't copy the backups to Backup vault storage. So the backup storage redundancy setting of the Backup vault doesn't apply to the recovery points.
 
@@ -122,7 +122,8 @@ Following are the actions used in the **Disk Restore Operator** role assigned on
 
 "Microsoft.Resources/subscriptions/resourceGroups/read"
 
-Note that the permissions on these roles may change in the future, based on the features being added by the Azure Backup service.
+>[!NOTE]
+>The permissions on these roles may change in the future, based on the features being added by the Azure Backup service.
 
 ## Next steps
 

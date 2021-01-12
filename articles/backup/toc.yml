@@ -454,7 +454,7 @@
     - name: Azure File share
       href: troubleshoot-azure-files.md
     - name: Azure Disk Backup
-      href: disk-backup-troubleshooting.md
+      href: disk-backup-troubleshoot.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
     - name: SAP HANA backup in Azure VMs

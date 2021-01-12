@@ -14,7 +14,7 @@ ms.date: 01/07/2021
 
 This article provides troubleshooting information on backup and restore issues faced with Azure Disk. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
-## Common issues faced with Azure Disk backup
+## Common issues faced with Azure Disk Backup
 
 ### Error Code: UserErrorSnapshotRGSubscriptionMismatch
 

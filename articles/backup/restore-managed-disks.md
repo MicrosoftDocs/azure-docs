@@ -41,10 +41,10 @@ The following pre-requisites are required to perform a restore operation:
 
     1. On the right context pane, select **Disk Restore Operator** in the **Role** dropdown list. Select the backup vault’s managed identity and **Save**.
 
-    >[!TIP]
-    >Type the backup vault's name to select the vault’s managed identity.
+        >[!TIP]
+        >Type the backup vault's name to select the vault’s managed identity.
 
-    ![Select disk restore operator role](./media/restore-managed-disks/disk-restore-operator-role.png)
+        ![Select disk restore operator role](./media/restore-managed-disks/disk-restore-operator-role.png)
 
 1. Verify that the backup vault's managed identity has the right set of role assignments on the resource group where the disk will be restored.
 
