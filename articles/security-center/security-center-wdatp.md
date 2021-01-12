@@ -66,7 +66,7 @@ By integrating Defender for Endpoint with Security Center, you'll benefit from t
 
 When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. 
 
-After you've configured the location, you can't change it. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
+After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
 ## Enabling the Microsoft Defender for Endpoint integration
