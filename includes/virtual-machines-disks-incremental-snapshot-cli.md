@@ -30,7 +30,7 @@ To create an incremental snapshot, use [az snapshot create](/cli/azure/snapshot?
 
 The following example creates an incremental snapshot, replace `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`, and `<exampleLocation>` with your own values, then run the example:
 
-```bash
+```azurecli
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
 
 az snapshot create -g <yourResourceGroupNameHere> \
@@ -48,7 +48,7 @@ This example uses jq for querying the data. To run the example, you must [instal
 
 Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list your existing incremental snapshots, as long as you've also installed jq:
 
-```bash
+```azurecli
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
 
  

@@ -65,7 +65,7 @@ uname -r
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions below are presented for the Azure CLI.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace `<your-resource-group>` and `<your-storage-account>` then run the following script:
-    ```bash
+    ```azurecli
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     
@@ -82,7 +82,7 @@ uname -r
 
     If the connection was successful, you should see something similar to the following output:
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -96,7 +96,7 @@ You can mount the same Azure file share to multiple mount points if desired.
 ### Mount the Azure file share on-demand with `mount`
 1. **Create a folder for the mount point**: Replace `<your-resource-group>`, `<your-storage-account>`, and `<your-file-share>` with the appropriate information for your environment:
 
-    ```bash
+    ```azurecli
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
@@ -108,7 +108,7 @@ You can mount the same Azure file share to multiple mount points if desired.
 
 1. **Use the mount command to mount the Azure file share**. In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia. 
 
-    ```bash
+    ```azurecli
     # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
@@ -132,7 +132,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 ### Create a persistent mount point for the Azure file share with `/etc/fstab`
 1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under /mnt. For example, the following command creates a new directory, replace `<your-resource-group>`, `<your-storage-account>`, and `<your-file-share>` with the appropriate information for your environment:
 
-    ```bash
+    ```azurecli
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
@@ -144,7 +144,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 
 1. **Create a credential file to store the username (the storage account name) and password (the storage account key) for the file share.** 
 
-    ```bash
+    ```azurecli
     if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir "/etc/smbcredentials"
     fi
@@ -165,13 +165,13 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 
 1. **Change permissions on the credential file so only root can read or modify the password file.** Since the storage account key is essentially a super-administrator password for the storage account, setting the permissions on the file such that only root can access is important so that lower privilege users cannot retrieve the storage account key.   
 
-    ```bash
+    ```azurecli
     sudo chmod 600 $smbCredentialFile
     ```
 
 1. **Use the following command to append the following line to `/etc/fstab`**: In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
-    ```bash
+    ```azurecli
     # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
@@ -198,44 +198,44 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     The autofs package can be installed using the package manager on the Linux distribution of your choice. 
 
     On **Ubuntu** and **Debian-based** distributions, use the `apt` package manager:
-    ```bash
+    ```azurecli
     sudo apt update
     sudo apt install autofs
     ```
     On **Fedora**, **Red Hat Enterprise Linux 8+**, and **CentOS 8 +**, use the `dnf` package manager:
-    ```bash
+    ```azurecli
     sudo dnf install autofs
     ```
     On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
-    ```bash
+    ```azurecli
     sudo yum install autofs 
     ```
     On **openSUSE**, use the `zypper` package manager:
-    ```bash
+    ```azurecli
     sudo zypper install autofs
     ```
 2. **Create a mount point for the share(s)**:
-   ```bash
+   ```azurecli
     sudo mkdir /fileshares
     ```
 3. **Crete a new custom autofs configuration file**
-    ```bash
+    ```azurecli
     sudo vi /etc/auto.fileshares
     ```
 4. **Add the following entries to /etc/auto.fileshares**
-   ```bash
+   ```azurecli
    echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
    ```
 5. **Add the following entry to /etc/auto.master**
-   ```bash
+   ```azurecli
    /fileshares /etc/auto.fileshares --timeout=60
    ```
 6. **Restart autofs**
-    ```bash
+    ```azurecli
     sudo systemctl restart autofs
     ```
 7.  **Access the folder designated for the share**
-    ```bash
+    ```azurecli
     cd /fileshares/$filesharename
     ```
 ## Securing Linux
@@ -264,7 +264,7 @@ Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy
 
 You can check to see if your Linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
 
-```bash
+```azurecli
 sudo modinfo -p cifs | grep disable_legacy_dialects
 ```
 
@@ -276,43 +276,43 @@ disable_legacy_dialects: To improve security it may be helpful to restrict the a
 
 Before disabling SMB 1, you must check to make sure that the SMB module is not currently loaded on your system (this happens automatically if you have mounted an SMB share). You can do this with the following command, which should output nothing if SMB is not loaded:
 
-```bash
+```azurecli
 lsmod | grep cifs
 ```
 
 To unload the module, first unmount all SMB shares (using the `umount` command as described above). You can identify all the mounted SMB shares on your system with the following command:
 
-```bash
+```azurecli
 mount | grep cifs
 ```
 
 Once you have unmounted all SMB file shares, it's safe to unload the module. You can do this with the `modprobe` command:
 
-```bash
+```azurecli
 sudo modprobe -r cifs
 ```
 
 You can manually load the module with SMB 1 unloaded using the `modprobe` command:
 
-```bash
+```azurecli
 sudo modprobe cifs disable_legacy_dialects=Y
 ```
 
 Finally, you can check the SMB module has been loaded with the parameter by looking at the loaded parameters in `/sys/module/cifs/parameters`:
 
-```bash
+```azurecli
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
 To persistently disable SMB 1 on Ubuntu and Debian-based distributions, you must create a new file (if you don't already have custom options for other modules) called `/etc/modprobe.d/local.conf` with the setting. You can do this with the following command:
 
-```bash
+```azurecli
 echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
 ```
 
 You can verify that this has worked by loading the SMB module:
 
-```bash
+```azurecli
 sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```

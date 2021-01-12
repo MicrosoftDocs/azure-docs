@@ -20,20 +20,13 @@ In this tutorial, you first complete the steps to setup Azure CLI and the IoT ex
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## Installation 
+## Prerequisites
 
-### Install Python
+- [Python 2.7x or Python 3.x](https://www.python.org/downloads/) is required.
 
-[Python 2.7x or Python 3.x](https://www.python.org/downloads/) is required.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-### Install the Azure CLI
-
-Follow the [installation instruction](/cli/azure/install-azure-cli?view=azure-cli-latest) to setup Azure CLI in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
-
-### Install IoT extension
-
-[The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-iot`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-iot` to see details about the IoT extension. To remove the extension, you can use `az extension remove --name azure-iot`.
-
+- This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Basic Device Provisioning Service operations
 

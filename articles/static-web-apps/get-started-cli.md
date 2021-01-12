@@ -41,7 +41,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Sign in to the Azure CLI by using the following command.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -49,7 +49,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     # [No Framework](#tab/vanilla-javascript)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -61,7 +61,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     # [Angular](#tab/angular)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -74,7 +74,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     # [React](#tab/react)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -87,7 +87,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     # [Vue](#tab/vue)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -122,7 +122,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance by running the following command:
 
-```bash
+```azurecli
 az staticwebapp delete \
     --name my-first-static-web-app \
     --resource-group my-first-static-web-app

@@ -69,7 +69,7 @@ You can capture the encryption settings from each disk by using the following Po
 ### Single pass
 In a single pass, the encryption settings are stamped on each of the disks (OS and data). You can capture the encryption settings for an OS disk in a single pass as follows:
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -159,7 +159,7 @@ Write-Host "====================================================================
 
 You can validate the *general* encryption status of an encrypted VM by using the following Azure CLI commands:
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -169,7 +169,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### Single pass
 You can validate the encryption settings for each disk by using the following Azure CLI commands:
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
@@ -182,7 +182,7 @@ Use the following commands to get detailed status and encryption settings.
 
 OS disk:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VNAME"
 
@@ -202,7 +202,7 @@ done
 
 Data disks:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -222,7 +222,7 @@ done
 
 ### Dual pass
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -230,7 +230,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 
 You can also check the encryption settings on the VM Model Storage profile of the OS disk:
 
-```bash
+```azurecli
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
 for disk in $disk; do \
 echo "============================================================================================================================================================="; \
@@ -251,7 +251,7 @@ Check the encryption settings for disks that aren't attached to a VM.
 
 ### Managed disks
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 TARGETDISKNAME="DISKNAME"
 echo "============================================================================================================================================================="
@@ -275,7 +275,7 @@ To get the details for a specific disk, you need to provide:
 
 This command lists all the IDs for all your storage accounts:
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 The storage account IDs are listed in the following form:
@@ -283,37 +283,37 @@ The storage account IDs are listed in the following form:
 /subscriptions/\<subscription id>/resourceGroups/\<resource group name>/providers/Microsoft.Storage/storageAccounts/\<storage account name>
 
 Select the appropriate ID and store it on a variable:
-```bash
+```azurecli
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
 
 This command gets the connection string for one particular storage account and stores it on a variable:
 
-```bash
+```azurecli
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
 The following command lists all the containers under a storage account:
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 The container used for disks is normally named "vhds."
 
 Store the container name on a variable: 
-```bash
+```azurecli
 ContainerName="name of the container"
 ```
 
 Use this command to list all the blobs on a particular container:
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Choose the disk that you want to query and store its name on a variable:
-```bash
+```azurecli
 DiskName="diskname.vhd"
 ```
 Query the disk encryption settings:
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
@@ -322,7 +322,7 @@ Validate if the data disk partitions are encrypted (and the OS disk isn't).
 
 When a partition or disk is encrypted, it's displayed as a **crypt** type. When it's not encrypted, it's displayed as a **part/disk** type.
 
-``` bash
+```bash
 lsblk
 ```
 
@@ -339,11 +339,11 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 As an extra step, you can validate if the data disk has any keys loaded:
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 
