@@ -31,7 +31,7 @@ mcr.microsoft.com/media/live-video-analytics:2.0.1
 ### Bug fixes 
 
 * The fields `ActivationSignalOffset`, `MinimumActivationTime` and `MaximumActivationTime` in Signal Gate processors were incorrectly set as required properties. They are now **optional** properties.
-* Fixed a Usage bug that causes the Live Video Analytics on IoT Edge module to crash when deployed in certain regions
+* Fixed a Usage bug that causes the Live Video Analytics on IoT Edge module to crash when deployed in certain regions.
 
 <hr width=100%>
 
