@@ -31,7 +31,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * [Turn on logging](#debug-data-from-the-sdk) by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs. 
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
 * If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During development you can place ApplicationInsights.xml in resources folder of your web project.
-* Please also look at [GitHub issues page](https://github.com/Microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
+* Please also look at [GitHub issues page](https://github.com/microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
 #### I used to see data, but it has stopped
@@ -189,7 +189,7 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 ## Get help
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [File an issue on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [File an issue on GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 
