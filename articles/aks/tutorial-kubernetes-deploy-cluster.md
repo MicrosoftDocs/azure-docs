@@ -19,7 +19,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Install the Kubernetes CLI (kubectl)
 > * Configure kubectl to connect to your AKS cluster
 
-In additional tutorials, the Azure Vote application is deployed to the cluster, scaled, and updated.
+In later tutorials, the Azure Vote application is deployed to the cluster, scaled, and updated.
 
 ## Before you begin
 

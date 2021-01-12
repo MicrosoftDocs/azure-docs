@@ -23,7 +23,7 @@ Once completed, the following application runs in your local development environ
 
 :::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Screenshot showing application's front end displayed in browser" lightbox="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png":::
 
-In additional tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
+In later tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
 
 ## Before you begin
 

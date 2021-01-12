@@ -20,7 +20,7 @@ Azure Container Registry (ACR) is a private registry for container images. A pri
 > * Upload the image to ACR
 > * View images in your registry
 
-In additional tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS, and an application is deployed from the image.
+In later tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS, and an application is deployed from the image.
 
 ## Before you begin
 

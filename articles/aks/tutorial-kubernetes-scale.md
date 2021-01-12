@@ -19,7 +19,7 @@ If you've followed the tutorials, you have a working Kubernetes cluster in AKS a
 > * Manually scale Kubernetes pods that run your application
 > * Configure autoscaling pods that run the app front-end
 
-In additional tutorials, the Azure Vote application is updated to a new version.
+In later tutorials, the Azure Vote application is updated to a new version.
 
 ## Before you begin
 

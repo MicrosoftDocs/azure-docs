@@ -19,7 +19,7 @@ Kubernetes provides a distributed platform for containerized applications. You b
 > * Run an application in Kubernetes
 > * Test the application
 
-In additional tutorials, this application is scaled out and updated.
+In later tutorials, this application is scaled out and updated.
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
