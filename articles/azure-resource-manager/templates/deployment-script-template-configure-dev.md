@@ -1,6 +1,6 @@
 ---
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
-description: configure development environment for deployment scripts in Azure Resource Manager templates.
+description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
@@ -9,7 +9,8 @@ ms.date: 12/14/2020
 ms.author: jgao
 
 ---
-# Configure development environment for deployment scripts in templates
+
+# Configure development environment for deployment scripts in ARM templates
 
 Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
@@ -51,7 +52,7 @@ To author your scripts on your computer, you need to create a storage account an
 
 ### Create an Azure PowerShell container instance
 
-The following ARM template creates a container instance and a file share, and then mounts the file share to the container image:
+The following Azure Resource Manager template (ARM template) creates a container instance and a file share, and then mounts the file share to the container image.
 
 ```json
 {
@@ -166,7 +167,7 @@ The following ARM template creates a container instance and a file share, and th
 }
 ```
 
-The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
+The default value for the mount path is `deploymentScript`. This is the path in the container instance where it's mounted to the file share.
 
 The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
 
@@ -434,7 +435,7 @@ You also need to configure file sharing to mount the directory, which contains t
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive.  It maps the folder to the **/data** folder in the container. For examples, to map D:\docker:
+    Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive. It maps the folder to the _/data_ folder in the container. For example, to map _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -459,4 +460,4 @@ After the script is tested successfully, you can use it as a deployment script i
 In this article, you learned how to use deployment scripts. To walk through a deployment script tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use deployment scripts in Azure Resource Manager templates](./template-tutorial-deployment-script.md)
+> [Tutorial: Use deployment scripts in ARM templates](./template-tutorial-deployment-script.md)

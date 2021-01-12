@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -85,9 +85,9 @@ If you’re looking to alert on a specific metric but can’t see it when creati
 If you're looking to alert on [specific dimension values of a metric](./alerts-metric-overview.md#using-dimensions), but cannot find these values, note the following:
 
 1. It might take a few minutes for the dimension values to appear under the **Dimension values** list
-1. The displayed dimension values are based on metric data collected in the last three days
-1. If the dimension value isn’t yet emitted, click the '+' sign to add a custom value
-1. If you’d like to alert on all possible values of a dimension (including future values), check the 'Select *' checkbox
+1. The displayed dimension values are based on metric data collected in the last day
+1. If the dimension value isn’t yet emitted or isn't shown, you can use the 'Add custom value' option to add a custom dimension value
+1. If you’d like to alert on all possible values of a dimension (including future values), choose the 'Select all current and future values' option
 
 ## Metric alert rules still defined on a deleted resource 
 
