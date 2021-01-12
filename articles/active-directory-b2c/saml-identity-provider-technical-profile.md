@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](identity-provider-adfs2016-custom.md) and [Salesforce](identity-provider-salesforce.md). This federation allows your users to sign in with their existing social or enterprise identities.
+Azure Active Directory B2C (Azure AD B2C) provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With a SAML technical profile you can federate with a SAML-based identity provider, such as [ADFS](identity-provider-adfs2016-custom.md) and [Salesforce](identity-provider-salesforce-saml.md). This federation allows your users to sign in with their existing social or enterprise identities.
 
 ## Metadata exchange
 
@@ -106,8 +106,8 @@ SAML assertion:
 ```xml
 <saml:Subject>
   <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
-	<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-	  <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+  <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+    <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
     </SubjectConfirmation>
   </saml:SubjectConfirmation>
 </saml:Subject>
@@ -213,4 +213,4 @@ Example:
 See the following articles for examples of working with SAML identity providers in Azure AD B2C:
 
 - [Add ADFS as a SAML identity provider using custom policies](identity-provider-adfs.md)
-- [Sign in by using Salesforce accounts via SAML](identity-provider-salesforce.md)
+- [Sign in by using Salesforce accounts via SAML](identity-provider-salesforce-saml.md)

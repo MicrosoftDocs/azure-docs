@@ -75,7 +75,7 @@
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.md
     - name: FAQ-Backup Center
-      href: backup-center-faq.md
+      href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.md
     - name: FAQ-MARS agent
@@ -94,6 +94,8 @@
     href: backup-architecture.md
   - name: Guidance and best practices
     href: guidance-best-practices.md
+  - name: Glossary of terms
+    href: azure-backup-glossary.md
 - name: How to guides
   items:
   - name: Vaults
@@ -164,6 +166,8 @@
         href: backup-azure-manage-vms.md
       - name: Manage recovery points
         href: manage-recovery-points.md
+      - name: Modify backup policy with Azure CLI
+        href: modify-vm-policy-cli.md
   - name: SQL Server database on Azure VM backup
     items:
     - name: Overview

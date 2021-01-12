@@ -96,6 +96,7 @@ After training has completed, the model's performance is calculated and displaye
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
+- **Mean average precision** is the average value of the average precision (AP). AP is the area under the precision/recall curve (precision plotted against recall for each prediction made).
 
 ![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 

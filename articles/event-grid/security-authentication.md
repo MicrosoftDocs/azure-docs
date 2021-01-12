@@ -2,7 +2,7 @@
 title: Authenticate event delivery to event handlers (Azure Event Grid)
 description: This article describes different ways of authenticating delivery to event handlers in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 01/07/2021
 ---
 
 # Authenticate event delivery to event handlers (Azure Event Grid)
@@ -36,6 +36,9 @@ For more information on delivering events to webhooks, see [Webhook event delive
 
 > [!IMPORTANT]
 Azure Event Grid only supports **HTTPS** webhook endpoints. 
+
+## Endpoint validation with CloudEvents v1.0
+If you're already familiar with Event Grid, you might be aware of the endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) by using the **HTTP OPTIONS** method. To read more about it, see [HTTP 1.1 Web Hooks for event delivery - Version 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism. For more information, see [Use CloudEvents v1.0 schema with Event Grid](cloudevents-schema.md). 
 
 
 ## Next steps

@@ -164,14 +164,14 @@ Create a network security group to define inbound connections to your virtual ne
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -180,7 +180,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -545,14 +545,14 @@ Create a network security group to define inbound connections to your virtual ne
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -561,7 +561,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -787,7 +787,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ## Next steps
 
-In this quickstart
+In this quickstart:
 
 * You created a standard or basic public load balancer
 * Attached virtual machines. 

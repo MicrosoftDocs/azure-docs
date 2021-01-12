@@ -7,7 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 12/23/2020
+=======
+ms.date: 01/05/2021
+>>>>>>> d63e6780965bc8436f5fc232c9d23f5822838dc3
 ms.author: alkohli
 ---
 # Azure Data Box limits
@@ -38,7 +42,7 @@ Data Box caveats for an import order include:
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 
-## For export order
+### For export order
 
 Data Box caveats for an export order include:
 

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 01/07/2021
 ms.author: memildin
 
 ---
@@ -27,6 +27,30 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
+## January 2021
+
+### Vulnerability assessment for on-premise and multi-cloud machines is generally available
+
+In October, we announced a preview for scanning Azure Arc enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
+
+It's now generally available. 
+
+When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
+
+With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+
+Main capabilities:
+
+- Monitoring the VA (vulnerability assessment) scanner provisioning state on Azure Arc machines
+- Provisioning the integrated VA agent to unprotected Windows and Linux Azure Arc machines (manually and at-scale)
+- Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
+- Unified experience for Azure VMs and Azure Arc machines
+
+[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+
+
 ## December 2020
 
 Updates in December include:
@@ -36,6 +60,12 @@ Updates in December include:
 - [Global Administrators can now grant themselves tenant-level permissions](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Two new Azure Defender plans: Azure Defender for DNS and Azure Defender for Resource Manager (in preview)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 - [New security alerts page in the Azure portal (preview)](#new-security-alerts-page-in-the-azure-portal-preview)
+- [Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Asset inventory tools and filters updated](#asset-inventory-tools-and-filters-updated)
+- [Recommendation about web apps requesting SSL certificates no longer part of secure score](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
+- [Continuous export gets new data types and improved deployifnotexist policies](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
+
 
 ### Azure Defender for SQL servers on machines is generally available
 
@@ -110,6 +140,87 @@ To access the new experience, use the 'try it now' link from the banner at the t
 :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
 
 To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+
+### Revitalized Security Center experience in Azure SQL Database & SQL Managed Instance 
+
+The Security Center experience within SQL provides access to the following Security Center and Azure Defender for SQL features:
+
+- **Security recommendations** – Security Center periodically analyzes the security state of all connected Azure resources to identify potential security misconfigurations. It then provides recommendations on how to remediate those vulnerabilities and improve organizations’ security posture.
+- **Security alerts** – a detection service that continuously monitors Azure SQL activities for threats such as SQL injection, brute-force attacks, and privilege abuse. This service triggers detailed and action-oriented security alerts in Security Center and provides options for continuing investigations with Azure Sentinel, Microsoft’s Azure-native SIEM solution.
+- **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.	 
+
+:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
+
+
+### Asset inventory tools and filters updated
+
+The inventory page in Azure Security Center has been refreshed with the following changes:
+
+- **Guides and feedback** added to the toolbar. This opens a pane with links to related information and tools. 
+- **Subscriptions filter** added to the default filters available for your resources.
+- **Open query** link for opening the current filter options as an Azure Resource Graph query (formerly called "View in resource graph explorer").
+- **Operator options** for each filter. Now you can choose from additional logical operators other than '='. For example, you might want to find all resources with active recommendations whose titles include the string 'encrypt'. 
+
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controls for the operator option in asset inventory's filters":::
+
+Learn more about inventory in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+
+### Recommendation about web apps requesting SSL certificates no longer part of secure score
+
+The recommendation "Web apps should request an SSL certificate for all incoming requests" has been moved from the security control **Manage access and permissions** (worth a maximum of 4 pts) into **Implement security best practices** (which is worth no points). 
+
+Ensuring your web apps request a certificate certainly makes them more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
+
+With this change, the recommendation is now a recommended best practice which does not impact your score. 
+
+Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+
+### Recommendations page has new filters for environment, severity, and available responses
+
+Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country.
+
+As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+
+With the growing list, there's a need to be able to filter to the recommendations of greatest interest. In November, we added filters to the recommendations page (see [Recommendations list now includes filters](#recommendations-list-now-includes-filters)).
+
+The filters added this month provide options to refine the recommendations list according to:
+
+- **Environment** - View recommendations for your AWS, GCP, or Azure resources (or any combination)
+- **Severity** - View recommendations according to the severity classification set by Security Center
+- **Response actions** - View recommendations according to the availability of Security Center response options: Quick fix, Deny, and Enforce
+
+    > [!TIP]
+    > The response actions filter replaces the **Quick fix available (Yes/No)** filter. 
+    > 
+    > Learn more about each of these response options:
+    > - [Quick fix remediation](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)
+
+:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommendations grouped by security control" lightbox="./media/release-notes/added-recommendations-filters.png":::
+
+### Continuous export gets new data types and improved deployifnotexist policies
+
+Azure Security Center's continuous export tools enable you to export Security Center's recommendations and alerts for use with other monitoring tools in your environment.
+
+Continuous export lets you fully customize what will be exported, and where it will go. For full details, see  [Continuously export Security Center data](continuous-export.md).
+
+These tools have been enhanced and expanded in the following ways:
+
+- **Continuous export's deployifnotexist policies enhanced**. The policies now:
+
+    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+
+    - **Support exporting security findings.** When using the Azure Policy templates, you can configure your  continuous export to include findings. This is relevant when exporting recommendations that have 'sub' recommendations, like findings from vulnerability assessment scanners or specific system updates for the 'parent' recommendation "System updates should be installed on your machines".
+    
+    - **Support exporting secure score data.**
+
+- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national/sovereign clouds.
+
+    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="The options for including regulatory compliant assessment information with your continuous export data.":::
+
 
 ## November 2020
 
@@ -460,7 +571,7 @@ Security Center periodically analyzes the security state of your Azure resources
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
-Learn more in [Explore and manage your resources with asset inventory and management tools](asset-inventory.md).
+Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
 
 
@@ -705,118 +816,3 @@ You can safely ignore these policies and there will be no impact on your environ
 
 1. **Single Preview** – To join only this private preview. Explicitly mention “ASC Continuous Scan” as the preview you would like to join.
 1. **Ongoing Program** – To be added to this and future private previews. You will need to complete a profile and privacy agreement.
-
-
-## July 2020
-
-Updates in July include:
-- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
-- [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
-- [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
-- [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Adaptive application controls updated with a new recommendation and support for wildcards in path rules](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
-- [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
-
-
-
-
-### Vulnerability assessment for virtual machines is now available for non-marketplace images
-
-When deploying a vulnerability assessment solution, Security Center previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
-
-From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
-
-Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploy the integrated vulnerability scanner to standard tier VMs](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
-
-Learn more about the [integrated vulnerability scanner for virtual machines (requires Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
-
-Learn more about using your own privately-licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
-
-
-### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
-
-Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Security Center displays alerts when it detects attempts to access or exploit your storage accounts. 
-
-Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
-
-
-
-
-### Eight new recommendations to enable threat protection features
-
-Eight new recommendations have been added to provide a simple way to enable Azure Security Center's threat protection features for the following resource types: virtual machines, App Service plans, Azure SQL Database servers, SQL servers on machines, Azure Storage accounts, Azure Kubernetes Service clusters, Azure Container Registry registries, and Azure Key Vault vaults.
-
-The new recommendations are:
-
-- **Advanced data security should be enabled on Azure SQL Database servers**
-- **Advanced data security should be enabled on SQL servers on machines**
-- **Advanced threat protection should be enabled on Azure App Service plans**
-- **Advanced threat protection should be enabled on Azure Container Registry registries**
-- **Advanced threat protection should be enabled on Azure Key Vault vaults**
-- **Advanced threat protection should be enabled on Azure Kubernetes Service clusters**
-- **Advanced threat protection should be enabled on Azure Storage accounts**
-- **Advanced threat protection should be enabled on virtual machines**
-
-These new recommendations belong to the **Enable Azure Defender** security control.
-
-The recommendations also include the quick fix capability. 
-
-> [!IMPORTANT]
-> Remediating any of these recommendations will result in charges for protecting the relevant resources. These charges will begin immediately if you have related resources in the current subscription. Or in the future, if you add them at a later date.
-> 
-> For example, if you don't have any Azure Kubernetes Service clusters in your subscription and you enable the threat protection, no charges will be incurred. If, in the future, you add a cluster on the same subscription, it will automatically be protected and charges will begin at that time.
-
-Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
-
-Learn more about [threat protection in Azure Security Center](azure-defender.md).
-
-
-
-
-### Container security improvements - faster registry scanning and refreshed documentation
-
-As part of the continuous investments in the container security domain, we are happy to share a significant performance improvement in Security Center's dynamic scans of container images stored in Azure Container Registry. Scans now typically complete in approximately two minutes. In some cases, they might take up to 15 minutes.
-
-To improve the clarity and guidance regarding Azure Security Center's container security capabilities, we've also refreshed the container security documentation pages. 
-
-Learn more about Security Center's container security in the following articles:
-
-- [Overview of Security Center's container security features](container-security.md)
-- [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
-- [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
-- [How-to scan your registries and harden your Docker hosts](container-security.md)
-- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster)
-- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
-- [Security recommendations for containers](recommendations-reference.md#recs-containers)
-
-
-
-### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
-
-The adaptive application controls feature has received two significant updates:
-
-* A new recommendation identifies potentially legitimate behavior that hasn't previously been allowed. The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
-
-* Path rules now support wildcards. From this update, you can configure allowed path rules using wildcards. There are two supported scenarios:
-
-    * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
-
-    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc.).
-
-
-[Learn more about adaptive application controls](security-center-adaptive-application.md).
-
-
-
-### Six policies for SQL advanced data security deprecated
-
-Six policies related to advanced data security for SQL machines are being deprecated:
-
-- Advanced threat protection types should be set to 'All' in SQL managed instance advanced data security settings
-- Advanced threat protection types should be set to 'All' in SQL server advanced data security settings
-- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
-- Advanced data security settings for SQL server should contain an email address to receive security alerts
-- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
-- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
-
-Learn more about [built-in policies](./policy-reference.md).

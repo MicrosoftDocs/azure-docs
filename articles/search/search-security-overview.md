@@ -1,7 +1,7 @@
 ---
 title: Security overview
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search is compliant with SOC 2, HIPAA, and other certifications. Connection and data encryption, authentication, and identity access through user and group security identifiers in filter expressions.
+description: Learn about the security features in Azure Cognitive Search to protect endpoints, content, and operations.
 
 manager: nitinme
 author: HeidiSteen

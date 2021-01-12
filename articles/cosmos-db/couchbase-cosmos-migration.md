@@ -19,12 +19,12 @@ Azure Cosmos DB is a scalable, globally distributed, fully managed database. It 
 
 The following are the key features that work differently in Azure Cosmos DB when compared to Couchbase:
 
-|   Couchbase     |   Azure Cosmos DB   |
-| ---------------|-------------------|
-|Couchbase server| Account       |
-|Bucket           | Database      |
-|Bucket	          | Container/Collection |
-|JSON Document	  | Item / Document |
+| Couchbase | Azure Cosmos DB |
+|--|--|
+| Couchbase server | Account |
+| Bucket | Database |
+| Bucket | Container/Collection |
+| JSON Document | Item / Document |
 
 ## Key differences
 
@@ -184,7 +184,7 @@ N1QL queries is the way to define queries in the Couchbase.
 
 |N1QL Query | Azure CosmosDB Query|
 |-------------------|-------------------|
-|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0	| SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
+|SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 | SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 
 You can notice the following changes in your N1QL queries:
 
@@ -217,12 +217,12 @@ Use the Async Java SDK with the following steps:
    cp.connectionMode(ConnectionMode.DIRECT);
     
    if(client==null)
-   	client= CosmosClient.builder()
-   		.endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
-   	    .connectionPolicy(cp)
-   	    .key(PrimaryKey)
-   	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
-   	    .build();	
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
    
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -238,22 +238,22 @@ Now, with the help of above method you can pass multiple queries and execute wit
 ```java
 for(SqlQuerySpec query:queries)
 {
-	objFlux= container.queryItems(query, fo);
-	objFlux .publishOn(Schedulers.elastic())
-			.subscribe(feedResponse->
-				{
-					if(feedResponse.results().size()>0)
-					{
-						_docs.addAll(feedResponse.results());
-					}
-				
-				},
-				Throwable::printStackTrace,latch::countDown);
-	lstFlux.add(objFlux);
+   objFlux= container.queryItems(query, fo);
+   objFlux .publishOn(Schedulers.elastic())
+         .subscribe(feedResponse->
+            {
+               if(feedResponse.results().size()>0)
+               {
+                  _docs.addAll(feedResponse.results());
+               }
+            
+            },
+            Throwable::printStackTrace,latch::countDown);
+   lstFlux.add(objFlux);
 }
-						
-		Flux.merge(lstFlux);
-		latch.await();
+                  
+      Flux.merge(lstFlux);
+      latch.await();
 }
 ```
 
@@ -263,7 +263,7 @@ With the previous code, you can run queries in parallel and increase the distrib
 
 To insert the document, run the following code:
 
-```java	
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -274,13 +274,13 @@ CountDownLatch latch=new CountDownLatch(1);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-	        if(resourceResponse.statusCode()!=successStatus)
-		        {
-			        throw new RuntimeException(resourceResponse.toString());
-		        }
-	        },
+           if(resourceResponse.statusCode()!=successStatus)
+              {
+                 throw new RuntimeException(resourceResponse.toString());
+              }
+           },
         Throwable::printStackTrace,latch::countDown);
-latch.await();				
+latch.await();
 ```
 
 ### Upsert operation
@@ -296,7 +296,7 @@ Then subscribe to mono. Refer to the mono subscription snippet in insert operati
 
 Following snippet will do delete operation:
 
-```java		
+```java
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
@@ -346,12 +346,12 @@ This is a simple type of workload in which you can perform lookups instead of qu
    cp.connectionMode(ConnectionMode.DIRECT);
    
    if(client==null)
-   	client= CosmosClient.builder()
-   		.endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
-   	    .connectionPolicy(cp)
-   	    .key(PrimaryKey)
-   	    .consistencyLevel(ConsistencyLevel.EVENTUAL)
-   	    .build();
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
     
    container = client.getDatabase(_dbName).getContainer(_collName);
    ```
@@ -366,16 +366,16 @@ To read the item, use the following snippet:
 CosmosItemRequestOptions ro=new CosmosItemRequestOptions();
 ro.partitionKey(new PartitionKey(documentId));
 CountDownLatch latch=new CountDownLatch(1);
-		
+      
 var objCosmosItem= container.getItem(documentId, documentId);
 Mono<CosmosItemResponse> objMono = objCosmosItem.read(ro);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-	        if(resourceResponse.item()!=null)
-	        {
-		        doc= resourceResponse.properties().toObject(UserModel.class);
-	        }
+           if(resourceResponse.item()!=null)
+           {
+              doc= resourceResponse.properties().toObject(UserModel.class);
+           }
         },
         Throwable::printStackTrace,latch::countDown);
 latch.await();
@@ -385,7 +385,7 @@ latch.await();
 
 To insert an item, you can perform the following code:
 
-```java	
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -394,14 +394,14 @@ Then subscribe to mono as:
 ```java
 CountDownLatch latch=new CountDownLatch(1);
 objMono.subscribeOn(Schedulers.elastic())
-		.subscribe(resourceResponse->
-		{
-			if(resourceResponse.statusCode()!=successStatus)
-				{
-					throw new RuntimeException(resourceResponse.toString());
-				}
-			},
-		Throwable::printStackTrace,latch::countDown);
+      .subscribe(resourceResponse->
+      {
+         if(resourceResponse.statusCode()!=successStatus)
+            {
+               throw new RuntimeException(resourceResponse.toString());
+            }
+         },
+      Throwable::printStackTrace,latch::countDown);
 latch.await();
 ```
 
@@ -418,7 +418,7 @@ Then subscribe to mono, refer mono subscription snippet in insert operation.
 
 Use the following snippet to execute the delete operation:
 
-```java		
+```java
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```

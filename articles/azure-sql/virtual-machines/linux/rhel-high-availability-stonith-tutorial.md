@@ -940,6 +940,9 @@ If the `synchronization_state_desc` lists SYNCHRONIZED for `db1`, this means the
 
 We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ### Create the AG cluster resource
 
 1. Use one of the following commands based on the environment chosen earlier to create the resource `ag_cluster` in the availability group `ag1`.

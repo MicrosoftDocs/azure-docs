@@ -112,6 +112,7 @@ The script also requires Python and bash components to execute and connect secur
 | --------------- | ---- |
 | bash | 4 and above |
 | python | 2.6.6 and above  |
+| .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
 ## Step 4: Access requirements to successfully run the script

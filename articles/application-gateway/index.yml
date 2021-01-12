@@ -28,7 +28,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Frequently asked questions
-            url: application-gateway-faq.md
+            url: application-gateway-faq.yml
       - linkListType: whats-new
         links:
           - text: What's new

@@ -39,12 +39,6 @@ This can happen if the appliance machine is behind a proxy.
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](./migrate-appliance.md).
 
 
-## Clicking on 'Login' button opens a new tab with no device code
-
-If after clicking on 'Login' on the appliance configuration manager, a new tab opens with no code, go back to the appliance configuration manager tab and you can find the device code in bold font under the 'Login' button as shown in the screenshot below. Copy the code and paste it on the login tab to authenticate with Azure.
-
-![Device code](./media/troubleshoot-appliance-discovery/code.png)
-
 ## Can't sign into Azure from the appliance web app
 
 The error "Sorry, but we're having trouble signing you in" appears if you're using the incorrect Azure account to sign into Azure. This error occurs for a couple of reasons:
@@ -199,58 +193,56 @@ Azure Migrate supports discovery of applications, roles, and features, using Azu
 
 Typical app discovery errors are summarized in the table. 
 
-**Error** | **Cause** | **Action**
---- | --- | ---
-9000: VMware tool status cannot be detected.	 | 	 VMWare tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
-9001: VMware tools is not installed.	 | 	 VMWare tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
-9002: VMware tools is not running.	 | 	 VMWare tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
-9003: Operating system type not supported for guest VM discovery.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only. If the server is indeed Windows or Linux, check the operating system type specified in vCenter Server.
-9004: VM is not running.	 | 	 VM is powered off.	 | 	 Ensure the VM is powered on.
-9005: Operating system type not supported for guest VM discovery.	 | 	 Operating system type not supported for guest VM discovery.	 | 	 Supported operating system types are Windows and Linux only.
-9006: The URL to download the metadata file from guest is empty.	 | 	 This could happen if the discovery agent is not working as expected.	 | 	 The issue should automatically resolve in24 hours. If the issue persists, contact Microsoft Support.
-9007: Process running the discovery task in the guest VM is not found.	 | 	 This could happen if the discovery agent is not working properly.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.
-9008: Guest VM process status cannot be retrieved.	 | 	 The issue can occur due to an internal error.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.
-9009: Windows UAC has prevented discovery task execution on the server.	 | 	 Windows User Account Control (UAC) settings on the server are restrictive and prevent discovery of installed applications.	 | 	 In 'User Account Control' settings on the server, configure the UAC setting to be at one of the lower two levels.
-9010: VM is powered off.	 | 	 VM is powered off.	 | 	 Ensure the VM is powered on.
-9011: Discovered metadata file not found in guest VM file system.	 | 	 The issue can occur due to an internal error.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.
-9012: Discovered metadata file is empty.  	 | 	 The issue can occur due to an internal error.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.
-9013: A new temporary profile is created for every login.	 | 	 A new temporary profile is created for every login to the VMware VM.	 | 	 Contact Microsoft Support for a resolution.
-9014: Unable to retrieve metadata from guest VM file system.	 | 	 No connectivity to ESXi host	 | 	 Ensure the appliance can connect to port 443 on the ESXi host running the VM
-9015: Guest Operations role is not enabled on the vCenter user account	 | 	 Guest Operations role is not enabled on the vCenter user account.	 | 	 Ensure Guest Operations role is enabled on the vCenter user account.
-9016: Unable to discover as guest operations agent is out of date.	 | 	 Vmware tools is not properly installed or is not up to date.	 | 	 Ensure the VMware  tools is properly installed and up to date.
-9017: File with discovered metadata is not found on the VM.	 | 	 The issue can occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
-9018: PowerShell is not installed in the Guest VMs.	 | 	 PowerShell is not available in the guest VM.	 | 	 Install PowerShell in the guest VM.
-9019: Unable to discover due to guest VM operation failures.	 | 	 VMware Guest operation failed on the VM.	 | 	 Ensure that the VM credentials are valid and user name provided in the guest VM credentials is in UPN format.
-9020: File creation permission is denied.	 | 	 The role associated to the user or the group policy is restricting the user from creating the file in folder 	 | 	 Check if the guest user provided has create permission for the file in folder. See **Notifications** in Server Assessment for the name of the folder.
-9021: Unable to create file in System Temp path.	 | 	 VMware tool reports System Temp path instead of Users Temp Path.	 | 	 Upgrade your vmware tool version above 10287 (NGC/VI Client format).
-9022: Access to WMI object is denied.	 | 	 The role associated to the user or the group policy is restricting the user from accessing WMI object.	 | 	 Please contact Microsoft Support.
-9023: Unable to run PowerShell as SystemRoot environment variable value is empty.	 | 	 The value of SystemRoot environment variable is empty for the guest VM.	 | 	 Contact Microsoft Support for a resolution.
-9024: Unable to discover as TEMP environment variable value is empty.	 | 	 The value of TEMP environment variable is empty for the guest VM.	 | 	 Please contact Microsoft Support.
-9025: PowerShell is corrupted in the Guest VMs.	 | 	 PowerShell is corrupted in the guest VM.	 | 	 Reinstall PowerShell in the guest VM and verify PowerShell can be run on the guest VM.
-9026: Unable to run guest operations on the VM.	 | 	 VM state does not allow guest operations to be run on the VM.	 | 	 Contact Microsoft Support for a resolution.
-9027: Guest operations agent is not running in the VM.	 | 	 Failed to contact the guest operations agent running inside the virtual machine.	 | 	 Contact Microsoft Support for a resolution.
-9028: File cannot be created due to insufficient disk storage in VM.	 | 	 Not enough space on the disk.	 | 	 Ensure enough space is available in the disk storage of the VM.
-9029: No access to powershell on the guest VM credential provided.	 | 	 Access to Powershell is not available for the user.	 | 	 Ensure the user added on appliance can access PowerShell on the guest VM.
-9030: Unable to gather discovered metadata as ESXi host is disconnected.	 | 	 The ESXi host is in a disconnected state.	 | 	 Ensure the ESXi host running the VM is connected.
-9031: Unable to gather discovered metadata as the ESXi host is not responding.	 | 	 Remote host is in Invalid state.	 | 	 Ensure the ESXi host running the VM is running and connected.
-9032: Unable to discover due to an internal error.	 | 	 The issue can occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
-9033: Unable to discover as the VM username contains invalid characters.	 | 	 Invalid characters were detected in the username.	 | 	 Provide the VM credential again ensuring there are no invalid characters.
-9034: Username provided is not in UPN format.	 | 	 Username is not in UPN format.	 | 	 Ensure that the username is in User Principal Name (UPN) format.
-9035: Unable to discover as Powershell language mode is not set to 'Full Language'.	 | 	 Language mode for Powershell in guest VM is not set to full language.	 | 	 Ensure that PowerShell language mode is set to 'Full Language'.
-9037: Data collection paused temporarily as VM response time is too high.	 | 	 The discovered VM is taking too long to respond	 | 	 No action required. A retry will be attempted in 24 hours for application discovery and 3 hours for dependency analysis (agentless).
-10000: Operating system type is not supported.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only.
-10001: Script for server discovery is not found on the appliance.	 | 	 Discovery is not working as expected.	 | 	 Contact Microsoft Support for a resolution.
-10002: Discovery task has not completed in time.	 | 	 Discovery agent is not working as expected.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.
-10003: Process executing the discovery task exited with an error.	 | 	 Process executing the discovery task exited with an error.	 | 	 The issue should automatically resolve in 24 hours. If the issue still persists, please contact Microsoft Support.
-10004: Credential not provided for the guest operating system type.	 | 	 Credentials to access machines of this OS type were not provided in the Azure Migrate appliance.	 | 	 Add credentials for machines on the appliance
-10005: Credentials provided are not valid.	 | 	 Credentials provided for appliance to access the server are incorrect.	 | 	 Update the credentials provided in the appliance and ensure that the server is accessible using the credentials.
-10006: Guest OS type not supported by credential store.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only.
-10007: Unable to process the metadata discovered.	 | 	 Error occurred while trying to deserialize the JSON.	 | 	 Contact Microsoft Support for a resolution.
-10008: Unable to create a file on the server.	 |  The issue may occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
-10009: Unable to write discovered metadata to a file on the server.	 | 	 The issue can occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
-
-
-
+| **Error** | **Cause** | **Action** |
+|--|--|--|
+| 9000: VMware tool status cannot be detected. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9001: VMware tools is not installed. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9002: VMware tools is not running. | VMWare tools might not be installed or is corrupted. | Ensure VMware tools is installed and running on the VM. |
+| 9003: Operating system type not supported for guest VM discovery. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. If the server is indeed Windows or Linux, check the operating system type specified in vCenter Server. |
+| 9004: VM is not running. | VM is powered off. | Ensure the VM is powered on. |
+| 9005: Operating system type not supported for guest VM discovery. | Operating system type not supported for guest VM discovery. | Supported operating system types are Windows and Linux only. |
+| 9006: The URL to download the metadata file from guest is empty. | This could happen if the discovery agent is not working as expected. | The issue should automatically resolve in24 hours. If the issue persists, contact Microsoft Support. |
+| 9007: Process running the discovery task in the guest VM is not found. | This could happen if the discovery agent is not working properly. | The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support. |
+| 9008: Guest VM process status cannot be retrieved. | The issue can occur due to an internal error. | The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support. |
+| 9009: Windows UAC has prevented discovery task execution on the server. | Windows User Account Control (UAC) settings on the server are restrictive and prevent discovery of installed applications. | In 'User Account Control' settings on the server, configure the UAC setting to be at one of the lower two levels. |
+| 9010: VM is powered off. | VM is powered off. | Ensure the VM is powered on. |
+| 9011: Discovered metadata file not found in guest VM file system. | The issue can occur due to an internal error. | The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support. |
+| 9012: Discovered metadata file is empty. | The issue can occur due to an internal error. | The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support. |
+| 9013: A new temporary profile is created for every login. | A new temporary profile is created for every login to the VMware VM. | Contact Microsoft Support for a resolution. |
+| 9014: Unable to retrieve metadata from guest VM file system. | No connectivity to ESXi host | Ensure the appliance can connect to port 443 on the ESXi host running the VM |
+| 9015: Guest Operations role is not enabled on the vCenter user account | Guest Operations role is not enabled on the vCenter user account. | Ensure Guest Operations role is enabled on the vCenter user account. |
+| 9016: Unable to discover as guest operations agent is out of date. | Vmware tools is not properly installed or is not up to date. | Ensure the VMware  tools is properly installed and up to date. |
+| 9017: File with discovered metadata is not found on the VM. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
+| 9018: PowerShell is not installed in the Guest VMs. | PowerShell is not available in the guest VM. | Install PowerShell in the guest VM. |
+| 9019: Unable to discover due to guest VM operation failures. | VMware Guest operation failed on the VM. | Ensure that the VM credentials are valid and user name provided in the guest VM credentials is in UPN format. |
+| 9020: File creation permission is denied. | The role associated to the user or the group policy is restricting the user from creating the file in folder | Check if the guest user provided has create permission for the file in folder. See **Notifications** in Server Assessment for the name of the folder. |
+| 9021: Unable to create file in System Temp path. | VMware tool reports System Temp path instead of Users Temp Path. | Upgrade your vmware tool version above 10287 (NGC/VI Client format). |
+| 9022: Access to WMI object is denied. | The role associated to the user or the group policy is restricting the user from accessing WMI object. | Please contact Microsoft Support. |
+| 9023: Unable to run PowerShell as SystemRoot environment variable value is empty. | The value of SystemRoot environment variable is empty for the guest VM. | Contact Microsoft Support for a resolution. |
+| 9024: Unable to discover as TEMP environment variable value is empty. | The value of TEMP environment variable is empty for the guest VM. | Please contact Microsoft Support. |
+| 9025: PowerShell is corrupted in the Guest VMs. | PowerShell is corrupted in the guest VM. | Reinstall PowerShell in the guest VM and verify PowerShell can be run on the guest VM. |
+| 9026: Unable to run guest operations on the VM. | VM state does not allow guest operations to be run on the VM. | Contact Microsoft Support for a resolution. |
+| 9027: Guest operations agent is not running in the VM. | Failed to contact the guest operations agent running inside the virtual machine. | Contact Microsoft Support for a resolution. |
+| 9028: File cannot be created due to insufficient disk storage in VM. | Not enough space on the disk. | Ensure enough space is available in the disk storage of the VM. |
+| 9029: No access to powershell on the guest VM credential provided. | Access to Powershell is not available for the user. | Ensure the user added on appliance can access PowerShell on the guest VM. |
+| 9030: Unable to gather discovered metadata as ESXi host is disconnected. | The ESXi host is in a disconnected state. | Ensure the ESXi host running the VM is connected. |
+| 9031: Unable to gather discovered metadata as the ESXi host is not responding. | Remote host is in Invalid state. | Ensure the ESXi host running the VM is running and connected. |
+| 9032: Unable to discover due to an internal error. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
+| 9033: Unable to discover as the VM username contains invalid characters. | Invalid characters were detected in the username. | Provide the VM credential again ensuring there are no invalid characters. |
+| 9034: Username provided is not in UPN format. | Username is not in UPN format. | Ensure that the username is in User Principal Name (UPN) format. |
+| 9035: Unable to discover as Powershell language mode is not set to 'Full Language'. | Language mode for Powershell in guest VM is not set to full language. | Ensure that PowerShell language mode is set to 'Full Language'. |
+| 9037: Data collection paused temporarily as VM response time is too high. | The discovered VM is taking too long to respond | No action required. A retry will be attempted in 24 hours for application discovery and 3 hours for dependency analysis (agentless). |
+| 10000: Operating system type is not supported. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. |
+| 10001: Script for server discovery is not found on the appliance. | Discovery is not working as expected. | Contact Microsoft Support for a resolution. |
+| 10002: Discovery task has not completed in time. | Discovery agent is not working as expected. | The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support. |
+| 10003: Process executing the discovery task exited with an error. | Process executing the discovery task exited with an error. | The issue should automatically resolve in 24 hours. If the issue still persists, please contact Microsoft Support. |
+| 10004: Credential not provided for the guest operating system type. | Credentials to access machines of this OS type were not provided in the Azure Migrate appliance. | Add credentials for machines on the appliance |
+| 10005: Credentials provided are not valid. | Credentials provided for appliance to access the server are incorrect. | Update the credentials provided in the appliance and ensure that the server is accessible using the credentials. |
+| 10006: Guest OS type not supported by credential store. | Operating system running on the server is neither Windows nor Linux. | Supported operating system types are Windows and Linux only. |
+| 10007: Unable to process the metadata discovered. | Error occurred while trying to deserialize the JSON. | Contact Microsoft Support for a resolution. |
+| 10008: Unable to create a file on the server. | The issue may occur due to an internal error. | Contact Microsoft Support for a resolution. |
+| 10009: Unable to write discovered metadata to a file on the server. | The issue can occur due to an internal error. | Contact Microsoft Support for a resolution. |
 
 ## Next steps
+
 Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
