@@ -56,6 +56,7 @@ The following CAs are allowed when you create your own certificate:
 - Security Communication RootCA1
 - Security Communication RootCA2
 - Security Communication RootCA3
+- Staat der Nederlanden EV Root CA
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft
