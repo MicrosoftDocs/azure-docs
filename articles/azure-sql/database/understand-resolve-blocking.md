@@ -159,23 +159,17 @@ Refer to the document that explains how to use the [Extended Events New Session 
 
 -   Category Errors:
     -   Attention
-    -   Error_reported 
-    -   Exchange_spill
+    -   Error_reported  
     -   Execution_warning
-    -   Hash_warning
-    -   Sort_warning
 
--   Category Warnings:
-    -   Missing_column_statistics
+-   Category Warnings: 
     -   Missing_join_predicate
 
 -   Category Execution:
     -   Rpc_completed
-    -   Rpc_starting
-    -   Sp_cache_remove
+    -   Rpc_starting 
     -   Sql_batch_completed
     -   Sql_batch_starting
-    -   Sql_statement_recompile
 
 -   Lock
     -   Lock_acquired
