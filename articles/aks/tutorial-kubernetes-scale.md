@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 
 ms.custom: mvc
 
@@ -49,7 +49,7 @@ To manually change the number of pods in the *azure-vote-front* deployment, use 
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Run [kubectl get pods][kubectl-get] again to verify that AKS creates the additional pods. After a minute or so, the additional pods are available in your cluster:
+Run [kubectl get pods][kubectl-get] again to verify that AKS successfully creates the additional pods. After a minute or so, the  pods are available in your cluster:
 
 ```console
 kubectl get pods

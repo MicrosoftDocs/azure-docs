@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Deploy an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using a custom image stored in Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 
 ms.custom: mvc
 
@@ -47,7 +47,7 @@ The sample manifest file from the git repo cloned in the first tutorial uses the
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Replace *microsoft* with your ACR login server name. The image name is found on line 51 of the manifest file. The following example shows the default image name:
+Replace *microsoft* with your ACR login server name. The image name is found on line 60 of the manifest file. The following example shows the default image name:
 
 ```yaml
 containers:
