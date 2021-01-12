@@ -15,6 +15,26 @@ ms.date: 09/10/2020
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
 
+
+ ## 2021-01-11
+
+### Azure Machine Learning SDK for Python v1.20.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+  + **azureml-automl-runtime**
+    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
+  + **azureml-contrib-optimization**
+    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+  + **azureml-pipeline-steps**
+    + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
+  + **azureml-core**
+    + Now workspace creation supports user assigned identity. Adding the uai support from SDK/CLI
+    + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
+    + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
+    + Edited Model.register method documentation to mention how to register model from run directly
+   
+
 ## 2020-12-31
 ### Azure Machine Learning Studio Notebooks Experience (December Update)
 + **New features**
@@ -26,6 +46,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + Improved page load times
   + Improved performance 
   + Improved speed and kernel reliability
+
   
 ## 2020-12-07
 

@@ -11,7 +11,7 @@ ms.reviewer: jrasnick
 ---
 # What is Synapse role-based access control (RBAC)?
 
-Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. 
+Synapse RBAC extends the capabilities of [Azure RBAC](../../role-based-access-control/overview.md) for Synapse workspaces and their content. 
 
 Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
 
