@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
-In this tutorial, you use [automated machine learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) in Azure Machine Learning to create a regression model to predict taxi fare prices. This process arrives at the best model by accepting training data and configuration settings, and automatically iterating through combinations of different methods, models, and hyperparameter settings.
+In this tutorial, you use [automated machine learning](../../machine-learning/concept-automated-ml.md) in Azure Machine Learning to create a regression model to predict taxi fare prices. This process arrives at the best model by accepting training data and configuration settings, and automatically iterating through combinations of different methods, models, and hyperparameter settings.
 
 In this tutorial, you learn how to:
 - Download the data by using Apache Spark and Azure Open Datasets.
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Before you begin
 
 - Create a serverless Apache Spark Pool by following the [Create a serverless Apache Spark pool quickstart](../quickstart-create-apache-spark-pool-studio.md).
-- Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you don't have an existing Azure Machine Learning workspace. 
+- Complete the [Azure Machine Learning workspace setup tutorial](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) if you don't have an existing Azure Machine Learning workspace. 
 
 ## Understand regression models
 
@@ -43,7 +43,7 @@ In this example, you use Spark to perform some analysis on taxi trip tip data fr
 
 Here's how:
 
-1. Create a notebook by using the PySpark kernel. For instructions, see [Create a notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook).
+1. Create a notebook by using the PySpark kernel. For instructions, see [Create a notebook](../quickstart-apache-spark-notebook.md#create-a-notebook).
    
     > [!Note]
     > Because of the PySpark kernel, you don't need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell.
@@ -139,7 +139,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## Convert a dataframe to an Azure Machine Learning dataset
-To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) represents data in a tabular format by parsing the provided files.
+To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
 
@@ -165,7 +165,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 The following sections walk you through the process of submitting an automated machine learning experiment.
 
 ### Define training settings
-1. To submit an experiment, you need to define the experiment parameter and model settings for training. For the full list of settings, see [Configure automated machine learning experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
+1. To submit an experiment, you need to define the experiment parameter and model settings for training. For the full list of settings, see [Configure automated machine learning experiments in Python](../../machine-learning/how-to-configure-auto-train.md).
 
    ```python
    import logging
@@ -333,5 +333,5 @@ Last, you can also access the results of the iterations by going to the experime
 ![Screenshot of Azure Machine Learning workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## Next steps
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Tutorial: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics](./apache-spark-machine-learning-mllib-notebook.md)
