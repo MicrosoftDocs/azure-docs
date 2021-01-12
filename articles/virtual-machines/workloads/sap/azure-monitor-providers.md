@@ -71,6 +71,32 @@ To configure a High-availability cluster provider, two primary steps are involve
    - **Cluster name**. The cluster name used when creating the cluster. The cluster name can be found in the cluster property `cluster-name`.
    - **Hostname**. The Linux hostname of the VM.  
 
+
+## Provider type OS (Linux)
+Customers can configure one or more providers of provider type OS (Linux) to enable data collection from BareMetal or VM Node. The OS (Linux) provider connects to BareMetal or VM Nodes, using Node_Exporter endpoint, pulls telemetry data from the Nodes and pushes it to Log Analytics workspace in the customer subscription. OS (Linux) provider collects data every 60 seconds for most of the metrics from Nodes. 
+
+In Private preview, customers can expect to see the following data with OS (Linux) provider: 
+-CPU Usage, CPU Usage by Process 
+-Disk Utilization, I/O Read & Write 
+-Memory Distribution, Memory Usage, Swap Memory Usage 
+-Network Usage, Network Inbound & outbound Traffic Details. 
+
+To configure a OS (Linux) provider, two primary steps are involved:
+1. Install Node_Exporter on each BareMetal Node 
+   You have two options for installing Node_exporter: 
+      - For Automation installation with Ansible use Node_Exporter on each BareMetal Node to install OS (Linux) Provider.  
+      - Do a manual installation.
+
+2. Configure a OS (Linux) Provider for each BareMetal or VM Node Instance in your environment. 
+   To configure the OS (Linux) Provider, the following information is required: 
+      - Name. A name for this provider. It should be unique for this Azure Monitor for SAP solutions instance. 
+      - Node Exporter Endpoint. Usually http://<servername or ip address>:9100/metrics 
+
+Note:- 9100 is a Port Exposed for Node_Exporter Endpoint 
+
+Warning :- Ensure Node Exporter keeps running after node reboot. 
+
+
 ## Provider type Microsoft SQL server
 
 Customers can configure one or more providers of provider type *Microsoft SQL Server* to enable data collection from [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). SQL Server provider connects to Microsoft SQL Server over the SQL port, pulls telemetry data from the database, and pushes it to the Log Analytics workspace in the customer subscription. The SQL Server must be configured for SQL authentication and a SQL Server login, with the SAP DB as the default database for the provider, must be created. SQL Server provider collects data between every 60 seconds up to every hour from SQL server.  
