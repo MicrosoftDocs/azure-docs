@@ -134,7 +134,7 @@ You can continue to view and trace your month-over-month consumption costs and n
 
 With your updated account, you receive a single invoice for all Azure charges. You also now have a simplified single monthly calendar view to replace the billing periods view you had earlier.
 
-For example, if your billing period was December 12 to January 11 for your old account, then after the upgrade the period becomes January 1 to January 31 and so on.
+For example, if your billing period was November 24 to December 23 for your old account, then after the upgrade the period becomes November 1 to November 30, December 1 to December 31 and so on.
 
 :::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Image showing a comparison between old and new billing periods " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
