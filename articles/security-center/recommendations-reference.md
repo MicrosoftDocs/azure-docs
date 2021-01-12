@@ -63,7 +63,5 @@ impact on your Secure Score.
 
 To learn more about recommendations, see the following:
 
-- [The Microsoft Learn module on how to analyze the recommendations made by Security Center](/learn/modules/identify-threats-with-azure-security-center/)
-- [Security recommendations in Azure Security Center](./security-center-recommendations.md)
-- [Protecting your machines and applications](./security-center-virtual-machine-protection.md)
-- [Protecting your network in Azure Security Center](./security-center-network-recommendations.md)
+- [Security recommendations in Azure Security Center](security-center-recommendations.md)
+- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
