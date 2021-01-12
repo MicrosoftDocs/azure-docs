@@ -36,7 +36,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 **Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgent BootLoader, and check that IsRegistered is 1.
 
-1. To create a new registration token, follow the steps in the **Generate a new registration key for the VM** section under [Re-register your VM and reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader).
+1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm) section.
 2. Open the Registry Editor (in the Start menu, type *regedit*). 
 3. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent. 
 4. Double-click *IsRegistered*. 
@@ -45,7 +45,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 7. In the *Value data:* entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 0](media/isregisteredCopy.PNG)
+   > ![Screenshot of IsRegistered 0](media/isregisteredCopy.png)
 
 8. Open a command prompt as an administrator.
 9. Enter **net stop RDAgentBootLoader**. 
@@ -55,7 +55,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 13. Verify that *IsRegistered* is set to 1 and there is nothing in the data column for *RegistrationToken*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 1](media/isregistered.PNG)
+   > ![Screenshot of IsRegistered 1](media/isregistered.png)
 
 ## Error: Agent cannot connect to broker with INVALID_FORM or NOT_FOUND. URL
 
@@ -67,7 +67,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 3. Make note of the values for *BrokerURI* and *BrokerURIGlobal*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of broker uri and broker uri global](media/brokeruri.PNG)
+   > ![Screenshot of broker uri and broker uri global](media/brokeruri.png)
 
  
 4. Open a browser and go to *\<BrokerURI\>api/health*. 
@@ -77,19 +77,19 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says :RDBroker is Healthy," as shown in the following screen shots. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of successfully loaded broker uri access](media/brokuri.PNG)
+   > ![Screenshot of successfully loaded broker uri access](media/brokuri.png)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of successfully loaded broker global uri access](media/brokglobal.PNG)
+   > ![Screenshot of successfully loaded broker global uri access](media/brokglobal.png)
  
 
 7. If the network is blocking broker connection, the pages will not load, as shown below. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.PNG)
+   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.png)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessfulbrokerglobal.PNG)
+   > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessfulbrokerglobal.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
 
@@ -153,7 +153,7 @@ Run *qwinsta* in your command prompt and make note of the version number that ap
 4. Find *fReverseConnectMode* and make sure its data value is 1. Also make sure that *fEnableWinStation* is set to 1.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of fReverseConnectMode](media/fenable2.PNG)
+   > ![Screenshot of fReverseConnectMode](media/fenable2.png)
 
 5. If *fReverseConnectMode* isn't set to 1, select *fReverseConnectMode* and enter **1** in its value field. 
 6. If *fEnableWinStation* isn't set to 1, select **fEnableWinStation** and enter **1** into its value field.
@@ -167,7 +167,7 @@ Run *qwinsta* in your command prompt and make note of the version number that ap
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Under *ClusterSettings*, find *SessionDirectoryListener* and make sure its data value is *rdp-sxs...*.
-9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you'll need to follow the steps in the **Reinstall the agent and boot loader** section under [Re-register your VM and reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
+9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you'll need to follow the steps in the [Reinstall the agent and boot loader](#reinstall-the-agent-and-boot-loader) section. This will reinstall the side-by-side stack.
 
 ## Error: Users keep getting disconnected from session hosts
 
@@ -244,14 +244,14 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 The name of your VM has already been registered and is probably a duplicate.
 
 **Fix:** Remove the session host from the host pool and create another one.
-1. Follow the steps in the **Remove the session host from the host pool** section under [Re-register your VM and reinstall the agent and boot loader](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader).
+1. Follow the steps in the [Remove the session host from the host pool](#remove-the-session-host-from-the-host-pool) section.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
 3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
 4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
 5. Wait for 5-10 minutes for the session host status to say *Available*.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/hostpool.PNG)
+   > ![Screenshot of available session host](media/hostpool.png)
 
 ## Re-register your VM and reinstall the agent and boot loader
 
@@ -264,7 +264,7 @@ Follow these instructions if one or more of the following apply to you:
 - You don't see the **RdAgentBootLoader** component in the Task Manager
 - Any of the above troubleshooting steps did not resolve your issue
 
-**Uninstall all agent, boot loader, and stack component programs**
+### Uninstall all agent, boot loader, and stack component programs
 
 1. Sign in to your VM as an administrator. 
 2. Go to **Control Panel** > **Programs** > **Programs and Features**.
@@ -278,59 +278,59 @@ Follow these instructions if one or more of the following apply to you:
 >You may see multiple instances of these programs. Make sure to remove all of them.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of uninstalling programs](media/uninstall.PNG)
+   > ![Screenshot of uninstalling programs](media/uninstall.png)
 
-**Remove the session host from the host pool**
+### Remove the session host from the host pool
 
-4. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
-5. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
-6. Look at the list of session hosts and select the VM that you want to remove.
-7. Select **Remove**.  
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of removing VM from host pool](media/remove.PNG)
-
-**Generate a new registration key for the VM**
-
-8. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
-9. Select **Registration key**.
+1. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
+2. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
+3. Look at the list of session hosts and select the VM that you want to remove.
+4. Select **Remove**.  
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of registration key in portal](media/regkey.PNG)
+   > ![Screenshot of removing VM from host pool](media/remove.png)
 
-10. Open the **Registration key** tab and select **Generate new key**.
-11. Enter the expiration date and then select **Ok**.  
+### Generate a new registration key for the VM
+
+1. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
+2. Select **Registration key**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of registration key in portal](media/regkey.png)
+
+3. Open the **Registration key** tab and select **Generate new key**.
+4. Enter the expiration date and then select **Ok**.  
 
 >[!NOTE]
 >The expiration date can be no less than an hour and no longer than 27 days from its generation time and date. We highly recommend you set the expiration date to the 27 day maximum.
 
-12. Copy the newly generated key to your clipboard. You'll need this key later.
+5. Copy the newly generated key to your clipboard. You'll need this key later.
 
-**Reinstall the agent and boot loader**
+### Reinstall the agent and boot loader
 
-13. Sign in to your VM as an administrator and download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader** that are linked in parts 2 and 3 under *Register the virtual machines to the Windows Virtual Desktop host pool* in [Create host pools using PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of agent and bootloader download page](media/downloads.PNG)
-
-14. Right-click the agent and boot loader installers you just downloaded.
-15. Select **Properties**.
-16. Select **Unblock**.
-17. Select **Ok**.
-18. Run the agent installer.
-19. When the installer asks you for the registration token, paste the registration key from your clipboard. 
+6. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of pasted registration token](media/pasted-registration-token.PNG)
+   > ![Screenshot of agent and bootloader download page](media/downloads.png)
 
-20. Run the boot loader installer.
-21. Restart your VM. 
-22. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
-23. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
-24. You should now see the session host registered in the host pool with the status *Available*. 
+7. Right-click the agent and boot loader installers you just downloaded.
+8. Select **Properties**.
+9. Select **Unblock**.
+10. Select **Ok**.
+11. Run the agent installer.
+12. When the installer asks you for the registration token, paste the registration key from your clipboard. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/hostpool.PNG)
+   > ![Screenshot of pasted registration token](media/pasted-registration-token.png)
+
+13. Run the boot loader installer.
+14. Restart your VM. 
+15. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
+16. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
+17. You should now see the session host registered in the host pool with the status *Available*. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of available session host](media/hostpool.png)
 
 ## Next steps
 
