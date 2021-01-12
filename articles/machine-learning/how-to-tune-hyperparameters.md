@@ -1,7 +1,7 @@
 ---
 title: Hyperparameter tuning a model
 titleSuffix: Azure Machine Learning
-description: Efficiently tune hyperparameters for deep learning and machine learning models using Azure Machine Learning.
+description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley 
@@ -31,7 +31,7 @@ Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperD
 
 **Hyperparameters** are adjustable parameters that let you control the model training process. For example, with neural networks, you decide the number of hidden layers and the number of nodes in each layer. Model performance depends heavily on hyperparameters.
 
- **Hyperparameter tuning** is the process of finding the configuration of hyperparameters that results in the best performance. The process is typically computationally expensive and manual.
+ **Hyperparameter tuning**, also called **hyperparameter optimization**, is the process of finding the configuration of hyperparameters that results in the best performance. The process is typically computationally expensive and manual.
 
 Azure Machine Learning lets you automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
 
