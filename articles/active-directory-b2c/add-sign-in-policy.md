@@ -70,28 +70,28 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
 1. Add the following claims provider to the `ClaimsProviders` element:
 
-  ```xml
-  <ClaimsProvider>
-    <DisplayName>Local Account</DisplayName>
-    <TechnicalProfiles>
-      <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-        <Metadata>
-          <Item Key="setting.showSignupLink">false</Item>
-        </Metadata>
-      </TechnicalProfile>
-    </TechnicalProfiles>
-  </ClaimsProvider>
-  ```
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Local Account</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+          <Metadata>
+            <Item Key="setting.showSignupLink">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
 1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0 data URI:
 
-```XML
-<ContentDefinitions>
- <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-  </ContentDefinition>
-</ContentDefinitions>
-```
+    ```XML
+    <ContentDefinitions>
+     <ContentDefinition Id="api.localaccountsignup">
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+      </ContentDefinition>
+    </ContentDefinitions>
+    ```
 
 ## Update and test your policy
 
