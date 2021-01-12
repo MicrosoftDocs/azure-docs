@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
 ---
 
@@ -63,7 +63,7 @@ Deploy the spatial analysis container as an IoT Module on the host computer, usi
 Alternatively, you can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. Go to [Deploy Azure IoT Edge Modules from Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) to learn more.
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find three sample *DeploymentManifest.json* files on Github, for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), a [Desktop machine](https://go.microsoft.com/fwlink/?linkid=2152189), or an [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find three sample *DeploymentManifest.json* files on GitGub, for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), a [Desktop machine](https://go.microsoft.com/fwlink/?linkid=2152189), or an [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### Set environment variables
 
@@ -190,7 +190,7 @@ Go to the Azure Web App and verify the deployment was successful, and the web ap
 ![Test the deployment](./media/spatial-analysis/solution-app-output.png)
 
 ## Get the PersonCount source code
-If you'd like to view or modify the source code for this application, you can find it [on Github](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
+If you'd like to view or modify the source code for this application, you can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## Next steps
 

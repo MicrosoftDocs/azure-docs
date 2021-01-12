@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
 ---
 
@@ -317,7 +317,7 @@ An Azure Virtual Machine with a GPU can also be used to run spatial analysis. Th
 
 Open the [Create a Virtual Machine](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) wizard in the Azure portal.
 
-Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size.
+Give your VM a name and select the region to be (US) West US 2. Be sure to set `Availability Options` to "No infrastructure redundancy required". Refer to the below figure for the complete configuration and the next step for help locating the correct VM size. 
 
 :::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.png" alt-text="Virtual machine configuration details." lightbox="media/spatial-analysis/virtual-machine-instance-details.png":::
 
@@ -327,8 +327,7 @@ To locate the VM size, select "See all sizes" and then view the list for "Non-pr
 
 Then, select either **NC6** or **NC6_Promo**.
 
-![NC6 and NC6_Promo](media/spatial-analysis/promo-selection.png)
-:::image type="content" source="media/spatial-analysis/promo-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promo-selection.png":::
+:::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="promotional selection" lightbox="media/spatial-analysis/promotional-selection.png":::
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 

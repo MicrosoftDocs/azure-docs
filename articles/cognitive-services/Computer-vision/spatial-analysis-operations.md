@@ -734,7 +734,7 @@ Sample JSON for detections output by this operation.
 
 When calculating `centerGroundPoint`, `x` is the distance from the camera to the person along a line perpendicular to the camera image plane. `y` is the distance from the camera to the person along a line parallel to the camera image plane. 
 
-![Example center ground point](./media/spatial-analysis/xy-chart.png) 
+![Example center ground point](./media/spatial-analysis/x-y-chart.png) 
 
 In this example, `centerGroundPoint` is `{x: 4, y: 5}`. This means there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down.
 
