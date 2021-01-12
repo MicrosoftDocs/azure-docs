@@ -4,7 +4,7 @@ description: Learn how to change the default access tier of a GPv2 or Blob Stora
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
