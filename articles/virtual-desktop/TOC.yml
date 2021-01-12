@@ -170,7 +170,7 @@
     href: troubleshoot-vm-configuration.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
-  - name: Troubleshoot common Windows Virtual Desktop Agent issues
+  - name: Troubleshoot Windows Virtual Desktop Agent
     href: troubleshoot-agent.md
   - name: Remote Desktop client issues
     href: troubleshoot-client.md
