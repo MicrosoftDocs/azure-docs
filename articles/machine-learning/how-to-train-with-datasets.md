@@ -1,7 +1,7 @@
 ---
-title: Train with azureml-datasets
+title: Train with machine learning datasets
 titleSuffix: Azure Machine Learning
-description:  Learn how to make your data available to your local or remote compute for ML model training with Azure Machine Learning datasets.
+description:  Learn how to make your data available to your local or remote compute for model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,8 +17,7 @@ ms.custom: how-to, devx-track-python, data4ml
 
 ---
 
-# Train with datasets in Azure Machine Learning
-
+# Train models with Azure Machine Learning datasets 
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 
@@ -39,7 +38,7 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Use datasets directly in training scripts
+## Consume machine learning datasets in training scripts
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
@@ -221,7 +220,7 @@ print (mounted_path)
 ```
 
 
-## Directly access datasets in your script
+## Get machine learning datasets in scripts
 
 Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and registered dataset by name. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
 
@@ -242,7 +241,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## Accessing source code during training
+## Access source code during training
 
 Azure Blob storage has higher throughput speeds than an Azure file share and will scale to large numbers of jobs started in parallel. For this reason, we recommend configuring your runs to use Blob storage for transferring source code files.
 

@@ -1,5 +1,5 @@
 ---
-title: Create Azure Machine Learning datasets to access data
+title: Create machine learning datasets to access data
 titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning datasets to access your data for machine learning experiment runs.
 services: machine-learning
@@ -18,8 +18,6 @@ ms.date: 07/31/2020
 ---
 
 # Create Azure Machine Learning datasets
-
-
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
