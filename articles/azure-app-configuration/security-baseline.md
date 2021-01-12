@@ -76,7 +76,7 @@ Azure App Configuration is not intended to run web applications, it provides the
 
 - [Manage Azure DDoS Protection Standard using the Azure portal](../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-networking)
 
 **Azure Security Center monitoring**: Not applicable
 
