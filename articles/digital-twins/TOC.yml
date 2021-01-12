@@ -61,10 +61,12 @@
       href: how-to-move-regions.md
   - name: Design models
     items:
-    - name: Manage custom models
+    - name: Manage models
       href: how-to-manage-model.md
-    - name: Integrate industry-standard models
+    - name: Integrate industry-standard ontologies
       href: how-to-integrate-models.md
+    - name: Extend industry-standard ontologies
+      href: how-to-extend-ontologies.md
     - name: Parse and validate models
       href: how-to-parse-models.md
     - name: Add tags
