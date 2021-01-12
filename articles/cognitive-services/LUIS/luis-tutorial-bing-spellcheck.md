@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/08/2021
+ms.date: 01/12/2021
 
 ---
 
@@ -28,8 +28,8 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 3. In the search box, enter `Bing Search V7` and select the service.
 
 4. An information panel appears to the right containing information including the Legal Notice. Select **Create** to begin the subscription creation process.
-   
-    ![Search for Bing Spell Check API V7](./media/luis-tutorial-bing-spellcheck/Bing-search-resource.png)
+
+    :::image type="content" source="./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png" alt-text="Bing Spell Check API V7 resource":::
 
 5. In the next panel, enter your service settings. Wait for service creation process to finish.
 
@@ -37,7 +37,7 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 
 7. Copy one of the keys to be added to the header of your prediction request. You will only need one of the two keys.
 
-8. Key for the prediction request header will be **mkt-bing-spell-check-key** and the value will be the key that you copied in the previous step.
+8. Add the key to `mkt-bing-spell-check-key` in the prediction request header.
 
 <!--
 ## Using the key in LUIS test panel
