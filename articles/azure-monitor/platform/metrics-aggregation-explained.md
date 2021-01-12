@@ -38,7 +38,7 @@ There are five basic aggregation types available in the metrics explorer. Metric
 
 For example, suppose a chart is showing the **Network Out Total** metric for a VM using the **SUM** aggregation over the last 24-hour time span. The time range and granularity can be changed from the upper right of the chart as seen in the following screenshot.
 
-:::image type="content" source="media/metrics-aggregation-explained/1.png" alt-text="Screenshot showing Time range and Time granularity picker" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/time-range-granularity-picker.png" alt-text="Screenshot showing time range and time granularity picker" border="true":::
 
 For time granularity = 30 minutes and the time range = 24 hours:
 
@@ -47,26 +47,25 @@ For time granularity = 30 minutes and the time range = 24 hours:
 - Each datapoint represents the sum of all network out bytes sent out during each of the relevant 30-min time periods. 
 
 
- :::image type="content" source="media/metrics-aggregation-explained/2.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 30-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/2.png":::
+ :::image type="content" source="media/metrics-aggregation-explained/24-hour-30-min-gran.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 30-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/2.png":::
 
 *Click on the images in this section to see larger versions.*
 
 If you switch the time granularity to 15 minutes, the chart is drawn from 96 aggregated data points. That is, 60min/15min = 4 datapoints per hour x 24 hours.
 
-:::image type="content" source="media/metrics-aggregation-explained/3.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 15-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/3.png":::
+:::image type="content" source="media/metrics-aggregation-explained/3.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 15-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/24-hour-15-min-gran.png":::
 
 For time granularity of 5 minutes, you get 24 x (60/5) = 288 points. 
 
-:::image type="content" source="media/metrics-aggregation-explained/4.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 15-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/3.png":::
+:::image type="content" source="media/metrics-aggregation-explained/24-hour-5-min-gran.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 5-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/24-hour-15-min-gran.png":::
 
 For time granularity of 1 minute (the smallest possible on the chart), you get 24 x 60/1 = 1440 points. 
 
-:::image type="content" source="media/metrics-aggregation-explained/5.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 15-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/4.png":::
+:::image type="content" source="media/metrics-aggregation-explained/24-hour-1-min-gran.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 1-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/24-hour-1-min-gran.png":::
 
 The charts look different for these summations as shown in the previous screenshots.  Notice how this VM has a lot of output in a small time period relative to the rest of the time window.  
 
 The time granularity allows you to adjust the "signal-to-noise" ratio on a chart. Higher aggregations remove noise and smooth out spikes.  Notice the variations at the bottom 1-minute chart and how they smooth out as you go to higher granularity values. This behavior can become important when you send this data to other systems--for example, alerts. Typically, you usually don't want to be alerted by very short spikes in CPU time over 90%. But if the CPU stays at 90% for 5 minutes, that's likely important. This rule is likely true for the networking spikes shown above as well. Making the time granularity larger can smooth out the short-term spikes and reduce the number of false alerts you receive. 
-
 
 
 ## How the system collects metrics
@@ -75,7 +74,7 @@ Data collection varies by metric. There are two types of collection periods.
 
 ### Measurement collection frequency 
 
-- **Regular** - The metric is gathered at a consistent time interval that does not vary. 
+- **Regular** - The metric is gathered at a consistent time interval that does not vary.
 
 - **Activity-based** - The metric is gathered based on when a transaction of a certain type occurs. Each transaction has a metric entry and a time stamp. They are not gathered at regular intervals so there are a varying number of records over a given time period. 
 
@@ -93,30 +92,29 @@ For example, [Microsoft.ApiManagement/service](metrics-supported.md#microsoftapi
 
 You can use splitting and filtering together to dig into a problem. Below is an example of a graphic showing the Avg Disk Write Bytes for a group of VMs in a Resource Group. We have a rollup of all the VMs with this metric, but we may want to dig into see which are actually responsible for the peaks around 6AM. Are they the same machine? How many machines are involved?  
 
-:::image type="content" source="media/metrics-aggregation-explained/6.png" alt-text="Screenshot showing total Disk Write Bytes for all virtual machines in Contoso Hotels resource group" border="true" lightbox="media/metrics-aggregation-explained/5.png":::
+:::image type="content" source="media/metrics-aggregation-explained/total-disk write-bytes-all-VMs.png" alt-text="Screenshot showing total Disk Write Bytes for all virtual machines in Contoso Hotels resource group" border="true" lightbox="media/metrics-aggregation-explained/total-disk write-bytes-all-VMs.png":::
 
 *Click on the images in this section to see larger versions.*
 
 When we apply splitting, we can see the underlying data, but it's a bit of a mess. Turns out there are 20 VMs being aggregated into the chart above. In this case, we've used our mouse to hover over the large peak at 6AM that tells us that CH-DCVM11 is the cause. but it's hard to see the rest of the data associated with that VM because of other VMs cluttering the chart. 
 
-:::image type="content" source="media/metrics-aggregation-explained/7.png" alt-text="Screenshot showing Total Disk Write Bytes for all virtual machines in Contoso Hotels resource group split by virtual machine name" border="true" lightbox="media/metrics-aggregation-explained/7.png":::
+:::image type="content" source="media/metrics-aggregation-explained/split-total-disk write-bytes-all-VMs.png" alt-text="Screenshot showing Disk Write Bytes for all virtual machines in Contoso Hotels resource group split by virtual machine name" border="true" lightbox="media/metrics-aggregation-explained/split-total-disk write-bytes-all-VMs.png":::
 
 Using filtering allows us to clean up the chart to see what's really happening. You can check or uncheck the VMs you want to see. Notice the dotted lines. Those are mentioned in a later section.
 
-:::image type="content" source="media/metrics-aggregation-explained/8.png" alt-text="Screenshot showing Total Disk Write Bytes for all virtual machines in Contoso Hotels resource group split by virtual machine name" border="true" lightbox="media/metrics-aggregation-explained/8.png":::
+:::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="Screenshot showing Disk Write Bytes for all virtual machines in Contoso Hotels resource group split and filtered by virtual machine name" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-For more information on how to show split dimension data on a metric explorer chart, see [Advanced features of metrics explorer- filters and splitting](metrics-charts#apply-filters-to-charts.md). 
+For more information on how to show split dimension data on a metric explorer chart, see [Advanced features of metrics explorer- filters and splitting](metrics-charts#apply-filters-to-charts.md).
 
 ### NULL and zero values
 
-When the system expects metric data from a resource but doesn't receive it, it records a NULL value.  NULL is different than a zero value, which becomes important in the calculation of aggregations and charting. NULL values are not counted as valid measurements. NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown above. 
+When the system expects metric data from a resource but doesn't receive it, it records a NULL value.  NULL is different than a zero value, which becomes important in the calculation of aggregations and charting. NULL values are not counted as valid measurements. NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown above.
 
 When calculating averages that include NULLs, there are fewer data points to take the average from.  This can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
 
 [Custom metrics](metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric. 
 
-Azure Monitor alerts just uses the values in the metric database, so it's important to know how the resource provider handles NULLs by viewing the data first. 
-
+Azure Monitor alerts just uses the values in the metric database, so it's important to know how the resource provider handles NULLs by viewing the data first.
 
 ## How aggregation works
 
@@ -134,17 +132,17 @@ To simplify the explanation, we'll start with the SUM aggregation type only.
 
 First raw metric data is collected and stored in the Azure Monitor metrics database. In this case, each server has transaction records stored with a timestamp because *Server* is a dimension. Given that the smallest time period you can view as a customer is 1 minute, those timestamps are first aggregated into 1-minute metric values for each individual server.  The aggregation process for Server B is shown in the graphic below. Servers A and C are done in the same way and have different data.  
 
-:::image type="content" source="media/metrics-aggregation-explained/9.png" alt-text="Screenshot showing sub minute transactional entries into 1-minute aggregations. " border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sub-minute-transaction.png" alt-text="Screenshot showing sub minute transactional entries into 1-minute aggregations. " border="true":::
 
 The resulting 1-minute aggregated values are stored as new entries in the metrics database so they can be gathered for later calculations. 
 
-:::image type="content" source="media/metrics-aggregation-explained/10.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sub-minute-transaction-dimension-aggregated.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
 
 ### Dimension aggregation
 
 The 1-minute calculations are then collapsed by dimension and again stored as individual records.   In this case, all the data from all the individual servers are aggregated into a 1-minute interval metric and stored in the metrics database for use in later aggregations.
 
-:::image type="content" source="media/metrics-aggregation-explained/11.png" alt-text="Screenshot showing multiple 1-minute aggregated entries of Server A, B, and C aggregated into 1minute All Servers entires" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/1-minute-transaction-dimension-flattened-aggregated.png" alt-text="Screenshot showing multiple 1-minute aggregated entries of Server A, B, and C aggregated into 1-minute All Servers entires" border="true":::
 
 For clarity, the following table shows the method of aggregation.
 
@@ -204,12 +202,11 @@ Because this metric has a dimension *Server*, you can get to the underlying data
 
 ## Viewing time granularities above 1 minute
 
-If you ask for metrics at a larger granularity, the system uses the 1-minute aggregated sums to calculate the larger sums for the larger time granularities.  Below, dotted lines show the summation method for the 2-minute and 5-minute time granularities. Again, we are showing just the SUM aggregation type for simplicity. 
+If you ask for metrics at a larger granularity, the system uses the 1-minute aggregated sums to calculate the sums for the larger time granularities.  Below, dotted lines show the summation method for the 2-minute and 5-minute time granularities. Again, we are showing just the SUM aggregation type for simplicity.
 
-:::image type="content" source="media/metrics-aggregation-explained/12.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/1-minute-to-2-min-5-min.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server aggregated into 2-min and 5-min time periods." border="true":::
 
-
-For the 2-minute time granularity. 
+For the 2-minute time granularity.
 
 | Period       | Sums       
 | -------------|-------------|  
@@ -219,7 +216,7 @@ For the 2-minute time granularity.
 | Minute 6 & 7 | (7 + 1) = 8 |
 | Minute 8 & 9 | (6 + 3) = 9 |
 
-For 5-minute time granularity. 
+For 5-minute time granularity.
 
 | Period              |            Sums        |
 |---------------------|------------------------|  
@@ -228,9 +225,9 @@ For 5-minute time granularity.
 
 The system uses the stored aggregated data that gives the best performance. 
 
-Below is the larger diagram for the above 1-minute aggregation process, with some of the arrows left out to improve readability. 
+Below is the larger diagram for the above 1-minute aggregation process, with some of the arrows left out to improve readability.
 
-:::image type="content" source="media/metrics-aggregation-explained/13.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
 
 
 ## More complex example 
@@ -244,7 +241,7 @@ Consider the following example. The boxes and arrows show examples of how the va
 
 The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT pre-aggregated. It is recalculated using aggregated data to avoid calculation errors. 
  
-:::image type="content" source="media/metrics-aggregation-explained/14.png" alt-text="Screenshot showing complex example of aggregation and calculation of sum, count, min, max and average from 1 minute to 10 minutes." border="true" lightbox="media/metrics-aggregation-explained/14.png":::
+:::image type="content" source="media/metrics-aggregation-explained/full-aggregation-example-all-types.png" alt-text="Screenshot showing complex example of aggregation and calculation of sum, count, min, max and average from 1 minute to 10 minutes." border="true" lightbox="media/metrics-aggregation-explained/full-aggregation-example-all-types.png":::
 
 Consider minute 6 for the 1-minute aggregation as highlighted above. This minute is the point where Server B went offline and stopped reporting data, perhaps due to a reboot. 
 
@@ -264,9 +261,7 @@ You can also see that the NULLs give a better calculations of average than if ze
 
 >[!NOTE] Though not the case in this example, Count is equal to Sum in cases where a metric is always captured with the value of 1. This is common when a metric tracks the occurrence of a transactional event--for example, the number of HTTP failures mentioned in a previous example in this article.
 
-
-
 ## Next steps
 
-  - [Getting started with metrics explorer](metrics-getting-started.md)
-  - [Advanced Metrics explorer](metrics-charts.md)
+- [Getting started with metrics explorer](metrics-getting-started.md)
+- [Advanced Metrics explorer](metrics-charts.md)
