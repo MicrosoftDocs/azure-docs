@@ -33,11 +33,14 @@ Given a B2C application that has two policies:
 
 The configuration file for the app would declare two `authorities`. One for each policy. The `type` property of each authority is `B2C`.
 
+>Note: The `account_mode` must be set to **MULTIPLE** for B2C applications. Refer to the documentation for more information about [multiple account public client apps](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application).
+
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
 	"client_id": "<your_client_id_here>",
 	"redirect_uri": "<your_redirect_uri_here>",
+	"account_mode" : "MULTIPLE",
 	"authorities": [{
 			"type": "B2C",
 			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
