@@ -630,9 +630,9 @@
       href: create-azure-integration-runtime.md
     - name: Self-hosted integration runtime
       items:
-        - name: create-self-hosted-integration-runtime
+        - name: Create and configure a self-hosted integration runtime
           href: create-self-hosted-integration-runtime.md
-        - name: self-hosted-integration-runtime-auto-update
+        - name: Self-hosted integration runtime auto-update and expire notification
           href: self-hosted-integration-runtime-auto-update.md
         - name: Shared self-hosted integration runtime
           href: create-shared-self-hosted-integration-runtime-powershell.md

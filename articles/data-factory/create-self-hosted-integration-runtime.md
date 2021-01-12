@@ -196,13 +196,13 @@ Here are details of the application's actions and arguments:
 ## Service account for Self-hosted integration runtime
 The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
-![Service account for Self-hosted integration runtime](media/create-self-hosted-integration-runtime/shir_service_account.png)
+![Service account for Self-hosted integration runtime](media/create-self-hosted-integration-runtime/shir-service-account.png)
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir_service_account_permission.png)
+![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir_service_account_permission2.png)
+![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission2.png)
 
 
 ## Notification area icons and notifications
