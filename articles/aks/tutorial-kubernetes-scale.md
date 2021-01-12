@@ -49,7 +49,7 @@ To manually change the number of pods in the *azure-vote-front* deployment, use 
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Run [kubectl get pods][kubectl-get] again to verify that AKS successfully creates the additional pods. After a minute or so, the  pods are available in your cluster:
+Run [kubectl get pods][kubectl-get] again to verify that AKS successfully creates the additional pods. After a minute or so, the pods are available in your cluster:
 
 ```console
 kubectl get pods
