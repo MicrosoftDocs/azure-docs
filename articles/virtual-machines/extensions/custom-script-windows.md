@@ -46,6 +46,8 @@ You can configure the extension to use your Azure Blob storage credentials to ac
 
 If you need to download a script externally such as from GitHub or Azure Storage, then additional firewall and Network Security Group ports need to be opened. For example, if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
+Note that CustomScript Extension does not have any way to bypass certificate validation. So if you're downloading from a secured location with eg. a self-signed certificate, you might end up with errors like *"The remote certificate is invalid according to the validation procedure"*. Please make sure the certificate is correctly installed in the *"Trusted Root Certification Authorities"* store on the Virtual Machine.
+
 If your script is on a local server, then you may still need additional firewall and Network Security Group ports need to be opened.
 
 ### Tips and Tricks

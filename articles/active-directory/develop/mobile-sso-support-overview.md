@@ -33,7 +33,7 @@ In addition, enabling single sign-on in your app unlocks new authentication mech
 
 We recommend the following to enable your app to take advantage of single sign-on.
 
-### Use Microsoft Authentication Library (MSAL)
+### Use the Microsoft Authentication Library (MSAL)
 
 The best choice for implementing single sign-on in your application is to use [the Microsoft Authentication Library (MSAL)](msal-overview.md). By using MSAL you can add authentication to your app with minimal code and API calls, get the full features of the [Microsoft identity platform](./index.yml), and let Microsoft handle the maintenance of a secure authentication solution. By default, MSAL adds SSO support for your application. In addition, using MSAL is a requirement if you also plan to implement app protection policies.
 
