@@ -18,7 +18,7 @@ ms.date: 10/29/2020
 
 ## Consumption pricing model
 
-This pay-for-use billing and pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps service. All successful and unsuccessful executions are metered and billed. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
+This pay-for-use billing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps service. All successful and unsuccessful executions are metered and billed. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
 
 Exceptions to the rule include triggers that are skipped due to unmet conditions and actions that don't run because the logic app stopped before finishing. Also, disabled logic apps aren't metered.
 
@@ -54,19 +54,11 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Fixed pricing model
 
-This billing and pricing model applies to these related resources that you can use with Azure Logic Apps:
+This billing model applies to logic apps that you create and run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) so that they can directly access resources in an Azure virtual network.
 
-* An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which is a way that you can create and run logic apps that can access resources in an Azure virtual network. Logic apps that run in an ISE don't incur data retention costs. When you create an ISE, and only during creation, you can choose an [ISE level or "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
+When you use an ISE for your logic apps, you get these capabilities included at the fixed ISE price:
 
-
-the public, "global", multi-tenant Azure Logic Apps service. All successful and unsuccessful executions are metered and billed. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
-
-
-* **Premium** ISE: This SKU's base unit has fixed capacity, but if you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) during ISE creation or afterwards. For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
-
-* **Developer** ISE: This SKU has no capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing.
-
-For logic apps that you create and run in an ISE, you pay a [fixed price](https://azure.microsoft.com/pricing/details/logic-apps) (versus pay per use) for these capabilities:
+* No data retention costs apply.
 
 * [Built-in](../connectors/apis-list.md#built-in) triggers and actions
 
@@ -76,17 +68,26 @@ For logic apps that you create and run in an ISE, you pay a [fixed price](https:
 
    Standard and Enterprise connectors that display the **ISE** label run in the same ISE as your logic apps. Connectors that don't display the ISE label run in the public, "global", multi-tenant Logic Apps service. Fixed pricing also applies to connectors that run in the multi-tenant service when you use them with logic apps that run in an ISE.
 
-* [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost, based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+When you create an ISE, and only during creation, you can choose an [ISE level or "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
+
+* **Premium** ISE: This SKU's base unit has fixed capacity, but if you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) during ISE creation or afterwards. For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+
+* **Developer** ISE: This SKU has no capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing.
+
+For logic apps that you create and run in an ISE, you pay a [fixed price](https://azure.microsoft.com/pricing/details/logic-apps) (versus pay per use) for these capabilities:
+
+
+* Based on your selected ISE SKU, you get the following [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost:
 
   * **Premium** ISE SKU: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
   * **Developer** ISE SKU: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you can have more integration accounts, based on your ISE SKU:
+  For an additional cost, you can create more integration accounts up to the [total limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) for an ISE:
 
-  * **Premium** ISE SKU: Up to four more Standard accounts. No Free or Basic accounts.
+  * **Premium** ISE SKU: Up to 19 more Standard accounts. No Free or Basic accounts are permitted.
 
-  * **Developer** ISE SKU: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
+  * **Developer** ISE SKU: Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted.
 
   For more information about integration account limits, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
