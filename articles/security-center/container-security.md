@@ -44,7 +44,7 @@ The following screenshot shows the asset inventory page and the various containe
 
 To monitor images in your Azure Resource Manager-based Azure container registries, enable [Azure Defender for container registries](defender-for-container-registries-introduction.md). Security Center scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
 
-When issues are found – by Qualys or Security Center – you'll get notified in the [Azure Defender dashboard](azure-defender-dashboard.md). For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
+When issues are found – by Qualys or Security Center – you'll get notified in the [Azure Defender dashboard](azure-defender-dashboard.md). For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-compute).
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
@@ -56,7 +56,7 @@ Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, 
 
 Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use Security Center's **recommendations page** to view recommendations and remediate issues. The CIS benchmark checks don't run on AKS-managed instances or Databricks-managed VMs.
 
-For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+For details of the relevant Security Center recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 When you're exploring the security issues of a VM, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. 
 
@@ -70,7 +70,7 @@ AKS provides security controls and visibility into the security posture of your 
 * Constantly monitor the configuration of your AKS clusters
 * Generate security recommendations aligned with industry standards
 
-For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
+For details of the relevant Security Center recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 ###  Workload protection best-practices using Kubernetes admission control
 
