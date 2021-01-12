@@ -23,6 +23,8 @@
   items:
   - name: Custom models
     href: concepts-models.md
+  - name: Extending DTDL industry ontologies
+    href: concepts-extending-ontologies.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -65,8 +67,6 @@
       href: how-to-manage-model.md
     - name: Integrate industry-standard models
       href: how-to-integrate-models.md
-    - name: Extend DTDL industry ontologies
-      href: how-to-extend-ontologies.md
     - name: Parse and validate models
       href: how-to-parse-models.md
     - name: Add tags
