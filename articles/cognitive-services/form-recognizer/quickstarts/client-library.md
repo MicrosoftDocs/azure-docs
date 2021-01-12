@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Form Recognizer client library"
+title: "Quickstart: Form Recognizer client library or REST API"
 titleSuffix: Azure Cognitive Services
-description: Use the Form Recognizer client library to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+description: Use the Form Recognizer client library or REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,16 +16,16 @@ ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: forms processing, automated data processing
 ---
 
-# Quickstart: Use the Form Recognizer client library
+# Quickstart: Use the Form Recognizer client library or REST API
 
-Get started with the Form Recognizer using the language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs and table data from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. Follow these steps to install the SDK package and try out the example code for basic tasks. The Form Recognizer client library currently targets v2.0 of the Form Recognizer service.
+Get started with the Form Recognizer using the language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks. 
 
-Use the Form Recognizer client library to:
+Use Form Recognizer to:
 
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
-* [Recognize business cards](#recognize-business-cards)
-* [Recognize invoices](#recognize-invoices)
+* [Analyze Layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Analyze business cards](#analyze-business-cards)
+* [Analyze invoices](#analyze-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
