@@ -365,7 +365,7 @@ Please Cross check and update below steps to fix the issue:
 <summary><b>My Application Insights is enabled but why is it not working properly?</b></summary>
 
 **Answer**:
-Please follow the following steps: 
+Please follow the below given steps: 
 
 1.  Copy the value of '“APPINSIGHTS_INSTRUMENTATIONKEY” name' into 'UserAppInsightsKey' name by overriding if there is some value already present there. 
 
