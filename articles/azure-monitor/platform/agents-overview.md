@@ -65,7 +65,7 @@ Limitations of the Azure Monitor agent include:
 
 ## Log Analytics agent
 
-The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
+The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
 
 > [!NOTE]
 > The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
@@ -74,7 +74,7 @@ Use the Log Analytics agent if you need to:
 
 * Collect logs and performance data from Azure virtual machines or hybrid machines hosted outside of Azure.
 * Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](data-platform-logs.md) such as [log queries](../log-query/log-query-overview.md).
-* Use [Azure Monitor for VMs](../insights/vminsights-overview.md) which allows you to monitor your virtual machines at scale and monitors their processes and dependencies on other resources and external processes..  
+* Use [Azure Monitor for VMs](../insights/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 * Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
 * Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
