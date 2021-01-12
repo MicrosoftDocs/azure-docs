@@ -89,7 +89,7 @@ There are multiple methods to install the Log Analytics agent and connect your m
 
 - Use [Azure Arc enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension.
 - [Manually install](../learn/quick-collect-linux-computer.md) the agent calling a wrapper-script hosted on GitHub.
-- System Center Operations Manager|[Integrate Operations Manager with Azure Monitor](./om-agents.md) to forward collected data from Windows computers reporting to a management group.
+- Integrate [System Center Operations Manager](./om-agents.md) with Azure Monitor to forward collected data from Windows computers reporting to a management group.
 
 ## Workspace ID and key
 
@@ -120,13 +120,13 @@ The following table lists the proxy and firewall configuration information requi
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
-If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management features in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning).
 
 ### Proxy configuration
 
 The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 
-For the Linux agent, the proxy server is specified during installation or [after installation](agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file.  The Linux agent proxy configuration value has the following syntax:
+For the Linux agent, the proxy server is specified during installation or [after installation](agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file. The Linux agent proxy configuration value has the following syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
