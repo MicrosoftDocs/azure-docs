@@ -216,7 +216,7 @@ If the status listed for the session host or hosts in your host pool always says
 9. Go back to the command prompt and run the **qwinsta** command.
 10. Verify that the stack component installed in step 6 says *Listen* next to it.
    - If so, enter **net start RDAgentBootLoader** in the command prompt and restart your VM.
-   - If not, you will need to [reinstall the agent](#error:-your-issue-is-not-listed-above-or-your-issue-remains-after-trying-other-troubleshooting-steps) component.
+   - If not, you will need to [reinstall the agent](#error-your-issue-is-not-listed-above-or-your-issue-remains-after-trying-other-troubleshooting-steps) component.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
