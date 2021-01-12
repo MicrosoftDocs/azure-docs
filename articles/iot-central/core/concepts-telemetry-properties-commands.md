@@ -183,6 +183,9 @@ The following snippet from a device model shows the definition of a `geopoint` t
 }
 ```
 
+> [!NOTE]
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+
 A device client should send the telemetry as JSON that looks like the following example. IoT Central displays the value as a pin on a map:
 
 ```json
@@ -570,6 +573,9 @@ The following snippet from a device model shows the definition of a `geopoint` p
   "writable": false
 }
 ```
+
+> [!NOTE]
+> The **geopoint** schema type is not part of the [Digital Twins Definition Language specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
 
 A device client should send a JSON payload that looks like the following example as a reported property in the device twin:
 
