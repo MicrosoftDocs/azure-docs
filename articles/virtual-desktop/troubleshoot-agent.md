@@ -282,7 +282,7 @@ Follow these instructions if one or more of the following apply to you:
 
 **Remove the session host from the host pool**
 
-4. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
+4. Go to the **Overview** page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
 5. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
 6. Look at the list of session hosts and select the VM that you want to remove.
 7. Select **Remove**.  
