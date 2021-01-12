@@ -53,14 +53,14 @@ Follow these steps to create an Azure Cosmos DB database in your subscription. T
 
 1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
-    ```bash
+    ```azurecli
     az login
     az account set -s <your-subscription-id>
     ```   
 
 2. Create an Azure Resource Group, noting the resource group name.
 
-    ```bash
+    ```azurecli
     az group create -n <your-azure-group-name> \
         -l <your-resource-group-region>
     ```
@@ -68,7 +68,7 @@ Follow these steps to create an Azure Cosmos DB database in your subscription. T
 3. Create Azure Cosmos DB with the `GlobalDocumentDB` kind. 
 The name of Cosmos DB must use only lower case letters. Note down the `documentEndpoint` field in the response from the command.
 
-    ```bash
+    ```azurecli
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
@@ -76,7 +76,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
 
 4. Get your Azure Cosmos DB key to connect to the app. Keep the `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 
-    ```bash
+    ```azurecli
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
@@ -84,7 +84,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
 
 Open a terminal on your computer. Copy the sample script file in the cloned repo so you can customize it for your Cosmos DB database you just created.
 
-```bash
+```azurecli
 cd initial/spring-todo-app
 cp set-env-variables-template.sh .scripts/set-env-variables.sh
 ```
@@ -92,7 +92,7 @@ cp set-env-variables-template.sh .scripts/set-env-variables.sh
 Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure 
 Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
 
-```bash
+```azurecli
 export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
 export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
 export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
@@ -105,7 +105,7 @@ export REGION=<put-your-REGION-here>
 
 Then run the script:
 
-```bash
+```azuecli
 source .scripts/set-env-variables.sh
 ```
    
@@ -289,7 +289,7 @@ You should see the app running with the remote URL in the address bar:
 
 Scale out the application by adding another worker:
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 \
    --name ${WEBAPP_PLAN_NAME} \
    --resource-group <your-azure-group-name>
@@ -299,7 +299,7 @@ az appservice plan update --number-of-workers 2 \
 
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
   
-```bash
+```azurecli
 az group delete --name <your-azure-group-name>
 ```
 
