@@ -5,7 +5,7 @@ author: Niharikadutta
 ms.author: nidutta
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/05/2021
 ---
 
 # Updating .NET for Apache Spark to version v1.0  in HDInsight
