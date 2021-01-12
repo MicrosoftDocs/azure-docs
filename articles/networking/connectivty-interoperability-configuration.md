@@ -218,7 +218,6 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [ExpressRoute]: ../expressroute/expressroute-introduction.md
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
-[Configuration]: 
 [Control-Analysis]: ./connectivty-interoperability-control-plane.md
 [Data-Analysis]: ./connectivty-interoperability-data-plane.md
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
