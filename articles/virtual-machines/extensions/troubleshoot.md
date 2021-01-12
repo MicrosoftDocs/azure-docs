@@ -87,16 +87,16 @@ Azure portal:
 In the portal, select the VM and in the left pane under the **Support + troubleshooting**, select **Redeploy + reapply**, then select **Reapply**.
 
 
-Azure PowerShell *(replace the RGName and VMName with your values)*:
+Azure PowerShell *(replace the RG Name and VM Name with your values)*:
 
 ```azurepowershell
-Set-AzVM -ResourceGroupName <RGName> -Name <VMName> -Reapply
+Set-AzVM -ResourceGroupName <RG Name> -Name <VM Name> -Reapply
 ```
 
-Azure CLI *(replace the RGName and VMName with your values)*:
+Azure CLI *(replace the RG Name and VM Name with your values)*:
 
 ```azurecli
-az vm reapply -g <RGName> -n <VMName>
+az vm reapply -g <RG Name> -n <VM Name>
 ```
 
 If a "VM Reapply" didn't work, you can add a new empty Data Disk to the VM from the Azure Management Portal, and then remove it later once the certificate has been added back.
