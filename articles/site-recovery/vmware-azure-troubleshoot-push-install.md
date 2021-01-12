@@ -112,11 +112,11 @@ To resolve the error:
 
 * Ensure you can ping your source machine from the configuration server. If you've chosen the scale-out process server during enable replication, ensure you can ping your source machine from the process server.
 
-* Ensure that the File and Printer sharing service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install#file-and-printer-sharing-services-check-errorid-95105--95106).
+* Ensure that the File and Printer sharing service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
 
-* Ensure that WMI service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+* Ensure that WMI service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
 
-* Ensure that the network shared folders on your virtual machine, are accessible from the process server. Check the steps [here](vmware-azure-troubleshoot-push-install#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
+* Ensure that the network shared folders on your virtual machine, are accessible from the process server. Check the steps [here](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * From the source server machine command line, use `Telnet` to ping the configuration server or scale-out process server on HTTPS port 135 as shown in the following command. This command checks if there are any network connectivity issues or firewall port blocking issues.
 
