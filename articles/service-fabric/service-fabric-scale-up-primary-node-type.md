@@ -57,7 +57,7 @@ $parameterFilePath = "C:\parameters.json"
 > [!NOTE]
 > Ensure that the `certOutputFolder` location exist on your local machine before running the command to deploy a new Service Fabric cluster.
 
-Next open the [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file and adjust the values for `clusterName` and `dnsName` to correspond to the dynamic values you set in PowerShell and save your changes.
+Next open the [*parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file and adjust the values for `clusterName` and `dnsName` to correspond to the dynamic values you set in PowerShell and save your changes.
 
 Then deploy the Service Fabric test cluster:
 
@@ -151,7 +151,7 @@ With that, we're ready to begin the upgrade procedure.
 
 ## Deploy a new primary node type with upgraded scale set
 
-In order to upgrade, or vertically scale, a node type, we'll need to deploy a new node type with new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set. (Unless you're doing a non-primary node type upgrades.) The resources created in the following section will become the new primary node type in your cluster once the scaling operation is complete.
+In order to upgrade, or vertically scale, a node type, we'll need to deploy a new node type with new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set (unless you're doing a non-primary node type upgrade). The resources created in the following section will become the new primary node type in your cluster once the scaling operation is complete.
 
 For convenience, the required changes have already been made for you in the *Step1-AddPrimaryNodeType.json* template file.
 
@@ -330,6 +330,9 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
+> [!Note]
+> It will take some time to complete the seed node migration to the new scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
+
 ### Disable the nodes in the original node type scale set
 
 ```powershell
@@ -346,12 +349,11 @@ Use Service Fabric Explorer to monitor the migration of seed nodes to the new sc
 
 :::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status.png" alt-text="Service Fabric Explorer showing status of disabled nodes":::
 
-> [!Note]
-> It will take some time to complete the disabling operation across all the nodes of the original scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
+For Silver and Gold durability, some nodes will go into Disabled state, while others might remain in a *Disabling* state. In Service Fabric Explorer, check the **Details** tab of nodes in Disabling state. If they show a *Pending Safety Check* of Kind *EnsurePartitionQuorem* (ensuring quorum for infrastructure service partitions), then it is safe to continue.
+
+:::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status-disabling.png" alt-text="You can proceed with stopping data and removing nodes stuck in 'Disabling' status if they show a pending safety check of kind 'EnsurePartitionQuorum'.":::
 
 If your cluster is Bronze durability, wait for all nodes to reach *Disabled* state.
-
-For Silver and Gold durability, some nodes will go into Disabled state, while others might remain in a *Disabling* state. In Service Fabric Explorer, check the **Details** tab of the nodes in Disabling state. If they are all stuck on ensuring quorum for Infrastructure service partitions, then it is safe to continue.
 
 ### Stop data on the disabled nodes
  
@@ -373,8 +375,8 @@ foreach($node in $nodes)
 ### Remove the original scale set
 
 ```powershell
-$scaleSetName="nt0vm"
-$scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+$scaleSetName = "nt0vm"
+$scaleSetResourceType = "Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
@@ -386,11 +388,11 @@ Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceTyp
 You can now delete the original IP, and load balancer resources. In this step you will also update the DNS name.
 
 ```powershell
-$lbname="LB-cluster-name-nt1vm"
-$lbResourceType="Microsoft.Network/loadBalancers"
-$ipResourceType="Microsoft.Network/publicIPAddresses"
-$oldPublicIpName="PublicIP-LB-FE-nt1vm"
-$newPublicIpName="PublicIP-LB-FE-nt2vm"
+$lbname = "LB-sftestupgrade-nt0vm"
+$lbResourceType = "Microsoft.Network/loadBalancers"
+$ipResourceType = "Microsoft.Network/publicIPAddresses"
+$oldPublicIpName = "PublicIP-LB-FE-nt0vm"
+$newPublicIpName = "PublicIP-LB-FE-nt1vm"
 
 $oldprimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
 $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
@@ -405,14 +407,19 @@ $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
 
-Next, update the management endpoint on the cluster to reference the new IP.
+Next, update the cluster `managementEndpoint` on the deployment template to reference the new IP (by updating *vmNodeType0Name* with *vmNodeType1Name*).
 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
 
 ### Remove node state from the original node type
+
 ```powershell
+$nodeType = "nt0vm"
+$nodes = Get-ServiceFabricNode
+
+Write-Host "Disabling nodes..."
 foreach($node in $nodes)
 {
   if ($node.NodeType -eq $nodeType)
@@ -423,7 +430,9 @@ foreach($node in $nodes)
   }
 }
 ```
-9. Remove the original node type reference from the Service Fabric resource in the ARM template. 
+
+9. Remove the original node type reference from the Service Fabric resource in the deployment template:
+
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -441,7 +450,9 @@ foreach($node in $nodes)
 "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
 "vmInstanceCount": "[parameters('nt0InstanceCount')]"
 ```
+
 Only for Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding applicationDeltaHealthPolicies under cluster resource properties as given below. The below policy should ignore existing errors but not allow new health errors.
+
 ```json
 "upgradeDescription":  
 { 
@@ -474,10 +485,11 @@ Only for Silver and higher durability clusters, update the cluster resource in t
  } 
 }
 ```
-10. Remove all other resources related to the original node type from the ARM template.
+1. Remove all other resources related to the original node type from the ARM template.
 
-11. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService; therefore, a node restart is needed. In this case, forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
-Then validate that the Service Fabric resource in Portal shows as ready. 
+11. Deploy the modified Azure Resource Manager template. This step will take a while, usually up to two hours. The upgrade will change settings to the InfrastructureService; therefore, a node restart is needed. In this case, forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
+
+Finally, validate that the Service Fabric resource in Portal shows as ready.
 
 ```powershell
 # deploy the updated template files to the existing resource group
