@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
 ---
@@ -29,7 +29,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 | Enable Azure Defender for all of your storage accounts | Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](../common/azure-defender-storage-configure.md). | [Yes](../../security-center/security-center-sql-service-recommendations.md) |
 | Turn on soft delete for blobs | Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md). | - |
 | Turn on soft delete for containers | ???. | - |
-| Lock storage account to prevent accidental deletion | You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying it. For more information, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+| Lock storage account to prevent accidental account deletion | You can lock an Azure Resource Manager resources, such as a subscription, resource group, or storage account, to prevent other users in your organization from accidentally deleting or modifying it. Locking a storage account does not prevent data within that account from being deleted. It only prevents the account itself from being deleted. For more information, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 | Store business-critical data in immutable blobs | Configure legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md). | - |
 | Require secure transfer (HTTPS) to the storage account | ??? | - |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
