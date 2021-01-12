@@ -63,7 +63,7 @@ Deploy the spatial analysis container as an IoT Module on the host computer, usi
 Alternatively, you can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. Go to [Deploy Azure IoT Edge Modules from Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) to learn more.
 
 > [!NOTE] 
-> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find three sample *DeploymentManifest.json* files on GitGub, for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), a [Desktop machine](https://go.microsoft.com/fwlink/?linkid=2152189), or an [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
+> The *spatial-analysis-telegraf* and *spatial-analysis-diagnostics* containers are optional. You may decide to remove them from the *DeploymentManifest.json* file. For more information see the [telemetry and troubleshooting](./spatial-analysis-logging.md) article. You can find three sample *DeploymentManifest.json* files on GitHub, for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), a [Desktop machine](https://go.microsoft.com/fwlink/?linkid=2152189), or an [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### Set environment variables
 
