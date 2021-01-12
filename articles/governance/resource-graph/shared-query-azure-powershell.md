@@ -7,27 +7,25 @@ ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create a Resource Graph shared query using Azure PowerShell
 
-This article describes how you can create a Resource Graph shared query using the
+This article describes how you can create an Azure Resource Graph shared query using the
 [Az.ResourceGraph](/powershell/module/az.resourcegraph) PowerShell module.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
   > While the **Az.ResourceGraph** PowerShell module is in preview, you must install it separately
-  > using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it
-  > will be part of future Az PowerShell module releases and available by default from within Azure
-  > Cloud Shell.
+  > using the `Install-Module` cmdlet.
 
   ```azurepowershell-interactive
   Install-Module -Name Az.ResourceGraph
   ```
 
-* If you have multiple Azure subscriptions, choose the appropriate subscription in which the
+- If you have multiple Azure subscriptions, choose the appropriate subscription in which the
   resources should be billed. Select a specific subscription using the
   [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
@@ -91,8 +89,8 @@ resources grouped by _location_.
 If you wish to remove the Resource Graph shared query and resource group from your Azure
 environment, you can do so by using the following commands:
 
-* [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-* [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
+- [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
+- [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
 
 ```azurepowershell-interactive
 # Delete the Azure Resource Graph shared query
