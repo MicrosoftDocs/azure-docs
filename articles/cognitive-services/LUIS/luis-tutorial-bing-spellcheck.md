@@ -37,7 +37,7 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 
 7. Copy one of the keys to be added to the header of your prediction request. You will only need one of the two keys.
 
-8. Key for the prediction request header will be **mkt-bing-spell-check-key** and the value will be the key that you copied in the previous step.
+8. Add the key to `mkt-bing-spell-check-key` in the prediction request header.
 
 <!--
 ## Using the key in LUIS test panel
