@@ -30,7 +30,7 @@ If you still have the original VM, or another VM created using the same marketpl
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription Id and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 Once you have the plan information, you can create the new VM using the `--attach-os-disk` parameter to specify the VHD.
 
