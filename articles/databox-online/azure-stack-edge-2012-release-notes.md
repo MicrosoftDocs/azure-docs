@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to software version:
 
-- **Azure Stack Edge 2007 (1.6.1280.1667)** - KB 4566549
+- **Azure Stack Edge 2012 (XXX)** - KB XXX <!--Get KB number-->
 
 > [!NOTE]
 > Update 2012 can be applied only to devices that are running general availability (GA) versions of the software or later.
