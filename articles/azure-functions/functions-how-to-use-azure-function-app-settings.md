@@ -137,10 +137,16 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
-1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one.
+1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Run the following command to get a list of all Consumption plans in your resource group.
+ 
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].name"
+    ```
+
+1. Run the following command to delete the Consumption plan you migrated from.
 
     ```azurecli-interactive
-    az functionapp plan delete --name <CONSUMPTION_PLAN> --resource-group <MY_RESOURCE_GROUP>
+    az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
 ### Premium to Consumption
@@ -165,7 +171,13 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan.
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the following command to get a list of all Premium plans in your resource group.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].name"
+    ```
+
+1. Run the following command to delete the Premium plan you migrated from.
 
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
