@@ -48,7 +48,7 @@ To add sign-in policy:
 1. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email sign-in**.
-1. For **Application claims**, choose the claims and attributes that you want to send to your application. For example, select **Show more**, and then choose attributes and claims for **Display Name**, **Given Name**,  **Surname** and **User's Object ID**. Click **OK**.
+1. For **Application claims**, choose the claims and attributes that you want to send to your application. For example, select **Show more**, and then choose attributes and claims for **Display Name**, **Given Name**,  **Surname**, and **User's Object ID**. Click **OK**.
 1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 
 ### Test the user flow
@@ -56,7 +56,7 @@ To add sign-in policy:
 1. Select the user flow you created to open its overview page, then select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Click **Run user flow**.
-1. You should be able to sign in with the account that you created (using MS Garph API), without the sign-up link. The returned token includes the claims that you selected.
+1. You should be able to sign in with the account that you created (using MS Graph API), without the sign-up link. The returned token includes the claims that you selected.
 
 ::: zone-end
 
@@ -101,7 +101,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the two policy files that you changed.
 1. Select the sign-in policy that you uploaded, and click the **Run now** button.
-1. You should be able to sign in with the account that you created (using MS Garph API), without the sign-up link.
+1. You should be able to sign in with the account that you created (using MS Graph API), without the sign-up link.
 
 ::: zone-end
 
