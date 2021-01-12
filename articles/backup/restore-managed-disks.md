@@ -5,7 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Restore Azure Managed Disks
+# Restore Azure Managed Disks (in preview)
+
+>[!IMPORTANT]
+>Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
 
 This article explains how to restore [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup.
 

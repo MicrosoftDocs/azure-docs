@@ -5,7 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Troubleshooting backup failures in Azure Disk Backup
+# Troubleshooting backup failures in Azure Disk Backup (in preview)
+
+>[!IMPORTANT]
+>Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
 
 This article provides troubleshooting information on backup and restore issues faced with Azure Disk. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 

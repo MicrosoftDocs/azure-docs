@@ -5,7 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ---
 
-# Back up Azure Managed Disks
+# Back up Azure Managed Disks (in preview)
+
+>[!IMPORTANT]
+>Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
 
 This article explains how to back up [Azure Managed Disk](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) from the Azure portal.
 
@@ -161,11 +164,11 @@ The following prerequisites are required to configure backup of managed disks:
 
    ![Select snapshot resource group](./media/backup-managed-disks/select-snapshot-resource-group.png)
 
->[!NOTE]
->Validation might take few minutes to complete before you can complete configuring backup workflow. Validation may fail if:
->
-> - a disk is unsupported. Refer to the [Support Matrix](disk-backup-support-matrix.md) for unsupported scenarios.
-> - the Backup vault managed identity does not have valid role assignments on the **disk** to be backed up or on the **Snapshot resource group** where incremental snapshots are stored.
+   >[!NOTE]
+   >Validation might take few minutes to complete before you can complete configuring backup workflow. Validation may fail if:
+   >
+   > - a disk is unsupported. Refer to the [Support Matrix](disk-backup-support-matrix.md) for unsupported scenarios.
+   > - the Backup vault managed identity does not have valid role assignments on the **disk** to be backed up or on the **Snapshot resource group** where incremental snapshots are stored.
 
 1. After a successful validation, select **review and configure** to configure the backup of the selected disks.
 

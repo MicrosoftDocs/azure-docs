@@ -3,15 +3,21 @@ title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
 ms.date: 01/07/2021
+ms.custom: references_regions 
 ---
 
-# Azure Disk Backup support matrix
+# Azure Disk Backup support matrix (in preview)
+
+>[!IMPORTANT]
+>Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For region availability, see the [support matrix](disk-backup-support-matrix.md).
 
 You can use [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) to protect Azure Disks. This article summarizes region availability, supported scenarios, and limitations.
 
 ## Supported regions
 
-Azure Disk Backup is available in preview in following regions - [TBD]
+Azure Disk Backup is available in preview in the following regions: West Central US. 
+
+More regions will be announced when they become available.
 
 ## Limitations
 
