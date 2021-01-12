@@ -436,7 +436,7 @@ At this point, there are differences between your on-premises Windows Server ins
 1. Some files might have been left behind by the data transformation job because of invalid characters. If so, copy them to the Azure File Sync-enabled Windows Server instance. Later on, you can adjust them so that they will sync. If you don't use Azure File Sync for a particular share, you're better off renaming the files with invalid characters on the StorSimple volume. Then run the RoboCopy directly against the Azure file share.
 
 > [!WARNING]
-> Robocopy in Windows Server 2019 currently experiences an issue that will cause files tiered by Azure File Sync on the target server to be recopied from the source and re-uploaded to Azure when using the /MIR function of robocopy. It is imperative that you use Robocopy on a Windows Server other than 2019. A preferred choice is Windows Server 2016. This note will be updated when the issue is resolved via Windows Update, with the resulting KB number.
+> Robocopy in Windows Server 2019 currently experiences an issue that will cause files tiered by Azure File Sync on the target server to be recopied from the source and re-uploaded to Azure when using the /MIR function of robocopy. It is imperative that you use Robocopy on a Windows Server other than 2019. A preferred choice is Windows Server 2016. This note will be updated should the issue be resolved via Windows Update.
 
 > [!WARNING]
 > You *must not* start the RoboCopy before the server has the namespace for an Azure file share downloaded fully. For more information, see [Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server).
@@ -504,7 +504,7 @@ Background:
       /IT
    :::column-end:::
    :::column span="1":::
-      Ensures fidelity is preserved in certain mirror scenarios.</br>Example: Between two Robocopy runs a file experiences and ACL change and an attribute update like marked hidden. Without /IT the ACL change can be missed by Robocopy and thus not transferred to the target location.
+      Ensures fidelity is preserved in certain mirror scenarios.</br>Example: Between two Robocopy runs a file experiences an ACL change and an attribute update, for instance it is also marked *hidden*. Without /IT the ACL change can be missed by Robocopy and thus not transferred to the target location.
    :::column-end:::
 :::row-end:::
 :::row:::
