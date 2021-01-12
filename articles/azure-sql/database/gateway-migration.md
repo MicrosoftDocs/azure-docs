@@ -28,7 +28,7 @@ New SQL Gateways are being added to the following regions:
 - Australia Central 2 :	20.36.112.6 
 - Brazil South : 191.234.144.16 ,191.234.152.3 
 - Canada East : 40.69.105.9 ,40.69.105.10
-- Central India : 104.211.86.30 , 104.211.86.31 
+- India Central : 104.211.86.30 , 104.211.86.31 
 - East Asia : 13.75.32.14 
 - France Central : 40.79.137.8, 40.79.145.12 
 - France South : 40.79.177.10 ,40.79.177.12
