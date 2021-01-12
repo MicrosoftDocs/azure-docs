@@ -15,7 +15,7 @@ ms.service: iot-hub
 * Access to an IoT Hub with Azure Device Update (ADU) enabled.
 * An IoT device (or [simulator](./how-to-agent-eval-sim-quickstart.md)) provisioned within the IoT Hub, running either Azure RTOS ThreadX or Ubuntu 18.04 x64.
     * If using a real device, you’ll need an update image file (e.g. Yocto image) for image update, or [APT Manifest]() file for package update.
-* [PowerShell 5]((https://docs.microsoft.com/powershell/scripting/install/installing-powershell)) or later.
+* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later.
 * Supported browsers:
   * The new [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -129,7 +129,7 @@ Example:
 
 7. If you’ve already created a container you can re-use it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
 
-   ![Container](images/container.png)
+   ![Select Container](images/container.png)
 
 8. Select "Submit" to start the import process.
 
