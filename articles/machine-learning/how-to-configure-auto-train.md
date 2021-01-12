@@ -152,7 +152,6 @@ Some examples include:
     time_series_settings = {
         'time_column_name': time_column_name,
         'time_series_id_column_names': time_series_id_column_names,
-        'drop_column_names': ['logQuantity'],
         'forecast_horizon': n_test_periods
     }
     
