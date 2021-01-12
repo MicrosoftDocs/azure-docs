@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 
 ms.author: justinha
 author: justinha
@@ -108,7 +108,7 @@ The following table shows the location for service logs for public clouds.
 
 The following table shows the location for service logs for sovereign clouds.
 
-| Sovereign cloud                      | Sign-in logs                         | Activity report (Includes PII)| MFA Service logs |
+| Sovereign cloud                      | Sign-in logs                         | Activity report (includes personal data)| MFA service logs |
 |--------------------------------------|--------------------------------------|-------------------------------|------------------|
 | Microsoft Azure Germany              | Germany                              | US                            | US               |
 | Microsoft Azure Operated by 21Vianet | China                                | US                            | US               |
