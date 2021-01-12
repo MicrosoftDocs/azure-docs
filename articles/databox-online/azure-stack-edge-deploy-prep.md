@@ -13,7 +13,7 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 ---
 # Tutorial: Prepare to deploy Azure Stack Edge Pro  
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy a Azure Stack Edge resource.
+This tutorial is the first in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy a Azure Stack Edge resource.
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -32,7 +32,7 @@ To deploy Azure Stack Edge Pro, refer to the following tutorials in the prescrib
 
 | **#** | **In this step** | **Use these documents** |
 | --- | --- | --- | 
-| 1. |**[Prepare the Azure portal for Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install a Azure Stack Box Edge physical device. |
+| 1. |**[Prepare the Azure portal for Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install an Azure Stack Box Edge physical device. |
 | 2. |**[Install Azure Stack Edge Pro](azure-stack-edge-deploy-install.md)**|Unpack, rack, and cable the Azure Stack Edge Pro physical device.  |
 | 3. |**[Connect, set up, and activate Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
 | 4. |**[Transfer data with Azure Stack Edge Pro](azure-stack-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
@@ -48,7 +48,7 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you begin, make sure that:
 
-* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported.
+* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
 
 * You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
 
@@ -88,7 +88,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ### [Portal](#tab/azure-portal)
 
-To create a Azure Stack Edge resource, take the following steps in the Azure portal.
+To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to 
 
@@ -108,7 +108,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     
     |Setting  |Value  |
     |---------|---------|
-    |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
+    |Subscription    |This value is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 4. Enter or select the following **Instance details**.
@@ -123,7 +123,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
 5. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro device**.
-    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
+    - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
 
     ![Shipping address for new device](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
 
@@ -139,7 +139,7 @@ The resource creation takes a few minutes. After the resource is successfully cr
 
 ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
-After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
+After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
 ![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
 
@@ -147,7 +147,7 @@ After the order is placed, Microsoft reviews the order and reaches out to you (v
 
 If necessary, prepare your environment for Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 
@@ -166,11 +166,12 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 
 1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
 
-   ```azurecli az databoxedge order create --resource-group myasepgpu1 \
-         --device-name myasegpu1 --company-name "Contoso" \
-         --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
-         --state "California" --country "United States" --postal-code 94089 \
-         --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
    ```
 
 1. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
@@ -179,7 +180,7 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
    az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
    ```
 
-After the order is placed, Microsoft reviews the order and reaches out to you by email with shipping details.
+After the order is placed, Microsoft reviews the order and contacts you by email with shipping details.
 
 ---
 

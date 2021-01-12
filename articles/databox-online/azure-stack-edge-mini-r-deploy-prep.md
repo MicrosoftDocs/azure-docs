@@ -123,7 +123,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
      ![Create a resource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device to, and contact information.
+    - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device to, and contact information.
 
      ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -143,7 +143,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     
     ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
+    After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
    If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -151,7 +151,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 If necessary, prepare your environment for Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 
@@ -170,11 +170,12 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 
 1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
 
-   ```azurecli az databoxedge order create --resource-group myasepgpu1 \
-         --device-name myasegpu1 --company-name "Contoso" \
-         --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
-         --state "California" --country "United States" --postal-code 94089 \
-         --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
    ```
 
 1. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
@@ -183,7 +184,7 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
    az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
    ```
 
-After the order is placed, Microsoft reviews the order and reaches out to you by email with shipping details.
+After the order is placed, Microsoft reviews the order and contacts you by email with shipping details.
 
 ---
 
