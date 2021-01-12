@@ -71,7 +71,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Region name          | Gateway IP addresses |
 | --- | --- |
 | Australia Central    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
-| Australia Central2   | 20.36.113.0, 20.36.112.6 |
+| Australia Central 2   | 20.36.113.0, 20.36.112.6 |
 | Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia South East | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
 | Brazil South         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
