@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 01/12/2021
 ---
 
 # Apache Ambari usage in Azure HDInsight
@@ -60,6 +60,15 @@ For any cluster with worker node count bigger than 16 when creating the cluster,
 Never manually start/stop ambari-server or ambari-agent services, unless you're trying to restart the service to work around an issue. To force a failover, you can reboot the active headnode.
 
 Never manually modify any configuration files on any cluster node, let Ambari UI do the job for you.
+
+## Property values in ESP clusters
+
+In HDInsight 4.0 Enterprise Security Package clusters, use pipes `|` rather than commas as variable delimiters. An example is shown below:
+
+```
+Property Key: hive.security.authorization.sqlstd.confwhitelist.append
+Property Value: environment|env|dl_data_dt
+```
 
 ## Next steps
 
