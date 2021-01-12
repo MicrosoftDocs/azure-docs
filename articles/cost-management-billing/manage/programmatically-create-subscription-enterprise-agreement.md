@@ -26,7 +26,12 @@ When you create an Azure subscription programmatically, that subscription is gov
 You must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:
 
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
-* An existing Owner of the Enrollment Account can [grant you access](grant-access-to-create-subscription.md). Similarly, to use a service principal to create an EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
+* An existing Owner of the Enrollment Account can [grant you access](https://docs.microsoft.com/en-us/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Similarly, to use a service principal to create an EA subscription, you must [grant that service principal the ability to create subscriptions](https://docs.microsoft.com/en-us/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+**Note**: Please make sure you use the correct API version to give enrollment account owner permissions. For this document and for the APIs used here, the right API to use is [2019-10-01-preview](https://docs.microsoft.com/en-us/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). If you are migrating to using these newer APIs, please remember to re-grant owner permssisions using [2019-10-01-preview](https://docs.microsoft.com/en-us/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) since your previous configuration (done using [2015-07-01 version](grant-access-to-create-subscription.md)) doesn't automatically port over to these newer versions. 
+
+
+
+
 
 ## Find accounts you have access to
 
