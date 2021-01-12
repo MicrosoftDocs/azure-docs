@@ -1,14 +1,21 @@
 ---
-title: include file
-description: include file
-manager: liamca
+title: 'Quickstart: Get started with Visual Studio Code'
+titleSuffix: Azure Cognitive Search
+description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search. 
+
 author: dereklegenzoff
+manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
-ms.topic: include
-ms.custom: include file
-ms.date: 11/17/2020
+ms.topic: quickstart
+ms.date: 01/12/2021
 ---
+
+# Get started with Visual Studio Code and Azure Cognitive Search
+
+This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 The article uses a Visual Studio code extension (preview) for Azure Cognitive Search REST APIs.
 
@@ -23,7 +30,7 @@ The following services and tools are required for this quickstart.
 
 + [Azure Cognitive Search for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
-+ [Create an Azure Cognitive Search service](../search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
@@ -33,7 +40,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](../media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -41,13 +48,13 @@ All requests require an api-key on every request sent to your service. Having a 
 
 Start by opening [VS Code](https://code.visualstudio.com). Select the **Extensions** tab on the activity bar then search for *Azure Cognitive Search*. Find the extension in the search results, and select **Install**.
 
-![VS Code extension pane](../media/search-get-started-rest/download-extension.png "Downloading the VS Code extension")
+![VS Code extension pane](media/search-get-started-rest/download-extension.png "Downloading the VS Code extension")
 
 Alternatively, you can install  the [Azure Cognitive Search extension](https://aka.ms/vscode-search) from the VS Code marketplace in a web browser.
 
 You should see a new Azure tab appear on the activity bar if you didn't already have it.
 
-![VS Code Azure pane](../media/search-get-started-rest/azure-pane.png "Azure pane in VS Code")
+![VS Code Azure pane](media/search-get-started-rest/azure-pane.png "Azure pane in VS Code")
 
 ## Connect to your subscription
 
@@ -55,13 +62,13 @@ Select **Sign in to Azure...** and log into your Azure Account.
 
 You should see your subscriptions appear. Select the subscription to see a list of the search services in the subscription.
 
-![VS Code Azure subscriptions](../media/search-get-started-rest/subscriptions.png "Subscriptions in VS Code")
+![VS Code Azure subscriptions](media/search-get-started-rest/subscriptions.png "Subscriptions in VS Code")
 
 To limit the subscriptions displayed, open the command palette (Ctrl+Shift+P or Cmd+Shift+P) and search for *Azure* or *Select Subscriptions*. There are also commands available for signing in and out of your Azure account.
 
 When you expand the search service, you will see tree items for each of the Cognitive Search resources: indexes, data sources, indexers, skillsets, and synonym maps.
 
-![VS Code Azure search tree](../media/search-get-started-rest/search-tree.png "VS Code Azure search tree")
+![VS Code Azure search tree](media/search-get-started-rest/search-tree.png "VS Code Azure search tree")
 
 These tree items can be expanded to show any resources you have in your search service
 
@@ -213,11 +220,11 @@ To create a new index, right-click on **Indexes** and then select **Create new i
 
 Paste the index definition from above into the window. Save the file and select **Upload** when prompted if you want to update the index. This will create the index and it will be available in the tree view.
 
-![Gif of creating an index](../media/search-get-started-rest/create-index.gif)
+![Gif of creating an index](media/search-get-started-rest/create-index.gif)
 
 If there is a problem with your index definition, you should see an error message pop up explaining the error.
 
-![Create index error message](../media/search-get-started-rest/create-index-error.png)
+![Create index error message](media/search-get-started-rest/create-index-error.png)
 
 If this happens, fix the issue and resave the file.
 
@@ -229,11 +236,11 @@ To add new documents in VS Code:
 
 1. Expand the `hotels-quickstart` index you created. Right-click on **Documents** and select **Create new document**.
 
-    ![Create a document](../media/search-get-started-rest/create-document.png)
+    ![Create a document](media/search-get-started-rest/create-document.png)
 
 2. This will open up a JSON editor that has inferred the schema of your index.
 
-    ![Create a document json](../media/search-get-started-rest/create-document-2.png)
+    ![Create a document json](media/search-get-started-rest/create-document-2.png)
 
 3. Paste in the JSON below and then save the file. A prompt will open up asking you to confirm your changes. Select **Upload** to save the changes.
 
@@ -324,7 +331,7 @@ To add new documents in VS Code:
 
 At this point, you should see all four documents available in the documents section.
 
-![status after uploading all documents](../media/search-get-started-rest/create-document-finish.png)
+![status after uploading all documents](media/search-get-started-rest/create-document-finish.png)
 
 ## 3 - Search an index
 
@@ -334,18 +341,18 @@ To do this in VS Code:
 
 1. Right-click the index you want to search and select **Search index**. This will open an editor with a name similar to `sandbox-b946dcda48.azs`.
 
-    ![search view of extension](../media/search-get-started-rest/search-vscode.png)
+    ![search view of extension](media/search-get-started-rest/search-vscode.png)
 
 2. A simple query is autopopulated. Press **Ctrl+Alt+R** or **Cmd+Alt+R** to submit the query. You'll see the results pop up in a window to the left.
 
-    ![search results in extension](../media/search-get-started-rest/search-results.png)
+    ![search results in extension](media/search-get-started-rest/search-results.png)
 
 
 ### Example queries
 
 Try a few other query examples to get a feel for the syntax. There's four additional queries below for you to try. You can add multiple queries to the same editor. When you press **Ctrl+Alt+R** or **Cmd+Alt+R**, the line your cursor determines which query will be submitted.
 
-![queries and results side-by-side](../media/search-get-started-rest/all-searches.png)
+![queries and results side-by-side](media/search-get-started-rest/all-searches.png)
 
 In the first query, we search `boutique` and `select` only certain fields. It's a best practice to only `select` the fields you need because pulling back unnecessary data can add latency to your queries. The query also sets `$count=true` to return the total number of results with the search results.
 
@@ -378,3 +385,18 @@ search=*&$select=HotelId,HotelName,Rating&searchFields=HotelName&facet=Category
 ## Open index in the portal
 
 If you'd like to view your search service in the portal, right-click the name of the search service and select **Open in Portal**. This will take you to the search service in the Azure portal.
+
+## Clean up resources
+
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+
+## Next steps
+
+Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up an enrichment pipeline](cognitive-search-tutorial-blob.md) that adds content transformations to indexing. For your next step, we recommend the following link:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)
