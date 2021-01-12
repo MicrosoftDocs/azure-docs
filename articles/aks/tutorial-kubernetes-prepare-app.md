@@ -115,7 +115,7 @@ d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoi
 
 To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
-:::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Application's front end displayed in browser, showing voting options and a reset button" lightbox="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png":::
+:::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Screenshot showing application's front end displayed in browser" lightbox="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png":::
 
 ## Clean up resources
 
