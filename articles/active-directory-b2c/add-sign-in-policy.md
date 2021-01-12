@@ -23,10 +23,10 @@ zone_pivot_groups: b2c-policy-type
 
 The sign-in policy lets users: 
 
-* Sign-in with local account
-* Sign-up with local account is disabled. To create an account, use [MS Graph API](manage-user-accounts-graph-api.md).
+* Users can sign in with an azure AD B2C Local Account
 * Sign-up or sign-in with a social account
 * Password reset
+* Users cannot sign up for an Azure AD B2C Local Account - To create an account, an Administrator can use [MS Graph API](manage-user-accounts-graph-api.md).
 
 ![Profile editing flow](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -83,7 +83,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
     </ClaimsProvider>
     ```
 
-1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0 data URI:
+1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0, or newer data  data URI:
 
     ```XML
     <ContentDefinitions>
