@@ -19,16 +19,16 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-## Sign-up and sign-in flow
+## Sign-in flow overview
 
-Sign-up and sign-in policy lets users: 
+The sign-in policy lets users: 
 
-* Sign-up with local account is disabled. To create an account, use [MS Graph API](manage-user-accounts-graph-api.md).
 * Sign-in with local account
+* Sign-up with local account is disabled. To create an account, use [MS Graph API](manage-user-accounts-graph-api.md).
 * Sign-up or sign-in with a social account
 * Password reset
 
-![Profile editing flow](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
+![Profile editing flow](./media/add-sign-in-policy/sign-in-user-flow.png)
 
 ## Prerequisites
 
@@ -62,9 +62,9 @@ To add sign-in policy:
 
 ::: zone pivot="b2c-custom-policy"
 
-## Disable the a sign-up
+## Remove the sign-up link
 
-The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up or sign-in flow. To disable the sign-up flow, set the `setting.showSignupLink` metadata to `false`. Override the LocalAccountSignUpWithLogonEmail technical profiles in the extension file. 
+The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up or sign-in flow. To remove the sign-up link, set the `setting.showSignupLink` metadata to `false`. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file. 
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
@@ -100,7 +100,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the two policy files that you changed.
-1. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
+1. Select the sign-in policy that you uploaded, and click the **Run now** button.
 1. You should be able to sign in with the account that you created (using MS Garph API), without the sign-up link.
 
 ::: zone-end
