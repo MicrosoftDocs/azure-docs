@@ -21,11 +21,11 @@ Another important thing to note is that this version is **not** compatible with 
 
 While current HDI clusters will not be affected (i.e. they will still have the same version as before), newly created HDI clusters will carry this latest v1.0.0 version of .NET for Apache Spark. What this means if:
 
-- **You have an older HDI cluster**: If you want to upgrade your Spark .NET application to v1.0.0 (recommended), you will have to update the `Microsoft.Spark.Worker` version on your HDI cluster. For more information, see the [changing versions of .NET for Apache Spark on HDI cluster section](#changing-version-of-net-for-apache-spark-on-hdinsight-cluster).
+- **You have an older HDI cluster**: If you want to upgrade your Spark .NET application to v1.0.0 (recommended), you will have to update the `Microsoft.Spark.Worker` version on your HDI cluster. For more information, see the [changing versions of .NET for Apache Spark on HDI cluster section](#changing-net-for-apache-spark-version-on-hdinsight).
 If you don't want to update the current version of .NET for Apache Spark in your application, no further steps are necessary.  
 
 - **You have a new HDI cluster**: If you want to upgrade your Spark .NET application to v1.0.0 (recommended), no steps are needed to change the worker on HDI, however you will have to refer to the [migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand the steps needed to update your code and pipelines.
-If you don't want to change the current version of .NET for Apache Spark in your application, you would have to change the version on your HDI cluster from v1.0 (default on new clusters) to whichever version you are using. For more information, see the [changing versions of .NET for Apache Spark on HDI cluster section](spark-dotnet-version-update.md#changing-version-of-net-for-apache-spark-on-hdinsight-cluster).  
+If you don't want to change the current version of .NET for Apache Spark in your application, you would have to change the version on your HDI cluster from v1.0 (default on new clusters) to whichever version you are using. For more information, see the [changing versions of .NET for Apache Spark on HDI cluster section](spark-dotnet-version-update.md#changing-net-for-apache-spark-version-on-hdinsight).  
 
 ## Changing .NET for Apache Spark version on HDInsight
 
