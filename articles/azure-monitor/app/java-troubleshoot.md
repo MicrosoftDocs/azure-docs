@@ -18,7 +18,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 ## Build errors
 **In Eclipse or Intellij Idea, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
-* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.0.+'`), try specifying a specific version instead like `2.0.1`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) for the latest version.
+* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.2`.
 
 ## No data
 **I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
