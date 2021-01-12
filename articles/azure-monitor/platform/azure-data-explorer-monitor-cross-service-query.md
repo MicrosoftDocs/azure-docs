@@ -14,8 +14,6 @@ Create cross service queries between [Azure Data Explorer](https://docs.microsof
 ## Azure Monitor and Azure Data Explorer cross-service querying
 This experience enables you to [create cross service queries between Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) and to [create cross service queries between Azure Monitor and Azure Data Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
 
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Azure data explorer proxy flow.":::
-
 For example, (querying Azure Data Explorer from Log Analytics):
 ```kusto
 CustomEvents | where aField == 1
