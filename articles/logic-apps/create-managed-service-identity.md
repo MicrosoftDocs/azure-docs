@@ -16,19 +16,26 @@ Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-i
 
 ## Where can logic apps use managed identities?
 
-Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [specific managed connectors](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) that support Azure AD OAuth can use a managed identity for authentication, for example, here is a selection:
+Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [specific managed connectors](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) that support Azure AD OAuth can use a managed identity for authentication. For example, here's a selection:
+
+**Built-in triggers and actions**
 
 * Azure API Management
 * Azure App Services
+* Azure Functions
+* HTTP
+* HTTP + Webhook
+
+**Managed connectors**
+
 * Azure Automation
 * Azure Event Grid
-* Azure Functions
 * Azure Key Vault
 * Azure Monitor Logs
 * Azure Resource Manager
-* HTTP, HTTP + Webhook, and HTTP with Azure AD
+* HTTP with Azure AD
 
-Support for more connectors is coming in the future. For the current list, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+Support for managed connectors is currently in preview, and support for more connectors is coming in the future. For the current list, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 This article shows how to set up both kinds of managed identities for your logic app. For more information, see these topics:
 
