@@ -98,12 +98,12 @@ Use this listing option to offer your application for free. Customers use the _G
 > [!NOTE]
 > Get It Now (Free) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because there is no transaction through the storefront, these are categorized as “Trial.” See [Marketplace Rewards](#marketplace-rewards) below.
 
+#### Bring Your Own License (BYOL)
+
+Use this listing option to let customers deploy your offer using a license purchased outside the commercial marketplace. This option is ideal for on-premises-to-cloud migrations. Customers use the _Get It Now_ button to purchase your offer using a license they pre-purchased from you.
+
 > [!NOTE]
-> Bring Your Own License (BYOL) offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
-
-#### BYOL
-
-Use the commercial marketplace to enhance discoverability, automate provisioning of your solution, and complete the financial transaction separate from the marketplace. The bring your own license (BYOL) listing option is ideal for on-premises to cloud migrations. Customers use the _Get It Now_ button to purchase your offer using a license they have pre-purchased from you.
+> BYOL offers are not eligible for Marketplace Rewards benefits for transactable offers. Because these require a customer to acquire the license from the partner and there is no transaction through the commercial marketplace storefront, these are categorized as “List.” See [Marketplace Rewards](#marketplace-rewards) below.
 
 #### Subscription
 
