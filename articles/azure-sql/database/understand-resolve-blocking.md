@@ -1,7 +1,7 @@
 ---
 title: Understand and resolve Azure SQL blocking problems
 titleSuffix: Azure SQL Database 
-description: "An overview of Azure SQL database specific topics on blocking and troubleshooting."
+description: "An overview of Azure SQL database-specific topics on blocking and troubleshooting."
 services: sql-database
 dev_langs: 
  - "TSQL"
@@ -31,7 +31,7 @@ In this article, the term connection refers to a single logged-on session of the
  
 Blocking is an unavoidable and by-design characteristic of any relational database management system (RDBMS) with lock-based concurrency. As mentioned previously, in SQL Server, blocking occurs when one session holds a lock on a specific resource and a second SPID attempts to acquire a conflicting lock type on the same resource. Typically, the time frame for which the first SPID locks the resource is small. When the owning session releases the lock, the second connection is then free to acquire its own lock on the resource and continue processing. This is normal behavior and may happen many times throughout the course of a day with no noticeable effect on system performance.
 
-The duration and transaction context of a query determine how long its locks are held and, thereby, their impact on other queries. If the query is not executed within a transaction (and no lock hints are used), the locks for SELECT statements will only be held on a resource at the time it is actually being read, not during the query. For INSERT, UPDATE, and DELETE statements, the locks are held during the query, both for data consistency and to allow the query to be rolled back if necessary.
+The duration and transaction context of a query determine how long its locks are held and, thereby, their effect on other queries. If the query is not executed within a transaction (and no lock hints are used), the locks for SELECT statements will only be held on a resource at the time it is actually being read, not during the query. For INSERT, UPDATE, and DELETE statements, the locks are held during the query, both for data consistency and to allow the query to be rolled back if necessary.
 
 For queries executed within a transaction, the duration for which the locks are held are determined by the type of query, the transaction isolation level, and whether lock hints are used in the query. For a description of locking, lock hints, and transaction isolation levels, see the following articles:
 
@@ -47,13 +47,13 @@ When locking and blocking persists to the point where there is a detrimental eff
 
 1. A SPID holds locks on a set of resources and never releases them. This type of blocking does not resolve itself and prevents access to the affected resources indefinitely.
 
-In the first scenario above, the situation can be very fluid as different SPIDs cause blocking on different resources over time, creating a moving target. For this reason, these situations can be difficult to troubleshoot using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to narrow down the issue to individual queries. In contrast, the second situation results in a consistent state that can be easier to diagnose.
+In the first scenario, the situation can be very fluid as different SPIDs cause blocking on different resources over time, creating a moving target. These situations are difficult to troubleshoot using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to narrow down the issue to individual queries. In contrast, the second situation results in a consistent state that can be easier to diagnose.
 
 ## Applications and Blocking
 
-There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, this does not usually lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for performance sensitive OLTP environments. 
+There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, attention paid only to the database may not lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for performance sensitive OLTP environments. 
 
-It is vital that great care be exercised during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
+Pay attention to database performance during the design and construction phase of the database and application. In particular, the resource consumption, isolation level, and transaction path length should be evaluated for each query. Each query and transaction should be as lightweight as possible. Good connection management discipline must be exercised. If this is not done, it is possible that the application may appear to have acceptable performance at low numbers of users, but the performance may degrade significantly as the number of users scales upward. 
 
 With proper application and query design, Azure SQL Database is capable of supporting many thousands of simultaneous users on a single server, with little blocking.
 
@@ -78,15 +78,19 @@ Now let's dive in to discuss how to pinpoint the main blocking session with an a
 
 ## Gather blocking information
 
-To counteract the difficulty of troubleshooting blocking problems, a database administrator can use SQL scripts that constantly monitor the state of locking and blocking in the Azure SQL database. To gather this data, there are essentially two methods. The first is to query dynamic management objects (DMOs) and keep the results for comparison over time, and the second is to use XEvents to diagnose what was running. Some objects referenced below are dynamic management views (DMVs) and some are dynamic management functions (DMFs).
+To counteract the difficulty of troubleshooting blocking problems, a database administrator can use SQL scripts that constantly monitor the state of locking and blocking in the Azure SQL database. To gather this data, there are essentially two methods. 
+
+The first is to query dynamic management objects (DMOs) and store the results for comparison over time. Some objects referenced in this article are dynamic management views (DMVs) and some are dynamic management functions (DMFs). The second method is to use XEvents to capture what is executing. 
+
+
 
 ## Gather information from DMVs
 
 Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (session ID) at the head of the blocking chain and the SQL Statement. Look for victim SPIDs that are being blocked. If any SPID is being blocked by another SPID, then investigate the SPID owning the resource (the blocking SPID). Is that owner SPID being blocked as well? You can walk the chain to find the head blocker then investigate why it is maintaining its lock.
 
-Remember to run each of the below scripts in the target Azure SQL database.
+Remember to run each of these scripts in the target Azure SQL database.
 
-* The sp_who and sp_who2 commands are older commands to show all current sessions. The DMV sys.dm_exec_sessions returns more data in a result set that is easier to query and filter. You will find sys.dm_exec_sessions at the core to other queries below. 
+* The sp_who and sp_who2 commands are older commands to show all current sessions. The DMV sys.dm_exec_sessions returns more data in a result set that is easier to query and filter. You will find sys.dm_exec_sessions at the core of other queries. 
 
 * If you already have a particular session identified, you can use `DBCC INPUTBUFFER(<session_id>)` to find the last statement that was submitted by a session. Similar results can be returned with the sys.dm_exec_input_buffer dynamic management function (DMF), in a result set that is easier to query and filter, providing the session_id and the request_id. For example, to return the most recent query submitted by session_id 66 and request_id 0:
 
@@ -96,7 +100,7 @@ SELECT * FROM sys.dm_exec_input_buffer (66,0)
 
 * Refer to the sys.dm_exec_requests and reference the blocking_session_id column. When blocking_session_id = 0, a session is not being blocked. While sys.dm_exec_requests lists only requests currently executing, any connection (active or not) will be listed in sys.dm_exec_sessions. Build on this common join between sys.dm_exec_requests and sys.dm_exec_sessions in the next query.
 
-* Run the query below to find the actively executing queries and their current SQL batch text or input buffer text, using the [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) or [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) DMVs. If the data returned by the `text` field of sys.dm_exec_sql_text is NULL, the query is not currently executing. In that case the `event_info` field of sys.dm_exec_input_buffer will contain the last command string passed to the SQL engine. 
+* Run this sample query to find the actively executing queries and their current SQL batch text or input buffer text, using the [sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) or [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) DMVs. If the data returned by the `text` field of sys.dm_exec_sql_text is NULL, the query is not currently executing. In that case, the `event_info` field of sys.dm_exec_input_buffer will contain the last command string passed to the SQL engine. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -180,11 +184,11 @@ Refer to the document that explains how to use the [Extended Events New Session 
 
 ## Identify and resolve common blocking scenarios
 
-By examining the above information, you can determine the cause of most blocking problems. The rest of this article is a discussion of how to use this information to identify and resolve some common blocking scenarios. This discussion assumes you have used the blocking scripts (referenced earlier) to capture information on the blocking SPIDs and have made an XEvent with the events described above.
+By examining the above information, you can determine the cause of most blocking problems. The rest of this article is a discussion of how to use this information to identify and resolve some common blocking scenarios. This discussion assumes you have used the blocking scripts (referenced earlier) to capture information on the blocking SPIDs and have captured application activity using an XEvent session.
 
 ## Analyze blocking data 
 
-* Examine the output of the DMVs sys.dm_exec_requests and sys.dm_exec_sessions to determine the heads of the blocking chains, using blocking_session_id and session_id. This will most clearly identify which requests are blocked and which are blocking. Look further into the sessions that are blocked and blocking. Is there a common or root to the blocking chain? They likely share a common table, and one more more of the sessions involved in a blocking chain is performing a write operation. 
+* Examine the output of the DMVs sys.dm_exec_requests and sys.dm_exec_sessions to determine the heads of the blocking chains, using blocking_these and session_id. This will most clearly identify which requests are blocked and which are blocking. Look further into the sessions that are blocked and blocking. Is there a common or root to the blocking chain? They likely share a common table, and one or more of the sessions involved in a blocking chain is performing a write operation. 
 
 * Examine the output of the DMVs sys.dm_exec_requests and sys.dm_exec_sessions for information on the SPIDs at the head of the blocking chain. Look for the following fields: 
 
@@ -215,7 +219,7 @@ By examining the above information, you can determine the cause of most blocking
     |:-|:-|:-|:-|
     | Table | DatabaseID:ObjectID:IndexID | TAB: 5:261575970:1 | In this case, database ID 5 is the pubs sample database and object ID 261575970 is the titles table and 1 is the clustered index. |
     | Page | DatabaseID:FileID:PageID | PAGE: 5:1:104 | In this case, database ID 5 is pubs, file ID 1 is the primary data file, and page 104 is a page belonging to the titles table. To identify the object_id the page belongs to, use the dynamic management function [sys.dm_db_page_info](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-page-info-transact-sql), passing in the DatabaseID, FileId, PageId from the `wait_resource`. | 
-    | Key | DatabaseID:Hobt_id (Hash value for index key) | KEY: 5:72057594044284928 (3300a4f361aa) | In this case, database ID 5 is Pubs, Hobt_ID 72057594044284928 corresponds to index_id 2 for object id 261575970 (titles table). Use the sys.partitions catalog view to associate the hobt_id to a particular index_id and object_id. There is no way to unhash the index key hash to a specific key value. |
+    | Key | DatabaseID:Hobt_id (Hash value for index key) | KEY: 5:72057594044284928 (3300a4f361aa) | In this case, database ID 5 is Pubs, Hobt_ID 72057594044284928 corresponds to index_id 2 for object_id 261575970 (titles table). Use the sys.partitions catalog view to associate the hobt_id to a particular index_id and object_id. There is no way to unhash the index key hash to a specific key value. |
     | Row | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | In this case, database ID 5 is pubs, file ID 1 is the primary data file, page 104 is a page belonging to the titles table, and slot 3 indicates the row's position on the page. |
     | Compile  | DatabaseID:FileID:PageID:Slot(row) | RID: 5:1:104:3 | In this case, database ID 5 is pubs, file ID 1 is the primary data file, page 104 is a page belonging to the titles table, and slot 3 indicates the row's position on the page. |
 
@@ -267,7 +271,7 @@ By examining the above information, you can determine the cause of most blocking
 
 The table below maps common symptoms to their probable causes.  
 
-The `wait_type`, `open_transaction_count`, and `status` columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The "Resolves?" column indicates whether or not the blocking will resolve on its own, or whether the session should be killed via the `KILL` command. For more information see [KILL (Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql).
+The `wait_type`, `open_transaction_count`, and `status` columns refer to information returned by [sys.dm_exec_request](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), other columns may be returned by [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql). The "Resolves?" column indicates whether or not the blocking will resolve on its own, or whether the session should be killed via the `KILL` command. For more information, see [KILL (Transact-SQL)](/sql/t-sql/language-elements/kill-transact-sql).
 
 | Scenario | Waittype | Open_Tran | Status | Resolves? | Other Symptoms |  
 |:-|:-|:-|:-|:-|:-|--|
@@ -278,7 +282,7 @@ The `wait_type`, `open_transaction_count`, and `status` columns refer to informa
 | 5 | NULL | \>0 | rollback | Yes. | An attention signal may be seen in the Extended Events session for this SPID, indicating a query time-out or cancel has occurred, or simply a rollback statement has been issued. |  
 | 6 | NULL | \>0 | sleeping | Eventually. When Windows NT determines the session is no longer active, the Azure SQL Database connection will be broken. | The `last_request_start_time` value in sys.dm_exec_sessions is much earlier than the current time. |
 
-The scenarios listed below will have the characteristics listed in the table above. This section provides additional details when applicable, as well as paths to resolution.
+The following scenarios will expand on these scenarios. This section provides more detail when applicable, as well as paths to resolution.
 
 1.  Blocking caused by a normally running query with a long execution time
 
@@ -315,15 +319,12 @@ The scenarios listed below will have the characteristics listed in the table abo
 
     **Resolutions**:
 
-     -   Additionally, this class of blocking problem may also be a performance problem, and require you to pursue it as such. If the query execution time can be diminished, the query time-out or cancel would not occur. It is important that the application be able to handle the time-out or cancel scenarios should they arise, but you may also benefit from examining the performance of the query. 
+     -   Additionally, this class of blocking problem may also be a performance problem, and require you to pursue it as such. If the query execution time can be diminished, the query time-out or cancel would not occur. It is important that the application is able to handle the time-out or cancel scenarios should they arise, but you may also benefit from examining the performance of the query. 
      
-     -    Applications must properly manage transaction nesting levels, or they may cause a blocking problem following the cancellation of the query in this manner. This can be accomplished in one of several ways:  
+     -    Applications must properly manage transaction nesting levels, or they may cause a blocking problem following the cancellation of the query in this manner. Consider the following:  
 
-            *    In the error handler of the client application, execute `IF @@TRANCOUNT > 0 ROLLBACK TRAN` following any error, even if the client application does not believe a transaction is open. This is required, because a stored procedure called during the batch could have started a transaction without the client application's knowledge. Certain conditions, such as canceling the query, prevent the procedure from executing past the current statement, so even if the procedure has logic to check `IF @@ERROR <> 0` and abort the transaction, this rollback code will not be executed in such cases.  
-            *    If connection pooling is being used in an application that opens the connection and runs a small number of queries
-            before releasing the connection back to the pool, such as a Web-based application, temporarily disabling connection
-            pooling may help alleviate the problem until the client application is modified to handle the errors appropriately.
-            By disabling connection pooling, releasing the connection will cause a physical disconnect of the Azure SQL Database connection, resulting in the server rolling back any open transactions.  
+            *    In the error handler of the client application, execute `IF @@TRANCOUNT > 0 ROLLBACK TRAN` following any error, even if the client application does not believe a transaction is open. Checking for open transactions is required, because a stored procedure called during the batch could have started a transaction without the client application's knowledge. Certain conditions, such as canceling the query, prevent the procedure from executing past the current statement, so even if the procedure has logic to check `IF @@ERROR <> 0` and abort the transaction, this rollback code will not be executed in such cases.  
+            *    If connection pooling is being used in an application that opens the connection and runs a small number of queries before releasing the connection back to the pool, such as a Web-based application, temporarily disabling connection pooling may help alleviate the problem until the client application is modified to handle the errors appropriately. By disabling connection pooling, releasing the connection will cause a physical disconnect of the Azure SQL Database connection, resulting in the server rolling back any open transactions.  
             *    Use `SET XACT_ABORT ON` for the connection, or in any stored procedures that begin transactions and are not cleaning up following an error. In the event of a run-time error, this setting will abort any open transactions and return control to the client. For more information, review [SET XACT_ABORT (Transact-SQL)](/sql/t-sql/statements/set-xact-abort-transact-sql).
     > [!NOTE]
     > The connection is not reset until it is reused from the connection pool, so it is possible that a user could open a transaction and then release the connection to the connection pool, but it might not be reused for several seconds, during which time the transaction would remain open. If the connection is not reused, the transaction will be aborted when the connection times out and is removed from the connection pool. Thus, it is optimal for the client application to abort transactions in their error handler or use `SET XACT_ABORT ON` to avoid this potential delay.
@@ -342,11 +343,13 @@ The scenarios listed below will have the characteristics listed in the table abo
 
 1.  Blocking caused by a SPID that is in rollback state
 
-    A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting. Likewise, a query selected as the deadlock victim will be rolled back. A data modification query often cannot be rolled back any faster than the changes were initially applied. For example, if a `DELETE`, `INSERT`, or `UPDATE` statement had been running for an hour, it could take at least an hour to roll back. This is expected behavior, because the changes made must be rolled back, or transactional and physical integrity in the database would be compromised. Because this must happen, the database engine marks the SPID in a rollback state (which means it cannot be KILLed or selected as a deadlock victim). This can often be identified by observing the output of sys.dm_exec_requests, which may indicate the ROLLBACK **command**, and the **percent_complete column** may show progress. 
+    A data modification query that is KILLed, or canceled outside of a user-defined transaction, will be rolled back. This can also occur as a side effect of the client network session disconnecting, or when a request is selected as the deadlock victim. This can often be identified by observing the output of sys.dm_exec_requests, which may indicate the ROLLBACK **command**, and the **percent_complete column** may show progress. 
 
-    **Resolution**: You must wait for the SPID to finish rolling back the changes that were made. 
+    Thanks to the [Accelerated Database Recovery feature](../accelerated-database-recovery.md) introduced in 2019, lengthy rollbacks should be rare.
+    
+    **Resolution**: Wait for the SPID to finish rolling back the changes that were made. 
 
-    To avoid this situation, do not perform large batch `INSERT`, `UPDATE`, or `DELETE` operations or index creation or maintenance operations during busy hours on OLTP systems. If possible, perform such operations during periods of low activity.
+    To avoid this situation, do not perform large batch write operations or index creation or maintenance operations during busy hours on OLTP systems. If possible, perform such operations during periods of low activity.
 
 1.  Blocking caused by an orphaned connection
 
