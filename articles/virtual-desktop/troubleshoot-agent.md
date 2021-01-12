@@ -216,7 +216,7 @@ If the status listed for the session host or hosts in your host pool always says
 9. Go back to the command prompt and run the **qwinsta** command.
 10. Verify that the stack component installed in step 6 says *Listen* next to it.
    - If so, enter **net start RDAgentBootLoader** in the command prompt and restart your VM.
-   - If not, you will need to [reinstall the agent](#re-register-your-vm-and-reinstall-the-agent-and-boot-loader) component.
+   - If not, you will need to [reinstall the agent](#error:-your-issue-is-not-listed-above-or-your-issue-remains-after-trying-other-troubleshooting-steps) component.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
@@ -253,9 +253,9 @@ The name of your VM has already been registered and is probably a duplicate.
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool.png)
 
-## Re-register your VM and reinstall the agent and boot loader
+## Error: Your issue is not listed above or your issue remains after trying other troubleshooting steps
 
-Follow these instructions if one or more of the following apply to you:
+The instructions below guide you in re-registering your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
 - Your VM is stuck in upgrading or unavailable
 - Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
 - You're receiving an EXPIRED_REGISTRATION_TOKEN error
@@ -266,6 +266,7 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Uninstall all agent, boot loader, and stack component programs
 
+Before reinstalling the agent, boot loader, and stack, you must uninstall any existing component programs from your VM.
 1. Sign in to your VM as an administrator. 
 2. Go to **Control Panel** > **Programs** > **Programs and Features**.
 3. Remove the following programs:
@@ -282,6 +283,7 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Remove the session host from the host pool
 
+When you remove the session host from the host pool, the session host is no longer registered to that host pool. This acts as a reset for the session host registration.
 1. Go to the **Overview** page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
 2. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
 3. Look at the list of session hosts and select the VM that you want to remove.
@@ -292,6 +294,7 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Generate a new registration key for the VM
 
+You must generate a new registration key that is used to re-register your VM to the host pool and to the service.
 1. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
 2. Select **Registration key**.
 
@@ -308,26 +311,27 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Reinstall the agent and boot loader
 
-6. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
+By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well.
+1. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of agent and bootloader download page](media/downloads.png)
 
-7. Right-click the agent and boot loader installers you just downloaded.
-8. Select **Properties**.
-9. Select **Unblock**.
-10. Select **Ok**.
-11. Run the agent installer.
-12. When the installer asks you for the registration token, paste the registration key from your clipboard. 
+2. Right-click the agent and boot loader installers you just downloaded.
+3. Select **Properties**.
+4. Select **Unblock**.
+5. Select **Ok**.
+6. Run the agent installer.
+7. When the installer asks you for the registration token, paste the registration key from your clipboard. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of pasted registration token](media/pasted-registration-token.png)
 
-13. Run the boot loader installer.
-14. Restart your VM. 
-15. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
-16. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
-17. You should now see the session host registered in the host pool with the status *Available*. 
+8. Run the boot loader installer.
+9. Restart your VM. 
+10. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
+11. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
+12. You should now see the session host registered in the host pool with the status *Available*. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool.png)
