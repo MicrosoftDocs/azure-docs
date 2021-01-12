@@ -198,6 +198,14 @@ Run the following commands to clone the sample repository.
     git clone https://github.com/Azure-Samples/cosmosdb-rust-mongodb-quickstart
     ```
 
+### Build the application
+
+To build the binary:
+
+```bash
+cargo build --release
+```
+
 ### Configure the application 
 
 Export the connection string, MongoDB database, and collection names as environment variables. 
@@ -225,7 +233,7 @@ You can choose your preferred values for `MONGODB_DATABASE` and `MONGODB_COLLECT
 To run the application, change to the correct folder (where the application binary exists):
 
 ```bash
-cd target/debug
+cd target/release
 ```
 
 To create a `todo`
