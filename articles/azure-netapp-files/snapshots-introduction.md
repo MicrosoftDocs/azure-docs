@@ -32,7 +32,7 @@ The following diagrams illustrate the concepts:
 
 ![Diagrams that show the key concepts of snapshots](../media/azure-netapp-files/snapshot-concepts.png)
 
-A snapshot is taken in Figure 1a. In Figure 1b, changed data is written to a *new block* and the pointer is updated. But the snapshot pointer still points to the *previously written block*, giving you a live and a historical view of the data. Another snapshot is taken in Figure 1c. Now you have access to three generations of data (the live data, Snapshot 2, and Snapshot 1, in order of age), without taking up the volume space that three full copies would require. 
+In the diagrams, snapshot is taken in Figure 1a. In Figure 1b, changed data is written to a *new block* and the pointer is updated. But the snapshot pointer still points to the *previously written block*, giving you a live and a historical view of the data. Another snapshot is taken in Figure 1c. Now you have access to three generations of data (the live data, Snapshot 2, and Snapshot 1, in order of age), without taking up the volume space that three full copies would require. 
 
 A snapshot takes only a copy of the volume metadata (*inode table*). It takes just a few seconds to create, regardless of the volume size, the capacity used, or the level of activity on the volume. So taking a snapshot of a 100-TiB volume takes the same (next to zero) time as taking a snapshot of a 100-GiB volume. After a snapshot is created, changes to data files are reflected in the active version of the files, as normal.
 
@@ -73,7 +73,7 @@ Azure NetApp Files snapshots are versatile in use. As such, multiple methods are
 
 ## How volumes and snapshots are replicated cross-region for DR  
 
-Azure NetApp Files supports [cross-region replication](cross-region-replication-introduction.md) for disaster recovery (DR) purposes. Azure NetApp Files cross-region replication uses SnapMirror technology. Only changed blocks are sent over the network in a compressed, efficient format. After a cross-region replication is initiated between volumes, the entire volume contents (that is, the actual stored data blocks) are transferred only once. This operation is called a *baseline transfer*. After the initial transfer, only changed blocks (as captured in snapshots) are transferred. An asynchronous 1:1 replica of the source volume is created(including all snapshots).  This behavior follows a full and incremental-forever replication mechanism. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time. You can achieve a smaller Recovery Point Objective (RPO), because more snapshots can be created and transferred more frequently with limited data transfers.
+Azure NetApp Files supports [cross-region replication](cross-region-replication-introduction.md) for disaster recovery (DR) purposes. Azure NetApp Files cross-region replication uses SnapMirror technology. Only changed blocks are sent over the network in a compressed, efficient format. After a cross-region replication is initiated between volumes, the entire volume contents (that is, the actual stored data blocks) are transferred only once. This operation is called a *baseline transfer*. After the initial transfer, only changed blocks (as captured in snapshots) are transferred. An asynchronous 1:1 replica of the source volume is created (including all snapshots).  This behavior follows a full and incremental-forever replication mechanism. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time. You can achieve a smaller Recovery Point Objective (RPO), because more snapshots can be created and transferred more frequently with limited data transfers.
 
 The following diagram shows snapshot traffic in cross-region replication scenarios: 
 
@@ -92,6 +92,7 @@ The following diagram shows file or directory access to a snapshot:
 ![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)
 
 In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. However, when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, users can self-restore data by copying files and directories out of a snapshot of choice.
+
 Similarly, snapshots in target cross-region replication volumes can be accessed read-only for data recovery in the DR region.  
 
 The following diagram shows snapshot access in cross-region replication scenarios: 
@@ -133,7 +134,7 @@ See [Revert a volume using snapshot revert](azure-netapp-files-manage-snapshots.
 
 ## How snapshots are deleted 
 
-Because snapshots do consume storage capacity, they are not typically kept indefinitely. For data protection, retention, and recoverability, some snapshots (created at various points in time) are typically kept online for a certain duration depending on RPO, RTO, and retention SLA requirements. However, older snapshots often do not have to be kept on the storage service and might need to be deleted to free up space. Any snapshot can be deleted (not necessarily in order of creation) by an administrator at any time. 
+Snapshots do consume storage capacity. As such, they are not typically kept indefinitely. For data protection, retention, and recoverability, a number of snapshots (created at various points in time) are typically kept online for a certain duration depending on RPO, RTO, and retention SLA requirements. However, older snapshots often do not have to be kept on the storage service and might need to be deleted to free up space. Any snapshot can be deleted (not necessarily in order of creation) by an administrator at any time. 
 
 > [!IMPORTANT]
 > The snapshot deletion operation cannot be undone. 
@@ -146,7 +147,7 @@ The following diagram shows the effect on storage consumption of snapshot deleti
 
 Be sure to [monitor volume and snapshot consumption](azure-netapp-files-metrics.md#volumes) and understand how the application, active volume, and snapshot consumption interact. 
 
-See Delete snapshots about how to manage snapshot deletion. See [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) about how to automate this process.
+See [Delete snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) about how to manage snapshot deletion. See [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) about how to automate this process.
 
 ## Next steps
 
