@@ -194,6 +194,18 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
+During the configure protection operation, you need to specify the disk list setting with an inclusion / exclusion parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+
+For example:
+
+```azurepowershell
+$disks = ("0","1")
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $vault
+Get-AzRecoveryServicesBackupProtectionPolicy
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
+```
+
 ### Backup only OS disk during configure backup with PowerShell
 
 ```azurepowershell
