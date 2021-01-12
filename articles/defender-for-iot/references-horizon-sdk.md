@@ -1,6 +1,6 @@
 ---
 title: Horizon SDK
-description: 
+description: The Horizon SDK lets developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -13,7 +13,7 @@ ms.service: azure
 
 Horizon is an Open Development Environment (ODE) used to secure IoT and ICS devices running proprietary protocols.
 
-This environment provides the following for customers and technology partners:
+This environment provides the following solutions for customers and technology partners:
 
 - Unlimited, full support for common, proprietary, custom protocols or protocols that deviate from any standard. 
 
@@ -57,13 +57,13 @@ The architectural model includes three product layers.
 
 ## Defender for IoT platform layer
 
-Enables immediate integration and real time monitoring of custom dissector plugins in the Defender for IoT platform, without the need to upgrade the Defender for IoT platform version.
+Enables immediate integration and real-time monitoring of custom dissector plugins in the Defender for IoT platform, without the need to upgrade the Defender for IoT platform version.
 
 ## Defender for IoT services layer
 
 Each service is designed as a pipeline, decoupled from a specific protocol. This enables more efficient, independent development.
 
-Each service is designed as a pipeline, decoupled from a specific protocol. Services listen for traffic on the pipeline. They interact with the plugin data and the traffic captured by the sensors to index deployed protocols and analyze the traffic payload. This enables more efficient and independent development.
+Each service is designed as a pipeline, decoupled from a specific protocol. Services listens for traffic on the pipeline. They interact with the plugin data and the traffic captured by the sensors to index deployed protocols and analyze the traffic payload. This enables more efficient and independent development.
 
 ## Custom dissector layer 
 
@@ -75,7 +75,7 @@ Enables creation of plugins using the Defender for IoT proprietary SDK (includin
 
 - Define how to integrate with the Defender for IoT services
 
-  :::image type="content" source="media/references-horizon-sdk/layers.png" alt-text="The built in layers.":::
+  :::image type="content" source="media/references-horizon-sdk/layers.png" alt-text="The built-in layers.":::
 
 Defender for IoT provides basic dissectors for common protocols. You can build your dissectors on top of these protocols.
 
@@ -107,9 +107,9 @@ Contact <support@cyberx-labs.com> for information on receiving header files and 
 
 1.  Edit the project properties, under **C/C++ Build** > **Settings** > **Tool Settings** > **GCC C++ Compiler** > **Miscellaneous** > **Tick Position Independent Code**.
 
-1.  Paste the example code that you received with the SDK and compile it.
+1.  Paste the example codes that you received with the SDK and compile it.
 
-1.  Add the artefacts (library, config.json, and metadata) to a tar.gz file, and change the file extension to \<XXX>.hdp, where is \<XXX> is the name of the plugin.
+1.  Add the artifacts (library, config.json, and metadata) to a tar.gz file, and change the file extension to \<XXX>.hdp, where is \<XXX> is the name of the plugin.
 
 ### Research 
 
@@ -301,7 +301,7 @@ The JSON Configuration file must be saved as `config.json`.
 
 ## JSON Configuration file fields
 
-This article describes the JSON configuration fields you will be defining. The fields *labels* should not be changed.
+This article describes the JSON configuration fields you will be defining. Do not change the fields *labels*.
 
 ### Basic parameters
 
@@ -309,16 +309,16 @@ This article describes basic parameters.
 
 | Parameter Label | Description | Type |
 |--|--|--|
-| **id** | The name of the protocol. Delete the default and add the name of your protocol as it appears. | String |
+| **ID** | The name of the protocol. Delete the default and add the name of your protocol as it appears. | String |
 | **endianess** | Defines how the multi byte data is encoded. Use the term “little” or “big” only. This should be taken from the protocol specification or traffic recording | String |
 | **sanity_failure_codes** | These are the codes returned from the parser when there is a sanity conflict regarding the identity of the code. See magic number validation in the C++ section. | String |
-| **malformed_codes** | These are codes that have been properly identified, but an error is detected. This may happen for example if the field length is too short or long, or a value is invalid. | String |
+| **malformed_codes** | These are codes that have been properly identified, but an error is detected. This may happen, for example,  if the field length is too short or long, or a value is invalid. | String |
 | **dissect_as** | An array defining where the specific protocol traffic should arrive. | TCP/UDP, port etc. |
-| **fields** | The declaration of which fields will be extracted from the traffic. Each field has its own id (name), and type (numeric, string, raw, array, complex). For example the field [function](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) that is extracted in the Implementation Parser file. The fields written in the config file are the only ones that can be added to the layer. |  |
+| **fields** | The declaration of which fields will be extracted from the traffic. Each field has its own ID (name), and type (numeric, string, raw, array, complex). For example, the field [function](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) that is extracted in the Implementation Parser file. The fields written in the config file are the only ones that can be added to the layer. |  |
 
-### Additional advanced fields 
+### Other advanced fields 
 
-This article describes additional fields.
+This article describes other fields.
 
 | Parameter Label | Description |
 |-----------------|--------|
@@ -419,7 +419,7 @@ If there is a failure to process the packets based on the protocol, a failure re
 
 ## C++ sample with validations
 
-Processing is carried out according to the function. As shown in the example below,
+According to the function, the process is carried out, as shown in the example below.
 
 ### Function 20 
 
@@ -433,7 +433,7 @@ Processing is carried out according to the function. As shown in the example bel
 
 - The function contains another sub function, which is a more specific operation
 
-- The sub-function is read and added to the layer.
+- The subfunction is read and added to the layer.
 
 Once this is done, processing is finished. The return value indicates if the dissector layer was successfully processed. If it was, the layer becomes usable.
 
@@ -651,7 +651,7 @@ This article describes the JSON configuration fields.
 
 - **size_limit**
 
-  Indicates the size limit of each coding file content in BYTES, if a code file exceeds the set limit it will be dropped. If this field is not specified default value will be 15,000,000 which is 15MB.
+  Indicates the size limit of each coding file content in BYTES, if a code file exceeds the set limit it will be dropped. If this field is not specified default value will be 15,000,000 that is 15 MB.
 
   Number.
 
@@ -791,9 +791,9 @@ This article describes the JSON configuration fields.
 ```
 ## Custom horizon alerts
 
-Some protocols function code might indicate an error. For example, if the protocol controls a container with a specific chemical that must be stored at all times at a specific temperature. In this case, there may be function code indicating an error in the thermometer. For example, if the function code is 25, you can trigger an alert in the Web Console that indicates there is a problem with the container. In such case, you can define deep packet alerts.
+Some protocols function code might indicate an error. For example, if the protocol controls a container with a specific chemical that must be stored always at a specific temperature. In this case, there may be function code indicating an error in the thermometer. For example, if the function code is 25, you can trigger an alert in the Web Console that indicates there is a problem with the container. In such case, you can define deep packet alerts.
 
-You should add the **alerts** parameter to the `config.json` of the plugin.
+Add the **alerts** parameter to the `config.json` of the plugin.
 
 ```json
 “alerts”: [{
@@ -811,10 +811,10 @@ This article describes the JSON configuration fields.
 
 | Field name | Description | Possible values |
 |--|--|--|
-| **id** | Represents a single alert ID. It must be unique in this context. | Numeric value 0 - 10000 |
+| **ID** | Represents a single alert ID. It must be unique in this context. | Numeric value 0 - 10000 |
 | **message** | Information displayed to the user. This field allows to you use different fields. | Use any field from your protocol, or any lower layer protocol. |
 | **title** | The alert title |  |
-| **expression** | When you want this alert to pop-up. | Use any numeric field found in lower layers, or the current layer.</br></br> Each field should be wrapper with `{}`, in order for the SDK to detect it as a field, the supported logical operators are</br> == - Equal</br> <= - Less than or equal</br> >= - More than or equal</br> > - More than</br> < - Less than</br> ~= - Not equal |
+| **expression** | When you want this alert to pop up. | Use any numeric field found in lower layers, or the current layer.</br></br> Each field should be wrapper with `{}`, in order for the SDK to detect it as a field, the supported logical operators are</br> == - Equal</br> <= - Less than or equal</br> >= - More than or equal</br> > - More than</br> < - Less than</br> ~= - Not equal |
 
 ## More about expressions
 
@@ -867,7 +867,7 @@ You can index the protocol values and display them in Data Mining reports.
 
 :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="A view of the data mining option.":::
 
-These values can later be mapped to specific texts, for example mapping numbers as texts or adding information, in any language.
+These values can later be mapped to specific texts, for example-mapping numbers as texts or adding information, in any language.
 
 :::image type="content" source="media/references-horizon-sdk/localization.png" alt-text="migration":::
 
@@ -875,7 +875,7 @@ For more information, see [Create mapping files (JSON)](#create-mapping-files-js
 
 You can also use values from protocols previously parsed to extract additional information.
 
-For example, for the `CyberXHorizonProtocol` which is based on TCP, you can use the values from IPv4 layer. From this layer you can extract values such as the source of the packet, and the destination.
+For example, for the, which is based on TCP, you can use the values from IPv4 layer. From this layer you can extract values such as the source of the packet, and the destination.
 
 In order to achieve this, the JSON configuration file needs to be updated using the `whitelist` property.
 
@@ -988,14 +988,14 @@ This article describes the JSON firmware configuration fields.
 
   Select one:  
   - **model**: The device model. Enables detection of CVEs.
-  - **serial**: The device serial number. The serial number is not always available for all protocols. This value is generally unique per device.
+  - **serial**: The device serial number. The serial number is not always available for all protocols. This value is unique per device.
   - **rack**: Indicates the rack identifier, if the device is part of a rack.
   - **slot**: The slot identifier, if the device is part of a rack.  
   - **module_address**: Use to present a hierarchy if the module can be presented behind another device. Applicable instead if a rack slot combination, which is a simpler presentation.  
   - **firmware_version**: Indicates the device version. Enables detection of CVEs.
   - **alert_text**: Indicates text describing firmware deviations, for example, version changes.  
   - **index_by**: Indicates the fields used to identify and index the device. In the example below the device is identified by its IP address. In certain protocols, a more complex index can be used. For example, if another device connected, and you know how to extract its internal path. For example, the MODBUS Unit ID, can be used as part of the index, as a different combination of IP address and the Unit Identifier.
-  - **firmware_fields**: Indicates which fields are device metadata fields. In this example, the following are used: model, revision and name. Each protocol can define its own firmware data.
+  - **firmware_fields**: Indicates which fields are device metadata fields. In this example, the following are used: model, revision, and name. Each protocol can define its own firmware data.
 
 ## JSON sample with firmware 
 
@@ -1287,7 +1287,7 @@ If you are working with static keys, then you don't have to configure the `confi
 
 ## Create mapping files (JSON)
 
-You can customize plugin output text to meet the needs of your enterprise environment by defining and update mapping files. Changes can easily be implemented to text without changing or impacting the code. Each file can map one or many fields.
+You can customize plugin output text to meet the needs of your enterprise environment by defining and update-mapping files. Changes can easily be implemented to text without changing or impacting the code. Each file can map one or many fields.
 
 - Mapping of field values to names, for example 1:Reset, 2:Start, 3:Stop.
 
@@ -1328,7 +1328,7 @@ When you create a whitelist, and it contains one or more of the mapped fields. T
 
 ```
 
-## Dependency mapping file 
+## Dependency-mapping file 
 
 To indicate that the file is a dependency file, add the keyword `dependency` to the mapping configuration.
 
@@ -1344,7 +1344,7 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 The file contains a mapping between the dependency field and the function field. For example, between the function, and sub function. The sub function changes according to the function supplied.
 
-In the whitelist previously configured there is no dependency configuration, as shown below.
+In the whitelist previously configured, there is no dependency configuration, as shown below.
 
 ```json
 "whitelists": [
@@ -1374,9 +1374,9 @@ The dependency can be based on a specific value or a field. In the example below
 
 In the example below, the dependency as follow for same value of the field.
 
-For example, in the sub function 5, the meaning is changed based on the function.
+For example, in the sub function five, the meaning is changed based on the function.
 
-  - If it is a read function, then 5 means Read Memory.
+  - If it is a read function, then five means Read Memory.
 
   - If it is a write function, the same value is used to read from a file.
 
@@ -1547,7 +1547,7 @@ For example, in the sub function 5, the meaning is changed based on the function
 }
 
 ```
-## Package, upload and monitor the plugin 
+## Package, upload, and monitor the plugin 
 
 This article describes how to
 
@@ -1561,13 +1561,13 @@ To package the plugin:
 
 1.  Add the **artifact** (can be, library, config.json, or metadata) to a `tar.gz` file, and change the file extension to \<XXX.hdp>, where is \<XXX> is the name of the plugin.
 
-To Log in to the Horizon Console:
+To sign in to the Horizon Console:
 
-1.  Log in your sensor CLI as an administrator, CyberX or Support user.
+1.  Sign in your sensor CLI as an administrator, CyberX, or Support user.
 
 2.  In the file: `/var/cyberx/properties/horizon.properties` change the **ui.enabled** property to **true** (`horizon.properties:ui.enabled=true`).
 
-3.  Log in to the sensor console.
+3.  Sign in to the sensor console.
 
 4.  Select the **Horizon** option from the main menu.
 
@@ -1583,7 +1583,7 @@ The plugin pane lists:
 
   - Infrastructure plugins: Infrastructure plugins installed by default with Defender for IoT.
 
-  - Application plugins: Application plugins installed by default with Defender for IoT and additional plugins developed by Defender for IoT, or external developers.
+  - Application plugins: Application plugins installed by default with Defender for IoT and other plugins developed by Defender for IoT, or external developers.
     
 Enable and disable plugins that have been uploaded using the toggle.
 
@@ -1613,11 +1613,11 @@ The Horizon console **Overview** window provides information about the plugin yo
 | Field | Description |
 |--|--|
 | Application | The name of the plugin you uploaded. |
-| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on and off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle the plugin off. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on and off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle off the plugin. |
 | Time | The time the data was last analyzed. Updated every 5 seconds. |
 | PPS | The number of packets per second. |
 | Bandwidth | The average bandwidth detected within the last 5 seconds. |
-| Malforms | Malformed validations are used after the protocol has been positively validated. If there is a failure to process the packets based on the protocol, a failure response is returned.   <br><br>This column indicates the number of malform errors in the past 5 seconds. For nore information, see [Malformed code validations](#malformed-code-validations) for details. |
+| Malforms | Malformed validations are used after the protocol has been positively validated. If there is a failure to process the packets based on the protocol, a failure response is returned.   <br><br>This column indicates the number of malform errors in the past 5 seconds. For more information, see [Malformed code validations](#malformed-code-validations) for details. |
 | Warnings | Packets match the structure and specification but there is unexpected behavior based on the plugin warning configuration. |
 | Errors | The number of packets that failed basic protocol validations. Validates that the packet matches the protocol definitions. The Number displayed here indicates that number of errors detected in the past 5 seconds. For more information, see [Sanity code validations](#sanity-code-validations) for details. |
 | :::image type="content" source="media/references-horizon-sdk/monitor.png" alt-text="The monitor icon."::: | Review details about malform and warnings detected for your plugin. |
