@@ -32,7 +32,7 @@ The following diagrams illustrate the concepts:
 
 ![Diagrams that show the key concepts of snapshots](../media/azure-netapp-files/snapshot-concepts.png)
 
-In the diagrams, snapshot is taken in Figure 1a. In Figure 1b, changed data is written to a *new block* and the pointer is updated. But the snapshot pointer still points to the *previously written block*, giving you a live and a historical view of the data. Another snapshot is taken in Figure 1c. Now you have access to three generations of data (the live data, Snapshot 2, and Snapshot 1, in order of age), without taking up the volume space that three full copies would require. 
+In the diagrams above, snapshot is taken in Figure 1a. In Figure 1b, changed data is written to a *new block* and the pointer is updated. But the snapshot pointer still points to the *previously written block*, giving you a live and a historical view of the data. Another snapshot is taken in Figure 1c. Now you have access to three generations of data (the live data, Snapshot 2, and Snapshot 1, in order of age), without taking up the volume space that three full copies would require. 
 
 A snapshot takes only a copy of the volume metadata (*inode table*). It takes just a few seconds to create, regardless of the volume size, the capacity used, or the level of activity on the volume. So taking a snapshot of a 100-TiB volume takes the same (next to zero) time as taking a snapshot of a 100-GiB volume. After a snapshot is created, changes to data files are reflected in the active version of the files, as normal.
 
@@ -91,7 +91,7 @@ The following diagram shows file or directory access to a snapshot:
 
 ![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)
 
-In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. However, when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, users can self-restore data by copying files and directories out of a snapshot of choice.
+In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. But when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, users can self-restore data by copying files and directories out of a snapshot of choice.
 
 Similarly, snapshots in target cross-region replication volumes can be accessed read-only for data recovery in the DR region.  
 
