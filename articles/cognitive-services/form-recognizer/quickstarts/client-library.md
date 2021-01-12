@@ -22,7 +22,7 @@ Get started with the Form Recognizer using the language of your choice. Azure Fo
 
 Use Form Recognizer to:
 
-* [Analyze Layout](#analyze-form-layout)
+* [Analyze Layout](#analyze-layout)
 * [Analyze receipts](#analyze-receipts)
 * [Analyze business cards](#analyze-business-cards)
 * [Analyze invoices](#analyze-invoices)
