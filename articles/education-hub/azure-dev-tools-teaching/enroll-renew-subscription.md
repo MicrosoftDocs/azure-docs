@@ -29,7 +29,7 @@ This article describes the process for enrolling in Azure Dev Tools for Teaching
 1. Complete your **Institution Information**, if enrolling for the first time. If renewing, this information will autofill.
 
     :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Enter institution information." border="false":::
-        
+
 1. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription. The email domain of the Subscription Administrator will enable students on the same domain to get easy access to download their software benefits.
 
     :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Select subscription plan." border="false":::
