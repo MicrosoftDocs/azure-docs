@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor customer-managed key
-description: Information and steps to configure Customer-Managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
+description: Information and steps to configure Customer-managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
@@ -21,25 +21,25 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](../../key-vault/general/overview.md), which gives you the control to revoke the access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
 
-Customer-Managed key is delivered on [dedicated clusters](../log-query/logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-Managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
+Customer-managed key is delivered on [dedicated clusters](../log-query/logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
-Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-Managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-Managed key in the first half of 2021.
+Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-managed key in the first half of 2021.
 
 Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
 
 > [!IMPORTANT]
 > Due to temporary capacity constraints, we require you pre-register to before creating a cluster. Use your contacts into Microsoft, or open support request to register your subscriptions IDs.
 
-## How Customer-Managed key works in Azure Monitor
+## How Customer-managed key works in Azure Monitor
 
-Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-Managed key protection on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
+Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-managed key protection on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
 
 After the Customer-managed key configuration, new ingested data to workspaces linked to your dedicated cluster gets encrypted with your key. You can unlink workspaces from the cluster at any time. New data then gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
 
 > [!IMPORTANT]
-> Customer-Managed key capability is regional. Your Azure Key Vault, cluster and linked Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
+> Customer-managed key capability is regional. Your Azure Key Vault, cluster and linked Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
 
-![Customer-Managed key overview](media/customer-managed-keys/cmk-overview.png)
+![Customer-managed key overview](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. Log Analytics *Cluster* resource having managed identity with permissions to Key Vault -- The identity is propagated to the underlay dedicated Log Analytics cluster storage
@@ -50,7 +50,7 @@ After the Customer-managed key configuration, new ingested data to workspaces li
 
 There are 3 types of keys involved in Storage data encryption:
 
-- **KEK** - Key Encryption Key (your Customer-Managed key)
+- **KEK** - Key Encryption Key (your Customer-managed key)
 - **AEK** - Account Encryption Key
 - **DEK** - Data Encryption Key
 
@@ -71,7 +71,7 @@ The following rules apply:
 1. Updating cluster with key identifier details
 1. Linking Log Analytics workspaces
 
-Customer-Managed key configuration isn't supported in Azure portal currently and provisioning can be performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
+Customer-managed key configuration isn't supported in Azure portal currently and provisioning can be performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
 
 ### Asynchronous operations and status check
 
@@ -121,8 +121,8 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-> [!INFORMATION]
-> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). System-assigned managed identity is created with the cluster when you enter `SystemAssigned` identity type and this can be used later to grant access to your Key Vault. If you want to create a cluster that is configured for Customer-managed key at creation, create the cluster with User-assigned managed identity that is granted in your Key Vault -- Update the cluster with `UserAssigned` identity type, the identity's resource ID in `UserAssignedIdentities` and provide provide your key details in `keyVaultProperties`.
+> [!NOTE]
+> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), System-assigned and User-assigned, which can be used based on your scenario. System-assigned managed identity is simpler and created automatically with cluster creation when you set the identity `type` as `SystemAssigned` -- this identity can be used later to grant access to your Key Vault. If you need to create a cluster having Customer-managed key configuration at creation, you should have a key defined and User-assigned identity granted in your Key Vault beforehand, then create the cluster with identity `type` as `UserAssigned`, `UserAssignedIdentities` with the resource ID of the identity and key details in `keyVaultProperties`.
 
 > [!IMPORTANT]
 > Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet). This limitation isn't applied to System-assigned managed identity.
@@ -252,20 +252,20 @@ The cluster's storage periodically polls your Key Vault to attempt to unwrap the
 
 ## Key rotation
 
-Customer-Managed key rotation requires an explicit update to the cluster with the new key version in Azure Key Vault. [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you don't update the new key version in the cluster, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
+Customer-managed key rotation requires an explicit update to the cluster with the new key version in Azure Key Vault. [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you don't update the new key version in the cluster, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## Customer-Managed key for queries
+## Customer-managed key for queries
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-Managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
-> Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless Customer-Managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
+> Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
 When you Bring Your Own Storage (BYOS) and link it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
-**Considerations before setting Customer-Managed key for queries**
+**Considerations before setting Customer-managed key for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
 * Make sure to create your Storage Account in the same region as your Log Analytics workspace is located
 * The *saves searches* in storage is considered as service artifacts and their format may change
@@ -383,7 +383,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 ## Limitations and constraints
 
-- Customer-Managed key is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
+- Customer-managed key is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
 
 - The max number of cluster per region and subscription is 2
 
@@ -393,7 +393,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - Workspace link to cluster should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
 
-- Customer-Managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-Managed key configuration seamlessly.
+- Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 
 - The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:<br>
   - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
@@ -422,7 +422,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
     
   - Transient connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for a short while longer and this overcomes any small blips in availability. The query and ingestion capabilities continue without interruption.
     
-  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with Customer-Managed key.
+  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with Customer-managed key.
 
   - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
 
