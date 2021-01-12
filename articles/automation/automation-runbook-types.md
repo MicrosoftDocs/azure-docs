@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
 ---
 
@@ -112,7 +112,6 @@ Python runbooks compile under Python 2 and Python 3. Python 3 runbooks are curre
 * To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
 * Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook (preview) does not work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
 * Python 3 runbooks (preview) and packages do not work with PowerShell.
-* Using a webhook to start a Python runbook is not supported.
 * Azure Automation does not support **sys.stderr**.
 
 ### Known issues

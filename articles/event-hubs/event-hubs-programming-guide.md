@@ -139,7 +139,6 @@ In addition to the advanced run-time features of Event Processor Host, the Event
 > [!NOTE]
 > Currently, only REST API supports this feature ([publisher revocation](/rest/api/eventhub/revoke-publisher)).
 
-For more information about publisher revocation and how to send to Event Hubs as a publisher, see the [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) sample.
 
 ## Next steps
 

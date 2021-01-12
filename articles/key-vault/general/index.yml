@@ -54,10 +54,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Security overview
+            url: security-overview.md
           - text: Secure your Key Vault
             url: secure-your-key-vault.md
-          - text: Security recommendations
-            url: security-recommendations.md
           - text: Security baseline
             url: security-baseline.md
       - linkListType: how-to-guide
