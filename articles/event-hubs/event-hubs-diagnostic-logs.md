@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 10/27/2020
 ---
 
-# Set up diagnostic logs for an Azure event hub
+# Set up diagnostic logs for an Azure Event Hub
 
 You can view two types of logs for Azure Event Hubs:
 
