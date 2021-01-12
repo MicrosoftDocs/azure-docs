@@ -63,7 +63,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 
 1. Generate an authorization key.
 
-   :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Saving private peering configuration"::: 
+   :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Generate authorization key"::: 
 
    Make a note of the private peering ID of circuit 2 and the authorization key.
 
@@ -77,7 +77,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Check the **Redeem authorization** box. Enter the **Authorization Key** and the **ExpressRoute circuit Id** generated and obtained in Step 1. Then provide a **/29 IPv4** for the *Global Reach subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Enable global reach from circuit 1":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Add Global Reach with authorization key":::
 
 1. Select **Save** to complete the Global Reach configuration. When the operation completes, you'll have connectivity between your two on-premises networks through both ExpressRoute circuits.
 
