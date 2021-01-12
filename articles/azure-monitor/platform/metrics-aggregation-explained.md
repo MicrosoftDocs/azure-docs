@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor Metrics metrics aggregation and display explained
-description: Learn about advanced features of Azure Monitor Metrics Explorer
+description: Detailed information on how metrics are aggregated in Azure Monitor
 author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/12/2020
 ms.subservice: metrics
 ---
 
@@ -47,13 +47,13 @@ For time granularity = 30 minutes and the time range = 24 hours:
 - Each datapoint represents the sum of all network out bytes sent out during each of the relevant 30-min time periods. 
 
 
- :::image type="content" source="media/metrics-aggregation-explained/24-hour-30-min-gran.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 30-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/2.png":::
+ :::image type="content" source="media/metrics-aggregation-explained/24-hour-30-min-gran.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 30-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/24-hour-30-min-gran.png":::
 
 *Click on the images in this section to see larger versions.*
 
 If you switch the time granularity to 15 minutes, the chart is drawn from 96 aggregated data points. That is, 60min/15min = 4 datapoints per hour x 24 hours.
 
-:::image type="content" source="media/metrics-aggregation-explained/3.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 15-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/24-hour-15-min-gran.png":::
+:::image type="content" source="media/metrics-aggregation-explained/24-hour-15-min-gran.png" alt-text="Screenshot showing data on a line graph set to 24-hour time range and 15-minute time granularity" border="true" lightbox="media/metrics-aggregation-explained/24-hour-15-min-gran.png":::
 
 For time granularity of 5 minutes, you get 24 x (60/5) = 288 points. 
 
@@ -227,8 +227,7 @@ The system uses the stored aggregated data that gives the best performance.
 
 Below is the larger diagram for the above 1-minute aggregation process, with some of the arrows left out to improve readability.
 
-:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
-
+:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing consolidation of previous 3 screenshots. Multiple 1-minute aggregated entries across dimension of server aggregated in 1-minute, 2-minute and 5-minute intervals. Server A, B, and C shown individually" border="true":::
 
 ## More complex example 
 
