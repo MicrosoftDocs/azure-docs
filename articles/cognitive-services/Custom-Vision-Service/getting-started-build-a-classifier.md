@@ -101,7 +101,7 @@ After training has completed, the model's performance is estimated and displayed
 
 ![The training results show the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
 
-### Probability Threshold
+### Probability threshold
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 

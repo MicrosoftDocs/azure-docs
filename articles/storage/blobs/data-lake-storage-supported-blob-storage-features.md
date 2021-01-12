@@ -40,12 +40,12 @@ The following table shows how each Blob storage feature is supported with Data L
 |Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
-|Custom domains|Preview|Preview|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
 |Blobfuse|Generally available|Generally available|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Anonymous public access |Generally available|Generally available| See [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).|
 |Customer-managed account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|
+|Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes (preview)](encryption-scope-manage.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
 |Object replication|Not yet supported|Not yet supported|[Configure object replication for block blobs](object-replication-configure.md)|
