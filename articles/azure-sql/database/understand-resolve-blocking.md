@@ -199,13 +199,13 @@ By examining the above information, you can determine the cause of most blocking
     -    `sys.dm_exec_requests.status`  
     This column shows the status of a particular request. Typically, a sleeping status indicates that the SPID has completed execution and is waiting for the application to submit another query or batch. A runnable or running status indicates that the SPID is currently processing a query. The following table gives brief explanations of the various status values.
 
-      | Status | Meaning |
-      |:-|:-|
-      | Background | The SPID is running a background task, such as deadlock detection, log writer, or checkpoint. |
-      | Sleeping | The SPID is not currently executing. This usually indicates that the SPID is awaiting a command from the application. |
-      | Running | The SPID is currently running on a scheduler. |
-      | Runnable | The SPID is in the runnable queue of a scheduler and waiting to get scheduler time. |
-      | Suspended | The SPID is waiting for a resource, such as a lock or a latch. |  |  
+    | Status | Meaning |
+    |:-|:-|
+    | Background | The SPID is running a background task, such as deadlock detection, log writer, or checkpoint. |
+    | Sleeping | The SPID is not currently executing. This usually indicates that the SPID is awaiting a command from the application. |
+    | Running | The SPID is currently running on a scheduler. |
+    | Runnable | The SPID is in the runnable queue of a scheduler and waiting to get scheduler time. |
+    | Suspended | The SPID is waiting for a resource, such as a lock or a latch. | 
                        
     -    `sys.dm_exec_sessions.open_transaction_count`  
     This field tells you the number of open transactions in this session. If this value is greater than 0, the SPID is within an open transaction and may be holding locks acquired by any statement within the transaction.
