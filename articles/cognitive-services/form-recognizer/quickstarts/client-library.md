@@ -22,10 +22,10 @@ Get started with the Form Recognizer using the language of your choice. Azure Fo
 
 Use Form Recognizer to:
 
-* [Analyze Layout](#recognize-form-content)
-* [Analyze receipts](#recognize-receipts)
-* [Analyze business cards](#recognize-business-cards)
-* [Analyze invoices](#recognize-invoices)
+* [Analyze Layout](#analyze-form-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Analyze business cards](#analyze-business-cards)
+* [Analyze invoices](#analyze-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
