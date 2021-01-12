@@ -18,7 +18,7 @@ After you have your key, write it to a new environment variable on the local mac
 setx COGNITIVE_SERVICE_KEY "your-key"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+After the environment variable is added, you may need to restart any running programs that need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [Linux](#tab/linux)
 
