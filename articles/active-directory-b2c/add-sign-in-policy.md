@@ -83,7 +83,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
     </ClaimsProvider>
     ```
 
-1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0, or newer data  data URI:
+1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0, or newer data URI:
 
     ```XML
     <ContentDefinitions>
