@@ -4,7 +4,7 @@ description: Management console activation and setup ensures that sensors are re
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -46,7 +46,7 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 ## Set up a certificate
 
-Following installation of the management console, a local self-signed certificate is generated and used to access the console. After an administrator signs in to the management console for the first time, that user is prompted to onboard an SSL/TLS certificate. We recommend that you work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
+Following installation of the management console, a local self-signed certificate is generated and used to access the console. After an administrator signs in to the management console for the first time, that user is prompted to onboard an SSL/TLS certificate. 
 
 Two levels of security are available:
 
@@ -56,7 +56,9 @@ Two levels of security are available:
 The console supports the following types of certificates:
 
 - Private and Enterprise Key Infrastructure (private PKI)
+
 - Public Key Infrastructure (public PKI)
+
 - Locally generated on the appliance (locally self-signed) 
 
   > [!IMPORTANT]

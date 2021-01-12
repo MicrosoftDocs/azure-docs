@@ -4,7 +4,7 @@ description: This article describes how to sign in and activate a sensor console
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -60,10 +60,12 @@ Two levels of security are available:
 The console supports the following certificate types:
 
 - Private and Enterprise Key Infrastructure (private PKI)
+
 - Public Key Infrastructure (public PKI)
+
 - Locally generated on the appliance (locally self-signed) 
 
-  > [IMPORTANT]
+  > [!IMPORTANT]
   > We recommend that you don't use the default self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
 
 ### Sign in and activate the sensor
