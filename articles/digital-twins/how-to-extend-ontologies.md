@@ -64,7 +64,7 @@ To extend the industry ontology, you create your own interfaces that extend from
 
 After extending the portion of the hierarchy shown above, the extended hierarchy looks like the diagram below. Here the extended Space interface adds the "drawingId" property that will contain an id that associates the digital twin with the 3D drawing. Additionally, the ConferenceRoom interface adds an "online" property that will contain the online status of the conference room. Through inheritance the ConferenceRoom interface contains all capabilities from the REC ConferenceRoom interface as well as all capabilities from the extended Space interface. 
 
-:::image type="content" source="media/how-to-extend-ontologies/RealEstateCore-extended-3.png" alt-text="Flow diagram illustrating the extended RealEstateCore space hierarchy from above, with more new additions. Room now shares its level with a Space element, which connects with an 'extends' arrow down a level to a new Room element next to ConferenceRoom and Office.  The new elements are connected to the existing ontology with additional 'extends' relationships."::: 
+:::image type="content" source="media/how-to-extend-ontologies/RealEstateCore-extended-2.png" alt-text="Flow diagram illustrating the extended RealEstateCore space hierarchy from above, with more new additions. Room now shares its level with a Space element, which connects with an 'extends' arrow down a level to a new Room element next to ConferenceRoom and Office.  The new elements are connected to the existing ontology with additional 'extends' relationships."::: 
 
 ## Using the extended space hierarchy 
 
