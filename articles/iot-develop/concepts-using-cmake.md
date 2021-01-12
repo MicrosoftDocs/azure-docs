@@ -4,7 +4,7 @@ description: Learn key concepts to use CMAKE to build applications for Azure IoT
 author: ryanwinter
 ms.author: rywinter
 ms.service: iot-develop
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 01/11/2021
 ---
 

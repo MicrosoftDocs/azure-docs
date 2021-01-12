@@ -13,7 +13,7 @@
       items: 
       - name: Python
         href: quickstart-send-telemetry-python.md
-    - name: Get started with embedded development
+      - name: Get started with embedded development
         href: quickstart-device-development.md
 - name: Concepts
   items:

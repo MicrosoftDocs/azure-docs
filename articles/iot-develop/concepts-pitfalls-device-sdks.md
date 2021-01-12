@@ -4,7 +4,7 @@ description: Learn how to avoid common pitfalls as you work with the Azure IoT S
 author: ryanwinter
 ms.author: rywinter
 ms.service: iot-develop
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 01/11/2021
 ---
 
