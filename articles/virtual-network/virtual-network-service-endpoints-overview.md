@@ -95,6 +95,8 @@ Service endpoints provide the following benefits:
 - Network security groups (NSGs) with service endpoints:
   - By default, NSGs allow outbound internet traffic and also allow traffic from your VNet to Azure services. This traffic continues to work with service endpoints as is. 
   - If you want to deny all outbound internet traffic and allow only traffic to specific Azure services, you can do so using [service tags](security-overview.md#service-tags) in your NSGs. You can specify supported Azure services as destination in your NSG rules and Azure also provides the maintenance of IP addresses underlying each tag. For more information, see [Azure Service tags for NSGs.](security-overview.md#service-tags) 
+  
+- Basic networking tools that use ICMP to test connectivity and route path will not work with Service Endpoints. ICMP traffic will continue to follow the routing configured within the Virtual Network's environment before the Service Endpoint was enabled. For example, if you have an environemt that utilizes ExpressRoute and you enable Force Tunneling on the circuit (0.0.0.0/0) while also enabling Service Endpoints on a Subnet, ICMP traffic will take the route of the circuit while TCP traffic will take the route of the Service Endpoint when attempting to hit the desired service.
 
 ### Scenarios
 
