@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/11/2020
 ms.author: duau
 
 
@@ -35,6 +35,10 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 |BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>ExpressRoute Gateway Connection</ui></li>|
 |CPU Utilization|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
 |Packets per Second|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Advertised to Peer |Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Learned from Peer |Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Frequency of Routes change |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Number of VMs in the Virtual Network |Availability| N/A |ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
@@ -122,6 +126,18 @@ You can view CPU utilization of the gateway instances.
 You can view packets per second traversing the gateway.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Packets per second - split":::
+
+### Count of Routes Advertised to Peer - Split by Instance
+
+### Count of Routes Learned from Peer - Split by Instance
+
+### Frequency of Routes change - Split by Instance
+
+### Number of VMs in the Virtual Network
+
+You can view the number of virtual machines in the virtual network.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Number of virtual machine in the virtual network":::
 
 ## ExpressRoute gateway connections in bits/seconds
 
