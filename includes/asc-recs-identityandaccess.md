@@ -7,6 +7,8 @@ ms.author: memildin
 ms.custom: generated
 ---
 
+There are **15** recommendations in this category.
+
 |Recommendation |Description |Severity |
 |---|---|---|
 |A maximum of 3 owners should be designated for your subscription |To reduce the potential for breaches by compromised owner accounts, we recommend limiting the number of owner accounts to a maximum of 3<br />(Related policy: [A maximum of 3 owners should be designated for your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4f11b553-d42e-4e3a-89be-32ca364cad4c)) |High |

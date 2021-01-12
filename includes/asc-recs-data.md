@@ -7,6 +7,8 @@ ms.author: memildin
 ms.custom: generated
 ---
 
+There are **28** recommendations in this category.
+
 |Recommendation |Description |Severity |
 |---|---|---|
 |All advanced threat protection types should be enabled in SQL managed instance advanced data security settings |It is recommended to enable all advanced threat protection types on your SQL managed instances. Enabling all types protects against SQL injection, database vulnerabilities, and any other anomalous activities.<br />(No related policy) |Medium |

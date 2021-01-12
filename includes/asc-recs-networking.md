@@ -7,6 +7,8 @@ ms.author: memildin
 ms.custom: generated
 ---
 
+There are **15** recommendations in this category.
+
 |Recommendation |Description |Severity |
 |---|---|---|
 |Access to storage accounts with firewall and virtual network configurations should be restricted |Review the settings of network access in your storage account firewall settings. It is recommended to configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific internet or on-premise clients, access can be granted to traffic from specific Azure virtual networks or to public internet IP address ranges.<br />(Related policy: [Storage accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f34c877ad-507e-4c82-993e-3452a6e0ad3c)) |Low |

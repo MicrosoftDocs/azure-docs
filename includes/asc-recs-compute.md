@@ -7,6 +7,8 @@ ms.author: memildin
 ms.custom: generated
 ---
 
+There are **98** recommendations in this category.
+
 |Recommendation |Description |Severity |
 |---|---|---|
 |A vulnerability assessment solution should be enabled on your virtual machines |Install the extension to enable a vulnerability assessment solution on your virtual machines.<br />(Related policy: [A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)) |Medium |
