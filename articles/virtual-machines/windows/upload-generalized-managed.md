@@ -33,13 +33,15 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 > 
 
 1. Sign in to the Windows virtual machine.
-2. Open the Command Prompt window as an administrator. Change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is enabled.
-4. For **Shutdown Options**, select **Shutdown**.
-5. Select **OK**.
+1. Open the Command Prompt window as an administrator. 
+1. Delete the panther directory (C:\Windows\Panther).
+1. Change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
+1. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is enabled.
+1. For **Shutdown Options**, select **Shutdown**.
+1. Select **OK**.
    
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. When Sysprep finishes, it shuts down the virtual machine. Do not restart the VM.
+1. When Sysprep finishes, it shuts down the virtual machine. Do not restart the VM.
 
 
 ## Upload the VHD 

@@ -94,6 +94,20 @@ func main() {
 }
 ```
 
+Run the following commands to create a go.mod file that links to components hosted on Github.
+
+```cmd
+go mod init quickstart
+go get github.com/Microsoft/cognitive-services-speech-sdk-go
+```
+
+Now build and run the code.
+
+```cmd
+go build
+go run quickstart
+```
+
 See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) classes.
 
 ## Speech-to-text from audio file
@@ -158,6 +172,20 @@ func main() {
 	fmt.Println("Got a recognition!")
 	fmt.Println(outcome.Result.Text)
 }
+```
+
+Run the following commands to create a go.mod file that links to components hosted on Github.
+
+```cmd
+go mod init quickstart
+go get github.com/Microsoft/cognitive-services-speech-sdk-go
+```
+
+Now build and run the code.
+
+```cmd
+go build
+go run quickstart
 ```
 
 See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) classes.
