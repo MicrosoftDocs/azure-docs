@@ -737,7 +737,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 }
 ```
 
-When you use a set of route parameters, an `invoke_URL_template` is automatically created for your function. This template includes the route parameters so that callers can see what they need to provide. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
+When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
 ![View function `invoke_URL_template` in the portal.](./media/functions-bindings-http-webhook/get-function-url.png)
 
