@@ -44,7 +44,7 @@ ___
         <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (20:30)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"> <img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about the basics of modern authentication on the Microsoft identity platform."></a> (20:30)
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"> <img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."></a> (20:30)
     :::column-end:::
     :::column:::
     :::column-end:::
