@@ -854,7 +854,7 @@ You can also create new function and host keys programmatically by using the [Cr
 
 Function and host keys can be deleted programmatically by using the [Delete Function Secret](https://docs.microsoft.com/rest/api/appservice/webapps/deletefunctionsecret), [Delete Function Secret Slot](https://docs.microsoft.com/rest/api/appservice/webapps/deletefunctionsecretslot), [Delete Host Secret](https://docs.microsoft.com/rest/api/appservice/webapps/deletehostsecret), and [Delete Host Secret Slot](https://docs.microsoft.com/rest/api/appservice/webapps/deletehostsecretslot) APIs.
 
-You can also use the [legacy key management APIs to obtain function keys](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), but we recommend you use the Azure Resource Manager APIs instead.
+You can also use the [legacy key management APIs to obtain function keys](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), but using the Azure Resource Manager APIs is recommended instead.
 
 ## API key authorization
 
