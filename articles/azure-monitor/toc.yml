@@ -701,14 +701,17 @@
             - name: Configuration options
               href: app/java-standalone-config.md
             - name: Telemetry processors
-              href: app/java-standalone-telemetry-processors.md
+              items:
+              - name: Overview
+                href: app/java-standalone-telemetry-processors.md
+              - name: Examples
+                href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
               href: app/java-standalone-upgrade-from-2x.md
             - name: Troubleshooting
               href: app/java-standalone-troubleshoot.md
-
       - name: On-Premises servers
         items:
         - name: ASP.NET
