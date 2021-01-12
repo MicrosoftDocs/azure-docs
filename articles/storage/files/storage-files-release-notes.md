@@ -239,7 +239,7 @@ The following release notes are for version 9.0.0.0 of the Azure File Sync agent
 	- Azure File Sync now supports up to 64TiB and 100 million files in a single, syncing namespace.  
  
 - Data Deduplication support on Server 2019 
-	- Data Deduplication is now supported (irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume) on Windows Server 2016 and Windows Server 2019. To support Data Deduplication on volumes with cloud tiering, Windows update [KB4520062](https://support.microsoft.com/help/4520062) must be installed. 
+	- Data Deduplication is now supported (irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume) on Windows Server 2016 and Windows Server 2019. To support Data Deduplication on volumes with cloud tiering on Server 2019, Windows update [KB4520062](https://support.microsoft.com/help/4520062) must be installed. 
  
 - Improved minimum file size for a file to tier 
 	- The minimum file size for a file to tier is now based on the file system cluster size (double the file system cluster size). For example, by default, the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. 
