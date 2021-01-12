@@ -89,6 +89,8 @@
           href: howto-use-properties.md
         - name: How to use commands
           href: howto-use-commands.md
+        - name: How to use location data
+          href: howto-use-location-data.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
