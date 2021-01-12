@@ -149,6 +149,42 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 ### [Azure CLI](#tab/azure-cli)
 
+If necessary, prepare your environment for Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+To create an Azure Stack Edge resource, run the following commands in Azure CLI.
+
+1. Create a resource group by using the [az group create](/cli/azure/group#az_group_create) command, or use an existing resource group:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. To create a device, use the [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create) command:
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgeMR_Mini
+   ```
+
+1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
+
+   ```azurecli az databoxedge order create --resource-group myasepgpu1 \
+         --device-name myasegpu1 --company-name "Contoso" \
+         --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+         --state "California" --country "United States" --postal-code 94089 \
+         --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+1. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
+
+   ```azurecli
+   az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+   ```
+
+After the order is placed, Microsoft reviews the order and reaches out to you by email with shipping details.
+
 ---
 
 ## Get the activation key
