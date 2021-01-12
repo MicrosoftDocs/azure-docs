@@ -139,16 +139,16 @@ In this section, you grant B.Simon access to Jamf Pro.
 
 	b. Select the **Enable Single Sign-On Authentication** check box.
 
-  c. Select **Azure** as an option from the **Identity Provider** drop-down menu.
+	c. Select **Azure** as an option from the **Identity Provider** drop-down menu.
 
-  d. Copy the **ENTITY ID** value and paste it into the **Identifier (Entity ID)** field in the **Basic SAML Configuration** section in the Azure portal.
+	d. Copy the **ENTITY ID** value and paste it into the **Identifier (Entity ID)** field in the **Basic SAML Configuration** section in the Azure portal.
 
-> [!NOTE]
-> Use the value in the `<SUBDOMAIN>` field to complete the sign-on URL and reply URL in the **Basic SAML Configuration** section in the Azure portal.
+	> [!NOTE]
+	> Use the value in the `<SUBDOMAIN>` field to complete the sign-on URL and reply URL in the **Basic SAML Configuration** section in the Azure portal.
 
-  e. Select **Metadata URL** from the **Identity Provider Metadata Source** drop-down menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied from the Azure portal.
+	e. Select **Metadata URL** from the **Identity Provider Metadata Source** drop-down menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied from the Azure portal.
 
-  f. (Optional) Edit the token expiration value or select "Disable SAML token expiration".
+	f. (Optional) Edit the token expiration value or select "Disable SAML token expiration".
 
 7. On the same page, scroll down to the **User Mapping** section. Then, take the following steps.
 
