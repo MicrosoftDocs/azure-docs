@@ -216,15 +216,7 @@ Install IoT Edge by following these steps on both devices.
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
-
-1. Install the hsmlib and IoT Edge daemon. To see the assets for other Linux distributions, [visit the GitHub release](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
-
-   ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0_rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
-   sudo dpkg -i ./libiothsm-std.deb
-   sudo dpkg -i ./iotedge.deb
-   ```
+   
 1. Update package lists on your device.
 
    ```bash
@@ -235,6 +227,15 @@ Install IoT Edge by following these steps on both devices.
 
    ```bash
    sudo apt-get install moby-engine
+   ```
+
+1. Install the hsmlib and IoT Edge daemon. To see the assets for other Linux distributions, [visit the GitHub release](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
+
+   ```bash
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0_rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
+   sudo dpkg -i ./libiothsm-std.deb
+   sudo dpkg -i ./iotedge.deb
    ```
 
 ### Configure the IoT Edge runtime
