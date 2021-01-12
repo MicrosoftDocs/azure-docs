@@ -202,7 +202,7 @@ Make sure the account has the permission of Log on as a service. Otherwise self-
 
 ![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission2.png)
+![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## Notification area icons and notifications
