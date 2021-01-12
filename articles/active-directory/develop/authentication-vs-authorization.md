@@ -43,19 +43,19 @@ The Microsoft identity platform simplifies authorization and authentication for 
 
 This video explains the Microsoft identity platform and the basics of modern authentication: 
 
-[!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 Here's a comparison of the protocols that the Microsoft identity platform uses:
 
-* **OAuth versus OpenID Connect**: The platform uses OAuth for authorization and OpenID Connect (OIDC) for authentication. OpenID Connect is built on top of OAuth 2.0, so the terminology and flow are similar between the two. You can even both authenticate a user (through OpenID Connect) and get authorization to access a protected resource that the user owns (using OAuth 2.0) in one request. For more information, see [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md) and [OpenID Connect protocol](v2-protocols-oidc.md).
+* **OAuth versus OpenID Connect**: The platform uses OAuth for authorization and OpenID Connect (OIDC) for authentication. OpenID Connect is built on top of OAuth 2.0, so the terminology and flow are similar between the two. You can even both authenticate a user (through OpenID Connect) and get authorization to access a protected resource that the user owns (through OAuth 2.0) in one request. For more information, see [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md) and [OpenID Connect protocol](v2-protocols-oidc.md).
 * **OAuth versus SAML**: The platform uses OAuth 2.0 for authorization and SAML for authentication. For more information on how to use these protocols together to both authenticate a user and get authorization to access a protected resource, see [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](v2-saml-bearer-assertion.md).
-* **OpenID Connect versus SAML**: The platform uses both OpenID Connect and SAML to authenticate a user to enable single sign-on. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (AD FS) federated to Azure AD, so it's often used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, websites, and web APIs.
+* **OpenID Connect versus SAML**: The platform uses both OpenID Connect and SAML to authenticate a user and enable single sign-on. SAML authentication is commonly used with identity providers such as Active Directory Federation Services (AD FS) federated to Azure AD, so it's often used in enterprise applications. OpenID Connect is commonly used for apps that are purely in the cloud, such as mobile apps, websites, and web APIs.
 
 ## Next steps
 
 * To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](security-tokens.md).
 * To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](application-model.md).
 * To learn about the sign-in flow of web, desktop, and mobile apps in the Microsoft identity platform, see [App sign-in flow](app-sign-in-flow.md).
-* To learn more about the protocols that the Microsoft identity platform implements, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md).
+* To learn more about the protocols that the Microsoft identity platform uses, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md).
 * For more information on how the Microsoft identity platform supports single sign-on, see [Single sign-on SAML protocol](single-sign-on-saml-protocol.md).
 * For more information on the different ways that you can implement single sign-on in your app, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
