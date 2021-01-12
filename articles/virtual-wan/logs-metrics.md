@@ -22,7 +22,7 @@ This article discusses metrics and diagnostics that are available through the po
 
 You can monitor the Secured Hub using Azure Firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-If you have chosen to secure your Virtual Hub using Azure Firewall, relavant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+If you have chosen to secure your Virtual Hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
 
 ## Metrics
 
