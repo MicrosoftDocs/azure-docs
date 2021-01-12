@@ -109,7 +109,12 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../virtual-network/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](../create-fqdn.md)
+
+
+## Data residency
+
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 
 ## Next steps

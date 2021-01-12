@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Managed Instance using the Azure portal

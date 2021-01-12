@@ -58,4 +58,4 @@ When a prebuilt entity is included in your application, its predictions are incl
 
 ## Next steps
 
-Learn how to [add prebuilt entities](luis-prebuilt-entities.md) to your app.
+Learn how to [add prebuilt entities](./howto-add-prebuilt-models.md) to your app.

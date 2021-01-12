@@ -46,11 +46,11 @@ For more information on suggested Azure RBAC use, see [Best practices for Azure 
 
 ## Enable verbose log in the order
 
-When placing an export order for Data Box, you have the option to enable the collection of verbose log. Here is the order screen where you can enable the verbose log:
+When placing an export order for Data Box, you have the option to enable the collection of a verbose log. Here is the order screen where you can enable the verbose log:
 
-![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-When you select the **Include verbose log** option, a verbose log file is generated when copying the data from your Azure Storage account. This log contains a list of all files that were exported successfully.      
+When you select the **Include verbose log** option, a verbose log file is generated when copying the data from your Azure Storage account. This log contains a list of all files that were exported successfully.
 
 For more information on export order, see [Create an export order for Data Box](data-box-deploy-export-ordered.md)
 

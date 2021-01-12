@@ -164,6 +164,17 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
 
+### Minimum retention limits
+
+The following are the minimum retention durations that can be set for the different recovery points:
+
+|Recovery point |Duration  |
+|---------|---------|
+|Daily recovery point    |   7 days      |
+|Weekly recovery point     |    4 weeks     |
+|Monthly recovery point    |   3 months      |
+|Yearly recovery point  |      1 year   |
+
 ### Other limitations
 
 - MARS doesn't support protection of multiple machines with the same name to a single vault.

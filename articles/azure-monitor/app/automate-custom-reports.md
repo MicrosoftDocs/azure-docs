@@ -27,7 +27,7 @@ Each enterprise has its unique reporting needs, such as:
 
 You can [programmatically query Application Insights](https://dev.applicationinsights.io/) data to generate custom reports on a schedule. The following options can help you get started quickly:
 
-* [Automate reports with Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automate reports with Power Automate](../platform/logicapp-flow-connector.md)
 * [Automate reports with Logic Apps](automate-with-logic-apps.md)
 * Use the "Application Insights scheduled digest" [Azure function](../../azure-functions/functions-create-first-azure-function.md) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
 

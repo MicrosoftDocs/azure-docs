@@ -1,7 +1,7 @@
 ---
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-ms.date: 09/30/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.subservice: alerts
 
@@ -133,7 +133,7 @@ This feature is currently supported for platform metrics (not custom metrics) fo
 
 | Service | Public Azure | Government | China |
 |:--------|:--------|:--------|:--------|
-| Virtual machines<sup>1</sup>  | **Yes** | No | No |
+| Virtual machines<sup>1</sup>  | **Yes** | **Yes** | No |
 | SQL server databases | **Yes** | **Yes** | **Yes** |
 | SQL server elastic pools | **Yes** | **Yes** | **Yes** |
 | NetApp files capacity pools | **Yes** | **Yes** | **Yes** |
@@ -172,6 +172,7 @@ You can find the full list of supported resource types in this [article](./alert
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](alerts-metric.md)
+- [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#create-alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)

@@ -62,11 +62,10 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
 
 ## Next step
-[Install Update 0.3](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+[Install Update 0.3](./storsimple-virtual-array-install-update-06.md) on your StorSimple Virtual Array.
 
 ## References
 Looking for an older release note? Go to: 
 
 * [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple Virtual Array General Availability Release Notes](./storsimple-virtual-array-update-06-release-notes.md)

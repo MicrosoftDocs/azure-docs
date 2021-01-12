@@ -40,7 +40,7 @@ Migrations to Azure file shares from StorSimple volumes via data transformation 
 
 Azure file shares open up a whole new world of opportunities for structuring your file services deployment. An Azure file share is just an SMB share in the cloud that you can set up to have users access directly over the SMB protocol with the familiar Kerberos authentication and existing NTFS permissions (file and folder ACLs) working natively. Learn more about [identity-based access to Azure file shares](storage-files-active-directory-overview.md).
 
-An alternative to direct access is [Azure File Sync](https://aka.ms/AFS). Azure File Sync is a direct analog for StorSimple's ability to cache frequently used files on-premises.
+An alternative to direct access is [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync is a direct analog for StorSimple's ability to cache frequently used files on-premises.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -51,7 +51,7 @@ Azure file shares retain important file fidelity aspects on stored files like at
 
 This article focuses on the migration steps. If you want to learn more about Azure File Sync before migrating, see the following articles:
 
-* [Azure File Sync overview](https://aka.ms/AFS "Overview")
+* [Azure File Sync overview](./storage-sync-files-planning.md "Overview")
 * [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md)
 
 ### StorSimple Service Data Encryption Key
@@ -155,7 +155,7 @@ You have the option to pick premium storage (SSD) for Azure file shares or stand
 
 Still not sure?
 
-* Choose premium storage if you need the [performance of a premium Azure file share](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+* Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-billing).
 * Choose standard storage for general-purpose file server workloads, which includes hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync.
 
 #### Account kind
@@ -380,7 +380,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 * [How to configure a Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
 * [How to configure a Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
 * [How to configure DNS forwarding](storage-files-networking-dns.md)
-* [Configure DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configure DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -436,6 +436,9 @@ At this point, there are differences between your on-premises Windows Server ins
 1. Some files might have been left behind by the data transformation job because of invalid characters. If so, copy them to the Azure File Sync-enabled Windows Server instance. Later on, you can adjust them so that they will sync. If you don't use Azure File Sync for a particular share, you're better off renaming the files with invalid characters on the StorSimple volume. Then run the RoboCopy directly against the Azure file share.
 
 > [!WARNING]
+> Robocopy in Windows Server 2019 currently experiences an issue that will cause files tiered by Azure File Sync on the target server to be recopied from the source and re-uploaded to Azure when using the /MIR function of robocopy. It is imperative that you use Robocopy on a Windows Server other than 2019. A preferred choice is Windows Server 2016. This note will be updated should the issue be resolved via Windows Update.
+
+> [!WARNING]
 > You *must not* start the RoboCopy before the server has the namespace for an Azure file share downloaded fully. For more information, see [Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
  You only want to copy files that were changed after the migration job last ran and files that haven't moved through these jobs before. You can solve the problem as to why they didn't move later on the server, after the migration is complete. For more information, see [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -443,7 +446,7 @@ At this point, there are differences between your on-premises Windows Server ins
 RoboCopy has several parameters. The following example showcases a finished command and a list of reasons for choosing these parameters.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -474,6 +477,14 @@ Background:
 :::row-end:::
 :::row:::
    :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      Omits the logging of progress to keep the log readable.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
       /B
    :::column-end:::
    :::column span="1":::
@@ -486,6 +497,14 @@ Background:
    :::column-end:::
    :::column span="1":::
       Allows for RoboCopy to only consider deltas between source (StorSimple appliance) and target (Windows Server directory).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Ensures fidelity is preserved in certain mirror scenarios.</br>Example: Between two Robocopy runs a file experiences an ACL change and an attribute update, for instance it is also marked *hidden*. Without /IT the ACL change can be missed by Robocopy and thus not transferred to the target location.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -530,7 +549,7 @@ If you use Azure File Sync, you likely need to create the SMB shares on that Azu
 
 If you have a DFS-N deployment, you can point the DFN-Namespaces to the new server folder locations. If you don't have a DFS-N deployment, and you fronted your 8100 or 8600 appliance locally with a Windows Server instance, you can take that server off the domain. Then domain join your new Azure File Sync-enabled Windows Server instance. During that process, give the server the same server name and share names as the old server so that cut-over remains transparent for your users, group policy, and scripts.
 
-Learn more about [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Learn more about [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## Deprovision
 
@@ -556,7 +575,7 @@ Your migration is complete.
 
 ## Next steps
 
-* Get more familiar with [Azure File Sync: aka.ms/AFS](https://aka.ms/AFS).
+* Get more familiar with [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
 * Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
 * If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](storage-sync-files-troubleshoot.md) for steps to resolve these issues.

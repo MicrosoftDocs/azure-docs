@@ -63,7 +63,7 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services SMS client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-sms
+pip install azure-communication-sms --pre
 ```
 
 ## Object model
