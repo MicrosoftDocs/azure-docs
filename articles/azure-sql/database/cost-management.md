@@ -26,9 +26,6 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 When working with Azure SQL Database, there are several cost-saving features to consider:
 
-- [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md)
-- [Reserved capacity](reserved-capacity-overview.md)
-
 
 ### vCore or DTU purchasing models 
 
@@ -38,6 +35,8 @@ Azure SQL Database supports two purchasing models: vCore and DTU. The way you ge
 ### Provisioned or serverless
 
 In the vCore purchasing model, Azure SQL Database also supports two types of compute tiers: provisioned throughput and serverless. The way you get charged for each compute tier varies so it's important to understand what works best for your workload when planning and considering costs. For details, see [vCore model overview - compute tiers](service-tiers-vcore.md#compute-tiers).
+
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates. For details, see [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 
 ### Elastic pools
 
@@ -72,7 +71,7 @@ As you go through the process of creating an Azure SQL Database, you can see the
 
 To access this screen, select **Configure database** on the **Basics** tab of the **Create SQL Database** page.
 
-  :::image type="content" source="media/cost-management/cost-estimate.png" alt-text="Example showing accumulated costs in the Azure portal":::
+  :::image type="content" source="media/cost-management/cost-estimate.png" alt-text="Example showing cost estimate in the Azure portal":::
 
 
 
@@ -107,13 +106,12 @@ You can also [export your cost data](https://docs.microsoft.com/azure/cost-manag
 
 Azure SQL Database also enables you to scale resources up or down to control costs based on your application needs. For details, see [Dynamically scale database resources](scale-resources.md).
 
+Save money by committing to a reservation for compute resources for one to three years. For details, see [Save costs for resources with reserved capacity](reserved-capacity-overview.md).
+
+
 ## Next steps
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-
-<!-- Insert links to other articles that might help users save and manage costs for you service here.
-
-Create a table of contents entry for the article in the How-to guides section where appropriate. -->
