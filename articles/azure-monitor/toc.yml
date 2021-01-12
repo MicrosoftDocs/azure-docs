@@ -226,8 +226,6 @@
         href: platform/service-providers.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
-      - name: Troubleshooting logs
-        href: platform/azure-monitor-troubleshooting-logs.md
     - name: Log Analytics
       items:
       - name: Overview
