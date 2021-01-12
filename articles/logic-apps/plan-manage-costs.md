@@ -19,9 +19,7 @@ ms.date: 01/31/2021
 <!-- Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles.
 -->
 
-<!-- Note for Azure service writer: Modify the following for your service. -->
-
-This article helps you plan and manage costs for Azure Logic Apps. Before you add any resources for this service, estimate costs by using the Azure pricing calculator. After you start using Azure Logic Apps resources, you can set budgets and monitor costs by using Cost Management features. To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
+This article helps you plan and manage costs for Azure Logic Apps. Before you add any resources for this service, estimate costs by using the Azure pricing calculator. After you start using Azure Logic Apps resources, you can set budgets and monitor costs by using [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
 
 Keep in mind that costs for Azure Logic Apps are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Logic Apps, you're billed for all the Azure services and resources that are used in your Azure subscription, including any third-party services. After you're familiar with managing costs for Azure Logic Apps, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
@@ -29,53 +27,57 @@ Keep in mind that costs for Azure Logic Apps are only a portion of the monthly c
 
 <!--Note for Azure service writer: The section covers prereqs for the cost analysis feature. Add other prereqs needed for your service.  -->
 
-Cost Management supports most Azure account types. To view all the supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account.
+* [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) supports most Azure account types. To view all the supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account.
 
-For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+  For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 <!--Note for Azure service writer: If you have other prerequisites for your service, insert them here -->
 
-<!--Note for Azure service writer: Modify the following H2 sections for your service. -->
-
-## Estimate costs before using Azure Logic Apps
-
-Before you create resources with Azure Logic Apps, estimate your costs.
-
-1. On the Azure [Pricing Calculator page](https://azure.microsoft.com/pricing/calculator/), from the left menu, select **Integration** > **Azure Logic Apps**.
-
-   ![Screenshot that shows the Azure pricing calculator with "Azure Logic Apps" selected.](./media/plan-manage-costs-logic-apps/add-azure-logic-apps-pricing-calculator.png)
-
-1. Scroll down the page so that you can view the Azure Logic Apps pricing calculator. In the corresponding sections, enter the numbers of resources that you plan to use and the time intervals for how often you plan to use those resources.
-
-   For example, this screenshot shows a sample cost estimation by using the calculator:
-
-   ![Example showing estimated cost in the Azure Pricing calculator](./media/plan-manage-costs-logic-apps/example-logic-apps-pricing-calculator.png)
-
-1. To update your cost estimates as you add new resources to your workspace, return to this calculator, and add the same resources here.
-
 ## Understand the full billing model for Azure Logic Apps
 
-Azure Logic Apps runs on Azure infrastructure that accrues costs along with Azure Logic Apps when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
+Based on where you create and deploy your logic apps, Azure Logic Apps applies the [Consumption billing model](../logic-apps/logic-apps-pricing.md#consumption-pricing) or [Fixed billing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). However, the Logic Apps service runs on Azure infrastructure that can also accrue additional costs when you deploy a new Logic Apps resource. Make sure that you understand and manage any additional costs due to these dependencies when you make changes to deployed resources.
 
-<!--Note to Azure service writer: Include each of the following subsections at a minimum -->
-
-### Costs that typically accrue with Azure Logic Apps
+### Other costs that typically accrue with Azure Logic Apps
 
 <!--Note to Azure service writer: Include any costs that aren't obvious, hidden, or otherwise might not be present in the pricing calculator or resource creation experience in the Azure portal. You might need to sync with your product team to identify hidden costs. If you're certain that costs accrue only for your service and no others, then omit this section. -->
 
-When you create resources for Azure Logic Apps, resources for other Azure services are also created. They include:
+When you create resources for Azure Logic Apps, you might also create and use these related Azure resources or other Azure services that accrue separate costs:
 
-- <OtherAzureService1>
-- <OtherAzureService2>
- 
+- API connections, which are connections that you create from using managed connector triggers and actions in your logic apps
+
+- [Integration accounts](../logic-apps/logic-apps-pricing#integration-accounts.md) follow a fixed pricing model that's based on the SKU that you use and an hourly billing rate
+
+- [Integration service environments](../logic-apps/logic-apps-pricing#integration-accounts.md) follow a fixed pricing model that's based on the tier that you use, the number of base units, and the number of scale units, which are billed per hour.
+
 ### Costs might accrue after resource deletion
 
 <!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
 
-After you delete Azure Logic Apps resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
+After you delete a logic app, the following resources that you created continue to exist. If applicable, they continue to accrue costs until you delete them.
 
-- <OtherServiceResource1>
-- <OtherServiceResource2>
+- Connections that you created from using managed connector triggers and actions in your logic apps
+
+- Integration accounts and included artifacts such as trading partners, agreements, and so on
+
+- Integration service environments
+
+To delete these resources, use the Azure portal, Logic Apps REST API, Azure CLI, or Azure PowerShell.
+
+## Estimate costs before using Azure Logic Apps
+
+Before you create resources with Azure Logic Apps, estimate your costs by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Pricing model for Azure Logic Apps](../logic-apps/logic-apps-pricing.md).
+
+1. On the [Azure pricing calculator page](https://azure.microsoft.com/pricing/calculator/), from the left menu, select **Integration** > **Azure Logic Apps**.
+
+   ![Screenshot that shows the Azure pricing calculator with "Azure Logic Apps" selected.](./media/plan-manage-costs-logic-apps/add-azure-logic-apps-pricing-calculator.png)
+
+1. Scroll down the page until you can view the Azure Logic Apps pricing calculator. In the various sections for Azure resources that are directly related to Azure Logic Apps, enter the numbers of resources that you plan to use and the number of intervals over which you might use those resources.
+
+   This screenshot shows an example cost estimate by using the calculator:
+
+   ![Example showing estimated cost in the Azure Pricing calculator](./media/plan-manage-costs-logic-apps/example-logic-apps-pricing-calculator.png)
+
+1. To update your cost estimates as you create and use new related resources, return to this calculator, and update those resources here.
 
 ### Using Monetary Credit with Azure Logic Apps
 
@@ -83,48 +85,31 @@ After you delete Azure Logic Apps resources, the following resources might conti
 
 You can pay for Azure Logic Apps charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
-## Review estimated costs in the Azure portal
+## Manage costs with Cost Management features
 
-<!-- Note for Azure service writer: If your service shows estimated costs when a user is creating resources in the Azure portal, at a minimum, insert this section as a brief walkthrough that steps through creating a Azure Logic Apps resource where the estimated cost is shown to the user, updated for your service. Add a screenshot where the estimated costs or subscription credits are shown.
+Cost Management provides capabilities for you to view and manage costs. Budgets and associated alerts help users proactively manage costs. After users create resources, they can use cost analysis features to explore and manage costs. There are three H2s about Cost Management features in the template: Monitor costs, Create budgets, and Export data. 
 
-If your service doesn't show costs as they create a resource or if estimated costs aren't shown to users before they use your service, then omit this section.
+### Create budgets
 
-For example, you might start with the following (modify for your service):
--->
+To manage costs and create [alerts](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders about spending anomalies and overspending risks, you can create [budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
 
-As you create resources for Azure Logic Apps, you see estimated costs.
+If you want more granularity in your monitoring, you can create budgets that use filters for specific resources or services in Azure. Filters help make sure that you don't accidentally create new resources that cost you additional money. For more information about the filter options when you when create a budget, see [Group and filter options](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-To create a <ResourceName> and view the estimated price:
-
-1. Navigate to the service in the Azure portal.
-
-1. Create the resource.
-
-1. Review the estimated price shown in the summary.
-
-1. Finish creating the resource.
-
-<!-- Note to Azure service writer: Replace the following example image with one specific to your service. Ensure that you do not show UNIT pricing. Total pricing is okay to show. If you show total pricing, don't show the number of units. -->
-
-![Example showing estimated costs while creating a resource](../../media/contribute-how-to-write-cost-management-conceptual-article/create-resource.png)
-
-<!--Note to Azure service writer: Add a paragraph like: -->
-
-If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When you reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can't change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit).
-
-## Monitor costs
+### Monitor costs
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
 
-As you use Azure resources with <ServiceName>, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) As soon as <ServiceName> use starts, costs are incurred and you can see the costs in [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+As you use Azure resources with Azure Logic Apps, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). As soon as Azure Logic Apps use starts, costs are incurred, and you can see the costs by using [Cost Analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-When you use cost analysis, you view <ServiceName> costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+When you use cost analysis, you view Azure Logic Apps costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
 
 To view <ServiceName> costs in cost analysis:
 
-1. Sign in to the Azure portal.
-2. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
-3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled <ServiceName>.
+1. In the Azure portal, open the scope, and select **Cost analysis** in the menu.
+
+   For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
+
+1. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled <ServiceName>.
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
@@ -142,18 +127,9 @@ Here's an example showing costs for just <ServiceName>.
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and <ServiceName> costs by resource group are also shown. From here, you can explore costs on your own.
 
-## Create budgets
+### Export cost data
 
-<!-- Note to Azure service writer: Modify the following as needed for your service. -->
-
-You can create [budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
-
-Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more about the filter options when you when create a budget, see [Group and filter options](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-## Export cost data
-
-You can also [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
-
+You can [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you or others need to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule, and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Other ways to manage and reduce costs for <ServiceName>
 
@@ -164,13 +140,13 @@ Add a statement that discusses any recommended settings for your service that mi
 If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
 -->
 
+To help you contain costs on your Logic Apps and related resources, use these tips:
+
 ## Next steps
 
-- Learn [how to optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Learn more about managing costs with [cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+Learn more by reviewing these topics:
 
-<!-- Insert links to other articles that might help users save and manage costs for you service here.
-
-Create a table of contents entry for the article in the How-to guides section where appropriate. -->
+* [Optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Manage costs by using Cost Analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course

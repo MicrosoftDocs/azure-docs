@@ -18,7 +18,29 @@ ms.date: 10/29/2020
 
 ## Consumption pricing model
 
-For new logic apps that run in the public, "global", multi-tenant Azure Logic Apps service, you pay only for what you use. These logic apps use a consumption-based plan and pricing model. In your logic app, each step is an action, and Azure Logic Apps meters all the actions that run in your logic app.
+This pay-for-use billing and pricing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps service. All successful and unsuccessful executions are metered and billed. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
+
+Exceptions to the rule include triggers that are skipped due to unmet conditions and actions that don't run because the logic app stopped before finishing. Also, disabled logic apps aren't metered.
+
+* Built-in triggers and actions, which run natively in the Logic Apps service, are billed using the [**Actions** price](https://azure.microsoft.com/pricing/details/logic-apps/). For example, the HTTP trigger and Request trigger are built-in triggers, while the HTTP action and Response action are built-in actions. Data operations and workflow control actions, such as loops, conditions, switch, parallel branches, and so on, are also built-in actions.
+
+* Standard connector triggers and actions are billed using the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+* Enterprise connector triggers and actions are billed using the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps/), but public preview Enterprise connectors are billed at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+* Each action that runs inside a loop is metered for each cycle that runs for that loop.
+
+  For example, suppose that you have a "for each" loop that includes actions that process a list. The Logic Apps service meters each action that runs in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions.
+
+* Data retention is billed monthly.
+
+To help you estimate more accurate consumption costs, review these tips:
+
+* Consider the possible number of messages or events that might arrive on any given day, rather than base your calculations on only the polling interval.
+
+* When an event or message meets the trigger criteria, many triggers immediately try to read any and all other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hub.
+
+  For example, suppose you set up trigger that checks an endpoint every day. When the trigger checks the endpoint and finds 15 events that meet the criteria, the trigger fires and runs the corresponding workflow 15 times. The Logic Apps service meters all the actions that those 15 workflows perform, including the trigger requests.
 
 For example, actions include:
 
