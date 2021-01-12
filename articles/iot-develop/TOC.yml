@@ -86,9 +86,9 @@
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
-        href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
+        href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: ./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+        href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
@@ -105,8 +105,6 @@
       href: https://catalog.azureiotsolutions.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
-    - name: Customer data requests
-      href: iot-hub-customer-data-requests.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Azure IoT Tools
