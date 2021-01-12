@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/08/2021
+ms.date: 01/13/2021
 ms.topic: conceptual
 ---
 
@@ -50,6 +50,7 @@ The following versions of the Windows and Linux operating system are officially 
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+- Oracle Linux 7
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
