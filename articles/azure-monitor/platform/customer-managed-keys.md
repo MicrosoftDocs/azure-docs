@@ -122,10 +122,10 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 ## Create cluster
 
 > [!NOTE]
-> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), System-assigned and User-assigned, which can be used based on your scenario. System-assigned managed identity is simpler and created automatically with cluster creation when you set the identity `type` as `SystemAssigned` -- this identity can be used later to grant access to your Key Vault. If you need to create a cluster having Customer-managed key configuration at creation, you should have a key defined and User-assigned identity granted in your Key Vault beforehand, then create the cluster with identity `type` as `UserAssigned`, `UserAssignedIdentities` with the resource ID of the identity and key details in `keyVaultProperties`.
+> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned and each can be based depending your scenario. System-assigned managed identity is simpler and it's created automatically with the cluster creation when identity `type` is set as "*SystemAssigned*" -- this identity can be used later to grant the cluster access to your Key Vault. If you want to create a cluster while Customer-managed key is defined at cluster creation time, you should have a key defined and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the identity's resource ID and `keyVaultProperties` with key details.
 
 > [!IMPORTANT]
-> Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet). This limitation isn't applied to System-assigned managed identity.
+> Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet) and you can use System-assigned managed identity in this case.
 
 Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -413,7 +413,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
   - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
 
-  - Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet). This limitation isn't applied to System-assigned managed identity.
+  - Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet) and you can use System-assigned managed identity in this case.
 
 ## Troubleshooting
 
