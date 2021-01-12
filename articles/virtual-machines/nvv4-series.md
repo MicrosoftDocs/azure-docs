@@ -6,8 +6,8 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 01/12/2020
+ms.author: vikancha
 ---
 
 # NVv4-series 
@@ -21,7 +21,7 @@ The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 Accelerated Networking: Supported<br>
 <br>
 
