@@ -192,8 +192,7 @@ For example:
 
 ```azurepowershell
 $disks = ("0","1")
-$vault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
-Set-AzRecoveryServicesVaultContext -Vault $vault
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
