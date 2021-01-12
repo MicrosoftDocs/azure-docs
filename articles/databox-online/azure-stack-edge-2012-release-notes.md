@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA 2012 release notes | Microsoft Docs
+title: Azure Stack Edge Pro with FPGA 2012 release notes | Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Stack Edge 2012 release.
 services: databox
 author: v-dalc
@@ -10,9 +10,9 @@ ms.date: 01/11/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro FPGA 2012 release notes
+# Azure Stack Edge Pro with FPGA 2012 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2012 release of Azure Stack Edge Pro FPGA.
+The following release notes identify the critical open issues and the resolved issues for the 2012 release of Azure Stack Edge Pro with with a built-in Field Programmable Gate Array (FPGA).
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.
 
