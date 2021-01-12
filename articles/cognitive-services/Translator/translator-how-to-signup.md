@@ -3,57 +3,95 @@ title: Get started - Translator
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to sign up for the Azure Cognitive Services Translator and get a subscription key.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
-# How to sign up for Translator
+# Create a Translator Resource
 
-## Sign in to the Azure portal
+## Prerequisites
 
-- Don't have an account? You can create a [free account](https://azure.microsoft.com/free/cognitive-services) to experiment at no charge.
-- Already have an account? [Sign in](https://ms.portal.azure.com/)
+To get started, you need an active Azure subscription.
+If you don't have one, you can [**create a free Azure account**](https://azure.microsoft.com/free/cognitive-services/).
 
-## Create a subscription for Translator
+## Create a Cognitive Services resource
 
-After you sign in to the portal, you can create a subscription to Translator as follows:
+### 1. Choose your resource type
 
-1. Select **+ Create a resource**.
-1. In the **Search the Marketplace** search box, enter **Translator** and then select it from the results.
-1. Select **Create** to define details for the subscription.
-1. From the **Pricing tier** list, select the pricing tier that best fits your needs.
-    1. Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and doesn't expire.
-    1. You can have only one free subscription for your account.
-1. Select **Create** to finish creating the subscription.
+Translator  can be accessed through two different resource types:
+* **Multi-service resource**—enables access to multiple services, including Translator,  with a single API key and endpoint.
+* **Single-service resource**—enables access to a single service API key and endpoint.  
 
-## Authentication key
+#### [Multi-service resource](#tab/multiservice)
 
-When you sign up for Translator, you get a personalized access key unique to your subscription. This key is required on each call to the Translator.
+> [!NOTE]
+> The multi-service resource is named **Cognitive Services** in the portal.
 
-1. Retrieve your authentication key by first selecting the appropriate subscription.
-1. Select **Keys** in the **Resource Management** section of your subscription's details.
-1. Copy either of the keys listed for your subscription.
+Create your [Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) in the Azure portal.
 
-## Learn, test, and get support
+Currently, the multi-service resource enables access to the following Cognitive Services:
 
-- [Code examples on GitHub](https://github.com/MicrosoftTranslator)
+|API Pillar|Service Name|
+|---|---|
+|Language | <ul><li>[Translator](../translator/translator-info-overview.md)</li><li>[Language Understanding (LUIS)](../luis/what-is-luis.md)</li><li>[Text Analytics](../text-analytics/overview.md)</li></ul>|
+|Vision| <ul><li>[Computer Vision](../computer-vision/overview.md)</li><li>[Face](../face/overview.md)</li></ul>|
+|Decision|<ul><li>[Content Moderator](../content-moderator/overview.md)</li></ul>|
+****
+
+#### [Translator single-service resource](#tab/singleservice)
+
+Create your [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource in the Azure portal.
+ 
+***
+>[!NOTE]
+>You can also access the create page as follows:
+> 1. Navigate to the Azure Portal.
+> 1. Select ➕**Create a resource**  from the Azure services menu.
+>1. In the **Search the Marketplace** search box, enter and select **Cognitive Services** ([multi-service resource](#create-a-cognitive-services-resource)) or **Translator** ([single-service resource](#create-a-cognitive-services-resource)).
+> 1. Select **Create** to go to the project details page.
+><br/><br/>
+
+### 2. Complete project and instance details
+
+> [!div class="checklist"]
+> * **Subscription**. Select one of your available Azure subscriptions.
+> * **Resource Group**. This Azure resource group will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group that shares the same lifecycle, permissions, and policies.
+> * **Resource Region**. Enter the [Azure geographical region](https://azure.microsoft.com/global-infrastructure/geographies/) that meets your needs.
+> * **Name**. Enter the name you have chosen for your resource. This will be your custom domain name in your endpoint.
+> * **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) that meets your needs:
+
+<ul style="padding-left:30px"><li>Each subscription has a free tier.</li><li>The free tier has the same features and functionalities as paid plans and doesn't expire.</li><li>You can have only one free subscription per account.</li></ul>
+
+> [!div class="checklist"]
+> * If you have created a multi-service resource, you will need to confirm additional usage details via the check boxes.
+> * Select **Review + Create**. 
+> * Review the service terms and select **Create** to deploy your resource. 
+> * After your resource has successfully deployed, select **Go to resource**.
+
+## Retrieve your authentication key and endpoint URL
+
+All Cognitive Services API requests require an authentication key. You can pass your key through a query string parameter or by specifying it in the HTTP request header.
+
+1. Retrieve your authentication key by selecting **Keys and Endpoint** from the left-rail menu.
+1. Copy either of the listed subscription keys.
+
+[!INCLUDE  cognitive-services-environment-variables]
+
+## Delete a  resource or resource group
+
+To remove a Cognitive Services or Translator resource, you can [delete the resource](azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). Deleting the resource group also deletes the resources contained in the group.
+
+## Learn more
+
+* **[Custom Translator](customization.md)**.  Customize text translations to reflect your domain-specific terminology and style.
+
+* **[Microsoft Translator code samples](https://github.com/MicrosoftTranslator)** available on GitHub.
+
+## More resources
+
 - [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
-
-Microsoft Translator will generally let your first couple of requests pass before it has verified the subscription account status. If the first few Translator requests succeed then the calls fail, the error response will indicate the problem. Please log the API response so you can see the reason.
-
-## Pricing options
-
-- [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
-
-## Customization
-
-Use Custom Translator to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator neural machine translation systems. [Learn more](customization.md)
-
-## Additional resources
-
 - [Get Started with Azure (3-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
-- [How to Pay with an Invoice](https://azure.microsoft.com/pricing/invoicing/)

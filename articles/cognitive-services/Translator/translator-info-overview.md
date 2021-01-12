@@ -48,7 +48,7 @@ Learn more about [Custom Translator](customization.md).
 
 ## Next steps
 
-- [Sign up](./translator-how-to-signup.md) for an access key.
+- [Create a Translator resource](./translator-how-to-signup.md) to get your access keys and endpoint.
 - Try our [Quickstart](quickstart-translator.md) to quickly call the Translator service.
 - [API reference](./reference/v3-0-reference.md) provides the technical documentation for the APIs.
 - [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
