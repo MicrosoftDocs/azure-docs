@@ -357,7 +357,7 @@ To register your application and add your application registration information t
 
 To quickly register your application, follow these steps:
 
-1. Go to the new  [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) pane.
+1. Go to the new <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> pane.  
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in a single click.
 

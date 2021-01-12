@@ -93,7 +93,7 @@ You can register your application in either of two ways.
 ### Option 1: Express mode
 
 You can quickly register your application by doing the following:
-1. Go to the [Azure portal - Application Registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application with just one click.
 
