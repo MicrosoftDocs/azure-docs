@@ -765,6 +765,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.directory/directoryRoles/allProperties/allTasks | Create and delete directoryRoles, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management. |
 | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
 | microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
@@ -826,6 +827,7 @@ Can read and manage compliance configuration and reports in Azure AD and Microso
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1128,6 +1130,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.directory/directoryRoles/eligibleMembers/read    | Read directoryRoles.eligibleMembers property in Azure Active Directory. |
 | microsoft.directory/directoryRoles/members/read    | Read directoryRoles.members property in Azure Active Directory. |
 | microsoft.directory/domains/basic/read    | Read basic properties on domains in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.directory/groups/appRoleAssignments/read    | Read groups.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/groups/basic/read    | Read basic properties on groups in Azure Active Directory. |
 | microsoft.directory/groups/hiddenMembers/read    | Read groups.hiddenMembers property in Azure Active Directory. |
@@ -1226,7 +1229,7 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 
 ### Hybrid Identity Administrator permissions
 
-Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning and authentication services. 
+Can manage AD to Azure AD cloud provisioning and federation settings. 
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -1244,8 +1247,10 @@ Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning a
 | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
-| microsoft.directory/federatedAuthentication/allProperties/allTasks | Manage all aspects of Active Directory Federated Services (ADFS) or 3rd party federation provider in Azure AD. |
+| microsoft.directory/domains/allProperties/read | Read all properties of domains. |
+| microsoft.directory/domains/federation/update | Update federation property of domains. |
 | microsoft.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
+| microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs. |
 | microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
@@ -1703,9 +1708,10 @@ Can read security information and reports,and manage configuration in Azure AD a
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
 | microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.directory/identityProtection/allProperties/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/identityProtection/allProperties/update | Update all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
@@ -1756,6 +1762,7 @@ Can read security information and reports in Azure AD and Microsoft 365.
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/bitlockerKeys/key/read | Read bitlocker key objects and properties (including recovery key) in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management. |
 | microsoft.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
@@ -1921,6 +1928,7 @@ Can manage all aspects of users and groups, including resetting passwords for li
 | microsoft.directory/contacts/basic/update | Update basic properties on contacts in Azure Active Directory. |
 | microsoft.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.directory/contacts/delete | Delete contacts in Azure Active Directory. |
+| microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management. |
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
 | microsoft.directory/groups/create | Create groups in Azure Active Directory. |

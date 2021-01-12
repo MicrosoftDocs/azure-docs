@@ -57,7 +57,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Automation](../../automation/index.yml):
 
-- Use automation accounts to access and work with delegated resources
+- Use Automation accounts to access and work with delegated resources
 
 [Azure Backup](../../backup/index.yml):
 
