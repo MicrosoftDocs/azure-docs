@@ -80,9 +80,6 @@ ms.author: aahi
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> Model versions of Key Phrase Extraction prior to 2020-07-01 have a 64 character limit. This limit is not present in later model versions.
-
 | Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Danish                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
