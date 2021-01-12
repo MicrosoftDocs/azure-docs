@@ -11,13 +11,13 @@ ms.author: jgao
 ---
 # Configure development environment for deployment scripts in templates
 
-Learn how to create a development environment for developing and testing ARM Template deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
+Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
 ## Prerequisites
 
 ### Azure PowerShell container
 
-If you don't have a Azure PowerShell deployment script, you can create a **hello.ps1** file with the following content:
+If you don't have an Azure PowerShell deployment script, you can create a *hello.ps1* file by using the following content:
 
 ```powershell
 param([string] $name)
@@ -28,7 +28,8 @@ $DeploymentScriptOutputs['text'] = $output
 ```
 
 ### Azure CLI container
-For an Azure CLI container image you can create a **hello.sh** file with the following content:
+
+For an Azure CLI container image, you can create a *hello.sh* file by using the following content:
 
 ```bash
 firstname=$1
@@ -39,7 +40,7 @@ echo $output | jq -r '.name.displayName'
 ```
 
 > [!NOTE]
-> When running Azure CLI deployment scripts there is an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides, this environment variable is not available in the development environment container. For details on how to work with Azure CLI outputs see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script)
+> When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-script).
 
 ## Use Azure PowerShell container instance
 
@@ -50,7 +51,7 @@ To author your scripts on your computer, you need to create a storage account an
 
 ### Create an Azure PowerShell container instance
 
-The following ARM template creates a container instance and a file share, and then mounts the file share to the container image.
+The following ARM template creates a container instance and a file share, and then mounts the file share to the container image:
 
 ```json
 {
@@ -164,11 +165,12 @@ The following ARM template creates a container instance and a file share, and th
   ]
 }
 ```
-The default value for the mount path is `/mnt/azscripts/azscriptinput`.  This is the path in the container instance where it is mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2**.   See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
 
-The template suspends the container instance after 1800 seconds. You have 30 minutes before the container instance goes into terminated state and the session ends.
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
+
+The template suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminated state and the session ends.
 
 To deploy the template:
 
@@ -182,9 +184,9 @@ New-AzResourceGroup -Location $location -name $resourceGroupName
 New-AzResourceGroupDeployment -resourceGroupName $resourceGroupName -TemplateFile $templatefile -projectName $projectName
 ```
 
-### Upload deployment script
+### Upload the deployment script
 
-Upload your deployment script to the storage account. The following is a PowerShell example:
+Upload your deployment script to the storage account. Here's an example of a PowerShell script:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name that you used earlier"
@@ -198,17 +200,17 @@ $context = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $st
 Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fileName -Force
 ```
 
-You can also upload the file by using the Azure portal or Azure CLI.
+You also can upload the file by using the Azure portal or the Azure CLI.
 
 ### Test the deployment script
 
-1. From the Azure portal, open the resource group where you deployed the container instance and the storage account.
-2. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the **Running** state.
-3. Select **Containers** from the left menu. You shall see a container instance. The container instance name is the project name with **container** appended.
+1. In the Azure portal, open the resource group where you deployed the container instance and the storage account.
+2. Open the container group. The default container group name is the project name appended with *cg*. The container instance is in the **Running** state.
+3. In the resource menu, select **Containers**. The container instance name is the project name appended with *container*.
 
-    ![deployment script connect container instance](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
+    ![Screenshot of the deployment script connect container instance in the Azure portal.](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
-4. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
+4. Select **Connect**, and then select **Connect**. If you can't connect to the container instance, restart the container group and try again.
 5. In the console pane, run the following commands:
 
     ```console
@@ -219,18 +221,18 @@ You can also upload the file by using the Azure portal or Azure CLI.
 
     The output is **Hello John Dole**.
 
-    ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+    ![Screenshot of the deployment script connect container instance test output in the console.](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
 
-## Use Azure CLI container instance
+## Use an Azure CLI container instance
 
-To author your scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance.
+To author your scripts on your computer, create a storage account and mount the storage account to the container instance. Then, you can upload your script to the storage account and run the script on the container instance.
 
 > [!NOTE]
-> The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
+> The storage account that you create to test your script isn't the same storage account that the deployment script service uses to execute the script. The deployment script service creates a unique name as a file share on every execution.
 
 ### Create an Azure CLI container instance
 
-The following ARM template creates a container instance and a file share, and then mounts the file share to the container image.
+The following ARM template creates a container instance and a file share, and then mounts the file share to the container image:
 
 ```json
 {
@@ -344,14 +346,15 @@ The following ARM template creates a container instance and a file share, and th
   ]
 }
 ```
-The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it is mounted to the file share.
+
+The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
 
 The default container image specified in the template is **mcr.microsoft.com/azure-cli:2.9.1**. See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
-  >[!IMPORTANT]
-  > Deployment script uses the available CLI images from Microsoft Container Registry(MCR) . It takes about one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If an un-supported version is used, the error message list the supported versions.
+> [!IMPORTANT]
+> The deployment script uses the available CLI images from Microsoft Container Registry (MCR). It takes about one month to certify a CLI image for a deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). If you use an unsupported version, the error message lists the supported versions.
 
-The template suspends the container instance after 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
+The template suspends the container instance after 1,800 seconds. You have 30 minutes before the container instance goes into a terminal state and the session ends.
 
 To deploy the template:
 
@@ -365,7 +368,7 @@ New-AzResourceGroup -Location $location -name $resourceGroupName
 New-AzResourceGroupDeployment -resourceGroupName $resourceGroupName -TemplateFile $templatefile -projectName $projectName
 ```
 
-### Upload deployment script
+### Upload the deployment script
 
 Upload your deployment script to the storage account. The following is a PowerShell example:
 
@@ -381,17 +384,17 @@ $context = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $st
 Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fileName -Force
 ```
 
-You can also upload the file by using the Azure portal or Azure CLI.
+You also can upload the file by using the Azure portal or the Azure CLI.
 
 ### Test the deployment script
 
-1. From the Azure portal, open the resource group where you deployed the container instance and the storage account.
-1. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the **Running** state.
-1. Select **Containers** from the left menu. You shall see a container instance.  The container instance name is the project name with **container** appended.
+1. In the Azure portal, open the resource group where you deployed the container instance and the storage account.
+1. Open the container group. The default container group name is the project name appended with *cg*. The container instance is shown in the **Running** state.
+1. In the resource menu, select **Containers**. The container instance name is the project name appended with *container*.
 
     ![deployment script connect container instance](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
-1. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
+1. Select **Connect**, and then select **Connect**. If you can't connect to the container instance, restart the container group and try again.
 1. In the console pane, run the following commands:
 
     ```console
@@ -406,7 +409,7 @@ You can also upload the file by using the Azure portal or Azure CLI.
 
 ## Use Docker
 
-You can use a pre-configured docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
+You can use a pre-configured Docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
 You also need to configure file sharing to mount the directory, which contains the deployment scripts into Docker container.
 
 1. Pull the deployment script container image to the local computer:
@@ -417,7 +420,7 @@ You also need to configure file sharing to mount the directory, which contains t
 
     The example uses version PowerShell 4.3.0.
 
-    To pull a CLI image from a Microsoft Container Registry (MCR):
+    To pull a CLI image from an MCR:
 
     ```command
     docker pull mcr.microsoft.com/azure-cli:2.0.80
@@ -425,7 +428,7 @@ You also need to configure file sharing to mount the directory, which contains t
 
     This example uses version CLI 2.0.80. Deployment script uses the default CLI containers images found [here](https://hub.docker.com/_/microsoft-azure-cli).
 
-1. Run the docker image locally.
+1. Run the Docker image locally.
 
     ```command
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -445,7 +448,7 @@ You also need to configure file sharing to mount the directory, which contains t
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. The following screenshot shows how to run a PowerShell script, given that you have a helloworld.ps1 file in the shared drive.
+1. The following screenshot shows how to run a PowerShell script, given that you have a *helloworld.ps1* file in the shared drive.
 
     ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
