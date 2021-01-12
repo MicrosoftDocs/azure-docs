@@ -53,12 +53,12 @@ In order to provision resources and run workloads on Azure, you have to sign in 
 
 1. Enter the command `Azure: Sign In` into the command palette to start the sign in process. Follow the instructions to complete sign in. 
 
-1. Create an Azure ML Compute instance to run your workload. Using Command Pallete enter the command `Azure ML: Create Compute`. 
+1. Create an Azure ML Compute instance to run your workload. Using Command pallet enter the command `Azure ML: Create Compute`. 
 1. Select your Azure Subscription
 1. Select **+ Create new Azure ML workspace** and enter name `turbofandemo`.
 1. Select the resource group that you have been using for this demo.
-1. You should be able to see the progress of workspace createion in the lower right hand corner of your VS Code window: **Creating Workspace: turobofandemo** (this can take a minute or two). 
-1. Please wait for the workspace to be cerated successfully. It should say **Azure ML workspace turbofandemo created**.
+1. You should be able to see the progress of workspace creation in the lower right hand corner of your VS Code window: **Creating Workspace: turobofandemo** (this can take a minute or two). 
+1. Please wait for the workspace to be created successfully. It should say **Azure ML workspace turbofandemo created**.
 
 
 ### Upload Jupyter Notebook files
