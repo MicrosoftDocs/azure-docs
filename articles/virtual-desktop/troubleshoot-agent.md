@@ -83,7 +83,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
    > ![Screenshot of successfully loaded broker global uri access](media/brokglobal.png)
  
 
-7. If the network is blocking broker connection, the pages will not load, as shown below. 
+7. If the network is blocking broker connection, the pages will not load, as shown in the following screen shot. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.png)
@@ -203,7 +203,7 @@ Open a PowerShell window as an administrator and run the following cmdlet:
 Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
 ```
 
-If the status listed for the session host(s) in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed
+If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed
 
 **Fix:** Reinstall the side-by-side stack:
 1. Open a command prompt as an administrator.
@@ -282,7 +282,7 @@ Follow these instructions if one or more of the following apply to you:
 
 ### Remove the session host from the host pool
 
-1. Go to the *Overview* page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
+1. Go to the **Overview** page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
 2. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
 3. Look at the list of session hosts and select the VM that you want to remove.
 4. Select **Remove**.  
