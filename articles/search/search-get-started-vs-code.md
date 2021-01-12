@@ -1,14 +1,21 @@
 ---
-title: include file
-description: include file
-manager: liamca
+title: 'Quickstart: Get started with Visual Studio Code'
+titleSuffix: Azure Cognitive Search
+description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search. 
+
 author: dereklegenzoff
+manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
-ms.topic: include
-ms.custom: include file
-ms.date: 11/17/2020
+ms.topic: quickstart
+ms.date: 01/12/2021
 ---
+
+# Get started with Visual Studio Code and Azure Cognitive Search
+
+This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 The article uses a Visual Studio code extension (preview) for Azure Cognitive Search REST APIs.
 
@@ -378,3 +385,18 @@ search=*&$select=HotelId,HotelName,Rating&searchFields=HotelName&facet=Category
 ## Open index in the portal
 
 If you'd like to view your search service in the portal, right-click the name of the search service and select **Open in Portal**. This will take you to the search service in the Azure portal.
+
+## Clean up resources
+
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+
+## Next steps
+
+Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up an enrichment pipeline](cognitive-search-tutorial-blob.md) that adds content transformations to indexing. For your next step, we recommend the following link:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)
