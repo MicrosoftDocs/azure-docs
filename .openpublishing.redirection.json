@@ -32827,7 +32827,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-troubleshooting-logs.md",
-      "redirect_url": "azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query",
+      "redirect_url": "/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query",
       "redirect_document_id": false
     },
     {
