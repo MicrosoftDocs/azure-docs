@@ -28,7 +28,7 @@ This article also describes [how to remove private endpoints later, but still us
 Private endpoints require a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md). Use the following instructions to create one for your speech resource.
 
 > [!WARNING]
-> A speech resource with a custom domain name enabled uses a different way to interact with the Speech service. You might have to adjust your application code for both of these scenarios: [private endpoint enabled](#use-a-speech-resource-with-a-custom-domain-name-and-private-endpoints-enabled) and [*not* private endpoint enabled](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> A speech resource with a custom domain name enabled uses a different way to interact with the Speech service. You might have to adjust your application code for both of these scenarios: [private endpoint enabled](#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled) and [*not* private endpoint enabled](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
 >
 > When you enable a custom domain name, the operation is [not reversible](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new speech resource.
 >
@@ -156,7 +156,7 @@ Copy the following code block, insert your preferred custom domain name, and sav
 }
 ```
 
-Copy the file to your current folder or upload it to Azure Cloud Shell and run the following command. (Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.)
+Copy the file to your current folder or upload it to Azure Cloud Shell and run the following command. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
 
 ```azurecli-interactive
 az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18" --body @subdomain.json
@@ -184,7 +184,7 @@ If the name is already taken, then you'll see the following response:
 
 To enable a custom domain name for the selected speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
 
-Select the Azure subscription that contains the speech resource. If your Azure account has only one active subscription, you can skip this step. (Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.)
+Select the Azure subscription that contains the speech resource. If your Azure account has only one active subscription, you can skip this step. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
 ```azurecli-interactive
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
@@ -293,8 +293,8 @@ The Speech service has REST APIs for [speech-to-text](rest-speech-to-text.md) an
 Speech-to-text has two REST APIs. Each API serves a different purpose, uses different endpoints, and requires a different approach when you're using it in the private-endpoint-enabled scenario.
 
 The speech-to-text REST APIs are:
-- [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
-- [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) is used for online transcription. 
+- [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3)
+- [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), which is used for online transcription 
 
 Usage of the speech-to-text REST API for short audio and the text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article. 
 
@@ -319,7 +319,7 @@ And the sample request URL needs to be converted to:
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/transcriptions
 ```
-This URL should be reachable from the virtual network with the private endpoint attached (provided the [correct DNS resolution](#resolve-dns-from-the virtual-network)).
+This URL should be reachable from the virtual network with the private endpoint attached (provided the [correct DNS resolution](#resolve-dns-from-the-virtual-network)).
 
 After you enable a custom domain name for a speech resource, you typically replace the host name in all request URLs with the new custom domain host name. All other parts of the request (like the path `/speechtotext/v3.0/transcriptions` in the earlier example) remain the same.
 
@@ -379,9 +379,13 @@ We'll use `my-private-link-speech.cognitiveservices.azure.com` as a sample speec
 
 ##### General principles
 
-Usually in SDK scenarios (as well as in the text-to-speech REST API scenarios), speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is: </p>`{region}.{speech service offering}.speech.microsoft.com`
+Usually in SDK scenarios (as well as in the text-to-speech REST API scenarios), speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is:
 
-An example DNS name is: </p>`westeurope.stt.speech.microsoft.com`
+`{region}.{speech service offering}.speech.microsoft.com`
+
+An example DNS name is:
+
+`westeurope.stt.speech.microsoft.com`
 
 All possible values for the region (first element of the DNS name) are listed in [Speech service supported regions](regions.md). The following table presents the possible values for the Speech service offering (second element of the DNS name):
 
