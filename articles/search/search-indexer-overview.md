@@ -16,18 +16,18 @@ ms.custom: fasttrack-edit
 
 An *indexer* in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external Azure data source and populates a search index using field-to-field mappings between source data and your index. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index.
 
-Indexers are based on Azure data source types or platforms, with individual indexers for Azure SQL, Azure Cosmos DB, Azure Table Storage and Blob Storage. When you configure an indexer, you'll specify a data source (origin), as well as an index (destination). Several data sources, such as Blob storage indexers, have additional properties specific to that content type.
+Indexers are Azure-only, with individual indexers for Azure SQL, Azure Cosmos DB, Azure Table Storage and Blob Storage. When you configure an indexer, you'll specify a data source (origin), as well as an index (destination). Several data sources, such as Blob storage indexers, have additional properties specific to that content type.
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a push model that simultaneously updates data in both Azure Cognitive Search and your external data source.
 
 ## Usage scenarios
 
-You can use an indexer as the sole means for data ingestion, or use a combination of techniques that include loading just some of the fields in your index, optionally transforming or enriching content along the way. The following table summarizes the main patterns of indexer usage.
+You can use an indexer as the sole means for data ingestion, or use a combination of techniques that include loading just some of the fields in your index, optionally transforming or enriching content along the way. The following table summarizes the main scenarios.
 
 | Scenario |Strategy |
 |----------|---------|
-| Single source | This pattern is the simplest: one data source is the sole content provider for a search index. From the source, you'll identify one field containing unique values to serve as the document key in the search index. The unique value will be used as an identifier. All other source fields are mapped implicitly or explicitly to corresponding fields in an index. </br></br>An important takeaway is that the value of a document key originates from source data. A search service does not generate key values. On subsequent runs, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten in the search index, depending on whether index fields are null or populated. |
-| Multiple sources| An index can accept content from multiple sources, where each indexer run brings in new content from a different source. </br></br>One outcome might be an index that gains documents after each indexer run, with entire documents created in full from each source. The challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key that is uniform in the search index. For example, if the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table, you can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.</br></br>An alternative outcome might be search documents that are partially populated on the first run, and then further populated by subsequent runs that bring in values from other sources. The challenge of this pattern is making sure that each indexing run is targeting the same document. Merging fields into an existing document requires a match on the document key. For a demonstration of this scenario, see [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
+| Single source | This pattern is the simplest: one data source is the sole content provider for a search index. From the source, you'll identify one field containing unique values to serve as the document key in the search index. The unique value will be used as an identifier. All other source fields are mapped implicitly or explicitly to corresponding fields in an index. </br></br>An important takeaway is that the value of a document key originates from source data. A search service does not generate key values. On subsequent runs, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated. |
+| Multiple sources| An index can accept content from multiple sources, where each run brings new content from a different source. </br></br>One outcome might be an index that gains documents after each indexer run, with entire documents created in full from each source. The challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key that is uniform in the search index. For example, if the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table, you can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.</br></br>An alternative outcome might be search documents that are partially populated on the first run, and then further populated by subsequent runs to bring in values from other sources. The challenge of this pattern is making sure that each indexing run is targeting the same document. Merging fields into an existing document requires a match on the document key. For a demonstration of this scenario, see [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
 | Content transformation | Cognitive Search supports optional [AI enrichment](cognitive-search-concept-intro.md) behaviors that add image analysis and natural language processing to create new searchable content and structure. AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md), attached to an indexer. To perform AI enrichment, the indexer still needs an index and data source, but in this scenario, adds skillset processing to indexer execution. |
 
 ## Approaches for creating and managing indexers
@@ -38,9 +38,9 @@ You can create and manage indexers using these approaches:
 + [Service REST API](/rest/api/searchservice/Indexer-operations)
 + [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
-If you're using an SDK, use [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) to work with indexers, data sources, and skillsets. The above link is for the .NET SDK, but all SDKs provide a SearchIndexerClient and similar APIs.
+If you're using an SDK, create a [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) to work with indexers, data sources, and skillsets. The above link is for the .NET SDK, but all SDKs provide a SearchIndexerClient and similar APIs.
 
-Initially, new data sources are announced as a preview feature and is REST-only. After graduating to general availability, full support is built into the portal and the various SDKs, each of which are on their own release schedules.
+Initially, new data sources are announced as preview features and are REST-only. After graduating to general availability, full support is built into the portal and into the various SDKs, each of which are on their own release schedules.
 
 ## Permissions
 
@@ -60,7 +60,7 @@ Indexers crawl data stores on Azure.
 + [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
-## Indexer Stages
+## Stages of indexing
 
 On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
 
@@ -129,9 +129,9 @@ api-key: [Search service admin key]
 ```
 
 > [!NOTE]
-> When Run API returns successfully, the indexer invocation has been scheduled, but the actual processing happens asynchronously. 
+> When Run API returns a success code, the indexer invocation has been scheduled, but the actual processing happens asynchronously. 
 
-You can monitor the indexer status in the portal or through Get Indexer Status API. 
+You can monitor the indexer status in the portal or through [Get Indexer Status API](/rest/api/searchservice/get-indexer-status). 
 
 <a name="GetIndexerStatus"></a>
 
