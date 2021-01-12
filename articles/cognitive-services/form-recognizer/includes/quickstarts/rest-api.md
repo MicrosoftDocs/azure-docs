@@ -27,7 +27,7 @@ ms.author: pafarley
 * A URL for an image of an invoice. You can use a [sample document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
 
 
-## Recognize form content
+## Analyze layout
 
 You can use Form Recognizer to recognize and extract tables, lines, and words in documents, without needing to train a model. Before you run the command, make these changes:
 
@@ -314,7 +314,7 @@ See the following invoice image and its corresponding JSON output. The output ha
 
 ---
 
-## Recognize receipts
+## Analyze receipts
 
 To start analyzing a receipt, call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
@@ -694,7 +694,7 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 }
 ```
 
-## Recognize business cards
+## Analyze business cards
 
 # [v2.0](#tab/v2-0)  
 
@@ -856,7 +856,7 @@ The script will print responses to the console until the **Analyze Business Card
 
 ---
 
-## Recognize invoices
+## Analyze invoices
 
 # [version 2.0](#tab/v2-0)
 
