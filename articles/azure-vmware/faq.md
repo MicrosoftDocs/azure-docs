@@ -25,6 +25,10 @@ The service is continuously being added to new regions, so view the [latest serv
 
 All Azure services will be available to Azure VMware Solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
+#### What guest operating systems are compatible with Azure VMware Solution?
+
+You can find information about guest operating system compatibility with vSphere by using the [VMware Compatibility Guide](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16).  To identify the version of vSphere running in Azure VMware Solution, see [VMware software versions](concepts-private-clouds-clusters.md#vmware-software-versions).
+
 #### Do I use the same tools that I use now to manage private cloud resources?
 
 Yes. The Azure portal is used for deployment and several management operations. vCenter and NSX Manager are used to manage vSphere and NSX-T resources.
