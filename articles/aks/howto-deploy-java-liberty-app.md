@@ -46,9 +46,9 @@ To push image to the ACR, you need to log into it first. Run the following comma
 
 ```azurecli-interactive
 REGISTRY_NAME=youruniqueacrname
-LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query loginServer | tr -d '"')
-USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query username | tr -d '"')
-PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query passwords[0].value | tr -d '"')
+LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
+USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
+PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
 
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
@@ -59,9 +59,15 @@ You should see `Login Succeeded` at the end of command output if you log into th
 
 Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node, and attaches the ACR created before. This will take several minutes to complete.
 
-```azurecli-interactive
-az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --attach-acr youruniqueacrname
-```
+1. Follow [Quickstart: Check access for a user to Azure resources](../role-based-access-control/check-access.md) to check your access level for the subscription.
+1. If your role is **Owner**:
+   ```azurecli-interactive
+   az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --attach-acr youruniqueacrname
+   ```
+1. If your role is **Contributor**, ask the owner of the subscription to give you an Azure service principal with **Contributor** role assignment of the subscription, or create a new one by following [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Use the service principal to create the AKS cluster:
+   ```azurecli-interactive
+   az aks create --resource-group java-liberty-project --name myAKSCluster --service-principal <client-id> --client-secret <client-secret> --node-count 1 --generate-ssh-keys --attach-acr youruniqueacrname
+   ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
