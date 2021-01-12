@@ -147,7 +147,7 @@ You can now create budgets for the billing account, allowing you to track costs 
 Your new billing account provides improved export functionality. For example, you can create exports for actual costs that include purchases or amortized costs (reservation purchase costs spread across the purchase term). You can also create an export for the billing account to get usage and charges data across all subscriptions in the billing account. For more information about exports, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
 
 > [!NOTE]
-> Exports created with the **Monthly export of last month's costs** type before your account update export data for the last calendar month, not the last billing period.
+> Exports created before your account update with the **Monthly export of last month's costs** type will export data for the last calendar month, not the last billing period.
 
 For example, for a billing period from December 23 to January 22, the exported CSV file would have cost and usage data for that period. After the update, the export will contain data for the calendar month. For example, January 1 to January 31 and so on.
 
