@@ -29,6 +29,16 @@ These changes include:
 -  The `instrumentationSettings` node is no longer present. All content in `instrumentationSettings` is moved to the root level. 
 -  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation`, and `heartbeat` are moved out of `preview` to the root level.
 
+## Some logging is not auto-collected
+
+Logging is only captured if it first meets the logging frameworks' configured threshold,
+and second also meets the Application Insights configured threshold.
+
+The best way to know if a particular logging statement meets the logging frameworks' configured threshold
+is to confirm that it is showing up in your normal application log (e.g. file or console).
+
+See the [auto-collected logging configuration](./java-standalone-config.md#auto-collected-logging) for more details.
+
 ## Import SSL certificates
 
 If you're using the default Java keystore, it will already have all of the CA root certificates. You shouldn't need to import more SSL certificates.

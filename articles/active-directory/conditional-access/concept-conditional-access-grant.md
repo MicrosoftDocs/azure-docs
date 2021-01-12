@@ -99,6 +99,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Microsoft 365 Admin
 
 **Remarks**
 
@@ -107,6 +108,7 @@ This setting applies to the following iOS and Android apps:
    - Only supports the iOS and Android for device platform condition.
    - A broker app is required to register the device. The broker app can be the Microsoft Authenticator for iOS, or either the Microsoft Authenticator or Microsoft Company portal for Android devices.
 - Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
+- Using Azure AD Application Proxy to enable the Power BI mobile app to connect to on premises Power BI Report Server is not supported with conditional access policies that require the Microsoft Power BI app as an approved client app.
 
 See the article, [How to: Require approved client apps for cloud app access with Conditional Access](app-based-conditional-access.md) for configuration examples.
 

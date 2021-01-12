@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: aahi
 ---
 
@@ -19,8 +19,6 @@ The Text Analytics API's Sentiment Analysis feature provides two ways for detect
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
 ## Sentiment Analysis versions and features
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Feature                                   | Sentiment Analysis v3 | Sentiment Analysis v3.1 (Preview) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -42,11 +40,11 @@ The labels are *positive*, *negative*, and *neutral*. At the document level, the
 | At least one `negative` sentence and at least one `positive` sentence are in the document.    | `mixed`                 |
 | All sentences in the document are `neutral`.                                                  | `neutral`               |
 
-Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1.
+Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1. For more information, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## Opinion Mining
 
-Opinion Mining is a feature of Sentiment Analysis, starting in version 3.1-preview.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text. 
+Opinion Mining is a feature of Sentiment Analysis, starting in the preview of version 3.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
 
 For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", Opinion Mining will locate aspects in the text, and their associated opinions and sentiments. Sentiment Analysis might only report a negative sentiment.
 
@@ -69,7 +67,7 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
 
-#### [Version 3.1-preview.2](#tab/version-3-1)
+#### [Version 3.1-preview.3](#tab/version-3-1)
 
 [Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -86,17 +84,17 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 > [!NOTE]
 > You can find your key and endpoint for your Text Analytics resource on the Azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-#### [Version 3.1-preview.2](#tab/version-3-1)
+#### [Version 3.1-preview.3](#tab/version-3-1)
 
 **Sentiment Analysis**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
 
 **Opinion Mining**
 
 To get Opinion Mining results, you must include the `opinionMining=true` parameter. For example:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
 
 This parameter is set to `false` by default. 
 
@@ -139,7 +137,7 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/text-offsets.md) for more information.
 
-#### [Version 3.1-preview.2](#tab/version-3-1)
+#### [Version 3.1-preview.3](#tab/version-3-1)
 
 ### Sentiment Analysis and Opinion Mining example response
 
@@ -297,5 +295,5 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 ## See also
 
 * [Text Analytics overview](../overview.md)
-* [Using the Text Analytics client library](../quickstarts/text-analytics-sdk.md)
+* [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)

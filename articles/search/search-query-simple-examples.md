@@ -56,9 +56,7 @@ For interactive queries, you don't have to specify anything: simple is the defau
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 {
-    "count": true,
-    "queryType": "simple",
-    "search": "*"
+    "queryType": "simple"
 }
 ```
 

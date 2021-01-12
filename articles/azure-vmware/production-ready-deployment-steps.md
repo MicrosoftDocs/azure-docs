@@ -57,7 +57,7 @@ Define the NSX-T admin password.  During the deployment, you'll create an NSX-T 
 
 The first step in planning the deployment is to plan out the IP segmentation.  Azure VMware Solution ingests a /22 network that you provide. Then carves it up into smaller segments and then uses those IP segments for vCenter, VMware HCX, NSX-T, and vMotion.
 
-Azure VMware Solution connects to your Microsoft Azure Virtual Network via an internal ExpressRoute circuit. In most cases, it connects to your data center via ExpressRoute Global Reach. 
+Azure VMware Solution connects to your Microsoft Azure Virtual Network through an internal ExpressRoute circuit. In most cases, it connects to your data center through ExpressRoute Global Reach. 
 
 Azure VMware Solution, your existing Azure environment, and your on-premises environment all exchange routes (typically). That being the case, the /22 CIDR network address block you define in this step shouldn't overlap anything you already have on-premises or Azure.
 
@@ -95,7 +95,7 @@ To access your Azure VMware Solution private cloud, the ExpressRoute circuit, wh
 The ExpressRoute circuit from Azure VMware Solution connects to an ExpressRoute gateway in the Azure Virtual Network that you define in this step.  
 
 >[!IMPORTANT]
->You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.  
+>You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway does not provide transitive routing between its connected circuits.  
 
 If you want to connect the ExpressRoute circuit from Azure VMware Solution to an existing ExpressRoute gateway, you can do it after deployment.  
 

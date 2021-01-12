@@ -53,6 +53,8 @@ landingContent:
             url: configure-ssl-bindings.md
           - text: Run app in staged environments
             url: deploy-staging-slots.md
+          - text: Securely access storage and Microsoft Graph
+            url: scenario-secure-app-overview.md
       - linkListType: how-to-guide
         links:
           - text: Enable diagnostic logs
