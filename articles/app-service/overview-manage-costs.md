@@ -63,7 +63,7 @@ You can pay for Azure App Service charges with your EA monetary commitment credi
 
 An easy way to estimate and optimize your App Service cost beforehand is by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-To use the pricing calculator, click **App Service** in the **Products** tab. Then, scroll down to work with the calculator.
+To use the pricing calculator, click **App Service** in the **Products** tab. Then, scroll down to work with the calculator. The following screenshot is an example and might not reflect current pricing.
 
 ![Example showing estimated cost in the Azure Pricing calculator](media/overview-manage-costs/pricing-calculator.png)
 
@@ -76,7 +76,7 @@ To create an app and view the estimated price:
 2. On the create page, scroll down to **App Service plan**, and click **Create new**.
 1. Specify a name and click **OK**.
 1. Next to **Sku and size**, click **Change size**.
-1. Review the estimated price shown in the summary.
+1. Review the estimated price shown in the summary. The following screenshot is an example and might not reflect current pricing.
 
     ![Review estimated cost for each pricing tier in the portal](media/overview-manage-costs/pricing-estimates.png)
 
@@ -161,7 +161,7 @@ You can also [export your cost data](https://docs.microsoft.com/azure/cost-manag
 
 ## Next steps
 
-- Learn more on how pricing works with Azure Storage. See [https://azure.microsoft.com/pricing/details/app-service/](App Service pricing).
+- Learn more on how pricing works with Azure Storage. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 - Learn [how to optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
