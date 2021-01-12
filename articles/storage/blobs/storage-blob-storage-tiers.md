@@ -172,12 +172,12 @@ All storage accounts use a pricing model for block blob storage based on the tie
 
 ## Availability
 
-The hot and cool access tiers, along with blob-level tiering, are available in all regions. Archive storage is available in select regions. For a complete list, see [Azure products available by region](https://azure.microsoft.com/regions/services/).
+Different access tiers, along with blob-level tiering, are available in select regions. For a complete list, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ## Next steps
 
 Learn how to manage blobs and accounts across access tiers.
 
-- [How to manage the tier of a blob in an Azure Storage account](manage-blob-access-tier.md)
+- [How to manage the tier of a blob in an Azure Storage account](manage-access-tier.md)
 - [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
 - [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md)

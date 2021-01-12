@@ -58,6 +58,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ## Next steps
 
-- [How to manage the tier of a blob in an Azure Storage account](../blobs/manage-blob-access-tier.md)
+- [How to manage the tier of a blob in an Azure Storage account](../blobs/manage-access-tier.md)
 - [Determine if premium performance would benefit your app](../blobs/storage-blob-performance-tiers.md)
 - [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../blobs/monitor-blob-storage.md)

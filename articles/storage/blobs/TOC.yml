@@ -324,7 +324,7 @@
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
       - name: Manage the access tier of a blob
-        href: manage-blob-access-tier.md
+        href: manage-access-tier.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
       - name: Use blob index tags
