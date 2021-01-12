@@ -34,7 +34,7 @@ This release also contains the following updates:
 - All cumulative Windows updates and .NET framework updates released through October 2020.
 - The baseboard management controller (BMC) firmware version is upgraded from 3.32.32.32 to 3.36.36.36 during factory install to address incompatibility with newer Dell power supply units.<!-- Verify. Does this apply only to Data Box Gateway or to the gateway feature of both DBG and Edge FPG?-->
 - The static IP address for Azure Data Box Gateway is retained across software updates.
-- This release supports IoT Edge 1.0.9.3 on Azure Stack Edge devices.
+- This release supports IoT Edge 1.0.9.3 on Azure Stack Edge devices.--al
 
 ## Known issues in this release
 
