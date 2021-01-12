@@ -37,7 +37,7 @@ The basic steps for implementing ELT are:
 5. Transform the data.
 6. Insert the data into production tables.
 
-For a loading tutorial, see [loading data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
+For a loading tutorial, see [loading data from Azure blob storage](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## 1. Extract the source data into text files
 
@@ -119,7 +119,7 @@ Use the following SQL data type mapping when loading Parquet files:
 >**"HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException: ..."**
 >- Loading a value outside the range of 0-127 into a tinyint column for Parquet and ORC file format is not supported.
 
-For an example of creating external objects, see [Create external tables](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
+For an example of creating external objects, see [Create external tables](../sql/develop-tables-external-tables.md?tabs=sql-pool).
 
 ### Format text files
 
@@ -138,11 +138,11 @@ It is best practice to load data into a staging table. Staging tables allow you 
 
 To load data, you can use any of these loading options:
 
-- The [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. 
-- [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) requires you to define external data objects.
+- The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. 
+- [PolyBase with T-SQL](./load-data-from-azure-blob-storage-using-copy.md) requires you to define external data objects.
 - [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
-- [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
+- [PolyBase with Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
 
 ### Other loading options
 

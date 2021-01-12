@@ -101,7 +101,22 @@ Configuration server/scale-out process server tries to connect to the source VM 
 
 To resolve the error:
 
+* Verify that the user account has administrative access on the source computer, with either a local account or domain account. If you aren't using a domain account, you need to disable Remote User Access control on the local computer.
+  * To manually add a registry key that disables Remote User Access control:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Add a new `DWORD`: `LocalAccountTokenFilterPolicy`
+    * Set the value to `1`
+  * To add the registry key, from a command prompt, run the following command:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Ensure you can ping your source machine from the configuration server. If you've chosen the scale-out process server during enable replication, ensure you can ping your source machine from the process server.
+
+* Ensure that the File and Printer sharing service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
+
+* Ensure that WMI service is enabled on your virtual machine. Check the steps [here](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+
+* Ensure that the network shared folders on your virtual machine, are accessible from the process server. Check the steps [here](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * From the source server machine command line, use `Telnet` to ping the configuration server or scale-out process server on HTTPS port 135 as shown in the following command. This command checks if there are any network connectivity issues or firewall port blocking issues.
 
