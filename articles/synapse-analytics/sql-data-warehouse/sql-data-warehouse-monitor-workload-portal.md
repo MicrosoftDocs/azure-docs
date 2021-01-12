@@ -19,7 +19,7 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 ## Prerequisites
 
 - Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](load-data-from-azure-blob-storage-using-polybase.md).
+- SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## Create a Log Analytics workspace
 
@@ -58,7 +58,7 @@ Navigate to your Log Analytics workspace where you can do the following:
 - Create log alerts
 - Pin query results to a dashboard
 
-For details on the capabilities of log queries, visit the following [documentation](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+For details on the capabilities of log queries, visit the following [documentation](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
 
 ![Log Analytics workspace editor](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 
