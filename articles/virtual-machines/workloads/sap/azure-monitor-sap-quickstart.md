@@ -75,6 +75,18 @@ Sign in to the Azure portal at https://portal.azure.com
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image shows options related to the HA cluster Pacemaker provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
+### OS (Linux) Provider 
+
+1. Select OS (Linux) from the Drop Down 
+
+> [!IMPORTANT]
+> To configure OS (Linux)) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information see [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Input a name which will be the identifier for the BareMetal Instance.
+3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
+4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment. 
+
+
 ### Microsoft SQL Server provider
 
 1. Prior to adding the Microsoft SQL Server provider, you should run the following script in SQL Server Management Studio to create a user with the appropriate permissions needed to configure the provider.
