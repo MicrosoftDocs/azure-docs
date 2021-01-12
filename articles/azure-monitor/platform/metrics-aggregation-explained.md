@@ -11,11 +11,11 @@ ms.subservice: metrics
 
 # Azure Monitor Metrics metrics aggregation and display explained
 
-This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](metrics-custom-overview.md). This also applies to standard [Application Insights metrics](../app/app-insights-overview.md) . It's a complex topic and not necessary to understand all the information in this article to use Azure Monitor metrics effectively.
+This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md) . It's a complex topic and not necessary to understand all the information in this article to use Azure Monitor metrics effectively.
 
 ## Metric terms and definitions
 
-When you add a metric to a chart, metrics explorer automatically pre-selects its default aggregation. The default makes sense in the basic scenarios, but you can use different aggregations to gain additional insights about the metric. Viewing different aggregations on a chart requires that you understand how metrics explorer handles them.
+When you add a metric to a chart, metrics explorer automatically pre-selects its default aggregation. The default makes sense in the basic scenarios, but you can use different aggregations to gain more insights about the metric. Viewing different aggregations on a chart requires that you understand how metrics explorer handles them.
 
 Let's define a few terms clearly first: 
 
@@ -23,7 +23,7 @@ Let's define a few terms clearly first:
 - **Time period** – A generic period of time.
 - **Time interval** - The period of time between the gathering of two metric values. 
 - **Time range** - The time period displayed on a chart. Typical default is 24 hours. Only specific ranges are available. 
-- **Time granularity or time grain – The time period used to aggregate values together for the purpose of displaying them on a chart. Only specific ranges are available. Current minimum is 1 minute. The time granularity value should be smaller than the selected time range to be useful, otherwise just one value is shown for the entire chart. 
+- **Time granularity or time grain – The time period used to aggregate values together to allow display on a chart. Only specific ranges are available. Current minimum is 1 minute. The time granularity value should be smaller than the selected time range to be useful, otherwise just one value is shown for the entire chart. 
 - **Aggregation type** – A type of statistic calculated from multiple metric values.  
 - **Aggregate** – The process of taking multiple input values and then using them to produce a single output value via the rules defined by the aggregation type. For example, taking an average of multiple values.  
 
@@ -84,7 +84,7 @@ The minimum time interval is 1 minute, but the underlying system may capture dat
 
 ### Splitting and Filtering by Dimensions
 
-Metrics are captured for each individual resource. However, the level at which the metrics are collected, stored, and able to be charted may vary. This level is represented by additional **metrics dimensions**. Each resource provider gets to define how detailed the data they collect is.
+Metrics are captured for each individual resource. However, the level at which the metrics are collected, stored, and able to be charted may vary. This level is represented by additional metrics available in **metrics dimensions**. Each resource provider gets to define how detailed the data they collect is.
 
 When you chart a metric in metric explorer, you have the option to "split" the chart by a dimension.  Splitting a chart means that you are looking into the underlying data for more detail and seeing that data charted or filtered in metric explorer.
 
