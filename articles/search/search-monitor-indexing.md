@@ -1,7 +1,7 @@
 ---
-title: Monitor queries
+title: Monitor indexing
 titleSuffix: Azure Cognitive Search
-description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in resource logs.
+description: Monitor indexing-related metrics for performance and throughput. 
 
 manager: nitinme
 author: HeidiSteen
@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2021
 ---
 
-# Monitor query requests in Azure Cognitive Search
+# Monitor indexing workloads in Azure Cognitive Search
 
-This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
+This article explains how to monitor the status and performance of indexing workloads.
 
-The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
+<!--  
+Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
 
 Conditions that maximize the integrity of data measurement include:
 
@@ -120,8 +121,8 @@ When you enable resource logging, the system captures query requests in the **Az
 
 1. Run the following expression to search Query.Search operations, returning a tabular result set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements exclude query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
 
-   ```kusto
-      AzureDiagnostics
+   ```
+   AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
    | where Query_s != "?api-version=2020-06-30&search=*"
@@ -142,7 +143,7 @@ Add the duration column to get the numbers for all queries, not just those that 
 
 1. Run the following query to return queries, sorted by duration in milliseconds. The longest-running queries are at the top.
 
-   ```Kusto
+   ```
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search"
@@ -178,6 +179,10 @@ When pushing the limits of a particular replica-partition configuration, setting
    ![Alert details](./media/search-monitor-usage/alert-details.png "Alert details")
 
 If you specified an email notification, you will receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
+
+<!-- ## Report query data
+
+Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## Next steps
 

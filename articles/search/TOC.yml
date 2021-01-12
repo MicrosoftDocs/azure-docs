@@ -400,6 +400,8 @@
       href: search-monitor-logs-powerbi.md
     - name: Monitor query activity
       href: search-monitor-queries.md
+    - name: Monitor indexing
+      href: search-monitor-indexing.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
   - name: Troubleshoot
