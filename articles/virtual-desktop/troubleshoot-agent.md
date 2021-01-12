@@ -83,7 +83,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
    > ![Screenshot of successfully loaded broker global uri access](media/brokglobal.PNG)
  
 
-7. If the network is blocking broker connection, the pages will not load, as shown below. 
+7. If the network is blocking broker connection, the pages will not load, as shown in the following screen shot. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.PNG)
