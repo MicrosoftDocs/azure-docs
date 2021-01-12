@@ -24,7 +24,7 @@ When you use a private link, traffic between your Virtual Network and workspace 
 
 Private endpoint uses a private IP address from your Virtual Network to effectively bring the service into your Virtual Network. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. 
 
-Learn more about [private links and private endpoints](https://docs.microsoft.com/azure/private-link/).
+Learn more about [private links and private endpoints](../../private-link/index.yml).
 
 >[!IMPORTANT]
 >Managed private endpoints are only supported in Azure Synapse workspaces with a Managed workspace Virtual Network.
