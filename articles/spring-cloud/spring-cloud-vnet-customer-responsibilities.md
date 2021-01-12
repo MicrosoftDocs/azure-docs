@@ -47,5 +47,5 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI.​ |
 
 ## See also
-[Access your application in private network](spring-cloud-access-app-virtual-network.md)
+[Access your application in a private network](spring-cloud-access-app-virtual-network.md)
 [Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md) 

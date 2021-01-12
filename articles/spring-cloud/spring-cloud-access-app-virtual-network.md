@@ -1,6 +1,6 @@
 ---
 title:  "Azure Spring Cloud access app in virtual network"
-description: Access app in Azure Spring Cloud in virtual network.
+description: Access app in an Azure Spring Cloud in virtual network.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.date: 11/11/2020
 ms.custom: devx-track-java
 ---
 
-# Access your application in private network
+# Access your application in a private network
 
 This document explains how to access an endpoint for your application in a private network.  In order to get access, you need to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
