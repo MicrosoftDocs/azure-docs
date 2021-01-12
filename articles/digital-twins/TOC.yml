@@ -63,9 +63,9 @@
     items:
     - name: Manage models
       href: how-to-manage-model.md
-    - name: Integrate industry-standard ontologies
+    - name: Integrate industry-standard models
       href: how-to-integrate-models.md
-    - name: Extend industry-standard ontologies
+    - name: Extend DTDL industry ontologies
       href: how-to-extend-ontologies.md
     - name: Parse and validate models
       href: how-to-parse-models.md

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Extend DTDL ontologies
+title: Extend DTDL industry ontologies
 titleSuffix: Azure Digital Twins
 description: Learn how to extend an industry ontology
 author: baanders
