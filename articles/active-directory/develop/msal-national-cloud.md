@@ -67,7 +67,7 @@ To enable your MSAL.js application for sovereign clouds:
 
 ### Step 1: Register your application
 
-1. Sign in to the [Azure portal](https://portal.azure.us/).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
    To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints).
 

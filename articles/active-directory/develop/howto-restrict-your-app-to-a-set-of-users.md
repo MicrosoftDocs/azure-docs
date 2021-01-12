@@ -43,7 +43,7 @@ There are two ways to create an application with enabled user assignment. One re
 
 ### Enterprise applications (requires the Global Administrator role)
 
-1. Go to the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator**.
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> and sign in as a **Global Administrator**.
 1. On the top bar, select the signed-in account. 
 1. Under **Directory**, select the Azure AD tenant where the app will be registered.
 1. In the navigation on the left, select **Azure Active Directory**. If Azure Active Directory is not available in the navigation pane, follow these steps:
@@ -63,7 +63,7 @@ There are two ways to create an application with enabled user assignment. One re
 
 ### App registration
 
-1. Go to the [**Azure portal**](https://portal.azure.com/).
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. On the top bar, select the signed-in account. 
 1. Under **Directory**, select the Azure AD tenant where the app will be registered.
 1. In the navigation on the left, select **Azure Active Directory**.
