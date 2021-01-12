@@ -552,4 +552,4 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
 - [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
