@@ -19,7 +19,7 @@ This article will guide you through solutions to these common scenarios and how 
 ## Error: The RDAgentBootLoader and/or Remote Desktop Agent Loader has stopped running
 
 If you're seeing any of the following issues, this means that the boot loader, which loads the agent, was unable to install the agent properly and the agent service isn't running:
-- RDAgentBootLoader* is either stopped or not running.
+- **RDAgentBootLoader** is either stopped or not running.
 - There is no status for **Remote Desktop Agent Loader**.
 
 **Fix:** Start the RDAgent boot loader.
@@ -34,15 +34,15 @@ If you're seeing any of the following issues, this means that the boot loader, w
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_REGISTRATION_TOKEN** in the description, the registration token that you have isn't recognized as valid.
 
-**Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgent BootLoader, and check that IsRegistered is 1.
+**Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgentBootLoader, and check that IsRegistered is 1.
 
 1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm) section.
-2. Open the Registry Editor (in the Start menu, type *regedit*). 
-3. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent. 
-4. Double-click *IsRegistered*. 
-5. In the *Value data:* entry box, type *0* and select *Ok*. 
-6. Double-click *RegistrationToken*. 
-7. In the *Value data:* entry box, paste the registration token from step 1. 
+2. Open the Registry Editor. 
+3. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **RDInfraAgent**.
+4. Double-click **IsRegistered**. 
+5. In the **Value data:** entry box, type **0** and select **Ok**. 
+6. Double-click **RegistrationToken**. 
+7. In the **Value data:** entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 0](media/isregisteredCopy.png)
@@ -52,7 +52,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 10. Enter **net start RDAgentBootLoader**. 
 11. Open the Registry Editor.
 12. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **RDInfraAgent**.
-13. Verify that *IsRegistered* is set to 1 and there is nothing in the data column for *RegistrationToken*. 
+13. Verify that **IsRegistered** is set to 1 and there is nothing in the data column for **RegistrationToken**. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 1](media/isregistered.png)
@@ -62,19 +62,19 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_FORM** or **NOT_FOUND. URL** in the description, something went wrong with the communication between the agent and the broker. The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
 
 **Fix:** To check that you can reach BrokerURI and BrokerURIGlobal:
-1. Open the Registry Editor (in Start menu, type *regedit*). 
+1. Open the Registry Editor. 
 2. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **RDInfraAgent**. 
-3. Make note of the values for *BrokerURI* and *BrokerURIGlobal*.
+3. Make note of the values for **BrokerURI** and **BrokerURIGlobal**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of broker uri and broker uri global](media/brokeruri.png)
 
  
 4. Open a browser and go to *\<BrokerURI\>api/health*. 
-   - Make sure you use the value from step 3 in the *BrokerURI*. In this section's example, it would be <https://rdbroker-g-us-r0.wvd.microsoft.com/api/health>.
+   - Make sure you use the value from step 3 in the **BrokerURI**. In this section's example, it would be <https://rdbroker-g-us-r0.wvd.microsoft.com/api/health>.
 5. Open another tab in the browser and go to *\<BrokerURIGlobal\>api/health*. 
-   - Make sure you use the value from step 3 in the *BrokerURIGlobal* link. In this section's example, it would be <https://rdbroker.wvd.microsoft.com/api/health>.
-6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says :RDBroker is Healthy," as shown in the following screen shots. 
+   - Make sure you use the value from step 3 in the **BrokerURIGlobal** link. In this section's example, it would be <https://rdbroker.wvd.microsoft.com/api/health>.
+6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says **"RDBroker is Healthy"** as shown in the following screen shots. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of successfully loaded broker uri access](media/brokuri.png)
@@ -107,7 +107,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 **Fix:** Disable the following policies:
    - Turn off Windows Installer  
-      - Category Path: Computer Configuration\Administrative Templates\Windows Components\Windows Installer\  
+      - Category Path: Computer Configuration\Administrative Templates\Windows Components\Windows Installer
    
 >[!NOTE]
 >This isn't a comprehensive list of policies, just the ones we're currently aware of.
@@ -129,7 +129,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 **Fix:** Disable the following policies:
    - Prevent access to the command prompt   
-      - Category Path: User Configuration\Administrative Templates\System\ 
+      - Category Path: User Configuration\Administrative Templates\System
     
 >[!NOTE]
 >This isn't a comprehensive list of policies, just the ones we're currently aware of.
@@ -144,30 +144,30 @@ To disable a policy:
 
 ## Error: Stack listener isn't working on Windows 10 2004 VM
 
-Run *qwinsta* in your command prompt and make note of the version number that appears next to *rdp-sxs*. If you're not seeing the *rdp-tcp* and *rdp-sxs* components say *Listen* next to them or they aren't showing up at all after running *qwinsta*, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
+Run **qwinsta** in your command prompt and make note of the version number that appears next to **rdp-sxs**. If you're not seeing the **rdp-tcp** and **rdp-sxs** components say **Listen** next to them or they aren't showing up at all after running **qwinsta**, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
 
 **Fix:** Change fEnableWinStation and fReverseConnectMode to 1.
 1. Open the Registry Editor.
 2. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-3. Under *WinStations* you may see several folders for different stack versions, select the folder that matches the version information you saw when running *qwinsta* in your Command Prompt.
-4. Find *fReverseConnectMode* and make sure its data value is 1. Also make sure that *fEnableWinStation* is set to 1.
+3. Under **WinStations** you may see several folders for different stack versions, select the folder that matches the version information you saw when running **qwinsta** in your Command Prompt.
+4. Find **fReverseConnectMode** and make sure its data value is **1**. Also make sure that **fEnableWinStation** is set to **1**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of fReverseConnectMode](media/fenable2.png)
 
-5. If *fReverseConnectMode* isn't set to 1, select *fReverseConnectMode* and enter **1** in its value field. 
-6. If *fEnableWinStation* isn't set to 1, select **fEnableWinStation** and enter **1** into its value field.
+5. If **fReverseConnectMode** isn't set to **1**, select **fReverseConnectMode** and enter **1** in its value field. 
+6. If **fEnableWinStation** isn't set to **1**, select **fEnableWinStation** and enter **1** into its value field.
 7. Restart your VM. 
 
 >[!NOTE]
->To change the *fReverseConnectMode* or *fEnableWinStation* mode for multiple VMs at a time, you can do one of the following two things:
+>To change the **fReverseConnectMode** or **fEnableWinStation** mode for multiple VMs at a time, you can do one of the following two things:
 >
 >- Export the registry key from the machine that you already have working and import it into all other machines that need this change.
 >- Create a general policy object (GPO) that sets the registry key value for the machines that need the change.
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
-8. Under *ClusterSettings*, find *SessionDirectoryListener* and make sure its data value is *rdp-sxs...*.
-9. If *SessionDirectoryListener* isn't set to *rdp-sxs...*, you'll need to follow the steps in the [Reinstall the agent and boot loader](#reinstall-the-agent-and-boot-loader) section. This will reinstall the side-by-side stack.
+8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.
+9. If **SessionDirectoryListener** isn't set to **rdp-sxs...**, you'll need to follow the steps in the [Uninstall the agent and boot loader](#uninstall-all-agent-boot-loader-and-stack-component-programs) section to first uninstall the agent, boot loader, and stack components, and then [Reinstall the agent and boot loader](#reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
 
 ## Error: Users keep getting disconnected from session hosts
 
@@ -176,11 +176,11 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 **Fix:** Change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
-3. There should be two stack components displayed: *rdp-tcp* and *rdp-sxs*. 
-   - Depending on the version of the OS you're using, *rdp-sxs* may be followed by the build number as shown in teh following screen shot. If it is, make sure to write this number down for later.
+3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
+   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in teh following screen shot. If it is, make sure to write this number down for later.
 4. Open the Registry Editor.
 5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. Under *WinStations* you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
+6. Under **WinStations** you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
 7. Create a new registry DWORD by right-clicking the registry editor, then selecting **New** > **DWORD (32-bit) Value**. When you create the DWORD, enter the following values:
    - HeartbeatInterval: 10000
    - HeartbeatWarnCount: 30 
@@ -214,9 +214,9 @@ If the status listed for the session host or hosts in your host pool always says
 6. Double click on the **SxSStack** component or run the **msiexec /i SxsStack-<version>.msi** command to install the MSI.
 8. Restart your VM.
 9. Go back to the command prompt and run the **qwinsta** command.
-10. Verify that the stack component installed in step 6 says *Listen* next to it.
+10. Verify that the stack component installed in step 6 says **Listen** next to it.
    - If so, enter **net start RDAgentBootLoader** in the command prompt and restart your VM.
-   - If not, you will need to [reinstall the agent](#error-your-issue-is-not-listed-above-or-your-issue-remains-after-trying-other-troubleshooting-steps) component.
+   - If not, you will need to [re-register your VM and reinstall the agent](#error-your-issue-is-not-listed-above-or-your-issue-remains-after-trying-other-troubleshooting-steps) component.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
@@ -248,7 +248,7 @@ The name of your VM has already been registered and is probably a duplicate.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
 3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
 4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
-5. Wait for 5-10 minutes for the session host status to say *Available*.
+5. Wait for 5-10 minutes for the session host status to say **Available**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool.png)
@@ -256,9 +256,9 @@ The name of your VM has already been registered and is probably a duplicate.
 ## Error: Your issue is not listed above or your issue remains after trying other troubleshooting steps
 
 The instructions below guide you in re-registering your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
-- Your VM is stuck in upgrading or unavailable
+- Your VM is stuck in **Upgrading** or **Unavailable**
 - Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
-- You're receiving an EXPIRED_REGISTRATION_TOKEN error
+- You're receiving an **EXPIRED_REGISTRATION_TOKEN** error
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window
 - You don't see the **RdAgentBootLoader** component in the Task Manager
@@ -331,7 +331,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 9. Restart your VM. 
 10. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM belongs to.
 11. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
-12. You should now see the session host registered in the host pool with the status *Available*. 
+12. You should now see the session host registered in the host pool with the status **Available**. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool.png)
