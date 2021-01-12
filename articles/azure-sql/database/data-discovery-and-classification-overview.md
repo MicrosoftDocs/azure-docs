@@ -22,7 +22,7 @@ Data Discovery & Classification is built into Azure SQL Database, Azure SQL Mana
 Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information-protection approach. It can serve as infrastructure for:
 
 - Helping to meet standards for data privacy and requirements for regulatory compliance.
-- Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
+- Various security scenarios, such as monitoring (auditing) access to sensitive data.
 - Controlling access to and hardening the security of databases that contain highly sensitive data.
 
 > [!NOTE]
