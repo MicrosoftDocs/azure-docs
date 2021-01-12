@@ -266,7 +266,7 @@ The instructions below guide you in re-registering your VM to the Windows Virtua
 
 ### Uninstall all agent, boot loader, and stack component programs
 
-Before reinstalling the agent, boot loader, and stack, you must uninstall any existing component programs from your VM.
+Before reinstalling the agent, boot loader, and stack, you must uninstall any existing component programs from your VM. To uninstall all agent, boot loader, and stack component programs:
 1. Sign in to your VM as an administrator. 
 2. Go to **Control Panel** > **Programs** > **Programs and Features**.
 3. Remove the following programs:
@@ -283,7 +283,7 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
 
 ### Remove the session host from the host pool
 
-When you remove the session host from the host pool, the session host is no longer registered to that host pool. This acts as a reset for the session host registration.
+When you remove the session host from the host pool, the session host is no longer registered to that host pool. This acts as a reset for the session host registration. To remove the session host from the host pool:
 1. Go to the **Overview** page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
 2. Go to the **Session Hosts** tab to see the list of all session hosts in that host pool.
 3. Look at the list of session hosts and select the VM that you want to remove.
@@ -294,7 +294,7 @@ When you remove the session host from the host pool, the session host is no long
 
 ### Generate a new registration key for the VM
 
-You must generate a new registration key that is used to re-register your VM to the host pool and to the service.
+You must generate a new registration key that is used to re-register your VM to the host pool and to the service. To generate a new registration key for the VM:
 1. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
 2. Select **Registration key**.
 
@@ -311,7 +311,7 @@ You must generate a new registration key that is used to re-register your VM to 
 
 ### Reinstall the agent and boot loader
 
-By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well.
+By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 1. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
 
    > [!div class="mx-imgBorder"]
