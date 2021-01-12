@@ -21,7 +21,7 @@ In this tutorial, part one of seven, a multi-container application is prepared f
 
 Once completed, the following application runs in your local development environment:
 
-:::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Screenshot showing application's front end displayed in browser" lightbox="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png":::
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot showing the container image Azure Voting App running locally opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
 In later tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
 
@@ -115,7 +115,7 @@ d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoi
 
 To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
-:::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Screenshot showing application's front end displayed in browser" lightbox="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png":::
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="Screenshot showing the container image Azure Voting App running locally opened in a local web browser" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
 ## Clean up resources
 
