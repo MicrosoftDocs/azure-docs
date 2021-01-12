@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/08/2021
+ms.date: 01/12/2021
 
 ---
 
@@ -78,7 +78,7 @@ For more information about the JSON endpoint response with sentiment analysis, s
 
 ## Spelling correction
 
-The V3 prediction API now supports the Bing Spellcheck API. You can add spell checking to your application by including the key to your Bing search resource in the header of your requests. You can use an existing Bing resource if you already own one, or[create a new one](https://portal.azure.com/#create/Microsoft.BingSearch) to use this feature. 
+The V3 prediction API now supports the Bing Spellcheck API. You can add spell checking to your application by including the key to your Bing search resource in the header of your requests. You can use an existing Bing resource if you already own one, or [create a new one](https://portal.azure.com/#create/Microsoft.BingSearch) to use this feature. 
 
 |Header Key|Header Value|
 |--|--|
