@@ -14,8 +14,8 @@ ms.service: iot-hub
 
 * Access to an IoT Hub with Azure Device Update (ADU) enabled.
 * An IoT device (or [simulator](./how-to-agent-eval-sim-quickstart.md)) provisioned within the IoT Hub, running either Azure RTOS ThreadX or Ubuntu 18.04 x64.
-    * If using a real device, you’ll need an update image file (e.g. Yocto image) for image update, or [APT Manifest](../agent-reference/apt-manifest.md) file for package update.
-* [PowerShell 5]((https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)) or later.
+    * If using a real device, you’ll need an update image file (e.g. Yocto image) for image update, or [APT Manifest]() file for package update.
+* [PowerShell 5]((https://docs.microsoft.com/powershell/scripting/install/installing-powershell)) or later.
 * Supported browsers:
   * The new [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -45,7 +45,7 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, the table below provides some example values for the above parameters. For full documentation, please refer to [Import Manifest Schema](../publish-api-reference/import-update.md#import-manifest-schema).
+    For quick reference, the table below provides some example values for the above parameters. For full documentation, please refer to [Import Manifest Schema]().
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -55,10 +55,10 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     | updateName | Name part of update identity, e.g. ImageUpdate
     | updateVersion | Update version, e.g. 2.0
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
-    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify [recommended value](../agent-reference/apt-manifest.md) for `microsoft/apt:1` update type.
+    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify [recommended value]() for `microsoft/apt:1` update type.
     | updateFilePath(s) | Path to the update file(s) on your PC
 
-The update imported using import manifest generated above will be deployable to devices implementing [Azure Device Update PnP interface](../how-adu-uses-iot-pnp.md) `urn:azureiot:AzureDeviceUpdateCore:1` and `urn:azureiot:AzureDeviceUpdateCore:4`.
+The update imported using import manifest generated above will be deployable to devices implementing [Azure Device Update PnP interface](how-adu-uses-iot-pnp.md) `urn:azureiot:AzureDeviceUpdateCore:1` and `urn:azureiot:AzureDeviceUpdateCore:4`.
 
 ## Review Generated Import Manifest
 
@@ -105,7 +105,7 @@ Example:
 
 ## Import update
 
-1. Log into Azure Portal using [this link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod) and navigate to your IoT Hub with ADU.
+1. Log into Azure Portal using [this link](https://portal.azure.com) and navigate to your IoT Hub with ADU.
 
 2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
 
@@ -113,11 +113,11 @@ Example:
 
 3. You will see several tabs across the top of the screen. Select the Updates tab.
 
-   ![Import New Updates](images/updates-tab.png)
+   ![Updates](images/updates-tab.png)
 
 4. Select "+ Import New Update" below the "Ready to Deploy" header.
 
-   ![Import New Updates](images/import-new-update2.png)
+   ![Import New Update](images/import-new-update2.png)
 
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
 
@@ -133,7 +133,7 @@ Example:
 
 8. Select "Submit" to start the import process.
 
-   ![Import Update](images/publish-update.png)
+   ![Publish Update](images/publish-update.png)
 
 9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
@@ -144,4 +144,4 @@ Example:
    ![Job Status](images/update-ready.png)
 
 
-[Next Step: Create Groups](./how-to-group-quickstart.md)
+[Next Step: Create Groups](how-to-group-quickstart.md)

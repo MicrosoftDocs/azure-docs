@@ -27,7 +27,7 @@ ms.service: iot-hub
 3. Select the Groups tab at the top of the page.
 ![Groups Tab](images/updated-view.PNG)
 
-4. View the update compliance chart and groups list. You should see a new update available for your device group, with a link to the update under Pending Updates (you may need to Refresh once). [Learn More](../adu-compliance.md) about update compliance.
+4. View the update compliance chart and groups list. You should see a new update available for your device group, with a link to the update under Pending Updates (you may need to Refresh once). [Learn More](adu-compliance.md) about update compliance.
 ![Available Update](images/available-update.PNG)
 
 5. Select the available update

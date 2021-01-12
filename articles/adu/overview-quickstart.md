@@ -30,4 +30,4 @@ To get started using ADU you'll need to ensure your devices are running the ADU 
 
 ## Troubleshooting Guide
 
-If you run into issues, please review the Azure Device Update [Troubleshooting Guide](../how-to-troubleshoot-guide.md) to help unblock any possible issues and/or collect necessary information to provide to Microsoft ADU team.
+If you run into issues, please review the Azure Device Update [Troubleshooting Guide](how-to-troubleshoot-guide.md) to help unblock any possible issues and/or collect necessary information to provide to Microsoft ADU team.

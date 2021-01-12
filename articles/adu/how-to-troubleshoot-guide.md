@@ -17,7 +17,7 @@ issues you may be having with Azure Device Update.
 
 If you run into issues with the ADU Agent, you have a couple options to help
 troubleshoot.  Start by collecting the ADU logs and/or query
-[getDevices](docs/../management-api-reference/get-devices.md) to check for
+[getDevices]() to check for
 additional information in the payload response of the API.
 
 ### Collect Logs
@@ -93,7 +93,7 @@ The unsigned hex representation of `-536870781` is `FFFFFFFF E0000083`.
 ### Use getDevices() API payload response
 
 A useful management API,
-[getDevices](docs/../management-api-reference/get-devices.md), returns a payload
+[getDevices](), returns a payload
 containing information about the download and update state on a device.
 
 **NOTE**:  This API's payload contains publicly accessible URL locations.

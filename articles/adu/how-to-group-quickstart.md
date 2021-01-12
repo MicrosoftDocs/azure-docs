@@ -25,7 +25,7 @@ Azure Device Update allows deploying an update to a group of IoT devices. To cre
 
 ### 1. Programmatically update Device Twin
 
-You can update the Device Twin with the appropriate Tag using RegistryManager after enrolling the device with ADU. [Learn More](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted) about how to add tags using a sample .NET app. Learn more about [tag properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
+You can update the Device Twin with the appropriate Tag using RegistryManager after enrolling the device with ADU. [Learn More](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted) about how to add tags using a sample .NET app. Learn more about [tag properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
 ### Device Update Tag Format
 
@@ -51,7 +51,7 @@ Tags can also be added or updated in device twin directly.
 
 3. In the Device Twin, delete any existing ADU tag value by setting them to null.
 
-4. Add a new ADU tag value as shown below. [Example](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins#device-twins) device twin JSON document with tags.
+4. Add a new ADU tag value as shown below. [Example](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins#device-twins) device twin JSON document with tags.
 
 ```JSON
     "tags": {
@@ -68,7 +68,7 @@ Tags can also be added or updated in device twin directly.
 * A device can only have one tag with the name ADUGroup, any subsequent additions of a tag with that name will override the existing value for tag name ADUGroup.
 
 Groups_tag_Device_twin
-=======
+
 * One device can only belong to one Group.
 
 ## Create a group by selecting an existing IoT Hub tag
@@ -88,7 +88,7 @@ Groups_tag_Device_twin
 6. Select an IoT Hub tag from the list and then select Create update group.
 ![Select Tag](images/select-tag.PNG)
 
-7. Once the group is created you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates avaialable, Updates in Progress and Devices not yet Grouped. [Learn More](../adu-compliance.md) about update compliance.
+7. Once the group is created you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates avaialable, Updates in Progress and Devices not yet Grouped. [Learn More](adu-compliance.md) about update compliance.
 ![Updated View](images/updated-view.PNG)
 
 8. You should see your newly created group and any available updates for the devices in the new group. You can deploy the update to the new group from this view by clicking on the update name. See Next Step: Deploy Update for more details.
@@ -103,4 +103,4 @@ Groups_tag_Device_twin
 3. You can also click on each individual device within a group to be redirected to the device details page in IoT Hub.
 ![Device Details View](images/device-details.PNG)
 
-[Next Step: Deploy Update](./how-to-deploy-quickstart.md)
+[Next Step: Deploy Update](how-to-deploy-quickstart.md)

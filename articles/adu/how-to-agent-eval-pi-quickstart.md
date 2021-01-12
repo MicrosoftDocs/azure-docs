@@ -81,7 +81,7 @@ IoT Hub a connection string will be generated for the device.
    'File Explorer'. **NOTE**:  You may see multiple prompts that the card is
    unformatted. **Cancel all of them (do not format the card)**
 2. In the remaining window, verify you see a partition or disk called `adu`.
-3. **Optional**. In the `adu` partition directory, create the ADU Configuration file "adu-conf.txt" and open it. [Learn more](././../agent-reference/adu-conf.md) about configuring "adu-conf.txt".
+3. **Optional**. In the `adu` partition directory, create the ADU Configuration file "adu-conf.txt" and open it. [Learn more]() about configuring "adu-conf.txt".
 4. Paste your previously saved device connection string into the text file.
 
    **Example**:  (replace your IoT Hub name, DeviceId, and shared access key with
@@ -107,9 +107,9 @@ to log in.
 3. At the top of the page, select 'Device Twin'.
 4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from ADU, the
-[DeviceManagement:DeviceInformation:1.swVersion](./../how-adu-uses-iot-pnp.md) value will represent
+[DeviceManagement:DeviceInformation:1.swVersion](how-adu-uses-iot-pnp.md) value will represent
 the firmware version running on the device.  Once an update has been applied to a device, ADU will
-use [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](./../how-adu-uses-iot-pnp.md) property
+use [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](how-adu-uses-iot-pnp.md) property
 value to represent the firmware version running on the device.
 5. The base and update image files have a version number in the filename.
 
@@ -119,4 +119,4 @@ value to represent the firmware version running on the device.
 
 Use that version number in the step below.
 
-**[Next Step:  Import New Update](./how-to-import-quickstart.md)**
+**[Next Step:  Import New Update](how-to-import-quickstart.md)**

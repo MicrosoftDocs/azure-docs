@@ -10,7 +10,7 @@ ms.service: iot-hub
 
 # Azure RBAC and ADU
 
-ADU utilizes Azure RBAC to to provide authentication and authorization for users and service Apis.
+ADU utilizes Azure RBAC to provide authentication and authorization for users and service APIs.
 
 ## Configure access control roles
 
@@ -30,19 +30,19 @@ A combination of roles can be used to provide the right level of access, for exa
 ### To set the Access Control Policy
 
 1. Go to Access control (IAM)
-2. Click "Add" within "Add a role assignment"
+2. Select "Add" within "Add a role assignment"
 3. For "Select a Role", select "Device Update Administrator"
 4. Assign access to a user or Azure AD group
-5. Click Save
+5. Select Save
 6. You can now go to IoT Hub and go to Device Update
 
 ## Authenticate to ADU REST APIs for Publishing and Management
 
-ADU also utilizes Azure AD for authentication to publish and manage content via service APIs. To get started you need to create and configure a client application.
+ADU also utilizes Azure AD for authentication to publish and manage content via service APIs. To get started, you need to create and configure a client application.
 
 ### Create client Azure AD App
 
-To integrate an application or service with Azure AD, [first register](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) an application with Azure AD. Client application setup varies depending on the authorization flow used.  Configuration below is for guidance when using the ADU REST APIs.
+To integrate an application or service with Azure AD, [first register](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) an application with Azure AD. Client application setup varies depending on the authorization flow used.  Configuration below is for guidance when using the ADU REST APIs.
 
 * Set client authentication: 'redirect URIs for native or web client'.
 * Set API Permissions - Azure Device Update exposes:
