@@ -7,11 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-<<<<<<< HEAD
-ms.date: 12/23/2020
-=======
 ms.date: 01/05/2021
->>>>>>> d63e6780965bc8436f5fc232c9d23f5822838dc3
 ms.author: alkohli
 ---
 # Azure Data Box limits
