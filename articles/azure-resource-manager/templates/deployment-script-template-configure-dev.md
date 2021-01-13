@@ -167,7 +167,7 @@ The following Azure Resource Manager template (ARM template) creates a container
 }
 ```
 
-The default value for the mount path is `deploymentScript`. This is the path in the container instance where it's mounted to the file share.
+The default value for the mount path is `/mnt/azscripts/azscriptinput`. This is the path in the container instance where it's mounted to the file share.
 
 The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az5.2**. See a list of all [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list).
 
