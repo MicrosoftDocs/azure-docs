@@ -5,7 +5,7 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/14/2021
 ---
 
 # Read replicas in Azure Database for MySQL - Flexible Server

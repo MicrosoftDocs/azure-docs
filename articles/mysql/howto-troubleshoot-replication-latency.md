@@ -154,7 +154,7 @@ Replication latency of this sort is commonly caused by the data load on the sour
 
 ### Slowness on the replica server
 
-If you observe the following values, then the problem might be on the replica server. 
+If you observe the following values, then the problem might be on the replica server.
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -167,7 +167,7 @@ Exec_Master_Log_Pos: The position of slave reads from master binary log file is 
 Seconds_Behind_Master: There is latency and the value here is greater than 0
 ```
 
-In this scenario, the output shows that both the IO thread and the SQL thread are running well. The replica reads the same binary log file that the source server writes. However, some latency on the replica server reflects the same transaction from the source server. 
+In this scenario, the output shows that both the IO thread and the SQL thread are running well. The replica reads the same binary log file that the source server writes. However, some latency on the replica server reflects the same transaction from the source server.
 
 The following sections describe common causes of this kind of latency.
 
@@ -175,7 +175,7 @@ The following sections describe common causes of this kind of latency.
 
 Azure Database for MySQL uses row-based replication. The source server writes events to the binary log, recording changes in individual table rows. The SQL thread then replicates those changes to the corresponding table rows on the replica server. When a table lacks a primary key or unique key, the SQL thread scans all rows in the target table to apply the changes. This scan can cause replication latency.
 
-In MySQL, the primary key is an associated index that ensures fast query performance because it can't include NULL values. If you use the InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key. 
+In MySQL, the primary key is an associated index that ensures fast query performance because it can't include NULL values. If you use the InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key.
 
 We recommend that you add a primary key on tables in the source server before you create the replica server. Add primary keys on the source server and then re-create read replicas to help improve replication latency.
 

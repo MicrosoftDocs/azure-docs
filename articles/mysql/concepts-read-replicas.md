@@ -6,6 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2021
+ms.custom: references_regions
 ---
 
 # Read replicas in Azure Database for MySQL

@@ -56,13 +56,13 @@ To avoid your application's availability being interrupted due to certificates
 
   * For Java (MySQL Connector/J) users, execute:
 
-          ```console
-          keytool -importcert -alias MySQLServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
-          ```
+    ```console
+    keytool -importcert -alias MySQLServerCACert -file D:\BaltimoreCyberTrustRoot.crt.pem -keystore truststore -storepass password -noprompt
+    ```
 
-          ```console
-          keytool -importcert -alias MySQLServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
-          ```
+    ```console
+    keytool -importcert -alias MySQLServerCACert2 -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password -noprompt
+    ```
 
     Then replace the original keystore file with the new generated one:
 

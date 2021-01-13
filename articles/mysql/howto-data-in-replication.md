@@ -137,7 +137,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    **MySQL Workbench**
 
-   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel, anf then select **Add Account**.
+   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel, and then select **Add Account**.
 
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Users and Privileges":::
 
