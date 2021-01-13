@@ -6,8 +6,11 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
-ms.topic: how-
+ms.topic: how-to
 # Monitoring Scheduled Events
+---
+
+# Monitor scheduled events for your Azure VMs
 
 Updates are applied to different parts of Azure every day, to keep the services running on them secure, and up-to-date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance, and enables you to gracefully handle the maintenance. 
 
