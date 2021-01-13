@@ -21,7 +21,7 @@ Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybr
 - [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
 - [Federation integration](how-to-connect-fed-whatis.md) - Federation is an optional part of Azure AD Connect and can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
 - [Synchronization](how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring]() - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Health Monitoring](whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 
 ![What is Azure AD Connect](./media/whatis-hybrid-identity/arch.png)

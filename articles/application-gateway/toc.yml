@@ -109,7 +109,7 @@
   - name: Understanding pricing
     href: understanding-pricing.md
   - name: FAQ
-    href: application-gateway-faq.md
+    href: application-gateway-faq.yml
 - name: How-to guides
   items:
   - name: Host single site
