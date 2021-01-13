@@ -23,18 +23,18 @@ Make sure include time in your deployment schedule for our team to not only revi
 
 ### ✅ Step 2: Review all the Microsoft 365 app policies
 
-Make sure you read through our [Microsoft 365 app general policies here](https://docs.microsoft.com/legal/marketplace/certification-policies). Additionally, read through the policies that pertain to the Microsoft 365 product your app is targeting:
+Make sure you read through our [Microsoft 365 app general policies here](/legal/marketplace/certification-policies). Additionally, read through the policies that pertain to the Microsoft 365 product your app is targeting:
 
-- [Office 365](https://docs.microsoft.com/legal/marketplace/certification-policies#1100-office-365) and [Office Add-ins](https://docs.microsoft.com/legal/marketplace/certification-policies#1120-office-add-ins) for apps targeting Outlook, Word, Excel, and PowerPoint
-- [Teams apps](https://docs.microsoft.com/legal/marketplace/certification-policies#1140-teams)
-- [Power BI visuals and template apps](https://docs.microsoft.com/legal/marketplace/certification-policies#1180-power-bi-visuals)
-- [SharePoint Add-ins](https://docs.microsoft.com/legal/marketplace/certification-policies#1160-sharepoint) or [SharePoint Framework (SPFx)](https://docs.microsoft.com/legal/marketplace/certification-policies#1170-sharepoint-framework-solutions)
+- [Office 365](/legal/marketplace/certification-policies#1100-office-365) and [Office Add-ins](/legal/marketplace/certification-policies#1120-office-add-ins) for apps targeting Outlook, Word, Excel, and PowerPoint
+- [Teams apps](/legal/marketplace/certification-policies#1140-teams)
+- [Power BI visuals and template apps](/legal/marketplace/certification-policies#1180-power-bi-visuals)
+- [SharePoint Add-ins](/legal/marketplace/certification-policies#1160-sharepoint) or [SharePoint Framework (SPFx)](/legal/marketplace/certification-policies#1170-sharepoint-framework-solutions)
 
 ### ✅ Step 3: Check that your manifest is compliant
 
 There are several tools you can use to self-test your manifest file. These tools use the same package validation service we use in our review process. This will help ensure you pass our automated testing before you submit.
 
-- [Find the best tool for self-testing your manifest](https://docs.microsoft.com/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20)
+- [Find the best tool for self-testing your manifest](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20)
 
 ### ✅ Step 4: Decide what platforms you will support
 
@@ -105,7 +105,7 @@ You'll need to provide the correct metadata indicating how you want your app to 
 You'll also need to provide:
 
 - Correct icons that are the right sizes.
-- Any screenshots and video demos. Here [are tips](https://docs.microsoft.com/office/dev/store/craft-effective-appsource-store-images) on doing this effectively. One screen shot is required.  
+- Any screenshots and video demos. Here [are tips](./craft-effective-appsource-store-images.md) on doing this effectively. One screen shot is required.  
 
 ## Next steps
 

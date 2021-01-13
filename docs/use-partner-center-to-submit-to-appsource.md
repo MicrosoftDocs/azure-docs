@@ -6,7 +6,7 @@ localization_priority: Priority
 
 # Submit your Office solution to Microsoft AppSource via Partner Center
 
-If you want your Office solution to appear in Microsoft AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+If you want your Office solution to appear in Microsoft AppSource, you need to submit it to [Partner Center](https://partner.microsoft.com/dashboard/office/products) for approval. First, familiarize yourself with the [certification policies](/legal/marketplace/certification-policies). 
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
@@ -64,13 +64,12 @@ After a solution is unpublished, new customers will not be able to get it. Exist
 
 ## Microsoft 365 App Compliance program
 
-After your solution is published through Partner Center, you can begin the [Microsoft 365 App Compliance program](https://docs.microsoft.com/microsoft-365-app-certification/overview). This program is optional and is designed to allow you to reach the level of security that meets the needs of your customers. To complete the Publisher Attestation within Partner Center, click the **App Compliance** button in the Office Store section. For details, see the [User guide](https://docs.microsoft.com/microsoft-365-app-certification/docs/userguide).
+After your solution is published through Partner Center, you can begin the [Microsoft 365 App Compliance program](/microsoft-365-app-certification/overview). This program is optional and is designed to allow you to reach the level of security that meets the needs of your customers. To complete the Publisher Attestation within Partner Center, click the **App Compliance** button in the Office Store section. For details, see the [User guide](/microsoft-365-app-certification/docs/userguide).
 
 ## See also
 <a name="bk_addresources"> </a>
 
 - [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
 - [Create effective listings](create-effective-office-store-listings.md)
-- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
-- [Microsoft 365 App Compliance](https://docs.microsoft.com/microsoft-365-app-certification/overview)
- 
+- [Certification policies](/legal/marketplace/certification-policies)
+- [Microsoft 365 App Compliance](/microsoft-365-app-certification/overview)

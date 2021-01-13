@@ -26,22 +26,22 @@ You are also free to monetize using your own payment model.
 ## Preparing your SaaS offer
 
 To prepare to submit your service as a SaaS offer, you will need to provide a website that a customer can sign in to and use to manage their purchased licenses. They can do this as either an admin user or an end user. Your service should be connected to your own licensing database that you can then use for your app to query.
-To get started, see [Create new SaaS offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer).
+To get started, see [Create new SaaS offer](/azure/marketplace/partner-center-portal/create-new-saas-offer).
 
-Your offer must also use the SaaS fulfillment APIs to integrate with Commercial Marketplace. For information, see [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+Your offer must also use the SaaS fulfillment APIs to integrate with Commercial Marketplace. For information, see [SaaS fulfillment APIs](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
 ### Sign up for Partner Center
 
 To begin submitting your SaaS offer, you must create an account in the Commercial Marketplace program in Partner Center. This account must be associated with a company.
-- If you're new to Partner Center, and have never enrolled in the Microsoft Partner Network, see [Create an account using the Partner Center enrollment page](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
-- If you're already enrolled in the Microsoft Partner Network or in a Partner Center developer program, see [Create an account using existing Microsoft Partner Center enrollments](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) for information about how to create your account.
+- If you're new to Partner Center, and have never enrolled in the Microsoft Partner Network, see [Create an account using the Partner Center enrollment page](/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
+- If you're already enrolled in the Microsoft Partner Network or in a Partner Center developer program, see [Create an account using existing Microsoft Partner Center enrollments](/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) for information about how to create your account.
 
 ### Register a SaaS application
 
 You must register a SaaS application using the Microsoft Azure Portal. After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS fulfillment APIs.
 Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it's located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
 
-For details about how to register, see [Register an Azure AD-secured app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#register-an-azure-ad-secured-app).
+For details about how to register, see [Register an Azure AD-secured app](/azure/marketplace/partner-center-portal/pc-saas-registration#register-an-azure-ad-secured-app).
 
 ### Create your licensing database
 
@@ -74,7 +74,7 @@ Other considerations:
 
 #### Connecting to Microsoft AppSource
 
-At this point, you will have built a website and services capable of authenticating customers and handling their licensing state. In order to monetize through Microsoft (and receive confirmation of valid purchases), your service must use the [SaaS fulfilment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to Microsoft AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
+At this point, you will have built a website and services capable of authenticating customers and handling their licensing state. In order to monetize through Microsoft (and receive confirmation of valid purchases), your service must use the [SaaS fulfilment APIs](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to connect to Microsoft AppSource, which uses these to drive the fulfilment, changes to plans, and cancellation of subscriptions.
 
 #### Provisioning (customer purchase on Microsoft AppSource)
 
@@ -100,7 +100,7 @@ The following diagram shows the actions when an update is initiated from your Sa
 
 ![API calls when the update is initiated from the SaaS service](images/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-For more details, see [SaaS fufillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) reference.
+For more details, see [SaaS fufillment APIs](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) reference.
 
 ### Build an Azure AD connected app
 
@@ -110,7 +110,7 @@ Your app should have three states:
 2.	User signed in, no license associated
 3.	User signed in, license associated
 
-For information about authenticating with Azure AD, see [Authorize to Microsoft Graph](https://docs.microsoft.com/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
+For information about authenticating with Azure AD, see [Authorize to Microsoft Graph](/office/dev/add-ins/develop/authorize-to-microsoft-graph-without-sso).
 
 ### Code sample: Move from paid apps to paid web apps with free apps
 
@@ -134,21 +134,21 @@ By charging for core application functionality and making apps free, partners ga
 
 ### How do I sign up for Partner Center?
 
-Review the information on the [Welcome to Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and then register for an account. For details, see [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Review the information on the [Welcome to Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and then register for an account. For details, see [Create a Commercial Marketplace account in Partner Center](/azure/marketplace/partner-center-portal/create-account).
 
 ### Where can I find documentation about integrating with Azure Active Directory?
 
-For extensive documentation, samples, and guidance, see [Microsoft identity platform overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+For extensive documentation, samples, and guidance, see [Microsoft identity platform overview](/azure/active-directory/develop/v2-overview).
 To start, we recommend that you have a subscription dedicated to your Azure Marketplace publishing, to isolate the work from other initiatives. Then you can start deploying your SaaS application in this subscription to start the development work.
 You can also check for [Azure AD service updates](https://azure.microsoft.com/updates/?product=active-directory).
 
 ### How does my app authenticate a user with Azure AD?
 
-Office provides the [Office Dialog API](https://docs.microsoft.com/office/dev/add-ins/develop/auth-with-office-dialog-api) to enable you to authenticate users from within your add-in. For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Office provides the [Office Dialog API](/office/dev/add-ins/develop/auth-with-office-dialog-api) to enable you to authenticate users from within your add-in. For more information, see [Microsoft identity platform](/azure/active-directory/develop/v2-overview).
 
 ### What reports will I receive from Commercial Marketplace about my SaaS offer?
 
-As a partner, you can monitor your offer listings using the data visualization and insight graphs supported by Partner Center and find ways to maximize your sales. The improved analytics tools enable you to act on performance results and maintain better relationships with your customers and resellers. For more information, see [Analytics for the Commercial Marketplace in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics).
+As a partner, you can monitor your offer listings using the data visualization and insight graphs supported by Partner Center and find ways to maximize your sales. The improved analytics tools enable you to act on performance results and maintain better relationships with your customers and resellers. For more information, see [Analytics for the Commercial Marketplace in Partner Center](/azure/marketplace/partner-center-portal/analytics).
 
 ## Help and support
 

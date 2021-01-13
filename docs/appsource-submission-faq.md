@@ -9,7 +9,7 @@ localization_priority: Normal
 
 This topic answers common questions about submitting apps to Microsoft AppSource via Partner Center.
 
-For the most current version of the certification policies, see [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
+For the most current version of the certification policies, see [Certification policies](/legal/marketplace/certification-policies).
 
 ## How can I avoid errors when submitting my app to Microsoft AppSource?
 
@@ -26,17 +26,17 @@ To avoid common submission errors:
 
 - Make sure your ID is unique. For example, do not create a manifest for a second add-in based on another add-in manifest you submitted without changing the ID in the new manifest.
 
-- For Office Add-ins, make sure that you are using [manifest schema version 1.1](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests). For information about updating your manifest to version 1.1, see [Update to the latest JavaScript API for Office library and version 1.1 add-in manifest schema](https://docs.microsoft.com/office/dev/add-ins/develop/update-your-javascript-api-for-office-and-manifest-schema-version). 
+- For Office Add-ins, make sure that you are using [manifest schema version 1.1](/office/dev/add-ins/overview/add-in-manifests). For information about updating your manifest to version 1.1, see [Update to the latest JavaScript API for Office library and version 1.1 add-in manifest schema](/office/dev/add-ins/develop/update-your-javascript-api-for-office-and-manifest-schema-version). 
 
 - For Office Add-ins, make sure that you specify a support URL in the **SupportUrl** element of your Office Add-in manifest. Your support URL should be a publicly available webpage, and should not require authentication. You cannot use personal social media pages or GitHub repositories for the support URL. You also can't use links to files hosted online such as a Word document on OneDrive, DropBox or Google Docs.
 
--  For all apps, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/schema/schema-reference-for-manifests-of-sharepoint-add-ins).
+-  For all apps, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](/sharepoint/dev/schema/schema-reference-for-manifests-of-sharepoint-add-ins).
 
 - Make sure your app is tested and is fully functional.
 
 - Make sure your SharePoint Add-ins specify their supported locales. 
     
-  If you don't specify supported locales, your app will not be accepted by Microsoft AppSource. For details, see [Locale support information is required for all add-ins](https://docs.microsoft.com/archive/blogs/officeapps/locale-support-information-is-required-for-all-apps-in-the-sharepoint-store).
+  If you don't specify supported locales, your app will not be accepted by Microsoft AppSource. For details, see [Locale support information is required for all add-ins](/archive/blogs/officeapps/locale-support-information-is-required-for-all-apps-in-the-sharepoint-store).
 
 - Make sure your OAuth client IDs match
     
@@ -74,7 +74,7 @@ If the updated version includes new permissions, the user must consent to them.
 > [!NOTE]
 > You cannot have two or more versions of the same app in Microsoft AppSource at the same time, because each app has a unique asset ID. If you publish an updated version of your app without unpublishing a previous version, you will have two listings and will potentially split your customer base.
 
-Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see [SharePoint Add-ins update process](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins-update-process).
+Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see [SharePoint Add-ins update process](/sharepoint/dev/sp-add-ins/sharepoint-add-ins-update-process).
 
 ## Can I submit a paid app to Microsoft AppSource?
 
@@ -82,7 +82,7 @@ All apps submitted to Microsoft AppSource via Partner Center are free. You can m
 
 ## How do I reference the JavaScript APIs for Office in my apps?
 
-If your app uses the JavaScript APIs for Office, you must [reference the Microsoft-hosted Office.js file from its CDN URL](https://docs.microsoft.com/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn). Don't include a copy of the Office.js file in your app, or reference a copy of the file hosted elsewhere.
+If your app uses the JavaScript APIs for Office, you must [reference the Microsoft-hosted Office.js file from its CDN URL](/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn). Don't include a copy of the Office.js file in your app, or reference a copy of the file hosted elsewhere.
 
 ## Why do my apps have to be SSL-secured?
 
@@ -94,9 +94,9 @@ Two aspects of your submission relate to supported languages:
 
 1. The languages you declare in your app package or manifest. You declare which languages your app supports differently depending on type:
 
-   - For SharePoint Add-ins, declare language support by using the [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](https://docs.microsoft.com/sharepoint/dev/schema/supportedlocales-element-propertiesdefinition-complextypesharepoint-add-in-manif), in the add-in manifest within the add-in package. For more information, see [Explore the app manifest structure and the package of a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
+   - For SharePoint Add-ins, declare language support by using the [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](/sharepoint/dev/schema/supportedlocales-element-propertiesdefinition-complextypesharepoint-add-in-manif), in the add-in manifest within the add-in package. For more information, see [Explore the app manifest structure and the package of a SharePoint Add-in](/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
 
-   - For Office Add-ins that aren't dictionaries, declare language support by using the **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization).
+   - For Office Add-ins that aren't dictionaries, declare language support by using the **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](/office/dev/add-ins/develop/localization).
 
    - For Office Add-ins that are dictionaries, you can also use the **TargetDialects** element within the add-in manifest.
 

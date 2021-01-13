@@ -16,7 +16,7 @@ The content of each image should be easy to read, and should reflect the quality
 
 |**Do**|**Don't**|
 |:----|:----|
-|Use clear text and graphics with the [appropriate contrast ratios](https://docs.microsoft.com/windows/uwp/design/accessibility/accessible-text-requirements#contrast-ratios).| Don’t show blurred, pixelated, or poorly rendered text or graphics.
+|Use clear text and graphics with the [appropriate contrast ratios](/windows/uwp/design/accessibility/accessible-text-requirements#contrast-ratios).| Don’t show blurred, pixelated, or poorly rendered text or graphics.
 |Provide at least one image that is 1366w x 768h pixels and no greater than 1024 KB.  | Don't stretch or pinch your images (poor aspect ratio).
 |Use magnified close-ups or crops when needed to make content legible.|Don’t make your content so small that it is illegible.|
 
@@ -52,5 +52,5 @@ The images should clearly communicate value of your solution and its main featur
 ![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](images/value-add-do-dont-3.png)
 
 ## See also
-* [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [Certification policies](/legal/marketplace/certification-policies)
 * [Create effective Microsoft AppSource listings](create-effective-office-store-listings.md)

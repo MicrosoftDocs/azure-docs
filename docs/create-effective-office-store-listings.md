@@ -165,4 +165,4 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 <a name="bk_addresources"> </a>
 
 - [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
-- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
+- [Certification policies](/legal/marketplace/certification-policies)

@@ -10,7 +10,7 @@ localization_priority: Normal
 To offer your app solution in languages beyond the primary language, you need localized metadata for each additional language. For apps, the best customer experience is to provide web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see the table later in this article.
 
 > [!NOTE]
-> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
+> For information about localizing add-ins, see [Localization for Office Add-ins](/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
 
 To distribute your solution in additional languages, choose **Manage additional languages** on the **Marketplace listings** page in Partner Center. After you add other languages, you need to submit your solution for certification again. 
 
@@ -97,7 +97,5 @@ The following table lists the submission languages that Microsoft AppSource is a
 <a name="bk_addresources"> </a>
 
 - [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)    
-- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies) 
-
- 
+- [Certification policies](/legal/marketplace/certification-policies) 
 

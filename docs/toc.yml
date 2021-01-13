@@ -23,7 +23,7 @@
     - name: Reserve app name
       href: reserve-solution-name.md
     - name: App validation policies
-      href: https://docs.microsoft.com/legal/marketplace/certification-policies
+      href: /legal/marketplace/certification-policies
     - name: Manage your submitted app
       items:
         - name: Manage app name

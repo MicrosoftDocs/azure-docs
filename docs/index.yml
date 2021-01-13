@@ -42,7 +42,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: App validation policies
-            url: https://docs.microsoft.com/legal/marketplace/certification-policies
+            url: /legal/marketplace/certification-policies
           - text: Submission process FAQ
             url: appsource-submission-faq.md
       - linkListType: how-to-guide
