@@ -18,7 +18,7 @@ Java 3.0 Agent for Application Insights now has the capabilities to process tele
 The following are some use cases of telemetry processors:
  * Mask sensitive data
  * Conditionally add custom dimensions
- * Update the name that is used for aggregation and display in the Azure Portal
+ * Update the name that is used for aggregation and display in the Azure portal
  * Drop span attributes to control ingestion cost
 
 ## Terminology
@@ -36,7 +36,7 @@ For the purpose of telemetry processors, the important components of a span are:
 * Name
 * Attributes
 
-The span name is the primary display used for requests and dependencies in the Azure Portal.
+The span name is the primary display used for requests and dependencies in the Azure portal.
 
 The span attributes represent both standard and custom properties of a given request or dependency.
 
