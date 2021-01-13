@@ -2,7 +2,7 @@
 title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/13/2021
 ---
 
 # Duplicate detection
@@ -13,6 +13,7 @@ It is also possible for an error at the client or network level to occur a momen
 
 Duplicate detection takes the doubt out of these situations by enabling the sender resend the same message, and the queue or topic discards any duplicate copies.
 
+## How it works? 
 Enabling duplicate detection helps keep track of the application-controlled *MessageId* of all messages sent into a queue or topic during a specified time window. If any new message is sent with *MessageId* that was logged during the time window, the message is reported as accepted (the send operation succeeds), but the newly sent message is instantly ignored and dropped. No other parts of the message other than the *MessageId* are considered.
 
 Application control of the identifier is essential, because only that allows the application to tie the *MessageId* to a business process context from which it can be predictably reconstructed when a failure occurs.
@@ -21,8 +22,13 @@ For a business process in which multiple messages are sent in the course of hand
 
 The *MessageId* can always be some GUID, but anchoring the identifier to the business process yields predictable repeatability, which is desired for leveraging the duplicate detection feature effectively.
 
-> [!NOTE]
-> If the duplicate detection is enabled and session ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
+> [!IMPORTANT]
+> When **partitioning** is **enabled**, `MessageId+PartitionKey` is used to determine uniqueness. When sessions are enabled, partition key and session ID must be the same. 
+> 
+> When **partitioning** is **disabled** (default), only `MessageId` is used to determine uniqueness.
+> 
+> For information about SessionId, PartitionKey, and MessageId, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
+
 
 ## Enable duplicate detection
 
