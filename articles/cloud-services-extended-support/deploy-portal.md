@@ -24,7 +24,7 @@ Cloud Services (extended support) is currently in preview. Register the feature 
 ```powershell
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
-For more information see [Perquisites for deploying Cloud Services (extended support)](overview.md#Prerequisites-for-deployment)
+For more information see [Perquisites for deploying Cloud Services (extended support)](overview.md#prerequisites-for-deployment)
 
 ## Create a Cloud Service (extended support)
 1.	Sign in to the Azure portal
