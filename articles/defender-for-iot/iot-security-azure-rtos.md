@@ -22,7 +22,7 @@ ms.author: mlottner
 
 The Azure Defender for IoT security module provides a comprehensive security solution for devices that use Azure RTOS. It provides coverage for common threats and potential malicious activities on real-time operating system (RTOS) devices. Azure RTOS now ships with the Azure IoT security module built in.
 
-![Visualization of Defender for IoT Azure RTOS.](./media/architecture/azure-rtos-security-monitoring.png)
+:::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualization of Defender for IoT Azure RTOS.":::
 
 
 The security module for Azure RTOS offers the following features:

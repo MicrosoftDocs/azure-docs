@@ -63,64 +63,64 @@ For more information about index properties, see [Create Index &#40;Azure Cognit
 ## Language analyzer list 
  Below is the list of supported languages together with Lucene and Microsoft analyzer names.  
 
-|Language|Microsoft Analyzer Name|Lucene Analyzer Name|  
-|--------------|-----------------------------|--------------------------|  
-|Arabic|ar.microsoft|ar.lucene|  
-|Armenian||hy.lucene|  
-|Bangla|bn.microsoft||  
-|Basque||eu.lucene|  
-|Bulgarian|bg.microsoft|bg.lucene|  
-|Catalan|ca.microsoft|ca.lucene|  
-|Chinese Simplified|zh-Hans.microsoft|zh-Hans.lucene|  
-|Chinese Traditional|zh-Hant.microsoft|zh-Hant.lucene|  
-|Croatian|hr.microsoft||  
-|Czech|cs.microsoft|cs.lucene|  
-|Danish|da.microsoft|da.lucene|  
-|Dutch|nl.microsoft|nl.lucene|  
-|English|en.microsoft|en.lucene|  
-|Estonian|et.microsoft||  
-|Finnish|fi.microsoft|fi.lucene|  
-|French|fr.microsoft|fr.lucene|  
-|Galician||gl.lucene|  
-|German|de.microsoft|de.lucene|  
-|Greek|el.microsoft|el.lucene|  
-|Gujarati|gu.microsoft||  
-|Hebrew|he.microsoft||  
-|Hindi|hi.microsoft|hi.lucene|  
-|Hungarian|hu.microsoft|hu.lucene|  
-|Icelandic|is.microsoft||  
-|Indonesian (Bahasa)|id.microsoft|id.lucene|  
-|Irish||ga.lucene|  
-|Italian|it.microsoft|it.lucene|  
-|Japanese|ja.microsoft|ja.lucene|  
-|Kannada|kn.microsoft||  
-|Korean|ko.microsoft|ko.lucene|  
-|Latvian|lv.microsoft|lv.lucene|  
-|Lithuanian|lt.microsoft||  
-|Malayalam|ml.microsoft||  
-|Malay (Latin)|ms.microsoft||  
-|Marathi|mr.microsoft||  
-|Norwegian|nb.microsoft|no.lucene|  
-|Persian||fa.lucene|  
-|Polish|pl.microsoft|pl.lucene|  
-|Portuguese (Brazil)|pt-Br.microsoft|pt-Br.lucene|  
-|Portuguese (Portugal)|pt-Pt.microsoft|pt-Pt.lucene|  
-|Punjabi|pa.microsoft||  
-|Romanian|ro.microsoft|ro.lucene|  
-|Russian|ru.microsoft|ru.lucene|  
-|Serbian (Cyrillic)|sr-cyrillic.microsoft||  
-|Serbian (Latin)|sr-latin.microsoft||  
-|Slovak|sk.microsoft||  
-|Slovenian|sl.microsoft||  
-|Spanish|es.microsoft|es.lucene|  
-|Swedish|sv.microsoft|sv.lucene|  
-|Tamil|ta.microsoft||  
-|Telugu|te.microsoft||  
-|Thai|th.microsoft|th.lucene|  
-|Turkish|tr.microsoft|tr.lucene|  
-|Ukrainian|uk.microsoft||  
-|Urdu|ur.microsoft||  
-|Vietnamese|vi.microsoft||  
+| Language | Microsoft Analyzer Name | Lucene Analyzer Name |
+|--|--|--|
+| Arabic | ar.microsoft | ar.lucene |
+| Armenian |  | hy.lucene |  |
+| Bangla | bn.microsoft |  |  |
+| Basque |  | eu.lucene |  |
+| Bulgarian | bg.microsoft | bg.lucene |  |
+| Catalan | ca.microsoft | ca.lucene |  |
+| Chinese Simplified | zh-Hans.microsoft | zh-Hans.lucene |  |
+| Chinese Traditional | zh-Hant.microsoft | zh-Hant.lucene |  |
+| Croatian | hr.microsoft |  |  |
+| Czech | cs.microsoft | cs.lucene |  |
+| Danish | da.microsoft | da.lucene |  |
+| Dutch | nl.microsoft | nl.lucene |  |
+| English | en.microsoft | en.lucene |  |
+| Estonian | et.microsoft |  |  |
+| Finnish | fi.microsoft | fi.lucene |  |
+| French | fr.microsoft | fr.lucene |  |
+| Galician |  | gl.lucene |  |
+| German | de.microsoft | de.lucene |  |
+| Greek | el.microsoft | el.lucene |  |
+| Gujarati | gu.microsoft |  |  |
+| Hebrew | he.microsoft |  |  |
+| Hindi | hi.microsoft | hi.lucene |  |
+| Hungarian | hu.microsoft | hu.lucene |  |
+| Icelandic | is.microsoft |  |  |
+| Indonesian (Bahasa) | id.microsoft | id.lucene |  |
+| Irish |  | ga.lucene |  |
+| Italian | it.microsoft | it.lucene |  |
+| Japanese | ja.microsoft | ja.lucene |  |
+| Kannada | kn.microsoft |  |  |
+| Korean | ko.microsoft | ko.lucene |  |
+| Latvian | lv.microsoft | lv.lucene |  |
+| Lithuanian | lt.microsoft |  |  |
+| Malayalam | ml.microsoft |  |  |
+| Malay (Latin) | ms.microsoft |  |  |
+| Marathi | mr.microsoft |  |  |
+| Norwegian | nb.microsoft | no.lucene |  |
+| Persian |  | fa.lucene |  |
+| Polish | pl.microsoft | pl.lucene |  |
+| Portuguese (Brazil) | pt-Br.microsoft | pt-Br.lucene |  |
+| Portuguese (Portugal) | pt-Pt.microsoft | pt-Pt.lucene |  |
+| Punjabi | pa.microsoft |  |  |
+| Romanian | ro.microsoft | ro.lucene |  |
+| Russian | ru.microsoft | ru.lucene |  |
+| Serbian (Cyrillic) | sr-cyrillic.microsoft |  |  |
+| Serbian (Latin) | sr-latin.microsoft |  |  |
+| Slovak | sk.microsoft |  |  |
+| Slovenian | sl.microsoft |  |  |
+| Spanish | es.microsoft | es.lucene |  |
+| Swedish | sv.microsoft | sv.lucene |  |
+| Tamil | ta.microsoft |  |  |
+| Telugu | te.microsoft |  |  |
+| Thai | th.microsoft | th.lucene |  |
+| Turkish | tr.microsoft | tr.lucene |  |
+| Ukrainian | uk.microsoft |  |  |
+| Urdu | ur.microsoft |  |  |
+| Vietnamese | vi.microsoft |  |  |
 
  All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 

@@ -46,7 +46,7 @@ The following are prerequisites for connecting the spatial-analysis module to Li
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Spatial Analysis overview":::
  
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream that reaches the MediaGraphCognitiveServicesVisionExtension processor node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `MediaGraphCognitiveServicesVisionExtension`processor node.
 
 The MediaGraphCognitiveServicesVisionExtension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The MediaGraphCognitiveServicesVisionExtension processor node does two things:
 
@@ -161,7 +161,7 @@ The deployment manifest defines what modules are deployed to an edge device. It 
 Follow these steps to generate the manifest from the template file and then deploy it to the edge device.
 
 1. Open Visual Studio Code.
-1. Next to the AZURE IOT HUB pane, select the More actions icon to set the IoT Hub connection string. You can copy the string from the src/cloud-to-device-console-app/appsettings.json file.
+1. Next to the AZURE IOT HUB pane, select the More actions icon to set the IoT Hub connection string. You can copy the string from the `src/cloud-to-device-console-app/appsettings.json` file.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Spatial Analysis: connection string":::
@@ -217,13 +217,13 @@ There is a program.cs which will invoke the direct methods in src/cloud-to-devic
 
 In operations.json:
 
-* Set the topology like this (topologyFile for local topology, topologyUrl for online topology):
+* Set the topology like this:
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysisTopology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/2.0/topology.json"
     }
 },
 ```
@@ -256,60 +256,60 @@ In operations.json:
     }
 },
 ```
-* Change the link to the graph topology:
-
-`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
-
-Under **GraphInstanceSet**, edit the name of the graph topology to match the value in the preceding link:
-
-`topologyName` : InferencingWithCVExtension
-
-Under **GraphTopologyDelete**, edit the name:
-
-`name`: InferencingWithCVExtension
 
 >[!Note]
 Check out the use of MediaGraphRealTimeComputerVisionExtension to connect with spatial-analysis module. Set the ${grpcUrl} to **tcp://spatialAnalysis:<PORT_NUMBER>**, e.g. tcp://spatialAnalysis:50051
 
 ```json
 {
-    "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
-    "name": "computerVisionExtension",
-    "endpoint": {
-    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-    "url": "${grpcUrl}",
-    "credentials": {
-        "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-        "username": "${spatialanalysisusername}",
-        "password": "${spatialanalysispassword}"
-    }
-    },
-    "image": {
-    "scale": {
-        "mode": "pad",
-        "width": "1408",
-        "height": "786"
-    },
-    "format": {
-        "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-        "pixelFormat": "bgr24"
-    }
-    },
-    "inputs": [
-    {
-        "nodeName": "frameRateFilter"
-    }
-    ]
+	"@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
+	"name": "computerVisionExtension",
+	"endpoint": {
+		"@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+		"url": "${grpcUrl}",
+		"credentials": {
+			"@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+			"username": "${spatialanalysisusername}",
+			"password": "${spatialanalysispassword}"
+		}
+	},
+	"image": {
+		"scale": {
+			"mode": "pad",
+			"width": "1408",
+			"height": "786"
+		},
+		"format": {
+			"@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
+			"pixelFormat": "bgr24"
+		}
+	},
+	"samplingOptions": {
+		"skipSamplesWithoutAnnotation": "false",
+		"maximumSamplesPerSecond": "20"
+	},
+	"inputs": [
+		{
+			"nodeName": "rtspSource",
+			"outputSelectors": [
+				{
+					"property": "mediaType",
+					"operator": "is",
+					"value": "video"
+				}
+			]
+		}
+	]
 }
 ```
 
-Run a debug session and follow TERMINAL instructions, it will set topology, set graph instance, activate graph instance, and finally delete the resources.
+Run a debug session and follow **TERMINAL** instructions, it will set topology, set graph instance, activate graph instance, and finally delete the resources.
 
 ## Interpret results
 
 When a media graph is instantiated, you should see "MediaSessionEstablished" event, here a [sample MediaSessionEstablished event](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-The spatial-analysis module will also send out AI Insight events to  Live Video Analytics and then to IoTHub, it will also show in OUTPUT. The ENTITY is detection objects, and EVENT is spaceanalytics events. This output will be passed into Live Video Analytics.
+The spatial-analysis module will also send out AI Insight events to  Live Video Analytics and then to IoTHub, it will also show in **OUTPUT**. The ENTITY is detection objects, and EVENT is spaceanalytics events. This output will be passed into Live Video Analytics.
 
 Sample output for personZoneEvent (from cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics  operation):
 

@@ -47,7 +47,7 @@ Azure Active Directory Connect runs signed PowerShell scripts as part of the ins
 
 The recommended execution policy during installation is "RemoteSigned".
 
-For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 
 ### Azure AD Connect server

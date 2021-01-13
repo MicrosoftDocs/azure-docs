@@ -166,6 +166,21 @@ It also impacts Multi Device Synchronization where subordinate devices start up 
 
 To use the Body Tracking SDK with Unreal, make sure you have added `<SDK Installation Path>\tools` to the environment variable `PATH` and copied `dnn_model_2_0.onnx` and `cudnn64_7.dll` to `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64`.
 
+## Using Azure Kinect on headless Linux system
+
+The Azure Kinect depth engine on Linux uses OpenGL. OpenGL requires a window instance which requires a monitor to be connected to the system. A workaround for this issue is:
+
+1. Enable automatic login for the user account you plan to use. Refer to [this](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) article for instructions on enabling automatic login.
+2. Power down the system, disconnect the monitor and power up the system. Automatic login forces the creation of an x-server session.
+2. Connect via ssh and set the DISPLAY env variable `export DISPLAY=:0`
+3. Start your Azure Kinect application.
+
+## Missing C# documentation
+
+The Sensor SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
+
+The Body Tracking SDK C# documentation is located [here](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
+
 ## Next steps
 
 [More support information](support.md)

@@ -31,17 +31,23 @@ ms.author: pafarley
 
 After installing Python, you can install the latest version of the Form Recognizer client library with:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### [version 3.1 preview](#tab/preview)
+> [!NOTE]
+> The latest Form Recognizer reflects API version 2.0
+
+#### [version 2.1 preview](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
+
+> [!NOTE]
+> The Form Recognizer preview SDK reflects API version 2.1 preview
 
 ---
 
@@ -86,22 +92,22 @@ With Form Recognizer, you can create two different client types. The first, `for
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
-* [Recognize business cards](#recognize-business-cards)
-* [Recognize invoices](#recognize-invoices)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Analyze business cards](#analyze-business-cards)
+* [Analyze invoices](#analyze-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -118,13 +124,15 @@ Here, you'll authenticate two client objects using the subscription variables yo
 ## Get assets for testing
 
 You'll need to add references to the URLs for your training and testing data.
-* To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 * Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
 > [!NOTE]
 > The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-## Recognize form content
+## Analyze layout
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
@@ -158,7 +166,7 @@ Confidence score: 1.0
 
 ```
 
-## Recognize receipts
+## Analyze receipts
 
 This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
 
@@ -189,11 +197,15 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-#### [version 3.0](#tab/ga)
 
-#### [version 3.1 preview](#tab/preview)
+## Analyze business cards
 
-## Recognize business cards
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model. To recognize business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
 
@@ -202,7 +214,16 @@ This section demonstrates how to recognize and extract common fields from Englis
 > [!TIP]
 > You can also recognize local business card images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_business_cards`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
 
-## Recognize invoices
+---
+
+## Analyze invoices
+
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model. To recognize invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
 

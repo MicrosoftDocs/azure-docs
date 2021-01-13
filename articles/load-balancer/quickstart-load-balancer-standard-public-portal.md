@@ -36,6 +36,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
+
+*Figure: Resources created in quickstart.*
+
 In this section, you create a load balancer that load balances virtual machines. 
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
@@ -119,7 +123,7 @@ In this section, you'll create a load balancer rule:
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
-2. Under **Settings**, select **Load balancing rules**, then select **Add**.
+2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
 
 3. Use these values to configure the load-balancing rule:
     
@@ -135,7 +139,7 @@ In this section, you'll create a load balancer rule:
     | Health probe | Select **myHealthProbe**. |
     | Idle timeout (minutes) | Move the slider to **15** minutes. |
     | TCP reset | Select **Enabled**. |
-    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.**. |
+    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -316,6 +320,10 @@ For more information on outbound connections, see [Outbound connections in Azure
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::
+
+*Figure: Resources created in quickstart.*
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -571,7 +579,7 @@ The VMs created in the previous steps must be added to the backend pool of **myL
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreateStdLBQS-rg** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreatePubLBQS-rg** resource group.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
 

@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.author: banders
 ---
 
@@ -17,6 +17,14 @@ You might want to take over ownership of Azure subscriptions if the existing bil
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
 To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
+
+The person that you're requesting billing ownership from must have one of the following roles:
+
+- For an Enterprise Microsoft Customer Agreement, the user be a Billing Owner.
+- For an Enterprise Agreement, the user must be an Account Owner.
+- For a Microsoft Online Service Program billing account, the user must be an Account Administrator.
+
+For more information, see [view your billing accounts in Azure portal](view-all-accounts.md).
 
 ## Request billing ownership
 
@@ -37,7 +45,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 1. Select an invoice section from the list. Once you take over the ownership of the subscriptions, their usage will be assigned to this section of the billing profile's invoice.
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
     [![Screenshot that shows selecting transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Enter the email address of the user you're requesting billing ownership from. The user must be an Account Administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](view-all-accounts.md). Select **Send transfer request**.  
+1. Enter the email address of the user you're requesting billing ownership from. Select **Send transfer request**.  
     [![Screenshot that shows sending a transfer request](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. The user gets an email with instructions to review your transfer request.  
     ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -64,6 +72,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 1. Select the invoice section from the list for which the transfer request was sent.
 1. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:  
     [![Screenshot that shows list of transfer requests](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Column|Definition|
    |---------|---------|
    |Request date|The date when the transfer request was sent|

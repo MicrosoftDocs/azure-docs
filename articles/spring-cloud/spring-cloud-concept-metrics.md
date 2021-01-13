@@ -109,7 +109,7 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|------|-----------------------------|------|---------|
->| CPU usage       | cpu-usage      | Milliseconds | Amount of time the process has utilized the CPU. |
+>| CPU usage       | cpu-usage      | Percent      | The percent of the process's CPU usage relative to all of the system CPU resources [0-100]. |
 >| Working set     | working-set    | Megabytes    | Amount of working set used by the process. |
 >| GC heap size    | gc-heap-size   | Megabytes    | Total heap size reported by the garbage collector. |
 >| Gen 0 GC count  | gen-0-gc-count | Count        | Number of Generation 0 garbage collections per second. |

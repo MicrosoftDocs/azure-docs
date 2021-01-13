@@ -22,7 +22,7 @@ Following table shows a summary of key types and supported algorithms.
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
+|AES 128-bit, 256-bit <br/>(Managed HSM only)| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
 |||
 
 ##  EC algorithms
@@ -61,10 +61,10 @@ Following table shows a summary of key types and supported algorithms.
 -   **RS512** - RSASSA-PKCS-v1_5 using SHA-512. The application supplied digest value must be computed using SHA-512 and must be 64 bytes in length.  
 -   **RSNULL** - See [RFC2437](https://tools.ietf.org/html/rfc2437), a specialized use-case to enable certain TLS scenarios.  
 
-##  Symmetric key algorithms
+##  Symmetric key algorithms (Managed HSM only)
 - **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
-- **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
-- **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+- **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
 > [!NOTE] 
 > Current AES-GCM implementation and the corresponding APIs are experimental. The implementation and the APIs may change substantially in the future iterations. 

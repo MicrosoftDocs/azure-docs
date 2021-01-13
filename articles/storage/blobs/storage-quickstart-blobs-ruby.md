@@ -52,7 +52,7 @@ The following code in the *example.rb* file instantiates a new [BlobService](htt
 account_name = "accountname"
 account_key = "accountkey"
 
-    blob_client = Azure::Storage::Blob::BlobService.create(
+blob_client = Azure::Storage::Blob::BlobService.create(
     storage_account_name: account_name,
     storage_access_key: account_key
 )
@@ -188,6 +188,7 @@ See these additional resources for Ruby development:
 
 - View and download the [Ruby client library source code](https://github.com/Azure/azure-storage-ruby) for Azure Storage on GitHub.
 - Explore [Azure samples](/samples/browse/?products=azure&languages=ruby) written using the Ruby client library.
+- [Sample: Getting Started with Azure Storage in Ruby](https://github.com/Azure-Samples/storage-blob-ruby-getting-started)
 
 ## Next steps
 

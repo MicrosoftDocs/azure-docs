@@ -16,6 +16,14 @@ In this article, we configure an Azure virtual machine running Linux to be an Io
 
 The steps in this article are typically performed by a cloud developer.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create certificates to allow your gateway device to connect securely to your downstream devices.
+> * Create an IoT Edge device.
+> * Create an Azure virtual machine to simulate your IoT Edge device.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
@@ -67,7 +75,7 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault secrets. We will use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault secrets. We will use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Jupyter Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning workspace.
 

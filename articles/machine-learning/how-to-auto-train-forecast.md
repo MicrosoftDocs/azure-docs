@@ -8,7 +8,7 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, automl
+ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
 ---
 
@@ -163,6 +163,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                                forecast_horizon=50,
                                                time_series_id_column_names=["store"],
+                                               freq='W',
                                                target_lags='auto',
                                                target_rolling_window_size=10)
                                               
@@ -221,6 +222,9 @@ Supported customizations for `forecasting` tasks include:
 |**Drop columns** |Specifies columns to drop from being featurized.|
 
 To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
+
+>[!NOTE]
+> The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
 
 ```python
 featurization_config = FeaturizationConfig()
@@ -317,7 +321,7 @@ When you have your `AutoMLConfig` object ready, you can submit the experiment. A
 
 ```python
 ws = Workspace.from_config()
-experiment = Experiment(ws, "forecasting_example")
+experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```

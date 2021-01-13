@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 ---
 # ExpressRoute workflows for circuit provisioning and circuit states
