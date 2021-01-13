@@ -38,7 +38,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
   
    ```kusto
    AzureDiagnostics 
-   | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests"
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
    ```
 
 * **MongoRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for MongoDB. This log type is not available for other API accounts. Key properties to note are: `Requestcharge`, `opCode`. When you enable MongoRequests in diagnostics logs, make sure to turn off the DataPlaneRequests. You would see one log for every request made on the API.
@@ -51,7 +51,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
   
   ```kusto
    AzureDiagnostics 
-   | where ResourceProvider=="Microsoft.DocumentDb" and Category=="MongoRequests"
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="MongoRequests"
   ```
 
 * **CassandraRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for Cassandra. This log type is not available for other API accounts. The key properties to note are `operationName`, `requestCharge`, `piiCommandText`. When you enable CassandraRequests in diagnostics logs, make sure to turn off the DataPlaneRequests. You would see one log for every request made on the API.
@@ -64,7 +64,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
   
   ```kusto
    AzureDiagnostics 
-   | where ResourceProvider=="Microsoft.DocumentDb" and Category=="CassandraRequests"
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="CassandraRequests"
   ```
 
 * **GremlinRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for Gremlin. This log type is not available for other API accounts. The key properties to note are `operationName` and `requestCharge`. When you enable GremlinRequests in diagnostics logs, make sure to turn off the DataPlaneRequests. You would see one log for every request made on the API.
@@ -77,7 +77,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
   
   ```kusto
    AzureDiagnostics 
-   | where ResourceProvider=="Microsoft.DocumentDb" and Category=="GremlinRequests"
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="GremlinRequests"
   ```
 
 * **QueryRuntimeStatistics**: Select this option to log the query text that was executed. This log type is available for SQL API accounts only.
