@@ -24,6 +24,8 @@ Most of the attributes that can be used with Azure AD B2C user profiles are also
 
 You can also integrate with external systems. For example, you can use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the authoritative source of customer data. For more information, see the [remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) solution.
 
+## Azure AD user resource type
+
 The table below lists the [user resource type](/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
 
 - Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
@@ -37,8 +39,8 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user's age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|
-|alternativeSecurityId ([Identities](#identities-property))|String|A single user identity from the external identity provider.|No|No|Input, Persisted, Output|
-|alternativeSecurityIds ([Identities](#identities-property))|alternative securityId collection|A collection of user identities from external identity providers.|No|No|Persisted, Output|
+|alternativeSecurityId ([Identities](#identities-attribute))|String|A single user identity from the external identity provider.|No|No|Input, Persisted, Output|
+|alternativeSecurityIds ([Identities](#identities-attribute))|alternative securityId collection|A collection of user identities from external identity providers.|No|No|Persisted, Output|
 |city            |String|The city in which the user is located. Max length 128.|Yes|Yes|Persisted, Output|
 |consentProvidedForMinor|String|Whether the consent has been provided for a minor. Allowed values: null, granted, denied, or notRequired.|Yes|No|Persisted, Output|
 |country         |String|The country/region in which the user is located. Example: "US" or "UK". Max length 128.|Yes|Yes|Persisted, Output|
@@ -65,10 +67,10 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
 |preferredLanguage    |String|The preferred language for the user. Should follow ISO 639-1 Code. Example: "en-US".|No|No|Persisted, Output|
 |refreshTokensValidFromDateTime|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
-|signInNames ([Identities](#identities-property)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
-|signInNames.userName ([Identities](#identities-property)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.phoneNumber ([Identities](#identities-property)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.emailAddress ([Identities](#identities-property))|String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames ([Identities](#identities-attribute)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
+|signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.phoneNumber ([Identities](#identities-attribute)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.emailAddress ([Identities](#identities-attribute))|String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
