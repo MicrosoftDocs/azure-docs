@@ -8,6 +8,7 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
+---	
 
 # Deploy Azure Monitor for SAP Solutions with Azure portal
 
