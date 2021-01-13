@@ -189,7 +189,7 @@ Provisioning refers to the creation of user accounts and groups in applications 
     *   Block access to the Azure portal. You can make rare necessary
         exceptions.  Create a Conditional Access policy that includes all guests
             and external users and then [implement a policy to block
-            access](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md). 
+            access](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management). 
 
 * **Disconnected Forests:** Use [Azure AD Cloud
     Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
