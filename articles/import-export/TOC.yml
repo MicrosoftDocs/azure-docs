@@ -38,14 +38,14 @@
       href: storage-import-export-tool-repairing-an-export-job-v1.md
     - name: Contact Support
       href: storage-import-export-contact-microsoft-support.md
-  - name: Reference
-    items:
-    - name: REST API
-      href: /rest/api/storageimportexport/jobs
-    - name: Azure PowerShell
-      href: /powershell/module/Az.ImportExport
-  - name: Resources
-    items:
-    - name: Export data offline with Import/Export
-      href: /learn/modules/export-data-with-azure-import-export.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/storageimportexport/jobs
+  - name: Azure PowerShell
+    href: /powershell/module/Az.ImportExport
+- name: Resources
+  items:
+  - name: Export data offline with Import/Export
+    href: /learn/modules/export-data-with-azure-import-export.md
    
