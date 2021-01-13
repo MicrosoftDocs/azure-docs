@@ -204,7 +204,8 @@ Use the following procedure:
     | where TimeGenerated > ago(1h)
     | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
     ```
-4. You can see your your application logs like this.
+4. Application logs return as shown in the following image:
+
 ![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
 
 ### Show log entries containing errors
