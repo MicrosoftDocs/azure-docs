@@ -53,7 +53,7 @@ Welcome to what's new in the Cognitive Services docs from December 1, 2020 throu
 ### Updated articles
 
 - [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
-- [How to call the Text Analytics REST API](azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
 - [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
 - [Example: How to extract key phrases using Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction)
 - [Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs](/azure/cognitive-services/text-analytics/)
