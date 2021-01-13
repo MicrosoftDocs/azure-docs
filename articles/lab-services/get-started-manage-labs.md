@@ -104,7 +104,7 @@ Teachers are able to connect to a student VM as long as it is turned on, and the
 
 ## Manage users in a lab
 
-Teachers are able to add student users to a lab and monitor their hour quotas. For details on how to add users by email address or by using a spreadsheet list, how to register users, see [Add and manage lab users](how-to-configure-student-usage.md).
+Teachers are able to add student users to a lab and monitor their hour quotas. For details on how to add users by email address or by using a spreadsheet list and register users, see [Add and manage lab users](how-to-configure-student-usage.md).
 
 After you have invited users or shared the link, you will be able to monitor which users have registered successfully in the **Users** page in the **Status** column. 
 
