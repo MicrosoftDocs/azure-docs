@@ -10,13 +10,13 @@
  ms.custom: include file
 ---
 
-This section describes best practices and requirements for allocating client address spaces where the chosen Virtual WAN Hub’s Point-to-site VPN Gateway scale unit is greater than or equal to 40.
+This section describes guidelines and requirements for allocating client address spaces where the chosen Virtual WAN Hub’s Point-to-site VPN Gateway scale unit is greater than or equal to 40.
 
 ### Background
 
-Each instance of a Point-to-site VPN gateway can support up to 10,000 concurrent point-to-site user connections. As a result, for scale units greater than 40, Virtual WAN needs to deploy additional capacity which requires a certain number of address pools allocated for scale unit ranges.
+Each instance of a Point-to-site VPN gateway can support up to 10,000 concurrent point-to-site user connections. As a result, for scale units greater than 40, Virtual WAN needs to deploy extra capacity, which requires a certain number of address pools allocated for different scale units.
 
-For instance, if a scale unit of 100 is chosen, the deployment will be able to support 50,000 concurrent connections and 5 distinct address pools must be specified.
+For instance, if a scale unit of 100 is chosen, the deployment can support 50,000 concurrent connections and 5 distinct address pools must be specified.
 
 **Available Scale Units**
 
@@ -34,17 +34,17 @@ For instance, if a scale unit of 100 is chosen, the deployment will be able to s
 
 ### Specifying Address Pools
 
-Below are some general guidelines and general best practices when choosing address pools.
+Below are some guidelines for choosing address pools.
 
-1. One address pool allows for a maximum of 10,000 concurrent connections. Therefore, each address pool should contain at least 10,000 unique RFC1918 IP addresses.
-1. Address pool ranges cannot be shared. For example, a pool with 5,000 addresses will not be able to use addresses from another pool that has 8,000 addresses.
+1. One address pool allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique RFC1918 IP addresses.
+1. Address pool ranges cannot be shared. For example, a pool with 5,000 addresses cannot use addresses from another pool that has 8,000 addresses.
 1. Address pools must be distinct. There can be no overlap between address pools.
 
 ### Example 
 
-The following example describes a situation where 60 scale units supports up to 30,000 connections but the allocated address pools results in fewer than 30,000 concurrent connections.
+The following example describes a situation where 60 scale units support up to 30,000 connections but the allocated address pools results in fewer than 30,000 concurrent connections.
 
-The total number of concurrent connections supported in this setup is 20,032. The first address pool allocated supports 10,000 addresses, the second pool 32 connections and the third pool also provides 10,000 addresses. 
+The total number of concurrent connections supported in this setup is 20,032. The first address pool  supports 10,000 addresses, the second pool 32 connections, and the third pool also supports 10,000 addresses.
 
 | Address Pool Number | Address Pool | Supported Connections |
 |--- |--- |--- |
