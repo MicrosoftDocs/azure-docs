@@ -61,7 +61,7 @@ You can use these links to bootstrap the creation of your web application:
 1. When the **Register an application page** appears, enter your application's registration information:
    1. Enter a **Name** for your application, for example `MailApp-openidconnect-v2`. Users of your app might see this name, and you can change it later.
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
-   1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/**.
+   1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: `https://localhost:44326/`.
    1. Select **Register** to create the application.
 1. Under **Manage**, select **Authentication**.
 1. In the **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.

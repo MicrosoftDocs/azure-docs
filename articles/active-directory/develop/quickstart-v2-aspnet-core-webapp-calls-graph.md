@@ -61,7 +61,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> For the code sample for this quickstart to work, you need to add reply URLs as `https://localhost:44321/signin-oidc`, add the **Front-channel logout URL** as `https://localhost:44321/signout-oidc`.
+> For the code sample in this quickstart to work, you need to add the **Redirect URI** as `https://localhost:44321/signin-oidc`, add the **Front-channel logout URL** as `https://localhost:44321/signout-oidc`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >

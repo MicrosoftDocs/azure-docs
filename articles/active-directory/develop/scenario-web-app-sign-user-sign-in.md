@@ -218,17 +218,15 @@ To learn more, see the [Send a sign-out request](v2-protocols-oidc.md#send-a-sig
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `https://localhost:44321/signout-oidc` in the **Front-channel logout URL** field on the **Authentication** page. For details, see [
-Register the webApp app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+During the application registration, you register a front-channel logout URL. In our tutorial, you registered `https://localhost:44321/signout-oidc` in the **Front-channel logout URL** field on the **Authentication** page. For details, see [Register the webApp app](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # [ASP.NET](#tab/aspnet)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `https://localhost:44308/Account/EndSession` in the **Front-channel logout URL** field on the **Authentication** page. For details, see
-[Register the webApp app](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL. 
 
 # [Java](#tab/java)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `http://localhost:8080/msal4jsample/sign_out` in the **Front-channel logout URL** field on the **Authentication** page.
+During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL.
 
 # [Python](#tab/python)
 
