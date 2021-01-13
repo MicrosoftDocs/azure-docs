@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 12/22/2020
+ms.date: 1/13/2021
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -99,49 +99,46 @@ To resolve this issue, contact your service administrator to provide you with a 
 Typically, the service administrator can use the following steps to add the login credentials:
 
 1. Log in to the server by using SQL Server Management Studio (SSMS).
-2. Run the following SQL query to check whether the login name is disabled:
+2. Run the following SQL query in the master database to check whether the login name is disabled:
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. If the corresponding name is disabled, enable it by using the following statement:
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. If the SQL login user name doesn't exist, create it by following these steps:
-
-   1. In SSMS, double-click **Security** to expand it.
-   2. Right-click **Logins**, and then select **New login**.
-   3. In the generated script with placeholders, edit and run the following SQL query:
+4. If the SQL login user name doesn't exist, edit and run the following SQL query to create a new SQL login:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = '<password, sysname, Change_Password>'
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. Double-click **Database**.
+5. In SSMS Object Explorer, expand **Databases**.
 6. Select the database that you want to grant the user permission to.
-7. Double-click **Security**.
-8. Right-click **Users**, and then select **New User**.
-9. In the generated script with placeholders, edit and run the following SQL query:
+7. Right-click **Security**, and then select **New**, **User**.
+8. In the generated script with placeholders, edit and run the following SQL query:
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   You can also use `sp_addrolemember` to map specific users to specific database roles.
+
    > [!NOTE]
-   > You can also use `sp_addrolemember` to map specific users to specific database roles.
+   > In Azure SQL Database, consider the newer [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) syntax for managing database role membership.  
 
 For more information, see [Managing databases and logins in Azure SQL Database](./logins-create-manage.md).
 
@@ -183,13 +180,14 @@ To work around this issue, try one of the following methods:
 1. Run the following SQL query to check the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine the **input buffer** for the head blocker.
 3. Tune the head blocker query.
 
-   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+    > [!Note]
+    > For more information, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
 
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -229,7 +227,7 @@ The following steps can either help you work around the problem or provide you w
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. If the current size does not exceed the maximum size supported for your edition, you can use ALTER DATABASE to increase the MAXSIZE setting.
@@ -248,15 +246,16 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 1. Check the sys.dm_exec_requests view to see any open sessions that have a high value for the total_elapsed_time column. Perform this check by running the following SQL script:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine the input buffer for the long-running query.
 3. Tune the query.
 
-Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
+    > [!Note]
+    > For more information on troubleshooting blocking in Azure SQL Database, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
