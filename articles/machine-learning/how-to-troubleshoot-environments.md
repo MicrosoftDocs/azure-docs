@@ -12,38 +12,40 @@ ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---
 # Troubleshoot environment image builds
+
 Learn how to troubleshoot issues with Docker environment image builds and package installations.
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
-## Docker Image Build Failures
+## Docker image build failures
  
-For the majority of image build failures, the root cause can be found in the image build log.
-You can find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your ACR tasks runs logs
+For the majority of image build failures, you'll find the root cause in the image build log.
+Find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your Azure Container Registry task run logs.
  
-In most cases, it is easier to reproduce errors locally. Check the kind of error and try one of the following `setuptools`:
+It's usually easier to reproduce errors locally. Check the kind of error and try one of the following `setuptools`:
 
-- Install conda dependency locally `conda install suspicious-dependency==X.Y.Z`
-- Install pip dependency locally `pip install suspicious-dependency==X.Y.Z`
-- Try to materialize the entire environment `conda create -f conda-specification.yml`
+- Install conda dependency locally: `conda install suspicious-dependency==X.Y.Z`.
+- Install pip dependency locally: `pip install suspicious-dependency==X.Y.Z`.
+- Try to materialize the entire environment: `conda create -f conda-specification.yml`.
 
 > [!IMPORTANT]
-> Make sure that platform and interpreter on your local compute match the ones on the remote. 
+> Make sure that the platform and interpreter on your local compute cluster match the ones on the remote compute cluster. 
 
 ### Timeout 
  
-Timeout issues can happen for various network issues:
+The following network issues can cause timeout errors:
+
 - Low internet bandwidth
 - Server issues
 - Large dependency that can't be downloaded with the given conda or pip timeout settings
  
-Messages similar to the below will indicate the issue:
+Messages similar to the following will indicate the issue:
  
 ```
 ('Connection broken: OSError("(104, \'ECONNRESET\')")', OSError("(104, 'ECONNRESET')"))
@@ -52,34 +54,37 @@ Messages similar to the below will indicate the issue:
 ReadTimeoutError("HTTPSConnectionPool(host='****', port=443): Read timed out. (read timeout=15)",)
 ```
 
-Possible solutions:
+If you get an error message, try one of the following possible solutions:
  
-- Try a different source for the dependency if available such as mirrors, blob storage, or other python feeds.
-- Update conda or pip. If a custom docker file is used, update the timeout settings.
-- Some pip versions have known issues. Consider adding a specific version of pip into environment dependencies .
+- Try a different source, such as mirrors, Azure Blob Storage, or other Python feeds, for the dependency.
+- Update conda or pip. If a custom Docker file is used, update the timeout settings.
+- Some pip versions have known issues. Consider adding a specific version of pip into environment dependencies.
 
-### Package Not Found
+### Package not found
 
-This is the most common case for image build failures.
+The following errors are the most common cases for image build failures:
 
-- Conda package could not be found
-        ```
-        ResolvePackageNotFound: 
-          - not-existing-conda-package
-        ```
+- Conda package could not be found:
 
-- Specified pip package or version could not be found
-        ```
-        ERROR: Could not find a version that satisfies the requirement invalid-pip-package (from versions: none)
-        ERROR: No matching distribution found for invalid-pip-package
-        ```
+   ```
+   ResolvePackageNotFound: 
+   - not-existing-conda-package
+   ```
 
-- Bad nested pip dependency
-        ```
-        ERROR: No matching distribution found for bad-backage==0.0 (from good-package==1.0)
-        ```
+- Specified pip package or version could not be found:
 
-Check the package exists on the specified sources. Use [pip search](https://pip.pypa.io/en/stable/reference/pip_search/) to verify pip dependencies.
+   ```
+   ERROR: Could not find a version that satisfies the requirement invalid-pip-package (from versions: none)
+   ERROR: No matching distribution found for invalid-pip-package
+   ```
+
+- Bad nested pip dependency:
+
+   ```
+   ERROR: No matching distribution found for bad-package==0.0 (from good-package==1.0)
+   ```
+
+Check that the package exists on the specified sources. Use [pip search](https://pip.pypa.io/en/stable/reference/pip_search/) to verify pip dependencies.
 
 `pip search azureml-core`
 
@@ -87,25 +92,25 @@ For conda dependencies, use [conda search](https://docs.conda.io/projects/conda/
 
 `conda search conda-forge::numpy`
 
-For more options:
+For more options, try:
 - `pip search -h`
 - `conda search -h`
 
-#### Installer Notes
+#### Installer notes
 
 Make sure that the required distribution exists for the specified platform and Python interpreter version.
 
-For pip dependencies, navigate to `https://pypi.org/project/[PROJECT NAME]/[VERSION]/#files` to see if required version is available. For example, https://pypi.org/project/azureml-core/1.11.0/#files
+For pip dependencies, go to `https://pypi.org/project/[PROJECT NAME]/[VERSION]/#files` to see if the required version is available. Go to https://pypi.org/project/azureml-core/1.11.0/#files to see an example.
 
-For conda dependencies, check package on the channel repository.
-For channels maintained by Anaconda, Inc., check [here](https://repo.anaconda.com/pkgs/).
+For conda dependencies, check the package on the channel repository.
+For channels maintained by Anaconda, Inc., check https://repo.anaconda.com/pkgs/.
 
-### Pip Package Update
+### Pip package update
 
-During install or update of a pip package the resolver may need to update an already installed package to satisfy the new requirements.
-Uninstall can fail for various reasons related to pip version or the way the dependency was installed.
+During an install or an update of a pip package, the resolver might need to update an already-installed package to satisfy the new requirements.
+Uninstall can fail for various reasons related to the pip version or the way the dependency was installed.
 The most common scenario is that a dependency installed by conda could not be uninstalled by pip.
-For this scenario, consider uninstalling the dependency using `conda remove mypackage`.
+For this scenario, consider uninstalling the dependency by using `conda remove mypackage`.
 
 ```
   Attempting uninstall: mypackage
@@ -125,8 +130,8 @@ Consider pinning the pip version in your environment if you see any of the messa
 
 `Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies. Conda may not use the correct pip to install your packages, and they may end up in the wrong place. Please add an explicit pip dependency. I'm adding one for you, but still nagging you.`
 
-`Pip subprocess error:
-ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.`
+Pip subprocess error:
+`ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.`
 
 In addition, pip installation can be stuck in an infinite loop if there are unresolvable conflicts in the dependencies. 
 If working locally, downgrade the pip version to < 20.3. 
@@ -143,11 +148,11 @@ Possible issues:
 ### 401 error from workspace ACR
 Resynchronize storage keys using [ws.sync_keys()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--)
 
-### Environment keeps throwing "Waiting for other Conda operations to finish…" Error
+### Environment keeps throwing "Waiting for other conda operations to finish…" error
 When an image build is ongoing, conda is locked by the SDK client. If the process crashed or was canceled incorrectly by the user - conda stays in the locked state. To resolve this, manually delete the lock file. 
 
 ### Custom docker image not in registry
-Check if the [correct tag](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#create-an-environment) is used and that `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` disables Conda and uses the user's installed packages.
+Check if the [correct tag](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#create-an-environment) is used and that `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` disables conda and uses the user's installed packages.
 
 ### Common VNet issues
 
@@ -167,11 +172,11 @@ When using default Docker images and enabling user-managed dependencies, you mus
 
  See [enabling VNET](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) for more.
 
-### Creating an ICM
+### Create an ICM
 
-When creating/assigning an ICM to Metastore, please include the CSS support ticket so that we can better understand the issue.
+When you're creating/assigning an ICM to Metastore, include the CSS support ticket so that we can better understand the issue.
 
 ## Next steps
 
 - [Train a machine learning model to categorize flowers](how-to-train-scikit-learn.md)
-- [Train a machine learning model using a custom Docker image](how-to-train-with-custom-image.md)
+- [Train a machine learning model by using a custom Docker image](how-to-train-with-custom-image.md)
