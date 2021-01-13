@@ -49,7 +49,7 @@ If this command returns a `conda not found` error, [download and install Minicon
 Once you have installed Conda, use a terminal or Anaconda Prompt window to create a new environment:
 
 ```bash
-conda create -n tutorial python=3.7
+conda create -n tutorial python=3.8
 ```
 
 Next, install the Azure Machine Learning SDK into the conda environment you created:
