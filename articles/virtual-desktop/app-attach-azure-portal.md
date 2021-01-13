@@ -51,7 +51,7 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 ```
 
 >[!NOTE]
->This change does not require that you restart the virtual machine, but its recommended.
+>We recommend that you restart the virtual machine after enabling Hyper-V.
 
 ## Configure the MSIX app attach management interface
 
