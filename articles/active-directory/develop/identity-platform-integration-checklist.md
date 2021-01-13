@@ -16,7 +16,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to learn about best practices so I can integrate my application with the Microsoft identity platform.
 ---
 
-# Microsoft identity platform best practices and recommendations
+# Microsoft identity platform best practices and recommendations.
 
 This article highlights best practices, recommendations, and common oversights when integrating with the Microsoft identity platform.  This checklist will guide you to a high-quality and secure integration. Review this list on a regular basis to make sure you maintain the quality and security of your app’s integration with the identity platform. The checklist isn't intended to review your entire application. The contents of the checklist are subject to change as we make improvements to the platform.
 
