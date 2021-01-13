@@ -59758,11 +59758,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/management/grant-access-to-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/grant-access-to-create-subscription",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/Speech/GetStarted/GetStartedCSharpWin10.md",
       "redirect_url": "/azure/cognitive-services/speech/getstarted/getstarted",
       "redirect_document_id": false
