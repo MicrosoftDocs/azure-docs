@@ -931,7 +931,7 @@
           "articles/mysql/howto-create-users.md",
           "articles/mysql/concepts-read-replicas.md",
           "articles/mysql/flexible-server/concepts-read-replicas.md",
-          "articles/mysql/concepts-certificate-rotation.md"
+          "articles/mysql/concepts-certificate-rotation.md",
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
           "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
