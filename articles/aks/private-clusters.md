@@ -62,23 +62,23 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
-### Configure Private DNS Zone
+## Configure Private DNS Zone
 
 The following parameters can be leveraged to configure Private DNS Zone.
 
 1. "System" is the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
 2. "None" means AKS will not create a Private DNS Zone.  This requires you to Bring Your Own DNS Server and configure the DNS resolution for the Private FQDN.  If you don't configure DNS resolution, DNS is only resolvable within the agent nodes and will cause cluster issues after deployment.
-3. "Custom private dns zone name" should be in this format for azure global cloud: `privatelink.<region>.azmk8s.io`. The user assigned identity or service principal must be granted at least `private dns zone contributor` role to the custom private dns zone.
+3. "Custom private dns zone name" should be in this format for azure global cloud: `privatelink.<region>.azmk8s.io`. You will need the Resource Id of that Private DNS Zone.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor` role to the custom private dns zone.
 
-## No Private DNS Zone Prerequisites
+### Prerequisites
 
-* The Azure CLI version 0.4.71 or later
+* The AKS Preview version 0.4.71 or later
 * The api version 2020-11-01 or later
 
-## Create a private AKS cluster with Private DNS Zone
+### Create a private AKS cluster with Private DNS Zone
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
 ```
 ## Options for connecting to the private cluster
 
