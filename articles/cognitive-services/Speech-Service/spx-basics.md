@@ -1,20 +1,20 @@
 ---
-title: "Speech CLI basics"
+title: "Speech CLI quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech CLI command tool to work with the Speech Service with no code and minimal setup. 
+description: Get started with the Azure Speech CLI. You can interact with Speech services like speech to text, text to speech, and speech translation without writing code. 
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 01/13/2021
 ms.author: trbye
 ---
 
-# Learn the basics of the Speech CLI
+# Get started with the Azure Speech CLI
 
-In this article, you learn the basic usage patterns of the Speech CLI, a command line tool to use the Speech service without writing code. You can quickly test out the main features of the Speech service, without creating development environments or writing any code, to see if your use-cases can be adequately met. The Speech CLI is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
+In this article, you'll learn how to use the Speech CLI, a command line interface, to access Speech services like speech to text, text to speech, and speech translation without writing code. The Speech CLI is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
 
 This article assumes that you have working knowledge of the command prompt, terminal or PowerShell.
 
@@ -42,10 +42,12 @@ Enter the following command to see options for the recognize command:
 spx help recognize
 ```
 
-Now, let's use the Speech CLI to perform speech recognition using your system's default microphone. 
+## Speech to text (speech recognition)
+
+Let's use the Speech CLI to perform speech to text (speech recognition) using your system's default microphone. After entering the command, SPX will begin listening for audio on the current active input device, and stop when you press **ENTER**. The recorded speech is then recognized and converted to text in the console output.
 
 >[!WARNING]
-> If you are using a Docker container, this command will not work.
+> If you are using a Docker container, `--microphone` will not work.
 
 Run this command:
 
@@ -56,77 +58,78 @@ spx recognize --microphone
 With the Speech CLI you can also recognize speech from an audio file.
 
 ```shell
-spx recognize --file /path/to/file.wav
+spx recognize --file C:\path\to\file.wav
 ```
 > [!TIP]
 > If you're recognizing speech from an audio file in a Docker container, make sure that the audio file is located in the directory that you mounted in the previous step.
 
-After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the console output. Text-to-speech synthesis is also easy to do using the Speech CLI. 
+Don't forget, if you get stuck or want to learn more about the Speech CLI's recognition options, just type:
 
-Running the following command will take the entered text as input, and output the synthesized speech to the current active output device.
+```shell
+spx help recognize
+```
+
+## Text to speech (speech synthesis)
+
+Running the following command will take text as input, and output the synthesized speech to the current active output device (e.g. your computer speakers).
 
 ```shell
 spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 ```
 
-In addition to speech recognition and synthesis, you can also do speech translation with the Speech CLI. Similar to the speech recognition command above, run the following command to capture audio from your default microphone, and perform translation to text in the target language.
+You can also save the synthesized output to file. In this example, we'll create a file named `my-sample.wav` in the directory that the command is run.
 
 ```shell
-spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
+spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
-In this command, you specify both the source (language to translate **from**), and the target (language to translate **to**) languages. Using the `--microphone` argument will listen to audio on the current active input device, and stop after you press `ENTER`. The output is a text translation to the target language, written to a text file.
+These examples presume that you're testing in English. However, we support speech synthesis in many languages. You can pull down a full list of voices with this command, or by visiting the [language support page](./language-support.md).
+
+```shell
+spx synthesize --voices
+```
+
+And finally, here's how you use one of the voices you've just discovered.
+
+```shell
+spx synthesize --text "Bienvenue chez moi." --voice fr-CA-Caroline --speakers
+```
+
+Don't forget, if you get stuck or want to learn more about the Speech CLI's synthesis options, just type:
+
+```shell
+spx help synthesize
+```
+
+## Speech to text translation
+
+With the Speech CLI, you can also do speech to text translation. Run this command to capture audio from your default microphone, and perform translation to text in the target language.
+
+Using this command, you specify both the source (language to translate **from**), and the target (language to translate **to**) languages. Using the `--microphone` argument will listen to audio on the current active input device, and stop after you press `ENTER`. 
+
+```shell
+spx translate --microphone --source en-US --target ru-RU
+```
+
+If you want to save the output of your translation, use the `--output` flag. In this example, you'll also read from a file.
+
+```powershell
+spx translate --file C:\some\file\path\input.wav --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
+```
+
+Now, let's take a look at how you can translate speech to text into multiple languages with a single command.
+
+```shell
+spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
+```
 
 > [!NOTE]
 > See the [language and locale article](language-support.md) for a list of all supported languages with their corresponding locale codes.
 
-### Configuration files in the datastore
-
-Speech CLI's behavior can rely on settings in configuration files, which you can refer to within Speech CLI calls using a \@ symbol.
-Speech CLI saves a new setting in a new `./spx/data` subdirectory it creates in the current working directory.
-When seeking a configuration value, Speech CLI looks in your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary.
-Previously, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each command line call.
-You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
-
-This section shows use of a configuration file in the local datastore to store and fetch command settings using `spx config`, and store output from Speech CLI using the `--output` option.
-
-The following example clears the `@my.defaults` configuration file,
-adds key-value pairs for **key** and **region** in the file, and uses the configuration
-in a call to `spx recognize`.
+Don't forget, if you get stuck or want to learn more about the Speech CLI's translation options, just type:
 
 ```shell
-spx config @my.defaults --clear
-spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
-spx config @my.defaults --add region westus
-
-spx config @my.defaults
-
-spx recognize --nodefaults @my.defaults --file hello.wav
-```
-
-You can also write dynamic content to a configuration file. For example, the following command creates a custom speech model and stores the URL
-of the new model in a configuration file. The next command waits until the model at that URL is ready for use before returning.
-
-```shell
-spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
-spx csr model status --model @my.model.txt --wait
-```
-
-The following example writes two URLs to the `@my.datasets.txt` configuration file.
-In this scenario, `--output` can include an optional **add** keyword to create a configuration file or append to the existing one.
-
-
-```shell
-spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
-spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
-
-spx config @my.datasets.txt
-```
-
-For more details about datastore files, including use of default configuration files (`@spx.default`, `@default.config`, and `@*.default.config` for command-specific default settings), enter this command:
-
-```shell
-spx help advanced setup
+spx help translate
 ```
 
 ## Batch operations
@@ -207,4 +210,5 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## Next steps
 
-* Complete the [speech recognition](get-started-speech-to-text.md?pivots=programmer-tool-spx) or [speech synthesis](get-started-text-to-speech.md?pivots=programmer-tool-spx) quickstarts using Speech CLI.
+* [Speech CLI configuration options](./spx-data-store-configuration.md)
+* [Batch operations with the Speech CLI](./spx-batch-oeprations.md)
