@@ -315,7 +315,7 @@ updated item id 5 to quantity = 10
 deleted item info: id = 4, name = item-4, quantity = 16 
 ```
 
-To confirm, you can also connect to Azure Database for PostgreSQL [using psql](./quickstart-create-server-database-portal.md##connect-to-the-server-with-psql) and run queries against the database, for example:
+To confirm, you can also connect to Azure Database for PostgreSQL [using psql](./quickstart-create-server-database-portal.md#connect-to-the-server-with-psql) and run queries against the database, for example:
 
 ```sql
 select * from inventory;
