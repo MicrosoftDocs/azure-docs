@@ -85,7 +85,7 @@ You'll receive an error message if the activation file could not be uploaded. Th
 
 ## Manage certificates
 
-Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first time setup, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first-time setup, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
 
 This article provides information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
 
@@ -97,7 +97,7 @@ Azure Defender for IoT uses SSL/TLS certificates to:
 
 - Allow validation between the management console and connected sensors, and between a management console and a High Availability management console. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console*. This option is enabled by default after installation.
 
- Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communication with Active Directory are not validated.
+ Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communications with Active Directory are not validated.
 
 #### SSL certificates
 
@@ -116,7 +116,7 @@ Once installed, the appliance generates a local self-signed certificate to allow
  >
  >In these cases, the certificates are typically received from the server, or use asymmetric encryption where a specific certificate will be provided to set up the integration.
 
-Appliances may use unique certificate files. If you need to replace a certificate you have uploaded;
+Appliances may use unique certificate files. If you need to replace a certificate, you have uploaded;
 
 - From version 10.0, the certificate can be replaced from the System Settings menu.
 
@@ -136,7 +136,7 @@ To update a certificate:
     - Add a certificate name.
     
     - Upload a CRT file and key file and enter a passphrase.
-    - Upload a PEM file if required.
+    - Upload a PEM file if necessary.
 
 To change the validation setting:
 
@@ -171,18 +171,18 @@ The following parameters are supported.
 - Signature Hash Algorithm = SHA256
 - Valid from = Valid past date
 - Valid To = Valid future date
-- Public Key = RSA 2048bits (Minimum) or 4096bits
+- Public Key = RSA 2048 bits (Minimum) or 4096 bits
 - CRL Distribution Point = URL to .crl file
 - Subject CN = URL, can be a wildcard certificate; for example, Sensor.contoso.<span>com, or *.contoso.<span>com
-- Subject (C)ountry = defined, e.g. US
-- Subject (OU) Org Unit = defined, e.g. Contoso Labs
-- Subject (O)rganization = defined, e.g. Contoso Inc.
+- Subject (C)ountry = defined, for example, US
+- Subject (OU) Org Unit = defined, for example, Contoso Labs
+- Subject (O)rganization = defined, for example, Contoso Inc.
 
 **Key File**
 
 - The key file generated when you created CSR.
 
-- RSA 2048bits (Minimum) or 4096bits.
+- RSA 2048 bits (Minimum) or 4096 bits.
 
  > [!Note]
  > Using a key length of 4096bits:
@@ -210,9 +210,9 @@ Certificates with other parameters might work, but Microsoft doesn't support the
 
 Privacy Enhanced Mail (PEM), uses a historic method to secure emails, and the container format it used to live on which is a base64 translation of the x509 ASN.1 keys.  
 
-The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, etc, ssl, or certs. This can include an entire certificate chain including public key, private key, and root certificates.  
+The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, ETC, SSL, or CERTS. This can include an entire certificate chain including public key, private key, and root certificates.  
 
-It may also encode a CSR as the PKCS10 format which can be translated into PEM.
+It may also encode a CSR as the PKCS10 format, which can be translated into PEM.
 
 **.cert .cer .crt – certificate container file**
 
@@ -226,7 +226,7 @@ A key file is in the same format as a PEM file, but it has a different extension
 
 **.csr - certificate signing request**.  
 
-This file is used for submission to certificate-authorities. The actual format is PKCS10 which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. The, public key of the certificate to get signed by the CA, and receives a certificate in returned.  
+This file is used for submission to certificate-authorities. The actual format is PKCS10, which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. The public key of the certificate to get signed by the CA, and receives a certificate in return.  
 
 The returned certificate is the public certificate, which includes the public key but not the private key. 
 
@@ -240,14 +240,14 @@ You can use OpenSSL to turn this into a `.pem` file with both public and pri
 
 **.der – binary encoded PEM**.
 
-The way to encode ASN.1 syntax in binary, is through a `.pem` file which is just a Base64 encoded `.der` file. 
+The way to encode ASN.1 syntax in binary, is through a `.pem` file, which is just a Base64 encoded `.der` file. 
 
 OpenSSL can convert these files to a `.pem`: `openssl x509 -inform der -in to-convert.der -out converted.pem`.  
 
 Windows will recognize these files as certificate files. By default, Windows will export certificates as `.der` formatted files with a different extension.  
 
 **.crl - certificate revocation list**.  
-Certificate authorities produce these as a way to de-authorize certificates before their expiration. You can sometimes download them from CA websites. 
+Certificate authorities produce these files as a way to de-authorize certificates before their expiration. You can sometimes download them from CA websites. 
  
 ##### CLI commands
 
@@ -310,7 +310,7 @@ To convert certificates and keys to different formats to make them compatible wi
 
 ## Connect a sensor to the management console
 
-This section describes how to ensure connection between the sensor and the on-premises management console. You need to do this if you're working in an air-gapped network and want to send asset and alert information to the management console from the sensor. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
+This section describes how to ensure connection between the sensor and the on-premises management console. Do this if you're working in an air-gapped network and want to send asset and alert information to the management console from the sensor. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
 
 To connect:
 

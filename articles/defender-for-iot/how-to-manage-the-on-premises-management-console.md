@@ -58,7 +58,7 @@ The Defender for IoT sensor, and on-premises management console use SSL, and TLS
  
  - Secure communications between the sensors and an on-premises management console. 
 
-Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command line tool. 
+Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command-line tool. 
 
  > [!NOTE]
  > For integrations and forwarding rules where the appliance is the client and initiator of the session, specific certificates are used and are not related to the system certificates.  
@@ -153,9 +153,9 @@ Certificates with other parameters might work, but Microsoft doesn't support the
 
 Privacy Enhanced Mail (PEM), uses a historic method to secure emails, and the container format it used to live on which is a base64 translation of the x509 ASN.1 keys.  
 
-The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, etc, ssl, or certs. This can include an entire certificate chain including public key, private key, and root certificates.  
+The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, ETC, SSL, or CERTS. This can include an entire certificate chain including public key, private key, and root certificates.  
 
-It may also encode a CSR as the PKCS10 format which can be translated into PEM.
+It may also encode a CSR as the PKCS10 format, which can be translated into PEM.
 
 **.cert .cer .crt: certificate container file**
 
@@ -169,7 +169,7 @@ A key file is in the same format as a PEM file, but it has a different extension
 
 **.csr - certificate signing request**.  
 
-This file is used for submission to certificate-authorities. The actual format is PKCS10 which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. The, public key of the certificate to get signed by the CA, and receives a certificate in returned.  
+This file is used for submission to certificate-authorities. The actual format is PKCS10, which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. The public key of the certificate to get signed by the CA, and receives a certificate in return.  
 
 The returned certificate is the public certificate, which includes the public key but not the private key. 
 
@@ -179,17 +179,18 @@ Originally defined by RSA in the Public-Key Cryptography Standards (PKCS), t
 
 This container format requires a password that contains both public and private certificate pairs. Unlike `.pem` files, this container is fully encrypted.  
 
-You can use OpenSSL to turn this into a `.pem` file with both public and private keys: `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
+You can use OpenSSL to turn the file into a `.pem` file with both public and private keys: `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
 
 **.der – binary encoded PEM**.
 
-The way to encode ASN.1 syntax in binary, is through a `.pem` file which is just a Base64 encoded `.der` file. 
+The way to encode ASN.1 syntax in binary, is through a `.pem` file, which is just a Base64 encoded `.der` file. 
 
 OpenSSL can convert these files to a `.pem`: `openssl x509 -inform der -in to-convert.der -out converted.pem`.  
 
 Windows will recognize these files as certificate files. By default, Windows will export certificates as `.der` formatted files with a different extension.
 
 **.crl - certificate revocation list**.  
+
 Certificate authorities produce these as a way to de-authorize certificates before their expiration. You can sometimes download them from CA websites. 
 
 #### CLI commands
