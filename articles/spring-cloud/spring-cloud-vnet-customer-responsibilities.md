@@ -19,12 +19,12 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
 ## Rules and prohibited actions
 
 - Do not modify resource groups created and owned by Azure Spring Cloud.
-  - By default, these resource groups are named as *azure-spring-cloud-service-runtime_[SERVICE-INSTANCE-NAME]_[REGION]* and *azure-spring-cloud-app_[SERVICE-INSTANCE-NAME]_[REGION]*.
+  - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
 - Do not modify subnets used by Azure Spring Cloud.
 - Do not create more than one Azure Spring Cloud service instance in the same subnet.
 - When using a firewall to control traffic, *do not* block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
 
-- Azure Spring Cloud required network rules
+**Azure Spring Cloud required network rules**
 
   | Destination Endpoint | Port | Use |
   |------|------|------|
@@ -32,10 +32,17 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
   | *:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud service management. |
   | *:9000 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:9000 | TCP:9000 | Underlying Kubernetes Cluster management. |
   | *:123 *Or* ntp.ubuntu.com:123 | UDP:123 | NTP time synchronization on Linux nodes. |
-  | *.azure.io:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureContainerRegistry:443 | TCP:443 | Azure Container Registry. |
-  | *.file.core.windows.net:445 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - Storage:445 | TCP:445 | Azure File Storage. |
+  | *.azure.io:443 *Or* [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) - AzureContainerRegistry:443 | TCP:443 | Azure Container Registry.<sup>1</sup> |
+    | *.file.core.windows.net:445 *Or* [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) - Storage:445 | TCP:445 | Azure File Storage. |	    | *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | *Azure File Storage.<sup>2</sup> |
+    | *.servicebus.windows.net:443 *Or* [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) - EventHub:443 | TCP:443 | *Azure Event Hub.<sup>3</sup> |
 
-## Azure Spring Cloud required FQDN / application rules
+      <sup>1</sup>This can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+      <sup>2</sup>This can be replaced by enabling *Azure Storage* [service endpoint in virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+      <sup>3</sup>This can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+**Azure Spring Cloud required FQDN / application rules**
 
 Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernetesService** to simplify the following configurations.
 
