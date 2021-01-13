@@ -36,7 +36,7 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 
 ## Enable Microsoft Hyper-V
 
-Microsoft Hyper-V must be enabled because the `Mount-VHD` command is needed to stage and 'Dismount-VHD' is needed to destage.
+Microsoft Hyper-V must be enabled because the `Mount-VHD` command is needed to stage and `Dismount-VHD` is needed to destage.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
