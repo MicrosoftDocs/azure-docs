@@ -4,9 +4,9 @@ description: Learn how to give a user or service principal the ability to progra
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
 ---
 
@@ -14,7 +14,8 @@ ms.author: banders
 
 As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
-**Note**: This API only works with the [preview APIs for subscription creates](programmatically-create-subscription-preview.md). If you are using to use the [GA version](programmatically-create-subscription-enterprise-agreement.md), use the latest API version [2019-10-01-preview](https://docs.microsoft.com/en-us/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). If you are migrating to using these newer APIs, please remember to re-grant owner permssisions using [2019-10-01-preview](https://docs.microsoft.com/en-us/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) since your previous configuration done using the below APIs doesnt automatically port over.
+> [!NOTE]
+This API only works with the [preview APIs for subscription creation](programmatically-create-subscription-preview.md). If you are want to use the [GA version](programmatically-create-subscription-enterprise-agreement.md), use the latest API version at [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
