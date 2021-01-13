@@ -1,14 +1,10 @@
 - name: Azure Import/Export documentation
   href: ./index.yml
-  expanded: true
 - name: Overview
+  expanded: true
   items:
   - name: What is Import/Export?
     href: storage-import-export-service.md
-- name: Quickstarts
-  items:
-  - name: Set up Azure Import/Export tool
-    href: storage-import-export-tool-setup-v1.md
 - name: Concepts
   items:
   - name: Requirements
@@ -17,12 +13,14 @@
     href: storage-import-export-service-faq.md
 - name: How to
   items:
-  - name: Import data to blobs
-    href: storage-import-export-data-to-blobs.md
-  - name: Import data to files
-    href: storage-import-export-data-to-files.md
-  - name: Export data from blobs
-    href: storage-import-export-data-from-blobs.md
+  - name: Deploy
+    items:
+    - name: Import data to blobs
+      href: storage-import-export-data-to-blobs.md
+    - name: Import data to files
+      href: storage-import-export-data-to-files.md
+    - name: Export data from blobs
+      href: storage-import-export-data-from-blobs.md
   - name: Use customer-managed keys
     href: storage-import-export-encryption-key-portal.md
   - name: Monitor

@@ -67,7 +67,7 @@ landingContent:
 
 
   # Card
-  - title: "Manage" 
+  - title: "Monitor" 
     linkLists:
       - linkListType: how-to-guide
         links:
