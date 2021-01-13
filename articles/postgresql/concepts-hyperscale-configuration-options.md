@@ -142,10 +142,10 @@ for node and cluster sizes.
 
 ### Database creation
 
-The Azure Portal provides credentials to connect to exactly one database per
-Hyperscale (Citus) server group, the "citus" database. Creating another
-database is currently forbidden, and the CREATE DATABASE command will fail with
-an error.
+The Azure portal provides credentials to connect to exactly one database per
+Hyperscale (Citus) server group, the `citus` database. Creating another
+database is currently not allowed, and the CREATE DATABASE command will fail
+with an error.
 
 ## Pricing
 For the most up-to-date pricing information, see the service
