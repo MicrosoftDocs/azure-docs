@@ -86,7 +86,7 @@ containers is also enabled by default. This takes several minutes to complete.
 > [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurepowershell-interactive
-New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
 ```
 
 After a few minutes, the command completes and returns information about the cluster.
