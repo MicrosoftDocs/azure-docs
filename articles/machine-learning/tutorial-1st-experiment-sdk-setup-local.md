@@ -56,13 +56,13 @@ Next, install the Azure Machine Learning SDK into the conda environment you crea
 
 ```bash
 conda activate tutorial
-pip install azureml-sdk
+pip install azureml-core
 ```
     
 > [!NOTE]
 > It takes approximately 5 minutes for the Azure Machine Learning SDK install to complete.
 >
-> If you get a timeout error, try `pip install --default-timeout=100 azureml-sdk` intstead.
+> If you get a timeout error, try `pip install --default-timeout=100 azureml-core` intstead.
 
 
 > [!div class="nextstepaction"]
