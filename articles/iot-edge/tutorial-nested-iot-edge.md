@@ -633,7 +633,7 @@ On the device details page for your lower layer IoT Edge device, you should now 
 Run the iotedge check command to verify the configuration and troubleshoot errors.
 Iotedge check can be performed in nested hierarchy, even if the children doesn't have direct internet access.
 When running "iotedge check" from the lower layer the program will try to pull the image from the parent through port 443.
-In this How-to, we use port 8000, so we need to specify it:
+In this tutorial, we use port 8000, so we need to specify it:
 
    ```bash
    iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
