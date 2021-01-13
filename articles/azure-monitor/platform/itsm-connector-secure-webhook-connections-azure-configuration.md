@@ -35,9 +35,9 @@ Follow these steps to register the application with Azure AD:
 
 ## Define service principal
 
-The Action Group service will need permission to acquire authentication tokens from your AAD application in order to authentication with Service now. To grant those permissions, you will need to create a service principal for the Action Group service in your tenant.
-You can use this [PowerShell commands](./action-groups.md#secure-webhook-powershell-script) for this purpose. (Requires tenant admin privileges).
-As an optional step you can define application role in the created app’s manifest, which can allow you to further restrict, access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal. \
+The Action Group service is a first party application therefore it has permission to acquire authentication tokens from your AAD application in order to authentication with Service now.
+As an optional step you can define application role in the created app’s manifest, which can allow you to further restrict, access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal (Requires tenant admin privileges).
+
 This step can be done through the same [PowerShell commands](./action-groups.md#secure-webhook-powershell-script).
 
 ## Create a Secure Webhook action group
