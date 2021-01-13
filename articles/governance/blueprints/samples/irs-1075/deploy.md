@@ -1,7 +1,7 @@
 ---
 title: Deploy IRS 1075 blueprint sample
 description: Deploy steps for the IRS 1075 (Rev.11-2016) blueprint sample including blueprint artifact parameter details.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Deploy the IRS 1075 blueprint sample
