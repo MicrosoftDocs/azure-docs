@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Use Azure Cache for Redis with Rust
+title: Use Azure Cache for Redis with Rust
 description: In this quickstart, you learn how to interact with Azure Cache for Redis using Rust.
 author: abhirockzz
 ms.author: abhishgu
@@ -47,7 +47,7 @@ fn connect() -> redis::Connection {
 }
 ```
 
-The `basics` function covers [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) and [INCR](https://redis.io/commands/incr) commands. The low-level API is used for `SET` and `GET`, which sets and retrieves the value for a key named `foo`. The `INCRBY` command is executed using a high-level API i.e. [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) increments the value of a key (named `counter`) by `2` followed by a call to [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) to retrieve it.
+The `basics` function covers [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get), and [INCR](https://redis.io/commands/incr) commands. The low-level API is used for `SET` and `GET`, which sets and retrieves the value for a key named `foo`. The `INCRBY` command is executed using a high-level API i.e. [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr) increments the value of a key (named `counter`) by `2` followed by a call to [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get) to retrieve it.
 
 ```rust
 fn basics() {
