@@ -22,8 +22,15 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 ## Prerequisites
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An [Azure IoT Edge device ID](how-to-manual-provision-symmetric-key.md#create-an-iot-edge-device-in-the-azure-portal).
+
+* A registered [device ID](how-to-register-device.md).
+
+   If you registered your device with symmetric key authentication, have the device connection string ready.
+
+   If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private private key available on your device.
+
 * Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
    <!-- The link below needs the language localization to work; otherwise broken -->
    1. Visit the [Windows Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
@@ -49,6 +56,14 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
    1. On the **Available extensions** tab, find **Azure IoT Edge** in the list of extensions. Choose it, and select the **Install** prompt above the list of extensions.
 
    1. After the installation completes, you should see in the list of installed extensions on the **Installed extensions** tab.
+
+You will need to provision your device with one of the following methods:
+
+* Manual provisioning using your IoT Edge device's connection string.
+* Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys. Learn more about [creating and provisioning an IoT Edge device with DPS and symmetric keys](how-to-auto-provision-symmetric-keys.md).
+* Automatic provisioning using DPS and X.509 certificates. Learn more about [creating and provisioning an IoT Edge device with DPS and X.509 certificates](how-to-auto-provision-x509-certs.md).
+
+If you plan on using one of the DPS methods to provision your device or devices, follow the steps in the appropriate article linked above to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
 
 Minimum system requirements:
 
@@ -136,13 +151,12 @@ Once your deployment is complete, you are ready to provision your device.
 
 ---
 
-To provision your device, you have three options:
+To provision your device, you can follow the links below to the section for your selected provisioning method:
 
 * [Manual provisioning using your IoT Edge device's connection string](how-to-install-iot-edge-on-windows.md#provisioning-manually-using-the-connection-string)
 * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-install-iot-edge-on-windows.md#provisioning-via-dps-using-symmetric-keys)
 * [Automatic provisioning using DPS and X.509 certificates](how-to-install-iot-edge-on-windows.md#provisioning-via-dps-using-x509-certificates)
 
-<!-- Update flow with restructuring of register, install, authenticate articles  -->
 ## Provision your device
 
 Choose a method for provisioning your device and follow the instructions in the appropriate section. You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
@@ -181,9 +195,7 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 ### Provisioning via DPS using symmetric keys
 
-This section covers provisioning your device automatically using DPS and symmetric keys. To continue with these steps, follow the [instructions on how to use DPS and symmetric keys to automatically provision an IoT Edge device](how-to-auto-provision-symmetric-keys.md) to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
-
-Once you complete these steps, return here.
+This section covers provisioning your device automatically using DPS and symmetric keys.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -225,9 +237,7 @@ Once you complete these steps, return here.
 
 ### Provisioning via DPS using X.509 certificates
 
-This section covers provisioning your device automatically using DPS and X.509 certificates. To continue with these steps, follow the [instructions on how to use DPS and X.509 certificates to automatically provision an IoT Edge device](how-to-auto-provision-x509-certs.md) to create test certificates if necessary, create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
-
-Once you complete these steps, return here.
+This section covers provisioning your device automatically using DPS and X.509 certificates.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
