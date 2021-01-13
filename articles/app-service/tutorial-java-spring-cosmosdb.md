@@ -84,7 +84,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
 
 Open a terminal on your computer. Copy the sample script file in the cloned repo so you can customize it for your Cosmos DB database you just created.
 
-```azurecli
+```bash
 cd initial/spring-todo-app
 cp set-env-variables-template.sh .scripts/set-env-variables.sh
 ```
@@ -92,7 +92,7 @@ cp set-env-variables-template.sh .scripts/set-env-variables.sh
 Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure 
 Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
 
-```azurecli
+```bash
 export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
 export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
 export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
@@ -105,7 +105,7 @@ export REGION=<put-your-REGION-here>
 
 Then run the script:
 
-```azuecli
+```bash
 source .scripts/set-env-variables.sh
 ```
    
