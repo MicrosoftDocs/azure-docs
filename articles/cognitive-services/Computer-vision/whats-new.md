@@ -24,7 +24,7 @@ A new version of the [spatial analysis container](spatial-analysis-container.md)
 
 * [Spatial analysis operations](spatial-analysis-operations.md) can be now configured to detect if a person is wearing a protective face covering such as a mask. 
     * A mask classifier can be enabled for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations by configuring the `ENABLE_FACE_MASK_CLASSIFIER` parameter.
-    * The attributes `face_mask` and face_noMask, will be returned as metadata with confidence score for each person detected in the video stream
+    * The attributes `face_mask` and `face_noMask` will be returned as metadata with confidence score for each person detected in the video stream
 
 
 ## October 2020
