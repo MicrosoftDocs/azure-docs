@@ -39,7 +39,7 @@ You can configure server-level IP firewall rules by using the Azure portal, Powe
 - To use Transact-SQL, you must connect to the *master* database as the server-level principal login or as the Azure Active Directory administrator. (A server-level IP firewall rule must first be created by a user who has Azure-level permissions.)
 
 > [!NOTE]
-> By default during creation of a new logical SQL server from the Azure portal, the Allow Azure services setting is set to OFF.
+> By default, during creation of a new logical SQL server from the Azure portal, the **Allow Azure Services and resources to access this server** setting is set to **No**.
 
 ### Database-level IP firewall rules
 
