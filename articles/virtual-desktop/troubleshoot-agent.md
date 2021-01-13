@@ -22,7 +22,7 @@ If you're seeing any of the following issues, this means that the boot loader, w
 - **RDAgentBootLoader** is either stopped or not running.
 - There is no status for **Remote Desktop Agent Loader**.
 
-**Fix:** Start the RDAgent boot loader.
+To resolve this issue, start the RDAgent boot loader:
 
 1. In the Services window, right-click **Remote Desktop Agent Loader**.
 2. Select **Start**. If this option is greyed out for you, you don't have administrator permissions and will need to get them to start the service.
@@ -34,15 +34,15 @@ If you're seeing any of the following issues, this means that the boot loader, w
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_REGISTRATION_TOKEN** in the description, the registration token that you have isn't recognized as valid.
 
-**Fix:** Create a new registration token, change IsRegistered to 0, restart the RDAgentBootLoader, and check that IsRegistered is 1.
+To resolve this issue, create a valid registration token:
 
 1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm) section.
 2. Open the Registry Editor. 
 3. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **RDInfraAgent**.
-4. Double-click **IsRegistered**. 
+4. Select **IsRegistered**. 
 5. In the **Value data:** entry box, type **0** and select **Ok**. 
-6. Double-click **RegistrationToken**. 
-7. In the **Value data:** entry box, paste the registration token from step 1. 
+6. Select **RegistrationToken**. 
+1. In the **Value data:** entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 0](media/isregisteredCopy.png)
@@ -61,7 +61,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_FORM** or **NOT_FOUND. URL** in the description, something went wrong with the communication between the agent and the broker. The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
 
-**Fix:** To check that you can reach BrokerURI and BrokerURIGlobal:
+To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 1. Open the Registry Editor. 
 2. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **RDInfraAgent**. 
 3. Make note of the values for **BrokerURI** and **BrokerURIGlobal**.
@@ -97,7 +97,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703, that says **RDGateway Url: is not accessible** or any event with ID 3019 in the description, the agent is unable to reach the gateway URLs or the web socket transport URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
 
-**Fix:** Verify that your firewall and/or DNS settings are not blocking these URLs.
+To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
 1. [Use Azure Firewall to protect Windows Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
 2. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
 
@@ -105,7 +105,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, the installer is already running for another application while you're trying to install the agent, or a policy is blocking the msiexec.exe program from running.
 
-**Fix:** Disable the following policies:
+To resolve this issue, disable the following policies:
    - Turn off Windows Installer  
       - Category Path: Computer Configuration\Administrative Templates\Windows Components\Windows Installer
    
@@ -127,7 +127,7 @@ To disable a policy:
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, a policy is blocking cmd.exe from launching. Blocking this program prevents you from running the console window, which is what you need to use to restart the service whenever the agent updates.
 
-**Fix:** Disable the following policies:
+To resolve this issue, disable the following policies:
    - Prevent access to the command prompt   
       - Category Path: User Configuration\Administrative Templates\System
     
@@ -146,7 +146,7 @@ To disable a policy:
 
 Run **qwinsta** in your command prompt and make note of the version number that appears next to **rdp-sxs**. If you're not seeing the **rdp-tcp** and **rdp-sxs** components say **Listen** next to them or they aren't showing up at all after running **qwinsta**, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
 
-**Fix:** Change fEnableWinStation and fReverseConnectMode to 1.
+To resolve this issue, change **fEnableWinStation** and **fReverseConnectMode** to 1.
 1. Open the Registry Editor.
 2. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 3. Under **WinStations** you may see several folders for different stack versions, select the folder that matches the version information you saw when running **qwinsta** in your Command Prompt.
@@ -173,7 +173,7 @@ Run **qwinsta** in your command prompt and make note of the version number that 
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 0, that says **CheckSessionHostDomainIsReachableAsync** in the description and/or users keep getting disconnected from their session hosts, your server isn't picking up a heartbeat from the Windows Virtual Desktop service.
 
-**Fix:** Change the heartbeat threshold:
+To resolve this issue, change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
 3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
@@ -191,7 +191,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **DownloadMsiException** in the description, there isn't enough space on the disk for the RDAgent.
 
-**Fix:** Make space on your disk by:
+To resolve this issue, make space on your disk by:
    - Deleting files that are no longer in user
    - Increasing the storage capacity of your VM
 
@@ -205,7 +205,7 @@ Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Selec
 
 If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed
 
-**Fix:** Reinstall the side-by-side stack:
+To resolve this issue, reinstall the side-by-side stack:
 1. Open a command prompt as an administrator.
 2. Enter **net stop RDAgentBootLoader**. 
 3. Go to **Control Panel** > **Programs** > **Programs and Features**.
@@ -222,15 +222,15 @@ If the status listed for the session host or hosts in your host pool always says
 
 Your VMs may be at their connection limit, so the VM can't accept new connections.
 
-**Fix:** You can resolve this issue by:
-   - Decreasing the max session limit. This ensures that resources are more evenly distributed across session hosts and will prevent resource depletion.
-   - Increasing the resource capacity of the VMs.
+To resolve this issue:
+   - Decrease the max session limit. This ensures that resources are more evenly distributed across session hosts and will prevent resource depletion.
+   - Increase the resource capacity of the VMs.
 
 ## Error: Operating a Pro VM or other unsupported OS
 
 The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that OSes like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack will be installed on your VM but won't be activated, so you won't see it show up when you run **qwinsta** in your command line.
 
-**Fix:** Create a VM that is Windows Enterprise or Windows Server.
+To resolve this issue, create a VM that is Windows Enterprise or Windows Server.
 1. Go to [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details) and follow steps 1-12 to set up one of the following recommended images:
    - Windows 10 Enterprise multi-session, version 1909
    - Windows 10 Enterprise multi-session, version 1909 + Microsoft 365 Apps
@@ -243,7 +243,7 @@ The side-by-side stack is only supported by Windows Enterprise or Windows Server
 
 The name of your VM has already been registered and is probably a duplicate.
 
-**Fix:** Remove the session host from the host pool and create another one.
+To resolve this issue, remove the session host from the host pool and create another one.
 1. Follow the steps in the [Remove the session host from the host pool](#remove-the-session-host-from-the-host-pool) section.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
 3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
@@ -255,7 +255,7 @@ The name of your VM has already been registered and is probably a duplicate.
 
 ## Error: Your issue is not listed above or your issue remains after trying other troubleshooting steps
 
-The instructions below guide you in re-registering your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
+The following instructions will guide you in re-registering your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
 - Your VM is stuck in **Upgrading** or **Unavailable**
 - Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
 - You're receiving an **EXPIRED_REGISTRATION_TOKEN** error
