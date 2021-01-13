@@ -75,7 +75,7 @@ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 The following example output shows the resources successfully created in the AKS cluster:
 
-```
+```console
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 deployment "azure-vote-back" created
@@ -96,13 +96,13 @@ kubectl get service azure-vote-front --watch
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
