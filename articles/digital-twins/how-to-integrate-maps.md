@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Integrate with Azure Maps
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
+description: See how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
 ms.date: 6/3/2020
@@ -22,7 +22,7 @@ This article walks through the steps required to use Azure Digital Twins data to
 This how-to will cover:
 
 1. Configuring your Azure Digital Twins instance to send twin update events to a function in [Azure Functions](../azure-functions/functions-overview.md).
-2. Creating an Azure function to update an Azure Maps indoor maps feature stateset.
+2. Creating a function to update an Azure Maps indoor maps feature stateset.
 3. How to store your maps ID and feature stateset ID in the Azure Digital Twins graph.
 
 ### Prerequisites
@@ -41,7 +41,7 @@ The image below illustrates where the indoor maps integration elements in this t
 
 ## Create a function to update a map when twins update
 
-First, you'll create a route in Azure Digital Twins to forward all twin update events to an event grid topic. Then, you'll use an Azure function to read those update messages and update a feature stateset in Azure Maps. 
+First, you'll create a route in Azure Digital Twins to forward all twin update events to an event grid topic. Then, you'll use a function to read those update messages and update a feature stateset in Azure Maps. 
 
 ## Create a route and filter to twin update notifications
 
@@ -70,7 +70,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## Create an Azure function to update maps
+## Create a function to update maps
 
 You're going to create an Event Grid-triggered function inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
