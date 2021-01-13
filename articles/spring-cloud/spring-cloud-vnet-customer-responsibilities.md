@@ -36,11 +36,11 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
     | *.file.core.windows.net:445 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - Storage:445 | TCP:445 | Azure File Storage. |	    | *.core.windows.net:443 and *.core.windows.net:445 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - Storage:443 and Storage:445 | TCP:443, TCP:445 | *Azure File Storage.<sup>2</sup> |
     | *.servicebus.windows.net:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - EventHub:443 | TCP:443 | *Azure Event Hub.<sup>3</sup> |
 ```
-  <sup>1</sup>This can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
+<sup>1</sup>This can be replaced by enabling *Azure Container Registry* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-  <sup>2</sup>This can be replaced by enabling *Azure Storage* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
+<sup>2</sup>This can be replaced by enabling *Azure Storage* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-  <sup>3</sup>This can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
+<sup>3</sup>This can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
 ```
 
 **Azure Spring Cloud required FQDN / application rules**
