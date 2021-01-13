@@ -42,8 +42,6 @@
     items:
     - name: Key concepts
       href: concept-key-concepts.md
-    - name: Agentless pricing and associated costs for Defender for IoT
-      href: concepts-pricing-defender-iot.md
   - name: Agent-based Solution for Device Builders 
     items: 
     - name: Security Module for Azure RTOS
@@ -75,8 +73,6 @@
       href: concept-baseline.md
     - name: Event aggregation
       href: event-aggregation.md
-    - name: Agent-based pricing and associated costs for Defender for IoT
-      href: concept-pricing.md
 - name: How-to guides
   items:
   - name: Agentless Solution for Organizations
