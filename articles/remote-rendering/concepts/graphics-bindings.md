@@ -247,7 +247,7 @@ else
 
 #### Simulation Update structures
 
-Each frame, the **Render loop update** (see next section) requires you to input a range of camera parameters corresponding to the local camera and returns a set of camera parameters that correspond to the next available frame's camera. These two sets are captured in the `SimulationUpdateParameters` and the `SimulationUpdateResult` structures respectively:
+Each frame, the **Render loop update** from the previous section requires you to input a range of camera parameters corresponding to the local camera and returns a set of camera parameters that correspond to the next available frame's camera. These two sets are captured in the `SimulationUpdateParameters` and the `SimulationUpdateResult` structures respectively:
 
 ```cs
 public struct SimulationUpdateParameters
@@ -271,15 +271,15 @@ The structure members have the following meaning:
 
 | Member | Description |
 |--------|-------------|
-| frameId | Continuous frame identifier. Needs to be set for SimulationUpdateParameters input and continuously incremented for each new frame. Will be 0 in SimulationUpdateResult when no frame data is available yet. |
-| viewTransform | Left-right-stereo pair of the frame's camera view transformation matrices. In case of monoscopic rendering, only the `left` member is valid. |
-| fieldOfView | Left-right-stereo pair of the frame camera's field of view in [OpenXR field of view convention](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). |
+| frameId | Continuous frame identifier. Necessary for SimulationUpdateParameters input and continuously incremented for each new frame. Will be 0 in SimulationUpdateResult when no frame data is available yet. |
+| viewTransform | Left-right-stereo pair of the frame's camera view transformation matrices. For monoscopic rendering, only the `left` member is valid. |
+| fieldOfView | Left-right-stereo pair of the frame camera's fields-of-view in [OpenXR field of view convention](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). |
 | nearPlaneDistance | near-plane distance used for the projection matrix of the current remote frame. |
 | farPlaneDistance | far-plane distance used for the projection matrix of the current remote frame. |
 
-The stereo-pairs `viewTransform` and `fieldOfView` allow setting both eye-camera values in case stereoscopic rendering is enabled. Otherwise, the `right` members will be ignored. As you can see, only the camera's transformation is passed as plain 4x4 transformation matrices while no projection matrices are specified. These are calculated by Azure Remote Rendering internally using the specified fields-of-view and the current near-plane and far-plane set on the [CameraSettings API](../overview/features/camera.md).
+The stereo-pairs `viewTransform` and `fieldOfView` allow setting both eye-camera values in case stereoscopic rendering is enabled. Otherwise, the `right` members will be ignored. As you can see, only the camera's transformation is passed as plain 4x4 transformation matrices while no projection matrices are specified. The actual matrices are calculated by Azure Remote Rendering internally using the specified fields-of-view and the current near-plane and far-plane set on the [CameraSettings API](../overview/features/camera.md).
 
-Since you can change the near-plane and far-plane on the [CameraSettings](../overview/features/camera.md) during runtime as desired and the service applies these settings asynchronously, each SimulationUpdateResult also carries the specific near-plane and far-plane used during rendering of the corresponding frame. This allows you to adapt your projection matrices for rendering local objects to match the remote frame rendering.
+Since you can change the near-plane and far-plane on the [CameraSettings](../overview/features/camera.md) during runtime as desired and the service applies these settings asynchronously, each SimulationUpdateResult also carries the specific near-plane and far-plane used during rendering of the corresponding frame. You can use those plane values to adapt your projection matrices for rendering local objects to match the remote frame rendering.
 
 Finally, while the **Simulation Update** call requires the field-of-view in OpenXR convention, for standardization and algorithmic safety reasons, you can make use of the conversion functions illustrated in the following structure population examples:
 
@@ -349,7 +349,7 @@ void GetCameraSettingsFromSimulationUpdateResult(const SimulationUpdateResult& r
 }
 ```
 
-These functions allow to quickly switch between the field-of-view specification and a plain 4x4 perspective projection matrix, in case this is what you already use for your local renderer. Please note that these conversion functions contain verification logic and will return errors, without setting a valid result, in case the input projection matrices or input fields-of-view are invalid.
+These functions allow quick switching between the field-of-view specification and a plain 4x4 perspective projection matrix, depending on your needs for local rendering. These conversion functions contain verification logic and will return errors, without setting a valid result, in case the input projection matrices or input fields-of-view are invalid.
 
 ## API documentation
 
