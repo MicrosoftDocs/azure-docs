@@ -636,7 +636,7 @@ When running "iotedge check" from the lower layer the program will try to pull t
 In this tutorial, we use port 8000, so we need to specify it:
 
    ```bash
-   iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
+   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
    ```
    
 The azureiotedge-diagnostics is pulled from the container registry that is linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
