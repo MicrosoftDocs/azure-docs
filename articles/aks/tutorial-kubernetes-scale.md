@@ -37,7 +37,7 @@ kubectl get pods
 
 The following example output shows one front-end pod and one back-end pod:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -129,7 +129,7 @@ spec:
 
 Use `kubectl apply` to apply the autoscaler defined in the `azure-vote-hpa.yaml` manifest file.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -156,7 +156,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 When the cluster has successfully scaled, the output is similar to following example:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

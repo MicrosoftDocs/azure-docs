@@ -52,7 +52,7 @@ cd azure-voting-app-redis
 
 Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. The contents and structure of the directory are as follows:
 
-```Output
+```output
 azure-voting-app-redis
 │   azure-vote-all-in-one-redis.yaml
 │   docker-compose.yaml
