@@ -23,6 +23,9 @@ Defender for IoT delivers the only ICS and IoT cybersecurity platform built by b
 
 - An automated ICS threat modeling technology to predict the most likely paths of targeted ICS attacks via proprietary analytics.
 
+> [!Note]
+> References to CyberX refer to Azure Defender for IoT.
+
 ## About the integration
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.

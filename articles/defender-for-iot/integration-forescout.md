@@ -24,6 +24,8 @@ These bridged platforms enable automated device visibility and management to pre
 
 The integration provides SOC analysts with multilevel visibility into OT protocols deployed in industrial environments. Details are available for items such as firmware, device types, operating systems, and risk analysis scores based on proprietary Azure Defender for IoT technologies.
 
+> [!Note]
+> References to CyberX refer to Azure Defender for IoT.
 ## Devices
 
 ### Device visibility and management

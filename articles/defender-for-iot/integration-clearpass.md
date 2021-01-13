@@ -148,7 +148,7 @@ Devices that are imported into the system from the customer's inventory list, or
 
 So the unauthorized devices are either unrecognized and potentially untrusted and malicious, or just haven't yet been handled by the administrator to authorize their presence on the network.
 
-Another special attribute is the “cyberx_engineeringStation”, used to signify the function of a node in an OT and ICS system that is monitoring and being used to query and control OT devices. Engineering Stations should be protected and access to these devices controlled a monitored. Knowing which devices on the network are signified for this role is important.
+Another special attribute is the `cyberx_engineeringStation`, used to signify the function of a node in an OT and ICS system that is monitoring and being used to query and control OT devices. Engineering Stations should be protected and access to these devices controlled a monitored. Knowing which devices on the network are signified for this role is important.
 
 ## Configure Defender for IoT to integrate with ClearPass
 

@@ -15,6 +15,9 @@ Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware se
 
 To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
 
+> [!Note]
+> References to CyberX refer to Azure Defender for IoT.
+
 ## About the Splunk application
 
 The application provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. The application also enables both IT and OT incident response from within one corporate SOC. This is an important evolution given the ongoing convergence of IT and OT to support new IIoT initiatives, such as smart machines and real-time intelligence.
