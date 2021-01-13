@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 
 ms.author: justinha
 author: justinha
@@ -92,7 +92,7 @@ And for Azure Multi-Factor Authentication Server, the following Azure portal pag
 * Caching rules
 * Multi-Factor Authentication Server status
 
-## MFA logs location
+## Multifactor authentication logs location
 
 The following table shows the location for service logs for public clouds.
 
@@ -104,11 +104,11 @@ The following table shows the location for service logs for public clouds.
 
 <sup>1</sup>OATH Code logs are stored in Australia
 
-<sup>2</sup>Voice calls MFA service logs are stored in the US
+<sup>2</sup>Voice calls multifactor authentication service logs are stored in the US
 
 The following table shows the location for service logs for sovereign clouds.
 
-| Sovereign cloud                      | Sign-in logs                         | Activity report (includes personal data)| MFA service logs |
+| Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report (includes personal data)| Multifactor authentication service logs |
 |--------------------------------------|--------------------------------------|-------------------------------|------------------|
 | Microsoft Azure Germany              | Germany                              | US                            | US               |
 | Microsoft Azure Operated by 21Vianet | China                                | US                            | US               |
