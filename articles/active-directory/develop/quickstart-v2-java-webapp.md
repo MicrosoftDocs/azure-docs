@@ -34,7 +34,7 @@ To run this sample, you need:
 >
 > ### Option 1: Register and automatically configure your app, and then download the code sample
 >
-> 1. Go to the [Azure portal > **Registration an application**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
 > 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 >
