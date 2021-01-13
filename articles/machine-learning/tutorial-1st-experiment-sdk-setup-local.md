@@ -60,7 +60,7 @@ pip install azureml-core
 ```
     
 > [!NOTE]
-> It takes approximately 5 minutes for the Azure Machine Learning SDK install to complete.
+> It takes approximately 2 minutes for the Azure Machine Learning SDK install to complete.
 >
 > If you get a timeout error, try `pip install --default-timeout=100 azureml-core` intstead.
 
