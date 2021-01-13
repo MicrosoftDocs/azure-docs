@@ -4,7 +4,7 @@
 - name: Overview
   items:
   - name: What is Import/Export?
-    href: storage-import-export-service-service.md
+    href: storage-import-export-service.md
 - name: Quickstarts
   items:
   - name: Set up Azure Import/Export tool
@@ -28,7 +28,7 @@
   - name: Monitor
     items:
     - name: View drive status
-      href: storage-import-export-tool-view-drive-status-v1.md
+      href: storage-import-export-tool-view-drive-status.md
     - name: Review job status
       href: storage-import-export-tool-reviewing-job-status-v1.md
   - name: Troubleshoot
