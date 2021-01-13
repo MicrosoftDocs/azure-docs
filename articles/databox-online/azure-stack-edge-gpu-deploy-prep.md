@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -190,6 +190,10 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
       --device-name myasegpu1 --location eastus --sku EdgeP_Base
    ```
 
+   Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account.
+
+   For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+
 1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
 
    ```azurecli 
@@ -200,13 +204,13 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
       --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
    ```
 
-1. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
+The resource creation takes a few minutes. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
 
-   ```azurecli
-   az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
-   ```
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
 
-After the order is placed, Microsoft reviews the order and contacts you by email with shipping details.
+After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
 
 ---
 
