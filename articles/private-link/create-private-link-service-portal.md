@@ -4,7 +4,7 @@ title: 'Quickstart - Create a Private Link service by using the Azure portal'
 titlesuffix: Azure Private Link
 description: Learn how to create a Private Link service by using the Azure portal in this quickstart
 services: private-link
-author: malopMSFT
+author: asudbring
 # Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 ms.service: private-link
 ms.topic: quickstart
