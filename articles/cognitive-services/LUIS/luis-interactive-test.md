@@ -4,18 +4,45 @@ description: Use Language Understanding (LUIS) to continuously work on your appl
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 01/13/2021
 ---
 
 # Test your LUIS app in the LUIS portal
 
-[Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again.
+
+Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities. You can test LUIS interactively, one utterance at a time, or provide a set of utterances. While testing, you can compare the current active model's prediction response to the published model's prediction response. 
+
+
+Testing an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again.
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
+## Interactive testing
+
+Interactive testing is done from the **Test** panel of the LUIS portal. You can enter an utterance to see how intents and entities are identified and scored. If LUIS isn't predicting the intents and entities as you expect on an utterance in the testing panel, copy it to the **Intent** page as a new utterance. Then label the parts of that utterance for entities, and train LUIS. 
+
+See [batch testing](luis-concept-batch-test.md) if you are testing more than one utterance at a time, and the [Prediction scores](luis-concept-prediction-score.md) article to learn more about prediction scores.
+
+## Endpoint testing
+
+You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the **production** endpoint, add a second version to the **staging** endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the [LUIS](luis-reference-regions.md) portal, and the two versions at the two different endpoints. 
+
+All endpoint testing counts toward your usage quota. 
+
+## Logging
+
+LUIS stores all logged utterances in the query log, available for download on the LUIS portal from the **Apps** list page, as well as the LUIS [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). 
+
+If you test against an endpoint, and do not want the utterance logged, remember to use the `logging=false` query string configuration.
+
+Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** page of the [LUIS](luis-reference-regions.md) portal. 
+
+## Remember to train
+Remember to [train](luis-how-to-train.md) LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained. 
 
 ## Train before testing
 
@@ -122,3 +149,4 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 
 * [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md)
+* [best practices](luis-concept-best-practices.md)
