@@ -554,7 +554,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 * [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure Automation TLS 1.2 enforcement](../active-directory/hybrid/reference-connect-tls-enforcement)
+* [Azure Automation TLS 1.2 enforcement](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Azure Security Center monitoring**: Yes
 
