@@ -175,11 +175,11 @@ The CPP file is a parser responsible for:
 
 - Implementing configured fields extraction by the JSON file.
 
-## What to do
+### What to do
 
 Copy the template **.cpp** file and implement an override method. For more information, see [horizon::protocol::BaseParser](#horizonprotocolbaseparser).
 
-## Basic C++ template sample 
+### Basic C++ template sample 
 
 This section provides the basic protocol template, with standard functions for a sample Defender for IoT Horizon Protocol.
 
@@ -207,7 +207,7 @@ extern "C" {
 
 ```
 
-## Basic C++ template description  
+### Basic C++ template description  
 
 This section provides the basic protocol template, with a description of standard functions for a sample Defender for IoT Horizon Protocol. 
 
@@ -291,15 +291,15 @@ The sample below describes the file structure.
 
 :::image type="content" source="media/references-horizon-sdk/structure.png" alt-text="The sample of the file structure.":::
 
-## What to do
+### What to do
 
 Copy the template `config.json` file and edit it to meet your needs. Do not change the key. Keys are marked in red in the [Sample JSON configuration file](#sample-json-configuration-file). 
 
-## File naming requirements 
+### File naming requirements 
 
 The JSON Configuration file must be saved as `config.json`.
 
-## JSON Configuration file fields
+### JSON Configuration file fields
 
 This section describes the JSON configuration fields you will be defining. Do not change the fields *labels*.
 
@@ -623,7 +623,7 @@ When programming event occurs, you can extract the code content. The extracted c
 
 In order to achieve this, the JSON configuration file needs to be updated using the `code_extraction` property. 
 
-## JSON configuration fields 
+### JSON configuration fields 
 
 This section describes the JSON configuration fields. 
 
