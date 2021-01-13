@@ -223,7 +223,7 @@ Unfortunately, for a DDL statement that requires a lock, you can't avoid replica
 
 In Azure Database for MySQL, read replicas use the same server configuration as the source server. You can change the replica server configuration after it has been created.
 
-If the replica server is downgraded, the workload can consume more resources, which in turn can lead to replication latency. To detect this problem, use Azure Monitor to check the CPU and memory consumption of the replica server. 
+If the replica server is downgraded, the workload can consume more resources, which in turn can lead to replication latency. To detect this problem, use Azure Monitor to check the CPU and memory consumption of the replica server.
 
 In this scenario, we recommend that you keep the replica server's configuration at values equal to or greater than the values of the source server. This configuration allows the replica to keep up with the source server.
 
