@@ -28,7 +28,7 @@ In this article, you will learn how to use the [Rust programming language](https
 
 If you're interested in learning how the code works, you can review the following snippets. Otherwise, feel free to skip ahead to [Run the application](#run-the-application).
 
-The `connect` function is used to establish a connection to Azure cache for Redis. It expects host name and the password (Access Key) to be passed in via environment variables `REDIS_HOSTNAME` and `REDIS_PASSWORD` respectively. The format for the connection URL is `rediss://<username>:<password>@<hostname>` - Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
+The `connect` function is used to establish a connection to Azure Cache for Redis. It expects host name and the password (Access Key) to be passed in via environment variables `REDIS_HOSTNAME` and `REDIS_PASSWORD` respectively. The format for the connection URL is `rediss://<username>:<password>@<hostname>` - Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
 
 The call to [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open) performs basic validation while [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection) actually initiates the connection - the program stops if the connectivity fails due to any reason such as an incorrect password.
 
@@ -158,7 +158,7 @@ fn list() {
 }
 ```
 
-Here you can see some of the `SET` operations. The [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd) (high-level API) method is used to add couple of entries to a `SET` named `users`. [SISMEMBER](https://redis.io/commands/hset) is then executed (low-level API) to check whether `user1` exists. Finally [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers) is used to fetch and iterate over all the set entries in the form of a Vector ([Vec<String>](https://doc.rust-lang.org/std/vec/struct.Vec.html)).
+Here you can see some of the `SET` operations. The [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd) (high-level API) method is used to add couple of entries to a `SET` named `users`. [SISMEMBER](https://redis.io/commands/hset) is then executed (low-level API) to check whether `user1` exists. Finally, [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers) is used to fetch and iterate over all the set entries in the form of a Vector ([Vec<String>](https://doc.rust-lang.org/std/vec/struct.Vec.html)).
 
 ```rust
 fn set() {
@@ -254,7 +254,7 @@ Start by cloning the application from GitHub.
 
 The application accepts connectivity and credentials in the form of environment variables. 
 
-1. Fetch the **Host name** and **Access Keys** (available via Access Keys) for Azure Cache for Redis instance in the [Azure portal](https://portal.azure.com/)
+1. Fetch the **Host name** and **Access Keys** (available via Access Keys) for Azure Cache for Redis instance in the [Azure portal](https://portal.azure.com/).
 
 1. Set them to the respective environment variables:
 
