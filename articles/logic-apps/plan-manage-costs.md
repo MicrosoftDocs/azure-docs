@@ -41,31 +41,34 @@ Azure Logic Apps runs on Azure infrastructure that [accrues costs](https://azure
 
 <!--Note to Azure service writer: Include any costs that aren't obvious, hidden, or otherwise might not be present in the pricing calculator or resource creation experience in the Azure portal. You might need to sync with your product team to identify hidden costs. If you're certain that costs accrue only for your service and no others, then omit this section. -->
 
-Based on the resources that you create and deploy, the Logic Apps service uses these pricing models:
+The Logic Apps service applies different pricing models, based on the resources that you create and use:
 
 * Logic app resources that you create and run in the multi-tenant Logic Apps service use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
 
 * Logic app resources that you create and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
-Here are other resources that you can create to use with your logic apps:
+Here are other resources that incur costs when you create them for use with logic apps:
 
 * An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps for building B2B integrations. Integration accounts use a fixed pricing model where the rate is based on the integration account type or *tier* that you use.
 
-* An [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) is a separate resource that you create and use as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use a fixed pricing model where the rate is based on the ISE SKU that you create and other settings.
+* An [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use a fixed pricing model where the rate is based on the ISE SKU that you create and other settings.
 
-* A [custom connector](../logic-apps/logic-apps-pricing.md#connectors) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connectors use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#connectors).
+* A [custom connector](../logic-apps/logic-apps-pricing.md#connectors) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#connectors).
+
+Here are other Logic Apps aspects that incur costs:
+
+* [Data retention and storage consumption](../logic-apps/logic-apps-pricing.md#data-retention) in the multi-tenant Logic Apps service uses a fixed pricing model. For pricing, on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), under the **Pricing details** table, review the **Data retention** note.
+
+  For logic apps in an ISE, data retention and storage consumption don't incur costs.
 
 ### Costs might accrue after resource deletion
 
 <!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
 
-After you delete a logic app, the following resources that you created continue to exist. If applicable, they continue to accrue costs until you delete them.
+If you have these resources after deleting a logic app, these resources continue to exist and accrue costs until you delete them.
 
-- Connections that you created from using managed connector triggers and actions in your logic apps
-
-- Integration accounts and included artifacts such as trading partners, agreements, and so on
-
-- Integration service environments
+* Integration accounts
+* Integration service environments
 
 To delete these resources, use the Azure portal, Logic Apps REST API, Azure CLI, or Azure PowerShell.
 

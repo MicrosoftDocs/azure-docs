@@ -5,40 +5,44 @@ services: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 01/31/2021
 ---
 
 # Pricing model for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing work for Azure Logic Apps. For pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for the Logic Apps services. For specific pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="consumption-pricing"></a>
 
 ## Consumption pricing model
 
-This pay-for-use billing model applies to logic apps that run in the public, "global", multi-tenant Azure Logic Apps service. All successful and unsuccessful executions are metered and billed. For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
+This pay-for-use billing model applies to logic apps that run in the public, "global", multi-tenant Logic Apps service. All successful and unsuccessful executions are metered and billed.
 
-Exceptions to the rule include triggers that are skipped due to unmet conditions and actions that don't run because the logic app stopped before finishing. Also, disabled logic apps aren't metered.
+For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
+
+> [!NOTE]
+> Exceptions to the rule include triggers that are skipped due to unmet conditions and actions that 
+> don't run because the logic app stopped before finishing.
 
 * [Built-in triggers and actions](../connectors/apis-list.md#built-in) run natively in the Logic Apps service and are billed using the [**Actions** price](https://azure.microsoft.com/pricing/details/logic-apps/).
 
   For example, the HTTP trigger and Request trigger are built-in triggers, while the HTTP action and Response action are built-in actions. Data operations, batch operations, variable operations, and [workflow control actions](../connectors/apis-list.md#control-workflow), such as loops, conditions, switch, parallel branches, and so on, are also built-in actions.
 
-* [Standard connector](../connectors/apis-list.md#managed-connectors) triggers and actions are billed using the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
+* [Standard managed connector](../connectors/apis-list.md#managed-connectors) triggers and actions are billed using the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-* [Enterprise connector](../connectors/apis-list.md#managed-connectors) triggers and actions are billed using the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps/). During public preview, Enterprise connectors are billed at the [*Standard* connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
+* [Enterprise managed connector](../connectors/apis-list.md#managed-connectors) triggers and actions are billed using the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps/). During public preview, Enterprise connectors are billed at the [*Standard* connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+* [Custom connector](../connectors/apis-list.md#custom) triggers and actions are billed at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 * If you have actions inside loops, each action that runs in a loop is metered for each loop cycle that runs.
 
   For example, suppose that you have a "for each" loop that includes actions that process a list. The Logic Apps service meters each action that runs in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions.
 
-Integration accounts and data retention use a fixed pricing model:
+* Data retention and storage consumption incur additional costs. For more information, see [Data retention and storage consumption](#data-retention) later in this topic.
 
-* See the "Data retention" note under the [Pricing details table](https://azure.microsoft.com/pricing/details/logic-apps/).
-
-* Integration accounts that you use with consumption-based logic apps are billed using a fixed [integration account price]() and is based on the account tier.
+* Disabled logic apps aren't metered. For more information, review [Disabled logic apps](#diabled-apps) later in this topic.
 
 ### Tips for estimating consumption costs
 
@@ -54,30 +58,27 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Fixed pricing model
 
-This billing model applies to logic apps that you create and run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) so that they can directly access resources in an Azure virtual network.
+This billing model applies to logic apps that you create and run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) when they need direct access to secured resources in an Azure virtual network.
 
-When you use an ISE for your logic apps, you get these capabilities included at the fixed ISE price:
-
-* No data retention costs apply.
-
-* [Built-in](../connectors/apis-list.md#built-in) triggers and actions
-
-  Within an ISE, built-in triggers and actions display the **Core** label and run in the same ISE as your logic apps.
-
-* [Standard](../connectors/apis-list.md#managed-connectors) connectors and [Enterprise](../connectors/apis-list.md#enterprise-connectors) connectors, which let you have as many Enterprise connections as you want
-
-   Standard and Enterprise connectors that display the **ISE** label run in the same ISE as your logic apps. Connectors that don't display the ISE label run in the public, "global", multi-tenant Logic Apps service. Fixed pricing also applies to connectors that run in the multi-tenant service when you use them with logic apps that run in an ISE.
-
-When you create an ISE, and only during creation, you can choose an [ISE level or "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
+An ISE is billed at a [fixed price](https://azure.microsoft.com/pricing/details/logic-apps), which depends on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you choose to create:
 
 * **Premium** ISE: This SKU's base unit has fixed capacity, but if you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) during ISE creation or afterwards. For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
 * **Developer** ISE: This SKU has no capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
-For logic apps that you create and run in an ISE, you pay a [fixed price](https://azure.microsoft.com/pricing/details/logic-apps) (versus pay per use) for these capabilities:
+With an ISE, you get these capabilities at no additional cost:
 
+* [Built-in](../connectors/apis-list.md#built-in) triggers and actions
 
-* Based on your selected ISE SKU, you get the following [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost:
+  In an ISE, built-in triggers and actions display the **Core** label and run in the same ISE as your logic apps.
+
+* [Standard connectors](../connectors/apis-list.md#managed-connectors) and [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) with as many Enterprise connections as you want
+
+  In an ISE, Standard and Enterprise connectors with the **ISE** label run in the same ISE as your logic apps. Connectors that don't have the ISE label run in the public, "global", multi-tenant Logic Apps service. However, when you use connectors that run in the multi-tenant Logic Apps service with logic apps that run in an ISE, the fixed pricing model also applies.
+
+* Data retention and storage consumption
+
+* [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost, based on the ISE SKU that you create:
 
   * **Premium** ISE SKU: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
@@ -101,6 +102,8 @@ Azure Logic Apps connectors help your logic app access apps, services, and syste
 
 ## Triggers
 
+Built-in triggers and actions have their own types, while all managed c. For example, actions that call [connectors](/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
+
 A trigger is always the first step in a logic app workflow and is a special action that creates and runs a logic app instance when specific criteria are met or a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
 
 * **Recurrence trigger**: You can use this generic trigger, which isn't specific to any service or system, to start any logic app workflow and create a logic app instance that runs based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
@@ -111,26 +114,17 @@ A trigger is always the first step in a logic app workflow and is a special acti
 
 * **Webhook trigger**: Rather than use a polling trigger, you can use a webhook trigger to wait for the client to send a request to your logic app at a specific endpoint URL. Each request that's sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both generic webhook triggers. Some connectors for services or systems also have webhook triggers.
 
-<a name="actions"></a>
-
-## Actions
-
-Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
-
-Azure Logic Apps meters all successful and unsuccessful actions as executions. However, Logic Apps doesn't meter these actions:
-
-* Actions that get skipped due to unmet conditions
-* Actions that don't run because the logic app stopped before finishing
-
-For actions that run inside loops, Azure Logic Apps counts each action for each cycle in the loop. For example, suppose you have a "for each" loop that processes a list. Logic Apps meters an action in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions.
-
-## Disabled logic apps
-
-Disabled logic apps aren't charged because they can't create new instances while they're disabled. After you disable a logic app, any currently running instances might take some time before they completely stop.
-
 <a name="integration-accounts"></a>
 
 ## Integration accounts
+
+.
+
+
+* An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps for building B2B integrations. Integration accounts use a fixed pricing model where the rate is based on the integration account type or *tier* that you use.
+
+* Integration accounts that you use with consumption-based logic apps are billed using a fixed [integration account price](https://azure.microsoft.com/pricing/details/logic-apps/) and is based on the account tier.
+
 
 A [fixed pricing model](https://azure.microsoft.com/pricing/details/logic-apps) applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, develop, and test the [B2B and EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features in Azure Logic Apps at no additional cost. Each Azure subscription can have up to a [specific limit of integration accounts](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Each integration account can store up to specific [limit of artifacts](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), which include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on.
 
@@ -148,7 +142,7 @@ To choose between a Free, Basic, or Standard integration account, review these u
 
 <a name="data-retention"></a>
 
-## Data retention
+## Data retention and storage consumption
 
 Except for logic apps that run in an integration service environment (ISE), all the inputs and outputs that are stored in your logic app's run history get billed based on a logic app's [run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). Logic apps that run in an ISE don't incur data retention costs. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -192,6 +186,18 @@ To help you monitor your logic app's storage consumption, you can:
    > [!NOTE]
    > For loops, only the top-level actions show sizes for their inputs and outputs. 
    > For actions inside nested loops, inputs and outputs show zero size and no links.
+
+<a name="data-gateway"></a>
+
+## Data gateway operations
+
+An [on-premises data gateway](../logic-apps/) is a separate resource that you create so that your logic apps can access on-premises systems through gateway-supported connectors. Connector operations that execute through the gateway incur charges, but the gateway itself doesn't incur charges.
+
+<a name="disabled-apps"></a>
+
+## Disabled logic apps
+
+Disabled logic apps aren't charged because they can't create new instances while they're disabled. After you disable a logic app, any currently running instances might take some time before they completely stop.
 
 ## Next steps
 
