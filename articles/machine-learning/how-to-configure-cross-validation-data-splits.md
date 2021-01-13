@@ -113,7 +113,7 @@ To perform cross-validation, include the `n_cross_validations` parameter and set
 
 In the following code, five folds for cross-validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
 
-As a result, metrics are calculated with the average of the 5 validation metrics.
+As a result, metrics are calculated with the average of the five validation metrics.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -131,7 +131,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## Specify custom cross-validation data folds
 
-You can also provide your own cross-validation (CV)  data folds. This is considered a more advanced scenario because you are specifying which columns to split and use for validation.  Include custom CV split columns in your training data, and specify which columns by populating the column names in the `cv_split_column_names` parameter. Each column represents one cross-validation split, and is filled with integer values 1 or 0 --where 1 indicates the row should be used for training and 0 indicates the row should be used for validation.
+You can also provide your own cross-validation (CV) data folds. This is considered a more advanced scenario because you are specifying which columns to split and use for validation.  Include custom CV split columns in your training data, and specify which columns by populating the column names in the `cv_split_column_names` parameter. Each column represents one cross-validation split, and is filled with integer values 1 or 0--where 1 indicates the row should be used for training and 0 indicates the row should be used for validation.
 
 The following code snippet contains bank marketing data with two CV split columns 'cv1' and 'cv2'.
 
