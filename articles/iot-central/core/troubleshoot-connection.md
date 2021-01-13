@@ -32,9 +32,9 @@ This section helps you determine if your data is reaching IoT Central.
 
 If you haven't already done so, install the `az cli` tool and `azure-iot` extension.
 
-To learn how to install the `az cli`, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+To learn how to install the `az cli`, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To [install](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) the `azure-iot` extension, run the following command:
+To [install](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) the `azure-iot` extension, run the following command:
 
 ```azurecli
 az extension add --name azure-iot

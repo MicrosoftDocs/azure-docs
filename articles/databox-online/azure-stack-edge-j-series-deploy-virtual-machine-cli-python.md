@@ -144,13 +144,13 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\windows\system32>
     ```
 
-    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
+    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
 
 2. Make a note of the CLI's Python location. You need this to determine the location of trusted root certificate store for Azure CLI.
 
 3. To run the sample script used in this article, you will need the following Python library versions:
 
-    ```azurecli
+    ```powershell
     azure-common==1.1.23
     azure-mgmt-resource==2.1.0
     azure-mgmt-network==2.7.0
@@ -162,7 +162,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     To install the versions, run the following command:
 
-    ```azurecli
+    ```powershell
     .\python.exe -m pip install haikunator
     ```
 

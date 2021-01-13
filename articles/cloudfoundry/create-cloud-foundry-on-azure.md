@@ -38,7 +38,7 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 
 > [!NOTE]
 >
-> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
+> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp).
 
 1. Sign in to your Azure account.
 
@@ -59,7 +59,7 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 3. Create an Azure Active Directory application for your PCF. Specify a unique alphanumeric password. Store the password as your **clientSecret** to use later.
 
     ```azurecli
-    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
     ```
 
     Copy the "appId" value in the output as your **clientID** to use later.
