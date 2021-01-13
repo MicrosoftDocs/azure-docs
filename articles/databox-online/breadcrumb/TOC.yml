@@ -2,10 +2,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Stack Edge
+  - name: Storage / Data Box online transfer
     tocHref: /azure/databox-gateway/
     topicHref: /azure/databox-online/index
-
-
-
-
