@@ -111,7 +111,11 @@ To resolve this issue, check if the volume is encrypted with a third-party appli
 
 1. Verify the file system and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
 
-### Disks are attached, but the volumes aren't mounted (Windows)
+### Disks are attached, but the volumes aren't mounted
+
+Resolve this issue by following the steps for your operating system.
+
+#### Windows
 
 When you run the file recovery script for Windows, you see a "0 recovery volumes attached" message. However, the disks are discovered in the disk management console.
 
@@ -139,7 +143,10 @@ To identify and resolve this issue, perform the following steps:
 
 1. Open File Explorer to view the drive you chose and explore the files.
 
-### Disks are attached, but the volumes aren't mounted (Linux)
+#### Linux
+
+>[!Tip]
+>Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
