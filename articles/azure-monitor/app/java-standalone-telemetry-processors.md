@@ -263,7 +263,7 @@ For the `extract` action, following are required
 
 For more understanding, check out the [telemetry processor examples](./java-standalone-telemetry-processors-examples.md) documentation.
 
-## Span processors
+## Span processor
 
 The span processor modifies either the span name or attributes of a span based on the span name. It optionally supports the ability to include/exclude spans.
 
