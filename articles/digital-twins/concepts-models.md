@@ -141,7 +141,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
 
-To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
+To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, to use an industry-standard model, you must first convert it to DTDL so that Azure Digital Twins can use it. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
 
 There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
 * If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
