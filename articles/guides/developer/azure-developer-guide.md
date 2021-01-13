@@ -115,7 +115,7 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 
 > **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you’re minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
 >
-> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/spring-cloud-quickstart).
+> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/spring-cloud-quickstart.md).
 
 
 ### Enhance your applications with Azure services
