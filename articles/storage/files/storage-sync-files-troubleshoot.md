@@ -195,7 +195,7 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
 - If **GetNextJob completed with status: 0** is logged, the server can communicate with the Azure File Sync service. 
     - Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](./storage-files-release-notes.md). 
 
-- If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall or proxy. 
+- If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall, proxy or cipher suite policy. 
     - If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](./storage-sync-files-firewall-and-proxy.md#firewall) are accessible.
     - If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](./storage-sync-files-firewall-and-proxy.md#proxy).
     - Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
