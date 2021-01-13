@@ -160,4 +160,4 @@ If you are using a free service, remember that you are limited to three indexes,
 To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](/rest/api/searchservice/search-documents) is especially helpful for learning and exploration.
 
 > [!div class="nextstepaction"]
-> [Create a basic query in Postman](search-query-simple-examples.md)
+> [Create a basic query in Postman](search-get-started-rest.md)
