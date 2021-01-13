@@ -43,7 +43,7 @@ Azure Logic Apps runs on Azure infrastructure that [accrues costs](https://azure
 
 The Logic Apps service applies different pricing models, based on the resources that you create and use:
 
-* Logic app resources that you create and run in the multi-tenant Logic Apps service use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
+* Logic app resources that you create and run in the multi-tenant Logic Apps service use a consumption pricing model. For more information, see (../logic-apps/logic-apps-pricing.md#consumption-pricing).
 
 * Logic app resources that you create and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
