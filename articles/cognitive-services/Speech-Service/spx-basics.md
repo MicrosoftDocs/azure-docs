@@ -135,4 +135,4 @@ spx help translate
 ## Next steps
 
 * [Speech CLI configuration options](./spx-data-store-configuration.md)
-* [Batch operations with the Speech CLI](./spx-batch-oeprations.md)
+* [Batch operations with the Speech CLI](./spx-batch-operations.md)
