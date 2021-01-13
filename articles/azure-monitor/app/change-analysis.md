@@ -207,11 +207,12 @@ This is the general unauthorized error message, explaining the current user does
  
 **You don't have enough permissions to register Microsoft.ChangeAnalysis resource provider. Contact your Azure subscription administrator.** This error message means your role in the current subscription does not have the **Microsoft.Support/register/action** scope associated with it. This might happen if you are not the owner of a subscription and got shared access permissions through a coworker. i.e. view access to a resource group. To fix this, You can contact the owner of your subscription to register the **Microsoft.ChangeAnalysis** resource provider. This can be done in Azure portal through **Subscriptions | Resource providers** and search for ```Microsoft.ChangeAnalysis``` and register in the UI, or through Azure PowerShell or Azure CLI.
 
-    Register resource provider through PowerShell: 
-    ```PowerShell
-    # Register resource provider
-    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-    ```
+Register resource provider through PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## Next steps
 
