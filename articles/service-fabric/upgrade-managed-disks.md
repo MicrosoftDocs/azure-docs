@@ -19,7 +19,7 @@ The general strategy for upgrading a Service Fabric cluster node to use managed 
 This article will walk you through the steps of upgrading the primary node type of an example cluster to use managed disks, while avoiding any cluster downtime (see note below). The initial state of the example test cluster consists of one node type of [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes.
 
 > [!NOTE]
-> The limitations of a Basic SKU load balancer prevent an additional scale set from being added. We recommend using the Standard SKU load balancer instead. For more, see [a comparison of the two SKUs](/azure/load-balancer/skus).
+> The limitations of a Basic SKU load balancer prevent an additional scale set from being added. We recommend using the Standard SKU load balancer instead. For more, see [a comparison of the two SKUs](../load-balancer/skus.md).
 
 > [!CAUTION]
 > You will experience an outage with this procedure only if you have dependencies on the cluster DNS (such as when accessing [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). Architectural [best practice for front-end services](/azure/architecture/microservices/design/gateway) is to have some kind of [load balancer](/azure/architecture/guide/technology-choices/load-balancing-overview) in front of your node types to make node swapping possible without an outage.

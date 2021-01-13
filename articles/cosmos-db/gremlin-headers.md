@@ -5,11 +5,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ---
 
 # Azure Cosmos DB Gremlin server response headers
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 This article covers headers that Cosmos DB Gremlin server returns to the caller upon request execution. These headers are useful for troubleshooting request performance, building application that integrates natively with Cosmos DB service and simplifying customer support.
 
 Keep in mind that taking dependency on these headers you are limiting portability of your application to other Gremlin implementations. In return, you are gaining tighter integration with Cosmos DB Gremlin. These headers are not a TinkerPop standard.
@@ -24,7 +26,7 @@ Keep in mind that taking dependency on these headers you are limiting portabilit
 | **x-ms-total-server-time-ms** | double | 130.512 | Success and Failure | Total time, in milliseconds, that Cosmos DB Gremlin server took to execute entire traversal. This header is included in every partial response. It represents cumulative execution time since the start of request. The last response indicates total execution time. This header is useful to differentiate between client and server as a source of latency. You can compare traversal execution time on the client to the value of this header. |
 | **x-ms-status-code** | long | 200 | Success and Failure | Header indicates internal reason for request completion or termination. Application is advised to look at the value of this header and take corrective action. |
 | **x-ms-substatus-code** | long | 1003 | Failure Only | Cosmos DB is a multi-model database that is built on top of unified storage layer. This header contains additional insights about the failure reason when failure occurs within lower layers of high availability stack. Application is advised to store this header and use it when contacting Cosmos DB customer support. Value of this header is useful for Cosmos DB engineer for quick troubleshooting. |
-| **x-ms-retry-after-ms** | string (TimeSpan) | "00:00:03.9500000" | Failure Only | This header is a string representation of a .NET [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) type. This value will only be included in requests failed due provisioned throughput exhaustion. Application should resubmit traversal again after instructed period of time. |
+| **x-ms-retry-after-ms** | string (TimeSpan) | "00:00:03.9500000" | Failure Only | This header is a string representation of a .NET [TimeSpan](/dotnet/api/system.timespan) type. This value will only be included in requests failed due provisioned throughput exhaustion. Application should resubmit traversal again after instructed period of time. |
 | **x-ms-activity-id** | string (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Success and Failure | Header contains a unique server-side identifier of a request. Each request is assigned a unique identifier by the server for tracking purposes. Applications should log activity identifiers returned by the server for requests that customers may want to contact customer support about. Cosmos DB support personnel can find specific requests by these identifiers in Cosmos DB service telemetry. |
 
 ## Status codes

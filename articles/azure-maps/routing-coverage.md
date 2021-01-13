@@ -241,4 +241,4 @@ The following table provides coverage information for Azure Maps routing.
 
 ## Next steps
 
-For more information about Azure Maps routing, see the [Routing](https://docs.microsoft.com/rest/api/maps/route) reference pages.
+For more information about Azure Maps routing, see the [Routing](/rest/api/maps/route) reference pages.

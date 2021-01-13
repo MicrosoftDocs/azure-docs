@@ -24,22 +24,6 @@ For Azure Analysis Services, getting setup with the gateway the first time is a 
 
 - **Connect the gateway resource to servers** - Once you have a gateway resource, you can begin connecting servers to it. You can connect multiple servers and other resources provided they are in the same region.
 
-
-
-## How it works
-The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create an On-premises data gateway resource for an Azure subscription. Your Azure Analysis Services servers are then connected to your Azure gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
-
-![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-Queries and data flow:
-
-1. A query is created by the cloud service with the encrypted credentials for the on-premises data source. It's then sent to a queue for the gateway to process.
-2. The gateway cloud service analyzes the query and pushes the request to the [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. The on-premises data gateway polls the Azure Service Bus for pending requests.
-4. The gateway gets the query, decrypts the credentials, and connects to the data sources with those credentials.
-5. The gateway sends the query to the data source for execution.
-6. The results are sent from the data source, back to the gateway, and then onto the cloud service and your server.
-
 ## Installing
 
 When installing for an Azure Analysis Services environment, it's important you follow the steps described in [Install and configure on-premises data gateway for Azure Analysis Services](analysis-services-gateway-install.md). This article is specific to Azure Analysis Services. It includes additional steps required to setup an On-premises data gateway resource in Azure, and connect your Azure Analysis Services server to the resource.
@@ -67,29 +51,19 @@ The following are fully qualified domain names used by the gateway.
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
+| *.msftncsi.com |80 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
 | dc.services.visualstudio.com    |443 |Used by AppInsights to collect telemetry. |
-
-### Forcing HTTPS communication with Azure Service Bus
-
-You can force the gateway to communicate with Azure Service Bus by using HTTPS instead of direct TCP; however, doing so can greatly reduce performance. You can modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file by changing the value from `AutoDetect` to `Https`. This file is typically located at *C:\Program Files\On-premises data gateway*.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## Next steps 
 
 The following articles are included in the On-premises data gateway general content that applies to all services the gateway supports:
 
-* [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Use the on-premises data gateway app](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Tenant level administration](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Configure proxy settings](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Adjust communication settings](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Configure log files](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Troubleshoot](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [On-premises data gateway FAQ](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Use the on-premises data gateway app](/data-integration/gateway/service-gateway-app)   
+* [Tenant level administration](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Configure proxy settings](/data-integration/gateway/service-gateway-proxy)   
+* [Adjust communication settings](/data-integration/gateway/service-gateway-communication)   
+* [Configure log files](/data-integration/gateway/service-gateway-log-files)   
+* [Troubleshoot](/data-integration/gateway/service-gateway-tshoot)
+* [Monitor and optimize gateway performance](/data-integration/gateway/service-gateway-performance)

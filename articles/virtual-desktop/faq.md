@@ -3,7 +3,7 @@ title: Windows Virtual Desktop FAQ - Azure
 description: Frequently asked questions and best practices for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -24,11 +24,9 @@ To restrict an admin to only manage user sessions, such as sending messages to u
 "Microsoft.Resources/deployments/operations/read",
 "Microsoft.Resources/tags/read",
 "Microsoft.Authorization/roleAssignments/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
 ],
 "notActions": [],
 "dataActions": [],

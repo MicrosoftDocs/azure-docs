@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 11/06/2020
 ---
 
 # How to schedule indexers in Azure Cognitive Search
@@ -86,30 +86,34 @@ You can also run an indexer on demand at any time using the Run Indexer call. Fo
 
 ## Schedule using the .NET SDK
 
-You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **Schedule** property when creating or updating an indexer.
 
-The following C# example creates an indexer, using a predefined data source and index, and sets its schedule to run once every day starting 30 minutes from now:
+The following C# example creates an Azure SQL database indexer, using a predefined data source and index, and sets its schedule to run once every day starting now:
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-If the **schedule** parameter is omitted, the indexer will only run once immediately after it is created.
 
-The **startTime** parameter can be set to a time in the past. In that case, the first execution is scheduled as if the indexer has been running continuously since the given **startTime**.
 
-The schedule is defined using the [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) class. The **IndexingSchedule** constructor requires an **interval** parameter specified using a **TimeSpan** object. The smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **startTime** parameter, specified as a **DateTimeOffset** object, is optional.
+If the **Schedule** property is omitted, the indexer will only run once immediately after it is created.
 
-The .NET SDK lets you control indexer operations using the [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) class and its [Indexers](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) property, which implements methods from the **IIndexersOperations** interface. 
+The **StartTime** parameter can be set to a time in the past. In that case, the first execution is scheduled as if the indexer has been running continuously since the given **StartTime**.
 
-You can run an indexer on demand at any time using one of the [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync), or [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) methods.
+The schedule is defined using the [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) class. The **IndexingSchedule** constructor requires an **Interval** parameter specified using a **TimeSpan** object. The smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **StartTime** parameter, specified as a **DateTimeOffset** object, is optional.
 
-For more information about creating, updating, and running indexers, see [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).
+The .NET SDK lets you control indexer operations using the [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
+
+You can run an indexer on demand at any time using one of the [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) or [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync) methods.
+
+For more information about creating, updating, and running indexers, see [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).

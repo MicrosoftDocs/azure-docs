@@ -21,7 +21,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 You can connect Azure Firewall logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation.
 
-Learn more about [monitoring Azure Firewall logs](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+Learn more about [monitoring Azure Firewall logs](../firewall/firewall-diagnostics.md).
 
 ## Prerequisites
 

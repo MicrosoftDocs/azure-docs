@@ -21,7 +21,7 @@ Integrating TeamSeer with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to TeamSeer (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 1. Go to **HR Admin**.
 
-    ![HR Admin](./media/teamseer-tutorial/ic789634.png "HR Admin")
+    ![Screenshot shows the H R Admin selected from the TeamSeer window.](./media/teamseer-tutorial/ic789634.png "HR Admin")
 
 1. Click **Setup**.
 
@@ -129,11 +129,11 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 1. Click **Set up SAML provider details**.
 
-    ![SAML Settings](./media/teamseer-tutorial/ic789636.png "SAML Settings")
+    ![Screenshot shows Set up SAML provider details selected.](./media/teamseer-tutorial/ic789636.png "SAML Settings")
 
 1. In the SAML provider details section, perform the following steps:
 
-    ![SAML Settings](./media/teamseer-tutorial/ic789637.png "SAML Settings")
+    ![Screenshot shows the SAML provider details where you can enter the values described.](./media/teamseer-tutorial/ic789637.png "SAML Settings")
 
     a. In the **URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 1. To complete the SAML provider configuration, perform the following steps:
 
-    ![SAML Settings](./media/teamseer-tutorial/ic789638.png "SAML Settings")
+    ![Screenshot shows the SAML provider configuration where you can enter the values described.](./media/teamseer-tutorial/ic789638.png "SAML Settings")
 
     a. In the **Test Email Addresses**, type the test user’s email address.
   
@@ -210,7 +210,7 @@ To enable Azure AD users to sign in to TeamSeer, they must be provisioned in to 
 
 1. Go to **HR Admin \> Users** and then click **Run the New User wizard**.
 
-    ![HR Admin](./media/teamseer-tutorial/ic789640.png "HR Admin")
+    ![Screenshot shows the H R Admin tab where you can select a wizard to run.](./media/teamseer-tutorial/ic789640.png "HR Admin")
 
 1. In the **User Details** section, perform the following steps:
 
@@ -229,12 +229,12 @@ To enable Azure AD users to sign in to TeamSeer, they must be provisioned in to 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the TeamSeer tile in the Access Panel, you should be automatically signed in to the TeamSeer for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the TeamSeer tile in the Access Panel, you should be automatically signed in to the TeamSeer for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

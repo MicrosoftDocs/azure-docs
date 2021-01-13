@@ -25,7 +25,7 @@ This tutorial explores the following two scenarios:
 - Deploy reference data updates for all tenants.
 - Rebuild an index on the table that contains the reference data.
 
-The [Elastic Jobs](../../sql-database/elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the 'template' tenant database. In the Wingtip Tickets sample app, this template database is copied to provision a new tenant database.
+The [Elastic Jobs](./elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the 'template' tenant database. In the Wingtip Tickets sample app, this template database is copied to provision a new tenant database.
 
 In this tutorial you learn how to:
 
@@ -38,20 +38,20 @@ In this tutorial you learn how to:
 ## Prerequisites
 
 - The Wingtip Tickets multi-tenant database app must already be deployed:
-    - For instructions, see the first tutorial, which introduces the Wingtip Tickets SaaS multi-tenant database app:<br />[Deploy and explore a sharded multi-tenant application that uses Azure SQL Database](../../sql-database/saas-multitenantdb-get-started-deploy.md).
+    - For instructions, see the first tutorial, which introduces the Wingtip Tickets SaaS multi-tenant database app:<br />[Deploy and explore a sharded multi-tenant application that uses Azure SQL Database](./saas-multitenantdb-get-started-deploy.md).
         - The deploy process runs for less than five minutes.
     - You must have the *sharded multi-tenant* version of Wingtip installed. The versions for *Standalone* and *Database per tenant* do not support this tutorial.
 
-- The latest version of SQL Server Management Studio (SSMS) must be installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+- The latest version of SQL Server Management Studio (SSMS) must be installed. [Download and Install SSMS](/sql/ssms/download-sql-server-management-studio-ssms).
 
-- Azure PowerShell must be installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+- Azure PowerShell must be installed. For details, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 > [!NOTE]
 > This tutorial uses features of the Azure SQL Database service that are in a limited preview ([Elastic Database jobs](elastic-database-client-library.md)). If you wish to do this tutorial, provide your subscription ID to *SaaSFeedback\@microsoft.com* with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact *SaaSFeedback\@microsoft.com* for related questions or support.
 
 ## Introduction to SaaS schema management patterns
 
-The sharded multi-tenant database model used in this sample enables a tenants database to contain one or more tenants. This sample explores the potential to use a mix of a many-tenant and one-tenant databases, enabling a *hybrid* tenant management model. Managing changes to these databases can be complicated. [Elastic Jobs](../../sql-database/elastic-jobs-overview.md) facilitates administration and management of large numbers of database. Jobs enable you to securely and reliably run Transact-SQL scripts as tasks, against a group of tenant databases. The tasks are independent of user interaction or input. This method can be used to deploy changes to schema or to common reference data, across all tenants in an application. Elastic Jobs can also be used to maintain a golden template copy of the database. The template is used to create new tenants, always ensuring the latest schema and reference data are in use.
+The sharded multi-tenant database model used in this sample enables a tenants database to contain one or more tenants. This sample explores the potential to use a mix of a many-tenant and one-tenant databases, enabling a *hybrid* tenant management model. Managing changes to these databases can be complicated. [Elastic Jobs](./elastic-jobs-overview.md) facilitates administration and management of large numbers of database. Jobs enable you to securely and reliably run Transact-SQL scripts as tasks, against a group of tenant databases. The tasks are independent of user interaction or input. This method can be used to deploy changes to schema or to common reference data, across all tenants in an application. Elastic Jobs can also be used to maintain a golden template copy of the database. The template is used to create new tenants, always ensuring the latest schema and reference data are in use.
 
 ![screen](./media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -155,7 +155,7 @@ Observe the following items in the *OnlineReindex.sql* script:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Managing scaled-out cloud databases](../../sql-database/elastic-jobs-overview.md)
+* [Managing scaled-out cloud databases](./elastic-jobs-overview.md)
 
 ## Next steps
 
@@ -166,5 +166,4 @@ In this tutorial you learned how to:
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad hoc reporting tutorial](../../sql-database/saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
-
+Next, try the [Ad hoc reporting tutorial](./saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.

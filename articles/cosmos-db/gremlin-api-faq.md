@@ -3,12 +3,14 @@ title: Frequently asked questions about the Gremlin API in Azure Cosmos DB
 description: Get answers to frequently asked questions about the Gremlin API in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ---
 
 # Frequently asked questions about the Gremlin API in Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 This article explains answers to some frequently asked questions about Gremlin API in Azure Cosmos DB.
 
@@ -94,7 +96,7 @@ The RU charge is based on the working data set of the traversal, and not the res
 
 ### What's the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API?
 
-Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](partition-data.md) article.
+Azure Cosmos DB makes use of [horizontal partitioning](partitioning-overview.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](partitioning-overview.md) article.
 
 ### For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
 
@@ -102,7 +104,7 @@ Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connec
 
 ### How can I protect against injection attacks using Gremlin drivers?
 
-Most native Apache Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Most native Apache Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/main/app.js).
 
 ### Why am I getting the "Gremlin Query Compilation Error: Unable to find any method" error?
 

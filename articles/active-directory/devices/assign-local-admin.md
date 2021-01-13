@@ -31,14 +31,13 @@ When you connect a Windows device with Azure AD using an Azure AD join, Azure AD
 - The Azure AD device administrator role 
 - The user performing the Azure AD join   
 
-By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Currently, you cannot assign groups to an administrator role.
-Azure AD also adds the Azure AD device administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to the global administrators, you can also enable users that have been *only* assigned the device administrator role to manage a device. 
+By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Azure AD also adds the Azure AD device administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to the global administrators, you can also enable users that have been *only* assigned the device administrator role to manage a device. 
 
 ## Manage the global administrators role
 
 To view and update the membership of the global administrator role, see:
 
-- [View all members of an administrator role in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [View all members of an administrator role in Azure Active Directory](../roles/manage-roles-portal.md)
 - [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
@@ -71,14 +70,19 @@ Device administrators are assigned to all Azure AD joined devices. You cannot sc
 >[!NOTE]
 > This feature is currently in preview.
 
+
 Starting with Windows 10 2004 update, you can use Azure AD groups to manage administrator privileges on Azure AD joined devices with the [Restricted Groups](/windows/client-management/mdm/policy-csp-restrictedgroups) MDM policy. This policy allows you to assign individual users or Azure AD groups to the local administrators group on an Azure AD joined device, providing you the granularity to configure distinct administrators for different groups of devices. 
 
-Currently, there's no UI in Intune to manage this policy and needs to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for this policy: 
+>[!NOTE]
+> Starting Windows 10 20H2 update, we recommend using [Local Users and Groups](/windows/client-management/mdm/policy-csp-localusersandgroups) policy instead of the Restricted Groups policy
 
-- Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the Groups API. The SID is defined by the property `securityIdentifier` in the Groups API.
-- When Restricted Groups policy is enforced, any current member of the group that is not on the Members list is removed. So enforcing this policy with new members or groups will remove the existing administrators namely user who joined the device, the Device administrator role and Global administrator role from the device. To avoid removing existing members, you need to configure them as part of the Members list in the Restricted Groups policy. 
-- This policy is only applicable to the following well-known groups on a Windows 10 device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
-- Managing local administrators using Restricted Groups policy is not applicable to Hybrid Azure AD joined or Azure AD Registered devices.
+
+Currently, there's no UI in Intune to manage these policies and they need to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for using either of these policies: 
+
+- Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group?view=graph-rest-beta). The SID is defined by the property `securityIdentifier` in the API response.
+- When Restricted Groups policy is enforced, any current member of the group that is not on the Members list is removed. So enforcing this policy with new members or groups will remove the existing administrators namely user who joined the device, the Device administrator role and Global administrator role from the device. To avoid removing existing members, you need to configure them as part of the Members list in the Restricted Groups policy. This limitation is addressed if you use the Local Users and Groups policy that allows incremental updates to group membership
+- Administrator privileges using both policies are evaluated only for the following well-known groups on a Windows 10 device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
+- Managing local administrators using Azure AD groups is not applicable to Hybrid Azure AD joined or Azure AD Registered devices.
 - While the Restricted Groups policy existed prior to Windows 10 2004 update, it did not support Azure AD groups as members of a device's local administrators group. 
 
 ## Manage regular users

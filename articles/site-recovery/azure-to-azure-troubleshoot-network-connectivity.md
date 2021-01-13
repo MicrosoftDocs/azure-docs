@@ -15,7 +15,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	            | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can use an allow-list for the specific storage account URLs. For example, `cache1.blob.core.windows.net` and `cache2.blob.core.windows.net` instead of `*.blob.core.windows.net`. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can use an allow-list for the specific storage account URLs. For example, `cache1.blob.core.windows.net` and `cache2.blob.core.windows.net` instead of `*.blob.core.windows.net`. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Required for authorization and authentication to the Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`	| Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding _Site Recovery IP_ if your firewall proxy supports IPs. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding _Site Recovery Monitoring IP_ if your firewall proxy supports IPs. |
@@ -55,7 +55,7 @@ A connection can't be established to Microsoft 365 authentication and identity I
 #### Resolution
 
 - Azure Site Recovery requires access to the Microsoft 365 IP ranges for authentication.
-- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Microsoft 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
+- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Microsoft 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
 - If new addresses are added to Azure AD in the future, you need to create new NSG rules.
 
 ### Example NSG configuration

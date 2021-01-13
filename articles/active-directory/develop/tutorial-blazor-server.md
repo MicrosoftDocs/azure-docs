@@ -14,9 +14,11 @@ ms.date: 09/15/2020
 
 # Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication
 
-Blazor Server provides support for hosting Razor components on the server in an ASP.NET Core app. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph in a Blazor Server app with the Microsoft identity platform.
+In this tutorial, you build a Blazor Server app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to:
+We also have a tutorial for [Blazor WASM](tutorial-blazor-webassembly.md).
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Create a new Blazor Server app configured to use Azure Active Directory (Azure AD) for authentication
@@ -81,7 +83,7 @@ In your browser, navigate to `https://localhost:5001`, and log in using an Azure
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code can display the signed in user's emails on the application's "fetch data" page.
+[Microsoft Graph](/graph/overview) offers a range of APIs that provide access to your users' Microsoft 365 data. By using the Microsoft identity platform as the identity provider for your app, you have easier access to this information since Microsoft Graph directly supports the tokens issued by the Microsoft identity platform. In this section, you add code to display the signed in user's emails on the application's "fetch data" page.
 
 Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
 

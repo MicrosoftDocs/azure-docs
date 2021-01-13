@@ -57,9 +57,9 @@ These are the APIs:
 
 | Command | Description |
 | --- | --- |
-|[Managed Instance Operations - Get](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Gets a management operation on a managed instance.|
-|[Managed Instance Operations - Cancel](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancels the asynchronous operation on the managed instance.|
-|[Managed Instance Operations - List By Managed Instance](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Gets a list of operations performed on the managed instance.|
+|[Managed Instance Operations - Get](/rest/api/sql/managedinstanceoperations/get)|Gets a management operation on a managed instance.|
+|[Managed Instance Operations - Cancel](/rest/api/sql/managedinstanceoperations/cancel)|Cancels the asynchronous operation on the managed instance.|
+|[Managed Instance Operations - List By Managed Instance](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Gets a list of operations performed on the managed instance.|
 
 > [!NOTE]
 > Use API version 2020-02-02 to see the managed instance create operation in the list of operations. This is the default version used in the Azure portal and the latest PowerShell and Azure CLI packages.
@@ -93,7 +93,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-For detailed commands explanation, see [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+For detailed commands explanation, see [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -103,7 +103,7 @@ The az sql mi op list gets a list of operations performed on the managed instanc
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-For detailed commands explanation, see [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+For detailed commands explanation, see [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 

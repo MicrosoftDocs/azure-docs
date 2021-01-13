@@ -1,7 +1,7 @@
 ---
 title: "Feature Hashing module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Feature Hashing module in the Azure Machine Learning to featurize text data.
+description: Learn how to use the Feature Hashing module in the Azure Machine Learning designer to featurize text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ This article describes a module included in Azure Machine Learning designer.
 
 Use the Feature Hashing module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 
-The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## What is feature hashing?
 
@@ -126,4 +126,4 @@ The optimal set of preprocessing methods to apply in any solution depends on dom
 
 ## Next steps
 			
-See the [set of modules available](module-reference.md) to Azure Machine Learning 
+See the [set of modules available](module-reference.md) to Azure Machine Learning

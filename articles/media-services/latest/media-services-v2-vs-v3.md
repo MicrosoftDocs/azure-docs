@@ -70,13 +70,12 @@ This article describes changes that were introduced in Azure Media Services v3 a
 
 The v3 API has the following feature gaps with respect to the v2 API. Closing the gaps is work in progress.
 
-* The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.<br/>Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
+* The [Premium Encoder](../previous/media-services-encode-asset.md) and the legacy [media analytics processors](../previous/legacy-components.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.<br/>Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
 * Many of the [advanced features of the Media Encoder Standard in v2](../previous/media-services-advanced-encoding-with-mes.md) APIs are currently not available in v3, such as:
   
     * Stitching of Assets
     * Overlays
     * Cropping
-    * Thumbnail Sprites
     * Inserting a silent audio track when input has no audio
     * Inserting a video track when input has no video
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 

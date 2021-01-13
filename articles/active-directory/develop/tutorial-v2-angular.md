@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
 
-This tutorial walks you through building an Angular single-page application (SPA) that can sign in users with personal Microsoft accounts and work or school accounts and call the Microsoft Graph API on their behalf.
+In this tutorial, you build an Angular single-page application (SPA) that signs in users and calls the Microsoft Graph API.
 
 In this tutorial:
 
@@ -190,7 +190,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Next, provide a map of protected resources to `MsalModule.forRoot()` as `protectedResourceMap` and include those scopes in `consentScopes`:
+Next, provide a map of protected resources to `MsalModule.forRoot()` as `protectedResourceMap` and include those scopes in `consentScopes`. The URLs you provide in the `protectedResourceMap` collection are case-sensitive.
 
 ```javascript
 @NgModule({

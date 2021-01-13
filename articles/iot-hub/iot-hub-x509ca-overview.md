@@ -81,4 +81,4 @@ Learn here how to [complete this device connection step](iot-hub-security-x509-g
 
 Learn about [the value of X.509 CA authentication](iot-hub-x509ca-concept.md) in IoT.
 
-Get started with IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/).
+Get started with IoT Hub [Device Provisioning Service](../iot-dps/index.yml).

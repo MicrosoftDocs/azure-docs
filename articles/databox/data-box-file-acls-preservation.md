@@ -7,13 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/06/2020
 ms.author: alkohli
 ---
 
 # Preserving file ACLs, attributes, and timestamps with Azure Data Box
 
-Azure Data Box lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. Specific steps are provided to copy metadata with Windows and Linux data copy tools.
+Azure Data Box lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box via Server Message Block (SMB) to upload it to Azure Files. 
+
+Specific steps are provided to copy metadata with Windows and Linux data copy tools. Metadata isn't preserved when transferring data to blob storage.
 
 In this article, the ACLs, timestamps, and file attributes that are transferred are referred to collectively as *metadata*.
 

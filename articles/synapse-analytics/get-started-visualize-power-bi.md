@@ -7,6 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
@@ -31,13 +32,9 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
 ### Link your Azure Synapse workspace to your new Power BI workspace
 
 1. In Synapse Studio, go to **Manage** > **Linked Services**.
-1. Select **New** > **Connect to Power BI**, and then set these fields:
-
-    |Setting | Suggested value | 
-    |---|---|
-    |**Name**|**NYCTaxiWorkspace1**|
-    |**Workspace name**|**NYCTaxiWorkspace1**|
-
+1. Select **New** > **Connect to Power BI**
+1. Set **Name** to **NYCTaxiWorkspace1**
+1. Set **Workspace name** to **NYCTaxiWorkspace1**
 1. Select **Create**.
 
 ### Create a Power BI dataset that uses data in your Azure Synapse workspace
@@ -80,11 +77,7 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
     * Under **NYCTaxiWorkspace1** > **Power BI reports**, a new report called **PassengerAnalysis**.
 1. Select the **PassengerAnalysis** report. The report opens and you can edit it directly within Synapse Studio.
 
-## Monitor activities
 
-1. In Synapse Studio, go to the **monitor** hub.
-1. In this location, you can see a history of all the activities taking place in the workspace and which ones are active now.
-1. Explore the **Pipeline runs**, **Apache Spark applications**, and **SQL requests** to see what you've already done in the workspace.
 
 ## Next steps
 

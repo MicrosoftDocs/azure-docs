@@ -64,13 +64,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: https://aka.ms/ams-v3-cli-ref
+            url: /cli/azure/ams
           - text: REST
             url: /rest/api/media/
           - text: .NET
-            url: https://aka.ms/ams-v3-dotnet-ref
+            url: /dotnet/api/overview/azure/mediaservices/management
           - text: Java
-            url: https://aka.ms/ams-v3-java-ref
+            url: /java/api/overview/azure/mediaservices/management
 
 # Card
   - title: Stream live

@@ -39,7 +39,7 @@ What you'll learn:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install the Azure CLI](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -132,7 +132,7 @@ Commit your change and deploy it to the web app.
 
 ```bash
 git commit -am "version 2"
-git push azure master
+git push azure main
 ```
 
 Once deployment has completed, browse to the web app URL to see the change.
@@ -227,7 +227,7 @@ Open *index.html*, change *V2* to *V3*, then deploy the change.
 
 ```bash
 git commit -am "version 3"
-git push azure master
+git push azure main
 ```
 
 In a browser, go to the CDN endpoint URL with a new query string, such as `q=2`. Azure CDN gets the current *index.html* file and displays *V3*. However, if you navigate to the CDN endpoint with the `q=1` query string, you see *V2*.
@@ -266,5 +266,3 @@ Learn how to optimize CDN performance in the following articles:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
-
-

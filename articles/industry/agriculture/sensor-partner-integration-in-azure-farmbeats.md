@@ -43,7 +43,7 @@ The APIs contain Swagger technical documentation. For more information on the AP
 
 FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Service provides built-in authentication and authorization support.
 
-For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+For more information, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
@@ -196,7 +196,7 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Here's a sample Python code that sends telemetry as a client to a specified event hub.
 

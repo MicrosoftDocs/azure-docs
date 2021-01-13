@@ -90,5 +90,5 @@ SQL Database customers have the following rights associated with Azure Hybrid Be
 
 ## Next steps
 
-- For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
+- For help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](database/features-comparison.md).

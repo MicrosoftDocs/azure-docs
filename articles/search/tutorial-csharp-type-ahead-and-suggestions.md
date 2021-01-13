@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -141,13 +141,13 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
 
 3. Run the app. Do you get a range of options when you enter "po", for example? Now try "pa".
 
-    ![Typing "po" reveals two suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-po.png" alt-text="Typing *po* reveals two suggestions" border="false":::
 
     Notice that the letters you enter _must_ start a word, and not simply be included within the word.
 
 4. In the view script, set **&fuzzy** to true, and run the app again. Now enter "po". Notice that the search assumes you got one letter wrong.
  
-    ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Typing *pa* with fuzzy set to true" border="false":::
 
     If you are interested, the [Lucene query syntax in Azure Cognitive Search](./query-lucene-syntax.md) describes the logic used in fuzzy searches in detail.
 
@@ -192,7 +192,7 @@ We can improve the appearance of the suggestions to the user by setting the **hi
 
 1. Run the app again, and you should see your entered text bolded in the suggestions. Try typing "pa".
  
-    ![Typing "pa" with highlighting](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Typing *pa* with highlighting" border="false":::
 
    The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
 
@@ -251,7 +251,7 @@ Another variation, slightly different from suggestions, is autocompletion (somet
 
 1. Run the app. Notice how the range of options displayed in the drop-down list are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
-    ![Typing with basic autocompletion](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Typing with basic autocompletion" border="false":::
 
     As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, consider using it with suggested results.
 
@@ -447,7 +447,7 @@ There are libraries that offer this functionality - often called "inline autocom
 
 1. Now run the app. Enter "pa" into the search box. Do you get "palace" as the autocomplete suggestion, along with two hotels that contain "pa"?
 
-    ![Typing with inline autocomplete and suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Typing with inline autocomplete and suggestions" border="false":::
 
 1. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab key, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 

@@ -67,14 +67,14 @@ Light sources have a significant impact on rendering performance. Use them caref
 
 ## API documentation
 
-* [C# LightComponentBase class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
-* [C# PointLightComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
-* [C# SpotLightComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
-* [C# DirectionalLightComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
-* [C++ LightComponentBase class](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
-* [C++ PointLightComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
-* [C++ SpotLightComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
-* [C++ DirectionalLightComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
+* [C# LightComponentBase class](/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# PointLightComponent class](/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent class](/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent class](/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [C++ LightComponentBase class](/cpp/api/remote-rendering/lightcomponentbase)
+* [C++ PointLightComponent class](/cpp/api/remote-rendering/pointlightcomponent)
+* [C++ SpotLightComponent class](/cpp/api/remote-rendering/spotlightcomponent)
+* [C++ DirectionalLightComponent class](/cpp/api/remote-rendering/directionallightcomponent)
 
 ## Next steps
 

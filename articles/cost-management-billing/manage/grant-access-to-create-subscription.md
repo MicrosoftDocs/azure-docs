@@ -4,9 +4,9 @@ description: Learn how to give a user or service principal the ability to progra
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
 ---
 
@@ -14,11 +14,14 @@ ms.author: banders
 
 As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
+> [!NOTE]
+> This API only works with the [preview APIs for subscription creation](programmatically-create-subscription-preview.md). If you are want to use the [GA version](programmatically-create-subscription-enterprise-agreement.md), use the latest API version at [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Grant access
 
-To [create subscriptions under an enrollment account](programmatically-create-subscription.md), users must have the Azure RBAC [Owner role](../../role-based-access-control/built-in-roles.md#owner) on that account. You can grant a user or a group of users the Azure RBAC Owner role on an enrollment account by following these steps:
+To [create subscriptions under an enrollment account](programmatically-create-subscription-enterprise-agreement.md), users must have the Azure RBAC [Owner role](../../role-based-access-control/built-in-roles.md#owner) on that account. You can grant a user or a group of users the Azure RBAC Owner role on an enrollment account by following these steps:
 
 1. Get the object ID of the enrollment account you want to grant access to
 
@@ -79,7 +82,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [Azure CLI](#tab/azure-cli)
 
-    Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
 
     ```azurecli-interactive
     az billing enrollment-account list
@@ -169,7 +172,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Azure RBAC Owner by default.
+    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Azure RBAC Owner by default.
 
     ---
 
@@ -188,7 +191,7 @@ To conveniently call this API from the command line, try [ARMClient](https://git
 
 ## Next steps
 
-* Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription.md).
+* Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription-enterprise-agreement.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 * To learn more about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md)

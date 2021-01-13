@@ -18,7 +18,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
-This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts using the Microsoft identity platform, and then get an access token and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can provide tokens to your application.
 
@@ -108,7 +110,7 @@ We'll now look at these files in more detail and call out the MSAL-specific code
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle
-implementation 'com.microsoft.identity.client:msal:1.+'
+implementation 'com.microsoft.identity.client:msal:2.+'
 ```
 
 You can see this in the sample project in build.gradle (Module: app):
@@ -116,7 +118,7 @@ You can see this in the sample project in build.gradle (Module: app):
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.+'
+    implementation 'com.microsoft.identity.client:msal:2.+'
     ...
 }
 ```

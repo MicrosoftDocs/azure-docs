@@ -34,7 +34,7 @@ This article shows you how to route data to the storage account and then view th
 1. Log in to the Azure portal at https://portal.azure.com.
 1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor.
 
-    ![Diagnostic settings section](media/media-services-diagnostic-logs/logs01.png)
+    ![Screenshot that highlights Diagnostic settings under the Monitoring section.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Click **Add diagnostic setting**.
 

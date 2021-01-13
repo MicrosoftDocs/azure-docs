@@ -209,12 +209,13 @@ In this section, you can see the Traffic Manager is action.
 
 7. Next, connect to the VM *myVMWestEurope* located in **West Europe** using steps 1-5 and browse to the Traffic Manager profile domain name from this VM. Since the VM *myVMWestEurope* IP address is associated with the endpoint *myProductionWebsiteEndpoint*, the web browser launches the Test website server - *myIISVMWestEurope*.
 
-## Delete the Traffic Manager profile
+## Clean up resources
 
 When no longer needed, delete the resource groups (**ResourceGroupTM1** and **ResourceGroupTM2**). To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 
 ## Next steps
 
-- Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
-- Learn about [priority routing method](traffic-manager-configure-priority-routing-method.md).
-- Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
+To learn more about subnet routing method, see:
+
+> [!div class="nextstepaction"]
+> [Subnet traffic routing method](traffic-manager-routing-methods.md#subnet)

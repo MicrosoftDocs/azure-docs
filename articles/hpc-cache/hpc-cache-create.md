@@ -76,7 +76,7 @@ After you create the cache, you must authorize it to use the key vault service. 
 
 ## Add resource tags (optional)
 
-The **Tags** page lets you add [resource tags](https://go.microsoft.com/fwlink/?linkid=873112) to your Azure HPC Cache instance.
+The **Tags** page lets you add [resource tags](../azure-resource-manager/management/tag-resources.md) to your Azure HPC Cache instance.
 
 ## Finish creating the cache
 
@@ -97,7 +97,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 
 ## Create the cache with Azure CLI
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
@@ -199,7 +199,7 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+[Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
 more information.
 
 > [!IMPORTANT]

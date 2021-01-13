@@ -10,6 +10,7 @@ ms.author: tisande
 ms.custom: seodec18
 ---
 # Connect to an Azure Cosmos account using Studio 3T
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 To connect to an Azure Cosmos DB's API for MongoDB using Studio 3T, you must:
 
@@ -26,7 +27,7 @@ To add your Azure Cosmos account to the Studio 3T connection manager, use the fo
 
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionManager.png" alt-text="Screenshot of the Studio 3T connection manager":::
+    :::image type="content" source="./media/mongodb-mongochef/ConnectionManager.png" alt-text="Screenshot of the Studio 3T connection manager that highlights the New Connection button.":::
 3. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the Azure Cosmos account and the PORT.
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerServerTab.png" alt-text="Screenshot of the Studio 3T connection manager server tab":::

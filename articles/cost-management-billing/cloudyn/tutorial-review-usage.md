@@ -125,4 +125,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Forecast future spending](../../cost-management/tutorial-forecast-spending.md)
+> [Forecast future spending](./tutorial-forecast-spending.md)

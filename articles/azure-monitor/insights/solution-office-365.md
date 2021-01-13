@@ -100,9 +100,9 @@ ms.date: 03/30/2020
 > 
 > ###    Q: What will happen on October 31? Do I need to offboard beforehand?
 > 
-> - You won't be able to receive data from the **Office365** solution. The solution will no longer be available in the Marketplace
+> - You won't be able to receive data from the **Office365** solution. The solution will be removed from your workspace and will no longer be available in the Marketplace.
 > - For Azure Sentinel customers, the Log Analytics workspace solution **Office365** will be included in the Azure Sentinel **SecurityInsights** solution.
-> - If you don't offboard your solution manually, your data will be disconnected automatically on October 31.
+> - If you don't offboard your solution manually by October 31, your data will be disconnected automatically, and the **OfficeActivity** table removed. Even so, you will still be able to restore the table when you enable the Office 365 connector in Azure Sentinel, as explained below.
 > 
 > ### Q: Will my data transfer to the new solution?
 > Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Sentinel, the schema is restored to the workspace and any data already collected will become available. 

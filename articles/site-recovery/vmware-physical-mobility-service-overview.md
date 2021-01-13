@@ -80,7 +80,7 @@ During a push installation of the Mobility service, the following steps are perf
 
 1. Monitor the installation in **Installation Progress**. After the installation is finished, select **Proceed to Configuration** to register the service with the configuration server.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Mobility service registration page.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Screenshot that shows the progress of the installation and the active Proceed to Configuration button when the installation is finished.":::
 
 1. In **Configuration Server Details**, specify the IP address and passphrase that you configured.
 

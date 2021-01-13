@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/22/2020
+ms.date: 01/12/2021
 ---
 
 # Cluster creation fails with InvalidNetworkConfigurationErrorCode in Azure HDInsight
@@ -63,6 +63,19 @@ Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outboun
 
     If there are routes defined, make sure that there are routes for IP addresses for the region where the cluster was deployed, and the **NextHopType** for each route is **Internet**. There should be a route defined for each required IP Address documented in the aforementioned article.
 
+## "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed."
+
+### Issue
+
+Error description contains "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed.”
+
+### Cause
+
+When using Private Linked HDInsight clusters, outbound access from the cluster must be configured to allow connections to be made to the HDInsight resource provider.
+
+### Resolution
+
+* To resolve this issue, refer to the HDInsight Private Link setup steps at [private link setup](../hdinsight-private-link.md)
 ---
 
 ## "Virtual network configuration is not compatible with HDInsight requirement"
@@ -129,6 +142,13 @@ hostname -f
 nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 ```
+### Cause
+
+Another cause for this `InvalidNetworkConfigurationErrorCode` error code could be the use of the deprecated parameter `EnableVmProtection` in PowerShell or an Azure Runbook.
+
+### Resolution
+
+Use the valid parameters for `Get-AzVirtualNetwork` as documented in the [Az PowerShell SDK](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-5.3.0&viewFallbackFrom=azps-4.2.0)
 
 ---
 
@@ -140,4 +160,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

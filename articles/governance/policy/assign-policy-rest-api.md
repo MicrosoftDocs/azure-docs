@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart 
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with REST API
@@ -22,8 +22,8 @@ assignment and to identify non-compliant resources in your Azure environment.
   account before you begin.
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. Alternatively, you can use the
-  "Try It" feature in REST documentation or tooling like PowerShell's
+  that sends HTTP requests to Azure Resource Manager-based REST APIs. You can also use the "Try It"
+  feature in REST documentation or tooling like PowerShell's
   [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
   [Postman](https://www.postman.com).
 

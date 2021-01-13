@@ -1,14 +1,14 @@
 ---
 title: Add or remove nodes to a standalone Service Fabric cluster 
 description: Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: dekapur
 ---
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
-After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your (business) needs may change and you will need to add or remove nodes to your cluster. This article provides detailed steps to achieve this. Please note that add/remove node functionality is not supported in local development clusters.
+After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your (business) needs may change and you will need to add or remove nodes to your cluster, as described in this article.
+
+> [!NOTE]
+> Node addition and removal functionality is not supported in local development clusters.
 
 ## Add nodes to your cluster
 
@@ -90,7 +90,7 @@ In order to add a new node type, modify your configuration to include the new no
 A node can be removed from a cluster using a configuration upgrade, in the following manner:
 
 1. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and *remove* the node from "Nodes" section.
-Add the "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" section. The "value" should be a comma separated list of node names of nodes that need to be removed.
+Add the "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" section. The "value" should be a comma-separated list of node names of nodes that need to be removed.
 
 	```
 		 "fabricSettings": [
@@ -127,7 +127,7 @@ Add the "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" 
 > 
 
 ### Remove node types from your cluster
-Before removing a node type, please double check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Before removing a node type, check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### Replace primary nodes of your cluster

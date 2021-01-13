@@ -24,7 +24,7 @@ Apache Ambari simplifies the management and monitoring of Hadoop clusters by pro
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash on Ubuntu on Windows 10.  The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use Windows PowerShell.
+* Bash on Ubuntu on Windows 10.  The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use Windows PowerShell.
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -82,7 +82,7 @@ $clusterName
 
 ### Parsing JSON data
 
-The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the `health_report` information from the results.
+The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the `health_report` information from the results.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -248,7 +248,7 @@ The return value is similar to one of the following examples:
     The return value is similar to `/clusters/CLUSTERNAME/`. This value is a path within the Data Lake Storage account. This path is the root of the HDFS compatible file system for the cluster.  
 
 > [!NOTE]  
-> The [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet provided by [Azure PowerShell](/powershell/azure/) also returns the storage information for the cluster.
+> The [Get-AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet provided by [Azure PowerShell](/powershell/azure/) also returns the storage information for the cluster.
 
 ### Get all configurations
 

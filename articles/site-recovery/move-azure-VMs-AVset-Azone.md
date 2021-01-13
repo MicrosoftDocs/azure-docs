@@ -57,7 +57,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 4. For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
 5. Make sure you don't use an authentication proxy to control network connectivity for VMs that you want to move.
 
-6. If the VM you're trying to move doesn't have access to the internet and uses a firewall proxy to control outbound access, check the requirements at [Configure outbound network connectivity](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Verify [outbound connectivity requirements for VMs](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identify the source networking layout and the resources you currently use for verification, including load balancers, NSGs, and public IP.
 
@@ -94,16 +94,12 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 1. In the Azure portal, select **Virtual machines**, and select the VM you want to move into Availability Zones.
 2. In **Operations**, select **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](../availability-zones/az-region.md) Availability Zones.
-
-    ![Selection of target region](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Select **Next: Advanced settings**.
 5. Choose the appropriate values for the target subscription, target VM resource group, and virtual network.
 6. In the **Availability** section, choose the Availability Zone into which you want to move the VM. 
    > [!NOTE]
    > If you don’t see the option for availability set or Availabilty Zone, ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
   
-    ![Selections for choosing an Availability Zone](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Select **Enable Replication**. This action starts a job to enable replication for the VM.
 
@@ -114,7 +110,6 @@ After the replication job has finished, you can check the replication status, mo
 1. In the VM menu, select **Disaster recovery**.
 2. You can check replication health, the recovery points that have been created and the source, and target regions on the map.
 
-   ![Replication status](media/azure-to-azure-quickstart/replication-status.png)
 
 ## Test the configuration
 

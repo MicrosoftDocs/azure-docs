@@ -297,11 +297,11 @@ External accounts with owner permissions should be removed from your subscriptio
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
-**Guidance**: When you perform critical operations in Azure Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
+**Guidance**: When you perform critical operations in Azure Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure AD Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
 
 - [Multi-Factor Authentication in Azure Backup](./backup-azure-security-feature.md)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -309,11 +309,11 @@ External accounts with owner permissions should be removed from your subscriptio
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) configured to log into and configure your Azure Backup-enabled resources.
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) configured to log into and configure your Azure Backup-enabled resources.
 
 - [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -435,7 +435,7 @@ Supporting documentation:
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -485,7 +485,7 @@ Azure Backup provides three built-in roles to control backup management operatio
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
+- [Use Azure role-based access control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -533,7 +533,7 @@ When backing up with the MARS agent or using a Recovery Services vault encrypted
 
 Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Backup to reduce service configuration related vulnerabilities.
 
-- [Understanding security controls available for Azure Backup](./backup-security-controls.md)
+- [Understanding security controls available for Azure Backup]()
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -613,7 +613,7 @@ Allowed resource types
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -821,9 +821,9 @@ Allowed resource types
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
-* [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -871,7 +871,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 - [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Understand Azure Security Center's Threat detection for data services](../security-center/threat-protection.md)
+- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -927,7 +927,7 @@ Backup customer managed keys within Azure Key Vault.
 
 **Guidance**: For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable soft-delete in Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 

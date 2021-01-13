@@ -2,7 +2,7 @@
 title: Resource forest concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn what a resource forest is in Azure Active Directory Domain Services and how they benefit your organization in hybrid environment with limited user authentication options or security concerns.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: justinha
 ---
 
 # Resource forest concepts and features for Azure Active Directory Domain Services
