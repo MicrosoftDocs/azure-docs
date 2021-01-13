@@ -128,8 +128,8 @@ to make each deployment of the copy of the blueprint sample unique.
 
 The following table provides a list of the blueprint parameters:
 
-|-|-|
 |Parameter name|Description|
+|-|-|
 |Resource Group and Resource name prefix|Resource Group and Resource identifier. String to be used as prefix to all Resource Group and Resource names|
 |Hub name|Name of the Hub|
 |Hub Location|Hub Resource Group Location|
