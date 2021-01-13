@@ -243,6 +243,35 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
+## Suppressing specific auto-collected telemetry
+
+Specific auto-collected telemetry can be suppressed using these configuration options:
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
+      "enabled": false
+    }
+  }
+}
+```
+
 ## Heartbeat
 
 By default, Application Insights Java 3.0 sends a heartbeat metric once every 15 minutes. If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
