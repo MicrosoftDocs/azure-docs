@@ -46,6 +46,7 @@ There are some limitations with using VNet Integration with VNets in the same re
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
 * Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes
+* VNET integration is not supported for Docker Compose scenarios in App Service
 
 VNet Integration depends on use of a dedicated subnet.  When you provision a subnet, the Azure subnet loses 5 IPs for from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used. The debit of 5 addresses from the subnet size mean that the maximum available addresses per CIDR block are:
 
