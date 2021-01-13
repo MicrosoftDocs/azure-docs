@@ -42,7 +42,7 @@ The **TrustFrameworkPolicy** element contains the following attributes:
 | PolicyId | Yes | The unique identifier for the policy. This identifier must be prefixed by *B2C_1A_* |
 | PublicPolicyUri | Yes | The URI for the policy, which is combination of the tenant ID and the policy ID. |
 | DeploymentMode | No | Possible values: `Production`, or `Development`. `Production` is the default. Use this property to debug your policy. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | No | The endpoint that is used when **DeploymentMode** is set to `Development`. The value must be `urn:journeyrecorder:applicationinsights`. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | The endpoint that is used for logging. The value must be set to `urn:journeyrecorder:applicationinsights` if the attribute exists. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
 
 
 The following example shows how to specify the **TrustFrameworkPolicy** element:
