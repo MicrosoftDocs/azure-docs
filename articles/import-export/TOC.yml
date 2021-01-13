@@ -12,6 +12,7 @@
   - name: FAQ
     href: storage-import-export-service-faq.md
 - name: How to
+  expanded: true
   items:
   - name: Deploy
     items:
