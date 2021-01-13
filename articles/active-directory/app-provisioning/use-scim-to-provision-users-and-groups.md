@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
