@@ -154,7 +154,11 @@ The outcome of a job's steps on each target database are recorded in detail, and
 
 #### Job history
 
-Job execution history is stored in the *Job database*. A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_history** stored procedure in the *Job database*.
+View Elastic Job execution history in the *Job database* by [querying the table jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_history** stored procedure in the *Job database*.
+
+#### Job status
+
+You can monitor Elastic Job executions in the *Job database* by [querying the table jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). 
 
 ### Agent performance, capacity, and limitations
 
