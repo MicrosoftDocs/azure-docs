@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
-ms.author: xujing
+ms.author: mimckitt
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 

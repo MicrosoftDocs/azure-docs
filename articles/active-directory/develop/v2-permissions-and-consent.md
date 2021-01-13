@@ -162,10 +162,11 @@ Applications are able to note which permissions they require (both delegated and
 
 #### To configure the list of statically requested permissions for an application
 
-1. Go to your application in the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, or [create an app](quickstart-register-app.md) if you haven't already.
-2. Locate the **API Permissions** section, and within the API permissions click Add a permission.
-3. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
-3. **Save** the app registration.
+1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Select an application, or [create an app](quickstart-register-app.md) if you haven't already.
+1. On the application's **Overview** page, under **Manage**, select **API Permissions** > **Add a permission**.
+1. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
+1. Select **Add Permissions**.
 
 ### Recommended: Sign the user into your app
 
