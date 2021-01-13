@@ -134,11 +134,11 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep-v2.png)
+   ![Start adding an endpoint for a route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
 4. Select **Storage**. You see the **Add a storage endpoint** pane.
 
-   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-ep-V2.png)
+   ![Adding an endpoint](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
