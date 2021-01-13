@@ -35,8 +35,8 @@ In this tutorial, you learn how to:
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A local PDF document to analyze. You can download this [sample document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) to use.
 * [Python 3.8.x](https://www.python.org/downloads/) installed.
-* [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) installed.
-* [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools) installed.
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) installed.
+* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools) installed.
 * Visual Studio Code with the following extensions installed:
   * [Azure Functions extension](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
   * [Python extension](https://code.visualstudio.com/docs/python/python-tutorial#_install-visual-studio-code-and-the-python-extension)
@@ -271,7 +271,7 @@ You can connect this container to Power BI to create rich visualizations of the 
 In this tutorial, you learned how to use an Azure Function written in Python to automatically process uploaded PDF documents and output their contents in a more data-friendly format. Next, learn how to use Power BI to display the data.
 
 > [!div class="nextstepaction"]
-> [Microsoft Power BI](https://powerbi.microsoft.com/en-us/integrations/azure-table-storage/)
+> [Microsoft Power BI](https://powerbi.microsoft.com/integrations/azure-table-storage/)
 
 * [What is Form Recognizer?](overview.md)
 * Learn more about the [Layout API](concept-layout.md)
