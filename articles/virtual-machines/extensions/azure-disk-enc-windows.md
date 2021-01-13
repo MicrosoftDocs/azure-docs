@@ -144,7 +144,7 @@ Using `AADClientCertificate`:
 | (1.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (1.1 schema) AADClientSecret | password | string |
 | (1.1 schema) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| EncryptionOperation | EnableEncryption | string | 
 | (optional - default RSA-OAEP ) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
