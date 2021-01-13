@@ -12,15 +12,15 @@ ms.custom:
   
 # Azure Cloud Services (extended support) overview
 
-Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the Azure Cloud Services product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in  Azure Resource Manager. Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as Cloud Services (classic).
+Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md).
 
-Cloud Services (extended support) provides a path for customers to migrate away from the Cloud Services (classic) deployment model.
+Cloud Services (extended support) provides a path for customers to migrate away from the [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) deployment model.
 
 ## Changes in deployment model
 
 Minimal changes are required to cscfg and csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
 
-:::image type="content" source="media/overview-image-1.png" alt-text="Image shows classic cloud service configuration with addition of template section.":::
+:::image type="content" source="media/overview-image-1.png" alt-text="Image shows classic cloud service configuration with addition of template section. ":::
 
 - The Azure Resource Manager templates need to be maintained and kept consistent with the cscfg and csdef files for Cloud Services (extended support) deployments.
 - Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
@@ -33,9 +33,17 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 
 
 ## Prerequisites for deployment
-### Required Service Definition updates
+
+### 1) Register the feature for your subscription
+Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
+
+```powershell
+Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
+```
+
+### 2) Update the Service Definition file
  
-1. Update previous virtual machine size names to use the Azure Resource Manager naming conventions.
+ Update previous virtual machine size names to use the Azure Resource Manager naming conventions.
 
     | Previous size name | Updated size name | 
     |---|---|
@@ -60,7 +68,7 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     `ResourceType = virtualMachines ` <br>
     `VMDeploymentTypes = PaaS `
 
-2. Deployments that utilized the previous remote desktop plugins need to have the modules removed from the Service Definition file and any previously associated certificates. 
+Deployments that utilized the previous remote desktop plugins need to have the modules removed from the Service Definition file and any previously associated certificates. 
 
     ```xml
     <Imports> 
@@ -70,9 +78,9 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     ```
  
 
-### Required Service Configuration updates
+### 3) Update the Service Configuration file
 
-1. All Cloud Service (extended support) deployments must be in a virtual network and referenced in the cscfg file. You can use an existing virtual network or create a new one using the [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM template](https://docs.microsoft.com/azure/virtual-network/quick-create-template).
+All Cloud Service (extended support) deployments must be in a virtual network and referenced in the cscfg file. You can use an existing virtual network or create a new one using the [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM template](https://docs.microsoft.com/azure/virtual-network/quick-create-template).
     
     ```xml
     <NetworkConfiguration> 
@@ -89,17 +97,7 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
       </NetworkConfiguration> 
     ```
  
-2. Deployments that utilized the previous remote desktop plugins need to have the modules removed from the Service Configuration file and any previously associated certificates. 
-
-    ```xml
-    <Imports> 
-    <Import moduleName="RemoteAccess" /> 
-    <Import moduleName="RemoteForwarder" /> 
-    </Imports> 
-    ```
-
-
-3. Remove the following settings from the cscfg file.
+Remove the following settings from the cscfg file.
 
     ```xml
     <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" /> 
@@ -116,4 +114,4 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
     ```
 
 ## Next steps
-To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)
+Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md)
