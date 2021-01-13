@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 01/13/2021
 ms.author: jeedes
 
 ---
@@ -59,7 +59,6 @@ To configure and test Azure AD SSO with Resource Central, perform the following 
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
     1. **[Create Resource Central test user](#create-resource-central-test-user)** - to have a counterpart of B.Simon in Resource Central that is linked to the Azure AD representation of user.
 1. **[Configure Resource Central SSO](#configure-resource-central-sso)** - to configure the single sign-on settings on application side.
-  
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -123,7 +122,7 @@ In this section, a user called **B.Simon** is created in **Resource Central**.
   
     :::image type="content" source="./media/resource-central/new-person.png" alt-text="Screenshot that shows the Persons pane in Resource Central, with the New button highlighted.":::
 
-1. In **Person Details**, for **Display name**, enter the user **B.Simon**. In **SMTP Address**, enter the user's Azure AD user name. For example,  `B.Simon@contoso.com`.
+1. In **Person Details**, for **Display name**, enter the user **B.Simon**. For **SMTP Address**, enter the user's Azure AD user name. For example,  `B.Simon@contoso.com`.
 
     :::image type="content" source="./media/resource-central/person.png" alt-text="Screenshot that shows the Person Details pane in Resource Central.":::
 
@@ -131,9 +130,10 @@ In this section, a user called **B.Simon** is created in **Resource Central**.
 
 In this section, you'll configure single sign-on in **Resource Central System Administrator**.
 
-1. Select **External Authentication**. Then, for **Enable Configuration**, select **Yes**.
+1. In Resource Central System Administrator, select **External Authentication**.
+1.  For **Enable Configuration**, select **Yes**.
 
-   ![Screenshot that shows the Enable Configuration option selected in the External Authentication pane in Resource Central.](./media/resource-central/enable.png)
+    ![Screenshot that shows the Enable Configuration option selected in the External Authentication pane in Resource Central.](./media/resource-central/enable.png)
 
 1. In **Authentication Protocol**, select **SAML2**. 
 
@@ -149,7 +149,7 @@ In this section, you'll configure single sign-on in **Resource Central System Ad
 
         :::image type="content" source="./media/resource-central/setup.png" alt-text="Screenshot of the Set up Resource Central pane in Resource Central.":::
 
-   1. In **Return URL**, enter `https://<DOMAIN_NAME>/ResourceCentral/ExAuth/Saml2Authentication/CallbackHandler`.
+   1. For **Return URL**, enter `https://<DOMAIN_NAME>/ResourceCentral/ExAuth/Saml2Authentication/CallbackHandler`.
   
 1. For **Certificate**, upload your certificate and enter your password.
 
@@ -167,13 +167,13 @@ In this section, you'll configure single sign-on in **Resource Central System Ad
 
 In this section, you test your Azure AD single sign-on configuration. To test single sign-on, you have three options:
 
-* In the Azure portal, select **Test this application**. The link redirects to the Resource Central sign-on URL, where you can initiate sign-in.
+* In the Azure portal, select **Test this application**. The link redirects to the Resource Central sign-on URL, where you can initiate login.
 
-* Go to the Resource Central sign-on URL directly and initiate sign-in.
+* Go to the Resource Central sign-on URL directly and initiate login.
 
    :::image type="content" source="./media/resource-central/test.png" alt-text="Screenshot of the Resource Central single sign-on test webpage.":::
 
-* Use the My Apps portal from Microsoft. In the My Apps portal, select the Resource Central tile to redirect to the Resource Central sign-on URL. For more information, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+* Use the My Apps portal from Microsoft. In the My Apps portal, select the **Resource Central** tile to redirect to the Resource Central sign-on URL. For more information, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
