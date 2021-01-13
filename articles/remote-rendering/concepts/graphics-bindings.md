@@ -273,7 +273,7 @@ The structure members have the following meaning:
 |--------|-------------|
 | frameId | Continuous frame identifier. Necessary for SimulationUpdateParameters input and continuously incremented for each new frame. Will be 0 in SimulationUpdateResult when no frame data is available yet. |
 | viewTransform | Left-right-stereo pair of the frame's camera view transformation matrices. For monoscopic rendering, only the `left` member is valid. |
-| fieldOfView | Left-right-stereo pair of the frame camera's fields-of-view in [OpenXR field of view convention](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). |
+| fieldOfView | Left-right-stereo pair of the frame camera's fields-of-view in [OpenXR field of view convention](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). For monoscopic rendering, only the `left` member is valid. |
 | nearPlaneDistance | near-plane distance used for the projection matrix of the current remote frame. |
 | farPlaneDistance | far-plane distance used for the projection matrix of the current remote frame. |
 
@@ -349,7 +349,7 @@ void GetCameraSettingsFromSimulationUpdateResult(const SimulationUpdateResult& r
 }
 ```
 
-These functions allow quick switching between the field-of-view specification and a plain 4x4 perspective projection matrix, depending on your needs for local rendering. These conversion functions contain verification logic and will return errors, without setting a valid result, in case the input projection matrices or input fields-of-view are invalid.
+These conversion functions allow quick switching between the field-of-view specification and a plain 4x4 perspective projection matrix, depending on your needs for local rendering. These conversion functions contain verification logic and will return errors, without setting a valid result, in case the input projection matrices or input fields-of-view are invalid.
 
 ## API documentation
 
