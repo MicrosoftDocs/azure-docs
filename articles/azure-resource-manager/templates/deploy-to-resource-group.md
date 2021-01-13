@@ -133,6 +133,8 @@ Or, you can set the scope to `/` for some resource types, like management groups
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
 
+For more information, see [Management group](deploy-to-management-group.md#management-group).
+
 ## Deploy to target resource group
 
 To deploy resources in the target resource group, define those resources in the **resources** section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.

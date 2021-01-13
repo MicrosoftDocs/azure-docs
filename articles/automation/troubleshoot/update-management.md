@@ -420,7 +420,7 @@ This error can occur for one of the following reasons:
 
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that your machine or server meets the [requirements](../update-management/overview.md#client-requirements).
+1. Verify that your machine or server meets the [requirements](../update-management/overview.md#system-requirements).
 2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
