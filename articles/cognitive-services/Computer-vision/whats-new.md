@@ -18,9 +18,9 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## January 2021
 
-### Spatial analysis container preview refresh
+### Spatial analysis container added feature
 
-A new version of the [spatial analysis container](spatial-analysis-container.md) has been released with a new feature set. The spatial analysis feature of Computer Vision lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. 
+A new version of the [spatial analysis container](spatial-analysis-container.md) has been released with a new feature set. This Docker container lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. 
 
 * [Spatial analysis operations](spatial-analysis-operations.md) can be now configured to detect if a person is wearing a protective face covering such as a mask. 
     * A mask classifier can be enabled for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations by configuring the `ENABLE_FACE_MASK_CLASSIFIER` parameter.
