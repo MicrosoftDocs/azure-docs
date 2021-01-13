@@ -20,6 +20,8 @@ Cloud Services (extended support) provides a path for customers to migrate away 
 
 Minimal changes are required to cscfg and csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
 
+:::image type="content" source="media/overview-image-1.png" alt-text="Image shows classic cloud service configuration with addition of template section.":::
+
 - The Azure Resource Manager templates need to be maintained and kept consistent with the cscfg and csdef files for Cloud Services (extended support) deployments.
 - Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
 - The concept of staging and production slots do not exist for Cloud Services (extended support).
