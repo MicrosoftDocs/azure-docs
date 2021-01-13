@@ -21,6 +21,9 @@ The deployment enables:
 * Azure Spring Cloud interaction with systems in ​on-premises data centers ​or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
+> [!Note]
+> You can select your Azure virtual network only when you create a new Azure Spring Cloud service instance. You cannot change to use another virtual network after Azure Spring Cloud has been created.
+
 ## Prerequisites
 
 Register the Azure Spring Cloud resource provider **Microsoft.AppPlatform** and **Microsoft.ContainerService** according to the instructions in [Register resource provider on Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) or by running the following Azure CLI command:
@@ -72,6 +75,7 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
 ## Grant service permission to the virtual network
+Azure Spring Cloud requires **Owner** permission to your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
 
 Select the virtual network **azure-spring-cloud-vnet** you previously created.
 

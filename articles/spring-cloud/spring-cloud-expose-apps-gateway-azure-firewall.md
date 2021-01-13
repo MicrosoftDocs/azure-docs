@@ -132,27 +132,6 @@ Copy and paste the public IP address into the address bar of your browser.
 
   ![App in public IP](media/spring-cloud-expose-apps-gateway-az-firewall/app-gw-public-ip.png)
 
-## Integrate with Azure Firewall (WIP)
-
-If you want to protect the endpoint exposed to public, you can further integrate with **Azure Firewall**.
-
-First, configure the application gateway to have a private frontend IP.
-
-```
-APPLICATION_GATEWAY_PRIVATE_IP='10.1.2.10'
-az network application-gateway frontend-ip create \
-    --gateway-name ${APPLICATION_GATEWAY_NAME} \
-    --name appGatewayPrivateFrontendIP \
-    --resource-group ${RESOURCE_GROUP} \
-    --private-ip-address ${APPLICATION_GATEWAY_PRIVATE_IP} \
-    --subnet ${APPLICATION_GATEWAY_SUBNET_NAME} \
-    --vnet-name ${VIRTUAL_NETWORK_NAME}
-```
-
-Then, create an **Azure Firewall** resource.
-
-TBD
-
 ## See also
 
 - [Troubleshooting Azure Spring Cloud in VNET](spring-cloud-troubleshooting-vnet.md)
