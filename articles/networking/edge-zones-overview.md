@@ -58,7 +58,7 @@ Azure Edge Zones will be available in the following metro areas:
 
 Azure Edge Zones with Carrier are small-footprint extensions of Azure that are placed in mobile operators' datacenters in population centers. Azure Edge Zone with Carrier infrastructure is placed one hop away from the mobile operator's 5G network. This placement offers latency of less than 10 milliseconds to applications from mobile devices.
 
-Azure Edge Zones with Carrier are deployed in mobile operators' datacenters and connected to the Microsoft global network. They provide secure, reliable, high-bandwidth connectivity between applications that run close to the user. And they offer the full set of Azure services running within Azure regions. Developers can use the same set of familiar tools to build and deploy services into the Edge Zones.
+Azure Edge Zones with Carrier are deployed in mobile operators' datacenters and connected to the Microsoft global network. They provide secure, reliable, high-bandwidth connectivity between applications that run close to the user. Developers can use the same set of familiar tools to build and deploy services into the Edge Zones.
 
 Typical use cases include:
 
