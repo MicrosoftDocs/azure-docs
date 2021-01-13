@@ -29,7 +29,7 @@ This article defines authentication and authorization. It also briefly covers ho
 
 *Authorization* is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with that data. Authorization is sometimes shortened to *AuthZ*. The Microsoft identity platform uses the [OAuth 2.0](https://oauth.net/2/) protocol for handling authorization.
 
-## Authentication and authorization through the Microsoft identity platform
+## Authentication and authorization using the Microsoft identity platform
 
 Creating apps that each maintain their own username and password information incurs a high administrative burden when you need to add or remove users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
 
@@ -53,9 +53,7 @@ Here's a comparison of the protocols that the Microsoft identity platform uses:
 
 ## Next steps
 
+For other topics that cover authentication and authorization basics:
+
 * To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](security-tokens.md).
 * To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](application-model.md).
-* To learn about the sign-in flow of web, desktop, and mobile apps in the Microsoft identity platform, see [App sign-in flow](app-sign-in-flow.md).
-* To learn more about the protocols that the Microsoft identity platform uses, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md).
-* For more information on how the Microsoft identity platform supports single sign-on, see [Single sign-on SAML protocol](single-sign-on-saml-protocol.md).
-* For more information on the different ways that you can implement single sign-on in your app, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
