@@ -35,9 +35,6 @@ In this tutorial, you:
 ## Prerequisites
 
 * Completion of [part 3](tutorial-1st-experiment-sdk-train.md) of the series.
-* Introductory knowledge of the Python language and machine learning workflows.
-* Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-* Python (version 3.5 to 3.7).
 
 ## Adjust the training script
 
@@ -126,7 +123,7 @@ The `target_path` value specifies the path on the datastore where the CIFAR10 da
 >[!TIP] 
 > While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](../data-factory/introduction.md) to ingest your data into Azure.
 
-Run the Python file to upload the data. (The upload should be quick, less than 60 seconds.)
+In the window that has the activated *tutorial1* conda environment, run the Python file to upload the data. (The upload should be quick, less than 60 seconds.)
 
 ```bash
 python 05-upload-data.py

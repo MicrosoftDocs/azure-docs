@@ -104,6 +104,7 @@ If your subscription needs access in a particular region, select the **Region ac
 
    ![Request region access](./media/quota-increase-request/quota-request.png)
 
+<!--
 ### <a id="mseries"></a> Enable M-series access to a region
 
 To enable M-series hardware for a subscription and region, a support request must be opened.
@@ -114,6 +115,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 
    ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
+-->
 
 ## <a id="sqlmiquota"></a> SQL Managed Instance quota type
 
