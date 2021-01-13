@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: jeedes
 
 ---
@@ -34,10 +34,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * NAVEX One supports **SP** initiated SSO
-
-
-
-
 
 ## Adding NAVEX One from the gallery
 
@@ -74,25 +70,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. Click **Upload metadata file**.
-
-    ![Upload metadata file](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
-
-	![NAVEX One Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CLIENT_KEY>.navexglobal.com`
 
-	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [NAVEX One Client support team](mailto:ethicspoint@navexglobal.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [NAVEX One Client support team](mailto:ethicspoint@navexglobal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -137,7 +121,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to NAVEX One Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the NAVEX One tile in the My Apps, you should be automatically signed in to the NAVEX One for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the NAVEX One tile in the My Apps, this will redirect to NAVEX One Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
