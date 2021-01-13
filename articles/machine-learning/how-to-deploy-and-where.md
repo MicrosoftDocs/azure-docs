@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 
 # Deploy machine learning models to Azure
 
-Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
+Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
 The workflow is similar no matter where you deploy your model:
 
