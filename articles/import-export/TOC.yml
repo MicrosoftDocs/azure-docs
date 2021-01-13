@@ -28,7 +28,7 @@
   - name: Monitor
     items:
     - name: View drive status
-      href: storage-import-export-tool-view-drive-status.md
+      href: storage-import-export-view-drive-status.md
     - name: Review job status
       href: storage-import-export-tool-reviewing-job-status-v1.md
   - name: Troubleshoot
