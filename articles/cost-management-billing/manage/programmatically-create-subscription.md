@@ -1,19 +1,19 @@
 ---
-title: Create Azure subscriptions with REST API
-description: This article helps you understand options available to programmatically create Azure subscriptions with REST APIs.
+title: Create Azure subscriptions programatically
+description: This article helps you understand options available to programmatically create Azure subscriptions.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Create Azure subscriptions with REST API
+# Create Azure subscriptions programatically
 
-This article helps you understand options available to programmatically create Azure subscriptions with REST APIs.
+This article helps you understand options available to programmatically create Azure subscriptions.
 
 Using various REST APIs you can create a subscription for the following Azure agreement types:
 
