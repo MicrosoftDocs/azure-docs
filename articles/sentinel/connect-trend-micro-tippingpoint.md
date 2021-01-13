@@ -20,6 +20,9 @@ ms.author: yelevin
 ---
 # Connect Trend Micro TippingPoint
 
+> [!IMPORTANT]
+> The Trend Micro TippingPoint connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 The Trend Micro TippingPoint connector lets you easily connect your TippingPoint SMS logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's networks and systems, and improves your security operation capabilities.
 
 ## Prerequisites

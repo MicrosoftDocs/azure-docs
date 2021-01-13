@@ -89,6 +89,8 @@ The following data connection methods are supported by Azure Sentinel:
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [Citrix WAF](connect-citrix-waf.md)
+        - [CyberArk Enterprise Password Vault](connect-cyberark.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
         - [F5 ASM](connect-f5.md)
         - [Forcepoint products](connect-forcepoint-casb-ngfw.md)
@@ -97,6 +99,8 @@ The following data connection methods are supported by Azure Sentinel:
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
+        - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+        - [WireX Network Forensics Platform](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Other CEF-based appliances](connect-common-event-format.md)
     - **Firewalls, proxies, and endpoints - Syslog:**
