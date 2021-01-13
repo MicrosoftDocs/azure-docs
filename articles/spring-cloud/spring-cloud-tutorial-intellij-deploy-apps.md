@@ -18,8 +18,6 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
 Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
 
 ## Prerequisites
-* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
