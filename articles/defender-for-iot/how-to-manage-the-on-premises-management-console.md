@@ -151,7 +151,7 @@ Certificates with other parameters might work, but Microsoft doesn't support the
 
 **.pem: certificate container file**
 
-Privacy Enhanced Mail (PEM), uses a historic method to secure emails, and the container format it used to live on which is a base64 translation of the x509 ASN.1 keys.  
+Privacy Enhanced Mail (PEM), uses a historic method to secure emails. The container format it used to live on which is a base64 translation of the x509 ASN.1 keys.  
 
 The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, ETC, SSL, or CERTS. This can include an entire certificate chain including public key, private key, and root certificates.  
 
@@ -169,13 +169,13 @@ A key file is in the same format as a PEM file, but it has a different extension
 
 **.csr - certificate signing request**.  
 
-This file is used for submission to certificate-authorities. The actual format is PKCS10, which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. The public key of the certificate to get signed by the CA, and receives a certificate in return.  
+This file is used for submission to certificate authorities. The actual format is PKCS10, which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. It is the public key of the certificate that gets signed by the CA, and receives a certificate in return.  
 
 The returned certificate is the public certificate, which includes the public key but not the private key. 
 
 **.pkcs12 .pfx .p12 – password container**. 
 
-Originally defined by RSA in the Public-Key Cryptography Standards (PKCS), the `12` variant was originally enhanced by Microsoft, and later submitted as RFC 7292.  
+Originally defined by RSA in the Public-Key Cryptography Standards (PKCS), the 12-variant was originally enhanced by Microsoft, and later submitted as RFC 7292.  
 
 This container format requires a password that contains both public and private certificate pairs. Unlike `.pem` files, this container is fully encrypted.  
 
@@ -191,7 +191,7 @@ Windows will recognize these files as certificate files. By default, Windows wil
 
 **.crl - certificate revocation list**.  
 
-Certificate authorities produce these as a way to de-authorize certificates before their expiration. You can sometimes download them from CA websites. 
+Certificate authorities produce these as a way to de-authorize certificates before their expiration. 
 
 #### CLI commands
 
@@ -219,7 +219,7 @@ When you're using the CLI command:
 
 ### Use OpenSSL to manage certificates
 
-Manage your certificates with the following commands;
+Manage your certificates with the following commands:
 
 | Description | CLI Command |
 |--|--|
