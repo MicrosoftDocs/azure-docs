@@ -916,7 +916,7 @@
       "sensitive-language": {
         "exclude": [
           "articles/event-hubs/event-hubs-kafka-connect-debezium.md",
-          "articles/event-hubs/event-hubs-kafka-mirror-maker-tutorial.md"
+          "articles/event-hubs/event-hubs-kafka-mirror-maker-tutorial.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
