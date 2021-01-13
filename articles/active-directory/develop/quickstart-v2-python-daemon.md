@@ -39,7 +39,7 @@ To run this sample, you need:
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the new <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> pane.
+> 1. Go to the <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
