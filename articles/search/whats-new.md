@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with the service.
+Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view features in public preview.
 
 ## November 2020
 
@@ -52,7 +52,7 @@ Create an identity for a search service in Azure Active Directory, then use Azur
 |---------|------------------|-------------|---------------|
 [**Knowledge store**](knowledge-store-concept-intro.md) | AI enrichment | Output of an AI-enriched indexer, storing content in Azure Storage for use in other apps and processes. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) or later, or the portal. |
 | [**Search REST API 2020-06-30**](/rest/api/searchservice/) | REST | A new stable version of the REST APIs. In addition to knowledge store, this version includes enhancements to search relevance and scoring. | Generally available. |
-| [**Okapi BM25 relevance algorithm**](https://en.wikipedia.org/wiki/Okapi_BM25) | Query | New relevance ranking algorithm automatically used for all new search services created after July 15. For services created earlier, you can opt in by setting the `similarity` property on index fields. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) or later, or REST API 2019-05-06. |
+| [**Okapi BM25 relevance algorithm**](index-ranking-similarity.md) | Query | New relevance ranking algorithm automatically used for all new search services created after July 15. For services created earlier, you can opt in by setting the `similarity` property on index fields. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) or later, or REST API 2019-05-06. |
 | **executionEnvironment** | Security (indexers) | Explicitly set this indexer configuration property to `private` to force all connections to external data sources over a private endpoint. Applicable only to search services that leverage Azure Private Link. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) to set this general configuration parameter. |
 
 ## May 2020 (Microsoft Build)
@@ -64,7 +64,7 @@ Create an identity for a search service in Azure Active Directory, then use Azur
 | [**Azure Private Link for a private search endpoint**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Generally available. </br> Use [Management REST API 2020-03-13](/rest/api/searchmanagement/) or later, or the portal. |
 | [**system-managed identity (preview)**](search-howto-managed-identities-data-sources.md) | Security (indexers) | Register a search service as a trusted service with Azure Active Directory to set up connections to supported Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage. | Public preview. </br> Use the portal to register the search service. |
 | [**sessionId query parameter**](index-similarity-and-scoring.md), [scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | Query (relevance) | Add sessionID to a query to establish a session for computing search scores, with scoringStatistics=global to collect scores from all shards, for more consistent search score calculations. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) or later, or REST API 2019-05-06. |
-| [**featuresMode (preview)**](index-similarity-and-scoring.md#featuresMode-param) | Query | Add this query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial). | Public preview. </br> Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
+| [**featuresMode relevance score expansion (preview)**](index-similarity-and-scoring.md#featuresMode-param) | Query | Add this query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. <br/><br/>Custom scoring algorithms can consume this information. *Learning to rank* algorithms are an advanced custom scoring capability that can be implemented when you provide relevance score details. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial). | Public preview. </br> Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
 ## March 2020
 
@@ -88,7 +88,7 @@ Create an identity for a search service in Azure Active Directory, then use Azur
 | [**IP rules for in-bound firewall support (preview)**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. |  Public preview using api-version=2019-10-01-Preview.  |
 | [**Azure Private Link for a private search endpoint (preview)**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Public preview using api-version=2019-10-01-Preview.  |
 
-## Features in 2019
+## 2019 Feature Announcements
 
 ### December 2019
 
