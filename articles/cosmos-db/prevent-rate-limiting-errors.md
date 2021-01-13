@@ -37,4 +37,4 @@ Enabling the Server Side Retry (SSR) feature will cause these operations to be r
 
 To learn more about troubleshooting common errors, see this article:
 
-* [Request units and throughput in Azure Cosmos DB](mongodb-troubleshoot.md)
+* [Troubleshoot common issues in Azure Cosmos DB's API for MongoDB](mongodb-troubleshoot.md)
