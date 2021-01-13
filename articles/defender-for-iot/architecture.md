@@ -108,9 +108,9 @@ The Defender for IoT portal in Azure is used to help you:
 - Onboard sensors to Azure
 - Update Threat Intelligence packages
 
-## Embedded security agent: Built-in mode
+## IoT hub built-in security
 
-In **Built-in** mode, Defender for IoT is enabled when you elect to turn on the **Security** option in your IoT hub. Offering real-time monitoring, recommendations and alerts, built-in mode offers single-step device visibility and unmatched security. Build-in mode does not require agent installation on any devices and uses advanced analytics on logged activities to analyze and protect your field device and IoT hub.
+Defender for IoT is enabled by default in every new IoT Hub that is created. Defender for IoT provides real-time monitoring, recommendations, and alerts, without requiring agent installation on any devices and uses advanced analytics on logged IoT Hub meta data to analyze and protect your field devices and IoT hubs. 
 
 ## Embedded security agent: Enhanced mode
 
