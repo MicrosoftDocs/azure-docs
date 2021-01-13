@@ -63,7 +63,7 @@ You can pay for Azure App Service charges with your EA monetary commitment credi
 
 An easy way to estimate and optimize your App Service cost beforehand is by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-To use the pricing calculator, click **App Service** in the **Products** tab. Then, scroll down to work with the calculator. The following screenshot is an example and might not reflect current pricing.
+To use the pricing calculator, click **App Service** in the **Products** tab. Then, scroll down to work with the calculator. The following screenshot is an example and doesn't reflect current pricing.
 
 ![Example showing estimated cost in the Azure Pricing calculator](media/overview-manage-costs/pricing-calculator.png)
 
@@ -73,10 +73,10 @@ When you create an App Service app or an App Service plan, you can see the estim
 
 To create an app and view the estimated price:
 
-2. On the create page, scroll down to **App Service plan**, and click **Create new**.
+1. On the create page, scroll down to **App Service plan**, and click **Create new**.
 1. Specify a name and click **OK**.
 1. Next to **Sku and size**, click **Change size**.
-1. Review the estimated price shown in the summary. The following screenshot is an example and might not reflect current pricing.
+1. Review the estimated price shown in the summary. The following screenshot is an example and doesn't reflect current pricing.
 
     ![Review estimated cost for each pricing tier in the portal](media/overview-manage-costs/pricing-estimates.png)
 
