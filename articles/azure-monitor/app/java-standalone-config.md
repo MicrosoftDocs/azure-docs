@@ -245,7 +245,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## Suppressing specific auto-collected telemetry
 
-Specific auto-collected telemetry can be suppressed using these configuration options:
+Starting from version 3.0.1-BETA.2, specific auto-collected telemetry can be suppressed using these configuration options:
 
 ```json
 {
