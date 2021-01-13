@@ -65,7 +65,7 @@ Arriving at a final index design is an iterative process. It's common to start w
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for most modifications to an existing field definition. You might consider working with a subset of your data to make rebuilds go faster. 
 
 > [!Tip]
-> Code, rather than a portal approach, is recommended for working on index design and data import simultaneously. As an alternative, tools like [Postman and Visual Studio Code](search-get-started-rest.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
+> Code, rather than a portal approach, is recommended for working on index design and data import simultaneously. As an alternative, tools like [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
 
 ## Index schema
 

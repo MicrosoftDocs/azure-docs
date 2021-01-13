@@ -537,7 +537,7 @@ Repeat the steps on the other SQL Server VM.
 
 ### Tuning Failover Cluster Network Thresholds
 
-When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+When running Windows Failover Cluster nodes in Azure Vms with SQL Server availability groups, change the cluster setting to a more relaxed monitoring state.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL Server - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="endpoint-firewall"></a> Configure the firewall on each SQL Server VM

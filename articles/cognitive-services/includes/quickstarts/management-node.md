@@ -69,7 +69,7 @@ Next, add the following `quickstart` function to handle the main work of your pr
 
 Add the following code to the end of your `quickstart` function to list available resources, create a sample resource, list your owned resources, and then delete the sample resource. You'll define these functions in the next steps.
 
-## Create a Cognitive Services resource
+## Create a Cognitive Services resource (Node.js)
 
 To create and subscribe to a new Cognitive Services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
 

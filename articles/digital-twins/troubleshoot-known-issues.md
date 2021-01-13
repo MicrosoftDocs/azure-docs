@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q2
 ---
 
 # Known issues in Azure Digital Twins
@@ -32,13 +32,21 @@ This article provides information about known issues associated with Azure Digit
 | --- | --- | --- |
 | To determine whether your role assignment was successfully set up after running the script, follow the instructions in the [*Verify user role assignment*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) section of the setup article. If your user is not shown with this role, this issue affects you. | For users logged in with a personal [Microsoft account (MSA)](https://account.microsoft.com/account), your user's Principal ID that identifies you in commands like this may be different from your user's sign-in email, making it difficult for the script to discover and use to assign the role properly. | To resolve, you can set up your role assignment manually using either the [CLI instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions) or [Azure portal instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |
 
-## Issue with interactive browser authentication
+## Issue with interactive browser authentication on Azure.Identity 1.2.0
 
 **Issue description:** When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method. This presents as an error response of "Azure.Identity.AuthenticationFailedException" when trying to authenticate in a browser window. The browser window may fail to start up completely, or appear to authenticate the user successfully, while the client application still fails with the error.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
-| The&nbsp;affected&nbsp;method&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;following articles:<br><br>[*Tutorial: Code a client app*](tutorial-code.md)<br><br>[*How-to: Write app authentication code*](how-to-authenticate-client.md)<br><br>[*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md) | Some users have had this issue with version **1.2.0** of the `Azure.Identity` library. | To resolve, update your applications to use the [latest version](https://www.nuget.org/packages/Azure.Identity) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
+| The&nbsp;affected&nbsp;method&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;following articles:<br><br>[*Tutorial: Code a client app*](tutorial-code.md)<br><br>[*How-to: Write app authentication code*](how-to-authenticate-client.md)<br><br>[*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md) | Some users have had this issue with version **1.2.0** of the `Azure.Identity` library. | To resolve, update your applications to use a [later version](https://www.nuget.org/packages/Azure.Identity) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
+
+## Issue with default Azure credential authentication on Azure.Identity 1.3.0
+
+**Issue description:** When writing authentication code using version **1.3.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, some users have experienced issues with the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) method used in many samples throughout these Azure Digital Twins docs. This presents as an error response of "Azure.Identity.AuthenticationFailedException: SharedTokenCacheCredential authentication failed" when the code tries to authenticate.
+
+| Does this affect me? | Cause | Resolution |
+| --- | --- | --- |
+| `DefaultAzureCredential` is used in most of the documentation examples for this service that include authentication. If you are writing authentication code using `DefaultAzureCredential` with version 1.3.0 of the `Azure.Identity` library and seeing this error message, this affects you. | This is likely a result of some configuration issue with `Azure.Identity`. | One strategy to resolve this is to exclude `SharedTokenCacheCredential` from your credential, as described in this [DefaultAzureCredential issue](https://github.com/Azure/azure-sdk/issues/1970) that is currently open against `Azure.Identity`.<br>Another option is to change your application to use an earlier version of `Azure.Identity`, such as [version 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). This has no functional impact to Azure Digital Twins and thus is also an accepted solution. |
 
 ## Next steps
 

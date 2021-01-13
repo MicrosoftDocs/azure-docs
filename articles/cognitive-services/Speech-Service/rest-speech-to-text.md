@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
 ---
@@ -56,7 +56,7 @@ Before using the Speech-to-text REST API for short audio, consider the following
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
-> See the  Azure government [documentation](../../azure-government/compare-azure-government-global-azure.md) for government cloud (FairFax) endpoints.
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
