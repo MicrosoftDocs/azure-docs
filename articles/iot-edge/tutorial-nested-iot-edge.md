@@ -59,12 +59,12 @@ To create a hierarchy of IoT Edge devices, you will need:
     --admin-password <REPLACE_WITH_PASSWORD>
    ```
 
-Make sure the the following ports are opened inbound: 8000,443,5671,8883.
-8000: Is used to pull docker container images through API proxy
-443: Is used between parent and child edgehub for Rest API calls.
-5671,8883: Are used for AMQP and MQTT
+* Make sure that the following ports are open inbound: 8000, 443, 5671, 8883:
+  * 8000: Used to pull Docker container images through the API proxy.
+  * 443: Used between parent and child edge hubs for REST API calls.
+  * 5671, 8883: Used for AMQP and MQTT.
 
-[How to open ports to a virtual machine with the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal).
+  For more information, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
 
 You can also try out this scenario by following the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample), which deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
 
@@ -630,20 +630,26 @@ Notice that the image URI that we used for the simulated temperature sensor modu
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
 ## IotEdge check
-Run the iotedge check command to verify the configuration and troubleshoot errors.
-Iotedge check can be performed in nested hierarchy, even if the children doesn't have direct internet access.
-When running "iotedge check" from the lower layer the program will try to pull the image from the parent through port 443.
+
+Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
+
+You can run `iotedge check` in a nested hierarchy, even if the child machines don't have direct internet access.
+
+When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
+
 In this tutorial, we use port 8000, so we need to specify it:
 
-   ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
-   ```
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
+```
    
-The azureiotedge-diagnostics is pulled from the container registry that is linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
-    | Name | Value |
-    | - | - |
-    | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
-If you are using you own private container registry, make sure all the images (IoTEdgeAPIProxy, edgeAgent, edgeHub, diagnostics ...) are present in it.    
+The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
+
+| Name | Value |
+| - | - |
+| `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
+
+If you're using a private container registry, make sure that all the images (for example, IoTEdgeAPIProxy, edgeAgent, edgeHub, and diagnostics) are present in the container registry.    
     
 ## View generated data
 
