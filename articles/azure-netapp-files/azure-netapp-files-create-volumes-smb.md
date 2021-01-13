@@ -316,8 +316,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         > [!IMPORTANT]
         > You should enable Continuous Availability only for SQL workloads. Using SMB Continuous Availability shares for workloads other than SQL server is not supported. 
 
-        The SMB **Enable Continuous Availability** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+        The SMB **Enable Continuous Availability** feature is currently in preview. If this is your first time using this feature, register the feature before using it.  
 
+    <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
+    <!-- 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
         ```
@@ -332,6 +334,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ```
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+    --> 
 
     ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
