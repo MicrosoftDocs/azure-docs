@@ -18,8 +18,6 @@ ms.author: damaerte
 ---
 
 # Deploy Cloud Shell into an Azure virtual network
-> [!NOTE]
-> This functionality is in public preview.
 
 A regular Cloud Shell session runs in a container in a Microsoft network separate from your resources. This means that commands running inside the container cannot access resources that can only be accessed from a specific virtual network. For example, you cannot use SSH to connect from Cloud Shell to a virtual machine that only has a private IP address, or use kubectl to connect to a Kubernetes cluster which has locked down access. 
 
@@ -60,7 +58,7 @@ As in standard Cloud Shell, a storage account is required while using Cloud Shel
 ## Virtual network deployment limitations
 * Due to the additional networking resources involved, starting Cloud Shell in a virtual network is typically slower than a standard Cloud Shell session.
 
-* During the preview, fewer regions are supported for Cloud Shell in a virtual network. This is currently limited to: WestUS and WestCentralUS.
+* All Cloud Shell regions apart from Central India are currently supported. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) is not a free service, please view their [pricing](https://azure.microsoft.com/pricing/details/service-bus/). In the Cloud Shell scenario, one hybrid connection is used for each administrator while they are using Cloud Shell. The connection will automatically be shut down after the Cloud Shell session is complete.
 
