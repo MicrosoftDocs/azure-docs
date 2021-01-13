@@ -205,7 +205,7 @@ Use the following procedure:
     | project AppTimestamp, Logger, CustomLevel, Thread, Message, ExceptionClass, StackTrace, TraceId, SpanId
     ```
 4. You can see your your application logs like this.
-![Json Log show](../images/json-log-query.PNG)
+![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
 
 ### Show log entries containing errors
 To review log entries that have an error, run the following query:
