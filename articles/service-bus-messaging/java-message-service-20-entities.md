@@ -54,9 +54,9 @@ TemporaryTopic createTemporaryTopic()
 While, these are semantically similar to the [Subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (i.e. exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable** and **Non-durable** attributes for a given subscription.
 
 > [!NOTE]
-> The below subscriptions are available in Azure Service Bus Premium tier for Preview for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+> The below subscriptions are available in Azure Service Bus Premium tier for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
 >
-> For the Public preview, these subscriptions cannot be created using the Azure portal.
+> Only durable subscriptions can be created using the Azure portal.
 >
 
 ### Shared durable subscriptions
@@ -146,6 +146,36 @@ The unshared non-durable subscription continues to exist until there is an activ
 Just like **Filters and Actions** exist for regular Service Bus subscriptions, **Message Selectors** exist for JMS Subscriptions.
 
 Message selectors can be set up on each of the JMS subscriptions and exist as a filter condition on the message header properties. Only messages with header properties matching the message selector expression are delivered. A value of null or an empty string indicates that there is no message selector for the JMS Subscription/Consumer.
+
+## Additional concepts for Java Message Service (JMS) 2.0 subscriptions
+
+### Client scoping
+
+Subscriptions, as specified in the Java Message Service (JMS) 2.0 API, may or may not be *scoped to specific client application/s* (identified with the appropriate `clientId`).
+
+Once the subscription is scoped, it **can only be accessed** from client applications that have the same client id. 
+
+Any attempts to access a subscription scoped to a specific client id (say clientId1) from an application having another client id (say clientId2) will lead to the creation of another subscription scoped to the other client id (clientId2).  
+
+### Shareability
+
+**Shared** subscriptions permit multiple client/consumer (i.e. JMSConsumer objects) to receive messages from them.
+
+>[!NOTE]
+> Shared subscriptions scoped to a specific client id can still be accessed by multiple client/consumers (i.e. JMSConsumer objects), but each of the client applications must have the same client id.
+>
+ 
+
+**Unshared** subscriptions permit only a single client/consumer (i.e. JMSConsumer object) to receive messages from them. If a `JMSConsumer` is created on an unshared subscription while it already has an active `JMSConsumer` listening to messages on it, a `JMSException` is thrown.
+
+
+### Durability
+
+**Durable** subscriptions are persisted and continue to collect messages from the topic, irrespective of whether an application (`JMSConsumer`) is consuming messages from it.
+
+**Non-durable** subscriptions are not-persisted and collect messages from the topic as long as an application (`JMSConsumer`) is consuming messages from it. 
+
+
 
 ## Next steps
 
