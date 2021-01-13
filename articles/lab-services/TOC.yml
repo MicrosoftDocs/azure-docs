@@ -63,6 +63,7 @@
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
+          displayName: labs within Teams
           href: lab-services-within-teams-overview.md
 - name: How-to guides
   items:
