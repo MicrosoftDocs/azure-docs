@@ -15,7 +15,7 @@ In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL)
 
 ## Hyper-V Manager
 
-This section shows you how to prepare a [RHEL 6](#rhel-6-using-hyper-v-manager) or [RHEL 7](#rhel-7-using-hyper-v-manager) virtual machine using Hyper-V Manager.
+This section shows you how to prepare a [RHEL 6](#rhel-6-using-hyper-v-manager), [RHEL 7](#rhel-7-using-hyper-v-manager) or [RHEL 8](#rhel-8-using-hyper-v-manager) virtual machine using Hyper-V Manager.
 
 ### Prerequisites
 This section assumes that you have already obtained an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more details about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
