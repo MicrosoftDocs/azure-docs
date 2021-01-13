@@ -18,7 +18,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## January 2021
 
-### Spatial analysis container added feature
+### Spatial analysis container update
 
 A new version of the [spatial analysis container](spatial-analysis-container.md) has been released with a new feature set. This Docker container lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. 
 
