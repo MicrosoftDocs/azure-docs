@@ -35,7 +35,7 @@ For this article you need,
 
 * Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
 
-* An understanding of cross-validation and train/validation data splits as machine learning concepts. For a high-level explanation,
+* An understanding of train/validation data splits and cross-validation as machine learning concepts. For a high-level explanation,
 
     * [About Train, Validation and Test Sets in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
