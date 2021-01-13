@@ -31,7 +31,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Choose data transfer options
-            url: /azure/import/storage-choose-data-transfer-solution
+            url: /azure/storage/common/storage-choose-data-transfer-solution
           - text: Use network or offline transfer
             url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
 

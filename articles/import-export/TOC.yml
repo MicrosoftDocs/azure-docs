@@ -46,6 +46,6 @@
     href: /powershell/module/Az.ImportExport
 - name: Resources
   items:
-  - name: Export data offline with Import/Export
-    href: /learn/modules/export-data-with-azure-import-export.md
+  - name: Export data offline
+    href: /learn/modules/export-data-with-azure-import-export
    
