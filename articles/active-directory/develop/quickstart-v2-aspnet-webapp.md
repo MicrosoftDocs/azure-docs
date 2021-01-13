@@ -50,7 +50,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `ASPNET-Quickstart`. Users of your app might see this name, and you can change it later.
 > 1. Add `https://localhost:44368/` in **Redirect URI**, and select **Register**.
-> 1. From the left navigation pane under the Manage section, select **Authentication**.
+> 1. Under **Manage**, select **Authentication**.
 > 1. Under the **Implicit Grant** sub-section, select **ID tokens**.
 > 1. Select **Save**.
 

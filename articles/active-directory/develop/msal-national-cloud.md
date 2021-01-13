@@ -71,13 +71,14 @@ To enable your MSAL.js application for sovereign clouds:
 
    To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints).
 
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner, and set your portal session to the desired Azure AD tenant.
-1. Go to the [App registrations](https://aka.ms/ra/ff) page on the Microsoft identity platform.
-1. When the **Register an application** page appears, enter a name for your application.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. Under **Supported account types**, select **Accounts in any organizational directory**.
 1. In the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the next sections for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
 1. Select **Register**.
-1. On the app **Overview** page, note down the **Application (client) ID** value for later use.
+1. On the **Overview** page, note down the **Application (client) ID** value for later use.
     This tutorial requires you to enable the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). 
 1. Under **Manage**, select **Authentication**.
 1. Under **Implicit grant**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
