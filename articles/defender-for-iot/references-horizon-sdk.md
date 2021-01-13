@@ -1,10 +1,10 @@
 ---
 title: Horizon SDK
-description: The Horizon SDK lets developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
+description: The Horizon SDK lets Azure Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/5/2021
+ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -61,9 +61,9 @@ Enables immediate integration and real-time monitoring of custom dissector plugi
 
 ## Defender for IoT services layer
 
-Each service is designed as a pipeline, decoupled from a specific protocol. This enables more efficient, independent development.
+Each service is designed as a pipeline, decoupled from a specific protocol, enabling more efficient, independent development.
 
-Each service is designed as a pipeline, decoupled from a specific protocol. Services listens for traffic on the pipeline. They interact with the plugin data and the traffic captured by the sensors to index deployed protocols and analyze the traffic payload. This enables more efficient and independent development.
+Each service is designed as a pipeline, decoupled from a specific protocol. Services listens for traffic on the pipeline. They interact with the plugin data and the traffic captured by the sensors to index deployed protocols and analyze the traffic payload, and enable a more efficient and independent development.
 
 ## Custom dissector layer 
 
@@ -99,27 +99,27 @@ Contact <support@cyberx-labs.com> for information on receiving header files and 
 
 ### Process
 
-1.  [Click here](https://www.eclipse.org/) to download Eclipse IDE for C/C++ Developers. You can use any other IDE you prefer. This document guides you through configuration using Eclipse IDE.
+1. [Download](https://www.eclipse.org/) the Eclipse IDE for C/C++ Developers. You can use any other IDE you prefer. This document guides you through configuration using Eclipse IDE.
 
-1.  After launching Eclipse IDE and configuring the workspace (where your projects will be stored), press **Ctrl + n**, and create it as a C++ project.
+1. After launching Eclipse IDE and configuring the workspace (where your projects will be stored), press **Ctrl + n**, and create it as a C++ project.
 
-1.  On the next screen, set the name to the protocol you want to develop and select the project type as `Shared Library` and `AND Linux GCC`.
+1. On the next screen, set the name to the protocol you want to develop and select the project type as `Shared Library` and `AND Linux GCC`.
 
-1.  Edit the project properties, under **C/C++ Build** > **Settings** > **Tool Settings** > **GCC C++ Compiler** > **Miscellaneous** > **Tick Position Independent Code**.
+1. Edit the project properties, under **C/C++ Build** > **Settings** > **Tool Settings** > **GCC C++ Compiler** > **Miscellaneous** > **Tick Position Independent Code**.
 
-1.  Paste the example codes that you received with the SDK and compile it.
+1. Paste the example codes that you received with the SDK and compile it.
 
-1.  Add the artifacts (library, config.json, and metadata) to a tar.gz file, and change the file extension to \<XXX>.hdp, where is \<XXX> is the name of the plugin.
+1. Add the artifacts (library, config.json, and metadata) to a tar.gz file, and change the file extension to \<XXX>.hdp, where is \<XXX> is the name of the plugin.
 
 ### Research 
 
 Before you begin, verify that you:
 
-1. Read the protocol specification, if available.
+- Read the protocol specification, if available.
 
-1. Know which protocol fields you plan to extract.
+- Know which protocol fields you plan to extract.
 
-1. Have planned your mapping objectives.
+- Have planned your mapping objectives.
 
 ## About plugin files 
 
@@ -181,7 +181,7 @@ Copy the template **.cpp** file and implement an override method. For more infor
 
 ## Basic C++ template sample 
 
-This article provides the basic protocol template, with standard functions for a sample Defender for IoT Horizon Protocol.
+This section provides the basic protocol template, with standard functions for a sample Defender for IoT Horizon Protocol.
 
 ```C++
 #include “plugin/plugin.h”
@@ -209,15 +209,15 @@ extern "C" {
 
 ## Basic C++ template description  
 
-This article provides the basic protocol template, with a description of standard functions for a sample Defender for IoT Horizon Protocol. 
+This section provides the basic protocol template, with a description of standard functions for a sample Defender for IoT Horizon Protocol. 
 
 ### #include “plugin/plugin.h”
 
-This is the definition the plugin uses. The header file contains everything needed to complete development.
+The definition the plugin uses. The header file contains everything needed to complete development.
 
 ### horizon::protocol::BaseParser
 
-This is the communication interface between the Horizon infrastructure and the Plugin layer. For more information, see [Horizon architecture](#horizon-architecture) for an overview on the layers.
+The communication interface between the Horizon infrastructure and the Plugin layer. For more information, see [Horizon architecture](#horizon-architecture) for an overview on the layers.
 
 The processLayer is the method used to process data.
 
@@ -233,17 +233,17 @@ horizon::protocol::ParserResult processLayer(horizon::protocol::management::IPro
 
 ### create_parser
 
-This is used to create the instance of your parser.
+Use to create the instance of your parser.
 
 :::image type="content" source="media/references-horizon-sdk/code.png" alt-text="https://lh5.googleusercontent.com/bRNtyLpBA3LvDXttSPbxdBK7sHiHXzGXGhLiX3hJ7zCuFhbVsbBhgJlKI6Fd_yniueQqWbClg5EojDwEZSZ219X1Z7osoa849iE9X8enHnUb5to5dzOx2bQ612XOpWh5xqg0c4vR":::
 
 ## Protocol function code sample 
 
-This article provides an example of how the code number (2 bytes) and the message length (4 bytes) are extracted.
+This section provides an example of how the code number (2 bytes) and the message length (4 bytes) are extracted.
 
-This is done according to the endianness supplied in the JSON configuration file. This means if the protocol is *little endianness*, and the sensor runs on a machine with little endianness, it will be converted.
+This is done according to the endianness supplied in the JSON configuration file, which means if the protocol is *little endianness*, and the sensor runs on a machine with little endianness, it will be converted.
 
-A layer is also created to store data. Use the *fieldsManager* from the processing utils to create new fields. A field can have only one of the following types: *STRING*, *NUMBER*, *RAW DATA*, *ARRAY* (of specific type), or *COMPLEX*. This may contain a number, raw, or string with ID.
+A layer is also created to store data. Use the *fieldsManager* from the processing utils to create new fields. A field can have only one of the following types: *STRING*, *NUMBER*, *RAW DATA*, *ARRAY* (of specific type), or *COMPLEX*. This layer may contain a number, raw, or string with ID.
 
 In the sample below, the following two fields are extracted:
 
@@ -283,7 +283,7 @@ namespace {
 
 The Horizon SDK uses standard JavaScript Object Notation (JSON), a lightweight format for storing and transporting data and does not require proprietary scripting languages.
 
-This article describes minimal JSON configuration declarations, the related structure and provides a sample config file that defines a protocol. This protocol is automatically integrated with the device discovery service.
+This section describes minimal JSON configuration declarations, the related structure and provides a sample config file that defines a protocol. This protocol is automatically integrated with the device discovery service.
 
 ## File structure
 
@@ -301,24 +301,24 @@ The JSON Configuration file must be saved as `config.json`.
 
 ## JSON Configuration file fields
 
-This article describes the JSON configuration fields you will be defining. Do not change the fields *labels*.
+This section describes the JSON configuration fields you will be defining. Do not change the fields *labels*.
 
 ### Basic parameters
 
-This article describes basic parameters.
+This section describes basic parameters.
 
 | Parameter Label | Description | Type |
 |--|--|--|
 | **ID** | The name of the protocol. Delete the default and add the name of your protocol as it appears. | String |
-| **endianess** | Defines how the multi byte data is encoded. Use the term “little” or “big” only. This should be taken from the protocol specification or traffic recording | String |
+| **endianess** | Defines how the multi byte data is encoded. Use the term “little” or “big” only. Taken from the protocol specification or traffic recording | String |
 | **sanity_failure_codes** | These are the codes returned from the parser when there is a sanity conflict regarding the identity of the code. See magic number validation in the C++ section. | String |
-| **malformed_codes** | These are codes that have been properly identified, but an error is detected. This may happen, for example,  if the field length is too short or long, or a value is invalid. | String |
+| **malformed_codes** | These are codes that have been properly identified, but an error is detected. For example, if the field length is too short or long, or a value is invalid. | String |
 | **dissect_as** | An array defining where the specific protocol traffic should arrive. | TCP/UDP, port etc. |
 | **fields** | The declaration of which fields will be extracted from the traffic. Each field has its own ID (name), and type (numeric, string, raw, array, complex). For example, the field [function](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) that is extracted in the Implementation Parser file. The fields written in the config file are the only ones that can be added to the layer. |  |
 
 ### Other advanced fields 
 
-This article describes other fields.
+This section describes other fields.
 
 | Parameter Label | Description |
 |-----------------|--------|
@@ -374,7 +374,7 @@ This article describes other fields.
 
 ## Prepare implementation code validations
 
-This article describes implementation C++ code validation functions and provides sample code. Two layers of validation are available:
+This section describes implementation C++ code validation functions and provides sample code. Two layers of validation are available:
 
 - Sanity.
 
@@ -386,9 +386,9 @@ Field values can be mapped to the text in mapping files and seamlessly updated w
 
 ## Sanity code validations 
 
-This validates that the packet transmitted matches the validation parameters of the protocol. This helps you identify the protocol within the traffic.
+This validates that the packet transmitted matches the validation parameters of the protocol, which helps you identify the protocol within the traffic.
 
-For example, use the first 8 bytes as the *magic number*. If the sanity fails a sanity failure response is returned.
+For example, use the first 8 bytes as the *magic number*. If the sanity fails, a sanity failure response is returned.
 
 For example:
 
@@ -407,7 +407,7 @@ processLayer(horizon::protocol::management::IProcessingUtils &ctx,
     }
 ```
 
-If other relevant plugins have been deployed the packet will be validated against them.
+If other relevant plugins have been deployed, the packet will be validated against them.
 
 ## Malformed code validations 
 
@@ -617,13 +617,15 @@ When programming event occurs, you can extract the code content. The extracted c
 
   :::image type="content" source="media/references-horizon-sdk/change.png" alt-text="The programming change log.":::
 
+  :::image type="content" source="media/references-horizon-sdk/view.png" alt-text="View the programming by clicking the button.":::
+
   :::image type="content" source="media/references-horizon-sdk/unauthorized.png" alt-text="The unauthorized PLC programming alert.":::
 
 In order to achieve this, the JSON configuration file needs to be updated using the `code_extraction` property. 
 
 ## JSON configuration fields 
 
-This article describes the JSON configuration fields. 
+This section describes the JSON configuration fields. 
 
 - **method**
 
@@ -651,7 +653,7 @@ This article describes the JSON configuration fields.
 
 - **size_limit**
 
-  Indicates the size limit of each coding file content in BYTES, if a code file exceeds the set limit it will be dropped. If this field is not specified default value will be 15,000,000 that is 15 MB.
+  Indicates the size limit of each coding file content in BYTES, if a code file exceeds the set limit it will be dropped. If this field is not specified, the default value will be 15,000,000 that is 15 MB.
 
   Number.
 
@@ -807,7 +809,7 @@ Add the **alerts** parameter to the `config.json` of the plugin.
 
 ## JSON configuration fields
 
-This article describes the JSON configuration fields. 
+This section describes the JSON configuration fields. 
 
 | Field name | Description | Possible values |
 |--|--|--|
@@ -824,7 +826,7 @@ Multiple expressions can be included under the same alert. For example,
 
 `{CyberXHorizonProtocol.function} == 25 and {IPv4.src} == 269488144`.
 
-This expression validates the function code only when the packet ipv4 src is 10.10.10.10. This is a raw representation of the IP address in numeric representation.
+This expression validates the function code only when the packet ipv4 src is 10.10.10.10. Which is a raw representation of the IP address in numeric representation.
 
 You can use `and`, or `or` in order to connect expressions.
 
@@ -875,7 +877,7 @@ For more information, see [Create mapping files (JSON)](#create-mapping-files-js
 
 You can also use values from protocols previously parsed to extract additional information.
 
-For example, for the, which is based on TCP, you can use the values from IPv4 layer. From this layer you can extract values such as the source of the packet, and the destination.
+For example, for the value, which is based on TCP, you can use the values from IPv4 layer. From this layer you can extract values such as the source of the packet, and the destination.
 
 In order to achieve this, the JSON configuration file needs to be updated using the `whitelist` property.
 
@@ -972,7 +974,7 @@ In order to achieve this, the JSON configuration file needs to be updated using 
 
 ## Firmware fields
 
-This article describes the JSON firmware configuration fields.
+This section describes the JSON firmware configuration fields.
 
 - **name**
   
@@ -983,8 +985,6 @@ This article describes the JSON firmware configuration fields.
  Indicates the implementation field to use in order to provide the data. 
 
 - **firmware_index:**
-  
-  ?
 
   Select one:  
   - **model**: The device model. Enables detection of CVEs.
@@ -1096,7 +1096,7 @@ This article describes the JSON firmware configuration fields.
 ```
 ## Extract device attributes 
 
-You can enhance device the information available in the Device in Inventory, Data Mining and other reports.
+You can enhance device the information available in the Device in Inventory, Data Mining, and other reports.
 
 - Name
 
@@ -1112,7 +1112,7 @@ You can do this after writing the basic plugin and extracting required fields.
 
 ## Properties fields
 
-This article describes the JSON properties configuration fields. 
+This section describes the JSON properties configuration fields. 
 
 **config_file** 
 
@@ -1549,7 +1549,7 @@ For example, in the sub function five, the meaning is changed based on the funct
 ```
 ## Package, upload, and monitor the plugin 
 
-This article describes how to
+This section describes how to
 
   - Package your plugin.
 
@@ -1559,7 +1559,9 @@ This article describes how to
 
 To package the plugin:
 
-1.  Add the **artifact** (can be, library, config.json, or metadata) to a `tar.gz` file, and change the file extension to \<XXX.hdp>, where is \<XXX> is the name of the plugin.
+1. Add the **artifact** (can be, library, config.json, or metadata) to a `tar.gz` file.
+
+1. Change the file extension to \<XXX.hdp>, where is \<XXX> is the name of the plugin.
 
 To sign in to the Horizon Console:
 
@@ -1630,4 +1632,8 @@ You can monitor real-time plugin behavior by analyzing the number of *Malform* a
 
 To Monitor:
 
-1.  Select the Monitor button for your plugin from the Overview.
+Select the Monitor button for your plugin from the Overview.
+
+Next Steps
+
+Set up your [Horizon API](references-horizon-api.md)
