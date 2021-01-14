@@ -33,7 +33,7 @@ If you have a support plan and you need technical help, please reach out to us v
 Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment.
 
   ###### Supported Service Fabric Runtime Versions
-   If you are on NOT on the below listed supported versions of Service Fabric, please upgrade to one of these versions which already contain the necessary changes to prevent downtime to cluster.  
+   If you are on NOT on the below listed supported versions of Service Fabric, please upgrade to one of these versions which already contain the necessary changes to prevent downtime to cluster. **Note:** All release versions of 7.2 includes the necessary changes.
   
   | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
   | --- | --- |--- | 
@@ -60,7 +60,7 @@ To improve security and availability, Azure infrastructure will make a change th
 Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment. 
  
  ###### Supported Service Fabric Runtime Versions
- If you are on NOT on the below listed supported versions of Service Fabric, please upgrade to one of these versions which already contain the necessary changes to prevent loss of functionality.  
+ If you are on NOT on the below listed supported versions of Service Fabric, please upgrade to one of these versions which already contain the necessary changes to prevent loss of functionality.  **Note:** All release versions of 7.2 includes the necessary changes.
  
   | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
   | --- | --- |--- | 
