@@ -24,7 +24,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 2.	In the Search box, enter **attestation**
 3.	From the results list, choose **Microsoft Azure Attestation**
 4.	On the Microsoft Azure Attestation page, choose **Create**
-5.	On the Create attestation provider section provide the following information:
+5.	On the Create attestation provider page, provide the following inputs:
 	
 	**Subscription**: Choose a subscription
 	
@@ -35,7 +35,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 	**Location**: choose a location 
 	
 	**Policy signer certificates file**: Do not upload policy signer certificates file to configure the provider with unsigned policies 
-6.	After providing the rquired inputs, select **Review+Create**
+6.	After providing the required inputs, click **Review+Create**
 7.	Fix validation issues if any and click **Create**.
 
 #### To configure the provider with signed policies
@@ -44,7 +44,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 2.	In the Search box, enter **attestation**
 3.	From the results list, choose **Microsoft Azure Attestation**
 4.	On the Microsoft Azure Attestation page, choose **Create**
-5.	On the Create attestation provider section provide the following information:
+5.	On the Create attestation provider page, provide the following information:
 	
 	**Subscription**: Choose a subscription
 	
@@ -55,7 +55,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 	**Location**: choose a location 
 	
 	**Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file. See examples [here](/azure/attestation/policy-signer-examples) 
-6.	After providing the rquired inputs, select **Review+Create**
+6.	After providing the rquired inputs, click **Review+Create**
 7.	Fix validation issues if any and click **Create**.
 
 ### View attestation provider
@@ -72,8 +72,8 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 [OR]
 1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on **Delete** in the top menu and click **Yes**
+3.	Seelect the attestation provider and navigate to overview page
+4.	Click **Delete** in the top menu and click **Yes**
 
 
 ## Attestation policy signers
@@ -82,8 +82,8 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 
 1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Select **Policy signer certificates** in left-side resource menu or in the bottom pane
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
 5.	Click **Download policy signer certificates** (The button will be disabled for the attestation providers created without policy signing requiment)
 6.	The text file downloaded will have all certs in a JWS format.
 a.	Verify the certificates count and certs downloaded.
@@ -92,8 +92,8 @@ a.	Verify the certificates count and certs downloaded.
 
 1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on the **Policy signer certificates** in left-side resource menu or in the bottom pane
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
 5.	Click **Add** in the top menu (The button will be disabled for the attestation providers created without policy signing requiment)
 6.	Upload policy signer certificate file and click **Add**. See examples [here](/azure/attestation/policy-signer-examples)
 
@@ -101,8 +101,8 @@ a.	Verify the certificates count and certs downloaded.
 
 1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on the **Policy signer certificates** in left-side resource menu or in the bottom pane
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
 5.	Click **Delete** in the top menu (The button will be disabled for the attestation providers created without policy signing requiment)
 6.	Upload policy signer certificate file and click **Delete**. See examples [here](/azure/attestation/policy-signer-examples) 
 
@@ -110,15 +110,11 @@ a.	Verify the certificates count and certs downloaded.
 
 ### View attestation policy
 
-1.	From the Azure portal menu, or from the Home page, select All resources
+1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on the policy in left-side resource menu or in the bottom pane
-
-You can also find certs and policies here: https://microsoft-my.sharepoint-df.com/:f:/p/prsriva/Em79jFyxTpNKpg5CzvNkZvEBG7kWpt0yI4sqiuf8qJE4qA?e=qqkqdP
-
-Note: On first creation of the attestation provider and accessing the policy, a pop up with certificate selection will come up. Kindly choose your Windows Hello PIN cert. This is not an expected behavior and a bug has been filed. 
-Failing to choose to the right cert will need you to delete the resource and recreate the attestation service.
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy** in left-side resource menu or in the bottom pane. 
+5.      Select the preferred **Attestation Type** and view the **Current policy**
 
 ### Configure attestation policy
 
@@ -126,61 +122,49 @@ Failing to choose to the right cert will need you to delete the resource and rec
 
 ##### Upload policy in JWT format
 
-1.	From the Azure portal menu, or from the Home page, select All resources
+1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on the policy in left-side resource menu or in the bottom pane
-5.	Click Configure button in the top menu
-6.	When the attestation provider is not configured with policy signing, user can upload a policy in JWT or Text format. 
-Upload policy file with policy content in an unsigned/signed JWT format and click Save. 
-Check instructions in portal UI for policy format.
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy** in left-side resource menu or in the bottom pane
+5.	Click **Configure** in the top menu
+6.	When the attestation provider is created without policy signing requirement, user can upload a policy in **JWT** or **Text** format.
+7.      Select **Policy Format"" as **JWT**
+8.      Upload policy file with policy content in an **unsigned/signed JWT** format and click **Save**. See examples [here](/azure/attestation/policy-examples)
+	
+	For file upload option, policy preview will be shown in text format and policy preview is not editable.
 
-Note: For file upload option, policy preview will be shown in text format and policy preview is not editable.
-
-You can find test data for certs and policies here: https://microsoft-my.sharepoint-df.com/:f:/p/prsriva/Em79jFyxTpNKpg5CzvNkZvEBG7kWpt0yI4sqiuf8qJE4qA?e=qqkqdP
-
-Or see how to generate signing cert and JWS token
-
-7.	Click Refresh to view the updated policy
+7.	Click **Refresh** in the top menu to view the configured policy
 
 ##### Upload policy in Text format
 
-1.	From the Azure portal menu, or from the Home page, select All resources
+1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on the policy in left-side resource menu or in the bottom pane
-5.	Click Configure button in the top menu
-6.	When the attestation provider is not configured with policy signing, user can upload a policy in JWT or Text format. 
-Upload policy file with content in Text format or enter policy content in text area.
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy** in left-side resource menu or in the bottom pane
+5.	Click **Configure** in the top menu
+6.	When the attestation provider is created without policy signing requirement, user can upload a policy in **JWT** or **Text** format.
+7.      Select **Policy Format"" as **Text** 
+8.      Upload policy file with content in **Text** format or enter policy content in text area and click **Save**. See examples [here](/azure/attestation/policy-examples)
 
-Note: For file upload option, policy preview will be shown in text format and policy preview is not editable.
+	For file upload option, policy preview will be shown in text format and policy preview is not editable.
 
-You can find test data for certs and policies here: https://microsoft-my.sharepoint-df.com/:f:/p/prsriva/Em79jFyxTpNKpg5CzvNkZvEBG7kWpt0yI4sqiuf8qJE4qA?e=qqkqdP
-
-OR update your policy https://docs.microsoft.com/en-us/azure/attestation/author-sign-policy
-
-7.	Click Save. 
-8.	Click Refresh to view the updated policy
+8.	Click **Refresh** to view the configured policy
 
 #### When attestation provider is created with policy signing requirement
 
 ##### Upload policy in JWT format
 
-1.	From the Azure portal menu, or from the Home page, select All resources
+1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Click on the attestation provider and navigate to overview page
-4.	Click on the policy in left-side resource menu or in the bottom pane
-5.	Click Configure button in the top menu
-6.	When the attestation provider is configured with policy signing, user can upload a policy only in signed JWT format. Upload policy file and click Save. 
-Check instructions in portal UI for policy format.
+3.	Select the attestation provider and navigate to overview page
+4.	Click **Policy** in left-side resource menu or in the bottom pane
+5.	Click **Configure** in the top menu
+6.	When the attestation provider is created with policy signing requirement, user can upload a policy only in **signed JWT format**
+7.      Upload policy file is **signed JWT format** and click **Save**. See examples [here](/azure/attestation/policy-examples)
 
-Note: For file upload option, policy preview will be shown in text format and policy preview is not editable.
-
-You can find test data for certs and policies here: https://microsoft-my.sharepoint-df.com/:f:/p/prsriva/Em79jFyxTpNKpg5CzvNkZvEBG7kWpt0yI4sqiuf8qJE4qA?e=qqkqdP
-
-Or see how to generate signing cert and JWS token
-
-7.	Click Refresh to view the updated policy
+	For file upload option, policy preview will be shown in text format and policy preview is not editable.
+	
+8.	Click **Refresh** to view the configured policy
 
  
 
