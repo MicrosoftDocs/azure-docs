@@ -4,7 +4,7 @@ description: Learn how to manage individual sensors, including managing activati
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
 ---
