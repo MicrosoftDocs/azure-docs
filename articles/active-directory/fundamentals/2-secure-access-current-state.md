@@ -41,7 +41,7 @@ External organizations can be determined by the domain names of external user em
 
 ### Use allow or deny lists
 
-Consider whether your organization wants to allow collaboration with only specific organizations. Alternatively, consider if your organization wants to block collaboration with specific organizations.  At the tenant level, there is an [allow or deny list](../external-identities/), which can be used to control overall B2B invitations and redemptions regardless of source (e.g. Teams, SharePoint, and Azure Portal).
+Consider whether your organization wants to allow collaboration with only specific organizations. Alternatively, consider if your organization wants to block collaboration with specific organizations.  At the tenant level, there is an [allow or deny list](../external-identities/allow-deny-list.md), which can be used to control overall B2B invitations and redemptions regardless of source (e.g. Teams, SharePoint, and Azure Portal).
  If you’re using entitlement management, you can also scope access packages to a subset of your partners by using the Specific connected organizations setting as shown below.
 
 
