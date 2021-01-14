@@ -159,14 +159,22 @@ Entities in this category can have the following subcategories
 | Duration | Durations. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
 | Set | Set, repeated times. |  `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
 
+## Quantity
 
+This category contains the following entities:
 
-| Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` | Also returned by NER v2.1  |
-| Quantity | Number | Numbers. | `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | Percentage | Percentages.| `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | Ordinal | Ordinal numbers. | `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | Age | Ages. | `2019-10-01` |  Also returned by NER v2.1 |
-| Quantity | Currency | Currencies. | `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | Dimension | Dimensions and measurements. | `2019-10-01` | Also returned by NER v2.1 |
-| Quantity | Temperature | Temperatures. | `2019-10-01` | Also returned by NER v2.1 |
--->
+| Category | Description | Languages        | 
+|----------|-------------|------------------|
+| Quantity | Numbers and numeric quantities. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br` |
+
+Entities in this category can have the following subcategories
+
+| Subcategory | Description | Languages        | 
+|----------|-------------|------------------|
+| Number | Numbers. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
+| Percentage | Percentages.| `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
+| Ordinal | Ordinal numbers. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
+| Age | Ages. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
+| Currency | Currencies. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
+| Dimension | Dimensions and measurements. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
+| Temperature | Temperatures. | `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br` |
