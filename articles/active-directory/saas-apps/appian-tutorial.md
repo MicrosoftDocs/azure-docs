@@ -118,40 +118,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Appian SSO
-
-1. In a different web browser window, sign into Appian website as an administrator.
-
-1. Go to the **Admin Console** and  select **Enable SAML**.
-
-1. Click **Add SAML Identity Provider**.
-
-1.  Enter a **Description** for the IdP.
-
-1.  Enter a **Service Provider Name**, this
-should be a unique name for both the service and identity providers.
-
-1.  Upload the IdP metadata into **Identity Provider Metadata**. 
-
-1.  Choose the appropriate **Signature Hashing Algorithm** that matches the IdP.
-
-1.  Click **Test This Configuration** in the top-right side of the dialog to verify that the
-configuration is valid or not.
-
-1. Click **Done** after successfully signing in to close the configuration dialog.
-
-1. If you want the new IdP's sign-in page to be the default, set the **Default Sign-In Page**
-accordingly.
-
-1.  Click **Verify My Access** once the dialog is closed to ensure that you can still sign in to
-Appian. This time, you have to sign in with the current user.
-
-1.  Once you have successfully verified that you can still sign in, click **Save Changes**.
-
+## Configure Appian
 
 ### Create Appian test user
 
-In this section, a user called Britta Simon is created in Appian. Appian supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Appian, a new one is created after authentication.
+Create a user in Appian called Britta Simon following the instructions in [Appian's documentation](https://docs.appian.com/suite/help/20.4/User_Management.html#create-a-new-user). This user should be a System Administrator to allow for configuration of Appian SSO.
+
+### Configure Appian SSO
+
+Sign in with the account created for Britta Simon. Follow the instructions provided in [Appian's documentation](https://docs.appian.com/suite/help/20.4/SAML_for_Single_Sign-On.html#how-saml-works-with-appian) to configure Appian SSO.
 
 ## Test SSO 
 
