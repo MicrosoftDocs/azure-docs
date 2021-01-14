@@ -27,9 +27,9 @@ You have Data Factory and an Azure function app running on a private endpoint. Y
 
 **Resolution**: Create a **PrivateLinkService** endpoint and provide your function app's DNS.
 
-### A pipeline run is killed but the monitor still shows progress status
+### A pipeline run is canceled but the monitor still shows progress status
 
-When you kill a pipeline run, pipeline monitoring often still shows the progress status. This happens because of a browser cache issue. You also might not have the correct monitoring filters.
+When you cancel a pipeline run, pipeline monitoring often still shows the progress status. This happens because of a browser cache issue. You also might not have the correct monitoring filters.
 
 **Resolution**: Refresh the browser and apply the correct monitoring filters.
  
@@ -55,7 +55,7 @@ Error message:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Cause**: You've reached the integration runtime's capacity limit, which is currently 50. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) for details.
+**Cause**: You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) for details.
 
 **Resolution**:
  
