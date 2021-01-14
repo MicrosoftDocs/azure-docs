@@ -265,7 +265,7 @@ If you can't find your issue in this article or the instructions didn't help you
 - You don't see the **RdAgentBootLoader** component in the Task Manager
 - The instructions in this article didn't resolve your issue
 
-### Uninstall all agent, boot loader, and stack component programs
+### Step 1: Uninstall all agent, boot loader, and stack component programs
 
 Before reinstalling the agent, boot loader, and stack, you must uninstall any existing component programs from your VM. To uninstall all agent, boot loader, and stack component programs:
 1. Sign in to your VM as an administrator. 
