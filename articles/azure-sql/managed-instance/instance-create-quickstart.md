@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 09/26/2019
+ms.date: 1/13/2021
 ---
 # Quickstart: Create an Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -77,6 +77,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Select **Review + create** to review your choices before you create a managed instance. Or, configure more custom settings by selecting **Next: Additional settings**.
 
+
 ### Additional settings
 
 - Fill out optional information on the **Additional settings** tab. If you omit this information, the portal will apply default settings.
@@ -92,6 +93,16 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | **Use as failover secondary** | Select **Yes**. | Enable this option to use the managed instance as a failover group secondary.|
    | **Primary SQL Managed Instance** (if **Use as failover secondary** is set to **Yes**) | Choose an existing primary managed instance that will be joined in the same DNS zone with the managed instance you're creating. | This step will enable post-creation configuration of the failover group. For more information, see [Tutorial: Add a managed instance to a failover group](failover-group-add-instance-tutorial.md).|
 
+- Select **Review + create** to review your choices before you create a managed instance. Or, configure Azure Tags by selecting **Next: Tags** (recommended).
+
+### Tags
+
+- Add tags to resources in your Azure Resource Manager template (ARM template). [Tags](/azure/azure-resource-manager/management/tag-resources) help you logically organize your resources. The tag values show up in cost reports and allow for other management activities by tag. 
+
+- Consider at least tagging your new SQL Managed Instance with the Owner tag to identify who created, and the Environment tag to identify whether this system is Production, Development, etc. For more, see [Develop your naming and tagging strategy for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+ 
+- Select **Review + create** to proceed.
+
 ## Review + create
 
 1. Select **Review + create** tab to review your choices before you create a managed instance.
@@ -101,7 +112,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 1. Select **Create** to start provisioning the managed instance.
 
 > [!IMPORTANT]
-> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations).
+> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [Overview of Azure SQL Managed Instance management operations](management-operations-overview.md#duration).
 
 ## Monitor deployment progress
 
@@ -117,8 +128,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 > 2. Select **Deployments**.
 > 3. Select the SQL Managed Instance deployment operation in progress.
 
+
 > [!IMPORTANT]
-> - Creation of SQL Managed Instance is a long-running operation that might take a few hours at a time, depending on specific circumstances. See [Management operations duration](management-operations-overview.md#duration) for typical creation times.
 > - Start of SQL Managed Instance creation could be delayed in cases when there exist other impacting operations, such are long-running restore or scaling operations on other Managed Instances in the same subnet. To learn more, see [Management operations cross-impact](management-operations-overview.md#management-operations-cross-impact).
 > - In order to be able to get the status of managed instance creation, you need to have **read permissions** over the resource group. If you don't have this permission or revoke it while the managed instance is in creation process, this can cause SQL Managed Instance not to be visible in the list of resource group deployments.
 >
