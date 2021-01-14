@@ -53,7 +53,7 @@ View deployed apps using the following procedures.
 
     [ ![Apps-overview](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
 
-1. Open the **Deployments** blade to see all deployments of the app. If the customer has assigned the public endpoint, the **URL** will show the public endpoint of the app. The **State** in the deployment grid shows whether the deployment is production or staging.
+1. Open the **Deployments** blade to see all deployments of the app. If the customer has assigned the public endpoint, the **URL** will show the public endpoint. The **State** in the deployment grid shows whether the deployment is production or staging.
 
     [ ![Deployments dashboard](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
 
@@ -73,10 +73,13 @@ View deployed apps using the following procedures.
 1. In the Azure CLI, create a new deployment, and give it the staging deployment name "green."
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. After the deployment finishes successfully, access the app page from the **Application Dashboard**, and view all your instances in the **App Instances** tab on the left.
+1. After the CLI deployment finishes successfully, access the app page from the **Application Dashboard**, and view all your instances in the **App Instances** tab on the left.
+
+   [ ![Deployments dashboard](media/spring-cloud-setup-staging-env/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
+
   
 > [!NOTE]
 > The discovery status is *OUT_OF_SERVICE* so that traffic won't be routed to this deployment before verification is complete.
@@ -85,7 +88,7 @@ View deployed apps using the following procedures.
 
 1. Return to the **Deployment management** page, and select your new deployment. The deployment status should show *Running*. The **Assign/Unassign domain** button should appear grayed, because the environment is a staging environment.
 
-1. In the **Overview** pane, you should see a **Test Endpoint**. Copy and paste it into a new browser window, and the new PiggyMetrics page should be displayed.
+1. In the **Overview** pane, you should see a **Test Endpoint**. Copy and paste it into a new browser window, and the new application page should be displayed.
 
 >[!TIP]
 > * Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly.  
@@ -102,7 +105,7 @@ View deployed apps using the following procedures.
 
 2. Select **Set deployment**.
 3. In the **Production Deployment** list, select **Green**, and then select **Apply**.
-4. Go to your gateway application **Overview** page. If you've already assigned a domain for your gateway application, the URL will appear in the **Overview** pane. To view the modified PiggyMetrics page, select the URL, and go to the site.
+4. Go to your gateway application **Overview** page. If you've already assigned a domain for your gateway application, the URL will appear in the **Overview** pane. To view the modified application page, select the URL, and go to the site.
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
