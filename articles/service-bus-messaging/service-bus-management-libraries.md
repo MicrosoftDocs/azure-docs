@@ -18,7 +18,7 @@ The Azure Service Bus management libraries can dynamically provision Service Bus
 * Subscription creation, update, deletion
 
 ## Azure.Messaging.ServiceBus.Administration
-You can use the [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) class in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code. For a complete example, see [CURD example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
+You can use the [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) class in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code. For a complete example, see [CRUD example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
 
 ```csharp
 using System;
