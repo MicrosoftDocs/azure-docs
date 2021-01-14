@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.author: jobreen
 author: jjbfour
-ms.date: 06/20/2019
+ms.date: 01/14/2021
 ---
 
 # Custom provider C# RESTful endpoint reference
