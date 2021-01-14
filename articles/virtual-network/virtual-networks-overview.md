@@ -26,7 +26,7 @@ Azure virtual network enables Azure resources to securely communicate with each 
 All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use public IP or public Load Balancer to manage your outbound connections.  To learn more about outbound connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md), [Public IP addresses](virtual-network-public-ip-address.md), and [Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
->When using only an internal [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md), outbound connectivity is not available until you define how you want [outbound connections](../load-balancer/load-balancer-outbound-connections.md) to work with an instance-level public IP or a public Load Balancer.
+>When using only an internal [Standard Load Balancer](../load-balancer/load-balancer-overview.md), outbound connectivity is not available until you define how you want [outbound connections](../load-balancer/load-balancer-outbound-connections.md) to work with an instance-level public IP or a public Load Balancer.
 
 ### Communicate between Azure resources
 
@@ -48,7 +48,7 @@ You can connect your on-premises computers and networks to a virtual network usi
 
 You can filter network traffic between subnets using either or both of the following options:
 
-- **Network security groups:** Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. To learn more, see [Network security groups](security-overview.md#network-security-groups) or [Application security groups](security-overview.md#application-security-groups).
+- **Network security groups:** Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. To learn more, see [Network security groups](./network-security-groups-overview.md#network-security-groups) or [Application security groups](./network-security-groups-overview.md#application-security-groups).
 - **Network virtual appliances:** A network virtual appliance is a VM that performs a network function, such as a firewall, WAN optimization, or other network function. To view a list of available network virtual appliances that you can deploy in a virtual network, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ### Route network traffic
