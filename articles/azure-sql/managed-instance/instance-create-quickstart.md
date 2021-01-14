@@ -123,11 +123,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 1. Select **Deployment in progress** in the notification to open the SQL Managed Instance window and further monitor the deployment progress. 
 
 > [!TIP]
-> If you closed your web browser or moved away from the deployment progress screen, follow these steps to locate the deployment progress screen:
-> 1. In the Azure portal, open the resource group (on the **Basics** tab) to which you're deploying SQL Managed Instance.
-> 2. Select **Deployments**.
-> 3. Select the SQL Managed Instance deployment operation in progress.
-
+> - If you closed your web browser or moved away from the deployment progress screen, you can monitor the provisioning operation via the managed instance's **Overview** page, or via PowerShell or the Azure CLI. See [Monitor operations](management-operations-monitor.md#monitor-operations). 
+> - You can cancel the provisioning process through Azure portal, or via PowerShell or the Azure CLI or other tooling using the REST API. See [Canceling Azure SQL Managed Instance management operations](management-operations-cancel.md).
 
 > [!IMPORTANT]
 > - Start of SQL Managed Instance creation could be delayed in cases when there exist other impacting operations, such are long-running restore or scaling operations on other Managed Instances in the same subnet. To learn more, see [Management operations cross-impact](management-operations-overview.md#management-operations-cross-impact).
