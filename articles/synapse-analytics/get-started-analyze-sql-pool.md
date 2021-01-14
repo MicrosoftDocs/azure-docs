@@ -19,7 +19,7 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
 ## Load the NYC Taxi Data into SQLPOOL1
 
 1. In Synapse Studio, navigate to the **Develop** hub, click the **+** button to add new resource, then create new SQL script.
-1. Select the pool 'SQLPOOL1' (pool created in [STEP 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) of this tutorial) in 'Connect to' drop down list above the script.
+1. Select the pool 'SQLPOOL1' (pool created in [STEP 1](./get-started-create-workspace.md) of this tutorial) in 'Connect to' drop down list above the script.
 1. Enter the following code:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -98,4 +98,3 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
 
 > [!div class="nextstepaction"]
 > [Analyze using Spark](get-started-analyze-spark.md)
-
