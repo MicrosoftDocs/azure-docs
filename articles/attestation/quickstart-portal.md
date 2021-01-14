@@ -36,7 +36,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 	
 	**Policy signer certificates file**: Do not upload policy signer certificates file to configure the provider with unsigned policies 
 6.	After providing the rquired inputs, select **Review+Create**
-7.	Fix validation issues if any and click Create.
+7.	Fix validation issues if any and click **Create**.
 
 #### To configure the provider with signed policies
 
@@ -54,9 +54,9 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 
 	**Location**: choose a location 
 	
-	**Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file.
+	**Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file. See examples [here](/azure/attestation/policy-signer-examples) 
 6.	After providing the rquired inputs, select **Review+Create**
-7.	Fix validation issues if any and click Create.
+7.	Fix validation issues if any and click **Create**.
 
 ### View attestation provider
 
