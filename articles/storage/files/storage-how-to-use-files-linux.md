@@ -198,44 +198,44 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     The autofs package can be installed using the package manager on the Linux distribution of your choice. 
 
     On **Ubuntu** and **Debian-based** distributions, use the `apt` package manager:
-    ```azurecli
+    ```bash
     sudo apt update
     sudo apt install autofs
     ```
     On **Fedora**, **Red Hat Enterprise Linux 8+**, and **CentOS 8 +**, use the `dnf` package manager:
-    ```azurecli
+    ```bash
     sudo dnf install autofs
     ```
     On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
-    ```azurecli
+    ```bash
     sudo yum install autofs 
     ```
     On **openSUSE**, use the `zypper` package manager:
-    ```azurecli
+    ```bash
     sudo zypper install autofs
     ```
 2. **Create a mount point for the share(s)**:
-   ```azurecli
+   ```bash
     sudo mkdir /fileshares
     ```
 3. **Crete a new custom autofs configuration file**
-    ```azurecli
+    ```bash
     sudo vi /etc/auto.fileshares
     ```
 4. **Add the following entries to /etc/auto.fileshares**
-   ```azurecli
+   ```bash
    echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
    ```
 5. **Add the following entry to /etc/auto.master**
-   ```azurecli
+   ```bash
    /fileshares /etc/auto.fileshares --timeout=60
    ```
 6. **Restart autofs**
-    ```azurecli
+    ```bash
     sudo systemctl restart autofs
     ```
 7.  **Access the folder designated for the share**
-    ```azurecli
+    ```bash
     cd /fileshares/$filesharename
     ```
 ## Securing Linux
@@ -264,7 +264,7 @@ Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy
 
 You can check to see if your Linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
 
-```azurecli
+```bash
 sudo modinfo -p cifs | grep disable_legacy_dialects
 ```
 
@@ -276,43 +276,43 @@ disable_legacy_dialects: To improve security it may be helpful to restrict the a
 
 Before disabling SMB 1, you must check to make sure that the SMB module is not currently loaded on your system (this happens automatically if you have mounted an SMB share). You can do this with the following command, which should output nothing if SMB is not loaded:
 
-```azurecli
+```bash
 lsmod | grep cifs
 ```
 
 To unload the module, first unmount all SMB shares (using the `umount` command as described above). You can identify all the mounted SMB shares on your system with the following command:
 
-```azurecli
+```bash
 mount | grep cifs
 ```
 
 Once you have unmounted all SMB file shares, it's safe to unload the module. You can do this with the `modprobe` command:
 
-```azurecli
+```bash
 sudo modprobe -r cifs
 ```
 
 You can manually load the module with SMB 1 unloaded using the `modprobe` command:
 
-```azurecli
+```bash
 sudo modprobe cifs disable_legacy_dialects=Y
 ```
 
 Finally, you can check the SMB module has been loaded with the parameter by looking at the loaded parameters in `/sys/module/cifs/parameters`:
 
-```azurecli
+```bash
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
 To persistently disable SMB 1 on Ubuntu and Debian-based distributions, you must create a new file (if you don't already have custom options for other modules) called `/etc/modprobe.d/local.conf` with the setting. You can do this with the following command:
 
-```azurecli
+```bash
 echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
 ```
 
 You can verify that this has worked by loading the SMB module:
 
-```azurecli
+```bash
 sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```

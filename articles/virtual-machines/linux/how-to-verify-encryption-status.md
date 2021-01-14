@@ -283,13 +283,13 @@ The storage account IDs are listed in the following form:
 /subscriptions/\<subscription id>/resourceGroups/\<resource group name>/providers/Microsoft.Storage/storageAccounts/\<storage account name>
 
 Select the appropriate ID and store it on a variable:
-```azurecli
+```bash
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
 
 This command gets the connection string for one particular storage account and stores it on a variable:
 
-```azurecli
+```bash
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
@@ -300,7 +300,7 @@ az storage container list --connection-string $ConnectionString --query [].[name
 The container used for disks is normally named "vhds."
 
 Store the container name on a variable: 
-```azurecli
+```bash
 ContainerName="name of the container"
 ```
 
@@ -309,7 +309,7 @@ Use this command to list all the blobs on a particular container:
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Choose the disk that you want to query and store its name on a variable:
-```azurecli
+```bash
 DiskName="diskname.vhd"
 ```
 Query the disk encryption settings:
