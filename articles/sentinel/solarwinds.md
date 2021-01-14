@@ -22,9 +22,7 @@ ms.author: bagol
 
 In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
 
-Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack (Solorigate), as well as the steps that you should take to make sure that your environment is clean and follows security best practices moving forward.
-
-You can also use the resources described in this article to understand and mitigate risks from similar supply-chain attacks and systemic-identity compromises.
+Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack (Solorigate) and steps you can take to ensure that your environment is clean and follows security best practices.
 
 The SolarWinds attack provided the attackers with a foothold into affected networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
@@ -72,11 +70,11 @@ The **SolarWinds Post Compromise Hunting** workbook queries logs collected by Az
 
 - Suspicious sign-in events, such as where an attacker has used SAML tokens that were minted by stolen AD FS key material in order to access your environment. 
 
-- Applications or accounts with new permissions, key credentials and access patterns that may indicate compromise.
+- Applications or accounts with new permissions, key credentials, and access patterns that may indicate compromise.
 
 - Suspicious lateral movements inside your environment, which is a common element of many attacks, including Solorigate.
 
-This workbook hunts for activity in both Microsoft Defender for Endpoint data, as well as data from hosts where Microsoft Defender services are not installed.
+This workbook hunts for activity in both Microsoft Defender for Endpoint data, and data from hosts where Microsoft Defender services are not installed.
 
 > [!TIP]
 > Modify the **Hunting Timeframe** in each section to update the query results shown.    
