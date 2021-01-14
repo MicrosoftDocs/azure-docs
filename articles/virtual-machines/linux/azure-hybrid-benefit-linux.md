@@ -43,6 +43,9 @@ Azure Hybrid Benefit for RHEL is available to Red Hat customers who meet both of
 - Have active or unused RHEL subscriptions that are eligible for use in Azure
 - Have enabled one or more of those subscriptions for use in Azure with the [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) program
 
+> [!IMPORTANT]
+> Ensure the correct subscription has been enabled on the [cloud-access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) program.
+
 To start using the benefit for Red Hat:
 
 1. Enable one or more of your eligible RHEL subscriptions for use in Azure by using the [Red Hat Cloud Access customer interface](https://access.redhat.com/management/cloud).
