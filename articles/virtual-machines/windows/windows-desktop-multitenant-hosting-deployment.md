@@ -19,14 +19,27 @@ For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Deskt
 >
 
 ## Deploying Windows 10 Image from Azure Marketplace 
-For PowerShell, CLI and Azure Resource Manager template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
+For PowerShell, CLI and Azure Resource Manager template deployments, the Windows 10 image can be found with the following publishername and offer.
 
+- PublisherName: MicrosoftWindowsDesktop
+- Offer: Windows-10
+
+Using PowerShell, obtain a list of available Windows 10 images:
+
+```powershell
+Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
+```
+
+### Sample output: 
 | OS  |      PublisherName      |  Offer | Sku |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS4-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS4-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS5-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS5-ProN  |
+
+For a full list of available images see [Find and use Azure Marketplace VM images with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+
 
 ## Qualify for Multi-tenant hosting rights 
 To qualify for multi-tenant hosting rights and to run Windows 10 images on Azure users must have one of the following subscriptions: 
