@@ -11,12 +11,6 @@ ms.date: 01/14/2021
 
 # Introduction to listing options
 
-You can use the available _listing options_ in the commercial marketplace to engage with potential customers in a variety of ways. After your offer is published, the listing option(s) you chose for your offer appear as a button in the upper-left corner of your offer’s listing page in the online store(s). For example, the following screenshot shows an offer listing page in the Microsoft AppSource online store with the **Get It Now** and **Test Drive** buttons.
-
-:::image type="content" source="media/listing-options.png" alt-text="Illustrates the listing page for an offer. The Contact Me and Test Drive buttons are shown.":::
-
-## Available listing options by offer type
-
 When you create an offer type, you choose one or more listing options. These options determine the buttons customers see on the offer listing page in the online stores. The listing options include _Free Trial_, _Test Drive_, _Contact Me_, and _Get It Now_.
 
 This table shows which listing options are available for each offer type.
@@ -123,6 +117,12 @@ The following offer types support usage-based pricing:
 - Azure virtual machine offers support Per core, Per core size, and Per market and core size pricing. These pricing options are priced per hour and billed monthly.
 
 When creating a transactable offer, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
+
+## Sample offer
+
+After your offer is published, the listing option(s) you chose appear as a button in the upper-left corner of the listing page in the online store(s). For example, the following screen shows an offer listing page in the Microsoft AppSource online store with the **Get It Now** and **Test Drive** buttons:
+
+:::image type="content" source="media/listing-options.png" alt-text="Illustrates the listing page for an offer. The Contact Me and Test Drive buttons are shown.":::
 
 ## Listing and pricing options by online store
 
