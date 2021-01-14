@@ -19,7 +19,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 ## Creating or modifying a gallery ##
 
-## <a id="anchortext" />*Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
+*Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
 **Cause**: The name for the gallery does not meet the naming requirements.  
 **Workaround**: Choose a name that meets the following conditions: 
 - Has an 80-character limit
@@ -54,7 +54,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 ## Creating or modifying image definitions ##
 
-## <a id="definition_anchorlink" />*Changing property 'galleryImage.properties.<property\>' is not allowed.*  
+*Changing property 'galleryImage.properties.<property\>' is not allowed.*  
 **Cause**: You tried to change the OS type, OS state, Hyper-V generation, offer, publisher, or SKU. Changing any of these properties is not permitted.  
 **Workaround**: Create a new image definition instead.
 
