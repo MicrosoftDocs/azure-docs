@@ -128,7 +128,7 @@ a.	Verify the certificates count and certs downloaded.
 4.	Click **Policy** in left-side resource menu or in the bottom pane
 5.	Click **Configure** in the top menu
 6.	When the attestation provider is created without policy signing requirement, user can upload a policy in **JWT** or **Text** format
-7.	Select **Policy Format"" as **JWT**
+7.	Select **Policy Format** as **JWT**
 8.	Upload policy file with policy content in an **unsigned/signed JWT** format and click **Save**. See examples [here](/azure/attestation/policy-examples)
 	
 	For file upload option, policy preview will be shown in text format and policy preview is not editable.
@@ -143,7 +143,7 @@ a.	Verify the certificates count and certs downloaded.
 4.	Click **Policy** in left-side resource menu or in the bottom pane
 5.	Click **Configure** in the top menu
 6.	When the attestation provider is created without policy signing requirement, user can upload a policy in **JWT** or **Text** format
-7.	Select **Policy Format"" as **Text**
+7.	Select **Policy Format** as **Text**
 8.	Upload policy file with content in **Text** format or enter policy content in text area and click **Save**. See examples [here](/azure/attestation/policy-examples)
 
 	For file upload option, policy preview will be shown in text format and policy preview is not editable.
