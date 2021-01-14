@@ -14,47 +14,55 @@ ms.date: 1/7/2021
 
 # Migration reference
 
-This article is the detailed reference of Machine Learning Studio(classic) migration. The migration steps is described in [this article](./migrate-to-aml.md). Use this article as a details supplement to the migration steps. 
+This article contains supplementary reference information to help you migrate from ML Studio (classic) to Azure Machine Learning. For instructions on how to perform the migration, see [Migrate to Azure Machine Learning](./migrate-to-aml.md).
 
-## Migrate the training experiment
 
-This sections will highlight the difference of ML Studio(classic) and designer, which you need pay special attention in migration.
 
-### Import Data
+## Import Data
 
-In Studio(classic), ingest data from cloud storage is done through Import Data module. In designer, there are two options:
+In Studio (classic), ingesting data from cloud storage is done through the Import Data module. In the designer you have two options: register an Azure Machine Learning dataset, or use the Import Data module.
 
-|Option|Description|When to use|
+|Designer data ingestion method|Description|
 |---| --- | --- |
-|AML dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLs Gen2, File share, SQL DB). It will register the data as a dataset asset to the workspace. And advanced data features like data versioning and data monitoring are enabled.|Recommended|
-|Import Data Module in designer|Ingest data from online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB).  It will not create a dataset asset to the workspace. |When customer does not want to register a dataset to workspace.|
+|Register an AML dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). Registering a dataset enables advanced data features like data versioning and data monitoring.
+|Import Data module|Ingest data from online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). The dataset is only imported to the designer.
 
-[!Note]
-There are four cloud data sources (Hive Query, Azure Table, Azure Cosmos DB, On-premises SQL Database) that supported in ML Studio(classic) but not supported in AML. It's recommended to move your data to supported storages using Azure Data Factory.  
+We recommend registering datasets in Azure Machine Learning to enable advanced data features. However, the Import Data module can be used when those features are not required.
 
-To ingest data from cloud storage, there are two steps:
-1. Create datastore, which links the cloud storage service to your Azure Machine Learning workspace. 
+>[!Note]
+> Studio (classic) users should note that the following cloud sources are not natively supported in Azure Machine Learning:
+> - Hive Query
+> - Azure Table
+> - Azure Cosmos DB
+> - On-premises SQL Database)
+>
+> We recommend that users migrate their data to supported storage services using Azure Data Factory.  
 
-    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores) has step-by-step guidance on how to create datastore.
-2. (Option 1) Create dataset and drop it in designer. 
+Use the following steps to ingest data from the cloud:
+1. Create a datastore, which links the cloud storage service to your Azure Machine Learning workspace. 
 
-    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datasets) has the step-by-step guidance on how to create datasets in AML Studio. Remember to choose **Tabular** for dataset type since ML Studio(classic) supported data are essentially tabular format.   
+    For more information on creating datastores, see [Connect to data with Azure Machine Learning studio](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores).
+2. **(Option 1)** Register a dataset and use it in the designer. 
+
+    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datasets) has the step-by-step guidance on how to create datasets in AML Studio. When migrating ML Studio (classic) data, select the **Tabular** dataset.
     
-    After create the dataset, you can find the dataset in designer left palette, under **Datasets** category. Then drop the dataset in canvas to use it. 
+    After registering the dataset, you can find it in the designer left palette. Expand the **Datasets** section, then drag the dataset onto the canvas. 
 
     ![registered-dataset](./media/migrate-to-AML/registered-dataset.png)
 
-1.  (Option 2) Use Import Data Module in designer 
+1.  **(Option 2)** Use Import Data Module in the designer 
 
-    After create datastore, you can use Import Data module in designer to ingest data from created datastore. This module will not create a dataset asset to your workspace. Follow the settings in right panel to set up this module. First, select datastore to import data from. Then select path or edit SQL query to identify the needed data from datastore. 
+    After creating the datastore, you can use Import Data module to ingest data from it. Find the **Import Data module** in the left palette, and configure the settings in right panel.
+
+     First, select datastore to import data from. Then select path or edit SQL query to identify the needed data from datastore. 
     ![import-data](./media/migrate-to-AML/import-data.png)
     
  
 
 
-### Build-in module mapping
+### Studio (classic) and designer module-mapping table
 
-Module for same functionality has the same name in AML designer and ML Studio(classic).  See below table for the module mapping. 
+Module for same functionality has the same name in AML designer and ML Studio(classic). See below table for the module mapping. 
 
 >![Important]
 > The machine learning modules in designer are implemented with Python, using open-source packages like sklearn. The Studio(classic) machine learning modules are implemented with C# and using a Microsoft internal machine learning package. The result of the same module might have slight difference deu to the difference of underlying technology.
