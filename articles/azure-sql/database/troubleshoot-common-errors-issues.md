@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
+ms.date: 01/14/2021
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -119,7 +119,7 @@ Typically, the service administrator can use the following steps to add the logi
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>'
    GO
    ```
 
@@ -136,7 +136,7 @@ Typically, the service administrator can use the following steps to add the logi
    GO
    -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
    GO
    ```
 
@@ -178,22 +178,20 @@ To work around this issue, try one of the following methods:
 - Verify whether there are long-running queries.
 
   > [!NOTE]
-  > This is a minimalist approach that might not resolve the issue.
+  > This is a minimalist approach that might not resolve the issue. For detailed information on troubleshooting query blocking, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 1. Run the following SQL query to check the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine the **input buffer** for the head blocker.
 3. Tune the head blocker query.
 
-   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud). 
 
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
-
-For more information about dynamic management views, see [System dynamic management views](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 For more information about database limits, see  [SQL Database resource limits for servers](./resource-limits-logical-server.md).
 
@@ -229,7 +227,7 @@ The following steps can either help you work around the problem or provide you w
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. If the current size does not exceed the maximum size supported for your edition, you can use ALTER DATABASE to increase the MAXSIZE setting.
@@ -248,7 +246,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 1. Check the sys.dm_exec_requests view to see any open sessions that have a high value for the total_elapsed_time column. Perform this check by running the following SQL script:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine the input buffer for the long-running query.
@@ -336,7 +334,7 @@ This issue occurs because the account doesn't have permission to access the mast
 To resolve this issue, follow these steps:
 
 1. On the login screen of SSMS, select **Options**, and then select **Connection Properties**.
-2. In the **Connect to database** field, enter the user’s default database name as the default login database, and then select **Connect**.
+2. In the **Connect to database** field, enter the user's default database name as the default login database, and then select **Connect**.
 
    ![Connection properties](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
@@ -369,7 +367,7 @@ For additional guidance on fine-tuning performance, see the following resources:
 ## Steps to fix common connection issues
 
 1. Make sure that TCP/IP is enabled as a client protocol on the application server. For more information, see [Configure client protocols](/sql/database-engine/configure-windows/configure-client-protocols). On application servers where you don't have SQL tools installed, verify that TCP/IP is enabled by running **cliconfg.exe** (SQL Server Client Network utility).
-2. Check the application’s connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
+2. Check the application's connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
 See [Get connection information](./connect-query-ssms.md#get-server-connection-information).
 3. Try increasing the connection timeout value. We recommend using a connection timeout of at least 30 seconds.
 4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](./connect-query-ssms.md), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](./troubleshoot-common-connectivity-issues.md#diagnostics).
