@@ -22,7 +22,7 @@ Clusters created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` no
 
 It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater. Read about how to [test Ubuntu 18.04 node pools](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
 
-To create a cluster using `AKS Ubuntu 18.04` node image simply create a cluster running kubernetes v1.18 or greater as shown below
+To create a cluster using `AKS Ubuntu 18.04` node image, simply create a cluster running kubernetes v1.18 or greater as shown below
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
@@ -34,7 +34,7 @@ Clusters created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` no
 
 It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater. Read about how to [test Ubuntu 18.04 node pools](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
 
-If your clusters or node pools are ready for `AKS Ubuntu 18.04` you can simply upgrade them to a v1.18 or higher as below.
+If your clusters or node pools are ready for `AKS Ubuntu 18.04` node image, you can simply upgrade them to a v1.18 or higher as below.
 
 ```azurecli
 
@@ -55,9 +55,9 @@ az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-
 
 Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
 
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to upgrading your production nodepools.
+It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to upgrading your production node pools.
 
-To create a node pool using `AKS Ubuntu 18.04` node image simply create a node pool running kubernetes v1.18 or greater. Your cluster control plane needs to be at least on v1.18 or greater as well but your other node pools can remain on an older kubernetes version.
+To create a node pool using `AKS Ubuntu 18.04` node image, simply create a node pool running kubernetes v1.18 or greater. Your cluster control plane needs to be at least on v1.18 or greater as well but your other node pools can remain on an older kubernetes version.
 Below we are first upgrading the control plane and then creating a new node pool with v1.18 that will receive the new node image OS version.
 
 ```azurecli
