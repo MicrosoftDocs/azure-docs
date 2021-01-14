@@ -21,19 +21,19 @@ Version= 1.0;
 authorizationrules 
 {
        [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type==" x-ms-sgx-product-id", value==<product-id> ]
-        && [ type==" x-ms-sgx-svn", value>= 0 ]
-        && [ type==" x-ms-sgx-sgx-mrsigner", value=="<mrsigner>"] 
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"] 
     => permit();
 };
 issuancerules
 {
-	c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-	c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-	c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-	c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-	c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-	c:[type==”$tee”] => issue(type=”tee”, value=c.value);
+	c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);
+	c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+	c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
+	c:[type=="x-ms-sgx-product-id"] => issue(type="product-id", value=c.value);
+	c:[type=="x-ms-sgx-svn"] => issue(type="svn", value=c.value);
+	c:[type=="$tee"] => issue(type="tee", value=c.value);
 };
 ```
 
