@@ -310,7 +310,7 @@ If you are unable to successfully onboard your customer, or if your users have t
 - The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in role or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
-- There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)
+- There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Users who need to view resources in the Azure portal must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access).
 
 ## Next steps
