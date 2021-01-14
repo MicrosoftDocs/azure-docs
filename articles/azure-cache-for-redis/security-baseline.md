@@ -390,7 +390,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Learn about Privileged Access Workstations:
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 How to enable MFA in Azure:
 

@@ -79,10 +79,11 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 | Token * | Yes |
 | ttl | Yes |
 | writetime | Yes |
-| cast | No |
+| cast ** | Yes |
 
-> [!NOTE]
-> \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.
+> [!NOTE] 
+> \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.  
+> \*\* The `cast()` function is not nestable in Cassandra API. For example, `SELECT cast(count as double) FROM myTable` is supported, but `SELECT avg(cast(count as double)) FROM myTable` is **not** supported.
 
 
 
@@ -179,6 +180,30 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | TRUNCATE | No |
 | USE | Yes |
 
+## CQL Shell commands
+
+Azure Cosmos DB supports the following database commands on Cassandra API accounts.
+
+|Command  |Supported |
+|---------|---------|
+| CAPTURE | Yes |
+| CLEAR | Yes |
+| CONSISTENCY * | N/A |
+| COPY | No |
+| DESCRIBE | Yes |
+| cqlshExpand | No |
+| EXIT | Yes |
+| LOGIN | N/A (CQL function `USER` is not supported, hence `LOGIN` is redundant) |
+| PAGING | Yes |
+| SERIAL CONSISTENCY * | N/A |
+| SHOW | Yes |
+| SOURCE | Yes |
+| TRACING | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+
+> [!NOTE] 
+> \* Consistency works differently in Azure Cosmos DB, see [here](cassandra-consistency.md) for more information.  
+
+
 ## JSON Support
 |Command  |Supported |
 |---------|---------|
@@ -200,7 +225,7 @@ Azure Cosmos DB Cassandra API is a managed service platform. It does not require
 
 ## Hosted CQL shell (preview)
 
-You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](data-explorer.md) or the [Azure Cosmos explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). Check the highlighted note in [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md) for supported Azure Regions.
+You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). Check the highlighted note in [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md) for supported Azure Regions.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH":::
 

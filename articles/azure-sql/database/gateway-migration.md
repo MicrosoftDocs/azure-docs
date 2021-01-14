@@ -21,6 +21,25 @@ Customers will be notified via email and in the Azure portal well in advance of 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## January 2021
+New SQL Gateways are being added to the following regions:
+
+- Australia Central : 20.36.104.6 , 20.36.104.7 
+- Australia Central 2 :	20.36.112.6 
+- Brazil South : 191.234.144.16 ,191.234.152.3 
+- Canada East : 40.69.105.9 ,40.69.105.10
+- India Central : 104.211.86.30 , 104.211.86.31 
+- East Asia : 13.75.32.14 
+- France Central : 40.79.137.8, 40.79.145.12 
+- France South : 40.79.177.10 ,40.79.177.12
+- Korea Central : 52.231.17.22 ,52.231.17.23
+- India West : 104.211.144.4
+
+These SQL Gateways shall start accepting customer traffic on 31 January 2021
+
+# [Completed](#tab/completed-ip)
+The following gateway migrations are complete: 
+
 ### October 2020
 
 New SQL Gateways are being added to the following regions:
@@ -64,9 +83,6 @@ New SQL Gateways are being added to the following regions. These SQL Gateways sh
 Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on **1 September 2020** :
 - Japan East : 40.79.184.8, 40.79.192.5
 
-# [Completed](#tab/completed-ip)
-
-The following gateway migrations are complete: 
 
 ### August 2020
 

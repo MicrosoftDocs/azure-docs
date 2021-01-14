@@ -311,7 +311,7 @@ External accounts with owner permissions should be removed from your subscriptio
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) configured to log into and configure your Azure Backup-enabled resources.
 
-- [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -533,7 +533,7 @@ When backing up with the MARS agent or using a Recovery Services vault encrypted
 
 Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Backup to reduce service configuration related vulnerabilities.
 
-- [Understanding security controls available for Azure Backup](./backup-security-controls.md)
+- [Understanding security controls available for Azure Backup]()
 
 **Azure Security Center monitoring**: Currently not available
 

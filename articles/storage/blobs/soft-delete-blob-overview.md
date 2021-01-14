@@ -16,7 +16,7 @@ ms.subservice: blobs
 
 Soft delete for blobs protects your data from being accidentally or erroneously modified or deleted. When soft delete for blobs is enabled for a storage account, blobs, blob versions, and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
-If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. For more information about enabling soft delete, see [Enable and manage soft delete for blobs](soft-delete-enable.md).
+If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. For more information about enabling soft delete, see [Enable and manage soft delete for blobs](./soft-delete-blob-enable.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -75,8 +75,7 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > [!NOTE]  
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
-Soft delete does not save your data in cases of container or account deletes, nor when blob metadata and blob properties are overwritten. To protect a storage account from erroneous deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock Resources to Prevent Unexpected
-Changes](../../azure-resource-manager/management/lock-resources.md).
+Soft delete does not save your data in cases of container or account deletion, nor when blob metadata and blob properties are overwritten. To protect a storage account from deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 
 The following table details expected behavior when soft delete is turned on:
 
@@ -146,7 +145,7 @@ See the [Next steps](#next-steps) section for a pointer to the application that 
 
 ## Pricing and billing
 
-All soft deleted data is billed at the same rate as active data. You will not be charged for data that is permanently deleted after the configured retention period. For a deeper dive into snapshots and how they accrue charges, see [Understanding how snapshots accrue charges](storage-blob-snapshots.md).
+All soft deleted data is billed at the same rate as active data. You will not be charged for data that is permanently deleted after the configured retention period. For a deeper dive into snapshots and how they accrue charges, see [Understanding how snapshots accrue charges](./snapshots-overview.md).
 
 You will not be billed for the transactions related to the automatic generation of snapshots. You will be billed for **Undelete Blob** transactions at the rate for write operations.
 
@@ -168,7 +167,7 @@ No, soft deleted snapshots do not count toward this limit.
 
 ### If I delete an entire account or container with soft delete turned on, will all associated blobs be saved?
 
-No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from accidental deletes, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/management/lock-resources.md).
+No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from being accidentally deleted, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/management/lock-resources.md).
 
 ### Can I view capacity metrics for deleted data?
 
@@ -190,5 +189,5 @@ It is possible to take advantage of soft delete regardless of the API version yo
 
 ## Next steps
 
-- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
 - [Blob versioning](versioning-overview.md)

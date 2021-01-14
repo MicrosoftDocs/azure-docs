@@ -123,7 +123,7 @@ This message is received when the VM does not have outbound connectivity to the 
 
 For Linux:
 
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./migration-classic-resource-manager-overview.md)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)

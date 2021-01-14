@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
 	| Name  | Source Attribute  |
 	| ---------| ------------ |
-	| Role 	   | user.assignedroles |
+	| Role | user.assignedroles |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 

@@ -7,8 +7,9 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ---
-
 # How to secure access to data catalog and data assets
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 > [!IMPORTANT]
 > This feature is available only in the standard edition of Azure Data Catalog.

@@ -94,7 +94,7 @@
     - name: Go
       items:
       - name: SDK
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
     - name: Node.js
       items:
       - name: Reference

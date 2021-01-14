@@ -19,7 +19,7 @@ This tutorial walks you through the Log Analytics interface, gets you started wi
 > * Write and run simple queries, and modify the time range for queries
 > * Filter, sort, and group query results
 > * View, modify, and share visuals of query results
-> * Save, load, export, and copy queries and results
+> * Load, export, and copy queries and results
 
 > [!IMPORTANT]
 > This tutorial uses features of Log Analytics to build and run a query instead of working with the query itself. You'll leverage Log Analytics features to build one query and use another example query. When you're ready to learn the syntax of queries and start directly editing the query itself, go through the [Kusto Query Language tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). That tutorial walks through several example queries that you can edit and run in Log Analytics, leveraging several of the features that you'll learn in this tutorial.

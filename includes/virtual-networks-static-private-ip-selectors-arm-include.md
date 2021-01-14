@@ -11,4 +11,4 @@ ms.author: genli
 > * [Azure CLI](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure portal (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
 > * [PowerShell (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
-> * [Azure CLI (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)
+> * [Azure CLI (Classic)](/previous-versions/azure/virtual-network/virtual-networks-static-private-ip-classic-cli)

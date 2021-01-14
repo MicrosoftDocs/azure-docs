@@ -8,7 +8,7 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
@@ -277,6 +277,9 @@ Yes. You can peer VNets across subscriptions and across regions.
 ### Can I peer two VNets with matching or overlapping address ranges?
 No. Address spaces must not overlap to enable VNet Peering.
 
+### Can I peer a VNet to two different VNets with the the 'Use Remote Gateway' option enabled on both the peerings?
+No. You can only enable the 'Use Remote Gateway' option on one peering to one of the VNets.
+
 ### How much do VNet peering links cost?
 There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See here](https://azure.microsoft.com/pricing/details/virtual-network/).
 
@@ -384,6 +387,9 @@ When virtual network service endpoints are enabled, the source IP addresses of t
 
 ### Does the service endpoint route always take precedence?
 Service endpoints add a system route which takes precedence over BGP routes and provides optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. For more information about how Azure selects a route, see [Azure Virtual network traffic routing](virtual-networks-udr-overview.md).
+
+### Do service endpoints work with ICMP?
+No, ICMP traffic that is sourced from a subnet with service endpoints enabled will not take the service tunnel path to the desired endpoint. Service endpoints will only handle TCP traffic. This means that if you want to test latency or connectivity to an endpoint via service endpoints, tools like ping and tracert will not show the true path that the resources within the subnet will take.
  
 ### How does NSG on a subnet work with service endpoints?
 To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all Internet outbound traffic, then the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only using the Service tags.  

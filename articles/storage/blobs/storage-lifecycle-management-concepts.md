@@ -35,7 +35,7 @@ Consider a scenario where data gets frequent access during the early stages of t
 
 The lifecycle management feature is available in all Azure regions for General Purpose v2 (GPv2) accounts, blob storage accounts, Premium Block Blob storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Add or remove a policy
 
@@ -43,13 +43,13 @@ You can add, edit, or remove a policy by using any of the following methods:
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [Azure CLI](/cli/azure/install-azure-cli)
+* [REST APIs](/rest/api/storagerp/managementpolicies)
 
 A policy can be read or written in full. Partial updates are not supported. 
 
 > [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 This article shows how to manage policy by using the portal and PowerShell methods.
 
@@ -446,7 +446,7 @@ Each last access time update is considered an [other operation](https://azure.mi
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 > [!NOTE] 
-> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) or [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
+> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](/rest/api/storageservices/put-blob) or [PutBlockList](/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
 
 ```json
 {
@@ -588,7 +588,7 @@ When a blob is moved from one access tier to another, its last modification time
 
 Learn how to recover data after accidental deletion:
 
-- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
 
 Learn how to manage and find data with Blob Index:
 

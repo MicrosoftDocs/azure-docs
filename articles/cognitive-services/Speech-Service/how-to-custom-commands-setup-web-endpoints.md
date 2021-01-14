@@ -46,10 +46,10 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
    | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 
     > [!NOTE]
-    > - The example web endpoint created using [Azure Function](https://docs.microsoft.com/azure/azure-functions/), which hooks up with the database that saves the device state of the tv and fan
+    > - The example web endpoint created using [Azure Function](../../azure-functions/index.yml), which hooks up with the database that saves the device state of the tv and fan
     > - The suggested header is only needed for the example endpoint
     > - To make sure the value of the header is unique in our example endpoint, take the first 8 digits of your applicationId
-    > - In real world, the web endpoint can be the endpoint to the [IOT hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) that manages your devices
+    > - In real world, the web endpoint can be the endpoint to the [IOT hub](../../iot-hub/about-iot-hub.md) that manages your devices
 
 1. Click **Save**.
 
