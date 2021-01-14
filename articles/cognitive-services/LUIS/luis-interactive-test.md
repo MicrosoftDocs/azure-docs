@@ -39,17 +39,12 @@ LUIS stores all logged utterances in the query log, available for download on th
 
 If you test against an endpoint, and do not want the utterance logged, remember to use the `logging=false` query string configuration.
 
-Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** page of the [LUIS](luis-reference-regions.md) portal. 
-
-## Train before testing
-
-Remember to [train](luis-how-to-train.md) LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained. 
-
-1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
-1. Open your app by selecting its name on **My Apps** page.
-1. In order to test against the most recent version of the active app, select **Train** from the top menu, before testing.
+Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** page of the [LUIS](luis-reference-regions.md) portal.  
 
 ## Test an utterance
+
+> [!NOTE]
+> Remember to [train](luis-how-to-train.md) LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained.
 
 The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user.
 
