@@ -9,7 +9,7 @@ ms.author: punagpal
 ms.date: 11/12/2020
 ---
 
-# Quickstart: Use an ARM template to deploy Azure IoT Connector for FHIR (preview)
+# Quickstart: Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)
 
 In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*, a feature of Azure API for FHIR. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent Azure API for FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
 
@@ -199,7 +199,7 @@ Read-Host "Press [ENTER] to continue"
 ```
 
 > [!NOTE]
-> Azure IoT Connector for FHIR doesn't provide Powershell commands at this time. To validate your Azure IoT Connector for FHIR has been provisioned correctly, use the validation process provided in the **Portal** tab.
+> Azure IoT Connector for FHIR doesn't provide PowerShell commands at this time. To validate your Azure IoT Connector for FHIR has been provisioned correctly, use the validation process provided in the **Portal** tab.
 
 Run the following interactive code to view details about your Azure IoT Central application. You'll have to enter the name of the new IoT Central application and the resource group.
 
@@ -243,9 +243,9 @@ az iot central app show -g $resourceGroupName -n $iotCentralName &&
 > [!IMPORTANT]
 > The Device mapping template provided in this guide is designed to work with Data Export (legacy) within IoT Central.
 
-IoT Central application currently doesn't provide ARM template or Powershell and CLI commands to set data export. So, follow the instructions below using Azure Portal.  
+IoT Central application currently doesn't provide ARM template or PowerShell and CLI commands to set data export. So, follow the instructions below using Azure portal.  
 
-Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a continuous data export within IoT Central](../iot-central/core/howto-export-data-legacy.md). On the continuous data export page:
+Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a Data export (legacy) within IoT Central](../iot-central/core/howto-export-data-legacy.md). On the Data export (legacy) page:
 - Pick *Azure Event Hubs* as the export destination.
 - Select *Use a connection string* value for **Event Hubs namespace** field.
 - Provide Azure IoT Connector for FHIR's connection string obtained in a previous step for the **Connection String** field.
