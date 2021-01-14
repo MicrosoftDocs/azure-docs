@@ -313,7 +313,7 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the the OS type, Hyper-V generation, and the data disk layout matches between the images.
 
-## Troubleshoot shared image gallery issues
+## Troubleshoot Shared Image Gallery issues
 If you have issues with performing any operations on the shared image gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 
 In addition, you can post and tag your question with `azure-virtual-machines-images` at [Q&A](/answers/topics/azure-virtual-machines-images.html).
