@@ -21,7 +21,7 @@ This category contains the following entities:
 
 :::row:::
    :::column span="":::
-      **Category or subcategory**
+      **Entity**
 
       Person
    :::column-end:::
@@ -34,31 +34,116 @@ This category contains the following entities:
 :::column span="1":::
       **Languages**
 
-      `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`    
+       `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`    
       
    :::column-end:::
 
 :::row-end:::
+
+Entities in this category can have the following subcategories:
+
 :::row:::
    :::column span="":::
+      **Subcategory**
+
       PersonType
    :::column-end:::
    :::column span="2":::
+      **Details**
 
       Job types or roles held by a person. 
-
-      Subcategory of the Person entity.    
+ 
    :::column-end:::
 
-    :::column span="1":::
+   :::column span="1":::
+      **Languages**
 
-      `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`       
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`     
       
    :::column-end:::
 :::row-end:::
-### Supported relations
 
-TBD 
+## Location
+
+This category contains the following entities:
+
+:::row:::
+   :::column span="":::
+      **Entity**
+
+      Location
+   :::column-end:::
+   :::column span="2":::
+      **Details**
+
+      Natural and human-made landmarks, structures, geographical features, and geopolitical entities.
+      
+   :::column-end:::
+:::column span="1":::
+      **Languages**
+
+       `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt`-`br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`    
+      
+   :::column-end:::
+
+:::row-end:::
+
+Entities in this category can have the following subcategories:
+
+:::row:::
+   :::column span="":::
+      **Subcategory**
+
+      Geopolitical entity (GPE)
+   :::column-end:::
+   :::column span="2":::
+      **Details**
+
+      Cities, countries/regions, states. 
+ 
+   :::column-end:::
+
+   :::column span="1":::
+      **Languages**
+
+      `en`     
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Structural
+   :::column-end:::
+   :::column span="2":::
+
+      Manmade structures. 
+ 
+   :::column-end:::
+
+   :::column span="1":::
+
+      `en`     
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      Geographical
+   :::column-end:::
+   :::column span="2":::
+
+      Geographic and natural features such as rivers, oceans, and deserts
+ 
+   :::column-end:::
+
+   :::column span="1":::
+
+      `en`     
+      
+   :::column-end:::
+:::row-end:::
+
+
 
 ## Organization
 
@@ -66,7 +151,7 @@ This category contains the following entities:
 
 :::row:::
    :::column span="":::
-      **Category or subcategory**
+      **Entity**
 
       Organization
    :::column-end:::
@@ -79,22 +164,32 @@ This category contains the following entities:
    :::column span="1":::
       **Languages**
 
-      `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`    
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt`-`br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`    
       
    :::column-end:::
-
 :::row-end:::
+
+Entities in this category can have the following subcategories:
+
+
+
+
+
 :::row:::
    :::column span="":::
+      **Subcategory**
+
       Medical
    :::column-end:::
    :::column span="2":::
+     **Details**
 
       Medical companies and groups. Subcategory of the Organization entity.  
    :::column-end:::
     :::column span="1":::
+      **Languages**
 
-       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+       `en`        
           
     :::column-end:::
 :::row-end:::
@@ -108,7 +203,7 @@ This category contains the following entities:
    :::column-end:::
     :::column span="1":::
 
-       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+       `en`       
           
     :::column-end:::
 :::row-end:::
@@ -124,14 +219,11 @@ This category contains the following entities:
    :::column-end:::
     :::column span="1":::
 
-       `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`, `en`,  `en`        
+       `en`        
           
     :::column-end:::
 :::row-end:::
 
-### Supported relations
-
-TBD
 
 
 <!--| Category   | Description                          |
