@@ -1,27 +1,27 @@
 ---
-title: Azure Stack Edge Pro with FPGA 2012 release notes | Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Stack Edge 2012 release.
+title: Azure Stack Edge Pro with FPGA 2101 release notes | Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Stack Edge 2101 release.
 services: databox
 author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/12/2021
+ms.date: 01/14/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro with FPGA 2012 release notes
+# Azure Stack Edge Pro with FPGA 2101 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2012 release of Azure Stack Edge Pro with with a built-in Field Programmable Gate Array (FPGA).
+The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Stack Edge Pro with with a built-in Field Programmable Gate Array (FPGA).
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure Stack Edge device, carefully review the information in the release notes.
 
 This release corresponds to software version:
 
-- **Azure Stack Edge 2012 (XXX)** - KB XXX <!--Get KB number-->
+- **Azure Stack Edge 2101 (XXX)** - KB XXX <!--Get KB number-->
 
 > [!NOTE]
-> Update 2012 can be applied only to devices that are running general availability (GA) versions of the software or later.
+> Update 2101 can be applied only to devices that are running general availability (GA) versions of the software or later.
 
 ## What's new
 

@@ -1,28 +1,28 @@
 ---
-title: Azure Data Box Gateway 2012 release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2012 release.
+title: Azure Data Box Gateway 2101 release notes| Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2101 release.
 services: databox
 author: v-dalc
  
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/11/2021
+ms.date: 01/14/2021
 ms.author: alkohli
 ---
 
-# Azure Data Box Gateway 2012 release notes
+# Azure Data Box Gateway 2101 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2012 release of Azure Data Box Gateway.
+The following release notes identify the critical open issues and the resolved issues for the 2101 release of Azure Data Box Gateway.
 
 The release notes are continuously updated. As critical issues that require a workaround are discovered, they are added. Before you deploy your Azure <!--Stack Edge/-->Data Box Gateway, carefully review the information in the release notes.
 
 This release corresponds to the software versions:
 
-- **Data Box Gateway 2012 (XXX)** - KB XXXXX <!--Get KB number for the Data Box Gateway release.-->
+- **Data Box Gateway 2101 (XXX)** - KB XXXXX <!--Get KB number for the Data Box Gateway release.-->
 
 > [!NOTE]
-> Update 2012 can be applied only to all devices that are running general availability (GA) versions of the software or later.
+> Update 2101 can be applied only to all devices that are running general availability (GA) versions of the software or later.
 
 ## What's new
 
