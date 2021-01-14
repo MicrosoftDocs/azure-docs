@@ -51,9 +51,7 @@
       href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
 - name: Release notes
   items:
-  - name: 2101 - Current
-    href: data-box-gateway-2101-release-notes.md
-  - name: 2007
+  - name: 2007 - Current
     href: data-box-gateway-2007-release-notes.md
   - name: 1911
     href: data-box-gateway-1911-release-notes.md
