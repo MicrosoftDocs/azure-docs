@@ -122,7 +122,7 @@ When creating a transactable offer, it is important to understand the pricing, b
 
 After your offer is published, the listing option(s) you chose appear as a button in the upper-left corner of the listing page in the online store(s). For example, the following screen shows an offer listing page in the Microsoft AppSource online store with the **Get It Now** and **Test Drive** buttons:
 
-:::image type="content" source="media/listing-options.png" alt-text="Illustrates the listing page for an offer. The Contact Me and Test Drive buttons are shown.":::
+:::image type="content" source="media/listing-options.png" alt-text="Illustrates the listing page for an offer with the Contact Me and Test Drive buttons.":::
 
 ## Listing and pricing options by online store
 
