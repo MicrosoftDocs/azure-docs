@@ -79,24 +79,24 @@ Do these steps on your source device via the local UI.
 
 Use the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to help create the device configuration for the source device. During migration, you'll use this configuration information to configure the new target device. 
 
-## 2. Back up local data
+## 2. Back up share data
 
 The device data can be of one of the following types:
 
 - Data in Edge cloud shares
 - Data in local shares
 
-### Back up data in Edge cloud shares
+### Data in Edge cloud shares
 
-Edge cloud shares tier data from your device to Azure. Do these steps on your **source** device via the Azure portal. 
+Edge cloud shares tier data from your device to Azure. Do these steps on your *source* device via the Azure portal. 
 
 1. Make a list of all the Edge cloud shares and users that you have on the source device.
 1. Make a list of all the bandwidth templates that you have. You will recreate these bandwidth templates on your target device.
 1. Depending on the network bandwidth available, configure bandwidth templates on your device so that as maximize the data tiered to the cloud. This would to minimize local data on the device.
 
-### Back up data in Edge local shares
+### Data in Edge local shares
 
-Data in Edge local shares stays on the device. Do these steps on your **source** device via the Azure portal. 
+Data in Edge local shares stays on the device. Do these steps on your *source* device via the Azure portal. 
 
 1. Make a list of the Edge local shares that you have on the device.
 1. Use one of the following third-party data protection solutions to back up the data in the local shares. 
@@ -115,16 +115,16 @@ If you have deployed IoT Edge modules and are using FPGA acceleration, you may n
 
 ## 4. Create new order
 
-You need to create a new order (and a new resource) for your target device. The target device must be activated against the GPU resource and not against the FPGA resource.
+You need to create a new order (and a new resource) for your *target* device. The target device must be activated against the GPU resource and not against the FPGA resource.
 
 To place an order, [Create a new Azure Stack Edge resource](azure-stack-edge-gpu-deploy-prep.md#) in the Azure portal.
 
 
 ## 5. Set up, activate
 
-You need to set up and activate the target device against the new resource you created earlier. 
+You need to set up and activate the *target* device against the new resource you created earlier. 
 
-Follow these steps to configure the **target** device via the Azure portal:
+Follow these steps to configure the *target* device via the Azure portal:
 
 1. Gather the information required in the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md). You can use the information that you saved from the source device configuration. 
 1. [Unpack](azure-stack-edge-gpu-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-gpu-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device). 
@@ -138,7 +138,7 @@ You are now ready to restore the share data and deploy the workloads that you we
 
 ## 6. Migrate data
 
-You will now restore data from Edge cloud shares and Edge local shares.
+You will now restore data from Edge cloud shares and Edge local shares on your *target* device.
 
 ### Restore Edge cloud shares
 
