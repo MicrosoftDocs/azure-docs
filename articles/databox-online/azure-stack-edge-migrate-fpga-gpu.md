@@ -35,17 +35,17 @@ This section provides a comparative summary of capabilities between the Azure St
 | Usable storage | 4.19 TB <br> After reserving space for parity resiliency and internal use | 12.5 TB <br> After reserving space for internal use |
 | Security       | Certificates |                                                     |
 | Workloads      | IoT Edge workloads <br> Compute workloads <br> Kubernetes workloads| IoT Edge workloads |
-| Pricing        | Pricing | Pricing|
+| Pricing        | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) | [Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/)|
 
 ## Plan for migration
 
 To create your migration plan, consider the following information:
 
 - Develop a schedule for migration. 
-- When you migrate data, you will experience a downtime. We recommend that you schedule migration during a downtime maintenance window as the process is disruptive. You will set up and restore configurations in this downtime as described in [Recover the data from your Azure Stack Edge device]().
+- When you migrate data, you will experience a downtime. We recommend that you schedule migration during a downtime maintenance window as the process is disruptive. You will set up and restore configurations in this downtime as described in [Recover the data from your Azure Stack Edge device](azure-stack-edge-gpu-recover-device-failure.md).
 - Understand the total length of downtime and communicate it to all the stakeholders.
-- Identify the local data that needs to be migrated from the source device. As a precaution, ensure that all the data on the existing storage has a recent backup. The procedure to back up data on an Azure Stack Edge device is described in [Back up your Azure Stack Edge device]().
-- Identify any required pre-migration configuration changes for the target device. These changes are described in the Migration Prerequisites section.
+- Identify the local data that needs to be migrated from the source device. As a precaution, ensure that all the data on the existing storage has a recent backup. The procedure to back up data on an Azure Stack Edge device is described in [Back up your Azure Stack Edge device](azure-stack-edge-gpu-prepare-device-failure.md).
+
 
 ### Supported scenarios 
 
@@ -111,7 +111,7 @@ Data in Edge local shares stays on the device. Do these steps on your **source**
 
 ## 3. Prepare IoT Edge workloads
 
-If you have deployed IoT Edge modules and are using FPGA acceleration, you may need to modify the modules before these will run on the GPU device. Follow the instructions in [Modify IoT Edge modules](). 
+If you have deployed IoT Edge modules and are using FPGA acceleration, you may need to modify the modules before these will run on the GPU device. Follow the instructions in [Modify IoT Edge modules](azure-stack-edge-placeholder.md). 
 
 ## 4. Create new order
 
@@ -129,12 +129,12 @@ Follow these steps to configure the **target** device via the Azure portal:
 1. Gather the information required in the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md). You can use the information that you saved from the source device configuration. 
 1. [Unpack](azure-stack-edge-gpu-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-gpu-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device). 
 1. [Connect to the local UI of the device](azure-stack-edge-gpu-deploy-connect.md).
-1. Configure the network using the same IP addresses that you used for your old device. Using the same IP addresses will minimize the impact on any client machines used in your environment. See how to [configure network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+1. Configure the network using the same IP addresses that you used for your old device. Use the same IP addresses to minimize the impact on any client machines used in your environment. See how to [configure network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 1. Assign the same device name and DNS domain as your old device. That way, your clients can use the same device name to talk to the new device. See how to [configure device setting](azure-stack-edge-gpu-deploy-set-up-device-update-time.md).
 1. Configure certificates on the new device. See how to [configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
 1. Get the activation key from the Azure portal and activate the new device. See how to [activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
-You are now ready to deploy the workloads that you were running on the old device.
+You are now ready to restore the share data and deploy the workloads that you were running on the old device.
 
 ## 6. Migrate data
 
