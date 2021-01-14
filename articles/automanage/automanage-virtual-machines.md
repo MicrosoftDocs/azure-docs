@@ -42,7 +42,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - User must have correct permissions (see paragraph below)
 - Automanage does not support Sandbox subscriptions at this time
 
-You must have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles. 
+You must have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
@@ -97,9 +97,11 @@ You can adjust the settings of a default configuration profile through preferenc
 
 ## Automanage Account
 
-The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators.
+The Automanage Account is the security context or the identity under which the automated operations occur. Typically, the Automanage Account option is unnecessary for you to select, but if there was a delegation scenario where you wanted to divide the automated management of your resources (perhaps between two system administrators), this option allows you to define an Azure identity for each of those administrators.
 
 In the Azure portal experience, when you are enabling Automanage on your VMs, there is an Advanced dropdown on the **Enable Azure VM best practice** blade that allows you to assign or manually create the Automanage Account.
+
+The Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** roles to the subscription(s) containing the machine(s) you onboard to Automanage. You may use the same Automanage Account on machines across multiple subscriptions, which will grant that Automanage Account **Contributor** and **Resource Policy Contributor** permissions on all subscriptions.
 
 > [!NOTE]
 > You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
