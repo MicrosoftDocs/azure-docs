@@ -14,13 +14,13 @@ This section describes guidelines and requirements for allocating client address
 
 ### Background
 
-Each instance of a Point-to-site VPN gateway can support up to 10,000 concurrent point-to-site user connections. As a result, for scale units greater than 40, Virtual WAN needs to deploy extra capacity, which requires a certain number of address pools allocated for different scale units.
+Each instance of a Point-to-site VPN gateway can support up to 10,000 concurrent point-to-site user connections. As a result, for scale units greater than 40, Virtual WAN needs to deploy extra capacity, which requires a minimum  number of address pools allocated for different scale units.
 
-For instance, if a scale unit of 100 is chosen, the deployment can support 50,000 concurrent connections and 5 distinct address pools must be specified.
+For instance, if a scale unit of 100 is chosen, the deployment can support 50,000 concurrent connections and **at least** 5 distinct address pools must be specified.
 
 **Available Scale Units**
 
-| Scale Unit | Maximum Supported Clients | Required Address Pools |
+| Scale Unit | Maximum Supported Clients | Minimum Number of Address Pools |
 |--- |--- |--- |
 | 40 | 20000 | 2 |
 | 60 | 30000 | 3 |
@@ -36,20 +36,22 @@ For instance, if a scale unit of 100 is chosen, the deployment can support 50,00
 
 Below are some guidelines for choosing address pools.
 
-1. One address pool allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique RFC1918 IP addresses.
-1. Address pool ranges cannot be shared. For example, a pool with 5,000 addresses cannot use addresses from another pool that has 8,000 addresses.
+1. One gateway instance allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique RFC1918 IP addresses.
+1. Multiple address pool ranges can be combined and assigned to a **single** gateway instance. This process is done automatically in a round-robin matter for any gateway instances that have less than 10,000 IP addresses. For example, a pool with 5,000 addresses can be combined with another pool that has 8,000 addresses and be assigned to a single gateway instance.
 1. Address pools must be distinct. There can be no overlap between address pools.
 
 ### Example 
 
 The following example describes a situation where 60 scale units support up to 30,000 connections but the allocated address pools results in fewer than 30,000 concurrent connections.
 
-The total number of concurrent connections supported in this setup is 20,032. The first address pool  supports 10,000 addresses, the second pool 32 connections, and the third pool also supports 10,000 addresses.
+The total number of concurrent connections supported in this setup is 28,192. The first address pool  supports 10,000 addresses, the second pool 8,192 connections, and the third pool also supports 10,000 addresses.
 
 | Address Pool Number | Address Pool | Supported Connections |
 |--- |--- |--- |
 | 1 | 10.12.0.0/15 | 10000 |
-| 2 | 10.13.0.0/27 | 32 |
+| 2 | 10.13.0.0/19 | 32 |
 | 3 | 10.14.0.0/15 | 10000|
 
-**Recommendation: Ensure Address Pool #2 has at least 10,000 distinct IP addresses.**
+**Recommendation #1: Ensure Address Pool #2 has at least 10,000 distinct IP addresses. (example: 10.13.0.0/15)**
+
+**Recommendation #2 (Complex): Add one more address pool. (example: Address Pool #4 10.15.0.0/22 with 1024 addresses). Address Pools 2 and 4 will be automatically combined and allow that gateway instance to support 10,000 concurrent connections.**
