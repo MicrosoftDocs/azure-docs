@@ -24,7 +24,7 @@ This section shows how to use a configuration file in the local datastore to sto
 
 The following example clears the `@my.defaults` configuration file, adds key-value pairs for **key** and **region** in the file, and uses the configuration in a call to `spx recognize`.
 
-```shell
+```console
 spx config @my.defaults --clear
 spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
 spx config @my.defaults --add region westus
@@ -36,7 +36,7 @@ spx recognize --nodefaults @my.defaults --file hello.wav
 
 You can also write dynamic content to a configuration file. For example, the following command creates a custom speech model and stores the URL of the new model in a configuration file. The next command waits until the model at that URL is ready for use before returning.
 
-```shell
+```console
 spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
 spx csr model status --model @my.model.txt --wait
 ```
@@ -44,7 +44,7 @@ spx csr model status --model @my.model.txt --wait
 The following example writes two URLs to the `@my.datasets.txt` configuration file. In this scenario, `--output` can include an optional **add** keyword to create a configuration file or append to the existing one.
 
 
-```shell
+```console
 spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
 spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
 
@@ -53,7 +53,7 @@ spx config @my.datasets.txt
 
 For more details about datastore files, including use of default configuration files (`@spx.default`, `@default.config`, and `@*.default.config` for command-specific default settings), enter this command:
 
-```shell
+```console
 spx help advanced setup
 ```
 
