@@ -11,34 +11,48 @@ ms.author: zhanixa
 ms.date: 11/27/2020
 ---
 
-# Migrate to Azure Machine Learning - step by step guidance
+# Migrate to Azure Machine Learning from Studio (classic)
 
-Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. New resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
-
-Azure Machine Learning provides a modern machine learning platform with a fully managed experience. Customer should migrate their Studio(classic) projects to Azure Machine Learning before Feb 29,2024. We encourage customers to make the switch sooner to gain the richer benefit of the new platform.
-
-For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step-by-step guidance. 
+In this article, you learn about:
+- Studio (classic) retirement road map
+- How to migrate Studio (classic) assets to Azure Machine Learning
 
 
-## Steps for the migration
+## Retirement road map
 
-This section aims to give you an overview of the steps of the migration.
+Azure Machine Learning Studio (classic) will retire on February 29, 2024. We encourage users to migrate to Azure Machine Learning for a modernized data science platform. To understand the benefits, see [ML Studio (classic) vs Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning).
 
-- 1. [Create Azure Machine Learning resources](#create-azure-machine-learning-resource)
+ - **Current customers** can create new experiments and run existing Studio (classic) assets like experiments and web services until the retirement date.
 
-        Create resources that will be used in later steps of the migration, include:
-        - Workspace
-        - Training compute target
-        - Inference compute target
+- **New customers and new resources** like workspaces and web service plans cannot be created after May 31, 2021. If you plan to use a workspace or web service plan during the 3 year period to deprecation, you must create it before May 31, 2021.
 
-- 2. [Rebuild the experiment to train a model](#rebuild-the-experiment-to-train-a-model)
+- **Free-tier workspaces** are unaffected by retirement and can continue to be created and used without SLA commitments.
 
-        It can be further divided as following steps:
-        - 2.1 Migrate the dataset
-        - 2.2 Rebuild the graph by drag and drop
-        - 2.3 Submit a run and check result
+
+## Migration overview
+
+At this time, migrating resources from Studio (classic) to Azure Machine Learning requires you to manually rebuild your experiments in Azure Machine Learning.
+
+To rebuild your Studio (classic) experiments and web services you must:
+
+1. [Create the following Azure Machine Learning resources](#create-azure-machine-learning-resource):
+    - Azure Machine Learning workspace
+    - Training compute target
+    - Inference compute target
+
+1. [Rebuild the training experiment using drag-and-drop designer modules](#rebuild-the-experiment-to-train-a-model)
+    - Use the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping-table) to select replacement modules.
         
-- 3. Recreate the web service.
+1. Recreate the web service
+    - Use the designer to deploy your web service as a pipeline endpoint or real-time endpoint.
+
+1. [Integrate your web service with client apps](#integrate-with-client-app).
+    - Configure applications to use the new Azure Machine Learning endpoint.
+
+
+ ## Web services
+
+Add this in the deployment section
     
     In ML Studio(classic), there are three types of web service: request/respond web service, batch web service, and retraining web service. The mapping in Azure Machine Learning is summarized in below table.
 
@@ -52,10 +66,7 @@ This section aims to give you an overview of the steps of the migration.
     - [Deploy real time endpoint for real time prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
     - [Publish pipeline endpoint for batch prediction or retraining](#publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
 
-- 4. [Integrate with client app](#integrate-with-client-app).
-    
-    The last step is to integrate the new created endpoint in step 3 with client app to make prediction. 
-
+### Create 
 
 
 
