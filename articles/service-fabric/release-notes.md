@@ -31,7 +31,7 @@ We're excited to announce that 7.2 release of the Service Fabric runtime has sta
     - You can now change any observer setting via application parameters upgrade. This means you no longer need to redeploy FO to modify specific observer settings. Please see the [sample](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates).
 - [**Support for Ubuntu 18.04 OneBox container images**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
 - **Preview**: [**KeyVault Reference for Service Fabric applications supports **ONLY versioned secrets**. Secrets without versions are not supported.**](./service-fabric-keyvault-references.md)
-- SF SDK requires the latest VS 2019 update 16.7.6 or 16.8 Preview 4 to be able create new .Net Framework stateless/stateful/actors projects. If you do not have the latest VS update, after creating the service project, use package manager to install Microsoft.ServiceFabric.Services (version 4.2.x) for stateful/stateless projects and Microsoft.ServiceFabric.Actors (version 4.2.x) for actor projects from nuget.org.
+- SF SDK requires the latest VS 2019 update 16.7.6 or 16.8 Preview 4 to be able create new .NET Framework stateless/stateful/actors projects. If you do not have the latest VS update, after creating the service project, use package manager to install Microsoft.ServiceFabric.Services (version 4.2.x) for stateful/stateless projects and Microsoft.ServiceFabric.Actors (version 4.2.x) for actor projects from nuget.org.
 - **RunToCompletion**: Service Fabric supports concept of run to completion for guest executables. With this update once the replica runs to completion, the cluster resources allocated to this replica will be released.
 - [**Resource governance support has been enhanced**](./service-fabric-resource-governance.md): allowing requests and limits specifications for cpu and memory resources.
 
@@ -80,7 +80,7 @@ We also have published updates to end of support date for major releases startin
 - [**Run to completion/once for services**](./run-to-completion.md)**
 
 #### Image Store improvements
- - Service Fabric 7.1 uses **custom transport to secure file transfer between nodes by default**. The dependency on SMB file share is removed from the version 7.1. The secured SMB file shares are still existing on nodes that contains Image Store Service replica for customer's choice to opt out from default and for upgrade and downgrade to old version.
+ - Service Fabric 7.1 uses **custom transport to secure file transfer between nodes by default**. The dependency on SMB file share is removed from the version 7.1. The secured SMB file shares still exist on nodes that contain Image Store Service replica for customer's choice to opt out from default and for upgrade and downgrade to old version.
        
  #### Reliable Collections Improvements
 
