@@ -24,7 +24,6 @@ This article provides storage, disks and IO guidance a series of best practices 
 To learn more, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
-
 ## Storage guidance
 
 For detailed testing of SQL Server performance on Azure Virtual Machines with TPC-E and TPC-C benchmarks, refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
