@@ -200,9 +200,9 @@ The default log on service account of Self-hosted integration runtime is **NT SE
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Screenshot of Local Security Policy - User Rights Assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Service account permission](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Screenshot of Log on as a service user rights assignment](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## Notification area icons and notifications
