@@ -124,7 +124,7 @@ A new window will appear, select **Generate/import**. Enter the name of the para
 * **CognitiveServiceEndpoint**: The endpoint URL of your Form Recognizer API.
 * **CognitiveServiceSubscriptionKey**: The access key for your Form Recognizer service. 
 * **StorageAccountName**: The storage account where the training dataset and forms we want to extract key-value pairs from are stored. If these are in different accounts, enter each of their account names as separate secrets. Remember that the training datasets must be in the same container for all form types, but they can be in different folders.
-* **StorageAccountSasKey: the shared access signature (SAS) of the storage account
+* **StorageAccountSasKey**: the shared access signature (SAS) of the storage account
 To retrieve the SAS URL, go to your storage resource and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ## Train your Form Recognizer model in a Databricks notebook
@@ -141,7 +141,7 @@ To reference the secrets in the Azure Key Vault we created above, you'll need to
 
 ### Write a settings notebook
 
-Now you're ready to add Python notebooks. First, create a notebook called **Settings**; this notebook will assign the values in your parameterization table to variables in the script. The values will be passed as parameters by Azure Data Factory (TBD). We'll detail the approach in the orchestration section. 
+Now you're ready to add Python notebooks. First, create a notebook called **Settings**; this notebook will assign the values in your parameterization table to variables in the script. The values will later be passed as parameters by Azure Data Factory.
 
 We'll also assign variables values from the secrets in the Key Vault. To create the **Settings** notebook, click on the **workspace** button, in the new tab, click on the dropdown list and select **create** and then **notebook**.
 
