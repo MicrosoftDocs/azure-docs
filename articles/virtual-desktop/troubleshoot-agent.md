@@ -42,7 +42,7 @@ To resolve this issue, create a valid registration token:
 4. Select **IsRegistered**. 
 5. In the **Value data:** entry box, type **0** and select **Ok**. 
 6. Select **RegistrationToken**. 
-1. In the **Value data:** entry box, paste the registration token from step 1. 
+7. In the **Value data:** entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 0](media/isregisteredCopy.png)
@@ -92,6 +92,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessfulbrokerglobal.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
+9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection.
 
 ## Error: 3703 or 3019
 
@@ -105,7 +106,7 @@ To resolve this issue, verify that your firewall and/or DNS settings are not blo
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, the installer is already running for another application while you're trying to install the agent, or a policy is blocking the msiexec.exe program from running.
 
-To resolve this issue, disable the following policies:
+To resolve this issue, disable the following policy:
    - Turn off Windows Installer  
       - Category Path: Computer Configuration\Administrative Templates\Windows Components\Windows Installer
    
@@ -116,7 +117,7 @@ To disable a policy:
 1. Open a command prompt as an administrator.
 2. Enter and run **rsop.msc**.
 3. In the **Resultant Set of Policy** window that pops up, go to the category path.
-4. Double click on the policy.
+4. Select the policy.
 5. Select **Disabled**.
 6. Select **Apply**.   
 
@@ -127,7 +128,7 @@ To disable a policy:
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallMsiException** in the description, a policy is blocking cmd.exe from launching. Blocking this program prevents you from running the console window, which is what you need to use to restart the service whenever the agent updates.
 
-To resolve this issue, disable the following policies:
+To resolve this issue, disable the following policy:
    - Prevent access to the command prompt   
       - Category Path: User Configuration\Administrative Templates\System
     
@@ -138,7 +139,7 @@ To disable a policy:
 1. Open a command prompt as an administrator.
 2. Enter and run **rsop.msc**.
 3. In the **Resultant Set of Policy** window that pops up, go to the category path.
-4. Double click on the policy.
+4. Select the policy.
 5. Select **Disabled**.
 6. Select **Apply**.   
 
@@ -146,7 +147,7 @@ To disable a policy:
 
 Run **qwinsta** in your command prompt and make note of the version number that appears next to **rdp-sxs**. If you're not seeing the **rdp-tcp** and **rdp-sxs** components say **Listen** next to them or they aren't showing up at all after running **qwinsta**, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
 
-To resolve this issue, change **fEnableWinStation** and **fReverseConnectMode** to 1.
+To resolve this issue:
 1. Open the Registry Editor.
 2. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 3. Under **WinStations** you may see several folders for different stack versions, select the folder that matches the version information you saw when running **qwinsta** in your Command Prompt.
@@ -211,12 +212,12 @@ To resolve this issue, reinstall the side-by-side stack:
 3. Go to **Control Panel** > **Programs** > **Programs and Features**.
 4. Uninstall the latest version of the **Remote Desktop Services SxS Network Stack** or the version listed in **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** under **ReverseConnectListener**.
 5. Open a console window as an administrator and go to **Program Files** > **Microsoft RDInfra**.
-6. Double click on the **SxSStack** component or run the **msiexec /i SxsStack-<version>.msi** command to install the MSI.
+6. Select the **SxSStack** component or run the **msiexec /i SxsStack-<version>.msi** command to install the MSI.
 8. Restart your VM.
 9. Go back to the command prompt and run the **qwinsta** command.
 10. Verify that the stack component installed in step 6 says **Listen** next to it.
    - If so, enter **net start RDAgentBootLoader** in the command prompt and restart your VM.
-   - If not, you will need to [re-register your VM and reinstall the agent](#error-your-issue-is-not-listed-above-or-your-issue-remains-after-trying-other-troubleshooting-steps) component.
+   - If not, you will need to [re-register your VM and reinstall the agent](#error-your-issue-isnt-listed-here-or-wasn't-resolved) component.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
@@ -243,7 +244,7 @@ To resolve this issue, create a VM that is Windows Enterprise or Windows Server.
 
 The name of your VM has already been registered and is probably a duplicate.
 
-To resolve this issue, remove the session host from the host pool and create another one.
+To resolve this issue:
 1. Follow the steps in the [Remove the session host from the host pool](#remove-the-session-host-from-the-host-pool) section.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
 3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
@@ -253,7 +254,7 @@ To resolve this issue, remove the session host from the host pool and create ano
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool.png)
 
-## Error: Your issue is not listed above or your issue remains after trying other troubleshooting steps
+## Error: Your issue isn't listed here or wasn't resolved
 
 The following instructions will guide you in re-registering your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
 - Your VM is stuck in **Upgrading** or **Unavailable**
