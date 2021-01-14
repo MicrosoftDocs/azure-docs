@@ -33,9 +33,9 @@ spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\spe
 The following is an example of the output file structure.
 
 ```output
-audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.result.text
-sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
-sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
+audio.input.id	recognizer.session.started.sessionid	recognizer.recognized.result.text
+sample_1	07baa2f8d9fd4fbcb9faea451ce05475	A sample wave file.
+sample_2	8f9b378f6d0b42f99522f1173492f013	Sample text synthesized.
 ```
 
 ## Batch text-to-speech (speech synthesis)
@@ -47,18 +47,18 @@ The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separ
 
 ```text
 audio.outputtext
-C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav	Some more text to test capabilities.
 ```
 
-Next, you run a command to point to `text_synthesis.tsv`, perform synthesis on each `text` field, and write the result to the corresponding `audio.output` path as a `.wav` file. 
+Next, you run a command to point to `text_synthesis.tsv`, perform synthesis on each `text` field, and write the result to the corresponding `audio.output` path as a `.wav` file.
 
 ```console
 spx synthesize --foreach in @C:\your\path\to\text_synthesis.tsv
 ```
 
-This command is the equivalent of running `spx synthesize --text Sample text to synthesize --audio output C:\batch_wav_output\wav_1.wav` **for each** record in the `.tsv` file. 
+This command is the equivalent of running `spx synthesize --text Sample text to synthesize --audio output C:\batch_wav_output\wav_1.wav` **for each** record in the `.tsv` file.
 
 A couple things to note:
 
@@ -70,9 +70,9 @@ However, if you have a `.tsv` file like the following example, with column heade
 
 ```output
 wav_path    str_text
-C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav	Some more text to test capabilities.
 ```
 
 You can override these field names to the correct arguments using the following syntax in the `--foreach` call. This is the same call as above.

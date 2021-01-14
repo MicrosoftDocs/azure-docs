@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 01/13/2021
 ms.author: trbye 
 ms.custom: devx-track-azurecli
 ---
