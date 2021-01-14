@@ -272,6 +272,8 @@ The following options can't be modified:
 - `SINGLE_USER`
 - `WITNESS`
 
+Some alter database statements (e.g. [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) will transiently fail during short time intervals such as during the automated backup or right after a database is created. In this case alter statement should be retried few minutes later, once there are no active shared locks on the database. For more information see the Remarks section.
+
 For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### SQL Server Agent
