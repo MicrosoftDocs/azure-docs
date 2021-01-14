@@ -84,7 +84,7 @@ namespace adminClientTrack2
 You can use the [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) class in the [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code: 
 
 > [!NOTE]
-> Use the ServiceBusAdministrationClient class from the Azure.Messaging.ServiceBus.Administration library, which is the latest SDK. 
+> We recommend that you use the `ServiceBusAdministrationClient` class from the `Azure.Messaging.ServiceBus.Administration` library, which is the latest SDK. For details, see the [first section](#azuremessagingservicebusadministration-recommended). 
 
 ```csharp
 using System;
