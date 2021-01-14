@@ -1,5 +1,5 @@
 ---
-title: Getting started with UI Framework Components
+title: Getting started with UI Meeting SDK
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to user the Meeting UI SDK
 author: tophpalmer
@@ -14,16 +14,13 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Get started with Azure Communication Services by using the UI Framework to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how integrate UI Framework Components into your application to build communication experiences. Components come in two flavors: Base and Composite. 
-- **Base components** represent discrete communication capabilities; they are basic building blocks that can be used to build complex communication experiences. 
-- **Composite components** are turn-key experiences for common communication scenarios that have been built using **base components** as building blocks and packaged to be easily integrated into applications.
+jkojlhj
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
+- A User Access Token to instantiate the SDK client. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
 ## Setting up
 
@@ -39,115 +36,101 @@ TBD
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Calling client library for iOS.
 
-```console
-npm install @azure/communication-ui --save
+```swift
+TBD
 ```
+
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
+## Add Meeting element to your application
+
+The Meeting Composite is a complete communications experience you embed as a UI element in your app. 
+
+```swift
+TBD
+```
+
 ## Initialize Communications Provider using access token
 
-Using the required user access token, developers can initialize the UI Framework. The UI Framework uses the given token to then initialize and provide identity to the components used. Before initializing lets first import the UI Framework package.
+The SDK requires a user access token to authenticate to the Azure service and communicate. 
 
-```javascript
-
-import {CommunicationsProvider} from "@azure/communication-ui"
-
+```swift
+TBD
 ```
 
 To initialize the `CommunicationsProvider` do the following:
 
-```javascript
+```swift
+TBD
+```
 
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
+**In private preview, only M365 associated Azure user access tokens are supported. In public preview all Azure tokens will be supported.**
 
-        {/*Insert Chat or Calling Provider code from next step*/}
+## Modifying style and theming
+The default style of the Meeting Composite is intentionally generic, but you can adjust colors and other theming elements. To style the app like Teams, use the Teams styling configuration below in <some file>:
 
-    </CommunicationsProvider>
-</Provider>
+```swift
+TBD
+```
+
+## Modifying display name and avatar image 
+The SDK shows personalized UI elements such as user display names and avatar images. You can configure these at run-time using:
+
+```swift
+TBD
+```
+
+If you're building an experience for an M365 user, you can use code from the <some sample> to obtain the user's displayname and avatar content from Graph APIs.
+
+```swift
+TBD
+```
+
+## Join a Teams meeting or make a call
+Now that the UI is embedded, initialized, and personalized, it can participate in a variety of communication experiences, including:
+
+1. Joining Teams meetings
+2. Starting or joining ACS Group Calls
+3. Starting ore receiving a 1:1 call to a specfic ACS user (or receive a call from another user)
+
+Calling flows that are in development:
+
+3. Starting or receiving a PSTN phone call from an ACS acquired number
+3. Starting or receiving a PSTN phone call using numbers associated with the M365 user and their Teams configuration 
+
+### Joining a Teams meeting
+
+```swift
+    // join with meeting link
+    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+```
+
+### Starting or joining an ACS Group Call
+In order to start or join a call, `callSettings` must be passed to the `CallingProvider` for it to correct initialize the calling experience.
+
+```swift
+         let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
 
 ```
 
-Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together.
-
-## Initialize Chat and Calling Providers using access token
-
-Once you have initialized the `CommunicationsProvider`, we can now add the next layer before we add discrete components to build the communications experience. Depending on your need for calling or chat requirements you will need to initialize the calling and chat providers.
-
-In the snippet below we initialize both the `CallingProvider` and the `ChatProvider`. Developers can choose which one to use depending on the type of communication experience they look to build or use both when both modalities are required.
-
-```javascript
-
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            {/*Insert calling components code from next step*/}
-        </CallingProvider>
-
-        <ChatProvider chatSettings={...}>
-            {/*Insert chat components code from next step*/}
-        </ChatProvider>
-    </CommunicationsProvider>
-</Provider>
-
-```
-
-Moving forward in this quickstart, we will only use the `CallingProvider` to build a calling experience.
-
-## Defining callSettings to start or join a call
+### User to user direct calling
 
 In order to start or join a call, `callSettings` must be passed to the `CallingProvider` for it to correct initialize the calling experience.
 
-```javascript
-
-callSettings = {
-    userToCall = ["IDENTITY","PHONE_NUMBER"], //Optional, Supports both Azure Communication Services Identities or PSTN numbers if PSTN is enabled
-    groupId = "GROUP_ID", //Optional, Azure Communication Services Group ID
-}
+```swift
+         let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
 
 ```
 
-Now that the call is fully configured, the necessary UI Framework components can be added.
-
-## Add UI Framework Components to your application
-
-We will build a basic calling experience using one of our Composite Components. This composites are end to end experiences that are built using Base Components. In this case, we will use the Group Calling Composite that includes a participant gallery, action bar and configuration pane.
-
-```javascript
-
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            <Group-Calling settings={...} />
-        </CallingProvider>
-    </CommunicationsProvider>
-</Provider>
-
-```
-
-Alternatively, you can build your own experience using Base Components, for example here:
-
-```javascript
-
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            <Action-Bar settings={} />
-            <Participant-Gallery settings={} />
-        </CallingProvider>
-    </CommunicationsProvider>
-</Provider>
-
-```
 
 ## Run quickstart
 
 TBD
-
-TBD Screenshot 
 
 ## Clean up resources
 
