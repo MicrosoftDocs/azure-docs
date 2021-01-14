@@ -93,4 +93,4 @@ You can download the list of ranges (prefixes) for the Azure [Public](https://ww
 - Learn more about [static public IP addresses](./public-ip-addresses.md#allocation-method).
 - Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Learn more about [private IP addresses](./public-ip-addresses.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
+- Learn more about [private IP addresses](./private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
