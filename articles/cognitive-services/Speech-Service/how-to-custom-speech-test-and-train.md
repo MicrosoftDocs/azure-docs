@@ -118,9 +118,9 @@ To address issues like word deletion or substitution, a significant amount of da
 
   For example:
 ```
-  speech01.wav  speech recognition is awesome
-  speech02.wav  the quick brown fox jumped all over the place
-  speech03.wav  the lazy dog was not amused
+speech01.wav	speech recognition is awesome
+speech02.wav	the quick brown fox jumped all over the place
+speech03.wav	the lazy dog was not amused
 ```
 
 > [!IMPORTANT]
