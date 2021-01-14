@@ -9,7 +9,7 @@ ms.date: 06/23/2020
 
 AMQP 1.0 support is available in the Service Bus package version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
 
-> [!NOTE
+> [!NOTE]
 > You can use either Advanced Message Queuing Protocol (AMQP) or Service Bus Messaging Protocol (SBMP) with the .NET library for Service Bus. AMQP is the default protocol used by the .NET library. We recommend that you use the AMQP protocol (which is the default) and not override it. 
 
 ## Configure .NET applications to use AMQP 1.0
