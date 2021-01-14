@@ -70,7 +70,7 @@ Use Azure RBAC to control what users have access to. For example, if you want to
 Because the vast majority of attacks target the end user, the endpoint becomes one of the primary points of attack. An attacker who compromises the endpoint can use the user’s credentials to gain access to the organization’s data. Most endpoint attacks take advantage of the fact that users are administrators in their local workstations.
 
 **Best practice**: Use a secure management workstation to protect sensitive accounts, tasks, and data.   
-**Detail**: Use a [privileged access workstation](/windows-server/identity/securing-privileged-access/privileged-access-workstations) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
+**Detail**: Use a [privileged access workstation](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
 
 **Best practice**: Ensure endpoint protection.   
 **Detail**: Enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
