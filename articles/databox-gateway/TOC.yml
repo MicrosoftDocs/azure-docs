@@ -43,9 +43,11 @@
       href: data-box-gateway-manage-access-power-connectivity-mode.md
     - name: Via PowerShell 
       href: data-box-gateway-connect-powershell-interface.md
-    - name: Monitor
-      href: data-box-gateway-monitor.md
-    - name: Troubleshoot
+  - name: Monitor
+    href: data-box-gateway-monitor.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot 
       href: data-box-gateway-troubleshoot.md
     - name: Contact Microsoft Support
       href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
