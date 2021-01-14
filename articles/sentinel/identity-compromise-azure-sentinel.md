@@ -1,6 +1,6 @@
 ---
-title: Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
-description: Learn how to use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
+title: Use Azure Sentinel to secure against supply-chain attacks and systemic-identity compromises | Microsoft Docs
+description: Learn how to use Azure Sentinel to secure against supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -13,32 +13,55 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 01/13/2021
 ms.author: bagol
 
 ---
 
-# Use Azure Sentinel to respond to supply-chain attacks and systemic-identity compromises
+# Use Azure Sentinel to secure against supply-chain attacks and systemic-identity compromises
 
-Microsoft recommends using Azure Sentinel to analyze data from across security products, including both on-premises and cloud environments, while protecting your environment.
+If you suspect that your organization has been affected by [Solorigate](https://aka.ms/solorigate) or another similar attack, you can use Azure Sentinel to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
 
-Microsoft 365 Defender alerts, combined with raw logs from other data sources, provide security teams with insights into the full nature and scope of the Solorigate attack on the organization. 
+Use Azure Sentinel's analytics rules, together with alerts and raw data from Microsoft 365 Defender and other sources, to gather insights into the full nature and scope of an attack.
 
-Using Sentinel to investigate incident sources from Microsoft 365 Defender enables you to quickly pivot on any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
+## Create analytics rules that watch for supply-chain attacks and systemic-identity compromise
 
-**To use Azure Sentinel to hunt through Microsoft 365 Defender and Azure AD data**:
+MISSING INFO - GATHER FROM ITAY
+SEPARATE OUT SUPPLY CHAIN VS IDENTITY?
+## Use Azure Sentinel to hunt through Microsoft 365 Defender and Azure AD data
 
-1. Set up the following Azure Sentinel connectors to stream the range of alerts and queries for known patterns associated with the Solorigate attack into Azure Sentinel:
+Use Azure Sentinel to investigate incidents from one source and pivot to any discovered entities, such as users, IP addresses, and hostnames, to incidents from other sources.
 
-      - [Windows security events](connect-windows-security-events.md)
-      - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
-      - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md)
-      - [Office 365 logs ](connect-office-365.md)
-      - [Azure Active Directory](connect-azure-active-directory.md)
-      - [Domain name server](connect-dns.md)
+**Required Azure Sentinel connectors**
+
+Set up the following Azure Sentinel connectors to stream the range of alerts and queries for known patterns into Azure Sentinel:
+
+- [Windows security events](connect-windows-security-events.md)
+- [Microsoft 365 Defender](connect-microsoft-365-defender.md)
+- [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md)
+- [Office 365 logs ](connect-office-365.md)
+- [Azure Active Directory](connect-azure-active-directory.md)
+- [Domain name server](connect-dns.md)
+
+**Hunt for attack activity**
+
+1. In Sentinel, under **Threat management** on the left, navigate to the **Workbooks** > **SolarWinds Post Compromise Hunting** workbook.
+
+1. Use the queries in this workbook to [hunt](hunting.md) for attack activity related to the Solorigate compromise. Modify the time frame as needed for your environment.
+
+    > [!TIP]
+    > If you are dealing with a similar compromise, you may be able to modify these queries to fit your current requirements.
+    > 
     
-1. Use Azure Sentinel to [hunt](hunting.md) for attack activity, especially  with the [SolarWinds post-compromise hunting workbook](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json). For more information, see:
-    
+The **SolarWinds Post Compromise Hunting** workbook includes queries related to the following areas:
+
+- Suspicious Signins
+- Suspicious App Modifications
+- Suspicious Lateral Movement
+- Suspicious Host Activity
+- Suspicious Network Activity
+- 
+
     - [Detect machines with SolarWinds Orion components](#detect-machines-with-solarwinds-orion-components)
     - [Find hardcoded pipes in your environment](#find-hardcoded-pipes-in-your-environment)
     - [Identify privilege escalations in your system](#identify-privilege-escalations-in-your-system)
