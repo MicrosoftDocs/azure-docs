@@ -112,9 +112,9 @@ The Defender for IoT portal in Azure is used to help you:
 
 Defender for IoT is enabled by default in every new IoT Hub that is created. Defender for IoT provides real-time monitoring, recommendations, and alerts, without requiring agent installation on any devices and uses advanced analytics on logged IoT Hub meta data to analyze and protect your field devices and IoT hubs. 
 
-## Embedded security agent: Enhanced mode
+## Defender for IoT micro agent 
 
-In **Enhanced** mode, after turning on the **Security** option in your IoT hub and installing Defender for IoT device agents on your devices, the agents collect, aggregate, and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Defender for IoT device agents also handles event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
+Defender for IoT micro agent provides depth security protection and visibility into device behavior. collects, aggregates, and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Defender for IoT device agents also handles event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
 Device agents, and other applications use the **Azure send security message SDK** to send security information into Azure IoT hub. IoT hub gets this information and forwards it to the Defender for IoT service.
 
