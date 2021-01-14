@@ -67,7 +67,7 @@ The above policy verifies:
 - The library in the enclave has been signed using the Microsoft signing key (the value of the x-ms-sgx-mrsigner claim is the hash of the signing key).
 
 > [!IMPORTANT]
-> An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the above recommended policy, and not use the default policy.
+> An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the above recommended policy, and not use the default policy, for Always Encrypted with secure enclaves.
 
 For instructions for how to create an attestation provider and configure with an attestation policy using:
 
@@ -144,4 +144,4 @@ For more information, see [Add or remove Azure role assignments using Azure Powe
 
 ## See also
 
-- [Tutorial: Getting started with Always Encrypted with secure enclaves in SQL Server](always-encrypted-enclaves-getting-started.md)
+- [Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database](always-encrypted-enclaves-getting-started.md)

@@ -231,7 +231,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |:--- | --: |--: |--: |--: |---: | 
 |Compute generation|DC-series|DC-series|DC-series|DC-series|
 |vCores|2|4|6|8|
-|Memory (GB)|12|24|36|48|
+|Memory (GB)|9|18|27|36|
 |[RBPEX](service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
@@ -242,7 +242,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max local SSD IOPS *|8000 |16000 |24000 |32000 |
 |Max log rate (MBps)|100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|Max concurrent workers (requests)|200|400|600|800|
+|Max concurrent workers (requests)|160|320|480|640|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|
@@ -423,7 +423,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |:---| ---:|---:|---:|---:|
 |Compute generation|DC-series|DC-series|DC-series|DC-series|
 |vCores|2|4|6|8|
-|Memory (GB)|12|24|36|48|
+|Memory (GB)|9|18|27|36|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1536|3072|3072|
@@ -433,7 +433,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS *|640|1280|1920|2560|
 |Max log rate (MBps)|9|18|27|36|
-|Max concurrent workers (requests)|200|400|600|800|
+|Max concurrent workers (requests)|160|320|480|640|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|
@@ -620,7 +620,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |:--- | --: |--: |--: |--: |
 |Compute generation|DC-series|DC-series|DC-series|DC-series|
 |vCores|2|4|6|8|
-|Memory (GB)|12|24|36|48|
+|Memory (GB)|9|18|27|36|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.7|3.7|5.9|8.2|
 |Max data size (GB)|768|768|768|768|

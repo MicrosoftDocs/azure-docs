@@ -236,7 +236,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |:--- | --: |--: |--: |--: |
 |Compute generation|DC|DC|DC|DC|
 |vCores|2|4|6|8|
-|Memory (GB)|12|24|36|48|
+|Memory (GB)|9|18|27|36|
 |Max number DBs per pool <sup>1</sup>|100|400|400|400|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
@@ -247,8 +247,8 @@ You can set the service tier, compute size (service objective), and storage amou
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|800|1600|2400|3200|
 |Max log rate per pool (MBps)|9.4|18.8|28.1|32.8|
-|Max concurrent workers per pool (requests) <sup>3</sup>|210|420|630|840|
-|Max concurrent logins per pool (requests) <sup>3</sup>|210|420|630|840|
+|Max concurrent workers per pool (requests) <sup>3</sup>|168|336|504|672|
+|Max concurrent logins per pool (requests) <sup>3</sup>|168|336|504|672|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|2|2...4|2...6|2...8|
 |Number of replicas|1|1|1|1|
@@ -472,7 +472,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |:--- | --: |--: |--: |--: |
 |Compute generation|DC|DC|DC|DC|
 |vCores|2|4|6|8|
-|Memory (GB)|12|24|36|48|
+|Memory (GB)|9|18|24|36|
 |Max number DBs per pool <sup>1</sup>|50|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.7|3.7|5.9|8.2|
@@ -483,8 +483,8 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|15750|31500|47250|56000|
 |Max log rate per pool (MBps)|20|60|90|120|
-|Max concurrent workers per pool (requests) <sup>3</sup>|210|420|630|840|
-|Max concurrent logins per pool (requests) <sup>3</sup>|210|420|630|840|
+|Max concurrent workers per pool (requests) <sup>3</sup>|168|336|504|672|
+|Max concurrent logins per pool (requests) <sup>3</sup>|168|336|504|672|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Min/max elastic pool vCore choices per database|2|2...4|2...6|2...8|
 |Number of replicas|4|4|4|4|
