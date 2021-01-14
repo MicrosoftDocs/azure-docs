@@ -217,7 +217,7 @@ To resolve this issue, reinstall the side-by-side stack:
 9. Go back to the command prompt and run the **qwinsta** command.
 10. Verify that the stack component installed in step 6 says **Listen** next to it.
    - If so, enter **net start RDAgentBootLoader** in the command prompt and restart your VM.
-   - If not, you will need to [re-register your VM and reinstall the agent](#error-your-issue-isnt-listed-here-or-wasnt-resolved) component.
+   - If not, you will need to [re-register your VM and reinstall the agent](#your-issue-isnt-listed-here-or-wasnt-resolved) component.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
