@@ -111,7 +111,7 @@ To determine a deployment or runtime issue, see [Deployment vs. runtime issues](
 ### I'm not able to FTP and publish my code. How can I resolve the issue?
 Check that you've entered the correct hostname and [credentials](#open-ftp-dashboard). Check also that the following FTP ports on your machine are not blocked by a firewall:
 
-- FTP control connection port: 21
+- FTP control connection port: 21, 990
 - FTP data connection port: 989, 10001-10300
  
 ### How can I connect to FTP in Azure App Service via passive mode?
