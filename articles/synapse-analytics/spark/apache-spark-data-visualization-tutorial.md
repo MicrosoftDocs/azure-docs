@@ -33,7 +33,7 @@ Create an Apache Spark Pool by following the [Create an Apache Spark pool tutori
    import pandas as pd
    ```
 
-3. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. Create a Spark dataframe by retrieving the data via the Open Datasets API. Here, we use the Spark dataframe *schema on read* properties to infer the datatypes and schema.
+3. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a DataFrame directly. Create a Spark DataFrame by retrieving the data via the Open Datasets API. Here, we use the Spark DataFrame *schema on read* properties to infer the datatypes and schema.
 
    ```python
    from azureml.opendatasets import NycTlcYellow
@@ -93,13 +93,13 @@ In addition to the built-in notebook charting options, you can use popular open-
 > [!Note]
 > By default, every Apache Spark pool in Azure Synapse Analytics contains a set of commonly used and default libraries. You can view the full list of libraries in the [Azure Synapse runtime](../spark/apache-spark-version-support.md) documentation. In addition, to make third-party or locally built code available to your applications, you can [install a library](../spark/apache-spark-azure-portal-add-libraries.md) onto one of your Spark pools.
 
-1. To make development easier and less expensive, we'll downsample the dataset. We'll use the built-in Apache Spark sampling capability. In addition, both Seaborn and Matplotlib require a Pandas dataframe or NumPy array. To get a Pandas dataframe, use the ```toPandas()``` command to convert the dataframe.
+1. To make development easier and less expensive, we'll downsample the dataset. We'll use the built-in Apache Spark sampling capability. In addition, both Seaborn and Matplotlib require a Pandas DataFrame or NumPy array. To get a Pandas DataFrame, use the ```toPandas()``` command to convert the DataFrame.
 
    ```python
    # To make development easier, faster, and less expensive, downsample for now
    sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
-   # The charting package needs a Pandas dataframe or NumPy array to do the conversion
+   # The charting package needs a Pandas DataFrame or NumPy array to do the conversion
    sampled_taxi_pd_df = sampled_taxi_df.toPandas()
    ```
 
