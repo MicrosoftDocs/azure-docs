@@ -56,6 +56,7 @@ Data is available in a table in **SQLPOOL1**. Load it into a Spark database name
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
+1. Select **Run** on the cell.
 1. On the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
     - **SQLPOOL1 (SQL)**

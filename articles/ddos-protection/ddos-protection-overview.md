@@ -41,6 +41,10 @@ Azure DDoS protection does not store customer data.
 
 ## Pricing
 
+DDoS protection plans have a fixed monthly charge of $2,944 per month which covers up to 100 public IP addresses. Protection for additional resources will cost an additional $30 per resource per month.
+
+Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
+
 To learn about Azure DDoS Protection Standard pricing, see [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 ## Next steps
