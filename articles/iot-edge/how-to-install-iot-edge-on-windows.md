@@ -15,15 +15,22 @@ ms.author: v-tcassi
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices from PC class to industrial servers. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices through the use of Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
+Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices by using Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
 
 This article lists the steps to set up IoT Edge on a Windows device. These steps deploy a Linux virtual machine that contains the IoT Edge runtime to run on your Windows device, then provision the device with its IoT Hub device identity.
 
 ## Prerequisites
 
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An [Azure IoT Edge device ID](how-to-manual-provision-symmetric-key.md#create-an-iot-edge-device-in-the-azure-portal).
+
+* A registered [device ID](how-to-register-device.md).
+
+   If you registered your device with symmetric key authentication, have the device connection string ready.
+
+   If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private key available on your device.
+
 * Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
    <!-- The link below needs the language localization to work; otherwise broken -->
    1. Visit the [Windows Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
@@ -49,6 +56,14 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
    1. On the **Available extensions** tab, find **Azure IoT Edge** in the list of extensions. Choose it, and select the **Install** prompt above the list of extensions.
 
    1. After the installation completes, you should see in the list of installed extensions on the **Installed extensions** tab.
+
+You will need to provision your device with one of the following methods:
+
+* Manual provisioning using your IoT Edge device's connection string.
+* Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys. Learn more about [creating and provisioning an IoT Edge device with DPS and symmetric keys](how-to-auto-provision-symmetric-keys.md).
+* Automatic provisioning using DPS and X.509 certificates. Learn more about [creating and provisioning an IoT Edge device with DPS and X.509 certificates](how-to-auto-provision-x509-certs.md).
+
+If you plan on using one of the DPS methods to provision your device or devices, follow the steps in the appropriate article linked above to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
 
 Minimum system requirements:
 
@@ -116,6 +131,21 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
    ```
 
+   > [!NOTE]
+   > You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding the INSTALLDIR="<FULLY_QUALIFIED_PATH>" and VHDXDIR="<FULLY_QUALIFIED_PATH>" parameters to the install command above.
+
+1. For the deployment to run successfully, you need to set the execution policy on the target device to `AllSigned` if it is not already. You can check the current execution policy in an elevated PowerShell prompt using:
+
+   ```azurepowershell-interactive
+   Get-ExecutionPolicy -List
+   ```
+
+   If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
+
+   ```azurepowershell-interactive
+   Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+   ```
+
 1. Create the IoT Edge for Linux on Windows deployment.
 
    ```azurepowershell-interactive
@@ -136,13 +166,12 @@ Once your deployment is complete, you are ready to provision your device.
 
 ---
 
-To provision your device, you have three options:
+To provision your device, you can follow the links below to the section for your selected provisioning method:
 
 * [Manual provisioning using your IoT Edge device's connection string](how-to-install-iot-edge-on-windows.md#provisioning-manually-using-the-connection-string)
 * [Automatic provisioning using Device Provisioning Service (DPS) and symmetric keys](how-to-install-iot-edge-on-windows.md#provisioning-via-dps-using-symmetric-keys)
 * [Automatic provisioning using DPS and X.509 certificates](how-to-install-iot-edge-on-windows.md#provisioning-via-dps-using-x509-certificates)
 
-<!-- Update flow with restructuring of register, install, authenticate articles  -->
 ## Provision your device
 
 Choose a method for provisioning your device and follow the instructions in the appropriate section. You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
@@ -181,9 +210,7 @@ This section covers provisioning your device manually using your Azure IoT Edge 
 
 ### Provisioning via DPS using symmetric keys
 
-This section covers provisioning your device automatically using DPS and symmetric keys. To continue with these steps, follow the [instructions on how to use DPS and symmetric keys to automatically provision an IoT Edge device](how-to-auto-provision-symmetric-keys.md) to create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
-
-Once you complete these steps, return here.
+This section covers provisioning your device automatically using DPS and symmetric keys.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -225,9 +252,7 @@ Once you complete these steps, return here.
 
 ### Provisioning via DPS using X.509 certificates
 
-This section covers provisioning your device automatically using DPS and X.509 certificates. To continue with these steps, follow the [instructions on how to use DPS and X.509 certificates to automatically provision an IoT Edge device](how-to-auto-provision-x509-certs.md) to create test certificates if necessary, create an instance of DPS, link your DPS instance to your IoT Hub, and create a DPS enrollment. You can create an *individual enrollment* for a single device or a *group enrollment* for a group of devices. For more information about the enrollment types, visit the [Azure IoT Hub Device Provisioning Service concepts](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
-
-Once you complete these steps, return here.
+This section covers provisioning your device automatically using DPS and X.509 certificates.
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -252,7 +277,7 @@ Once you complete these steps, return here.
 1. Copy the following command into a text editor. Replace the placeholder text with your information as detailed.
 
    ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE>
+   Provision-EflowVm -provisioningType x509 -​scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocWin <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
    ```
 
 1. In the [Azure portal](https://ms.portal.azure.com/), navigate to your DPS instance.
