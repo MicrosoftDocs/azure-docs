@@ -45,7 +45,7 @@ Below are some guidelines for choosing address pools. Note that point-to-site VP
 
 The following example describes a situation where 60 scale units support up to 30,000 connections but the allocated address pools results in fewer than 30,000 concurrent connections.
 
-The total number of concurrent connections supported in this setup is 28,192. The first address pool  supports 10,000 addresses, the second pool 8,192 connections, and the third pool also supports 10,000 addresses.
+The total number of concurrent connections supported in this setup is 28,192. The first gateway instance  supports 10,000 addresses, the second instance 8,192 connections, and the third instance also supports 10,000 addresses.
 
 | Address Pool Number | Address Pool | Supported Connections |
 |--- |--- |--- |
@@ -55,4 +55,4 @@ The total number of concurrent connections supported in this setup is 28,192. Th
 
 **Recommendation #1: Ensure Address Pool #2 has at least 10,000 distinct IP addresses. (example: 10.13.0.0/15)**
 
-**Recommendation #2: Add one more address pool. (example: Address Pool #4 10.15.0.0/22 with 1024 addresses). Address Pools 2 and 4 will be automatically combined and allow that gateway instance to support 10,000 concurrent connections.**
+**Recommendation #2: Add one more address pool. (example: Address Pool #4 10.15.0.0/21 with 2048 addresses). Address Pools 2 and 4 will be automatically combined and allow that gateway instance to support 10,000 concurrent connections.**
