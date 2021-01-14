@@ -45,7 +45,7 @@ The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separ
 >[!IMPORTANT]
 > When copying the contents of this text file, make sure that your file has a **tab** not spaces between the file location and the text. Sometimes, when copying the contents from this example, tabs are converted to spaces causing the `spx` command to fail when run.
 
-```text
+```Input
 audio.outputtext
 C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
 C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
@@ -77,7 +77,7 @@ C:\batch_wav_output\wav_3.wav	Some more text to test capabilities.
 
 You can override these field names to the correct arguments using the following syntax in the `--foreach` call. This is the same call as above.
 
-```shell
+```console
 spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.tsv
 ```
 
