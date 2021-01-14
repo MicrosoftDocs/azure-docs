@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 ---
 # List Azure role assignments using Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 

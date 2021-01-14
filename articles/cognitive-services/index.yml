@@ -155,7 +155,7 @@ conceptualContent:
           text: Cognitive Services for Big Data
         - url: ./big-data/getting-started.md
           itemType: get-started
-          text: Use Cognitive Services within Azure Databricks and Synapse Analytics
+          text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
         - url: ./big-data/samples-python.md
           itemType: reference
           text: Python Samples   

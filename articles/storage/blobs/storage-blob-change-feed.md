@@ -238,7 +238,7 @@ Here's an example of change event record from change feed file converted to Json
 }
 ```
 
-For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to Change feed and not yet supported for Blob Storage Events.
+For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to Change feed and not yet supported for Blob Storage Events.
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.

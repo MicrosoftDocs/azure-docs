@@ -34,7 +34,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sn
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * [A Snowflake tenant](https://www.Snowflake.com/pricing/).
 * A user account in Snowflake with Admin permissions.
 
@@ -154,6 +154,12 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Connector limitations
 
 * Snowflake generated SCIM tokens expire in 6 months. Be aware that these need to be refreshed before they expire to allow the provisioning syncs to continue working. 
+
+## Troubleshooting Tips
+
+* **IP Ranges** 
+
+   The Azure AD provisioning service currently operates under a particular IP ranges. So if required you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application to allow traffic flow from Azure AD provisioning service to your application .Refer the documentation at [IP Ranges](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## Change Log
 

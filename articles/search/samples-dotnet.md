@@ -40,7 +40,7 @@ The Azure SDK for .NET includes numerous samples and a [samples readme](https://
 
 ## Documentation samples
 
-The following samples have an associated article in [Azure Cognitive Search documentation](https://docs.microsoft.com/azure/search/).
+The following samples have an associated article in [Azure Cognitive Search documentation](./index.yml).
 
 | Samples | Description |
 |---------|-------------|
@@ -59,6 +59,6 @@ The following samples have an associated article in [Azure Cognitive Search docu
 | Samples | Description |
 |---------|-------------|
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
-| [Knowledge Mining Solution Accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
+| [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
 | [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |

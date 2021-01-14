@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
     `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
 	> [!NOTE]
-	> The preceding **Reply URL** value is not real. You will get the `<saml-identifier>` value from #step4 of **Configure Zoho One Single Sign-On** section , which is explained later in the tutorial.
+	> The preceding **Reply URL** value is not real. You will get the `<saml-identifier>` value from #step4 of **Configure Zoho One Single Sign-On** section, which is explained later in the tutorial.
 
 	c. Click **Set additional URLs**.
 

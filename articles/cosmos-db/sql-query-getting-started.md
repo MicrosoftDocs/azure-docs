@@ -29,16 +29,16 @@ Most read-heavy workloads on Azure Cosmos DB use a combination of both point rea
 
 Here are some examples of how to do **SQL queries** with each SDK:
 
-- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
-- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
-- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
-- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
 
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, open the [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
+In your SQL API Cosmos DB account, open the [Data Explorer](./data-explorer.md) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 

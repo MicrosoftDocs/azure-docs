@@ -71,7 +71,7 @@ read:
     name: cognitive-services-read
     registry:  mcr.microsoft.com/
     repository: azure-cognitive-services/vision/read
-    tag: 3.1-preview
+    tag: 3.2-preview.1
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -161,6 +161,9 @@ spec:
 ```
 
 In the same *templates* folder, copy and paste the following helper functions into `helpers.tpl`. `helpers.tpl` defines useful functions to help generate Helm template.
+
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}

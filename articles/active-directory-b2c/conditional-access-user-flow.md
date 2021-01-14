@@ -6,13 +6,14 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
-
+ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 
 ms.collection: M365-identity-device-management
+zone_pivot_groups: b2c-policy-type
 ---
 # Add Conditional Access to user flows in Azure Active Directory B2C
 
@@ -31,6 +32,22 @@ Conditional Access is supported in the latest versions of user flows. You can ad
 - **Conditional Access**: This setting should always be **On**. Typically you would only turn this setting **Off** during troubleshooting or migration, or for legacy implementations.
 
 Learn more about [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md) in Azure AD B2C, or see [how to set it up](conditional-access-identity-protection-setup.md).
+
+## Prerequisites
+
+- Azure AD B2C Premium 2 is required to create risky sign-in policies. Premium P1 tenants can create location, app, or group-based policies.
+- For testing purposes, you can [register the test web application](tutorial-register-applications.md) `https://jwt.ms`, which is a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). 
+- To simulate a risky sign-in, download the TOR Browser and attempt to sign in to the user flow endpoint.
+- Using the following settings, [create a Conditional Access policy](conditional-access-identity-protection-setup.md):
+   
+  - For **Users and groups**, select the test user (don't select **All users** or you could block yourself from signing in).
+  - For **Cloud apps or actions**, choose **Select apps**, and then choose your relying party application.
+  - For Conditions, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
+  - For **Grant**, choose **Block access**.
+
+      ![Risk detections](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+
+::: zone pivot="b2c-user-flow"
 
 ## Add Conditional Access to a new user flow
 
@@ -86,19 +103,6 @@ Learn more about [Identity Protection and Conditional Access](conditional-access
 
 To test Conditional Access in your user flow, [create a Conditional Access policy](conditional-access-identity-protection-setup.md) and enable Conditional Access in your user flow as described above. 
 
-### Prerequisites
-
-- Azure AD B2C Premium 2 is required to create risky sign-in policies. Premium P1 tenants can create location, app, or group-based policies.
-- For testing purposes, you can [register the test web application](tutorial-register-applications.md) `https://jwt.ms`, which is a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). 
-- To simulate a risky sign-in, download the TOR Browser and attempt to sign in to the user flow endpoint.
-- Using the following settings, [create a Conditional Access policy](conditional-access-identity-protection-setup.md):
-   
-   - For **Users and groups**, select the test user (don't select **All users** or you could block yourself from signing in).
-   - For **Cloud apps or actions**, choose **Select apps**, and then choose your relying party application.
-   - For Conditions, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
-   - For **Grant**, choose **Block access**.
-
-      ![Risk detections](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### Run the user flow
 
@@ -114,6 +118,16 @@ To test Conditional Access in your user flow, [create a Conditional Access polic
 
    ![Test a blocked sign-in](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## Add Conditional Access to your policy
+
+You can find an example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+::: zone-end
+
 ## Next steps
 
-[Customize the user interface in an Azure AD B2C user flow](customize-ui-overview.md)
+[Customize the user interface in an Azure AD B2C user flow](customize-ui-with-html.md)

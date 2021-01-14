@@ -33,9 +33,9 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Role name** (required) – Provide the security role name you have defined in your custom Dynamics 365 test drive, which will be assigned to the user during their test drive (for example, test-drive-role).
 
-For help on how to set up your Dynamics 365 environment for test drive and grant AppSource permission to provision and deprovision test drive users in your tenant, follow [these instructions](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+For help on how to set up your Dynamics 365 environment for test drive and grant AppSource permission to provision and deprovision test drive users in your tenant, follow [these instructions](./test-drive-azure-subscription-setup.md).
 
-For step by step instructions on listing and configuring your Hosted Test Drive, please visit the [Detailed configuration for hosted test drive](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) page.
+For step by step instructions on listing and configuring your Hosted Test Drive, please visit the [Detailed configuration for hosted test drive](./test-drive-hosted-detailed-config.md) page.
 
 ## Logic app test drive
 
@@ -90,7 +90,7 @@ The **Test Drive listings** option found under the **Test drive** tab in Partner
 
 If you are currently creating your test drive in Partner Center, select **Save draft** before continuing.
 
-For step by step instructions on listing and configuring your Hosted Test Drive, please visit the [Detailed configuration for hosted test drive](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) page.
+For step by step instructions on listing and configuring your Hosted Test Drive, please visit the [Detailed configuration for hosted test drive](./test-drive-hosted-detailed-config.md) page.
 
 ## Additional Resources
 

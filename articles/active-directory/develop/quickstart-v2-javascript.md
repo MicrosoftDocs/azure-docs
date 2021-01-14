@@ -35,9 +35,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -47,12 +45,11 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
->
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.

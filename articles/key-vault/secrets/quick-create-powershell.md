@@ -114,4 +114,4 @@ In this quickstart you created a Key Vault and stored a secret in it. To learn m
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)

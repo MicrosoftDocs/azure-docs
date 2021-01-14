@@ -69,7 +69,7 @@ Understanding Network Security provided by Azure Security Center:
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your event hubs to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.​
 
-How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 For more information about the Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -358,7 +358,7 @@ How to monitor identity and access within Azure Security Center: https://docs.mi
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Event Hub-enabled resources.
 
-Learn about Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Learn about Privileged Access Workstations: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 

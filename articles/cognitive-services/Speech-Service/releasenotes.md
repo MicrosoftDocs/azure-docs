@@ -15,6 +15,49 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2020-December release
+
+**New neural voices in GA and preview**
+
+Released 51 new voices for a total of 129 neural voices across 54 languages/locales:
+
+- **46 new voices in GA locales**: Shakir in `ar-EG` Arabic (Egypt), Hamed in `ar-SA` Arabic (Saudi Arabia), Borislav in `bg-BG` Bulgarian (Bulgaria), Joana in `ca-ES` Catalan (Spain), Antonin in `cs-CZ` Czech (Czech Republic), Jeppe in `da-DK` Danish (Denmark), Jonas in `de-AT` German (Austria), Jan in `de-CH` German (Switzerland), Nestoras in `el-GR` Greek (Greece), Liam in `en-CA` English (Canada), Connor in `en-IE` English (Ireland), Madhur in `en-IN` Hindi (India), Mohan in `en-IN` Telugu (India), Prabhat in `en-IN` English (India), Valluvar in `en-IN` Tamil (India), Enric in `es-ES` Catalan (Spain), Kert in `et-EE` Estonian (Estonia), Harri in `fi-FI` Finnish (Finland), Selma in `fi-FI` Finnish (Finland), Fabrice in `fr-CH` French (Switzerland), Colm in `ga-IE` Irish (Ireland), Avri in `he-IL` Hebrew (Israel), Srecko in `hr-HR` Croatian (Croatia), Tamas in `hu-HU` Hungarian (Hungary), Gadis in `id-ID` Indonesian (Indonesia), Leonas in `lt-LT` Lithuanian (Lithuania), Nils in `lv-LV` Latvian (Latvia), Osman in `ms-MY` Malay (Malaysia), Joseph in `mt-MT` Maltese (Malta), Finn in `nb-NO` Norwegian, Bokmål (Norway), Pernille in `nb-NO` Norwegian, Bokmål (Norway), Fenna in `nl-NL` Dutch (Netherlands), Maarten in `nl-NL` Dutch (Netherlands), Agnieszka in `pl-PL` Polish (Poland), Marek in `pl-PL` Polish (Poland), Duarte in `pt-BR` Portuguese (Brazil), Raquel in `pt-PT` Portuguese (Potugal), Emil in `ro-RO` Romanian (Romania), Dmitry in `ru-RU` Russian (Russia), Svetlana in `ru-RU` Russian (Russia), Lukas in `sk-SK` Slovak (Slovakia), Rok in `sl-SI` Slovenian (Slovenia), Mattias in `sv-SE` Swedish (Sweden), Sofie in `sv-SE` Swedish (Sweden), Niwat in `th-TH` Thai (Thailand), Ahmet in `tr-TR` Turkish (Turkey), NamMinh in `vi-VN` Vietnamese (Vietnam), HsiaoChen in `zh-TW` Taiwanese Mandarin (Taiwan), YunJhe in `zh-TW` Taiwanese Mandarin (Taiwan), HiuMaan in `zh-HK` Chinese Cantonese (Hong Kong), WanLung in `zh-HK` Chinese Cantonese (Hong Kong).
+
+- **5 new voices in preview locales**: Kert in `et-EE` Estonian (Estonia), Colm in `ga-IE` Irish (Ireland), Nils in `lv-LV` Latvian (Latvia), Leonas in `lt-LT` Lithuanian (Lithuania), Joseph in `mt-MT` Maltese (Malta).
+
+With this release, we now support a total of 129 neural voices across 54 languages/locales. In addition, over 70 standard voices are available in 49 languages/locales. Visit [Language support](language-support.md#text-to-speech) for the full list.
+
+**Updates for Audio Content Creation**
+- Improved voice selection UI with voice categories and detailed voice descriptions. 
+- Enabled intonation tuning for all neural voices across different languages.
+- Automated the UI localizaiton based on the language of the browser.
+- Enabled `StyleDegree` controls for all `zh-CN` Neural voices.
+Visit the [Audio Content Creation tool](https://speech.microsoft.com/audiocontentcreation) to check out the new features. 
+
+**Updates for zh-CN voices**
+- Updated all `zh-CN` neural voices to support English speaking.
+- Enabled all `zh-CN` neural voices to support intonation adjustment. SSML or Audio Content Creation tool can be used to adjust for the best intonation.
+- Updated all `zh-CN` multi-style neural voices to support `StyleDegree` control. Emotion intensity (soft or strong) is adjustable.
+- Updated `zh-CN-YunyeNeural` to support multiple styles which can perform different emotions.
+
+## Text-to-speech 2020-November release
+
+**New locales and voices in preview**
+- **Five new voices and languages** are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
+- **Five new `zh-CN` voices with multiple styles and roles support**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan and Yunxi.
+
+> These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
+
+**Neural TTS Container GA**
+- With Neural TTS Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](speech-container-howto.md). 
+
+**New features**
+- **Custom Voice**: enabed users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
+- [SSML silence tag](speech-synthesis-markup.md#add-silence) support. 
+- General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
+
+> Read more at [this tech blog](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
+
 ## Text-to-speech 2020-October release
 
 **New features**
@@ -35,14 +78,13 @@ ms.custom: seodec18
 
 **New features**
 - **Linux**: Added support for Debian 10 and Ubuntu 20.04 LTS.
-- **Python/Objective-C**: Added support for the `KeywordRecognizer` API. Documentation will be [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
+- **Python/Objective-C**: Added support for the `KeywordRecognizer` API. Documentation will be [here](./custom-keyword-basics.md).
 - **C++/Java/C#**: Added support to set any `HttpHeader` key/value via `ServicePropertyChannel::HttpHeader`.
-- **JavaScript**: Added support for the `ConversationTranscriber` API. Read documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/C#**: Added new `AudioDataStream FromWavFileInput` method (to read .WAV files) [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) and [here (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
--  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop text-to-speech synthesis. Read the Reference documentation [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [here (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python),  and [here (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
-- **C#, C++, Java**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events for `DialogServiceConnector`. Read the Reference documentation [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), and [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
-<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+- **JavaScript**: Added support for the `ConversationTranscriber` API. Read documentation [here](./how-to-use-conversation-transcription.md?pivots=programming-language-javascript). 
+- **C++/C#**: Added new `AudioDataStream FromWavFileInput` method (to read .WAV files) [here (C++)](/cpp/cognitive-services/speech/audiodatastream) and [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
+-  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop text-to-speech synthesis. Read the Reference documentation [here (C++)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [here (Java)](/java/api/com.microsoft.cognitiveservices.speech), [here (Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python),  and [here (Objective-C/Swift)](/objectivec/cognitive-services/speech/).
+- **C#, C++, Java**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events for `DialogServiceConnector`. Read the Reference documentation [here (C#)](/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [here (C++)](/cpp/cognitive-services/speech/connection), and [here (Java)](/java/api/com.microsoft.cognitiveservices.speech.connection).
+- **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](how-to-pronunciation-assessment.md).
 
 **Breaking change**
 - **JavaScript**: PullAudioOutputStream.read() has a return type change from an internal Promise to a Native JavaScript Promise.
@@ -68,7 +110,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 **Samples**
 - **ObjectiveC**: Added sample for keyword recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
 - **C#/JavaScript**: Added quickstart for conversation transcription [here (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) and [here (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
-<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
 - **Xamarin**: Updated quickstart to latest Visual Studio template [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Known Issue**
@@ -80,7 +122,7 @@ Stay healthy!
 
 ## Speech CLI (also known as SPX): 2020-October release
 SPX is the command line interface to use the Azure Speech service without writing code. 
-Download the latest version [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+Download the latest version [here](./spx-basics.md). <br>
 
 **New features**
 - `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.

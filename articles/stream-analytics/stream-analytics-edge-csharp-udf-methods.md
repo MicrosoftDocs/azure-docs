@@ -1,8 +1,8 @@
 ---
 title: Develop .NET Standard functions for Azure Stream Analytics jobs (Preview)
 description: Learn how to write C# user-defined functions for Stream Analytics jobs.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/10/2020

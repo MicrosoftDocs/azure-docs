@@ -122,8 +122,8 @@ A registry hive corruption could be due to:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       This command will list all versions of the file that the machine has, giving you the path history of that component.
-	  
-	  For example, **dir cng.sys** would be renamed **dir cng.sys /s**
+
+      For example, **dir cng.sys** would be renamed **dir cng.sys /s**
 
    1. Choose the latest version of the file on the list (or any that you prefer) and copy the file to the **windows\system32** folder using previous path and the following command:
 

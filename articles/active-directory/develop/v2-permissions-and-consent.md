@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ---
 
 # Permissions and consent in the Microsoft identity platform endpoint
@@ -83,7 +83,8 @@ The `profile` scope can be used with the `openid` scope and any others. It gives
 
 The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the consent page, this scope appears as the "Maintain access to data you have given it access to" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the Microsoft identity platform token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
-This permission appears on all consent screens today, even for flows that don't provide a refresh token (the [implicit flow](v2-oauth2-implicit-grant-flow.md)).  This is to cover scenarios where a client can begin within the implicit flow, and then move onto to the code flow where a refresh token is expected.
+> [!NOTE]
+> This permission appears on all consent screens today, even for flows that don't provide a refresh token (the [implicit flow](v2-oauth2-implicit-grant-flow.md)). This is to cover scenarios where a client can begin within the implicit flow, and then move to the code flow where a refresh token is expected.
 
 On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
 
@@ -158,10 +159,11 @@ Applications are able to note which permissions they require (both delegated and
 
 #### To configure the list of statically requested permissions for an application
 
-1. Go to your application in the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, or [create an app](quickstart-register-app.md) if you haven't already.
-2. Locate the **API Permissions** section, and within the API permissions click Add a permission.
-3. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
-3. **Save** the app registration.
+1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Select an application, or [create an app](quickstart-register-app.md) if you haven't already.
+1. On the application's **Overview** page, under **Manage**, select **API Permissions** > **Add a permission**.
+1. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
+1. Select **Add Permissions**.
 
 ### Recommended: Sign the user into your app
 
@@ -295,7 +297,7 @@ This produces a consent screen for all registered permissions (if applicable bas
 
 ### Client credentials grant flow and /.default
 
-Another use of `./default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
+Another use of `/.default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
 
 To create application permissions (roles) for a web API, see [How to: Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
 

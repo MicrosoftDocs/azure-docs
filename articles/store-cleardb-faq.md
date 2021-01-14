@@ -27,7 +27,7 @@ See [ClearDB](https://w2.cleardb.net/) for the latest information on that servic
 You have several other options for hosting MySQL in Azure:
 * [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Single instance of MySQL running on an Azure VM](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json)
+* [Single instance of MySQL running on an Azure VM](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 
 ## Do I need a credit card for the Web app + MySQL template in the Azure Marketplace?
@@ -42,7 +42,7 @@ This depends on the type of subscription you are using. Here are some commonly u
 The default database option is Titan, which is $3.50. We don’t show the cost during database creation, and you may mistakenly purchase a database you didn’t intend to. We are trying to find a way to improve the experience but until then you must check all your selected pricing tiers for web app and database before clicking **Create** and starting the deployment of the resources.
 
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
-Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json).
+Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## In which countries/regions are ClearDB Premium MySQL clusters supported?
 ClearDB Premium MySQL clusters are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.

@@ -13,7 +13,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: radeltch
 
 ---
@@ -65,6 +65,7 @@ Read the following SAP Notes and papers first:
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Considerations in adopting RHEL 8 - High availability and clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL 7.6](https://access.redhat.com/articles/3974941)
+  * [RHEL for SAP Offerings on Azure](https://access.redhat.com/articles/5456301)
 
 ## Cluster installation
 
@@ -76,7 +77,7 @@ Read the following SAP Notes and papers first:
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
-1. **[A]** Register. This step is not required, if using RHEL 8.x HA-enabled images.  
+1. **[A]** Register. This step is not required, if using RHEL SAP HA-enabled images.  
 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
@@ -86,9 +87,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).
+   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).  
 
-1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL 8.x HA-enabled images.  
+1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL SAP HA-enabled images.  
 
    In order to install the required packages, enable the following repositories.
 

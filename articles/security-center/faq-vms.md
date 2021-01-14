@@ -21,7 +21,7 @@ ms.author: memildin
 
 ## What types of virtual machines are supported?
 
-Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](/azure/azure-resource-manager/management/deployment-models).
+Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-resource-manager/management/deployment-models.md).
 
 See [Supported platforms in Azure Security Center](security-center-os-coverage.md) for a list of supported platforms.
 

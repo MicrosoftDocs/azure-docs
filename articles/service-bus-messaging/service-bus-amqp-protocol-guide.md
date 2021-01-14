@@ -37,7 +37,7 @@ The AMQP 1.0 protocol is designed to be extensible, enabling further specificati
 
 This section explains the basic usage of AMQP 1.0 with Azure Service Bus, which includes creating connections, sessions, and links, and transferring messages to and from Service Bus entities such as queues, topics, and subscriptions.
 
-The most authoritative source to learn about how AMQP works is the AMQP 1.0 specification, but the specification was written to precisely guide implementation and not to teach the protocol. This section focuses on introducing as much terminology as needed for describing how Service Bus uses AMQP 1.0. For a more comprehensive introduction to AMQP, as well as a broader discussion of AMQP 1.0, you can review [this video course][this video course].
+The most authoritative source to learn about how AMQP works is the [AMQP 1.0 specification](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), but the specification was written to precisely guide implementation and not to teach the protocol. This section focuses on introducing as much terminology as needed for describing how Service Bus uses AMQP 1.0. For a more comprehensive introduction to AMQP, as well as a broader discussion of AMQP 1.0, you can review [this video course][this video course].
 
 ### Connections and sessions
 
@@ -62,7 +62,7 @@ Sessions have a window-based flow control model; when a session is created, each
 
 This window-based model is roughly analogous to the TCP concept of window-based flow control, but at the session level inside the socket. The protocol’s concept of allowing for multiple concurrent sessions exists so that high priority traffic could be rushed past throttled normal traffic, like on a highway express lane.
 
-Azure Service Bus currently uses exactly one session for each connection. The Service Bus maximum frame-size is 262,144 bytes (256-K bytes) for Service Bus Standard and Event Hubs. It is 1,048,576 (1 MB) for Service Bus Premium. Service Bus does not impose any particular session-level throttling windows, but resets the window regularly as part of link-level flow control (see [the next section](#links)).
+Azure Service Bus currently uses exactly one session for each connection. The Service Bus maximum frame-size is 262,144 bytes (256-K bytes) for Service Bus Standard. It is 1,048,576 (1 MB) for Service Bus Premium and Event Hubs. Service Bus does not impose any particular session-level throttling windows, but resets the window regularly as part of link-level flow control (see [the next section](#links)).
 
 Connections, channels, and sessions are ephemeral. If the underlying connection collapses, connections, TLS tunnel, SASL authorization context, and sessions must be reestablished.
 
