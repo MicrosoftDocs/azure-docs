@@ -140,7 +140,7 @@ Find and save the following values:
 
 
 
-1. [Install Node.js](https://github.com/Azure/autorest/blob/master/docs/installing-autorest.md).
+1. [Install Node.js](https://github.com/Azure/autorest/blob/v2/docs/installing-autorest.md).
 1. Open PowerShell and run the following command:
 
    ```powershell
@@ -171,7 +171,7 @@ Find and save the following values:
 1. Make sure the version is at least 2.3.21, and then select **Install**.
 1. Build and run the application.
 
-The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information about the project, see [Project Setup](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md).
+The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information about the project, see [Project Setup](https://github.com/Azure/autorest/blob/v2/docs/client/proj-setup.md).
 
 ### Sample code for the console application
 

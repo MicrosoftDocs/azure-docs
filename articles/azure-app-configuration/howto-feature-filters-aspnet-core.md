@@ -50,19 +50,19 @@ You can configure these settings for feature flags defined in Azure App Configur
     > [!div class="mx-imgBorder"]
     > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
 
-1. In the **Edit** screen, select the **On** radio button if it isn't already selected. Then click the **Add Filter** button. (The **On** radio button's label will change to read **Conditional**.)
+1. In the **Edit** screen, select the **Enable feature flag** button if it isn't already selected. Then click the **Use feature filter** button and select **Custom**. 
 
 1. In the **Key** field, enter *Microsoft.Percentage*.
 
     > [!div class="mx-imgBorder"]
     > ![Add feature filter](./media/feature-flag-add-filter.png)
 
-1. Click the context menu next to the feature filter key. Click **Edit Parameters**.
+1. Click the context menu next to the feature filter key. Click **Edit filter parameters**.
 
     > [!div class="mx-imgBorder"]
-    > ![Edit feature filter parameters](./media/feature-flag-edit-filter-parameters.png)
+    > ![Edit feature filter parameters](./media/feature-flags-edit-filter-parameters.png)
 
-1. Hover under the **Name** header so that text boxes appear in the grid. Enter a **Name** of *Value* and a **Value** of 50. The **Value** field indicates the percentage of requests for which to enable the feature filter.
+1. Enter a **Name** of *Value* and a **Value** of 50. The **Value** field indicates the percentage of requests for which to enable the feature filter.
 
     > [!div class="mx-imgBorder"]
     > ![Set feature filter parameters](./media/feature-flag-set-filter-parameters.png)

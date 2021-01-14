@@ -100,7 +100,7 @@ The following examples show the consumer group URI convention:
 
 The following figure shows the Event Hubs stream processing architecture:
 
-![Event Hubs architecture](./media/event-hubs-features/event_hubs_architecture.png)
+![Event Hubs architecture](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ### Stream offsets
 

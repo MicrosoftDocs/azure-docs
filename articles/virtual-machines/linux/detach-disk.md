@@ -112,5 +112,5 @@ The disk stays in storage but is no longer attached to a virtual machine.
 
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md).
 
