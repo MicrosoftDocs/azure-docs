@@ -11,23 +11,28 @@ ms.subservice: metrics
 
 # Azure Monitor Metrics metrics aggregation and display explained
 
-This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md) . It's a complex topic and not necessary to understand all the information in this article to use Azure Monitor metrics effectively.
+This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](data-platform.md) and [custom metrics](metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
 
-## Metric terms and definitions
+This is a complex topic and not necessary to understand all the information in this article to use Azure Monitor metrics effectively.
+
+## Overview and terms
 
 When you add a metric to a chart, metrics explorer automatically pre-selects its default aggregation. The default makes sense in the basic scenarios, but you can use different aggregations to gain more insights about the metric. Viewing different aggregations on a chart requires that you understand how metrics explorer handles them.
 
-Let's define a few terms clearly first: 
+Let's define a few terms clearly first:
 
 - **Metric value** – A single measurement value gathered for a specific resource.
 - **Time period** – A generic period of time.
-- **Time interval** - The period of time between the gathering of two metric values. 
-- **Time range** - The time period displayed on a chart. Typical default is 24 hours. Only specific ranges are available. 
-- **Time granularity or time grain – The time period used to aggregate values together to allow display on a chart. Only specific ranges are available. Current minimum is 1 minute. The time granularity value should be smaller than the selected time range to be useful, otherwise just one value is shown for the entire chart. 
+- **Time interval** – The period of time between the gathering of two metric values. 
+- **Time range** – The time period displayed on a chart. Typical default is 24 hours. Only specific ranges are available. 
+- **Time granularity** or **time grain** – The time period used to aggregate values together to allow display on a chart. Only specific ranges are available. Current minimum is 1 minute. The time granularity value should be smaller than the selected time range to be useful, otherwise just one value is shown for the entire chart. 
 - **Aggregation type** – A type of statistic calculated from multiple metric values.  
 - **Aggregate** – The process of taking multiple input values and then using them to produce a single output value via the rules defined by the aggregation type. For example, taking an average of multiple values.  
 
 Metrics are a series of metric values captured at a regular time interval. When you plot a chart, the values of the selected metric are separately aggregated over the time granularity (also known as time grain). You select the size of the time granularity using the [Metrics Explorer time picker panel](metrics-getting-started.md#select-a-time-range). If you don’t make an explicit selection, the time granularity is automatically selected based on the currently selected time range. Once selected, the metric values that were captured during each time granularity interval are aggregated and placed onto the chart - one datapoint per interval.
+
+## Aggregation types 
+
 There are five basic aggregation types available in the metrics explorer. Metrics explorer hides the aggregations that are irrelevant and cannot be used for a given metric. 
 
 - **Sum** – the sum of all values captured over the aggregation interval. Sometimes referred to as the Total aggregation.
@@ -65,12 +70,15 @@ For time granularity of 1 minute (the smallest possible on the chart), you get 2
 
 The charts look different for these summations as shown in the previous screenshots.  Notice how this VM has a lot of output in a small time period relative to the rest of the time window.  
 
-The time granularity allows you to adjust the "signal-to-noise" ratio on a chart. Higher aggregations remove noise and smooth out spikes.  Notice the variations at the bottom 1-minute chart and how they smooth out as you go to higher granularity values. This behavior can become important when you send this data to other systems--for example, alerts. Typically, you usually don't want to be alerted by very short spikes in CPU time over 90%. But if the CPU stays at 90% for 5 minutes, that's likely important. This rule is likely true for the networking spikes shown above as well. Making the time granularity larger can smooth out the short-term spikes and reduce the number of false alerts you receive. 
+The time granularity allows you to adjust the "signal-to-noise" ratio on a chart. Higher aggregations remove noise and smooth out spikes.  Notice the variations at the bottom 1-minute chart and how they smooth out as you go to higher granularity values. 
 
+This smoothing behavior is important when you send this data to other systems--for example, alerts. Typically, you usually don't want to be alerted by very short spikes in CPU time over 90%. But if the CPU stays at 90% for 5 minutes, that's likely important. If you set up an alert rule on CPU (or any metric), making the time granularity larger can reduce the number of false alerts you receive. 
+
+It is important to establish what's "normal" for your workload to know what time interval is best. This is one of the benefits of [dynamic alerts](alerts-dynamic-thresholds.md), which is a different topic not covered here.  
 
 ## How the system collects metrics
 
-Data collection varies by metric. There are two types of collection periods. 
+Data collection varies by metric. There are two types of collection periods.
 
 ### Measurement collection frequency 
 
@@ -82,15 +90,23 @@ Data collection varies by metric. There are two types of collection periods.
 
 The minimum time interval is 1 minute, but the underlying system may capture data faster depending on the metric. For example, CPU percentage is tracked every 15 seconds at a regular interval. Because HTTP failures are tracked as transactions, they can easily exceed many more than one a minute. Other metrics such as SQL Storage are captured every 20 minutes. This choice is up to the individual resource provider and type. Most try to provide the smallest interval possible.
 
-### Splitting and Filtering by Dimensions
+### Dimensions, splitting, and filtering
 
-Metrics are captured for each individual resource. However, the level at which the metrics are collected, stored, and able to be charted may vary. This level is represented by additional metrics available in **metrics dimensions**. Each resource provider gets to define how detailed the data they collect is.
+Metrics are captured for each individual resource. However, the level at which the metrics are collected, stored, and able to be charted may vary. This level is represented by additional metrics available in **metrics dimensions**. Each individual resource provider gets to define how detailed the data they collect is. Azure Monitor only defines how such detail should be presented and stored. 
 
 When you chart a metric in metric explorer, you have the option to "split" the chart by a dimension.  Splitting a chart means that you are looking into the underlying data for more detail and seeing that data charted or filtered in metric explorer.
 
-For example, [Microsoft.ApiManagement/service](metrics-supported.md#microsoftapimanagementservice) has *Location* as a dimension for many metrics. **Capacity** is one such metric. This implies that the underlying system is storing a metric record for the capacity of each location, rather than just one for the aggregate amount. This allows you to know capacity of each location and split that out on a chart.  Looking at **Overall Duration of Gateway Requests**, there are 2 dimensions *Location* and *Hostname*, again letting you know the location of a duration and which hostname it came from.  One of the more flexible metrics, **Requests**, has 7 different dimensions. Check the Azure Monitor [metrics supported](metrics-supported.md) article for details on each metric and the dimensions available. In addition, the documentation for each resource provider and type may provide additional information on the dimensions and what they measure.
+For example, [Microsoft.ApiManagement/service](metrics-supported.md#microsoftapimanagementservice) has *Location* as a dimension for many metrics. 
 
-You can use splitting and filtering together to dig into a problem. Below is an example of a graphic showing the Avg Disk Write Bytes for a group of VMs in a Resource Group. We have a rollup of all the VMs with this metric, but we may want to dig into see which are actually responsible for the peaks around 6AM. Are they the same machine? How many machines are involved?  
+- **Capacity** is one such metric. This implies that the underlying system is storing a metric record for the capacity of each location, rather than just one for the aggregate amount. This allows you to know capacity of each location and split that out on a chart.  
+
+- Looking at **Overall Duration of Gateway Requests**, there are 2 dimensions *Location* and *Hostname*, again letting you know the location of a duration and which hostname it came from.  
+
+- One of the more flexible metrics, **Requests**, has 7 different dimensions. 
+ 
+Check the Azure Monitor [metrics supported](metrics-supported.md) article for details on each metric and the dimensions available. In addition, the documentation for each resource provider and type may provide additional information on the dimensions and what they measure.
+
+You can use splitting and filtering together to dig into a problem. Below is an example of a graphic showing the *Avg Disk Write Bytes* for a group of VMs in a resource group. We have a rollup of all the VMs with this metric, but we may want to dig into see which are actually responsible for the peaks around 6AM. Are they the same machine? How many machines are involved?  
 
 :::image type="content" source="media/metrics-aggregation-explained/total-disk write-bytes-all-VMs.png" alt-text="Screenshot showing total Disk Write Bytes for all virtual machines in Contoso Hotels resource group" border="true" lightbox="media/metrics-aggregation-explained/total-disk write-bytes-all-VMs.png":::
 
@@ -108,13 +124,13 @@ For more information on how to show split dimension data on a metric explorer ch
 
 ### NULL and zero values
 
-When the system expects metric data from a resource but doesn't receive it, it records a NULL value.  NULL is different than a zero value, which becomes important in the calculation of aggregations and charting. NULL values are not counted as valid measurements. NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown above.
+When the system expects metric data from a resource but doesn't receive it, it records a NULL value.  NULL is different than a zero value, which becomes important in the calculation of aggregations and charting. NULL values are not counted as valid measurements. 
 
-When calculating averages that include NULLs, there are fewer data points to take the average from.  This can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
+NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown in the screenshot in teh previous section . When calculating averages that include NULLs, there are fewer data points to take the average from.  This can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
 
-[Custom metrics](metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric. 
+[Custom metrics](metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric.
 
-Azure Monitor alerts just uses the values in the metric database, so it's important to know how the resource provider handles NULLs by viewing the data first.
+Azure Monitor alerts use the values the resource provider writes to the metric database, so it's important to know how the resource provider handles NULLs by viewing the data first.
 
 ## How aggregation works
 
@@ -229,7 +245,7 @@ Below is the larger diagram for the above 1-minute aggregation process, with som
 
 :::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing consolidation of previous 3 screenshots. Multiple 1-minute aggregated entries across dimension of server aggregated in 1-minute, 2-minute and 5-minute intervals. Server A, B, and C shown individually" border="true":::
 
-## More complex example 
+## More complex example
 
 Following is a larger example using values for a fictitious metric called HTTP Response time in milliseconds.  Here we introduce additional levels of complexity.
 
@@ -258,7 +274,8 @@ The red text color indicates values that might be considered out of the normal r
 
 You can also see that the NULLs give a better calculations of average than if zeros were used instead.  
 
->[!NOTE] Though not the case in this example, Count is equal to Sum in cases where a metric is always captured with the value of 1. This is common when a metric tracks the occurrence of a transactional event--for example, the number of HTTP failures mentioned in a previous example in this article.
+> [!NOTE] 
+> Though not the case in this example, *Count* is equal to *Sum* in cases where a metric is always captured with the value of 1. This is common when a metric tracks the occurrence of a transactional event--for example, the number of HTTP failures mentioned in a previous example in this article.
 
 ## Next steps
 
