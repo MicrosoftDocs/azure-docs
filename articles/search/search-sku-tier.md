@@ -84,15 +84,13 @@ When you're estimating the cost of a search solution, keep in mind that pricing 
 
 ### Bandwidth charges
 
-Using [indexers](search-indexer-overview.md) can affect billing if the Azure data source is in a different region from Azure Cognitive Search. In this scenario, this is a cost for moving outbound data from the Azure data source to Azure Cognitive Search. 
+Using [indexers](search-indexer-overview.md) can affect billing if the Azure data source is in a different region from Azure Cognitive Search. In this scenario, there could be a cost for moving outbound data from the Azure data source to Azure Cognitive Search. For details, refer to the pricing pages of the Azure data platform in question.
 
 You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
 
-+ Microsoft doesn't charge for any inbound data to any service on Azure.
-+ There is no outbound data charge from Azure Cognitive Search. For example, if your search service is in West US, and an Azure Web app is in East US, Microsoft doesn't charge for the query response payloads that originate from West US.
-+ In multi-service solutions, there's no charge for data crossing the wire when all services are in the same region.
++ Inbound data: Microsoft doesn't charge for any inbound data to any service on Azure. 
 
-Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
++ Outbound data:  Outbound data refers to query results. Cognitive Search does not charge for outbound data, but outbound charges from Azure are possible if services are in different regions. These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're sending results to other regions or non-Azure apps, you could see those costs reflected in your overall bill.
 
 ### AI enrichment with Cognitive Services
 

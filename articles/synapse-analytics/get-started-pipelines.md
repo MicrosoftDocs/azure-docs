@@ -41,4 +41,3 @@ You can integrate a wide variety of tasks in Azure Synapse.
 
 > [!div class="nextstepaction"]
 > [Visualize data with Power BI](get-started-visualize-power-bi.md)
-                                 
