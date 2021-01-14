@@ -33,13 +33,16 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
 ## Renaming a machine
 
-When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name. For Arc enabled servers, this is accomplished by disconnecting the machine, connect it after the machines computer name is renamed, and then re-deploy the VM extensions that were previously installed to re-associate them with the resource in Azure.  
+When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name. For Arc enabled servers, this is accomplished by disconnecting the machine, connect it after the machines computer name is renamed, and then re-deploy the VM extensions that were previously installed to re-associate them with the resource in Azure.
+
+Before you begin, audit VM extensions deployed to the machine and their configuration to ensure after you complete the procedure, you deploy those extensions using the same configuration settings.  
 
 Use the following steps to complete this task.
 
-1. Use one of the following methods to disconnect the machine from Azure Arc:
+1. Use one of the following methods to disconnect the machine from Azure Arc. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of ths process.
 
     # [Azure portal](#tab/azure-portal)
+
     1. From your browser, go to the [Azure portal](https://portal.azure.com).
     1. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
     1. From the selected registered Arc enabled server, select **Delete** from the top bar to delete the resource in Azure.
@@ -61,6 +64,15 @@ Use the following steps to complete this task.
      -ResourceName ExampleArcMachine `
      -ResourceType Microsoft.HybridCompute/machines
     ```
+
+2. Rename the computer name of the machine.
+
+### After renaming operation
+
+After a machine has been renamed, the Connected Machine agent needs to be re-registered with Arc enabled servers. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
+
+
+
 
 ## Upgrading agent
 
