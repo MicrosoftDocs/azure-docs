@@ -11,7 +11,7 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
+ms.date: 1/14/2021
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -557,7 +557,7 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### sys.resource_stats
@@ -583,7 +583,7 @@ This example shows you how the data in this view is exposed:
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![The sys.resource_stats catalog view](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -703,7 +703,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Again, these queries return a point-in-time count. If you collect multiple samples over time, you'll have the best understanding of your session use.
@@ -737,7 +737,7 @@ ORDER BY 2 DESC;
 
 ### Monitoring blocked queries
 
-Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). For more information on troubleshooting blocking, see [Understand and resolve Azure SQL blocking problems](database/understand-resolve-blocking.md).
 
 ### Monitoring query plans
 
