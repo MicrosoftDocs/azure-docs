@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/03/2020
+ms.date: 01/14/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -134,14 +134,15 @@ By supported we mean that the experience is as expected; specifically, that it i
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Planner in Teams
+- Planner web app
 
 ### Services currently not supported
 
 Service without current support might have compatibility issues with the new guest restriction setting.
 
 - Forms
-- Planner in Teams
-- Planner app
+- Planner mobile app
 - Project
 - Yammer
 
