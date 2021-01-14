@@ -2,8 +2,8 @@
 title: Troubleshooting Azure Monitor workbook-based insights
 description: Provides troubleshooting guidance for Azure Monitor workbook-based insights for services like Azure Key Vault, Azure CosmosDB, Azure Storage, and Azure Cache for Redis.
 services: azure-monitor 
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: lagayhar
+author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
 ---
