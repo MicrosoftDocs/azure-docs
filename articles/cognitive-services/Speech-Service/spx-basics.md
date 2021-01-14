@@ -172,10 +172,10 @@ In Windows, you can play the audio file by entering `start greetings.wav`.
 The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in the Speech CLI. Consider the following file `text_synthesis.tsv`:
 
 ```output
-audio.output    text
-C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+audio.output	text
+C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav	Some more text to test capabilities.
 ```
 
  Next, you run a command to point to `text_synthesis.tsv`, perform synthesis on each `text` field, and write the result to the corresponding `audio.output` path as a `.wav` file. 
