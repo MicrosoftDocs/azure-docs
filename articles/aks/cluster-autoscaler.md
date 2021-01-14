@@ -132,9 +132,9 @@ You can also configure more granular details of the cluster autoscaler by changi
 | skip-nodes-with-local-storage    | If true cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath | true |
 | skip-nodes-with-system-pods      | If true cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods) | true | 
 | max-empty-bulk-delete            | Maximum number of empty nodes that can be deleted at the same time.                      | 10 nodes      |
-| new-pod-scale-up-delay           | For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age".                                                                                                                | 0 seconds    |
+| new-pod-scale-up-delay           | For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age.                                                                                                                | 0 seconds    |
 | max-total-unready-percentage     | Maximum percentage of unready nodes in the cluster. After this percentage is exceeded, CA halts operations | 45% |
-| max-node-provision-time | Maximum time the autoscaler waits for a node to be provisioned | 15 minutes
+| max-node-provision-time          | Maximum time the autoscaler waits for a node to be provisioned                           | 15 minutes    |   
 | ok-total-unready-count           | Number of allowed unready nodes, irrespective of max-total-unready-percentage            | 3 nodes       |
 
 > [!IMPORTANT]
