@@ -27,8 +27,7 @@ The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-p
 * Microsoft 365 Mail API: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
-> [!NOTE]
-> We strongly recommend that you use Microsoft Graph instead of Microsoft 365 Mail API, etc.
+We strongly recommend that you use Microsoft Graph instead of Microsoft 365 Mail API, etc.
 
 The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
@@ -111,8 +110,7 @@ The `scope` parameter is a space-separated list of delegated permissions that th
 
 After the user enters their credentials, the Microsoft identity platform endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the Microsoft identity platform endpoint asks the user to grant the requested permissions.
 
-> [!NOTE]
->At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.
+At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.
 
 ![Example screenshot that shows work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -144,8 +142,7 @@ If the application is requesting application permissions and an administrator gr
 
 ## Using the admin consent endpoint
 
-> [!NOTE]
-> Please note after granting admin consent using the admin consent endpoint, you have finished granting admin consent and users do not need to perform any further additional actions. After granting admin consent, users can get an access token via a typical auth flow and the resulting access token will have the consented permissions.
+After granting admin consent using the admin consent endpoint, you have finished granting admin consent and users do not need to perform any further additional actions. After granting admin consent, users can get an access token via a typical auth flow and the resulting access token will have the consented permissions.
 
 When a Company Administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform will detect the user's role and ask them if they would like to consent on behalf of the entire tenant for the permissions you have requested. However, there is also a dedicated admin consent endpoint you can use if you would like to proactively request that an administrator grants permission on behalf of the entire tenant. Using this endpoint is also necessary for requesting Application Permissions (which can't be requested using the authorize endpoint).
 
@@ -259,8 +256,7 @@ You can use the `/.default` scope to help migrate your apps from the v1.0 endpoi
 
 The /.default scope can be used in any OAuth 2.0 flow, but is necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md), as well as when using the v2 admin consent endpoint to request application permissions.
 
-> [!NOTE]
-> Clients can't combine static (`/.default`) and dynamic consent in a single request. Thus, `scope=https://graph.microsoft.com/.default+mail.read` will result in an error due to the combination of scope types.
+Clients can't combine static (`/.default`) and dynamic consent in a single request. Thus, `scope=https://graph.microsoft.com/.default+mail.read` will result in an error due to the combination of scope types.
 
 ### /.default and consent
 
