@@ -33,7 +33,7 @@ issuancerules
 	c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
 	c:[type=="x-ms-sgx-product-id"] => issue(type="product-id", value=c.value);
 	c:[type=="x-ms-sgx-svn"] => issue(type="svn", value=c.value);
-	c:[type=="$tee"] => issue(type="tee", value=c.value);
+	c:[type=="x-ms-sgx-tee"] => issue(type="tee", value=c.value);
 };
 ```
 
