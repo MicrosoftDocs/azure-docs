@@ -104,6 +104,9 @@ az storage account blob-service-properties update \
 
 When you perform a restore operation, you must specify the restore point as a UTC **DateTime** value. Containers and blobs will be restored to their state at that day and time. The restore operation may take several minutes to complete.
 
+> [!NOTE]
+> Azure Storage always treats the value of the restore point as a UTC value. If the restore point is specified with a local time value instead of a UTC time value, the restore operation may still behave as expected. For example, if your local time is UTC minus five hours, then specifying a local time value results in a restore point that is five hours earlier. If no changes were made to the data in the range to be restored during that five-hour period, then the restore operation will produce the same results regardless of which time value was provided. Specifying a UTC time for the restore point is recommended to avoid unexpected results.
+
 You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to ten lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
 The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
