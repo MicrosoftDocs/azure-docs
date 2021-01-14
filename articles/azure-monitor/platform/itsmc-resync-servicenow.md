@@ -51,7 +51,7 @@ In order to view the errors in the dashboard, you should follow the next steps:
 
 ### Dashboard Elements
 
-The dashboard contains information on teh alerts that were sent into the ITSM tool using this connector.
+The dashboard contains information on the alerts that were sent into the ITSM tool using this connector.
 The dashboard is split into 4 parts:
 
 1. Work Item Created: The graph and the table below contain the count of the work item per type. If you click on the graph or on the table you can see more details about the work items.
