@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -53,14 +53,11 @@ To configure point-in-time restore with PowerShell, first install the [Az.Storag
 The following example enables soft delete and sets the soft-delete retention period, enables change feed and versioning, and then enables point-in-time restore.    When running the example, remember to replace the values in angle brackets with your own values:
 
 ```powershell
-# Sign in to your Azure account.
-Connect-AzAccount
-
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 14 days.
+# Enable blob soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
@@ -82,6 +79,20 @@ Enable-AzStorageBlobRestorePolicy -ResourceGroupName $rgName `
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+
+```azurecli
+az storage account blob-service-properties update --resource-group storagesamples-rg --account-name storagesamplestamram1 --enable-delete-retention true --delete-retention-days 14
+az storage account blob-service-properties update --resource-group storagesamples-rg --account-name storagesamplestamram1 --enable-versioning
+az storage account blob-service-properties update --resource-group storagesamples-rg --account-name storagesamplestamram1 --enable-change-feed
+az storage account blob-service-properties show --resource-group storagesamples-rg --account-name storagesamplestamram1
+
+
+
+```
+
 
 ---
 
