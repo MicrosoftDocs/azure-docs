@@ -20,13 +20,13 @@ ms.author: bagol
 
 # Securing your system against systemic-identity compromise
 
-In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
+In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html) (Solorigate).
 
-The SolarWinds attack provided the attackers with a foothold into affected networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
+The Solorigate attack provided the attackers with a foothold into affected customer networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
 The global administrator account or certificates enabled the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
-Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack (Solorigate) and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
+Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
 
 **Microsoft swiftly took the following steps against the SolarWinds attack**:
 
