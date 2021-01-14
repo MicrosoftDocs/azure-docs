@@ -27,7 +27,7 @@ You can navigate to everything you need to manage your function app from the ove
 
 ## <a name="settings"></a>Work with application settings
 
-Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
+Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
 These settings are stored encrypted. To learn more, see [Application settings security](security-concepts.md#application-settings).
 
