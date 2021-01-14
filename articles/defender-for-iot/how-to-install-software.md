@@ -225,9 +225,9 @@ This article describes how to configure the BIOS by using the configuration file
 
 4. The appliance's credentials are:
 
-   - Username: **cyberx**
+   - Username: **XXX**
 
-   - Password: **xhxvhttju,@4338**
+   - Password: **XXX**
 
      The import server profile operation is initiated.
 
@@ -269,7 +269,7 @@ To manually configure:
 
    - If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
 
-   - If the appliance is a Defender for IoT appliance, sign in by using **cyberx** for the username and **xhxvhttju,@4338** for the password.
+   - If the appliance is a Defender for IoT appliance, sign in by using **XXX** for the username and **XXX** for the password.
 
 2. After you access the BIOS, go to **Device Settings**.
 
