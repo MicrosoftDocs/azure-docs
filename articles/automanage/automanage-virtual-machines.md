@@ -119,6 +119,7 @@ The **Status** column can display the following states:
 - *In-progress* - the VM was just enabled and is being configured
 - *Configured* - the VM is configured and no drift is detected
 - *Failed* - the VM has drifted and we were unable to remediate
+- *Pending* - the VM is currently not running, and Automanage will attempt to onboard or remediate the VM when it is next running
 
 If you see the **Status** as *Failed*, you can troubleshoot the deployment through the Resource Group your VM is located in. Go to **Resource groups**, select your resource group, click on **Deployments** and see the *Failed* status there along with error details.
 
