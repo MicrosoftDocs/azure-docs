@@ -76,20 +76,22 @@ This table summarizes the overall flow for migration, describing the steps requi
 
 ## Prepare source device
 
-## 1. Back up configuration data
+The preparation would include identifying the Edge cloud shares and Edge local shares and the IoT Edge modules deployed on the device. 
+
+### 1. Back up configuration data
 
 Do these steps on your source device via the local UI.
 
 Use the [Deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to help create the device configuration for the source device. During migration, you'll use this configuration information to configure the new target device. 
 
-## 2. Back up share data
+### 2. Back up share data
 
 The device data can be of one of the following types:
 
 - Data in Edge cloud shares
 - Data in local shares
 
-### Data in Edge cloud shares
+#### Data in Edge cloud shares
 
 Edge cloud shares tier data from your device to Azure. Do these steps on your *source* device via the Azure portal. 
 
@@ -98,7 +100,7 @@ Edge cloud shares tier data from your device to Azure. Do these steps on your *s
 - Depending on the network bandwidth available, configure bandwidth schedules on your device so as to maximize the data tiered to the cloud. This would minimize the local data on the device.
 - Ensure that the shares are fully tiered to the cloud. This can be confirmed by checking the share status in the Azure portal. Once the share is fully tiered, stop the data copy to those shares. 
 
-### Data in Edge local shares
+#### Data in Edge local shares
 
 Data in Edge local shares stays on the device. Do these steps on your *source* device via the Azure portal. 
 
