@@ -51,7 +51,7 @@ View deployed apps using the following procedures.
 
 1. You can click an app and view details.
 
-    [ ![Apps-overview](media/spring-cloud-setup-staging-env/app-overview.png)](media/spring-cloud-setup-staging-env/app-overview.png)
+    [ ![Apps-overview](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
 
 1. Open the **Deployments** blade to see all deployments of the app. If the customer has assigned the public endpoint, the **URL** will show the public endpoint of the app. The **State** in the deployment grid shows whether the deployment is production or staging.
 
@@ -127,4 +127,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## Next steps
 
-* [CI/CD for Azure Spring Cloud](spring-cloud-howto-cicd)
+* [CI/CD for Azure Spring Cloud](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-cicd?branch=pr-en-us-142929&pivots=programming-language-java)
