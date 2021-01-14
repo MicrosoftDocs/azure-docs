@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft services to respond to supply-chain attacks and systemic-identity compromises | Microsoft Docs
-description: Learn how to use Microsoft resources to respond to supply-chain attacks and systemic-identity compromises similar to the SolarWinds attack (Solorigate).
+title: Securing your system against systemic-identity compromise | Microsoft Docs
+description: Learn how to use Microsoft resources to secure your system against systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -18,15 +18,15 @@ ms.author: bagol
 
 ---
 
-# Use Microsoft services to respond to supply-chain attacks and systemic-identity compromises
+# Securing your system against systemic-identity compromise
 
 In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html).
-
-Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack (Solorigate) and steps you can take to ensure that your environment is clean and follows security best practices.
 
 The SolarWinds attack provided the attackers with a foothold into affected networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
 The global administrator account or certificates enabled the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
+
+Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack (Solorigate) and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
 
 **Microsoft swiftly took the following steps against the SolarWinds attack**:
 
@@ -47,11 +47,7 @@ The global administrator account or certificates enabled the attackers to forge 
 >
 > [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
 
-## Securing your network after a systemic-identity compromise
-
-If you suspect that your organization has been affected by Solorigate or another similar attack, you can use Azure Sentinel, Microsoft 365 Defender services, and Azure Active Directory to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
-
-### Using Azure Sentinel to secure your network after a systemic-identity compromise
+## Using Azure Sentinel to secure your network after a systemic-identity compromise
 
 1. Make sure that you have the following Azure Sentinel connectors set up in order to stream a range of alerts and queries for known pattern related to the Solorigate attack:
 
@@ -78,21 +74,8 @@ This workbook hunts for activity in both Microsoft Defender for Endpoint data, a
 
 > [!TIP]
 > Modify the **Hunting Timeframe** in each section to update the query results shown.    
-### Using Azure Active Directory to secure your network after a systemic-identity compromise
 
-In Azure Active Directory, use the **Sensitive Operations Report** to learn more about suspicious activity detected in your tenant. 
-
-Under **Monitoring** on the left, select **Workbooks**. Then, under **Troubleshoot**, select the **Sensitive Operations Report**.
-
-The **Sensitive Operations Report** indicates suspicious activity detected in your tenant, such as:
-
-- New credentials added, or existing credentials modified, for existing applications and service principals, which might allow attackers to authenticate and access resources during an attack
-
-- Changes made to existing domain federation trusts, which may help attackers gain a long-term foothold in the environment, by adding an attacker-controlled SAML IDP as a trusted authentication source.
-
-- Manual modifications made to refresh tokens, which are used to validate identification and obtain access tokens, and can be used to by an attacker to gain persistence in the network.
-
-### Using Microsoft 365 Defender resources to secure your network after a systemic-identity compromise
+## Using Microsoft 365 Defender resources to secure your network after a systemic-identity compromise
 
 We recommend that Microsoft 365 Defender customers to start their investigations with the following threat analytics reports, created by Microsoft specifically for Solorigate:
 
@@ -117,6 +100,22 @@ For more information, see:
 
 - [Understand the analyst report in threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics-analyst-reports)
 - [Microsoft Defender Security Center Solorigate supply chain attack threat report](https://securitycenter.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview)
+
+## Using Azure Active Directory to secure your network after a systemic-identity compromise
+
+In Azure Active Directory, use the **Sensitive Operations Report** to learn more about suspicious activity detected in your tenant. 
+
+Under **Monitoring** on the left, select **Workbooks**. Then, under **Troubleshoot**, select the **Sensitive Operations Report**.
+
+The **Sensitive Operations Report** indicates suspicious activity detected in your tenant, such as:
+
+- New credentials added, or existing credentials modified, for existing applications and service principals, which might allow attackers to authenticate and access resources during an attack
+
+- Changes made to existing domain federation trusts, which may help attackers gain a long-term foothold in the environment, by adding an attacker-controlled SAML IDP as a trusted authentication source.
+
+- Manual modifications made to refresh tokens, which are used to validate identification and obtain access tokens, and can be used to by an attacker to gain persistence in the network.
+
+
 
 ## Microsoft references for Solorigate
 

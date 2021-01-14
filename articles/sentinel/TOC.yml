@@ -209,12 +209,8 @@
       href: hunting-with-rest-api.md
   - name: Remove Azure Sentinel
     href: offboard.md
-  - name: Secure against systemic identity compromises
-    items:
-    - name: Overview
-      href: solarwinds.md
-    - name: Respond with Azure Sentinel
-      href: identity-compromise-azure-sentinel.md
+  - name: Secure against systemic-identity compromises
+    href: solarwinds.md
 - name: Reference (New!)
   items:
   - name: REST APIs
