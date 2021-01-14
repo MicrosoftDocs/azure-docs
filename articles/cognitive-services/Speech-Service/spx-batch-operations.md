@@ -40,7 +40,7 @@ sample_2	8f9b378f6d0b42f99522f1173492f013	Sample text synthesized.
 
 ## Batch text-to-speech (speech synthesis)
 
-The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in the Speech CLI. You can create a `.tsv` file using your favorite text editor, for this example, let's call it `text_synthesis.tsv`:
+The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and use the `--foreach` command in the Speech CLI. You can create a `.tsv` file using your favorite text editor, for this example, let's call it `text_synthesis.tsv`:
 
 >[!IMPORTANT]
 > When copying the contents of this text file, make sure that your file has a **tab** not spaces between the file location and the text. Sometimes, when copying the contents from this example, tabs are converted to spaces causing the `spx` command to fail when run.
@@ -62,11 +62,11 @@ This command is the equivalent of running `spx synthesize --text Sample text to 
 
 A couple things to note:
 
-* The column headers, `audio.output` and `text`, correspond to the command line arguments `--audio output` and `--text`, respectively. Multi-part command line arguments like `--audio output` should be formatted in the file with no spaces, no leading dashes, and periods separating strings, e.g. `audio.output`. Any other existing command line arguments can be added to the file as additional columns using this pattern.
+* The column headers, `audio.output` and `text`, correspond to the command-line arguments `--audio output` and `--text`, respectively. Multi-part command-line arguments like `--audio output` should be formatted in the file with no spaces, no leading dashes, and periods separating strings, for example, `audio.output`. Any other existing command-line arguments can be added to the file as additional columns using this pattern.
 * When the file is formatted in this way, no additional arguments are required to be passed to `--foreach`.
 * Ensure to separate each value in the `.tsv` with a **tab**.
 
-However, if you have a `.tsv` file like the following example, with column headers that **do not match** command line arguments:
+However, if you have a `.tsv` file like the following example, with column headers that **do not match** command-line arguments:
 
 ```output
 wav_path    str_text

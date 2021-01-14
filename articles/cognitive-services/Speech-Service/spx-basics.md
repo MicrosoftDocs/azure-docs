@@ -14,9 +14,9 @@ ms.author: trbye
 
 # Get started with the Azure Speech CLI
 
-In this article, you'll learn how to use the Speech CLI, a command line interface, to access Speech services like speech to text, text to speech, and speech translation without writing code. The Speech CLI is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
+In this article, you'll learn how to use the Speech CLI, a command-line interface, to access Speech services like speech to text, text to speech, and speech translation without writing code. The Speech CLI is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
 
-This article assumes that you have working knowledge of the command prompt, terminal or PowerShell.
+This article assumes that you have working knowledge of the command prompt, terminal, or PowerShell.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -24,40 +24,40 @@ This article assumes that you have working knowledge of the command prompt, term
 
 This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by viewing the help built in to the tool by running the following command.
 
-```shell
+```console
 spx
 ```
 
-Notice **see:** help topics listed right of command parameters. You can enter these commands to get detailed help about sub-commands.
-
 You can search help topics by keyword. For example, enter the following command to see a list of Speech CLI usage examples:
 
-```shell
+```console
 spx help find --topics "examples"
 ```
 
 Enter the following command to see options for the recognize command:
 
-```shell
+```console
 spx help recognize
 ```
 
+Additional help commands listed in the right column. You can enter these commands to get detailed help about sub-commands.
+
 ## Speech to text (speech recognition)
 
-Let's use the Speech CLI to perform speech to text (speech recognition) using your system's default microphone. After entering the command, SPX will begin listening for audio on the current active input device, and stop when you press **ENTER**. The recorded speech is then recognized and converted to text in the console output.
+Let's use the Speech CLI to convert speech to text (speech recognition) using your system's default microphone. After entering the command, SPX will begin listening for audio on the current active input device, and stop when you press **ENTER**. The recorded speech is then recognized and converted to text in the console output.
 
 >[!WARNING]
 > If you are using a Docker container, `--microphone` will not work.
 
 Run this command:
 
-```shell
+```console
 spx recognize --microphone
 ```
 
-With the Speech CLI you can also recognize speech from an audio file.
+With the Speech CLI, you can also recognize speech from an audio file.
 
-```shell
+```console
 spx recognize --file C:\path\to\file.wav
 ```
 > [!TIP]
@@ -65,39 +65,39 @@ spx recognize --file C:\path\to\file.wav
 
 Don't forget, if you get stuck or want to learn more about the Speech CLI's recognition options, just type:
 
-```shell
+```console
 spx help recognize
 ```
 
 ## Text to speech (speech synthesis)
 
-Running the following command will take text as input, and output the synthesized speech to the current active output device (e.g. your computer speakers).
+Running the following command will take text as input, and output the synthesized speech to the current active output device (for example, your computer speakers).
 
-```shell
+```console
 spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 ```
 
 You can also save the synthesized output to file. In this example, we'll create a file named `my-sample.wav` in the directory that the command is run.
 
-```shell
+```console
 spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
 These examples presume that you're testing in English. However, we support speech synthesis in many languages. You can pull down a full list of voices with this command, or by visiting the [language support page](./language-support.md).
 
-```shell
+```console
 spx synthesize --voices
 ```
 
-And finally, here's how you use one of the voices you've just discovered.
+And finally, here's how you use one of the voices you've discovered.
 
-```shell
+```console
 spx synthesize --text "Bienvenue chez moi." --voice fr-CA-Caroline --speakers
 ```
 
 Don't forget, if you get stuck or want to learn more about the Speech CLI's synthesis options, just type:
 
-```shell
+```console
 spx help synthesize
 ```
 
@@ -107,7 +107,7 @@ With the Speech CLI, you can also do speech to text translation. Run this comman
 
 Using this command, you specify both the source (language to translate **from**), and the target (language to translate **to**) languages. Using the `--microphone` argument will listen to audio on the current active input device, and stop after you press `ENTER`. 
 
-```shell
+```console
 spx translate --microphone --source en-US --target ru-RU
 ```
 
@@ -119,7 +119,7 @@ spx translate --file C:\some\file\path\input.wav --source en-US --target ru-RU -
 
 Now, let's take a look at how you can translate speech to text into multiple languages with a single command.
 
-```shell
+```console
 spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
 ```
 
@@ -128,7 +128,7 @@ spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
 
 Don't forget, if you get stuck or want to learn more about the Speech CLI's translation options, just type:
 
-```shell
+```console
 spx help translate
 ```
 
