@@ -20,9 +20,9 @@ Azure Traffic Manager is a DNS-based traffic load balancer that enables you to d
 Traffic Manager uses DNS to direct client requests to the most appropriate service endpoint based on a traffic-routing method and the health of the endpoints. An endpoint is any Internet-facing service hosted inside or outside of Azure. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
 
 >[!NOTE]
-> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md). If you are looking for regional load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). Your end-to-end scenarios might benefit from combining these solutions as needed.
+> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you are looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [Application Gateway](../application-gateway/overview.md). If you are looking for regional load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). Your end-to-end scenarios might benefit from combining these solutions as needed.
 >
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Traffic Manager offers the following features:
 
@@ -53,10 +53,6 @@ For pricing information, see [Traffic Manager Pricing](https://azure.microsoft.c
 
 ## Next steps
 
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md).
+- Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 - Learn [how Traffic Manager Works](traffic-manager-how-it-works.md).
 - View [frequently asked questions](traffic-manager-FAQs.md) about Traffic Manager.
-
-
-
-

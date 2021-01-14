@@ -40,6 +40,8 @@ For managing your resources, use:
 
 * [tags](/azure/templates/microsoft.resources/tags)
 
+Management groups are tenant-level resources. However, you can create management groups in a management group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
+
 ## Schema
 
 The schema you use for management group deployments is different than the schema for resource group deployments.
@@ -163,9 +165,55 @@ You can use a nested deployment with `scope` and `location` set.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-Or, you can set the scope to `/` for some resource types, like management groups.
+Or, you can set the scope to `/` for some resource types, like management groups. Creating a new management group is described in the next section.
+
+## Management group
+
+To create a management group in a management group deployment, you must set the scope to `/` for the management group.
+
+The following example creates a new management group in the root management group.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+The next example creates a new management group in the management group specified as the parent. Notice that the scope is set to `/`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## Azure Policy
 
