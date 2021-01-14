@@ -118,6 +118,8 @@ To address issues like word deletion or substitution, a significant amount of da
 
 For example:
 
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
 ```input
 speech01.wav	speech recognition is awesome
 speech02.wav	the quick brown fox jumped all over the place
