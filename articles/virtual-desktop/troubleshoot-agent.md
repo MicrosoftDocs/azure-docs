@@ -293,7 +293,7 @@ When you remove the session host from the host pool, the session host is no long
    > [!div class="mx-imgBorder"]
    > ![Screenshot of removing VM from host pool](media/remove.png)
 
-### Generate a new registration key for the VM
+### Step 3: Generate a new registration key for the VM
 
 You must generate a new registration key that is used to re-register your VM to the host pool and to the service. To generate a new registration key for the VM:
 1. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
