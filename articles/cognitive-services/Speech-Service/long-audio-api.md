@@ -1,5 +1,5 @@
 ---
-title: Long Audio API (Preview) - Speech service
+title: Long Audio API - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 08/11/2020
 ms.author: trbye
 ---
 
-# Long Audio API (Preview)
+# Long Audio API
 
-The Long Audio API is designed for asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms.
+The Long Audio API is designed for asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 
 Additional benefits of the Long Audio API:
 
@@ -42,8 +42,6 @@ When preparing your text file, make sure it:
 * Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs
   * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
-> [!NOTE]
-> For Chinese (Mainland), Chinese (Hong Kong SAR), Chinese (Taiwan), Japanese, and Korean, one word will be counted as two characters. 
 
 ## Python example
 
