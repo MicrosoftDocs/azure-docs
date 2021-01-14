@@ -151,7 +151,7 @@ Certificates with other parameters might work, but Microsoft doesn't support the
 
 **.pem: certificate container file**
 
-Privacy Enhanced Mail (PEM), uses a historic method to secure emails. The container format it used to live on which is a base64 translation of the x509 ASN.1 keys.  
+Privacy Enhanced Mail (PEM) files were the general file type used to secure emails. Nowadays, PEM files are used with certificates and use x509 ASN1 keys.  
 
 The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, ETC, SSL, or CERTS. This can include an entire certificate chain including public key, private key, and root certificates.  
 
