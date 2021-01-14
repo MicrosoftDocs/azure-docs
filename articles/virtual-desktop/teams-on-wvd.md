@@ -134,7 +134,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 ### Calls and meetings
 
-- The Teams desktop client in Windows Virtual Desktop environments doesn't support live events. For now, we recommend you join live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
+- The Teams desktop client in Windows Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
 - Give control and take control aren't currently supported.
 - Teams on Windows Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
