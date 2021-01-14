@@ -115,7 +115,7 @@ For cloud data sources:
 
 ## OAuth credentials
 
-For tabular models at the 1400 and higher compatibility level using in-memory mode, Azure SQL Database, Azure Synapse (formerly SQL Data Warehouse), Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using Power Query.
+For tabular models at the 1400 and higher compatibility level using in-memory mode, Azure SQL Database, Azure Synapse, Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using Power Query.
 
 Direct Query mode is not supported with OAuth credentials.
 

@@ -44,8 +44,8 @@ The Logstash engine is comprised of three components:
 
 The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
-- Learn more about the [Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Learn more about [custom logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Learn more about the [Log Analytics REST API](/rest/api/loganalytics/create-request).
+- Learn more about [custom logs](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## Deploy the Azure Sentinel output plugin in Logstash
 
@@ -53,7 +53,7 @@ The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your 
 
 The Azure Sentinel output plugin is available in the Logstash collection.
 
-- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the ***microsoft-logstash-output-azure-loganalytics*** plugin.
+- Follow the instructions in the Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) document to install the ***[microsoft-logstash-output-azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** plugin.
    
 - If your Logstash system does not have Internet access, follow the instructions in the Logstash [Offline Plugin Management](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) document to prepare and use an offline plugin pack. (This will require you to build another Logstash system with Internet access.)
 

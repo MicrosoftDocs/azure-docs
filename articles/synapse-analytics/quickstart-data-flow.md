@@ -1,6 +1,6 @@
 ---
-title: A quickstart to transform data using a mapping data flow
-description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with mapping data flow
+title: "Quickstart: Transform data using a mapping data flow"
+description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with mapping data flow.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -12,7 +12,7 @@ ms.date: 11/03/2020
 
 # Quickstart: Transform data using mapping data flows
 
-In this quickstart, you'll use the Azure Synapse Analytics to create a pipeline that transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this quickstart can be expanded upon when transforming data using mapping data flow
+In this quickstart, you'll use Azure Synapse Analytics to create a pipeline that transforms data from an Azure Data Lake Storage Gen2 (ADLS Gen2) source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this quickstart can be expanded upon when transforming data using mapping data flow
 
 In this quickstart, you do the following steps:
 
@@ -34,7 +34,7 @@ In this quickstart, you do the following steps:
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). On the top of the Overview section, select **Launch Synapse Studio**.
+* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
 In this quickstart, we use the workspace named "adftest2020" as an example. It will automatically navigate you to the Synapse Studio home page.

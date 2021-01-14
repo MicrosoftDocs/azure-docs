@@ -13,9 +13,21 @@ ms.date: 08/14/2020
 ms.author: errobin
 ---
 
-# Troubleshoot resource health, frontend, and backend availability issues 
+# Troubleshoot resource health, and inbound availability issues 
 
 This article is a guide to investigate issues impacting the availability of your load balancer frontend IP and backend resources. 
+
+The Resource Health Check (RHC) for the Load Balancer is used to determine the health of your load balancer. It analyzes the Data Path Availability metric over a **2-minute** interval to determine whether the load balancing endpoints, the frontend IP and frontend ports combinations with load balancing rules, are available.
+
+The below table describes the RHC logic used to determine the health state of your load balancer.
+
+| Resource health status | Description |
+| --- | --- |
+| Available | Your standard load balancer resource is healthy and available. |
+| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. 
+| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. |
+| Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
+
 
 ## About the metrics we'll use
 The two metrics to be used are *Data path availability* and *Health probe status* and it is important to understand their meaning to derive correct insights. 
@@ -47,7 +59,7 @@ Let's say we check our health probe status and find out that all instances are s
   * If you find this NSG issue is the case, move the existing Allow rule or create a new high priority rule to allow AzureLoadBalancer traffic
 * Check your OS. Ensure your VMs are listening on the probe port and review their OS firewall rules to ensure they are not blocking the probe traffic originating from IP address 168.63.129.16
   * You can check listening ports by running netstat -a the Windows command prompt or netstat -l in a Linux terminal
-* Don't place a firewall NVA VM in the backend pool of the load balancer, use [user-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) to route traffic to backend instances through the firewall
+* Don't place a firewall NVA VM in the backend pool of the load balancer, use [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to route traffic to backend instances through the firewall
 * Ensure you're using the right protocol, if using HTTP to probe a port listening for a non-HTTP application the probe will fail
 
 If you've gone through this checklist and are still finding health probe failures, there may be rare platform issues impacting the probe service for your instances. In this case, Azure has your back and an automated alert is sent to our team to rapidly resolve all platform issues.
@@ -56,5 +68,3 @@ If you've gone through this checklist and are still finding health probe failure
 
 * [Learn more about the Azure Load Balancer health probe](load-balancer-custom-probe-overview.md)
 * [Learn more about Azure Load Balancer metrics](load-balancer-standard-diagnostics.md)
-
-

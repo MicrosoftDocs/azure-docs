@@ -1,7 +1,7 @@
 ---
 title: Use MSAL.js with Azure AD B2C
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for JavaScript (MSAL.js) enables applications to work with Azure AD B2C and acquire tokens to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
+description: The Microsoft Authentication Library for JavaScript (MSAL.js) enables applications to work with Azure AD B2C and acquire tokens to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -18,9 +18,9 @@ ms.custom: aaddev devx-track-js
 # authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---
 
-# Use Microsoft Authentication Library for JavaScript to work with Azure AD B2C
+# Use the Microsoft Authentication Library for JavaScript to work with Azure AD B2C
 
-[Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) enables JavaScript developers to authenticate users with social and local identities using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
+The [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) enables JavaScript developers to authenticate users with social and local identities using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
 By using Azure AD B2C as an identity management service, you can customize and control how your customers sign up, sign in, and manage their profiles when they use your applications. Azure AD B2C also enables you to brand and customize the UI that your application displays during the authentication process.
 
@@ -207,7 +207,7 @@ When a user selects **Forgot password**, your application throws an error which 
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Password reset flow screens showed by Azure AD B2C" border="false":::
 
-    For more information about error codes and handling exceptions, see [MSAL error and exception codes](msal-handling-exceptions.md).
+    For more information about error codes and handling exceptions, see [MSAL error and exception codes](msal-error-handling-js.md).
 
 ## Next steps
 
@@ -215,4 +215,4 @@ Learn more about these Azure AD B2C concepts:
 
 - [User flows](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Custom policies](../../active-directory-b2c/custom-policy-get-started.md)
-- [UX customization](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [UX customization](../../active-directory-b2c/configure-user-input.md)

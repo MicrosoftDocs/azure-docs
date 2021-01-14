@@ -94,7 +94,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |
@@ -104,16 +104,6 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [Display controls](display-controls.md) |  |X  |  |  |
 
 
-### Page layout versions
-
-| Feature | Development | Preview | GA | Notes |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [JavaScript support](javascript-samples.md) |  | X |  |  |
-
 ### App-IEF integration
 
 | Feature | Development | Preview | GA | Notes |
@@ -122,7 +112,8 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Query string parameter `login_hint` |  |  | X | Available as claim, can be passed to IDP. |
 | Insert JSON into user journey via `client_assertion` | X |  |  | Will be deprecated. |
 | Insert JSON into user journey as `id_token_hint` |  | X |  | Go-forward approach to pass JSON. |
-| [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
+| [Pass identity provider token to the application](idp-pass-through-user-flow.md) |  | X |  | For example, from Facebook to app. |
+
 
 ### Session Management
 
@@ -132,7 +123,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Single sign-out](session-overview.md#sign-out)  |  | X |  |  |
+| [Single sign-out](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### Security
 

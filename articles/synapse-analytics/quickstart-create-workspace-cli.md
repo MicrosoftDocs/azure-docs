@@ -17,7 +17,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 In this quickstart, you learn to create a Synapse workspace by using the Azure CLI.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -27,28 +27,7 @@ If you don't have an Azure subscription, [create a free account before you begin
     > [!IMPORTANT]
     > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Accout](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) page. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Install the Azure CLI locally
-
-If you choose to install and use the Azure CLI locally, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-If you are running the Azure CLI locally, you must log in and authenticate. This step is not necessary if you are using Azure Cloud Shell. To log in to Azure CLI, run `az login` and authenticate in the browser window:
-
-```azurecli
-az login
-```
-
-For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## Install Azure Synapse extension for Azure CLI
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> The Azure Synapse extension for Azure CLI is in preview.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an Azure Synapse workspace using the Azure CLI
 

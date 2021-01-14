@@ -6,7 +6,7 @@ ms.date: 09/24/2020
 ms.custom: 
    - H1Hack27Feb2017
    - devx-track-csharp
-   - contperfq1
+   - contperf-fy21q1
 
 ---
 # Deploy applications to compute nodes with Batch application packages

@@ -44,7 +44,7 @@ This resource library contains additional links and references that are relevant
 * [Azure AD Connect - User Sign-In Options](../active-directory/hybrid/plan-connect-user-signin.md)
 * [Azure AD Connect and Federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
 * [Pass-Through Authentication Documentation](../active-directory/hybrid/how-to-connect-pta.md)
-* [Deploying Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Deploying Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 * [Azure Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
 
 ## Azure Backup and Azure Site Recovery
@@ -69,7 +69,7 @@ This resource library contains additional links and references that are relevant
 * [Hybrid Identity](../active-directory/hybrid/whatis-hybrid-identity.md)
 * [Azure Custom Roles](../role-based-access-control/custom-roles.md)
 * [Azure Built-in Roles](../role-based-access-control/built-in-roles.md)
-* [Securing Privileged Access in Hybrid Cloud Environments](../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+* [Securing Privileged Access in Hybrid Cloud Environments](../active-directory/roles/security-planning.md)
 * [Azure Enterprise Scaffold](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
 ## System monitoring for security

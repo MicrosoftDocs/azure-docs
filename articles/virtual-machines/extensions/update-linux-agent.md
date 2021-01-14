@@ -7,9 +7,9 @@ author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
-
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

@@ -184,12 +184,6 @@ Resources
 | project disk.id
 ```
 
-> [!NOTE]
-> Another way to get the SKU would have been by using the **aliases** property
-> **Microsoft.Compute/virtualMachines/sku.name**. See the
-> [Show aliases](../samples/starter.md#show-aliases) and
-> [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
-
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```

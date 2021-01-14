@@ -18,8 +18,11 @@ In this quickstart, you create your own resource provider and deploy custom reso
 
 # [Azure CLI](#tab/azure-cli)
 
-- The [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands require an extension. For more information, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -28,8 +31,6 @@ In this quickstart, you create your own resource provider and deploy custom reso
 - After the **ARMClient** is installed you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Deploy custom provider
 

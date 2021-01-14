@@ -69,15 +69,15 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 1. To get to the help and support page, navigate to **Browse > Help + support**.
 
-    ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Screenshot shows the Help dialog box.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 
-    ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Screenshot shows the Help + support page with your support request in an open status.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Select and click a support request. You can view the status and the details for this request. Select **+ New message** if you want to follow up on this request.
 
-    ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Screenshot shows New message selected for this request.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## Next steps

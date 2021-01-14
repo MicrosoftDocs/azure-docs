@@ -96,7 +96,7 @@ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurat
 
 - [How to restrict inbound IP addresses](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -382,7 +382,7 @@ If you are using Infrastructure as Code, avoid storing passwords in code and ins
 
 - [How to secure and access data in Logic Apps](logic-apps-securing-a-logic-app.md)
 
-- [How to set and retrieve a secret from Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to set and retrieve a secret from Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -442,7 +442,7 @@ For connectors that use Azure Active Directory (Azure AD) OAuth, creating a conn
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

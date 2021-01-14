@@ -50,5 +50,5 @@ Development for this scenario involves these specific tasks:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [A web app that calls web APIs: App registration](scenario-web-app-call-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-web-app-call-api-app-registration.md).

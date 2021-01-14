@@ -66,5 +66,5 @@ The query above will show results over the last 6 hours for any Postgres server 
 
 ## Next steps
 
-- [Get started with log analytics queries](../../azure-monitor/log-query/get-started-portal.md)
+- [Get started with log analytics queries](../../azure-monitor/log-query/log-analytics-tutorial.md)
 - Learn about [Azure event hubs](../../event-hubs/event-hubs-about.md)

@@ -51,7 +51,7 @@ The deployment generally takes less than an hour.
 Deployed systems can be accessed via the Microsoft Translator Text API V3 by
 specifying the CategoryID. More information about the Translator Text API can
 be found in the [API
-Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+Reference](../reference/v3-0-reference.md)
 webpage.
 
 ## How do I skip alignment and sentence breaking if my data is already sentence aligned?

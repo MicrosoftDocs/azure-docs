@@ -38,8 +38,10 @@ Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/a
 
 Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
 
-> [!TIP]
-> To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+
+> [!NOTE]
+> Even though Azure Defender is designed to protect servers, most of the capabilities of **Azure Defender for servers** are supported for Windows 10 machines. One feature that isn't currently supported is [Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
 ## Managed virtual machine services <a name="virtual-machine"></a>
 
