@@ -49,7 +49,7 @@ ms.author: aahi
 #### [Named Entity Recognition (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 currently only supports English and Spanish languages. If you call NER v3 with a different language, the API will return v2.1 results, provided the language is supported in version 2.1.
+> * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
 
 | Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
@@ -76,7 +76,6 @@ ms.author: aahi
 | Spanish               |     `es`      |     ✓       |               2020-04-01        |                    |
 | Swedish               |     `sv`      |     ✓*      |               2019-10-01        |                    |
 | Turkish               |     `tr`      |     ✓*      |               2019-10-01        |                    |
-* only returns the "Person", "Location" and "Organization" entities.
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
