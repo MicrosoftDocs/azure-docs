@@ -45,7 +45,7 @@ This table shows some of the ways you can get a list of available locations.
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
 | REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
-| Azure CLI |Use the [az account list-locations](/cli/azure/account?view=azure-cli-latest) operation. |
+| Azure CLI |Use the [az account list-locations](/cli/azure/account) operation. |
 
 ### Singapore data residency
 
@@ -75,7 +75,7 @@ This table shows some ways that you can find the information for an image.
 | Azure portal |The values are automatically specified for you when you select an image to use. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST APIs |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
+| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *location* --publisher *publisherName* --offer *offerName*|
 
 You can choose to [upload and use your own image](upload-generalized-managed.md) and when you do, the publisher name, offer, and sku aren’t used.
 

@@ -62,7 +62,7 @@ VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs c
 
 * The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
 
-In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=win10-ps) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
+In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
 
 > [!NOTE]
 > There is a [known bug in qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. We recommend using either `qemu-img` 2.2.0 or lower, or 2.6 or higher.

@@ -100,7 +100,7 @@ tools:
     # Card
     - title: Azure CLI
       imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      url: /cli/azure/vm?view=azure-cli-latest
+      url: /cli/azure/vm
     - title: Azure PowerShell
       imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
       url: /powershell/module/az.compute#virtual_machines

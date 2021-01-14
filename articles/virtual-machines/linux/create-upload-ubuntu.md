@@ -171,7 +171,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 13. Click **Action -> Shut Down** in Hyper-V Manager.
 
-14. Azure only accepts fixed-size VHDs. If the VM's OS disk is not a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. Azure only accepts fixed-size VHDs. If the VM's OS disk is not a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
 
 
 ## Next steps
