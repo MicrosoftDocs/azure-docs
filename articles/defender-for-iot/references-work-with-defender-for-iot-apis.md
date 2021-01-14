@@ -39,7 +39,7 @@ To generate a token:
 
 5. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Asset Tokens dialog box with filled-out tokens":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Device Tokens dialog box with filled-out tokens":::
 
    **Used** indicates the last time an external call with this token was received.
 
