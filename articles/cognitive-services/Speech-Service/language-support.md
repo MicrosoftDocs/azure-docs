@@ -31,7 +31,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Language                 | Locale (BCP-47) | Customizations  | [Automatic language detection?](how-to-automatic-language-detection.md) |
+| Language                 | Locale (BCP-47) | Customizations  | [Language detection](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
 | Arabic (Bahrain), modern standard  | `ar-BH` | Language model                                   | Yes                           | 
 | Arabic (Egypt)                     | `ar-EG` | Language model                                   | Yes                          |
