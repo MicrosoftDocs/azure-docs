@@ -31,7 +31,10 @@ For example, a request that a polling trigger makes is still metered as an execu
 | [Data retention and storage consumption](#data-retention) | Metered using the data retention price, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), under the **Pricing details** table. |
 |||
 
-For limits information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+For more information, see the following:
+
+* [View metrics for executions and storage consumption](#monitor-billing-metrics) in this topic
+* [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise)
 
 ### Not metered
 
@@ -124,7 +127,9 @@ All the inputs and outputs in your logic app's run history are stored and metere
 
 * For logic apps in the multi-tenant Logic Apps service, storage consumption is billed at a fixed price, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table.
 
-* For logic apps in ISEs, storage consumption doesn't incur retention costs.
+* For logic apps in ISEs, storage consumption doesn't incur data retention costs.
+
+To find metrics about storage consumption usage, review the [Monitor executions and storage consumption](#monitor-billing-metrics) section in this topic.
 
 <a name="data-gateway"></a>
 
