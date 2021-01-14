@@ -182,7 +182,7 @@ Use the following commands to get detailed status and encryption settings.
 
 OS disk:
 
-```azurecli
+```bash
 RGNAME="RGNAME"
 VMNAME="VNAME"
 
@@ -230,7 +230,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 
 You can also check the encryption settings on the VM Model Storage profile of the OS disk:
 
-```azurecli
+```bash
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
 for disk in $disk; do \
 echo "============================================================================================================================================================="; \
@@ -251,7 +251,7 @@ Check the encryption settings for disks that aren't attached to a VM.
 
 ### Managed disks
 
-```azurecli
+```bash
 RGNAME="RGNAME"
 TARGETDISKNAME="DISKNAME"
 echo "============================================================================================================================================================="

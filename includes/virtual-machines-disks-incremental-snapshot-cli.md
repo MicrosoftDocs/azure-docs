@@ -26,11 +26,11 @@ Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI
 ```
 On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](/cli/azure/install-azure-cli) for your particular Linux version.
 
-To create an incremental snapshot, use [az snapshot create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
+To create an incremental snapshot, use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) with the `--incremental` parameter.
 
 The following example creates an incremental snapshot, replace `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`, and `<exampleLocation>` with your own values, then run the example:
 
-```azurecli
+```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
 
 az snapshot create -g <yourResourceGroupNameHere> \
@@ -48,7 +48,7 @@ This example uses jq for querying the data. To run the example, you must [instal
 
 Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list your existing incremental snapshots, as long as you've also installed jq:
 
-```azurecli
+```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
 
  

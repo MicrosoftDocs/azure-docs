@@ -12,7 +12,7 @@
 
 To restrict access to the storage account's public endpoint to specific virtual networks using service endpoints, we first need to collect information about the storage account and virtual network. Fill in `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<subnet-name>` to collect this information.
 
-```azurecli
+```bash
 storageAccountResourceGroupName="<storage-account-resource-group>"
 storageAccountName="<storage-account-name>"
 restrictToVirtualNetworkResourceGroupName="<vnet-resource-group-name>"
@@ -41,7 +41,7 @@ subnet=$(az network vnet subnet show \
 
 In order for traffic from the virtual network to be allowed by the Azure network fabric to get to the storage account public endpoint, the virtual network's subnet must have the `Microsoft.Storage` service endpoint exposed. The following CLI commands will add the the `Microsoft.Storage` service endpoint to the subnet if it's not already there.
 
-```azurecli
+```bash
 serviceEndpoints=$(az network vnet subnet show \
         --resource-group $restrictToVirtualNetworkResourceGroupName \
         --vnet-name $restrictToVirtualNetworkName \

@@ -11,7 +11,7 @@
 ---
 To create a private endpoint for your storage account, you first need to get a reference to your storage account and the virtual network subnet to which you want to add the private endpoint. Replace `<storage-account-resource-group-name>`,  `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<vnet-subnet-name>` below:
 
-```azurecli
+```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"
 storageAccountName="<storage-account-name>"
 virtualNetworkResourceGroupName="<vnet-resource-group-name>"
@@ -43,7 +43,7 @@ subnet=$(az network vnet subnet show \
 
 To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command.
 
-```azurecli
+```bash
 # Disable private endpoint network policies
 az network vnet subnet update \
         --ids $subnet \
@@ -71,7 +71,7 @@ privateEndpoint=$(az network private-endpoint create \
 
 Creating an Azure private DNS zone enables the original name of the storage account, such as `storageaccount.file.core.windows.net` to resolve to the private IP inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for mounting the Azure file share using an AD user principal or accessing via the REST API.  
 
-```azurecli
+```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).
 # This is done like this so this script will seamlessly work for non-public Azure.
 storageAccountSuffix=$(az cloud show \
@@ -136,7 +136,7 @@ fi
 
 Now that you have a reference to the private DNS zone, you must create an A record for your storage account.
 
-```azurecli
+```bash
 privateEndpointNIC=$(az network private-endpoint show \
         --ids $privateEndpoint \
         --query "networkInterfaces[0].id" | \

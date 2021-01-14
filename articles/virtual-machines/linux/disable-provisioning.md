@@ -26,7 +26,7 @@ The Azure platform hosts many extensions that range from VM configuration, monit
 
 ## Disabling extension processing
 
-There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the Azure CLI, you can [list](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the Azure CLI, you can [list](/cli/azure/vm/extension#az-vm-extension-list) and [delete](/cli/azure/vm/extension#az-vm-extension-delete):
 
 ```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
