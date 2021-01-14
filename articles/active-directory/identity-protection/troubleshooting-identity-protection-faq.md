@@ -28,7 +28,7 @@ There is a current known issue causing latency in the user risk dismissal flow. 
 
 ## Frequently asked questions
 
-### Why is a user is at risk?
+### Why is a user at risk?
 
 If you are an Azure AD Identity Protection customer, go to the [risky users](howto-identity-protection-investigate-risk.md#risky-users) view and click on an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, click on ‘User’s risky sign-ins’. To see all risk detections for this user, click on ‘User’s risk detections’.
 

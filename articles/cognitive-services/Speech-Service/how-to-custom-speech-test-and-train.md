@@ -116,11 +116,14 @@ Audio files can have silence at the beginning and end of the recording. If possi
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 20 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
-  For example:
-```
-  speech01.wav  speech recognition is awesome
-  speech02.wav  the quick brown fox jumped all over the place
-  speech03.wav  the lazy dog was not amused
+For example:
+
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
+speech01.wav	speech recognition is awesome
+speech02.wav	the quick brown fox jumped all over the place
+speech03.wav	the lazy dog was not amused
 ```
 
 > [!IMPORTANT]
