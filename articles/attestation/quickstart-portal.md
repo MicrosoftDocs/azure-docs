@@ -1,6 +1,6 @@
 ---
-title: Set up Azure Attestation with Azure Portal
-description: How to set up and configure an attestation provider using Azure Portal.
+title: Set up Azure Attestation with Azure portal
+description: How to set up and configure an attestation provider using Azure portal.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -10,9 +10,9 @@ ms.author: mbaldwin
 
 
 ---
-# Quickstart: Set up Azure Attestation with Azure Portal
+# Quickstart: Set up Azure Attestation with Azure portal
 
-Follow the below steps to manage an attestation provider using Azure Portal.
+Follow the below steps to manage an attestation provider using Azure portal.
 
 ## Attestation provider
 
@@ -46,15 +46,15 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 4.	On the Microsoft Azure Attestation page, choose **Create**
 5.	On the Create attestation provider page, provide the following information:
 	
-	**Subscription**: Choose a subscription
+	a. **Subscription**: Choose a subscription
 	
-	**Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name
+	b. **Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name
 	
-	**Name**: A unique name is required
+	c. **Name**: A unique name is required
 
-	**Location**: choose a location 
+	d. **Location**: choose a location 
 	
-	**Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file. See examples [here](/azure/attestation/policy-signer-examples) 
+	e. **Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file. See examples [here](/azure/attestation/policy-signer-examples) 
 6.	After providing the rquired inputs, click **Review+Create**
 7.	Fix validation issues if any and click **Create**.
 
@@ -72,7 +72,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 [OR]
 1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
-3.	Seelect the attestation provider and navigate to overview page
+3.	Select the attestation provider and navigate to overview page
 4.	Click **Delete** in the top menu and click **Yes**
 
 
@@ -84,7 +84,7 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 2.	In the filter box, enter attestation provider name
 3.	Select the attestation provider and navigate to overview page
 4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
-5.	Click **Download policy signer certificates** (The button will be disabled for the attestation providers created without policy signing requiment)
+5.	Click **Download policy signer certificates** (The button will be disabled for the attestation providers created without policy signing requirement)
 6.	The text file downloaded will have all certs in a JWS format.
 a.	Verify the certificates count and certs downloaded.
 
@@ -94,7 +94,7 @@ a.	Verify the certificates count and certs downloaded.
 2.	In the filter box, enter attestation provider name
 3.	Select the attestation provider and navigate to overview page
 4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
-5.	Click **Add** in the top menu (The button will be disabled for the attestation providers created without policy signing requiment)
+5.	Click **Add** in the top menu (The button will be disabled for the attestation providers created without policy signing requirement)
 6.	Upload policy signer certificate file and click **Add**. See examples [here](/azure/attestation/policy-signer-examples)
 
 ### Delete policy signer certificate
