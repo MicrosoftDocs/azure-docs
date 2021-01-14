@@ -52,7 +52,6 @@
     - name: Contact Microsoft Support
       href: ../databox-online/azure-stack-edge-contact-microsoft-support.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-gateway/breadcrumb/toc.json
 - name: Release notes
-  Expanded: False
   items:
   - name: 2007 - Current
     href: data-box-gateway-2007-release-notes.md
