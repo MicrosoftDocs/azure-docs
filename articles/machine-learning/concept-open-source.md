@@ -37,7 +37,7 @@ Open-source machine learning algorithms known as neural networks, a subset of ma
 
 Open-source deep learning frameworks and how-to guides include:
 
- *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning PyTorch model using transfer learning in PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
