@@ -48,59 +48,81 @@ The global administrator account or certificates enabled the attackers to forge 
 > If you are not sure whether your organization has been infected, review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack: 
 >
 > [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
+
 ## Securing your network after a systemic-identity compromise
 
 If you suspect that your organization has been affected by Solorigate or another similar attack, you can use Azure Sentinel, Microsoft 365 Defender services, and Azure Active Directory to identify risks and evidence of compromise, isolate resources, and harden your system against attacks.
 
-- [Azure Sentinel resources for the Solorigate attack](#using-azure-sentinel-to-secure-your-network-after-a-systemic-identity-compromise)
-- [Azure Active Directory resources for the Solorigate attack](#using-azure-active-directory-to-secure-your-network-after-a-systemic-identity-compromise)
-
 ### Using Azure Sentinel to secure your network after a systemic-identity compromise
 
-In Azure Sentinel, the following connectors can stream a range of alerts and queries for known pattern related to the Solorigate attack. 
+1. Make sure that you have the following Azure Sentinel connectors set up in order to stream a range of alerts and queries for known pattern related to the Solorigate attack:
 
-- [Windows security events](connect-windows-security-events.md) 
-- [Microsoft 365 Defender](connect-microsoft-365-defender.md) 
-- [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) 
-- [Office 365 logs ](connect-office-365.md) 
-- [Azure Active Directory](connect-azure-active-directory.md) 
-- [Domain name server](connect-dns.md)  
+    - [Windows security events](connect-windows-security-events.md) 
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) 
+    - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) 
+    - [Office 365 logs ](connect-office-365.md) 
+    - [Azure Active Directory](connect-azure-active-directory.md) 
+    - [Domain name server](connect-dns.md) 
+ 
+1. Use the **SolarWinds Post Compromise Hunting** workbook to [hunt](hunting.md) for attack activity related to the Solorigate compromise. 
 
-Make sure that you have these connectors set up in order to be able to collect related data.
+    In Azure Sentinel, under **Threat management** on the left, navigate to the **Workbooks** > **SolarWinds Post Compromise Hunting** workbook.
 
-Use the **SolarWinds Post Compromise Hunting** workbook to [hunt](hunting.md) for attack activity related to the Solorigate compromise. Under **Threat management** on the left, navigate to the **Workbooks** > **SolarWinds Post Compromise Hunting** workbook.
+The **SolarWinds Post Compromise Hunting** workbook queries logs collected by Azure Sentinel and displays data that may indicate suspicious activity, such as:
 
-This workbook queries logs collected by Azure Sentinel for the following types of data:
+- Suspicious sign-in events, such as where an attacker has used SAML tokens that were minted by stolen AD FS key material in order to access your environment. 
 
-|Column1  |Column2  |
-|---------|---------|
-|Row1     |         |
-|Row2     |         |
-|Row3     |         |
-|Row4     |         |
-|Row5     |         |
-    
+- Applications or accounts with new permissions, key credentials and access patterns that may indicate compromise.
+
+- Suspicious lateral movements inside your environment, which is a common element of many attacks, including Solorigate.
+
+This workbook hunts for activity in both Microsoft Defender for Endpoint data, as well as data from hosts where Microsoft Defender services are not installed.
+
+> [!TIP]
+> Modify the **Hunting Timeframe** in each section to update the query results shown.    
 ### Using Azure Active Directory to secure your network after a systemic-identity compromise
 
 In Azure Active Directory, use the **Sensitive Operations Report** to learn more about suspicious activity detected in your tenant. 
 
-Under **Monitoring** on the left, select **Workbooks**. Then, under **Troubleshoot**, select the **Sensitive Operations Report**. 
+Under **Monitoring** on the left, select **Workbooks**. Then, under **Troubleshoot**, select the **Sensitive Operations Report**.
 
-This report highlights the following types of suspicious activity:
+The **Sensitive Operations Report** indicates suspicious activity detected in your tenant, such as:
 
-|Column1  |Column2  |
-|---------|---------|
-|Row1     |         |
-|Row2     |         |
-|Row3     |         |
-|Row4     |         |
-|Row5     |         |
+- New credentials added, or existing credentials modified, for existing applications and service principals, which might allow attackers to authenticate and access resources during an attack
+
+- Changes made to existing domain federation trusts, which may help attackers gain a long-term foothold in the environment, by adding an attacker-controlled SAML IDP as a trusted authentication source.
+
+- Manual modifications made to refresh tokens, which are used to validate identification and obtain access tokens, and can be used to by an attacker to gain persistence in the network.
 
 ### Using Microsoft 365 Defender resources to secure your network after a systemic-identity compromise
 
+We recommend that Microsoft 365 Defender customers to start their investigations with the following threat analytics reports, created by Microsoft specifically for Solorigate:
+
+- [Sophisticated actor attacks FireEye](https://security.microsoft.com/threatanalytics3/a43fc0c6-120a-40c5-a948-a9f41eef0bf9/overview) provides information about the FireEye breach and compromised red team tools
+- [Solorigate supply chain attack](https://security.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview) provides a detailed analysis of the SolarWinds supply chain compromise
+
+These reports include a deep-dive analysis, MITRE techniques, detection details, recommended actions, updated lists of IOCs, and advanced hunting techniques to expand detection coverage.
+
+For example:
+
+- From the **Vulnerability patching status** chart in threat analytics, view  mitigation details to see a list of devices with the vulnerability ID **TVM-2020-0002**. This vulnerability was added specifically to help with Solorigate investigations.
+
+- Use the **Devices with alerts** chart to identify devices with malicious components or activities known to be directly related to Solorigate. 
+
+We recommend that you review the [Incidents queue](/microsoft-365/security/mtp/investigate-incidents) to look for other relevant alerts.
+
+> [!NOTE]
+> These reports are available only to Microsoft Defender for Endpoint customers and Microsoft 365 Defender early adopters. 
+> 
+
+For more information, see: 
+
+- [Understand the analyst report in threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics-analyst-reports)
+- [Microsoft Defender Security Center Solorigate supply chain attack threat report](https://securitycenter.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview)
+
 ## Microsoft references for Solorigate
 
-The following links were used in building related articles in the documentation, and can be used to learn more about the Solorigate attack and mitigation activities:
+For more information about securing your system after Solorigate, see any of the following Microsoft resources:
 
 |Source  |Links  |
 |---------|---------|
