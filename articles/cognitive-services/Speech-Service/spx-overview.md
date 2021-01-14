@@ -39,9 +39,9 @@ Use the Speech SDK when:
 
 ## Get started
 
-To get started with the Speech CLI, see the [basics article](spx-basics.md). This article shows you how to run some basic commands, and also shows slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After reading the basics article, you should have enough of an understanding of the syntax to start writing some custom commands, or automating simple Speech service operations.
+To get started with the Speech CLI, see the [quickstart](spx-basics.md). This article shows you how to run some basic commands, and also shows slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After reading the basics article, you should have enough of an understanding of the syntax to start writing some custom commands, or automating simple Speech service operations.
 
 ## Next steps
 
-- [Speech CLI basics](spx-basics.md)
+- [Speech CLI quickstart](spx-basics.md)
 - If your use-case is more complex, [get the Speech SDK](speech-sdk.md)
