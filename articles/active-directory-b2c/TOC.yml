@@ -123,6 +123,8 @@
     items:
     - name: Sign-up or sign-in policy
       href: add-sign-up-and-sign-in-policy.md
+    - name: Sign-in policy
+      href: add-sign-in-policy.md
     - name: Password reset policy
       href: add-password-reset-policy.md
     - name: Password change policy
