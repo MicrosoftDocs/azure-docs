@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Quickstart: Set up Azure Attestation with Azure Portal
 
-Follow the below steps to create and configure an attestation provider using Azure Portal.
+Follow the below steps to manage an attestation provider using Azure Portal.
 
 ## Attestation provider
 
