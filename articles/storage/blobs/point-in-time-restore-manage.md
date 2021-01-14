@@ -178,7 +178,7 @@ az storage blob restore \
     --time-to-restore 2021-01-14T06:31:22Z
 ```
 
-By default, the **az storage blob restore** command runs asynchronously. To run the command synchronously, add the `--no-wait` parameter, as shown in the following example. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show).
+By default, the **az storage blob restore** command runs synchronously, blocking on execution until it is complete. To run the command asynchronously, add the `--no-wait` parameter, as shown in the following example. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show).
 
 ```azurecli
 az storage blob restore \
@@ -281,8 +281,21 @@ To run the restore operation synchronously and block on execution until it is co
 
 # [Azure CLI](#tab/azure-cli)
 
-To restore a single range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. For example, to restore the blobs in a single container named *container1*, you can specify a range that starts with *container1* and ends with *container2*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *container2*, only the container named *container1* will be restored:
+To restore a range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and specify a lexicographical range of container and blob names for the `--blob-range` parameter. To specify multiple ranges, provide the `--blob-range` parameter for each distinct range.
 
+For example, to restore the blobs in a single container named *container1*, you can specify a range that starts with *container1* and ends with *container2*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *container2*, only the container named *container1* will be restored.
+
+To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob prefix pattern. The example shown below restores a range of blobs in a container whose names begin with the letters `d` through `f`.
+
+```azurecli
+az storage blob restore \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --blob-range container1 container2
+    --blob-range container3/d container3/g
+```
+
+To run the restore operation asynchronously, include the `--no-wait` parameter on the restore operation.
 
 ---
 
