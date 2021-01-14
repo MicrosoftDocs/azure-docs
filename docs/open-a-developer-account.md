@@ -43,7 +43,7 @@ If you're new to Partner Center, follow the instructions in this section to crea
 2. Sign in with a work account so you so that you can link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign in to Partner Center with their work account user names and passwords.
 
   > [!NOTE]
-  > To determine whether your company already has a work account and for information about how to create a new work account or set up multiple work accounts to use with Partner Center, see [Your company work account and Partner Center](https://docs.microsoft.com//azure/marketplace/partner-center-portal/company-work-accounts).
+  > To determine whether your company already has a work account and for information about how to create a new work account or set up multiple work accounts to use with Partner Center, see [Your company work account and Partner Center](/azure/marketplace/partner-center-portal/company-work-accounts).
 
 3. Provide your publisher profile. Your publisher profile includes your company info, publisher info, and contact info.
 4. After you've confirmed your publisher profile information, agree to the terms and conditions in the Microsoft Office Agreement and select **Accept and continue** to create your Partner Center account.
@@ -84,5 +84,3 @@ After you sign in, use the following steps to finish setting up your account:
 Now you're ready to [submit your solutions to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
 
 You can also [Manage your account settings and profile](manage-account-settings-and-profile.md).
-
-

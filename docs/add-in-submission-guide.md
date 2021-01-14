@@ -44,7 +44,7 @@ You will need to upload your manifest file to the grey box on this page, as show
 
 ![Your manifest needs to be updated in the shown grey box](./images/new/step-4-packages-incomplete-upload.jpg)
 
-Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](https://docs.microsoft.com/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
+Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed, as shown in the following screenshot.
 

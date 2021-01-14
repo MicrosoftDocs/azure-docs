@@ -15,7 +15,7 @@ You enter the Microsoft AppSource listing information on the Marketplace listing
 
 You can select the languages in which your solution will be available. Choose **Manage additional languages** and select the check box next to the languages you want. After you select your languages, you can provide Microsoft AppSource listing information for each language.
 
-For details about offering solutions in multiple languages, see [Prepare localized add-ins](prepare-localized-apps-and-add-ins.md).
+For details about offering solutions in multiple languages, see [Prepare localized add-ins](./prepare-localized-solutions.md).
 
 ## Create your listing
 

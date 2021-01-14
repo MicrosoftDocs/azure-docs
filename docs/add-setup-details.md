@@ -36,10 +36,11 @@ If your app requires the additional purchase of a service, either through a thir
 If your product offers in-app purchases, select the **My product requires purchase of a service or offers additional in-app purchases** check box.
 
 > [!NOTE]
-> If your Power BI visual includes in-app purchases, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
+> If your Power BI visual includes in-app purchases, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
 
 ### Power BI certification
-Certified Power BI visuals are visuals in the Marketplace that [meet certain specified code requirements that the Microsoft Power BI team has tested and approved](https://docs.microsoft.com/legal/marketplace/certification-policies#1180-power-bi-visuals). To request certification, select the Request Power BI certification check box.
+Certified Power BI visuals are visuals in the Marketplace that [meet certain specified code requirements that the Microsoft Power BI team has tested and approved](/legal/marketplace/certification-policies#1180-power-bi-visuals). To request certification, select the Request Power BI certification check box.
+
 We recommend that you submit and publish your Power BI visual before you request certification, because the certification process can take time. When you request certification, be sure to provide all required certification information in the Notes for certification box on the Review and publish page.
 
 ## Lead management

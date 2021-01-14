@@ -19,7 +19,7 @@ A SharePoint Add-in that requires OAuth authentication uses an OAuth client ID a
 The client ID and client secret providers in China are different from the providers for the rest of the world. The client ID and client secret providers in China are hosted in different data centers from the providers for the rest of the world. Partner Center has the capability to create client ID and client secrets for the China data center and for the global data center.
  
 > [!NOTE]
-> For more information about OAuth, see [Authorization and authentication of SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins) and [Context Token OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins).
+> For more information about OAuth, see [Authorization and authentication of SharePoint Add-ins](/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins) and [Context Token OAuth flow for SharePoint Add-ins](/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins).
 
 Because your SharePoint Add-in that requires OAuth authentication has to be associated with a client ID and client secret, you need to submit an additional copy of your add-in if you wish to distribute your add-in to Chinese users of Office 365 operated by 21Vianet. This requires submitting two separate copies of your app — one submission using the client ID for China and targeting Chinese users of Office 365 operated by 21Vianet, and the other submission using the client ID for the rest of the world. When you submit your add-in via Partner Center for distribution in China, you block access for all countries except China. In addition, you also create a separate add-in listing.
  
@@ -31,4 +31,4 @@ Similarly, if you do not wish to distribute to China, you only need to submit on
 
 - [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
 - [Create or update client IDs and secrets](create-or-update-client-ids-and-secrets.md)
-- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
+- [Certification policies](/legal/marketplace/certification-policies)
