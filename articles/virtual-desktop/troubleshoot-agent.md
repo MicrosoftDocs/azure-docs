@@ -310,7 +310,7 @@ You must generate a new registration key that is used to re-register your VM to 
 
 5. Copy the newly generated key to your clipboard. You'll need this key later.
 
-### Reinstall the agent and boot loader
+### Step 4: Reinstall the agent and boot loader
 
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 1. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
