@@ -44,7 +44,7 @@
     - name: Via PowerShell 
       href: data-box-gateway-connect-powershell-interface.md
   - name: Monitor
-    href: data-box-gateway-monitor.md
+    href: data-box-gateway-monitor.md 
   - name: Troubleshoot
     items:
     - name: Troubleshoot 
@@ -52,6 +52,7 @@
     - name: Contact Microsoft Support
       href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
 - name: Release notes
+  Expanded: False
   items:
   - name: 2007 - Current
     href: data-box-gateway-2007-release-notes.md
