@@ -93,7 +93,7 @@ Below claims that are defined by the [IETF EAT](https://tools.ietf.org/html/draf
 Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
 
 Deprecated claim | Recommended claim
---- | --- | ---
+--- | --- 
 **$is-debuggable** | **x-ms-sgx-is-debuggable**
 **$sgx-mrsigner** | **x-ms-sgx-mrsigner**
 **$sgx-mrenclave** | **x-ms-sgx-mrenclave**
