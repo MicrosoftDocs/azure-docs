@@ -27,7 +27,7 @@ Because the connected registry is deployed on your premises and doesn't have sep
 
 ## How to authenticate with the connected registry?
 
-The connected registry uses ACR [token authentication](reposiroty-scoped-permissions) only. As the picture above shows two different types of tokens are used for authentication:
+The connected registry uses ACR [token authentication][repository-scoped-permissions] only. As the picture above shows two different types of tokens are used for authentication:
 
 - The _sync token_ is used by connected registries to authenticate with the parent. The sync token has permissions to sync repositories as well as permissions to read and write synchronization messages on the _gateway_. The _sync token_ is issued for the parent resource.
 - The _client token_ is used by clients of the connected registry. The _client token_ has permissions to read repositories only. The _client token_ is issued for the connected registry.
