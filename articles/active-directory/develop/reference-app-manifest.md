@@ -110,16 +110,6 @@ Example:
     "allowPublicClient": false,
 ```
 
-### availableToOtherTenants attribute
-
-| Key | Value type |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Set to true if the application is shared with other tenants; otherwise, false.
-
-This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
 ### appId attribute
 
 | Key | Value type |
@@ -159,16 +149,6 @@ Example:
     ],
 ```
 
-### displayName attribute
-
-| Key | Value type |
-| :--- | :--- |
-| displayName | String |
-
-The display name for the app.
-
-This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
 ### errorUrl attribute
 
 | Key | Value type |
@@ -196,32 +176,6 @@ Example:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### homepage attribute
-
-| Key | Value type |
-| :--- | :--- |
-| homepage |String |
-
-The URL to the application's homepage.
-
-This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
-### objectId attribute
-
-| Key | Value type |
-| :--- | :--- |
-|objectId | String |
-
-The unique identifier for the app in the directory.
-
-This is available only in the **App registrations (Legacy)** experience. Replaced by `id` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
-Example:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### optionalClaims attribute
 
 | Key | Value type |
@@ -237,7 +191,6 @@ Example:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### identifierUris attribute
@@ -481,16 +434,6 @@ Example:
     ],
 ```
 
-### publicClient attribute
-
-| Key | Value type |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Specifies whether this application is a public client (such as an installed application running on a mobile device).
-
-This property is available only in the **App registrations (Legacy)** experience. Replaced by `allowPublicClient` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
 ### publisherDomain attribute
 
 | Key | Value type |
@@ -503,17 +446,7 @@ Example:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### replyUrls attribute
-
-| Key | Value type |
-| :--- | :--- |
-| replyUrls | String array |
-
-This multi-value property holds the list of registered redirect_uri values that Azure AD will accept as destinations when returning tokens.
-
-This property is available only in the **App registrations (Legacy)** experience. Replaced by `replyUrlsWithType` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
+```
 
 ### replyUrlsWithType attribute
 
