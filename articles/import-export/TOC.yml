@@ -7,7 +7,7 @@
     href: storage-import-export-service.md
 - name: Concepts
   items:
-  - name: Requirements
+  - name: Review requirements
     href: storage-import-export-requirements.md
   - name: FAQ
     href: storage-import-export-service-faq.md
@@ -48,4 +48,6 @@
   items:
   - name: Export data offline
     href: /learn/modules/export-data-with-azure-import-export
+  - name: Other offline transfer options
+    href: ../databox/index.yml
    
