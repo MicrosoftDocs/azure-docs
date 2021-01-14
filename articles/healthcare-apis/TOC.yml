@@ -21,8 +21,13 @@
     - name: Using ARM template
       displayName: Resource Manager
       href: fhir-paas-arm-template-quickstart.md
-  - name: Deploy Azure IoT Connector for FHIR (preview) - Portal
-    href: iot-fhir-portal-quickstart.md
+  - name: Deploy Azure IoT Connector for FHIR (preview)
+    expanded: false
+    items:
+    - name: Using Portal
+      href: iot-fhir-portal-quickstart.md
+    - name: Using ARM template
+      href: iot-fhir-arm-template-quickstart.md 
 - name: Tutorials
   expanded: false
   items:
