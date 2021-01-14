@@ -12,8 +12,6 @@ manager: rkarlin
 
 # Introduction to Azure Defender
 
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
-
 Azure Security Center's features cover the two broad pillars of cloud security:
 
 - **Cloud security posture management (CSPM)** - Security Center is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these CSPM features to strengthen your hybrid cloud posture and track compliance with the built-in policies.

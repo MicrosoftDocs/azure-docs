@@ -250,7 +250,7 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
-| Portuguese (Brazil)     | `pt-br`          |
+| Portuguese (Brazil)     | `pt`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Serbian (Latin)      | `sr-Latn`          |

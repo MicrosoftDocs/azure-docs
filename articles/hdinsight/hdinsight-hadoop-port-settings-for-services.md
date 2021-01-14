@@ -161,7 +161,7 @@ Examples:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
 | Livy server | Head nodes | 8998 | HTTP | &nbsp; | Service for running statements, jobs, and applications |
-| Jupyter notebook | Head nodes | 8001 | HTTP | &nbsp; | Jupyter notebook website |
+| Jupyter Notebook | Head nodes | 8001 | HTTP | &nbsp; | Jupyter Notebook website |
 
 Examples:
 
