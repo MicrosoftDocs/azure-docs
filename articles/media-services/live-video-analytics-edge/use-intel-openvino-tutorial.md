@@ -33,6 +33,8 @@ When you set up the Azure resources, a short video of a parking lot is copied to
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
+
 In this quickstart, you'll use Live Video Analytics on IoT Edge along with the OpenVINO™ Model Server – AI Extension from Intel to detect objects such as vehicles, or to classify them. You'll publish the resulting inference events to IoT Edge Hub.
 
 ## Overview
@@ -93,7 +95,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
     * Change the link to the graph topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/2.0/topology.json"`
 
     * Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
 
@@ -156,7 +158,7 @@ If you open the [graph topology](https://raw.githubusercontent.com/Azure/live-vi
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithOpenVINO",
@@ -199,7 +201,7 @@ In the following messages, the Live Video Analytics module defines the applicati
 
 ### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

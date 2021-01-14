@@ -29,11 +29,6 @@ Here are some examples of Microsoft web-hosted resources:
 * Microsoft 365 Mail API: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
-> [!NOTE]
-> We strongly recommend that you use Microsoft Graph instead of Microsoft 365 Mail API or other similar resources.
-
-Third-party resources that integrate with the Microsoft identity platform also have an application ID URI. Any of these resources also can define a set of permissions that can divide the resource's functionality into smaller chunks. 
-
 For example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
 * Read a user's calendar
@@ -158,7 +153,7 @@ Some high-privilege permissions in Microsoft resources can be set to *admin-rest
 
 Although a consumer user might grant an application access to this kind of data, organizational users can't grant access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions.
 
-If your app requires access to admin-restricted scopes for organizations, you should request them directly from a company administrator. You can request them by using the admin consent endpoint, as the next section explains.
+If your app requires scopes for admin-restricted permissions, an organization's administrator must consent to those scopes on behalf of the organization's users. To avoid displaying prompts to users that request consent for permissions they can't grant, your app can use the admin consent endpoint. The admin consent endpoint is covered in the next section.
 
 If the application requests high-privilege delegated permissions and an administrator grants these permissions through the admin consent endpoint, consent is granted for all users in the tenant.
 
@@ -186,10 +181,11 @@ In general, the permissions should be statically defined for a given application
 
 To configure the list of statically requested permissions for an application:
 
-1. In the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, go to your application. Or [create an app](quickstart-register-app.md) if you haven't already.
-2. In the **API Permissions** section, and in the API permissions, select **Add a permission**.
-3. In the list of available APIs, select **Microsoft Graph**. Then add the permissions that your app requires.
-3. **Save** the app registration.
+1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Select an application, or [create an app](quickstart-register-app.md) if you haven't already.
+1. On the application's **Overview** page, under **Manage**, select **API Permissions** > **Add a permission**.
+1. Select **Microsoft Graph** from the list of available APIs. Then add the permissions that your app requires.
+1. Select **Add Permissions**.
 
 ### Recommended: Sign the user in to your app
 
@@ -288,7 +284,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. The `/.default` scope is built in for every application that refers to the static list of permissions configured on the application registration. 
 
-A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com`. That is, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It's constructed by using the resource URI and `/.default`. So if the resource URI is `https://contosoApp.com`, the scope requested is `https://contosoApp.com/.default`.  For cases where you must include a second slash to correctly request the token, see the [section about trailing slashes](#trailing-slash-and-default).
+A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as `resource=https://graph.microsoft.com` on the v1.0 endpoint. By specifying the `https://graph.microsoft.com/.default` scope in its request, your application is requesting an access token that includes scopes for every Microsoft Graph permission you've selected for the app in the app registration portal. The scope is constructed by using the resource URI and `/.default`. So if the resource URI is `https://contosoApp.com`, the scope requested is `https://contosoApp.com/.default`.  For cases where you must include a second slash to correctly request the token, see the [section about trailing slashes](#trailing-slash-and-default).
 
 The `/.default` scope can be used in any OAuth 2.0 flow. But it's necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md). You also need it when you use the v2 admin consent endpoint to request application permissions.
 
@@ -354,9 +350,7 @@ To grant access to the application permissions you define, including granting ad
 
 ### Trailing slash and /.default
 
-Some resource URIs have a trailing forward slash, for example, `https://contoso.com/` as opposed to `https://contoso.com`. The trailing slash can cause problems with token validation. Problems occur primarily when a token is requested for Azure resource management (`https://management.azure.com/`). In this case, a trailing slash on the resource URI means the slash must be present when the token is requested.  So when you request a token for `https://management.azure.com/` and use `/.default`, you must request `https://management.azure.com//.default` (notice the double slash!). In general, if you verify that the token is being issued, and if the token is being rejected by the API that should accept it, consider adding a second forward slash and trying again. 
-
-The problem happens because the login server emits a token with the audience matching the URIs in the `scope` parameter, where `/.default` is removed from the end.  If this process removes the trailing slash, the login server still processes the request. It validates the request against the resource URI, even though the request and the URI no longer match. This process is nonstandard, and your application shouldn't rely on it.
+Some resource URIs have a trailing forward slash, for example, `https://contoso.com/` as opposed to `https://contoso.com`. The trailing slash can cause problems with token validation. Problems occur primarily when a token is requested for Azure Resource Manager (`https://management.azure.com/`). In this case, a trailing slash on the resource URI means the slash must be present when the token is requested.  So when you request a token for `https://management.azure.com/` and use `/.default`, you must request `https://management.azure.com//.default` (notice the double slash!). In general, if you verify that the token is being issued, and if the token is being rejected by the API that should accept it, consider adding a second forward slash and trying again. 
 
 ## Troubleshooting permissions and consent
 

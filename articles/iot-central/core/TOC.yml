@@ -79,14 +79,20 @@
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
       href: concepts-iot-edge.md
-- name: How-to guides
+- name: How-to guides   
   items:
     - name: Connect and develop devices
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
+        - name: How to move devices to IoT
+          href: how-to-move-device-to-iot.md
         - name: How to use properties
           href: howto-use-properties.md
+        - name: How to use commands
+          href: howto-use-commands.md
+        - name: How to use location data
+          href: howto-use-location-data.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
