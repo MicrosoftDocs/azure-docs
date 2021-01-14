@@ -105,7 +105,7 @@ Edge cloud shares tier data from your device to Azure. Do these steps on your *s
 Data in Edge local shares stays on the device. Do these steps on your *source* device via the Azure portal. 
 
 - Make a list of the Edge local shares that you have on the device.
-- Given this is one-time migration of the data, create a copy of the Edge local share data to a server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solution to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
+- Given this is one-time migration of the data, create a copy of the Edge local share data to another on-premises server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solution to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
 
     | Third-party software           | Reference to the solution                               |
     |--------------------------------|---------------------------------------------------------|
@@ -115,7 +115,7 @@ Data in Edge local shares stays on the device. Do these steps on your *source* d
     | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 
-## 3. Prepare IoT Edge workloads
+### 3. Prepare IoT Edge workloads
 
 - If you have deployed IoT Edge modules and are using FPGA acceleration, you may need to modify the modules before these will run on the GPU device. Follow the instructions in [Modify IoT Edge modules](azure-stack-edge-placeholder.md). 
 
