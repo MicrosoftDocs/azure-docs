@@ -31,7 +31,7 @@ This table shows which listing options are available for each offer type.
 | Software as a service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` The Get It Now listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For details, see [Get It Now](#get-it-now).
+&#42; The Get It Now listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For details, see [Get It Now](#get-it-now).
 
 ### Free Trial
 
