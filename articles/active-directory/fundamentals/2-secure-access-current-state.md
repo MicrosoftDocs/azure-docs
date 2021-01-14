@@ -1,5 +1,5 @@
 ---
-title: Discover the current state of external collaboration with Azure Active Directory
+title: Discover the current state of external collaboration with Azure Active Directory 
 description: Learn methods to discover the current state of your collaboration.
 services: active-directory
 author: BarbaraSelden
