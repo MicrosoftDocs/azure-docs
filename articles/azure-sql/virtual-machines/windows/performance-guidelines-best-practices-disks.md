@@ -22,14 +22,14 @@ ms.reviewer:
 This article provides storage, disks and IO guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
 To learn more, see the other articles in this series:
-- [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+- [Quick checklist](performance-guidelines-best-practices-checklist.md), [Storage](performance-guidelines-best-practices-storage.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 
 ## Check list
-### Disks	
+
 - Use a minimum of 2 premium SSD disks (1 for log file and 1 for data files).
-- Data, log, and tempdb files should be on separate drives.
-- Leverage the SQL IaaS Agent extension experience in the Azure portal to assist with the storage configuration for your environment.
+- Place data, log, and tempdb fileson separate drives.
+- Leverage the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-) experience in the Azure portal to assist with the storage configuration for your environment.
 - Local ephemeral storage (D:\) should only be used for tempdb and other processing where the source data can be recreated in the event of a recycle of the virtual machine.
 - Use premium SSDs for the best price/performance advantages.
 - Use only premium P30, P40, P50 disks for the Data drive, and optimize focused on capacity for the Log drive (P30 - P80).

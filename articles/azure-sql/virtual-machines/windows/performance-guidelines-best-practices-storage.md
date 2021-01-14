@@ -22,7 +22,7 @@ ms.reviewer: jroth
 This article provides storage, disks and IO guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
 To learn more, see the other articles in this series:
-- [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+- [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Disks](performance-guidelines-best-practices-disks.md)[Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 ## Storage guidance
 

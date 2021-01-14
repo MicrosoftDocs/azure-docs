@@ -31,6 +31,19 @@ While running SQL Server on Azure Virtual Machines, we recommend that you contin
 > [!TIP]
 > There is typically a trade-off between optimizing for costs and optimizing for performance. This article is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
+## Disks
+
+- Use a minimum of 2 premium SSD disks (1 for log file and 1 for data files).
+- Data, log, and tempdb files should be on separate drives.
+- Leverage the SQL IaaS Agent extension experience in the Azure portal to assist with the storage configuration for your environment.
+- Local ephemeral storage (D:\) should only be used for tempdb and other processing where the source data can be recreated in the event of a recycle of the virtual machine.
+- Use premium SSDs for the best price/performance advantages.
+- Use only premium P30, P40, P50 disks for the Data drive, and optimize focused on capacity for the Log drive (P30 - P80).
+- Optimize for highest uncached IOPs for best performance and leverage caching as a performance feature for data reads.
+- Standard storage is only recommended for development and test purposes or for backup files and should not be used for production workloads.
+- Bursting should be only considered for smaller departmental systems and dev/test workloads
+- Use Ultra Disks if less than 1-ms storage latencies are required for the transaction log and write acceleration is not an option. 
+
 ## VM Size
 
 - Use VM sizes with 4 or more vCPU like the [Standard_M8-4ms](/../../virtual-machines/m-series), the [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series), or the [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) or higher. 
@@ -58,19 +71,6 @@ Collect the target workload's performance characteristics and use them to determ
 - Keep the [storage account](../../../storage/common/storage-account-create.md) and SQL Server VM in the same region.
 
 - Disable Azure [geo-redundant storage](../../../storage/common/storage-redundancy.md) (geo-replication) on the storage account.  
-
-## Disks
-
-
-- Use a minimum of 2 [premium SSD disks](../../../virtual-machines/disks-types.md#premium-ssd) (1 for log file and 1 for data files). 
-- For workloads requiring < 1-ms IO latencies, enable write accelerator for M series and consider using Ultra SSD disks for Es and DS series. 
-- Enable [read only caching](../../../virtual-machines/premium-storage-performance.md#disk-caching) on the disk(s) hosting the data files.
-- Add an additional 20% premium IOPS/throughput capacity than your workload requires when [configuring storage for SQL Server data, log, and TempDB files](storage-configuration.md) 
-- Avoid using operating system or temporary disks for database storage or logging. 
-- Do not enable caching on disk(s) hosting the log file.  **Important**: Stop the SQL Server service when changing the cache settings for an Azure Virtual Machines disk.
-- Stripe multiple Azure data disks to get increased storage throughput.
-- Format with documented allocation sizes. 
-- Place TempDB on the local SSD `D:\` drive for mission critical SQL Server workloads (after choosing correct VM size). If you create the VM from the Azure portal or Azure quickstart templates and [place Temp DB on the Local Disk](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583), then you do not need any further action; for all other cases follow the steps in the blog for  [Using SSDs to store TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-TempDB-and-buffer-pool-extensions/) to prevent failures after restarts. If the capacity of the local drive is not enough for your Temp DB size, then place Temp DB on a storage pool [striped](../../../virtual-machines/premium-storage-performance.md) on premium SSD disks with [read-only caching](../../../virtual-machines/premium-storage-performance.md#disk-caching). |
 
 
 
