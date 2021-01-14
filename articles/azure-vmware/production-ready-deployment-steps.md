@@ -102,7 +102,7 @@ If you use an *existing* ExpressRoute virtual network gateway, the Azure VMware 
 
 At this point, just make note of which ExpressRoute virtual network gateway will be used and move on to the next step in this document.
 
-### Creating a new ExpressRoute virtual network gateway
+### Create a new ExpressRoute virtual network gateway
 
 If creating a *new* ExpressRoute virtual network gateway, an existing Azure Virtual Network can be used, or a new Azure Virtual Network can be created.  
 
