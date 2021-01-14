@@ -90,7 +90,7 @@ These examples presume that you're testing in English. However, we support speec
 spx synthesize --voices
 ```
 
-And finally, here's how you use one of the voices you've discovered.
+Here's how you use one of the voices you've discovered.
 
 ```console
 spx synthesize --text "Bienvenue chez moi." --voice fr-CA-Caroline --speakers
@@ -104,24 +104,22 @@ spx help synthesize
 
 ## Speech to text translation
 
-With the Speech CLI, you can also do speech to text translation. Run this command to capture audio from your default microphone, and perform translation to text in the target language.
-
-Using this command, you specify both the source (language to translate **from**), and the target (language to translate **to**) languages. Using the `--microphone` argument will listen to audio on the current active input device, and stop after you press `ENTER`. 
+With the Speech CLI, you can also do speech to text translation. Run this command to capture audio from your default microphone, and output the translation as text. Keep in mind that you need to supply the `source` and `target` language with the `translate` command.
 
 ```console
 spx translate --microphone --source en-US --target ru-RU
+```
+
+When translating into multiple languages, separate language codes with `;`.
+
+```console
+spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
 ```
 
 If you want to save the output of your translation, use the `--output` flag. In this example, you'll also read from a file.
 
 ```console
 spx translate --file C:\some\file\path\input.wav --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
-```
-
-Now, let's take a look at how you can translate speech to text into multiple languages with a single command.
-
-```console
-spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
 ```
 
 > [!NOTE]
