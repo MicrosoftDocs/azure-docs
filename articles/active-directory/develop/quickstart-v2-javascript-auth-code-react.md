@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/12/2020
-ms.author: j-mantu
+ms.date: 01/14/2021
+ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
 #Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform endpoint so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -33,24 +33,17 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
 > To start your quickstart application, use either of the following options.
-
-
+>
+>
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
 > 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. Select [App registrations](https://aka.ms/AAatrux).
+> 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-> 1. Under **Redirect URI (optional)** select `Single-page application (SPA)`.
-> 1. Set the **Redirect URI (optional)** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user. 
-> 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. In the left pane of the registered application, select **Authentication**.
-> 1. Under **Platform Configurations** expand **Single-page application**.
-> 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png)Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+> 1. Select **Register**.
 > 1. Go to the quickstart pane and follow the instructions to download and automatically configure your new application.
-
 >
 > ### Option 2 (Manual): Register and manually configure your application and code sample
 >
@@ -130,7 +123,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
->
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties.
@@ -140,8 +133,8 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 > Scroll down in the same file and update the `graphMeEndpoint`. 
 > - Replace the string `Enter_the_Graph_Endpoint_Herev1.0/me` with `https://graph.microsoft.com/v1.0/me`
 > - `Enter_the_Graph_Endpoint_Herev1.0/me` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [documentation](https://docs.microsoft.com/graph/deployments).
-
-
+>
+>
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -150,7 +143,8 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 >    };
 > ```
 >
-> #### Step 4: Run the project
+>
+#### Step 4: Run the project
 
 Run the project with a web server by using Node.js:
 
@@ -183,7 +177,7 @@ npm install @azure/msal-browser @azure/msal-react
 
 ## Next steps
 
-For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
+For a detailed step-by-step guide on building the auth code flow application using vanilla JavaScript, see the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code.md)
