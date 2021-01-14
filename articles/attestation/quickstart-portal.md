@@ -113,8 +113,8 @@ a.	Verify the certificates count and certs downloaded.
 1.	From the Azure portal menu, or from the Home page, select **All resources**
 2.	In the filter box, enter attestation provider name
 3.	Select the attestation provider and navigate to overview page
-4.	Click **Policy** in left-side resource menu or in the bottom pane. 
-5.      Select the preferred Attestation Type and view the **Current policy**
+4.	Click **Policy** in left-side resource menu or in the bottom pane
+5.      Select the preferred **Attestation Type** and view the **Current policy**
 
 ### Configure attestation policy
 
