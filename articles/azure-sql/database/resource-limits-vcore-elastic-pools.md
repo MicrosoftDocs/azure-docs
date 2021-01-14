@@ -472,7 +472,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |:--- | --: |--: |--: |--: |
 |Compute generation|DC|DC|DC|DC|
 |vCores|2|4|6|8|
-|Memory (GB)|9|18|24|36|
+|Memory (GB)|9|18|27|36|
 |Max number DBs per pool <sup>1</sup>|50|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.7|3.7|5.9|8.2|
