@@ -16,7 +16,7 @@ ms.date: 01/14/2021
 
 # Quickstart: Create an Azure DDoS Protection Standard using ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create and enable a distributed denial of service (DDoS) protection plan and virtual network (VNet). An Azure DDoS Protection Standard plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enables the protection plan for the VNet. An Azure DDoS Protection Standard plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -41,7 +41,7 @@ The template defines two resources:
 
 ## Deploy the template
 
-In this example, the template creates a new resource group, DDoS protection plan, and VNet name.
+In this example, the template creates a new resource group, a DDoS protection plan, and a VNet.
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
