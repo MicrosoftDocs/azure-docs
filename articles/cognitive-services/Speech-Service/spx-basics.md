@@ -40,7 +40,7 @@ Enter the following command to see options for the recognize command:
 spx help recognize
 ```
 
-Additional help commands listed in the right column. You can enter these commands to get detailed help about sub-commands.
+Additional help commands listed in the right column. You can enter these commands to get detailed help about subcommands.
 
 ## Speech to text (speech recognition)
 
