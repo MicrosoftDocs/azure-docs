@@ -23,7 +23,6 @@ Microsoft Azure now allows users to bring in their 32-bit Windows Operating syst
 > [!NOTE]
 > Azure platform has a memory address space limitation imposed on VMs running 32-bit operating systems where only 1GB of memory is made available to the VM, and the rest of the memory for the VM will show as reserved within the guest VM. This is a known issue and we currently do not have an ETA for a fix. We recommend moving to 64bit OS versions.
 > 
-> 
 
 ## More information
 
