@@ -42227,15 +42227,10 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/legal/marketplace/participation-policy.md",
+      "source_path_from_root": "/articles/legal/marketplace/participation-policy.md",
       "redirect_url": "/azure/marketplace/policies-terms",
       "redirect_document_id": false
     },    
-    {
-      "source_path_from_root": "/articles/marketplace/rating-review-policies.md",
-      "redirect_url": "/legal/marketplace/rating-review-policies",
-      "redirect_document_id": false
-    },
     {
       "source_path_from_root": "/articles/marketplace/marketplace-terms.md",
       "redirect_url": "/legal/marketplace/terms",
