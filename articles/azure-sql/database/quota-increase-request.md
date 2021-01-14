@@ -57,7 +57,7 @@ The following sections describe the quota increase options for the **SQL Databas
 
 - Database transaction units (DTUs) per server
 - Servers per subscription
-- Region access
+- Region access for subscriptions or specific hardware
 
 ### Database transaction units (DTUs) per server
 
@@ -105,7 +105,7 @@ If your subscription needs access in a particular region, select the **Region ac
 
 ### Request enabling specific hardware in a region
 
-If a [hardware generation](service-tiers-vcore.md#hardware-generations), you want to use, is not available in your region (see [Hardware availability](service-tiers-vcore.md#hardware-availability)), you may request it using the following steps.
+If a [hardware generation](service-tiers-vcore.md#hardware-generations) you want to use is not available in your region (see [Hardware availability](service-tiers-vcore.md#hardware-availability)), you may request it using the following steps.
 
 1. Select the **Other quota request** quota type.
 

@@ -99,7 +99,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 > [!NOTE]
 > DC-series is currently in **public preview**.
 
-- DC-series (preview) hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
+- DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
 - DC-series is required for [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
 - DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
 - DC-series hardware provides balanced compute and memory resources.
@@ -119,7 +119,7 @@ To access DC-series, the subscription must be a paid offer type including Pay-As
 |Gen5     |**Provisioned compute**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz, Intel® SP-8160 (Skylake)\*, and Intel® 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz and Intel® SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
 |Fsv2-series     |- Intel® 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
 |M-series     |- Intel® E7-8890 v3 2.5 GHz and Intel® 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
-|DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 6 GB per vCore |
+|DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 4.5 GB per vCore |
 
 \* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel® SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel® 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
@@ -245,7 +245,7 @@ Approved support requests are typically fulfilled within 5 business days.
 
 DC-series is available in the following regions: Canada Central, Canada East, East US, North Europe, UK South, West Europe, West US.
 
-If you need DC-series in a currently unsupported region, [submit a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the instructions in [Request quota increases for Azure SQL Database and SQL Managed Instance](quota-increase-request.md).
+If you need DC-series in a currently unsupported region, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the instructions in [Request quota increases for Azure SQL Database and SQL Managed Instance](quota-increase-request.md).
 
 ## Next steps
 
