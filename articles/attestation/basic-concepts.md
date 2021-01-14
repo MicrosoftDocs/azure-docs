@@ -23,9 +23,7 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 
 ## Attestation provider
 
-Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. 
-
-Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
+Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). 
 
 ### Regional default provider
 
@@ -59,7 +57,7 @@ Attestation policy is used to process the attestation evidence and is configurab
 
 If the default policy in the attestation provider doesn’t meet the needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation. Policy management is a key feature provided to customers by Azure Attestation. Policies will be attestation type specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
-See [examples of an attestation policy](policy-examples.md) for default policy content and samples.
+See [examples of an attestation policy](policy-examples.md) for policy samples.
 
 ## Benefits of policy signing
 
