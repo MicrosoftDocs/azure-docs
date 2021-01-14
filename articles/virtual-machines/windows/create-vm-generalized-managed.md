@@ -55,4 +55,4 @@ New-AzVm `
 
 
 ## Next steps
-[Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md)
