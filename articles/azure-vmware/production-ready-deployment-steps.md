@@ -88,28 +88,34 @@ Keep in mind that:
 - If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
 - If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
 
-## Azure Virtual Network to attach Azure VMware Solution
+## Azure Virtual Network
 
-To access your Azure VMware Solution private cloud, the ExpressRoute circuit, which comes with Azure VMware Solution, must attach to an Azure Virtual Network.  During deployment, you can define a new virtual network or choose an existing one.
+In this step you will need to identify a ExpressRoute virtual network gateway and supporting Azure virtual network which will be used to connect the Azure VMware Solution ExpressRoute circuit.  Azure VMware Solution private cloud ExpressRoute circuit facilitates connectivity to/from Azure VMware Solution private cloud to other Azure services, Azure resources and on-premises environments.
 
-The ExpressRoute circuit from Azure VMware Solution connects to an ExpressRoute gateway in the Azure Virtual Network that you define in this step.  
-
->[!IMPORTANT]
->You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute Gateway does not provide transitive routing between its connected circuits.  
-
-If you want to connect the ExpressRoute circuit from Azure VMware Solution to an existing ExpressRoute gateway, you can do it after deployment.  
-
-So, in summary, do you want to connect Azure VMware Solution to an existing Express Route Gateway?  
-
-* **Yes** = Identify the virtual network that doesn't get used during deployment.
-* **No** = Identify an existing virtual network or create a new one during deployment.
-
-Either way, document what you want to do in this step.
-
->[!NOTE]
->This virtual network is seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
+An *existing* OR *new* ExpressRoute virtual network gateway can be used.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identity - Azure Virtual Network to attach Azure VMware Solution" border="false":::
+
+### Using an existing ExpressRoute virtual network gateway
+
+If using an *existing* ExpressRoute virtual network gateway the Azure VMware Solution ExpressRoute circuit will be established after the private cloud deployment.  Therefore, DO NOT fill in the Virtual Network field in the Create a private cloud deployment screen.  
+
+At this point, just make note of which ExpressRoute virtual network gateway will be used and move on to the next step in this document.
+
+### Creating a new ExpressRoute virtual network gateway
+
+If creating a *new* ExpressRoute virtual network gateway, an existing Azure Virtual Network can be used, or a new Azure Virtual Network can be created.  
+
+If the choice is to use an existing Azure Virtual Network verify there are no pre-existing ExpressRoute virtual network gateways in the virtual network and select it in the Virtual Network dropdown of the Create a private cloud deployment screen.
+
+If the choice is to create a new Azure Virtual Network it can be created ahead of time or during deployment by clicking on the Create new option of Virtual Network section of the Create a private cloud deployment screen.
+
+For reference, below is a image of the Create a private cloud deployment screen and outlined in red is the Azure Virtual Network field that has been referred to throughout this section.
+
+:::image type="content" source="media/pre-deployment/avsdeployscreen-vnetcircle.png" alt-text="AVS Deploy screen with circled virtual network gateway" lightbox="media/pre-deployment/avsdeployscreen-vnetcircle.png":::
+
+>[!NOTE]
+>Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
 ## VMware HCX Network Segments
 
