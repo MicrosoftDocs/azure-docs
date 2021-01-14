@@ -1758,7 +1758,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
+| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling a function in Azure](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
 ||||
 
 *Example 1*
