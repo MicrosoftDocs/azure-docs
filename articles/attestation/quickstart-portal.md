@@ -18,48 +18,45 @@ Follow the below steps to manage an attestation provider using Azure Portal.
 
 ### Create an attestation provider
 
-#### When policy signing is not required
+#### To configure the provider with unsigned policies
 
-1.	From the Azure portal menu, or from the Home page, select Create a resource
-2.	In the Search box, enter attestation
-3.	From the results list, choose Microsoft Azure Attestation
-4.	On the Microsoft Azure Attestation section, choose Create
+1.	From the Azure portal menu, or from the Home page, select **Create a resource**
+2.	In the Search box, enter **attestation**
+3.	From the results list, choose **Microsoft Azure Attestation**
+4.	On the Microsoft Azure Attestation page, choose **Create**
 5.	On the Create attestation provider section provide the following information:
-a.	Name: A unique name is required
-b.	Subscription: Choose a subscription
-c.	Under Resource Group, 
-choose Create new and enter a resource group name, if you already have a subscription ready to use.
-OR if EnS look for Resource group: EnS. SRE.Prod.1(subscription) /BugBash(or reach out to Prakhar Srivastava)
-OR if Azure Security look for the test subscription (or reach out to Sindhuri Dittakavi)
+	
+	**Subscription**: Choose a subscription
+	
+	**Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name
+	
+	**Name**: A unique name is required
 
-d.	In the Location pull-down menu, choose a location 
-e.	Do not upload policy signer certificates file if policy signing is not required
-6.	After providing the information above, select Review+Create 
+	**Location**: choose a location 
+	
+	**Policy signer certificates file**: Do not upload policy signer certificates file to configure the provider with unsigned policies 
+6.	After providing the rquired inputs, select **Review+Create**
 7.	Fix validation issues if any and click Create.
 
-#### When policy signing is required
+#### To configure the provider with signed policies
 
-1. From the Azure portal menu, or from the Home page, select Create a resource
-2.	In the Search box, enter attestation
-3.	From the results list, choose Microsoft Azure Attestation
-4.	On the Microsoft Azure Attestation section, choose Create
+1.	From the Azure portal menu, or from the Home page, select **Create a resource**
+2.	In the Search box, enter **attestation**
+3.	From the results list, choose **Microsoft Azure Attestation**
+4.	On the Microsoft Azure Attestation page, choose **Create**
 5.	On the Create attestation provider section provide the following information:
-a.	Name: A unique name is required
-b.	Subscription: Choose a subscription
-c.	Under Resource Group, 
-choose Create new and enter a resource group name
-Or use BugBash/, you should already be added to one of the resource groups.
-d.	In the Location pull-down menu, choose a location 
-e.	To configure the attestation provider with policy signing certs, upload certs file.
-For Policy signer certificates file either use one provided here: https://microsoft-my.sharepoint-df.com/:f:/p/prsriva/Em79jFyxTpNKpg5CzvNkZvEBG7kWpt0yI4sqiuf8qJE4qA?e=qqkqdP
-             		OR see how to generate signing certs
+	
+	**Subscription**: Choose a subscription
+	
+	**Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name
+	
+	**Name**: A unique name is required
 
-For management of policy signers, please see Scenario 2: Policy signer certificates flows
-		Learn more about an attestation policy and benefits of policy signing here
-
-6.	After providing the information above, select Review+Create 
+	**Location**: choose a location 
+	
+	**Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file.
+6.	After providing the rquired inputs, select **Review+Create**
 7.	Fix validation issues if any and click Create.
-8.	At this point, your Azure account is authorized to perform operations on this attestation provider.
 
 ### View attestation provider
 
