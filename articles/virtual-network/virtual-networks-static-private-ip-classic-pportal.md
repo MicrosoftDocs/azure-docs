@@ -32,7 +32,7 @@ This article covers the classic deployment model. You can also [manage a static 
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-The sample steps that follow expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-pportal.md).
+The sample steps that follow expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal).
 
 ## How to specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
@@ -78,7 +78,6 @@ Under **IP addresses**, select **Dynamic** to the right of **IP address assignme
 It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary. If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure VM, or you can lose connectivity to the virtual machine. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
 
 ## Next steps
-* Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
-* Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
-* Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Learn about [reserved public IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) addresses.
+* Learn about [instance-level public IP (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) addresses.
+* Consult the [Reserved IP REST APIs](/previous-versions/azure/reference/dn722420(v=azure.100)).
