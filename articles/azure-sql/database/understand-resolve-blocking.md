@@ -13,7 +13,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
-ms.date: 1/12/2020
+ms.date: 1/14/2020
 ---
 # Understand and resolve Azure SQL Database blocking problems
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ In this article, the term connection refers to a single logged-on session of the
 > [!NOTE]
 > **This content is specific to Azure SQL Database.** Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting options and tools may differ. For more on blocking in SQL Server, see [Understand and resolve SQL Server blocking problems](/troubleshoot/sql/performance/understand-resolve-blocking).
 
-## Understand Blocking 
+## Understand blocking 
  
 Blocking is an unavoidable and by-design characteristic of any relational database management system (RDBMS) with lock-based concurrency. As mentioned previously, in SQL Server, blocking occurs when one session holds a lock on a specific resource and a second SPID attempts to acquire a conflicting lock type on the same resource. Typically, the time frame for which the first SPID locks the resource is small. When the owning session releases the lock, the second connection is then free to acquire its own lock on the resource and continue processing. This is normal behavior and may happen many times throughout the course of a day with no noticeable effect on system performance.
 
@@ -43,13 +43,13 @@ For queries executed within a transaction, the duration for which the locks are 
 
 When locking and blocking persists to the point where there is a detrimental effect on system performance, it is due to one of the following reasons:
 
-1. A SPID holds locks on a set of resources for an extended period of time before releasing them. This type of blocking resolves itself over time but can cause performance degradation.
+* A SPID holds locks on a set of resources for an extended period of time before releasing them. This type of blocking resolves itself over time but can cause performance degradation.
 
-1. A SPID holds locks on a set of resources and never releases them. This type of blocking does not resolve itself and prevents access to the affected resources indefinitely.
+* A SPID holds locks on a set of resources and never releases them. This type of blocking does not resolve itself and prevents access to the affected resources indefinitely.
 
 In the first scenario, the situation can be very fluid as different SPIDs cause blocking on different resources over time, creating a moving target. These situations are difficult to troubleshoot using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to narrow down the issue to individual queries. In contrast, the second situation results in a consistent state that can be easier to diagnose.
 
-## Applications and Blocking
+## Applications and blocking
 
 There may be a tendency to focus on server-side tuning and platform issues when facing a blocking problem. However, attention paid only to the database may not lead to a resolution, and can absorb time and energy better directed at examining the client application and the queries it submits. No matter what level of visibility the application exposes regarding the database calls being made, a blocking problem nonetheless frequently requires both the inspection of the exact SQL statements submitted by the application and the application's exact behavior regarding query cancellation, connection management, fetching all result rows, and so on. If the development tool does not allow explicit control over connection management, query cancellation, query time-out, result fetching, and so on, blocking problems may not be resolvable. This potential should be closely examined before selecting an application development tool for Azure SQL Database, especially for performance sensitive OLTP environments. 
 
@@ -83,7 +83,6 @@ To counteract the difficulty of troubleshooting blocking problems, a database ad
 The first is to query dynamic management objects (DMOs) and store the results for comparison over time. Some objects referenced in this article are dynamic management views (DMVs) and some are dynamic management functions (DMFs). The second method is to use XEvents to capture what is executing. 
 
 
-
 ## Gather information from DMVs
 
 Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (session ID) at the head of the blocking chain and the SQL Statement. Look for victim SPIDs that are being blocked. If any SPID is being blocked by another SPID, then investigate the SPID owning the resource (the blocking SPID). Is that owner SPID being blocked as well? You can walk the chain to find the head blocker then investigate why it is maintaining its lock.
@@ -95,7 +94,7 @@ Remember to run each of these scripts in the target Azure SQL database.
 * If you already have a particular session identified, you can use `DBCC INPUTBUFFER(<session_id>)` to find the last statement that was submitted by a session. Similar results can be returned with the sys.dm_exec_input_buffer dynamic management function (DMF), in a result set that is easier to query and filter, providing the session_id and the request_id. For example, to return the most recent query submitted by session_id 66 and request_id 0:
 
 ```sql
-SELECT * FROM sys.dm_exec_input_buffer (66,0) 
+SELECT * FROM sys.dm_exec_input_buffer (66,0);
 ```
 
 * Refer to the sys.dm_exec_requests and reference the blocking_session_id column. When blocking_session_id = 0, a session is not being blocked. While sys.dm_exec_requests lists only requests currently executing, any connection (active or not) will be listed in sys.dm_exec_sessions. Build on this common join between sys.dm_exec_requests and sys.dm_exec_sessions in the next query.
@@ -148,13 +147,12 @@ Due to the INNER JOIN on sys.dm_os_waiting_tasks, the following query restricts 
 SELECT table_name = schema_name(o.schema_id) + '.' + o.name
 , wt.wait_duration_ms, wt.wait_type, wt.blocking_session_id, wt.resource_description
 , tm.resource_type, tm.request_status, tm.request_mode, tm.request_session_id
-    FROM sys.dm_tran_locks AS tm
-    INNER JOIN sys.dm_os_waiting_tasks as wt ON tm.lock_owner_address = wt.resource_address
-    LEFT OUTER JOIN sys.partitions AS p on p.hobt_id = tm.resource_associated_entity_id
-    LEFT OUTER JOIN sys.objects o on o.object_id = p.object_id or tm.resource_associated_entity_id = o.object_id
-    WHERE resource_database_id = DB_ID()
-    AND object_name(p.object_id) = '<table_name>'
-
+FROM sys.dm_tran_locks AS tm
+INNER JOIN sys.dm_os_waiting_tasks as wt ON tm.lock_owner_address = wt.resource_address
+LEFT OUTER JOIN sys.partitions AS p on p.hobt_id = tm.resource_associated_entity_id
+LEFT OUTER JOIN sys.objects o on o.object_id = p.object_id or tm.resource_associated_entity_id = o.object_id
+WHERE resource_database_id = DB_ID()
+AND object_name(p.object_id) = '<table_name>';
 ```
 
 * With DMVs, storing the query results over time will provide data points that will allow you to review blocking over a specified time interval to identify persisted blocking or trends. 
@@ -370,7 +368,7 @@ The following scenarios will expand on these scenarios.
     KILL 99
     ```
 
-## See Also
+## See also
 
 * [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/monitor-tune-overview.md)
 * [Monitoring performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
@@ -379,7 +377,7 @@ The following scenarios will expand on these scenarios.
 * [Quickstart: Extended events in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 * [Intelligent Insights using AI to monitor and troubleshoot database performance](intelligent-insights-overview.md)
 
-## Learn More
+## Learn more
 
 * [Azure SQL Database: Improving Performance Tuning with Automatic Tuning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Improve Azure SQL Database Performance with Automatic Tuning](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)
