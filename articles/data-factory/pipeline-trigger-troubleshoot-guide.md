@@ -21,7 +21,7 @@ Pipeline runs are typically instantiated by passing arguments to parameters that
 
 ### An Azure Functions app pipeline throws an error with private endpoint connectivity
  
-You have Data Factory and an Azure function app running on a private endpoint. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request", and the other two methods return "103 Error Forbidden".
+You have Data Factory and an Azure function app running on a private endpoint. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
 
 **Cause**: Data Factory currently doesn't support a private endpoint connector for function apps. Azure Functions rejects calls because it's configured to allow only connections from a private link.
 
@@ -77,7 +77,7 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 
 You might need to monitor failed Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint. 
 
-Set up an Azure Logic App to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to our ticketing system.
+Set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to our ticketing system.
 
 For more information, go to [Send Notifications from Data Factory, Part 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
