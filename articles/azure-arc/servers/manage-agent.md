@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 12/21/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
 ---
 
@@ -30,6 +30,37 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
     * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
 
 3. Uninstall the agent from the machine or server. Follow the steps below.
+
+## Renaming a machine
+
+When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name. For Arc enabled servers, this is accomplished by disconnecting the machine, connect it after the machines computer name is renamed, and then re-deploy the VM extensions that were previously installed to re-associate them with the resource in Azure.  
+
+Use the following steps to complete this task.
+
+1. Use one of the following methods to disconnect the machine from Azure Arc:
+
+    # [Azure portal](#tab/azure-portal)
+    1. From your browser, go to the [Azure portal](https://portal.azure.com).
+    1. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
+    1. From the selected registered Arc enabled server, select **Delete** from the top bar to delete the resource in Azure.
+
+    # [Azure CLI](#tab/azure-cli)
+    
+    ```azurecli
+    az resource delete \
+      --resource-group ExampleResourceGroup \
+      --name ExampleArcMachine \
+      --resource-type "Microsoft.HybridCompute/machines"
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    Remove-AzResource `
+     -ResourceGroupName ExampleResourceGroup `
+     -ResourceName ExampleArcMachine `
+     -ResourceType Microsoft.HybridCompute/machines
+    ```
 
 ## Upgrading agent
 
