@@ -99,7 +99,7 @@ Deprecated claim | Recommended claim
 $is-debuggable | x-ms-sgx-is-debuggable
 $sgx-mrsigner | x-ms-sgx-mrsigner
 $sgx-mrenclave | x-ms-sgx-mrenclave
-$product-id** | x-ms-sgx-product-id
+$product-id | x-ms-sgx-product-id
 $svn | x-ms-sgx-svn
 $tee | x-ms-attestation-type
 maa-ehd | x-ms-sgx-ehd
