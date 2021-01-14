@@ -22,9 +22,9 @@ In this article, you'll learn how to update an ongoing command from a web endpoi
 > [!div class = "checklist"]
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 
-## Create an Azure function 
+## Create an Azure Function 
 
-For this example, you'll need an HTTP-triggered [Azure function](../../azure-functions/index.yml) that supports the following input (or a subset of this input):
+For this example, you'll need an HTTP-triggered [Azure Function](../../azure-functions/index.yml) that supports the following input (or a subset of this input):
 
 ```JSON
 {
@@ -52,7 +52,7 @@ Let's review the key attributes of this input:
 | **name** | The name of the command. The `parameters` attribute is a map with the current values of the parameters. |
 | **currentGlobalParameters** | A map like `parameters`, but used for global parameters. |
 
-The output of the Azure function needs to support the following format:
+The output of the Azure Function needs to support the following format:
 
 ```JSON
 {
@@ -71,7 +71,7 @@ The output of the Azure function needs to support the following format:
 
 You might recognize this format because it's the same one that you used when [updating a command from the client](./how-to-custom-commands-update-command-from-client.md). 
 
-Now, create an Azure function based on Node.js. Copy/paste this code:
+Now, create an Azure Function based on Node.js. Copy/paste this code:
 
 ```nodejs
 module.exports = async function (context, req) {
@@ -89,16 +89,16 @@ module.exports = async function (context, req) {
 }
 ```
 
-When you call this Azure function from Custom Commands, you'll send the current values of the conversation. You'll return the parameters that you want to update or if you want to cancel the current command.
+When you call this Azure Function from Custom Commands, you'll send the current values of the conversation. You'll return the parameters that you want to update or if you want to cancel the current command.
 
 ## Update the existing Custom Commands app
 
-Let's hook up the Azure function with the existing Custom Commands app:
+Let's hook up the Azure Function with the existing Custom Commands app:
 
 1. Add a new command named `IncrementCounter`.
 1. Add just one example sentence with the value `increment`.
-1. Add a new parameter called `Counter` (same name as specified in the Azure function) of type `Number` with a default value of `0`.
-1. Add a new web endpoint called `IncrementEndpoint` with the URL of your Azure function, with **Remote updates** set to **Enabled**.
+1. Add a new parameter called `Counter` (same name as specified in the Azure Function) of type `Number` with a default value of `0`.
+1. Add a new web endpoint called `IncrementEndpoint` with the URL of your Azure Function, with **Remote updates** set to **Enabled**.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="Screenshot that shows setting a web endpoint with remote updates.":::
 1. Create a new interaction rule called **IncrementRule** and add a **Call web endpoint** action.
@@ -117,7 +117,7 @@ Let's hook up the Azure function with the existing Custom Commands app:
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Screenshot that shows an increment counter example.":::
 
-Notice how the Azure function increments the value of the `Counter` parameter on each turn.
+Notice how the Azure Function increments the value of the `Counter` parameter on each turn.
 
 ## Next steps
 
