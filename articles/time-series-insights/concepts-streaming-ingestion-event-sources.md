@@ -40,7 +40,7 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 - Do not go beyond your environment's [throughput rate limit](./concepts-streaming-ingress-throughput-limits.md) or per partition limit.
 
-- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources#Production-workloads) below for suggested alert conditions. 
+- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources#production-workloads) below for suggested alert conditions. 
 
 - Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
 
