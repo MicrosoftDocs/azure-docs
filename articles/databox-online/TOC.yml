@@ -377,8 +377,8 @@
       href: azure-stack-edge-replace-device.md   
   - name: Release notes
     items:
-      - name: 2012 - Current
-        href: azure-stack-edge-2012-release-notes.md
+      - name: 2101 - Current
+        href: azure-stack-edge-2101-release-notes.md
       - name: 2007
         href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
       - name: 1911
