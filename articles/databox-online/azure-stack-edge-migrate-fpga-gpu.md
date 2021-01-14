@@ -61,11 +61,11 @@ Before you proceed with the migration, consider the following information:
 - The IoT Edge modules deployed on the source device may require changes before these can be successfully deployed on the target device. 
 - The source device supports NFS 3.0 and 4.1 protocols. The target device only supports NFS 3.0 protocol.
 - The source device support SMB and NFS protocols. The target device supports storage via REST protocol using storage accounts in addition to SMB and NFS protocols for shares.
-- The share access on the source device is vis the IP address whereas the share access on the target device is via the device name.
+- The share access on the source device is via the IP address whereas the share access on the target device is via the device name.
 
 ## Migration steps at-a-glance
 
-This table summarizes the overall flow for migration, describing the steps required for migration and the location where these steps need to be performed.
+This table summarizes the overall flow for migration, describing the steps required for migration and the location where to take these steps.
 
 | In this phase | Do this step| On this device |
 |---------------|-------------|----------------|
@@ -103,7 +103,7 @@ Edge cloud shares tier data from your device to Azure. Do these steps on your *s
 Data in Edge local shares stays on the device. Do these steps on your *source* device via the Azure portal. 
 
 1. Make a list of the Edge local shares that you have on the device.
-1. Given this is one-time migration of the data, create a copy of the Edge local share data to a server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solutions to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
+1. Given this is one-time migration of the data, create a copy of the Edge local share data to a server. You can use copy tools such as `robocopy` (SMB) or `rsync` (NFS) to copy the data. Optionally you may have already deployed a third-party data protection solution to back up the data in your local shares. The following third-party solutions are supported for use with Azure Stack Edge Pro FPGA devices:
 
     | Third-party software           | Reference to the solution                               |
     |--------------------------------|---------------------------------------------------------|
