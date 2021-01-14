@@ -183,7 +183,7 @@ Once you've implemented all the changes in your template and parameters files, p
     "location": "[variables('computeLocation')]",
     "properties": {
     "dnsSettings": {
-        "domainNameLabel": "[concat(variables('dnsName'),'-','nt2')]"
+        "domainNameLabel": "[concat(variables('dnsName'),'-','nt1')]"
     },
     "publicIPAllocationMethod": "Dynamic"
     },
@@ -202,9 +202,9 @@ Once you've implemented all the changes in your template and parameters files, p
 ]
 ```
 
-#### Create a new virtual machine scale set (with upgraded VM and OS SKUs) 
+#### Create a new virtual machine scale set (with upgraded VM and OS SKUs)
 
-Node Type Ref 
+Node Type Ref
 ```json
 "nodeTypeRef": "[variables('vmNodeType1Name')]"
 ```
@@ -232,6 +232,8 @@ Ensure you include any additional extensions that are required for your workload
 
 #### Add a new primary node type to the cluster
 
+The new node type (vmNodeType1Name) can reuse all other variables from the original node type (for example, `nt0applicationEndPort`, `nt0applicationStartPort`, and `nt0fabricTcpGatewayPort`).
+
 ```json
 "name": "[variables('vmNodeType1Name')]",
 "applicationPorts": {
@@ -254,7 +256,7 @@ Once you've implemented all the changes in your template and parameters files, p
 
 ### Obtain your Key Vault references
 
-To deploy the updated configuration, you'll first to obtain several references to your cluster certificate stored in your Key Vault. The easiest way to find these values is through Azure portal. You'll need:
+To deploy the updated configuration, you'll need several references to the cluster certificate stored in your Key Vault. The easiest way to find these values is through Azure portal. You'll need:
 
 * **The Key Vault URL of your cluster certificate.** From your Key Vault in Azure portal, select **Certificates** > *Your desired certificate* > **Secret Identifier**:
 
@@ -304,16 +306,17 @@ We're now ready to update the original node type as non-primary and start disabl
 
 ### Unmark the original node type as primary
 
+First remove the `isPrimary` designation in the template from the original node type.
+
 ```json
 {
     "isPrimary": false,
 }
 ```
 
-Deploy the template with the update.
+Then deploy the template with the update. This will initiate the migration of seed nodes to the new scale set.
 
 ```powershell
-# deploy the updated template files to the existing resource group
 $templateFilePath = "C:\Step2-UnmarkOriginalPrimaryNodeType.json"
 
 New-AzResourceGroupDeployment `
@@ -329,19 +332,30 @@ New-AzResourceGroupDeployment `
 > [!Note]
 > It will take some time to complete the seed node migration to the new scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
 
+Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set.
+
 ### Disable the nodes in the original node type scale set
+
+Once all seed nodes have migrated to the new scale set, you can disable the nodes of the original scale set.
 
 ```powershell
 # Disable the nodes in the original scale set.
-$nodeNames = @("_nt0vm_0","_nt0vm_1","_nt0vm_2","_nt0vm_3","_nt0vm_4")
+$nodeType = "nt0vm"
+$nodes = Get-ServiceFabricNode
 
 Write-Host "Disabling nodes..."
-foreach($name in $nodeNames){
-    Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Disable-ServiceFabricNode -Intent RemoveNode -NodeName $node.NodeName -Force
+  }
 }
 ```
 
-Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set and the progression of nodes in the original scale set from *Disabling* to *Disabled* status.
+Use Service Fabric Explorer to monitor the progression of nodes in the original scale set from *Disabling* to *Disabled* status.
 
 :::image type="content" source="./media/scale-up-primary-node-type/service-fabric-explorer-node-status.png" alt-text="Service Fabric Explorer showing status of disabled nodes":::
 
@@ -353,7 +367,10 @@ If your cluster is Bronze durability, wait for all nodes to reach *Disabled* sta
 
 ### Stop data on the disabled nodes
  
+Next, stop data on the disabled nodes.
+
 ```powershell
+# Stop data on the disabled nodes.
 foreach($node in $nodes)
 {
   if ($node.NodeType -eq $nodeType)
@@ -366,7 +383,6 @@ foreach($node in $nodes)
 ```
 
 ## Remove the original node type and cleanup its resources
-
 
 ### Remove the original scale set
 
@@ -519,6 +535,7 @@ New-AzResourceGroupDeployment `
 The cluster's primary node type has now been upgraded. Verify that any deployed applications function properly and cluster health is ok.
 
 ## Next steps
+
 * Learn how to [add a node type to a cluster](virtual-machine-scale-set-scale-node-type-scale-out.md)
 * Learn about [application scalability](service-fabric-concepts-scalability.md).
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
