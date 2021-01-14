@@ -171,7 +171,7 @@ In Windows, you can play the audio file by entering `start greetings.wav`.
 
 The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in the Speech CLI. Consider the following file `text_synthesis.tsv`:
 
-```output
+```input
 audio.output	text
 C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
 C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
@@ -192,11 +192,11 @@ This command is the equivalent of running `spx synthesize --text Sample text to 
 
 However, if you have a `.tsv` file like the following example, with column headers that **do not match** command line arguments:
 
-```output
-wav_path    str_text
-C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
-C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
+```input
+wav_path	str_text
+C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
+C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
+C:\batch_wav_output\wav_3.wav	Some more text to test capabilities.
 ```
 
 You can override these field names to the correct arguments using the following syntax in the `--foreach` call. This is the same call as above.
