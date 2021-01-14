@@ -2,10 +2,10 @@
 title: Azure Private Endpoint DNS configuration
 description: Learn Azure Private Endpoint DNS configuration
 services: private-link
-author: mblanco77
+author: allensu
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/14/2021
 ms.author: allensu
 ---
 # Azure Private Endpoint DNS configuration
