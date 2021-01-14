@@ -262,9 +262,8 @@ Update the relying party (RP) file that initiates the user journey that you crea
 1. Select **Run now** 
 1. From the sign-up or sign-in page, select *Fabrikam* to sign in with the other Azure AD B2C tenant.
 
+::: zone-end
 
 ## Next steps
 
 Learn how to [pass the other Azure AD B2C token to your application](idp-pass-through-user-flow.md).
-
-::: zone-end
