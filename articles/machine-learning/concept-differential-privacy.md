@@ -8,7 +8,8 @@ ms.date: 12/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual, responsible-ml
+ms.topic: conceptual
+ms.custom:  responsible-ml
 #intent: As a data scientist, I want to know what differential privacy is and how SmartNoise can help me implement a differentially private system.
 ---
 
