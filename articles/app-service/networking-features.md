@@ -106,7 +106,7 @@ This feature allows you to build a list of allow and deny rules that are evaluat
 
 The IP-based access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Some use cases for this feature:
 * Restrict access to your app from a set of well-defined addresses. 
-* Restrict access to traffic coming through a load-balancing service, like Azure Front Door. If you want to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
+* Restrict access to traffic coming through an external load-balancing service or other network appliances with known egress IP addresses. 
 
 To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
 
@@ -123,7 +123,7 @@ Some use cases for this feature:
 
 To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions][serviceendpoints].
 #### Access restriction rules based on service tags (preview)
-[Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter **inbound** traffic from specific Azure services. 
+[Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
 
 For a full list of tags and more information, visit the service tag link above. 
 To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].

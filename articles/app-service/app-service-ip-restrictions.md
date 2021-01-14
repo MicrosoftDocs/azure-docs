@@ -20,7 +20,7 @@ When a request is made to your app, the FROM address is evaluated against the ru
 
 The access restriction capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, access restrictions are effectively network access-control lists (ACLs).
 
-The ability to restrict access to your web app from an Azure virtual network is enabled by [service endpoints][serviceendpoints]. With service endpoints, you can restrict access to a multitenant service from selected subnets. It doesn't work to restrict traffic to apps that are hosted in an App Service Environment. If you're in an App Service Environment, you can control access to your app by applying IP address rules.
+The ability to restrict access to your web app from an Azure virtual network is enabled by [service endpoints][serviceendpoints]. With service endpoints, you can restrict access to a multi-tenant service from selected subnets. It doesn't work to restrict traffic to apps that are hosted in an App Service Environment. If you're in an App Service Environment, you can control access to your app by applying IP address rules.
 
 > [!NOTE]
 > The service endpoints must be enabled both on the networking side and for the Azure service that they're being enabled with. For a list of Azure services that support service endpoints, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
@@ -40,11 +40,11 @@ To add an access restriction rule to your app, do the following:
 
    ![Screenshot of the App Service networking options pane in the Azure portal.](media/app-service-ip-restrictions/access-restrictions.png)  
 
-1. On the **Access Restrictions** page, review the list of access-restriction rules that are defined for your app.
+1. On the **Access Restrictions** page, review the list of access restriction rules that are defined for your app.
 
    ![Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
-   The list displays all the current restrictions that are applied to the app. If you have a virtual-network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.  
+   The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.  
 
 ### Add an access restriction rule
 
@@ -65,7 +65,7 @@ On the **Add Access Restriction** pane, when you create a rule, do the following
 The different types of rules are described in the following sections.
 
 > [!NOTE]
-> - There is a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider installing a standalone security product, such as Azure Front Door, Azure App Gateway, or a WAF.
+> - There is a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider installing a standalone security product, such as Azure Front Door, Azure App Gateway, or an alternative WAF.
 >
 #### Set an IP address-based rule
 
