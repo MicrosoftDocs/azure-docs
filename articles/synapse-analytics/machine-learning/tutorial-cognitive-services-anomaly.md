@@ -14,7 +14,7 @@ ms.author: negust
 
 # Tutorial: Anomaly detection with Cognitive Services (Preview)
 
-In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493) to perform anomaly detection. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
+In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](../../cognitive-services/index.yml). We will be using the [Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml) to perform anomaly detection. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
 This tutorial covers:
 
@@ -90,7 +90,7 @@ The notebook you just opened is using the [mmlspark library](https://github.com/
 
 The Azure Key Vault details you provided allow you to securely reference your secrets from this experience without revealing them.
 
-You can now **Run All** cells to perform anomaly detection. Learn more about [Cognitive Services - Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493).
+You can now **Run All** cells to perform anomaly detection. Learn more about [Cognitive Services - Anomaly Detector](../../cognitive-services/anomaly-detector/index.yml).
 
 ![Run Anomaly Detection](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
 
