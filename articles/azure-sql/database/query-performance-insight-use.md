@@ -149,7 +149,7 @@ To view query details:
 
 Two metrics in Query Performance Insight can help you find potential bottlenecks: duration and execution count.
 
-Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization. For more information, see [Understand and resolve Azure SQL blocking problems](database/understand-resolve-blocking.md).
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 To identify long-running queries:
 

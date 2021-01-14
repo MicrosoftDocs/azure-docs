@@ -178,7 +178,7 @@ To work around this issue, try one of the following methods:
 - Verify whether there are long-running queries.
 
   > [!NOTE]
-  > This is a minimalist approach that might not resolve the issue. For detailed information on troubleshooting query blocking, see [Understand and resolve Azure SQL blocking problems](database/understand-resolve-blocking.md).
+  > This is a minimalist approach that might not resolve the issue. For detailed information on troubleshooting query blocking, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 1. Run the following SQL query to check the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
 
