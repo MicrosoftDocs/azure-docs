@@ -26,7 +26,7 @@ The ability to restrict access to your web app from an Azure virtual network is 
 > The service endpoints must be enabled both on the networking side and for the Azure service that they're being enabled with. For a list of Azure services that support service endpoints, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 >
 
-![Diagram of the flow of access restrictions.](media/app-service-ip-restrictions/access-restrictions-flow.png)
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-flow.png" alt-text="Diagram of the flow of access restrictions.":::
 
 ## Manage access restriction rules in the portal
 
@@ -38,13 +38,13 @@ To add an access restriction rule to your app, do the following:
 
 1. On the **Networking** pane, under **Access Restrictions**, select **Configure Access Restrictions**.
 
-   ![Screenshot of the App Service networking options pane in the Azure portal.](media/app-service-ip-restrictions/access-restrictions.png)  
+    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions.png" alt-text="Screenshot of the App Service networking options pane in the Azure portal.":::
 
 1. On the **Access Restrictions** page, review the list of access restriction rules that are defined for your app.
 
-   ![Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.](media/app-service-ip-restrictions/access-restrictions-browse.png)
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.":::
 
-   The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.  
+   The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.
 
 ### Add an access restriction rule
 
@@ -56,8 +56,8 @@ On the **Add Access Restriction** pane, when you create a rule, do the following
 
 1. Under **Action**, select either **Allow** or **Deny**.  
 
-   ![Screenshot of the "Add Access Restriction" pane.](media/app-service-ip-restrictions/access-restrictions-ip-add.png?v2)
-   
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-add.png?v2" alt-text="Screenshot of the 'Add Access Restriction' pane.":::
+
 1. Optionally, enter a name and description of the rule.
 1. In the **Priority** box, enter a priority value.
 1. In the **Type** drop-down list, select the type of rule.
@@ -78,13 +78,13 @@ Specify the **IP Address Block** in Classless Inter-Domain Routing (CIDR) notati
 
 * For step 4, in the **Type** drop-down list, select **Virtual Network**.
 
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Virtual Network type selected.":::
+
 Specify the **Subscription**, **Virtual Network**, and **Subnet** drop-down lists, matching what you want to restrict access to.
 
 By using service endpoints, you can restrict access to selected Azure virtual network subnets. If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they'll be automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet. 
 
 If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app will be configured for service endpoints in anticipation of having them enabled later on the subnet. 
-
-![Screenshot of the "Add Restriction" pane with the Virtual Network type selected.](media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2)
 
 You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules. 
 
@@ -96,6 +96,8 @@ With service endpoints, you can configure your app with application gateways or 
 #### Set a service tag-based rule (preview)
 
 * For step 4, in the **Type** drop-down list, select **Service Tag (preview)**.
+
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
 
 Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags].
 
@@ -112,14 +114,13 @@ The following list of service tags is supported in access restriction rules duri
 * LogicApps
 * ServiceFabric
 
-![Screenshot of the "Add Restriction" pane with the Service Tag type selected.](media/app-service-ip-restrictions/access-restrictions-service-tag-add.png)
 ### Edit a rule
 
-1. To begin editing an existing access restriction rule, on the **Access Restrictions** page, click on the rule you want to edit.
+1. To begin editing an existing access restriction rule, on the **Access Restrictions** page, select the rule you want to edit.
 
 1. On the **Edit Access Restriction** pane, make your changes, and then select **Update rule**. Edits are effective immediately, including changes in priority ordering.
 
-   ![Screenshot of the "Edit Access Restriction" pane in the Azure portal, showing the fields for an existing access restriction rule.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png?v2)
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-edit.png?v2" alt-text="Screenshot of the 'Edit Access Restriction' pane in the Azure portal, showing the fields for an existing access restriction rule.":::
 
    > [!NOTE]
    > When you edit a rule, you can't switch between rule types. 
@@ -128,7 +129,7 @@ The following list of service tags is supported in access restriction rules duri
 
 To delete a rule, on the **Access Restrictions** page, select the ellipsis (**...**) next to the rule you want to delete, and then select **Remove**.
 
-![Screenshot of the "Access Restrictions" page, showing the "Remove" ellipsis next to the access restriction rule to be deleted.](media/app-service-ip-restrictions/access-restrictions-delete.png)
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot of the 'Access Restrictions' page, showing the 'Remove' ellipsis next to the access restriction rule to be deleted.":::
 
 ## Access restriction advanced scenarios
 The following sections describe some advanced scenarios using access restrictions.
@@ -138,18 +139,18 @@ When you add your first access restriction rule, the service adds an explicit *D
 
 For a scenario where you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, add an explicit *Allow All* rule.
 
-![Screenshot of the "Access Restrictions" page in the Azure portal, showing a single blocked IP address.](media/app-service-ip-restrictions/block-single-address.png)
+:::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing a single blocked IP address.":::
 
 ### Restrict access to an SCM site 
 
 In addition to being able to control access to your app, you can restrict access to the SCM site that's used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select the **Same restrictions as \<app name>** check box, everything is blanked out. If you clear the check box, your SCM site settings are reapplied. 
 
-![Screenshot of the "Access Restrictions" page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
 
 ### Restrict access to a specific Azure Front Door instance (preview)
-Traffic from Azure Front Door to your application originates a from well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you will need to further filter the incoming requests based on the unique http header that Azure Front Door sends. During preview you can achieve this with PowerShell or REST/ARM. 
+Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you will need to further filter the incoming requests based on the unique http header that Azure Front Door sends. During preview you can achieve this with PowerShell or REST/ARM. 
 
-* PowerShell example (Front Door id can be found in the Azure portal):
+* PowerShell example (Front Door ID can be found in the Azure portal):
 
    ```azurepowershell-interactive
     $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -184,7 +185,7 @@ You can also set values manually by doing either of the following:
 
   management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2020-06-01
 
-* Use an ARM template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
+* Use a Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 
   The JSON syntax for the earlier example is:
 
