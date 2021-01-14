@@ -24,7 +24,7 @@ This article lists the steps to install the Azure IoT Edge runtime on Linux devi
 
   If you registered your device with symmetric key authentication, have the device connection string ready.
 
-  If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private private key available on your device.
+  If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private key available on your device.
 
 * A Linux device
 

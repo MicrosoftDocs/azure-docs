@@ -15,7 +15,7 @@ ms.author: v-tcassi
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices from PC class to industrial servers. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices through the use of Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
+Azure IoT Edge for Linux on Windows allows you to use Azure IoT Edge on Windows devices by using Linux virtual machines. The Linux version of Azure IoT Edge and any Linux modules deployed with it run on the virtual machine. From there, Windows applications and code and the IoT Edge runtime and modules can freely interact with each other.
 
 This article lists the steps to set up IoT Edge on a Windows device. These steps deploy a Linux virtual machine that contains the IoT Edge runtime to run on your Windows device, then provision the device with its IoT Hub device identity.
 
@@ -29,7 +29,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
    If you registered your device with symmetric key authentication, have the device connection string ready.
 
-   If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private private key available on your device.
+   If you registered your device with X.509 self-signed certificate authentication, have at least one of the identity certificates that you used to register the device and its matching private key available on your device.
 
 * Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
    <!-- The link below needs the language localization to work; otherwise broken -->
