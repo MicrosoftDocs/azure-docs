@@ -263,9 +263,9 @@ If you can't find your issue in this article or the instructions didn't help you
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window
 - You don't see the **RdAgentBootLoader** component in the Task Manager
-- Any of the above troubleshooting steps did not resolve your issue
+- The instructions in this article didn't resolve your issue
 
-### Uninstall all agent, boot loader, and stack component programs
+### Step 1: Uninstall all agent, boot loader, and stack component programs
 
 Before reinstalling the agent, boot loader, and stack, you must uninstall any existing component programs from your VM. To uninstall all agent, boot loader, and stack component programs:
 1. Sign in to your VM as an administrator. 
@@ -282,7 +282,7 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
    > [!div class="mx-imgBorder"]
    > ![Screenshot of uninstalling programs](media/uninstall.png)
 
-### Remove the session host from the host pool
+### Step 2: Remove the session host from the host pool
 
 When you remove the session host from the host pool, the session host is no longer registered to that host pool. This acts as a reset for the session host registration. To remove the session host from the host pool:
 1. Go to the **Overview** page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
@@ -293,7 +293,7 @@ When you remove the session host from the host pool, the session host is no long
    > [!div class="mx-imgBorder"]
    > ![Screenshot of removing VM from host pool](media/remove.png)
 
-### Generate a new registration key for the VM
+### Step 3: Generate a new registration key for the VM
 
 You must generate a new registration key that is used to re-register your VM to the host pool and to the service. To generate a new registration key for the VM:
 1. Open the [Azure portal](https://portal.azure.com) and go to the **Overview** page for the host pool of the VM you want to edit.
@@ -310,7 +310,7 @@ You must generate a new registration key that is used to re-register your VM to 
 
 5. Copy the newly generated key to your clipboard. You'll need this key later.
 
-### Reinstall the agent and boot loader
+### Step 4: Reinstall the agent and boot loader
 
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 1. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
