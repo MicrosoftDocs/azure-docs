@@ -37,19 +37,14 @@ It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools p
 If your clusters or node pools are ready for `AKS Ubuntu 18.04` node image, you can simply upgrade them to a v1.18 or higher as below.
 
 ```azurecli
-
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-
 ```
 
-If you just want to upgrade one node pool:
+If you just want to upgrade just one node pool:
 
 ```azurecli
-
 az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-
 ```
-
 
 ### Test AKS Ubuntu 18.04 Generally Available on existing clusters
 
@@ -61,7 +56,6 @@ To create a node pool using `AKS Ubuntu 18.04` node image, simply create a node 
 Below we are first upgrading the control plane and then creating a new node pool with v1.18 that will receive the new node image OS version.
 
 ```azurecli
-
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
 
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
