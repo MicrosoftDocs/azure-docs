@@ -42,9 +42,9 @@ Sometimes it is helpful to disable the depth buffer write of the remote image fo
 **InverseDepth**:
 
 > [!NOTE]
-> This setting is only important if EnableDepth is set to `true`. Otherwise this setting has no impact.
+> This setting is only important if `EnableDepth` is set to `true`. Otherwise this setting has no impact.
 
-Depth buffers normally record pixel-wise z-values in a floating-point range of [0;1], with 0 denoting the near-plane depth and 1 denoting the far-plane depth. It is also possible to invert this range and record depth values in range [1;0], i.e. the near-plane depth becomes 1 and the far-plane depth becomes 0.
+Depth buffers normally record z-values in a floating-point range of [0;1], with 0 denoting the near-plane depth and 1 denoting the far-plane depth. It is also possible to invert this range and record depth values in range [1;0], that is, the near-plane depth becomes 1 and the far-plane depth becomes 0. Generally, the latter improves the distribution of floating point precision across the non-linear z-range.
 
 > [!WARNING]
 > A common approach is inverting the near-plane and far-plane values on the camera objects. This will fail for Azure Remote Rendering with an error when trying this on the `CameraSettings`.
