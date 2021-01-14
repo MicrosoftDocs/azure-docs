@@ -400,7 +400,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Use PAWs with multi-factor authentication configured to log into and configure Azure Automation Account resources in production environments.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -554,7 +554,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 * [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure Automation TLS 1.2 enforcement](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Azure Automation TLS 1.2 enforcement](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Azure Security Center monitoring**: Yes
 
