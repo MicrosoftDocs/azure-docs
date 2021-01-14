@@ -60,7 +60,7 @@ If you publish a trial or consulting proof of concept, implementation, or worksh
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 
-![Go-To-Market benefits](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Go-To-Market benefits](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
