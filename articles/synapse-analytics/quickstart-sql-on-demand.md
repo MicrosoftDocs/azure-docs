@@ -21,7 +21,7 @@ This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 
 Choose a SQL client to issue queries:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL queries.
+- [Azure Synapse Studio](./get-started-create-workspace.md) is a web tool that you can use to browse files in storage and create SQL queries.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
 - [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 

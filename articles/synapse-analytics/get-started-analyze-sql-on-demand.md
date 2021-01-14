@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020 
+ms.date: 12/31/2020
 ---
 
 # Analyze data with serverless SQL pool in Azure Synapse Analytics
@@ -18,10 +18,11 @@ In this tutorial, you'll learn how to analyze data with serverless SQL pool usin
 
 ## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
-1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TOP 100 rows**
+1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow**, **New SQL Script**, and select **SELECT TOP 100 rows**
 1. This will create a new SQL script with the following code:
 
     ```
+    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -37,7 +38,7 @@ In this tutorial, you'll learn how to analyze data with serverless SQL pool usin
 Tables in Spark databases are automatically visible, and they can be queried by serverless SQL pool.
 
 1. In Synapse Studio, go to the **Develop** hub and create a new SQL script.
-1. Set **Connect to** to **serverless SQL pool**.
+1. Set **Connect to** to the **Built-in** serverless SQL pool.
 1. Paste the following text into the script and run the script.
 
     ```sql
