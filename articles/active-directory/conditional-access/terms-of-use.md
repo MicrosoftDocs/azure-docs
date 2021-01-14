@@ -384,6 +384,9 @@ You can configure a Conditional Access policy for the Microsoft Intune Enrollmen
 
 ## Frequently asked questions
 
+**Q: I cannot sign in using PowerShell when terms of use is enabled.**<br />
+A: Terms of use can only be accepted when authenticating interactively.
+
 **Q: How do I see when/if a user has accepted a terms of use?**<br />
 A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see View report of who has accepted and declined and [View Azure AD audit logs](#view-azure-ad-audit-logs).
 
