@@ -131,3 +131,6 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   authorization: The address of the OAuth2 authorization service that may be used to obtain an access token for the request.  
 
 -   resource: The name of the resource (`https://vault.azure.net`) to use in the authorization request.
+
+> [!NOTE]
+> Key Vault SDK clients for secrets, certificates, and keys in the first call to Key Vault do not provide an access token to retrieve tenant information. It’s expected to receive an HTTP 401 using Key Vault SDK client where the Key Vault shows to the application the WWW-Authenticate header containing the resource and the tenant where it needs to go and ask for the token. If everything is configured correctly, the second call from the application to Key Vault will contain a valid token and will succeed. 

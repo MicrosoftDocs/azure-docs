@@ -42,7 +42,7 @@ Before you determine something is incorrect, make sure you're not seeing a false
 
 ### If you see an unsuccessful sign-in
 
-If you see an unsuccessful sign-in, it could mean that you mistyped your credentials. It could also mean that an attacker was trying to guess your password. To respond to this risk, you don't have to change your password, but we recommend that you register for Azure Multi-Factor Authentication (MFA). With multi-factor authentication, even if the hacker guesses your password, it won't be enough to access the account.
+If you see an unsuccessful sign-in, it could mean that you mistyped your credentials. It could also mean that an attacker was trying to guess your password. To respond to this risk, you don't have to change your password, but we recommend that you register for Azure AD Multi-Factor Authentication (MFA). With multi-factor authentication, even if the hacker guesses your password, it won't be enough to access the account.
 
 ![Unsuccessful sign-in tile](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

@@ -103,14 +103,13 @@ If your subscription needs access in a particular region, select the **Region ac
 
    ![Request region access](./media/quota-increase-request/quota-request.png)
 
-
 ### Request enabling specific hardware in a region
 
 If a [hardware generation](service-tiers-vcore.md#hardware-generations), you want to use, is not available in your region (see [Hardware availability](service-tiers-vcore.md#hardware-availability)), you may request it using the following steps.
 
 1. Select the **Other quota request** quota type.
 
-1. In the **Description** field, state your request, including the name of the hardware generation and the name of the region, you need it in.
+1. In the **Description** field, state your request, including the name of the hardware generation and the name of the region you need it in.
 
    ![Request hardware in a new region](./media/quota-increase-request/hardware-in-new-region.png)
 

@@ -155,7 +155,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](log-query/get-started-portal.md)
+- [Getting started with Log Analytics queries](./log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](log-query/get-started-queries.md)
 
@@ -234,7 +234,7 @@ Enable Azure AD MFA and follow Azure Security Center identity and access recomme
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -329,7 +329,7 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
-**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Monitor and related resources that your applications and enterprise environments demand. You can control access to Azure Monitor via Azure Active Directory role-based access control.
+**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Monitor and related resources that your applications and enterprise environments demand. You can control access to Azure Monitor via Azure role-based access control.
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -366,9 +366,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use role-based access control to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure Monitor.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to Azure Monitor.
 
 - [Roles, permissions, and security in Azure Monitor](platform/roles-permissions-security.md)
 
@@ -694,7 +694,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.   Use role-based access control to protect customer-managed keys. 
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.   Use Azure role-based access control to protect customer-managed keys. 
 
 Additionally, Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store Azure Resource Manager template backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted. 
 

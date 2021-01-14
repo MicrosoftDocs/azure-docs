@@ -16,7 +16,7 @@ Use one of the following links to get started with your chosen local development
 
 | Visual Studio Code | Terminal/command prompt | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Get started with C#](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[Get started with C#](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,7 +62,7 @@ Next, create a function in the new function app.
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    The request URL includes a key that is required, by default, to access your function over HTTP.
+    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you choose **Function** instead of **Anonymous** access level when creating the function. In this case, you should instead append `&name=<your_name>`.
 
 1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
 
@@ -75,4 +75,3 @@ Next, create a function in the new function app.
 ## Next steps
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

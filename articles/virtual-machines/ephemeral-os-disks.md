@@ -80,7 +80,7 @@ az vm create \
 
 For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
 
-## Portal	
+## Portal
 
 In the Azure portal, you can choose to use ephemeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
 
@@ -115,7 +115,7 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-	           	"option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 
@@ -150,7 +150,7 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
        "storageProfile": { 
             "osDisk": { 
               "diffDiskSettings": { 
-               	"option": "Local" 
+                "option": "Local" 
               }, 
               "caching": "ReadOnly", 
               "createOption": "FromImage" 

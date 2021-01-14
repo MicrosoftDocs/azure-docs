@@ -1,8 +1,10 @@
 ---
 title: Support for physical server migration in Azure Migrate
 description: Learn about support for physical server migration in Azure Migrate.
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
-ms.custom: fasttrack-edit
 ms.date: 06/14/2020
 ---
 
@@ -41,7 +43,7 @@ The table summarizes support for physical servers you want to migrate using agen
 **UEFI boot** | Supported. UEFI-based machines will be migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | Machines can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk (BIOS boot); 4 TB OS disk (UEFI boot); 8 TB for data disks.
+**Disk size** | 2 TB OS disk; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.

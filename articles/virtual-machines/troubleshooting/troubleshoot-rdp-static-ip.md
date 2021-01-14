@@ -60,13 +60,13 @@ To resolve this issue, use Serial control to enable DHCP or [reset network inter
 3. If the DHCP is disabled, revert the configuration of your network interface to use DHCP:
 
     ```console
-    netsh interface ip set address name="<NIC Name>" source=dhc
+    netsh interface ip set address name="<NIC Name>" source=dhcp
     ```
 
     For example, if the interwork interface names "Ethernet 2", run the following command:
 
     ```console
-    netsh interface ip set address name="Ethernet 2" source=dhc
+    netsh interface ip set address name="Ethernet 2" source=dhcp
     ```
 
 4. Query the IP configuration again to make sure that the network interface is now correctly set up. The new IP address should match the one that’s provided by the Azure.

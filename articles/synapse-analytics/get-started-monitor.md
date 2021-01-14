@@ -26,8 +26,7 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 ## Integration
 
 1. Navigate to **Integration > Pipeline**. In this view, you can see every time a pipeline has run in your workspace. 
-1. Find the pipeline that you ran in the previous step and click on its **Pipeline name**.
-1. Now you can see how individual activities inside that pipeline run.
+1. Find the pipeline that you ran in the previous step and click on its **Pipeline name** to view the details.
 1. Click **Breadcrumb bar** near the top of Synapse Studio, click **All pipeline runs** to return to the previous view.
 
 ## Apache Spark Activities
@@ -43,6 +42,9 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 1. Select a **Pool** to monitor. Now you can see all SQL requests that are running or have run in your workspace in that pool.
 1. Find a specific SQL request and hover the mouse on that item. Once you hover, you will see a SQL script icon appear.
 1. Click on the SQL script icon to see the full text of the SQL request.
+
+    > [!NOTE] 
+    > SQL requests submitted via the Synapse Studio in a workspace enabled dedicated SQL pool (formerly SQL DW) can be viewed in the Monitor hub. For all other monitoring activities, you can go to Azure portal dedicated SQL pool (formerly SQL DW) monitoring.
 
 ## Next steps
 

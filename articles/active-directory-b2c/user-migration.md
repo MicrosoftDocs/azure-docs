@@ -85,14 +85,14 @@ Not all information in the legacy identity provider should be migrated to your A
 
 Before you start the migration process, take the opportunity to clean up your directory.
 
-- Identify the set of user attributes to be stored in Azure AD B2C, and migrate only what you need. If necessary, you can create [custom attributes](custom-policy-custom-attributes.md) to store more data about a user.
+- Identify the set of user attributes to be stored in Azure AD B2C, and migrate only what you need. If necessary, you can create [custom attributes](user-flow-custom-attributes.md) to store more data about a user.
 - If you're migrating from an environment with multiple authentication sources (for example, each application has its own user directory), migrate to a unified account in Azure AD B2C.
 - If multiple applications have different usernames, you can store all of them in an Azure AD B2C user account by using the identities collection. With regard to the password, let the user choose one and set it in the directory. For example, with the seamless migration, only the chosen password should be stored in the Azure AD B2C account.
 - Remove unused user accounts before migration, or do not migrate stale accounts.
 
 ### Password policy
 
-If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](manage-user-accounts-graph-api.md#password-policy-property).
+If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](user-profile-attributes.md#password-policy-attribute).
 
 ## Next steps
 

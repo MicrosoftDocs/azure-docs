@@ -85,7 +85,7 @@ When multiple Azure AD accounts from different Azure AD tenants are on the same 
 
 Roaming only works for Universal Windows apps. There are two options available for enabling roaming on an existing Windows desktop application:
 
-* The [Desktop Bridge](https://aka.ms/desktopbridge) helps you bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
+* The [Desktop Bridge](/windows/msix/desktop/source-code-overview) helps you bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
 * [User Experience Virtualization (UE-V)](/previous-versions//dn458947(v=vs.85)) helps you create a custom settings template for existing Windows desktop apps and enable roaming for Win32 apps. This option does not require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Pack.
 
 Administrators can configure UE-V to roam Windows desktop app data by changing roaming of Windows OS settings and Universal app data through [UE-V group policies](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), including:

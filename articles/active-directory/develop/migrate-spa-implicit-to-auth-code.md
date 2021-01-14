@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-js
 
 # Migrate a JavaScript single-page app from implicit grant to auth code flow
 
-Microsoft Authentication Library for JavaScript (MSAL.js) v2.0 brings support for the authorization code flow with PKCE and CORS to single-page applications on the Microsoft identity platform. Follow the steps in the sections below to migrate your MSAL.js 1.x application using the implicit grant to MSAL.js 2.0+ (hereafter *2.x*) and the auth code flow.
+The Microsoft Authentication Library for JavaScript (MSAL.js) v2.0 brings support for the authorization code flow with PKCE and CORS to single-page applications on the Microsoft identity platform. Follow the steps in the sections below to migrate your MSAL.js 1.x application using the implicit grant to MSAL.js 2.0+ (hereafter *2.x*) and the auth code flow.
 
 MSAL.js 2.x improves on MSAL.js 1.x by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.x does **NOT** support the implicit flow.
 
@@ -36,7 +36,7 @@ If you'd like to continue using your existing app registration for your applicat
 
 Follow these steps for app registrations that are currently configured with **Web** platform redirect URIs:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select your **Azure Active Directory** tenant.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> and select your **Azure Active Directory** tenant.
 1. In **App registrations**, select your application, and then **Authentication**.
 1. In the **Web** platform tile under **Redirect URIs**, select the warning banner indicating that you should migrate your URIs.
 

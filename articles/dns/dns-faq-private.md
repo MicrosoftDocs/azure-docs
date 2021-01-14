@@ -28,7 +28,7 @@ No. Private zones work along with virtual networks. You use them to manage domai
 
 ## Can the same private zone be used for several virtual networks for resolution?
 
-Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## Can a virtual network that belongs to a different subscription be linked to a private zone?
 
@@ -69,11 +69,11 @@ Yes. Private Zones don't replace the default Azure-provided internal.cloudapp.ne
 ## Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone?
 
 No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone.
-For guidance on how to change this suffix refer to [Use dynamic DNS to register hostnames in your own DNS server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
+For guidance on how to change this suffix refer to [Use dynamic DNS to register hostnames in your own DNS server](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)
 
 ## What are the usage limits for Azure DNS Private zones?
 
-Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
+Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
 
 ## Why don’t my existing private DNS zones show up in new portal experience?
 

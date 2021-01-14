@@ -47,19 +47,19 @@ To configure the integration of Communifire into Azure AD, you need to add Commu
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Communifire**, select **Communifire** from result panel then click **Add** button to add the application.
 
-	 ![Communifire in the results list](common/search-new-app.png)
+    ![Communifire in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -91,7 +91,7 @@ To configure Azure AD single sign-on with Communifire, perform the following ste
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
@@ -110,32 +110,32 @@ To configure Azure AD single sign-on with Communifire, perform the following ste
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.communifire.com/login`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Communifire Client support team](mailto:support@axerosolutions.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Communifire Client support team](mailto:support@axerosolutions.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 7. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog and perform the following step.
 
-	![Edit SAML Signing Certificate](common/edit-certificate.png)
+    ![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-	a. Select **Sign SAML response and assertion** from the **Signing Option**.
-	
-	b. Click **Save**
+    a. Select **Sign SAML response and assertion** from the **Signing Option**.
 
-	![Communifire Signing option](./media/communifire-tutorial/tutorial-communifire-signing-option.png)
- 
+    b. Click **Save**
+
+    ![Communifire Signing option](./media/communifire-tutorial/tutorial-communifire-signing-option.png)
+
 8. On the **Set up Communifire** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure Ad Identifier
+    b. Azure Ad Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure Communifire Single Sign-On
 
@@ -158,7 +158,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
@@ -172,11 +172,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Communifire**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Communifire**.
 
-	![The Communifire link in the Applications list](common/all-applications.png)
+    ![The Communifire link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 

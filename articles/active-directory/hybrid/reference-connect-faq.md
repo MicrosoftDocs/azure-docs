@@ -257,7 +257,7 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 Below are some best practices you should implement when syncing between Windows Server Active Directory and Azure Active Directory.
 
 **Apply Multi-Factor Authentication for all synced accounts**
-Azure Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+Azure AD Multi-Factor Authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods. Users may or may not be challenged for MFA based on configuration decisions that an administrator makes. You can read more about MFA here: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Follow the Azure AD Connect server security guidelines**
 The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Please also refer to our [guidelines for securing your AADConnect server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).

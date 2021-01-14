@@ -245,7 +245,7 @@ After the custom domain has been removed successfully, you will see a portal not
 
 #### [Azure CLI](#tab/azure-cli)
 
-To remove a custom domain registration, use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI command, and then specify an empty string (`""`) for the `--custom-domain` argument value.
+To remove a custom domain registration, use the [az storage account update](/cli/azure/storage/account) CLI command, and then specify an empty string (`""`) for the `--custom-domain` argument value.
 
 * Command format:
 
@@ -315,11 +315,11 @@ To map a custom domain and enable HTTPS access, do the following:
 
 4. (Optional) Review the following guidance:
 
-   * [Shared access signature (SAS) tokens with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
+   * [Shared access signature (SAS) tokens with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
 
-   * [HTTP-to-HTTPS redirection with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [HTTP-to-HTTPS redirection with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Pricing and billing when using Blob Storage with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Pricing and billing when using Blob Storage with Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
 ## Next steps
 

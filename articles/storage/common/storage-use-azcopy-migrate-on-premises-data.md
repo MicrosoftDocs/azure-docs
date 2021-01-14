@@ -173,7 +173,7 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-* [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 For more information about AzCopy, see any of these articles:
 

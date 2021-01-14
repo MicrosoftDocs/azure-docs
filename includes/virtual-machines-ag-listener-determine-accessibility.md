@@ -17,5 +17,4 @@ It is important to realize that there are two ways to configure an availability 
 > 
 > 
 
-An ILB can be configured only on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use an ILB. For more information, see [Internal load balancer overview](../articles/load-balancer/load-balancer-internal-overview.md).
-
+An ILB can be configured only on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use an ILB. For more information, see [Internal load balancer overview](../articles/load-balancer/load-balancer-overview.md#internalloadbalancer).

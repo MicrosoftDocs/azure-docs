@@ -18,6 +18,10 @@ The HTTP 408 error occurs if the SDK was unable to complete the request before t
 ## Troubleshooting steps
 The following list contains known causes and solutions for request timeout exceptions.
 
+### Existing issues
+If you are seeing requests getting stuck for longer duration or timing out more frequently, please upgrade the Java v4 SDK to the latest version. 
+NOTE: We strongly recommend to use the version 4.7.0 and above. Checkout the [Java v4 SDK release notes](sql-api-sdk-java-v4.md) for more details.
+
 ### High CPU utilization
 High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 

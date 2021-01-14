@@ -50,7 +50,7 @@ The AzureDiagnostics table will look as follows:
 | ... |
 
 ### Resource-specific
-In this mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it makes it much easier to work with the data in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times, and the ability to grant RBAC rights on a specific table. All Azure services will eventually migrate to the Resource-Specific mode. 
+In this mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it makes it much easier to work with the data in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times, and the ability to grant Azure RBAC rights on a specific table. All Azure services will eventually migrate to the Resource-Specific mode. 
 
 The example above would result in three tables being created:
  

@@ -72,7 +72,7 @@ Enable DDoS Protection Standard on the virtual networks associated with your Azu
 
 - [How to configure Advanced Threat Protection for Azure Database for PostgreSQL](howto-database-threat-protection-portal.md)
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -232,7 +232,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [For more information about the Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [For more information about the Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -364,7 +364,7 @@ Separately, control plane access for PostgreSQL is available via REST API and su
 
 **Guidance**: Use Privileged Access Workstations (PAWs) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

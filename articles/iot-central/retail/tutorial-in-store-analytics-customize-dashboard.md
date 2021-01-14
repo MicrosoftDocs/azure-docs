@@ -14,7 +14,7 @@ ms.date: 11/12/2019
 # Tutorial:  Customize the operator dashboard and manage devices in Azure IoT Central
 
 
-In this tutorial, as a builder learn how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
+In this tutorial, as a builder, you learn how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

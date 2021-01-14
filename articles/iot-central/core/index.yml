@@ -41,10 +41,8 @@ landingContent:
             url: overview-iot-central-developer.md
       - linkListType: tutorial
         links:
-          - text: Connect a device (Node.js)
-            url: tutorial-connect-device-nodejs.md
-          - text: Connect a device (Python)
-            url: tutorial-connect-device-python.md
+          - text: Create and connect a device
+            url: tutorial-connect-device.md
       - linkListType: concept
         links:
           - text: Device connectivity

@@ -21,7 +21,7 @@ A boosted decision tree is an ensemble learning method in which the second tree 
   
 Generally, when properly configured, boosted decision trees are the easiest methods with which to get top performance on a wide variety of machine learning tasks. However, they are also one of the more memory-intensive learners, and the current implementation holds everything in memory. Therefore, a boosted decision tree model might not be able to process the large datasets that some linear learners can handle.
 
-This module is based LightGBM algorithm.
+This module is based on LightGBM algorithm.
 
 ## How to configure
 
@@ -51,7 +51,7 @@ You can train this type of model using [Train Model](././train-model.md).
   
 6.  For **Number of trees constructed**, indicate the total number of decision trees to create in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time will increase.
   
-     This value also controls the number of trees displayed when visualizing the trained model. if you want to see or print a single tree, set the value to 1. However, when you do so, only one tree is produced (the tree with the initial set of parameters) and no further iterations are performed.
+     If you set the value to 1, only one tree is produced (the tree with the initial set of parameters) and no further iterations are performed.
   
 7.  For **Random number seed**, optionally type a non-negative integer to use as the random seed value. Specifying a seed ensures reproducibility across runs that have the same data and parameters.  
   

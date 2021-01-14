@@ -1,12 +1,12 @@
 ---
 title: Chinese support notes
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/07/2019
-ms.author: dapine
+ms.date: 12/29/2020
+ms.author: aahi
 ---
 
 ### **Text analytics support notes

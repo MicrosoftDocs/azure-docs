@@ -50,6 +50,9 @@ The following regions and maximum resources are available to container groups wi
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
+> [!IMPORTANT]
+> At this time, deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
+
 | GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -63,6 +66,9 @@ The following maximum resources are available to a container group deployed with
 
 The following regions and maximum resources are available to container groups with [supported and preview](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server containers.
 
+> [!IMPORTANT]
+> At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
+
 ###  Windows Server 2016
 
 > [!NOTE]
@@ -70,9 +76,9 @@ The following regions and maximum resources are available to container groups wi
 
 | Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia East | 2 | 8 | 2 | 3.5 | 20 |
+| Australia East | 2 | 8 | 2 | 8 | 20 |
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canada Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| Canada Central | 2 | 8 | 2 | 3.5 | 20 |
 | Central India | 2 | 3.5 | 2 | 3.5 | 20 |
 | Central US | 2 | 3.5 | 2 | 3.5 | 20 |
 | East Asia | 2 | 3.5 | 2 | 3.5 | 20 |
@@ -81,15 +87,15 @@ The following regions and maximum resources are available to container groups wi
 | Japan East | 4 | 16 | 4 | 16 | 20 |
 | Korea Central | 4 | 16 | 4 | 16 | 20 |
 | North Central US | 4 | 16 | 4 | 16 | 20 |
-| North Europe | 2 | 3.5 | 2 | 8 | 20 |
-| South Central US | 2 | 3.5 | 2 | 3.5 | 20 |
+| North Europe | 2 | 8 | 2 | 8 | 20 |
+| South Central US | 2 | 3.5 | 2 | 8 | 20 |
 | Southeast Asia | N/A | N/A | 2 | 3.5 | 20 |
 | South India | 2 | 3.5 | 2 | 3.5 | 20 |
 | UK South | 2 | 8 | 2 | 3.5 | 20 |
-| West Central US | 4 | 16 | 4 | 16 | 20 |
+| West Central US | 4 | 16 | 2 | 8 | 20 |
 | West Europe | 4 | 16 | 4 | 16 | 20 |
 | West US | 4 | 16 | 2 | 8 | 20 |
-| West US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| West US 2 | 2 | 8 | 2 | 3.5 | 20 |
 
 
 ### Windows Server 2019 LTSC

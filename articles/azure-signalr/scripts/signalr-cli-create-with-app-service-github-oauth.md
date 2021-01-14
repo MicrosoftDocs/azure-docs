@@ -7,7 +7,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a web app that uses SignalR Service and GitHub authentication

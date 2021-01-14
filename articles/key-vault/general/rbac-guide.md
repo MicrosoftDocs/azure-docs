@@ -41,7 +41,7 @@ only for specific scenarios:
 
 More about Azure Key Vault management guidelines, see:
 
-- [Azure Key Vault best practices](best-practices.md)
+- [Azure Key Vault security overview](security-overview.md)
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations (preview)
@@ -79,11 +79,11 @@ To add role assignments, you must have:
 
 1.  Enable Azure RBAC permissions on new key vault:
 
-    ![Enable RBAC permissions - new vault](../media/rbac/image-1.png)
+    ![Enable Azure RBAC permissions - new vault](../media/rbac/image-1.png)
 
 2.  Enable Azure RBAC permissions on existing key vault:
 
-    ![Enable RBAC permissions - existing vault](../media/rbac/image-2.png)
+    ![Enable Azure RBAC permissions - existing vault](../media/rbac/image-2.png)
 
 ### Assign role
 
