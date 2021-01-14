@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
+ms.date: 01/14/2020
 ---
 
 # Open-source integration with Azure Machine Learning projects
