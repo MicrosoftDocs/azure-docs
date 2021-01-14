@@ -69,15 +69,24 @@ Manage your machine learning assets directly in your browser. Assets are shared 
 
 Even if you're an experienced developer, the studio can simplify how you manage workspace resources.
 
-## ML Studio (classic) vs Azure Machine Learning studio
+## ML Studio (classic) vs Azure Machine Learning
 
-Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is scheduled to retire on February 29th, 2024. For more information on retirement, see the [Studio (classic) migration guide](classic/migrate-step-by-step-guidance.md).
 
-**Azure Machine Learning** is a separate and modernized service that delivers a complete data science platform. It supports both code-first and low-code experiences.
+ML Studio (classic) is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+
+**Azure Machine Learning** is a separate, and modernized, service that delivers a complete data science platform. It supports both code-first and low-code experiences.
 
 **Azure Machine Learning studio** is a web portal *in* Azure Machine Learning that contains low-code and no-code options for project authoring and asset management. 
 
 We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools.
+
+Here are some of the benefits of switching to Azure Machine Learning:
+
+- Scalable compute clusters for large-scale training.
+- Enterprise security and governance.
+- Interoperable with popular open-source tools.
+- End-to-end MLOps.
 
 ### Feature comparison
 
@@ -96,6 +105,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Automated model training and hyperparameter tuning |  Not supported | [Supported](concept-automated-ml.md). Code-first and no-code options. | 
 | Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
 | Data labeling projects | Not supported | [Supported](how-to-create-labeling-projects.md) |
+| Role Based Access Control (RBAC) | Only contributor and owner role | [Flexible role definition and RBAC control](../how-to-assign-roles.md) |
 
 ## Troubleshooting
 
