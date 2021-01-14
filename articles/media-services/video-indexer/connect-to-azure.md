@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article 
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
 ---
  
@@ -20,7 +20,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 If you are moving from a *trial* to *paid* Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
-The article also covers [Linking a Video Indexer account to Azure Government](#video-indexer-on-azure-government).
+The article also covers [Linking a Video Indexer account to Azure Government](#video-indexer-in-azure-government).
 
 ## Prerequisites for connecting to Azure
 
@@ -161,7 +161,7 @@ The ability to import the content is valid for both automated and manual approac
 > [!NOTE]
 > The content can only be imported once from each account.
 >
-> The *trial* account is not availagle on  the Azure Government cloud.
+> The *trial* account is not availagle on the Azure Government cloud.
 
 ## Azure Media Services considerations
 
@@ -192,7 +192,7 @@ To automate the creation of the account is a two steps process:
     See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
-## Video Indexer on Azure Government
+## Video Indexer in Azure Government
 
 ### Prerequisites for connecting to Azure Government
 
