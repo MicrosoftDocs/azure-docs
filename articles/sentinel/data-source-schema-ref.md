@@ -1,6 +1,6 @@
 ---
-title: DataSource schema reference
-description: This article lists supported Azure and 3rd party DataSource schemas, with links to their reference documentation.
+title: Data source schema reference
+description: This article lists supported Azure and 3rd party data source schemas, with links to their reference documentation.
 author: batamig
 ms.author: bagol
 manager: rkarlin
@@ -9,16 +9,16 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: 
-ms.date: 12/22/2020
+ms.date: 01/14/2021
 ---
 
-# DataSource schema reference
+# Data source schema reference
 
-This article lists supported Azure and 3rd party DataSource schemas, with links to their reference documentation.
+This article lists supported Azure and 3rd party data source schemas, with links to their reference documentation.
 
-## Azure DataSources
+## Azure data sources
 
-| Type                             | DataSource             | logAnalytics Tablename | Schema Reference |
+| Type                             | Data source             | logAnalytics Tablename | Schema Reference |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
 | **Azure**                            | Azure Active Directory | SigninEvents           | [Audit Log Schema](/graph/api/resources/signin?view=graph-rest-beta#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Audit Log Schema](/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema#field-and-property-descriptions) |
@@ -32,7 +32,7 @@ This article lists supported Azure and 3rd party DataSource schemas, with links 
 | **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Audit Log Schema](/azure/network-watcher/traffic-analytics-schema) |
 | | | | |
 
-## 3rd-party vendor DataSources
+## 3rd-party vendor data sources
 
 The following table lists supported 3rd party vendors and their Syslog or CEF mapping documentation for various supported log types, which contain CEF field mappings and sample logs for each category type.
 
