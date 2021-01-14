@@ -282,7 +282,7 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
    > [!div class="mx-imgBorder"]
    > ![Screenshot of uninstalling programs](media/uninstall.png)
 
-### Remove the session host from the host pool
+### Step 2: Remove the session host from the host pool
 
 When you remove the session host from the host pool, the session host is no longer registered to that host pool. This acts as a reset for the session host registration. To remove the session host from the host pool:
 1. Go to the **Overview** page for the host pool that your VM is in, in the [Azure portal](https://portal.azure.com). 
