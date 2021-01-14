@@ -97,7 +97,7 @@ Second, create an Azure Time Series Insights environment in your Azure subscript
 
    Parameter|Description
    ---|---
-   **Environment name** | Choose a unique name for the Azure Time Series Insights environment. The names are used by the Azure Time Series Insights Explorer and the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Environment name** | Choose a unique name for the Azure Time Series Insights environment. The names are used by the Azure Time Series Insights Explorer and the [Query APIs](/rest/api/time-series-insights/gen1-query).
    **Subscription** | Subscriptions are containers for Azure resources. Choose a subscription to create the Azure Time Series Insights environment.
    **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group or create a new one for the Azure Time Series Insights environment resource.
    **Location** | Choose a data center region for your Azure Time Series Insights environment. To avoid additional latency, create the Azure Time Series Insights environment in the same region as other IoT resources.

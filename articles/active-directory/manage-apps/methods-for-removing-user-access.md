@@ -18,11 +18,11 @@ This article helps you to understand how to remove a user's access to an applica
 
 ## I want to remove a specific user’s or group’s assignment to an application
 
-To remove a user or group assignment to an application, follow the steps listed in the [Remove a user or group assignment from an enterprise app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) article.
+To remove a user or group assignment to an application, follow the steps listed in the [Remove a user or group assignment from an enterprise app in Azure Active Directory](./assign-user-or-group-access-portal.md) article.
 
 ## I want to disable all access to an application for every user
 
-To disable all user sign-ins to an application, follow the steps listed in the [Disable user sign-ins for an enterprise app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) article.
+To disable all user sign-ins to an application, follow the steps listed in the [Disable user sign-ins for an enterprise app in Azure Active Directory](./disable-user-sign-in-portal.md) article.
 
 ## I want to delete an application entirely
 

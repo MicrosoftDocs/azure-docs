@@ -92,7 +92,7 @@ This code does the following action:
 1. Fetches an OAuth token from Azure AD.
 1. Shows how to make a request to Kafka REST proxy.
 
-For more information on getting OAuth tokens in python, see [Python AuthenticationContext class](/python/api/adal/adal.authentication_context.authenticationcontext). You might see a delay while `topics` that aren't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh.
+For more information about getting OAuth tokens in Python, see [Python AuthenticationContext class](/python/api/adal/adal.authentication_context.authenticationcontext). You might see a delay while `topics` that aren't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh. The **value** field of the Producer API has been enhanced. Now, it accepts JSON objects and any serialized form.
 
 ```python
 #Required python packages
@@ -105,16 +105,6 @@ import requests
 import string
 import sys
 import time
-
-def get_custom_value_json_object():
-
-    custom_value_json_object = {
-        "static_value": "welcome to HDI Kafka REST proxy",
-        "random_value": get_random_string(),
-    }
-
-    return custom_value_json_object
-
 
 def get_random_string():
     letters = string.ascii_letters
@@ -210,22 +200,68 @@ payload_json = {
     "records": [
         {
             "key": "key1",
-            "value": "**********"
-        },
-        {
-            "value": "5"
+            "value": "**********"         # A string                              
         },
         {
             "partition": 0,
-            "value": json.dumps(get_custom_value_json_object())  # need to be a serialized string. For example, "{\"static_value\": \"welcome to HDI Kafka REST proxy\", \"random_value\": \"pAPrgPk\"}"
+            "value": 5                    # An integer
         },
         {
-            "value": json.dumps(get_custom_value_json_object())  # need to be a serialized string. For example, "{\"static_value\": \"welcome to HDI Kafka REST proxy\", \"random_value\": \"pAPrgPk\"}"
+            "value": 3.14                 # A floating number
+        },
+        {
+            "value": {                    # A JSON object
+                "id": 1,
+                "name": "HDInsight Kafka REST proxy"
+            }
+        },
+        {
+            "value": [                    # A list of JSON objects
+                {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1"
+                },
+                {
+                    "id": 2,
+                    "name": "HDInsight Kafka REST proxy 2"
+                },
+                {
+                    "id": 3,
+                    "name": "HDInsight Kafka REST proxy 3"
+                }
+            ]
+        },
+        {
+            "value": {                  # A nested JSON object
+                "group id": 1,
+                "HDI Kafka REST": {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1"
+                },
+                "HDI Kafka REST server info": {
+                    "id": 1,
+                    "name": "HDInsight Kafka REST proxy 1",
+                    "servers": [
+                        {
+                            "server id": 1,
+                            "server name": "HDInsight Kafka REST proxy server 1"
+                        },
+                        {
+                            "server id": 2,
+                            "server name": "HDInsight Kafka REST proxy server 2"
+                        },
+                        {
+                            "server id": 3,
+                            "server name": "HDInsight Kafka REST proxy server 3"
+                        }
+                    ]
+                }
+            }
         }
     ]
 }
 
-print("Producing 4 messages in a request: \n", payload_json)
+print("Payloads in a Producer request: \n", payload_json)
 producer_url = api_format.format(api_version=api_version, rest_api=producer_api_format.format(topic_name=new_topic))
 response = requests.post(producer_url, headers=headers, json=payload_json, timeout=request_timeout, verify=verify_https)
 print(response.content)
@@ -254,6 +290,23 @@ while True:
     else:
         print("Error " + str(response.status_code))
         break
+        
+# List partitions
+get_partitions_url = api_format.format(api_version=api_version, rest_api=partitions_api_format.format(topic_name=new_topic))
+print("Fetching partitions from  " + get_partitions_url)
+
+response = requests.get(get_partitions_url, headers={'Authorization': 'Bearer ' + accessToken}, timeout=request_timeout, verify=verify_https)
+partition_list = response.json()
+print("Partition list: \n" + json.dumps(partition_list, indent=2))
+
+# List a partition
+get_partition_url = api_format.format(api_version=api_version, rest_api=partition_api_format.format(topic_name=new_topic, partition_id=partition_id))
+print("Fetching metadata of a partition from  " + get_partition_url)
+
+response = requests.get(get_partition_url, headers={'Authorization': 'Bearer ' + accessToken}, timeout=request_timeout, verify=verify_https)
+partition = response.json()
+print("Partition metadata: \n" + json.dumps(partition, indent=2))
+
 ```
 
 Find below another sample on how to get a token from Azure for REST proxy using a curl command. **Notice that we need the `scope=https://hib.azurehdinsight.net/.default` specified while getting a token.**

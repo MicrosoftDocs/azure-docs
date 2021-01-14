@@ -70,13 +70,13 @@ For more information, see these topics:
 To deploy to a specific *Azure resource group*, use the following command:
 
 ```azurecli
-az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
+az deployment group create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
 For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [`az group deployment create`](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az deployment group create`](/cli/azure/deployment/group#az_deployment_group_create)
 
 <a name="azure-pipelines"></a>
 

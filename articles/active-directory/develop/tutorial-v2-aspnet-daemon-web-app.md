@@ -18,7 +18,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 # Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform
 
-In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token. The daemon then uses the token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
+In this tutorial, you download and run an ASP.NET daemon web app that demonstrates using the OAuth 2.0 client credentials grant to get an access token to call the Microsoft Graph API.
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Integrate a daemon app with the Microsoft identity platform
@@ -60,7 +62,7 @@ Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-ident
 
 This sample has one project. To register the application with your Azure AD tenant, you can either:
 
-- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-your-application) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
+- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-client-app-dotnet-web-daemon-v2) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
 - Use PowerShell scripts that:
   - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
@@ -88,40 +90,34 @@ If you don't want to use the automation, use the steps in the following sections
 
 ### Choose the Azure AD tenant
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account or a personal Microsoft account.
-1. If your account is in more than one Azure AD tenant, select your profile on the menu at the top of the page, and then select **Switch directory**.
-1. Change your portal session to the desired Azure AD tenant.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+
 
 ### Register the client app (dotnet-web-daemon-v2)
 
-1. Go to the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page in the Microsoft identity platform for developers.
-1. Select **New registration**.
-1. When the **Register an application** page appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **dotnet-web-daemon-v2**.
-   - In the **Supported account types** section, select **Accounts in any organizational directory**.
-   - In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URIs:
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `dotnet-web-daemon-v2`. Users of your app might see this name, and you can change it later.
+1. In the **Supported account types** section, select **Accounts in any organizational directory**.
+1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter `https://localhost:44316/` and `https://localhost:44316/Account/GrantPermissions` as Redirect URIs.
 
-     If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
+    If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
 1. Select **Register** to create the application.
-1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
-1. In the list of pages for the app, select **Authentication**. Then:
-   - In the **Advanced settings** section, set **Logout URL** to **https://localhost:44316/Account/EndSession**.
-   - In the **Advanced settings** > **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
+1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later use. You'll need it to configure the Visual Studio configuration file for this project.
+1. Under **Manage**, select **Authentication**.
+1. Set **Logout URL** to `https://localhost:44316/Account/EndSession`.
+1. In the **Implicit grant** section, select **Access tokens** and **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user and call an API.
 1. Select **Save**.
-1. From the **Certificates & secrets** page, in the **Client secrets** section, select **New client secret**. Then:
-
-   1. Enter a key description (for example, **app secret**),
-   1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
-   1. Select the **Add** button.
-   1. When the key value appears, copy and save it in a safe location. You'll need this key later to configure the project in Visual Studio. It won't be displayed again or retrievable by any other means.
-1. In the list of pages for the app, select **API permissions**. Then:
-   1. Select the **Add a permission** button.
-   1. Ensure that the **Microsoft APIs** tab is selected.
-   1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
-   1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
-   1. Select the **Add permissions** button.
+1. Under **Manage**, select **Certificates & secrets**.
+1. In the **Client secrets** section, select **New client secret**. 
+1. Enter a key description (for example, **app secret**).
+1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select **Add**. Record the key value in a safe location. You'll need this key later to configure the project in Visual Studio.
+1. Under **Manage**, select **API permissions** > **Add a permission**.
+1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
+1. Select **Add permissions**.
 
 ## Configure the sample to use your Azure AD tenant
 
@@ -204,7 +200,7 @@ This project has web app and web API projects. To deploy them to Azure websites,
 
 ### Create and publish dotnet-web-daemon-v2 to an Azure website
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. In the upper-left corner, select **Create a resource**.
 1. Select **Web** > **Web App**, and then give your website a name. For example, name it **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Select the information for **Subscription**, **Resource group**, and **App service plan and location**. **OS** is **Windows**, and **Publish** is **Code**.
@@ -225,7 +221,7 @@ Visual Studio will publish the project and automatically open a browser to the p
 
 ### Update the Azure AD tenant application registration for dotnet-web-daemon-v2
 
-1. Go back to the [Azure portal](https://portal.azure.com).
+1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
 1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.

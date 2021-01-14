@@ -160,7 +160,7 @@ When you enable Application Insights for an application by installing an instrum
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## Monitoring Solutions and Insights
-[Monitoring solutions](../insights/solutions.md) and [Insights](../insights/insights-overview.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
+[Monitoring solutions](../insights/solutions.md) and [Insights](../monitor-reference.md) collect data to provide additional insights into the operation of a particular service or application. They may address resources in different application tiers and even multiple tiers.
 
 ### Monitoring solutions
 

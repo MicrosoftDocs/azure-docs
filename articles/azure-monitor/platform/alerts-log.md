@@ -11,7 +11,7 @@ ms.subservice: alerts
 
 ## Overview
 
-Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 This article shows you how to create and manage log alerts using Azure Monitor. Alert rules are defined by three components:
 - Target: A specific Azure resource to monitor.
@@ -21,15 +21,15 @@ This article shows you how to create and manage log alerts using Azure Monitor. 
 You can also create log alert rules using Azure Resource Manager templates, which are described in [a separate article](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
+> Log data from a [Log Analytics workspace](../log-query/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
 ## Create a log alert rule with the Azure portal
 
 Here the steps to get started writing queries for alerts:
 
-1. Go to the resource you would like to alert on.
+1. Go to the resource you would like to alert on. Consider setting up alert rules on multiple resources by selecting a subscription or resource group scope whenever possible. Alerting on multiple resources reduces costs and the need to manage multiple alert rules.
 1. Under **Monitor**, select **Logs**.
-1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../log-query/saved-queries.md) to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+1. Query the log data that can indicate the issue. You can use the [alert query examples topic](../log-query/example-queries.md) to understand what you can discover or [get started on writing your own query](../log-query/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
 
     ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -149,7 +149,7 @@ Here the steps to get started writing queries for alerts:
     1. Choose [alert splitting by dimensions](alerts-unified-log.md#split-by-alert-dimensions), if needed: 
        - **Resource ID column** is selected automatically, if detected, and changes the context of the fired alert to the record's resource. 
        - **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. De-selecting is useful when query results are based on cross-resources. For example, a query that check if 80% of the resource group's virtual machines are experiencing high CPU usage.
-       - Up to six additional splittings can be also selected for any number or text columns types using the dimensions table.
+       - Up to six more splittings can be also selected for any number or text columns types using the dimensions table.
        - Alerts are fired separately according to splitting based on unique combinations and alert payload includes this information.
     
         ![Select aggregation parameters and splitting](media/alerts-log/select-aggregation-parameters-and-splitting.png)
@@ -306,7 +306,7 @@ You can also use Azure Resource Manager CLI with [templates](./alerts-log-create
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \
@@ -321,4 +321,3 @@ On success for creation, 201 is returned. On success for update, 200 is returned
 * Create log alerts using [Azure Resource Manager Templates](./alerts-log-create-templates.md).
 * Understand [webhook actions for log alerts](./alerts-log-webhook.md).
 * Learn more about [log queries](../log-query/log-query-overview.md).
-

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -19,13 +19,13 @@ You can use point-in-time restore to restore one or more sets of block blobs to 
 To learn more about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Instead of deleting a container, delete individual blobs if you may want to restore them.
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
 
 ## Enable and configure point-in-time restore
 
 Before you enable and configure point-in-time restore, enable its prerequisites for the storage account: soft delete, change feed, and blob versioning. For more information about enabling each of these features, see these articles:
 
-- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
 - [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Enable and manage blob versioning](versioning-enable.md)
 
@@ -103,6 +103,8 @@ Only block blobs are restored. Page blobs and append blobs are not included in a
 > When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. For this reason, operations such as listing containers in the Azure portal may not perform as expected while the restore operation is underway.
 >
 > Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
+>
+> The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
 ### Restore all containers in the account
 
@@ -244,6 +246,6 @@ To run the restore operation synchronously and block on execution until it is co
 ## Next steps
 
 - [Point-in-time restore for block blobs](point-in-time-restore-overview.md)
-- [Soft delete](soft-delete-overview.md)
+- [Soft delete](./soft-delete-blob-overview.md)
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)

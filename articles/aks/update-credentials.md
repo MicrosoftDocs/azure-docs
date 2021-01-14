@@ -100,7 +100,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 For small and medium size clusters, it takes a few moments for the service principal credentials to be updated in the AKS.

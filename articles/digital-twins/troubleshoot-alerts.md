@@ -6,7 +6,7 @@ description: See how to enable alerts on Azure Digital Twins metrics.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
 ---
 

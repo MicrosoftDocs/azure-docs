@@ -3,7 +3,7 @@ title: Push & pull Docker image
 description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: "seodec18, H1Hack27Feb2017, devx-track-azurecli"
+ms.custom: "seodec18, H1Hack27Feb2017"
 ---
 
 # Push your first image to a private Docker container registry using the Docker CLI
@@ -32,6 +32,8 @@ docker login myregistry.azurecr.io
 ```
 
 Both commands return `Login Succeeded` once completed.
+> [!NOTE]
+>* You might want to use Visual Studio Code with Docker extention for a faster and more convenient login.
 
 > [!TIP]
 > Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag images for pushing to your registry. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.

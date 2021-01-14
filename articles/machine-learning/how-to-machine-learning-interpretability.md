@@ -1,16 +1,16 @@
 ---
 title: Model interpretability in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
+description: Learn how to understand & explain how your machine learning model makes predictions during training & inferencing using the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
+ms.date: 11/16/2020
 ---
 
 # Model interpretability in Azure Machine Learning (preview)

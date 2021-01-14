@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 > * View activity logs
 > * Enable and view resource logs
 
+You can also use API Management's built-in [analytics](howto-use-analytics.md) to monitor the usage and performance of your APIs.
+
 ## Prerequisites
 
 + Learn the [Azure API Management terminology](api-management-terminology.md).
@@ -144,7 +146,7 @@ If you enable collection of GatewayLogs or metrics in a Log Analytics workspace,
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu":::
 
-Run queries to view the data. Several [sample queries](../azure-monitor/log-query/saved-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
+Run queries to view the data. Several [sample queries](../azure-monitor/log-query/example-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -153,7 +155,7 @@ ApiManagementGatewayLogs
 
 For more information about using resource logs for API Management, see:
 
-* [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), or try the [Log Analytics Demo environment](https://portal.loganalytics.io/demo).
+* [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), or try the [Log Analytics Demo environment](https://portal.loganalytics.io/demo).
 
 * [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

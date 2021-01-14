@@ -1,12 +1,14 @@
 ---
-title: Configuration options - Azure Monitor Application Insights Java
-description: Configuration options for Azure Monitor Application Insights Java
+title: Configuration options - Azure Monitor Application Insights for Java
+description: How to configure Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
-# Configuration options for Azure Monitor Application Insights Java
+# Configuration options - Azure Monitor Application Insights for Java
 
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
@@ -165,6 +167,10 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
+> [!NOTE]
+> Starting from version 3.0.1-BETA, if you add a custom dimension named `service.version`, the value will be stored
+> in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
+
 ## Telemetry processors (preview)
 
 This feature is in preview.
@@ -176,14 +182,15 @@ It allows you to configure rules that will be applied to request, dependency and
 
 For more information, check out the [telemetry processor](./java-standalone-telemetry-processors.md) documentation.
 
-## Autocollected logging
+## Auto-collected logging
 
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
-is autocollected.
+is auto-collected.
 
-By default, logging is only collected when that logging is performed at the `INFO` level or above.
+Logging is only captured if it first meets the logging frameworks' configured threshold,
+and second also meets the Application Insights configured threshold.
 
-If you want to change this collection level:
+The default Application Insights threshold is `INFO`. If you want to change this level:
 
 ```json
 {
@@ -212,16 +219,16 @@ These are the valid `level` values that you can specify in the `applicationinsig
 | TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## Autocollected Micrometer metrics (including Spring Boot Actuator metrics)
+## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
 If your application uses [Micrometer](https://micrometer.io),
-then metrics that are sent to the Micrometer global registry are autocollected.
+then metrics that are sent to the Micrometer global registry are auto-collected.
 
 Also, if your application uses
 [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html),
-then metrics configured by Spring Boot Actuator are also autocollected.
+then metrics configured by Spring Boot Actuator are also auto-collected.
 
-To disable autocollection of Micrometer metrics (including Spring Boot Actuator metrics):
+To disable auto-collection of Micrometer metrics (including Spring Boot Actuator metrics):
 
 > [!NOTE]
 > Custom metrics are billed separately and may generate additional costs. Make sure to check the detailed [pricing information](https://azure.microsoft.com/pricing/details/monitor/). To disable the Micrometer and Spring Actuator metrics, add the below configuration to your config file.
@@ -230,6 +237,35 @@ To disable autocollection of Micrometer metrics (including Spring Boot Actuator 
 {
   "instrumentation": {
     "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
+
+## Suppressing specific auto-collected telemetry
+
+Starting from version 3.0.1-BETA.2, specific auto-collected telemetry can be suppressed using these configuration options:
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
       "enabled": false
     }
   }
@@ -340,7 +376,7 @@ Please configure specific options based on your needs.
       "enabled": true
     }
   },
-  "httpProxy": {
+  "proxy": {
   },
   "preview": {
     "processors": [

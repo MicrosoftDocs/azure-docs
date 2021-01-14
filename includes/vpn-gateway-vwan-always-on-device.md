@@ -19,7 +19,7 @@ The following requirements must be met in order to successfully establish a devi
 * Only one device tunnel can be configured per device.
 
 1. Install client certificates on the Windows 10 client using the [point-to-site VPN client](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate needs to be in the Local Machine store.
-1. Create a VPN Profile and configure device tunnel in the context of the LOCAL SYSTEM account using [these instructions](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
+1. Create a VPN Profile and configure device tunnel in the context of the LOCAL SYSTEM account using [these instructions](/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
 
 ### Configuration example for device tunnel
 
@@ -112,7 +112,7 @@ After you have configured the virtual network gateway and installed the client c
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. Download **PsExec** from [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) and extract the files to **C:\PSTools**.
+1. Download **PsExec** from [Sysinternals](/sysinternals/downloads/psexec) and extract the files to **C:\PSTools**.
 1. From an Admin CMD prompt, launch PowerShell by running:
 
    ```

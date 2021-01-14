@@ -39,7 +39,7 @@ A hash-distributed table distributes table rows across the Compute nodes by usin
 
 ![Distributed table](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distributed table")  
 
-Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. In dedicated SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
+Since identical values always hash to the same distribution, SQL Analytics has built-in knowledge of the row locations. In dedicated SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
 
 Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are, of course, some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article.
 
@@ -63,7 +63,7 @@ Consider using the round-robin distribution for your table in the following scen
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
 
-The tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
+The tutorial [Load New York taxicab data](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
 
 ## Choosing a distribution column
 

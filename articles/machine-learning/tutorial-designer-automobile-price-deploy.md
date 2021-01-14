@@ -1,15 +1,15 @@
 ---
 title: 'Tutorial: Deploy ML models with the designer'
 titleSuffix: Azure Machine Learning
-description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model by using drag-and-drop modules.
+description: Build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model using drag-and-drop modules.
 
-author: peterclu
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/25/2020
 ms.custom: designer
 ---
 
@@ -109,6 +109,8 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 
 1. In the **Consume** tab, you can find security keys and set authentication methods.
 
+1. In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint. 
+
 For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
 
 ## Clean up resources
@@ -117,7 +119,7 @@ For more information on consuming your web service, see [Consume a model deploye
 
 ## Next steps
 
-In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
+In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer see the following links:
 
-> [!div class="nextstepaction"]
-> [Designer samples](samples-designer.md)
++ [Designer samples](samples-designer.md): Learn how to use the designer to solve other types of problems.
++ [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md).

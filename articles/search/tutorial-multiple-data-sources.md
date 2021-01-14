@@ -346,7 +346,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
 try
 {
     // Run the indexer.
-    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+    await searchService.Indexers.RunAsync(blobIndexer.Name);
 }
 catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 {

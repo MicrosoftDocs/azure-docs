@@ -10,6 +10,8 @@
       href: what-is-b2b.md
     - name: What is Azure AD B2C?
       href: ../../active-directory-b2c/overview.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Quickstarts
     items:
     - name: Add guest users in the portal

@@ -58,8 +58,8 @@ landingContent:
             url: ../concepts-hyperscale-choose-distribution-column.md
       - linkListType: how-to-guide
         links:
-          - text: Server group size
-            url: ../howto-hyperscale-scaling.md
+          - text: Scale server group
+            url: ../howto-hyperscale-scale-grow.md
           - text: Distribute tables
             url: ../howto-hyperscale-modify-distributed-tables.md
           - text: Create alerts on metrics

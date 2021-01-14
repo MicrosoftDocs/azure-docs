@@ -112,7 +112,6 @@ AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded c
 -----BEGIN CERTIFICATE-----
 -----END CERTIFICATE-----
 
-We currently don't support EC keys in PEM format.
 
 ## Creating a certificate with a CA not partnered with Key Vault  
  This method allows working with other CAs than Key Vault's partnered providers, meaning your organization can work with a CA of its choice.  

@@ -3,6 +3,7 @@ title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
@@ -133,7 +134,7 @@ Based on your network bandwidth requirements, there are various gateway types fo
 - Network latency is higher compared to an on-premises deployment. Reducing network round trips can greatly improve performance.
 - To reduce round-trips, consolidate applications that have high transactions or “chatty” apps on the same virtual machine.
 - Use Virtual Machines with [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for better network performance.
-- For certain Linux distributions, consider enabling [TRIM/UNMAP support](../../linux/configure-lvm.md#trimunmap-support).
+- For certain Linux distributions, consider enabling [TRIM/UNMAP support](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Install [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) on a separate Virtual Machine.
 - Huge pages are not enabled on linux by default. Consider enabling huge pages and set `use_large_pages = ONLY` on the Oracle DB. This may help increase performance. More information can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 

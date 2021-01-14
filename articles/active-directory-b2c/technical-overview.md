@@ -97,7 +97,7 @@ You can configure user flow settings like these to control identity experience b
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
 * Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
-* Azure Multi-Factor Authentication (MFA)
+* Azure AD Multi-Factor Authentication (MFA)
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow
 * Session management
@@ -158,7 +158,7 @@ In Azure AD B2C, you can craft your users' identity experiences so that the page
 
 ![Screenshots of brand-customized sign-up sign-in page](media/technical-overview/seamless-ux.png)
 
-For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-overview.md).
+For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## Localization
 
@@ -166,7 +166,7 @@ Language customization in Azure AD B2C allows you to accommodate different langu
 
 ![Three sign-up sign-in pages showing UI text in different languages](media/technical-overview/localization.png)
 
-See how localization works in [Language customization in Azure Active Directory B2C](user-flow-language-customization.md).
+See how localization works in [Language customization in Azure Active Directory B2C](language-customization.md).
 
 ## Add your own business logic
 
@@ -217,7 +217,7 @@ For more information about Azure AD roles, including Azure AD B2C administration
 
 Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides additional security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### Smart account lockout
 
@@ -231,7 +231,7 @@ For more information about managing password protection settings, see [Manage th
 
 During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
 
-You can configure password complexity requirements in both [user flows](user-flow-password-complexity.md) and [custom policies](custom-policy-password-complexity.md).
+You can configure password complexity requirements in both [user flows](password-complexity.md) and [custom policies](password-complexity.md).
 
 ## Auditing and logs
 

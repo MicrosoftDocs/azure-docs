@@ -14,6 +14,7 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # App registration reference

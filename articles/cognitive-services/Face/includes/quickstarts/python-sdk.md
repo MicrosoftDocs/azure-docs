@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: pafarley
 ---
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
 
-* Detect faces in an image
-* Find similar faces
-* Create and train a person group
-* Identify a face
-* Verify faces
+* [Detect faces in an image](#detect-faces-in-an-image)
+* [Find similar faces](#find-similar-faces)
+* [Create and train a person group](#create-and-train-a-person-group)
+* [Identify a face](#identify-a-face)
+* [Verify faces](#verify-faces)
 
 [Reference documentation](/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
 
@@ -158,6 +158,9 @@ The following code sorts your images by their prefix, detects faces, and assigns
 Once you've assigned faces, you must train the **PersonGroup** so that it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
+
+> [!TIP]
+> The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
 
 ## Identify a face
 
