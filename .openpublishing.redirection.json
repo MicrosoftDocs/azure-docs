@@ -5778,7 +5778,12 @@
     },
     {
       "source_path_from_root": "/articles/functions/functions-create-first-azure-function.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
+      "redirect_url": "/azure/azure-functions/functions-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-create-first-azure-function.md",
+      "redirect_url": "/azure/azure-functions/functions-get-started",
       "redirect_document_id": false
     },
     {
@@ -42228,14 +42233,14 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/marketplace-participation-policy.md",
-      "redirect_url": "/legal/marketplace/participation-policy",
+      "redirect_url": "/azure/marketplace/policies-terms",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/rating-review-policies.md",
-      "redirect_url": "/legal/marketplace/rating-review-policies",
+      "source_path_from_root": "/articles/legal/marketplace/participation-policy.md",
+      "redirect_url": "/azure/marketplace/policies-terms",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path_from_root": "/articles/marketplace/marketplace-terms.md",
       "redirect_url": "/legal/marketplace/terms",

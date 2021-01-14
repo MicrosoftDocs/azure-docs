@@ -1,5 +1,5 @@
 ---
-title: Manage external access with Azure Active Directory Entitlement Management
+title: Manage external access with Azure Active Directory Entitlement Management 
 description: How to use Azure Active Directory Entitlement Management as a part of your overall external access security plan.
 services: active-directory
 author: BarbaraSelden
