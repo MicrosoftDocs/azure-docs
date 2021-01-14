@@ -6,7 +6,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 01/08/2021
+ms.date: 01/14/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
