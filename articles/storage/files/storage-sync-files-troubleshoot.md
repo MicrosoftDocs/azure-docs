@@ -47,9 +47,11 @@ To resolve this issue , install [KB2919355](https://support.microsoft.com/help/2
 <a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
 When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.
 
-This issue occurs because ServerRegistration.exe does not currently support multi-tenant environments. This issue will be fixed in a future Azure File Sync agent update.
+This issue occurs because ServerRegistration.exe will only retrieve subscriptions from the first 5 Azure AD tenants. 
 
-To workaround this issue, use the following PowerShell commands to register the server:
+To increase the Server Registration tenant limit on the server, create a DWORD value called ServerRegistrationTenantLimit under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync with a value greater than 5.
+
+You can also workaround this issue by using the following PowerShell commands to register the server:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
