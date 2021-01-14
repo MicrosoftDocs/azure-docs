@@ -411,7 +411,7 @@ SQL Server audit lets you create server audits, which can contain server audit s
 
 * [How to monitor users identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
-* [Review Advanced Threat Protection and potential alerts](../azure-sql/database/threat-detection-overview.md#advanced-threat-protection-alerts)
+* [Review Advanced Threat Protection and potential alerts](../azure-sql/database/threat-detection-overview.md#alerts)
 
 * [Understand logins and user accounts in Azure SQL](../azure-sql/database/logins-create-manage.md)
 
