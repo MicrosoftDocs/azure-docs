@@ -272,6 +272,8 @@ namespace SBusADApp
 }
 ```
 
+## Fluent library
+For an example of using the Fluent library to manage Service Bus entities, see [this sample](https://github.com/Azure/azure-libraries-for-net/tree/master/Samples/ServiceBus). 
 
 ## Next steps
 See the following reference topics: 
@@ -279,3 +281,4 @@ See the following reference topics:
 - [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient)
 - [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management.managementclient)
 - [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus.servicebusmanagementclient)
+- [Fluent](/dotnet/api/microsoft.azure.management.servicebus.fluent)
