@@ -48,6 +48,8 @@ To enable TLS 1.2 enforcement, follow the steps in [Create IoT hub in Azure port
 - Choose a **Region** from one in the list above.
 - Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.
 
+    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Screenshot showing how to turn on TLS 1.2 enforcement during IoT hub creation":::
+
 To use ARM template for creation, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in the resource specification:
 
 ```json
