@@ -4,7 +4,7 @@ description: Learn how to manage individual sensors, including managing activati
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -422,8 +422,6 @@ You can forward alerts to third parties to provide details about:
 - Disconnected sensors
 
 - Remote backup failures
-
-:::image type="content" source="media/how-to-work-with-system-notifications/image81.png" alt-text="Screenshot of the Management System Status Mail view.](media/image80.png) ![Screenshot of Management System Status Mail view":::
 
 This information is sent when you create a forwarding rule for system notifications.
 

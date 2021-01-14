@@ -3,6 +3,8 @@
 - name: Overview
   href: overview.md
   items:
+  - name: What's new?
+    href: release-notes.md
   - name: Solution architecture
     href: architecture.md
 - name: Quickstarts
@@ -199,6 +201,10 @@
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
+    - name: Horizon API
+      href: references-horizon-api.md
+    - name: Horizon SDK
+      href: references-horizon-sdk.md
     - name: Work with Defender for IoT CLI commands
       href: references-work-with-defender-for-iot-cli-commands.md
     - name: Manage proprietary protocols (Horizon)

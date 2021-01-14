@@ -228,7 +228,7 @@ By using a test asset, verify that the settings you defined work properly:
 
 3. Enter an address in **Lookup Address** for the **DNS reverse lookup test for server** dialog box.
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="Screenshot that shows the Lookup Address area.":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Screenshot that shows the Lookup Address area.":::
 
 4. Select **Test**.
 

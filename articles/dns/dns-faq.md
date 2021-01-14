@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 6/15/2019
+ms.date: 01/11/2021
 ms.author: rohink
 ---
 
@@ -189,6 +189,10 @@ Yes. Azure DNS name servers are dual stack. Dual stack means they have IPv4 and 
 Internationalized domain names (IDNs) encode each DNS name by using [punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these punycode-encoded names.
 
 To configure IDNs in Azure DNS, convert the zone name or record set name to punycode. Azure DNS doesn't currently support built-in conversion to or from punycode.
+
+### Does Azure DNS private zones store any customer content?
+
+No, Azure DNS private zones doesn't store any customer content.
 
 ## Next steps
 

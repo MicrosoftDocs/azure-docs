@@ -55,7 +55,7 @@ Here is the list of requests that our platform will have to expose:
 
 At this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
 
-The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability.
+The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability. We calculate the request units consumed in each model and optimize them. All these models use the default indexing policy and you can override it by indexing specific properties, which can further improve the RU consumption and latency.
 
 ## V1: A first version
 

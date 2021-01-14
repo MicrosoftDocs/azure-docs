@@ -1,5 +1,11 @@
 {
   "redirections": [
+    
+    {
+      "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm.md",
+      "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/azure-classic-rm.md",
       "redirect_url": "./azure-resource-manager/management/deployment-models",
@@ -8916,6 +8922,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-portal/supportability/sku-series-unavailable.md",
+      "redirect_url": "/troubleshoot/azure/general/region-access-request-process",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-supportability/how-to-use-file-uploader.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-use-file-uploader",
       "redirect_document_id": true
@@ -14158,6 +14169,11 @@
     {
       "source_path_from_root": "/articles/documentdb/documentdb-mongodb-application.md",
       "redirect_url": "/azure/cosmos-db/create-mongodb-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table-storage-overview.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
       "redirect_document_id": false
     },
     {
@@ -24022,7 +24038,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-      "redirect_url": "/azure/key-vault/general/best-practices",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -24117,7 +24138,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/overview-security.md",
-      "redirect_url": "/azure/key-vault/general/overview-security",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/overview-security.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -24167,7 +24193,12 @@
     },
     {
       "source_path_from_root": "/articles/key-vault/security-recommendations.md",
-      "redirect_url": "/azure/key-vault/general/security-recommendations",
+      "redirect_url": "/azure/key-vault/general/security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/security-recommendations.md",
+      "redirect_url": "/azure/key-vault/general/security-overview",
       "redirect_document_id": false
     },
     {
@@ -27683,6 +27714,11 @@
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-consulting-service-offer.md",
       "redirect_url": "/azure/marketplace/create-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-managed-service-offer.md",
+      "redirect_url": "/azure/marketplace/plan-managed-service-offer",
       "redirect_document_id": true
     },
     {
@@ -32849,6 +32885,11 @@
       "source_path_from_root": "/articles/azure-monitor/platform/service-notifications.md",
       "redirect_url": "/azure/service-health/service-notifications",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-troubleshooting-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-service-notifications.md",
@@ -42187,14 +42228,14 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/marketplace-participation-policy.md",
-      "redirect_url": "/legal/marketplace/participation-policy",
+      "redirect_url": "/azure/marketplace/policies-terms",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/rating-review-policies.md",
-      "redirect_url": "/legal/marketplace/rating-review-policies",
+      "source_path_from_root": "/articles/legal/marketplace/participation-policy.md",
+      "redirect_url": "/azure/marketplace/policies-terms",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path_from_root": "/articles/marketplace/marketplace-terms.md",
       "redirect_url": "/legal/marketplace/terms",
@@ -55133,7 +55174,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-google-apps-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/google-apps-provisioning-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/g-suite-provisioning-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/google-apps-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/g-suite-provisioning-tutorial",
       "redirect_document_id": true
     },
     {
@@ -61051,7 +61097,7 @@
       "redirect_url": "azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
-    {
+        {
       "source_path": "articles/storage/files/storage-files-deployment-guide.md",
       "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
       "redirect_document_id": false

@@ -134,7 +134,7 @@ Earlier in this article it is mentioned that [Azure Cosmos DB indexing](../cosmo
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman or Visual Studio Code](search-get-started-rest.md) to send HTTP requests to Azure Cognitive Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to send HTTP requests to Azure Cognitive Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 
