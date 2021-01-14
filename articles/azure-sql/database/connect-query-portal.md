@@ -12,37 +12,52 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
-ms.date: 05/29/2020
+ms.date: 01/12/2021
 ---
 # Quickstart: Use the Azure portal's query editor (preview) to query an Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-The query editor is a tool in the Azure portal for running SQL queries against your database in Azure SQL Database or data warehouse in Azure Synapse Analytics. 
+The query editor is a tool in the Azure portal for running SQL queries against your database in Azure SQL Database or data warehouse in Azure Synapse Analytics.
 
 In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries against a database.
 
 ## Prerequisites
 
-Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT sample database in SQL Database, the following quickstart quickly creates one:
+### Create a database with sample data
 
-- [Quickstart: Create a database in Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](single-database-create-quickstart.md) 
+Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT sample database in SQL Database, the following quickstart helps you quickly create one:
 
-### Configure network settings
+[Quickstart: Create a database in Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](single-database-create-quickstart.md)
 
-If you get one of the following errors in the query editor: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*, the following important information should help resolve:
+### Set an Azure Active Directory admin for the server (optional)
 
-> [!IMPORTANT]
-> The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](firewall-create-server-level-portal-quickstart.md) to access your databases and data warehouses.
+Configuring an Azure Active Directory (Azure AD) administrator enables you to use a single identity to sign in to the Azure portal and your database. If you would like to use Azure AD to connect to query editor, follow the below steps.
 
+This process is optional, you can instead use SQL authentication to connect to the query editor.
 
-## Open the SQL Database Query Editor
+> [!NOTE]
+> * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD or federated into the Azure AD.
+> * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
+
+1. In the Azure portal, navigate to your SQL database server.
+
+2. On the **SQL server** menu, select **Active Directory admin**.
+
+3. On the SQL Server **Active Directory admin** page toolbar, select **Set admin**.
+
+    ![select active directory](./media/connect-query-portal/select-active-directory.png)
+
+4. On the **Add admin** page, in the search box, enter a user or group to find, select it as an admin, and then choose the **Select** button.
+
+5. Back in the SQL Server **Active Directory admin** page toolbar, select **Save**.
+
+## Using SQL Query Editor
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the database you want to query.
 
 2. In the **SQL database** menu, select **Query editor (preview)**.
 
     ![find query editor](./media/connect-query-portal/find-query-editor.PNG)
-
 
 ## Establish a connection to the database
 
@@ -56,34 +71,9 @@ Even though you're signed into the portal, you still need to provide credentials
 
 2. Select **OK**.
 
-
 ### Connect using Azure Active Directory
 
-Configuring an Azure Active Directory (Azure AD) administrator enables you to use a single identity to sign in to the Azure portal and your database. To connect to your database using Azure AD, follow the steps below to configure an Azure AD admin for your SQL Server instance.
-
-> [!NOTE]
-> * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD or federated into the Azure AD.
-> * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
-
-#### Set an Active Directory admin for the server
-
-1. In the Azure portal, select your SQL Server instance.
-
-2. On the **SQL server** menu, select **Active Directory admin**.
-
-3. On the SQL Server **Active Directory admin** page toolbar, select **Set admin** and choose the user or group as your Azure AD admin.
-
-    ![select active directory](./media/connect-query-portal/select-active-directory.png)
-
-4. On the **Add admin** page, in the search box, enter a user or group to find, select it as an admin, and then choose the **Select** button.
-
-5. Back in the SQL Server **Active Directory admin** page toolbar, select **Save**.
-
-### Connect to the database
-
-6. In the **SQL server** menu, select **SQL databases**, and then select your database.
-
-7. In the **SQL database** menu, select **Query editor (preview)**. In the **Login** page, under the **Active Directory authentication** label, a message appears saying you have been signed in if you're an Azure AD admin. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
+In the **Query editor (preview)**, look at the **Login** page at the **Active Directory authentication** section. Authentication will happen automatically, so if you are an Azure AD admin to the database you will see a message appear saying you have been signed in. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
 
 ## Query a database in SQL Database
 
@@ -164,17 +154,52 @@ Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL sta
 2. Select **Run** to delete the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
-## Query editor considerations
+## Query editor troubleshooting and considerations
 
 There are a few things to know when working with the query editor.
 
-* The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
+### Configure network settings
 
-* If you have a Private Link connection, the Query Editor works without needing to add the Client Ip address into the SQL Database firewall.
+If you get one of the following errors in the query editor:
+ - *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*
+ - *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*
+
+This is because the query editor uses port 443 and 1443 to communicate. You will need to ensure you have enabled outbound HTTPS traffic on these ports. The instructions below will walk you through how to do this, depending on your Operating System. You might first need to work with your corporate IT to grant approval to open this connection on your local network.
+
+#### Steps for Windows
+
+1. Open **Windows Defender Firewall**
+2. On the left-side menu, select **Advanced settings**
+3. In **Windows Defender Firewall with Advanced Security**, select **Outbound rules** on the left-side menu.
+4. Select **New Rule...** on the right-side menu
+
+In the **New outbound rule wizard** follow these steps:
+
+1. Select **port** as the type of rule you want to create. Select **Next**
+2. Select **TCP**
+3. Select **Specific remote ports** and enter "443, 1443". Then select **Next**
+4. (Which action should be selected? "allow the connection" or "allow if secure"?)
+5. (Which should be selected among "Domain", "Private", and "Public")
+6. Give the rule a name and optionally a description. Then select **Finish**
+
+#### Steps for Mac
+
+
+#### Steps for Linux
+
+
+
+### Other considerations
+
+* For public connections to query editor, you  need to [add your outbound IP address to the server's allowed firewall rules](firewall-create-server-level-portal-quickstart.md) to access your databases and data warehouses.
+
+* If  you have a Private Link connection set up on the server and you are connecting to query editor from an IP in the private Virtual Network, the Query Editor works without needing to add the Client IP address into the SQL database server firewall rules.
 
 * Pressing **F5** refreshes the query editor page and any query being worked on is lost.
 
 * Query editor doesn't support connecting to the `master` database.
+
+* Query editor cannot connect to a replica database with `ApplicationIntent=ReadOnly`
 
 * There's a 5-minute timeout for query execution.
 
@@ -182,8 +207,7 @@ There are a few things to know when working with the query editor.
 
 * There's no support for IntelliSense for database tables and views, but the editor does support autocomplete on names that have already been typed.
 
-
-
+* (What are the most basic RBAC permissions needed to use query editor?)
 
 ## Next steps
 
