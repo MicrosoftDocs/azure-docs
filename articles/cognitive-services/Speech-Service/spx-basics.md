@@ -60,6 +60,7 @@ With the Speech CLI, you can also recognize speech from an audio file.
 ```console
 spx recognize --file C:\path\to\file.wav
 ```
+
 > [!TIP]
 > If you're recognizing speech from an audio file in a Docker container, make sure that the audio file is located in the directory that you mounted in the previous step.
 
@@ -113,7 +114,7 @@ spx translate --microphone --source en-US --target ru-RU
 
 If you want to save the output of your translation, use the `--output` flag. In this example, you'll also read from a file.
 
-```powershell
+```console
 spx translate --file C:\some\file\path\input.wav --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
