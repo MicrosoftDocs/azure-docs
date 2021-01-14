@@ -54,7 +54,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 ## Creating or modifying image definitions ##
 
-*Changing property 'galleryImage.properties.<property\>' is not allowed.*  
+## <a id="definition_anchorlink" />*Changing property 'galleryImage.properties.<property\>' is not allowed.*  
 **Cause**: You tried to change the OS type, OS state, Hyper-V generation, offer, publisher, or SKU. Changing any of these properties is not permitted.  
 **Workaround**: Create a new image definition instead.
 
