@@ -78,7 +78,7 @@ View deployed apps using the following procedures.
 
 1. After the CLI deployment finishes successfully, access the app page from the **Application Dashboard**, and view all your instances in the **App Instances** tab on the left.
 
-   [ ![Deployments dashboard after green deployed](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
+   [ ![Deployments dashboard after green deployed](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
 
   
 > [!NOTE]
