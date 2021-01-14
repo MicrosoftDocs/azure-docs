@@ -71,13 +71,15 @@ The above policy verifies:
 
 For instructions for how to create an attestation provider and configure with an attestation policy using:
 
+- [Quickstart: Set up Azure Attestation with Azure portal](../../attestation/quickstart-portal.md)
+    > [!IMPORTANT]
+    > When you configure your attestation policy with Azure portal, set Attestation Type to `SGX-IntelSDK`.
 - [Quickstart: Set up Azure Attestation with Azure PowerShell](../../attestation/quickstart-powershell.md)
     > [!IMPORTANT]
     > When you configure your attestation policy with Azure PowerShell, set the `Tee` parameter to `SgxEnclave`.
 - [Quickstart: Set up Azure Attestation with Azure CLI](../../attestation/quickstart-azure-cli.md)
     > [!IMPORTANT]
     > When you configure your attestation policy with Azure CLI, set the `attestation-type` parameter to `SGX-IntelSDK`.
-
 
 ## Determine the attestation URL for your attestation policy
 
