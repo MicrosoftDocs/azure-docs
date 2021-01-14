@@ -52,12 +52,12 @@ Configure and test Azure AD SSO with Splan Visitor by using a test user named **
 
 To configure and test Azure AD SSO with Splan Visitor, perform the following steps:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Splan Visitor SSO](#configure-a-splan-visitor-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create a Splan Visitor test user](#create-a-splan-visitor-test-user)** - to have a counterpart of B.Simon in Splan Visitor that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with test user B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Splan Visitor SSO](#configure-splan-visitor-sso)** to configure the single sign-on settings with Splan Visitor.
+    1. **[Create a Splan Visitor test user](#create-a-splan-visitor-test-user)** to have a counterpart of B.Simon in Splan Visitor that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -67,17 +67,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the **edit/pen** icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot showing the edit/pen icon for Basic SAML Configuration.](common/edit-urls.png)
+   ![Screenshot highlighting the edit/pen icon for Basic SAML Configuration.](common/edit-urls.png)
 
 1. In the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are pre-populated with Azure. Click the **Save** button to save the configuration.
 
 1. On the **Set up Single Sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it to your computer.
 
-	![Screenshot showing the Federation Metadata XML download link.](common/metadataxml.png)
+	![Screenshot highlighting the Federation Metadata XML download link.](common/metadataxml.png)
 
 1. On the **Set up Splan Visitor** section, copy the appropriate URL(s) based on your requirement.
 
-	![Screenshot showing the configuration URLs section.](common/copy-configuration-urls.png)
+	![Screenshot highlighting the configuration URLs section.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
