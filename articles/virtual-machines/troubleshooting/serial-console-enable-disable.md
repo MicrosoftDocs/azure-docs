@@ -3,8 +3,8 @@ title: Enable and disable the Azure Serial Console | Microsoft Docs
 description: How to enable and disable the Azure Serial Console service
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
-manager: borisb
+author: kof-f
+manager: westonh
 editor: ''
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/20/2019
-ms.author: alsin
+ms.date: 1/14/2020
+ms.author: kofiforson
 ---
 
 # Enable and disable the Azure Serial Console
@@ -74,6 +74,35 @@ $subscription=(Get-AzContext).Subscription.Id
 
 Invoke-AzResourceAction -Action enableConsole -ResourceId /subscriptions/$subscription/providers/Microsoft.SerialConsole/consoleServices/default -ApiVersion 2018-05-01
 ```
+
+## Workaround for Incompatibility with Managed Boot Diagnostics
+
+If you're using a managed boot diagnostics storage account, you've probably run into the following error when trying to use Serial Console:
+
+Serial Console requires a custom boot diagnostics storage account to be used, and is not yet fully compatible with managed boot diagnostics storage accounts. Click to view and change your boot diagnostics storage account configuration. Click here for more details or if you are already using a custom storage account and receive this error.
+
+We are aware that this is not ideal and are working towards rectifying this. In the meantime, if you do plan on using managed storage accounts and need access to Serial Console there is a workaround.
+
+  1. Open the [Azure portal](https://portal.azure.com).
+
+  2. Navigate to **Virtual Machines** and select the Virtual Machine you need console access to. The overview page for the VM opens.
+
+  3. Scroll down to the **Support + troubleshooting** section and select **Boot diagnostics**. A new pane with the Boot diagnostics information opens. Here you can download a Screenshot of the VM or the Serial log.
+
+  4. Click **Settings**. The settings page for the VM Boot diagnostics opens.
+   
+  5. Select **Enable with custom storage account**.
+   
+  6. Select your existing Diagnostics storage account from the dropdown menu that appears or create a new one.
+   
+  7. Once done, you can re-enable your managed storage account by following steps 1-5 and selecting **Enable with managed storage account (recommended)**.
+   
+> [!NOTE]
+> Serial Console is not compatible with storage account firewalls. Please disable any storage account firewalls you have while you use Serial Console and then re-enable them after. We are aware this is not ideal and are working towards rectifying this.
+
+
+
+
 
 ## Next steps
 * Learn more about the [Azure Serial Console for Linux VMs](./serial-console-linux.md)

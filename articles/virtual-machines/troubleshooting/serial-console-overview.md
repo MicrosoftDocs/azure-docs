@@ -3,8 +3,8 @@ title: Azure Serial Console | Microsoft Docs
 description: The Azure Serial Console allows you to connect to your VM when SSH or RDP are not available.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
-manager: borisb
+author: kof-f
+manager: westonh 
 editor: ''
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
-ms.author: alsin
+ms.date: 01/14/2021
+ms.author: kofiforson
 ---
 
 # Azure Serial Console
@@ -34,7 +34,7 @@ To access the Serial Console on your VM or virtual machine scale set instance, y
 - Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
 
 > [!NOTE]
-> Serial Console is currently incompatible with a managed boot diagnostics storage account. To use Serial Console, ensure that you are using a custom storage account.
+> Serial Console is currently incompatible with a managed boot diagnostics storage account. We are currently working hard to rectify this. To use Serial Console, ensure that you are using a custom storage account. You can switch back and forth between managed and custom storage accounts and Serial Console will still work, but the static serial log will be lost. You can mitigate that by restarting the VM or saving the serial log before switching. Scroll down to select **Boot diagnostics** from the **Support + troubleshooting** section of your VM instance, then select **Serial log** and click **Download serial log**.
 
 ## Get started with the Serial Console
 The Serial Console for VMs and virtual machine scale set is accessible only through the Azure portal:
