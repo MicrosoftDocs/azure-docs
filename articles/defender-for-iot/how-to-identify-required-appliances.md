@@ -4,7 +4,7 @@ description: Learn about hardware and virtual appliances for certified Defender 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/14/2021
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
 ---
