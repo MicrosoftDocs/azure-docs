@@ -60,15 +60,24 @@ authorizationrules
 ```
 
 The above policy verifies:
+
 - The enclave inside Azure SQL Database doesn't support debugging (which would reduce the level of protection the enclave provides).
 - The product ID of the library inside the enclave is the product ID assigned to Always Encrypted with secure enclaves (4639).
 - The version ID (svn) of the library is greater than 0.
 - The library in the enclave has been signed using the Microsoft signing key (the value of the x-ms-sgx-mrsigner claim is the hash of the signing key).
 
+> [!IMPORTANT]
+> An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the above recommended policy, and not use the default policy.
+
 For instructions for how to create an attestation provider and configure with an attestation policy using:
 
 - [Quickstart: Set up Azure Attestation with Azure PowerShell](../../attestation/quickstart-powershell.md)
-- [Quickstart: Create an Azure Attestation provider with an ARM template](../../attestation/quickstart-template.md)
+    > [!IMPORTANT]
+    > When you configure your attestation policy with Azure PowerShell, set the `Tee` parameter to `SgxEnclave`.
+- [Quickstart: Set up Azure Attestation with Azure CLI](../../attestation/quickstart-azure-cli.md)
+    > [!IMPORTANT]
+    > When you configure your attestation policy with Azure CLI, set the `attestation-type` parameter to `SGX-IntelSDK`.
+
 
 ## Determine the attestation URL for your attestation policy
 
@@ -80,7 +89,7 @@ Use the following script to determine your attestation URL:
 
 ```powershell
 $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-$attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave?api-version=2018-09-01-preview”
+$attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
 Write-Host "Your attestation URL is: " $attestationUrl 
 ```
 
@@ -88,9 +97,9 @@ Write-Host "Your attestation URL is: " $attestationUrl
 
 1. In the Overview pane for your attestation provider, copy the value of the Attest URI property to clipboard. An Attest URI should look like this: `https://MyAttestationProvider.us.attest.azure.net`.
 
-2. Paste the Attest URI property values in a text editor. Append the following to the Attest URI: `/attest/SgxEnclave?api-version=2018-09-01-preview`. 
+2. Append the following to the Attest URI: `/attest/SgxEnclave`. 
 
-The resulting attestation URL should look like this: `https://MyAttestationProvider.us.attest.azure.net/attest/SgxEnclave?api-version=2018-09-01-preview`
+The resulting attestation URL should look like this: `https://MyAttestationProvider.us.attest.azure.net/attest/SgxEnclave`
 
 ## Grant your Azure SQL logical server access to your attestation provider
 

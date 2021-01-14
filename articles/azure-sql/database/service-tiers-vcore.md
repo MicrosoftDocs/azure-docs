@@ -96,12 +96,15 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 ### DC-series
 
+> [!NOTE]
+> DC-series is currently in **public preview**.
+
 - DC-series (preview) hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
 - DC-series is required for [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
 - DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
 - DC-series hardware provides balanced compute and memory resources.
 
-DC-series is only supported for the Provisioned compute (Serverless is not supported) and it does not support zone redundancy. For regions where DC-series is available, see DC-series availability.
+DC-series is only supported for the Provisioned compute (Serverless is not supported) and it does not support zone redundancy. For regions where DC-series is available, see [DC-series availability](#dc-series-1).
 
 #### Azure offer types supported by DC-series
 
@@ -237,7 +240,12 @@ Approved support requests are typically fulfilled within 5 business days.
 
 #### DC-series
 
+> [!NOTE]
+> DC-series is currently in **public preview**.
+
 DC-series is available in the following regions: Canada Central, Canada East, East US, North Europe, UK South, West Europe, West US.
+
+If you need DC-series in a currently unsupported region, [submit a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the instructions in [Request quota increases for Azure SQL Database and SQL Managed Instance](quota-increase-request.md).
 
 ## Next steps
 

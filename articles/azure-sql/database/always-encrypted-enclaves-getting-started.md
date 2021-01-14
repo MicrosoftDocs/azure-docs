@@ -86,7 +86,7 @@ The required minimum version of SSMS is 18.8.
   ```
 
   > [!IMPORTANT]
-  > You need to create your resource group in a region that supports the DC-series hardware configuration. For the list of currently supported regions, see [DC-series](service-tiers-vcore.md#dc-series).
+  > You need to create your resource group in a region that supports the DC-series hardware configuration. For the list of currently supported regions, see [DC-series availability](service-tiers-vcore.md#dc-series-1).
 
 3. Create a database server. When prompted, enter the server administrator name and a password.
 
@@ -193,11 +193,11 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 
   ```powershell
   $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
-  $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave?api-version=2018-09-01-preview”
+  $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
   Write-Host "Your attestation URL is: " $attestationUrl 
   ```
 
-8.	Save the resulting attestation URL that points to an attestation policy you configured for the SGX enclave. You'll need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave?api-version=201 8-09-01-preview`
+8.	Save the resulting attestation URL that points to an attestation policy you configured for the SGX enclave. You'll need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
 
 ## Step 3: Populate your database
 
