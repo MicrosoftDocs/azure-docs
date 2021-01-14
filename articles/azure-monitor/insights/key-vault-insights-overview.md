@@ -3,8 +3,8 @@ title: Monitor Key Vault with Azure Monitor for Key Vault | Microsoft Docs
 description: This article describes the Azure Monitor for Key Vaults. 
 services: azure-monitor 
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
 
 ---
