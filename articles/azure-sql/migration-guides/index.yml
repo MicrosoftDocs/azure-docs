@@ -34,6 +34,8 @@ landingContent:
             url: database/sql-server-to-sql-database-guide.md
           - text: From DB2
             url: database/db2-to-sql-database-guide.md
+          - text: From Oracle
+            url: database/oracle-to-sql-database-guide.md
 
   # Card 
   - title: Azure SQL Managed Instance
@@ -46,7 +48,8 @@ landingContent:
             url: managed-instance/sql-server-to-managed-instance-guide.md
           - text: From DB2
             url: managed-instance/db2-to-managed-instance-guide.md
-
+          - text: From Oracle
+            url: managed-instance/oracle-to-managed-instance-guide.md
 
   # Card 
   - title: SQL Server on Azure VM
@@ -59,7 +62,8 @@ landingContent:
             url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
           - text: From DB2
             url: virtual-machines/db2-to-sql-on-azure-vm-guide.md
-        
+          - text: From Oracle
+            url: virtual-machines/oracle-to-sql-on-azure-vm-guide.md
 
   # Card 
   - title: Migration tools 
