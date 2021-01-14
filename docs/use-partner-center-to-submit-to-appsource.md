@@ -73,3 +73,4 @@ After your solution is published through Partner Center, you can begin the [Micr
 - [Create effective listings](create-effective-office-store-listings.md)
 - [Certification policies](/legal/marketplace/certification-policies)
 - [Microsoft 365 App Compliance](/microsoft-365-app-certification/overview)
+

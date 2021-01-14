@@ -40,6 +40,7 @@ If your product offers in-app purchases, select the **My product requires purcha
 
 ### Power BI certification
 Certified Power BI visuals are visuals in the Marketplace that [meet certain specified code requirements that the Microsoft Power BI team has tested and approved](/legal/marketplace/certification-policies#1180-power-bi-visuals). To request certification, select the Request Power BI certification check box.
+
 We recommend that you submit and publish your Power BI visual before you request certification, because the certification process can take time. When you request certification, be sure to provide all required certification information in the Notes for certification box on the Review and publish page.
 
 ## Lead management

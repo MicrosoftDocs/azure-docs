@@ -105,6 +105,7 @@ You'll need to provide the correct metadata indicating how you want your app to 
 You'll also need to provide:
 
 - Correct icons that are the right sizes.
+
 - Any screenshots and video demos. Here [are tips](./craft-effective-appsource-store-images.md) on doing this effectively. One screen shot is required.  
 
 ## Next steps
