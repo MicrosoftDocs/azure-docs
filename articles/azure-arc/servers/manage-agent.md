@@ -29,7 +29,7 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
     * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
 
-3. Uninstall the agent from the machine or server. Follow the steps below.
+3. [Uninstall the agent](#remove-the-agent) from the machine or server following the steps below.
 
 ## Renaming a machine
 
@@ -71,8 +71,7 @@ Use the following steps to complete this task.
 
 After a machine has been renamed, the Connected Machine agent needs to be re-registered with Arc enabled servers. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
 
-
-
+Redeploy the VM extensions that were originally deployed to the machine in order to re-associate them with the resource in Azure.
 
 ## Upgrading agent
 
