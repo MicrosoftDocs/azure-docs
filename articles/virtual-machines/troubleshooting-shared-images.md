@@ -19,7 +19,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 ## Creating or modifying a gallery ##
 
-*Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
+## <a id="anchortext" />*Gallery name is invalid. Allowed characters are English alphanumeric characters, with underscores, and periods allowed in the middle, up to 80 characters total. All other special characters, including dashes, are disallowed.*  
 **Cause**: The name for the gallery does not meet the naming requirements.  
 **Workaround**: Choose a name that meets the following conditions: 
 - Has an 80-character limit
