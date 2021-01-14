@@ -78,7 +78,22 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
- 
+
+### Azure China
+
+| Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
+|---|---|---|
+| Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / SQL | privatelink.documents.azure.cn | documents.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
+| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
+| Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
+| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+
+
 ## DNS configuration scenarios
 
 The FQDN of the services resolves automatically to a public IP address. To resolve to the private IP address of the private endpoint, you must change your DNS configuration accordingly.
