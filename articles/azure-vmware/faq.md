@@ -2,7 +2,7 @@
 title: Frequently asked questions
 description: Provides answers to some of the common questions about Azure VMware Solution.
 ms.topic: conceptual
-ms.date:  1/14/2020
+ms.date:  1/14/2021
 ---
 
 # Frequently asked questions about Azure VMware Solution
