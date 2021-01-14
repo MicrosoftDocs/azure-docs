@@ -36,7 +36,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 To resolve this issue, create a valid registration token:
 
-1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#generate-a-new-registration-key-for-the-vm) section.
+1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#step-3-generate-a-new-registration-key-for-the-vm) section.
 2. Open the Registry Editor. 
 3. Go to **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **RDInfraAgent**.
 4. Select **IsRegistered**. 
@@ -168,7 +168,7 @@ To resolve this issue:
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.
-9. If **SessionDirectoryListener** isn't set to **rdp-sxs...**, you'll need to follow the steps in the [Uninstall the agent and boot loader](#uninstall-all-agent-boot-loader-and-stack-component-programs) section to first uninstall the agent, boot loader, and stack components, and then [Reinstall the agent and boot loader](#reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
+9. If **SessionDirectoryListener** isn't set to **rdp-sxs...**, you'll need to follow the steps in the [Uninstall the agent and boot loader](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) section to first uninstall the agent, boot loader, and stack components, and then [Reinstall the agent and boot loader](#step-4-reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
 
 ## Error: Users keep getting disconnected from session hosts
 
@@ -245,7 +245,7 @@ To resolve this issue, create a VM that is Windows Enterprise or Windows Server.
 The name of your VM has already been registered and is probably a duplicate.
 
 To resolve this issue:
-1. Follow the steps in the [Remove the session host from the host pool](#remove-the-session-host-from-the-host-pool) section.
+1. Follow the steps in the [Remove the session host from the host pool](#step-2-remove-the-session-host-from-the-host-pool) section.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
 3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
 4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
