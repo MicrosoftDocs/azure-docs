@@ -1125,6 +1125,12 @@
       href: ./linux/build-image-with-packer.md
     - name: Windows
       href: ./windows/build-image-with-packer.md
+  - name: Snapshot a disk
+    items:
+    - name: CLI
+      href: ./linux/snapshot-copy-managed-disk.md
+    - name: PowerShell
+      href: ./windows/snapshot-copy-managed-disk.md
   - name: Download existing disk
     items: 
     - name: Linux
@@ -1218,8 +1224,10 @@
   items:
   - name: Introduction to managed disks
     href: managed-disks-overview.md
-  - name: Select a disk type for IaaS VMs
+  - name: Disk types
     href: disks-types.md
+  - name: Disk Storage reservations
+    href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
   - name: Encryption
     items:
     - name: Overview
@@ -1302,14 +1310,14 @@
           href: ./linux/disk-encryption-linux-aad.md
         - name: Windows
           href: ./windows/disk-encryption-windows-aad.md
-  - name: Disk Storage reservations
-    href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
-  - name: Virtual machine and disk performance
+  - name: Disk performance
     items:
     - name: Linux
       href: ./linux/disk-performance-linux.md
     - name: Windows
       href: ./windows/disk-performance-windows.md
+  - name: Disk performance tiers
+    href: disks-change-performance.md
   - name: Designing for high performance
     href: premium-storage-performance.md
   - name: Disk bursting
@@ -1318,16 +1326,8 @@
     href: ./linux/disk-scalability-targets.md
   - name: Backup and disaster recovery for disks
     href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-  - name: Disk performance tiers
-    href: disks-change-performance.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
-  - name: Swap the OS disk
-    items:
-    - name: CLI
-      href: ./linux/os-disk-swap.md
-    - name: PowerShell
-      href: ./windows/os-disk-swap.md
   - name: Manage storage
     items:
     - name: Add a data disk
@@ -1358,6 +1358,12 @@
         href: ./linux/detach-disk.md
       - name: Windows
         href: ./windows/detach-disk.md        
+    - name: Swap the OS disk
+      items:
+      - name: CLI
+        href: ./linux/os-disk-swap.md
+      - name: PowerShell
+        href: ./windows/os-disk-swap.md        
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
@@ -1393,12 +1399,6 @@
         href: ./linux/azure-to-guest-disk-mapping.md
       - name: Windows
         href: ./windows/azure-to-guest-disk-mapping.md
-    - name: Snapshot a disk
-      items:
-      - name: CLI
-        href: ./linux/snapshot-copy-managed-disk.md
-      - name: PowerShell
-        href: ./windows/snapshot-copy-managed-disk.md
     - name: Reserve Disk Storage
       href: disks-reserved-capacity.md
     - name: Incremental snapshots
