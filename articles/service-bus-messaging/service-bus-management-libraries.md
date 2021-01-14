@@ -17,7 +17,7 @@ The Azure Service Bus management libraries can dynamically provision Service Bus
 * Topic creation, update, deletion
 * Subscription creation, update, deletion
 
-## Azure.Messaging.ServiceBus.Administration
+## Azure.Messaging.ServiceBus.Administration (Recommended)
 You can use the [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) class in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code. For a complete example, see [CRUD example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
 
 ```csharp
@@ -83,6 +83,9 @@ namespace adminClientTrack2
 ## Microsoft.Azure.ServiceBus.Management 
 You can use the [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) class in the [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code: 
 
+> [!NOTE]
+> Use the ServiceBusAdministrationClient class from the Azure.Messaging.ServiceBus.Administration library, which is the latest SDK. 
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -139,11 +142,12 @@ namespace SBusManagementClient
 ```
 
 
-## Microsoft.Azure.Management.ServiceBus
+## Microsoft.Azure.Management.ServiceBus 
+This library is part of the Azure Resource Manager-based control plane SDK. 
 
 ### Prerequisites
 
-To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (Azure AD) service. Azure AD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
+To get started using this library, you must authenticate with the Azure Active Directory (Azure AD) service. Azure AD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
 * [Use the Azure portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
