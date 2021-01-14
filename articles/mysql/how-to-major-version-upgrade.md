@@ -1,13 +1,13 @@
 ---
-title: Major version upgrade - Azure portal - Azure Database for MySQL - Single Server
-description: This article describes how you can upgrade major version for Azure Database for MySQL - Single Server using Azure portal
+title: Major version upgrade in Azure Database for MySQL - Single Server
+description: This article describes how you can upgrade major version for Azure Database for MySQL - Single Server 
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 1/13/2021
 ---
-# Major version upgrade in Azure Database for MySQL Single Server using the Azure portal
+# Major version upgrade in Azure Database for MySQL Single Server
 
 > [!IMPORTANT]
 > Major version upgrade for Azure database for MySQL Single Server is in public preview.
@@ -21,16 +21,12 @@ This feature will enable customers to perform in-place upgrades of their MySQL 5
 > * Major version upgrade is not supported on replica server yet.
 > * The server will be unavailable throughout the upgrade operation. It is therefore recommended to perform upgrades during your planned maintenance window.
 
-## Prerequisites
-To complete this how-to guide, you need:
-- An [Azure Database for MySQL Single Server](quickstart-create-mysql-server-database-using-azure-portal.md)
+## Perform major version upgrade from MySQL 5.6 to MySQL 5.7 using Azure portal
 
-## Perform major version upgrade from MySQL 5.6 to MySQL 5.7
-
-Follow these steps to perform major version upgrade for your Azure Database of MySQL 5.6 server
+Follow these steps to perform major version upgrade for your Azure Database of MySQL 5.6 server using Azure portal
 
 > [!IMPORTANT]
-> We recommend to perform upgrade first on restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](howto-restore-server-portal.md#point-in-time-restore). 
+> We recommend to perform upgrade first on restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](howto-restore-server-portal.md#point-in-time-restore).
 
 1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL 5.6 server.
 
@@ -41,6 +37,26 @@ Follow these steps to perform major version upgrade for your Azure Database of M
     :::image type="content" source="./media/how-to-major-version-upgrade-portal/upgrade.png" alt-text="Azure Database for MySQL - overview - upgrade":::
 
 4. A notification will confirm that upgrade is successful.
+
+
+## Perform major version upgrade from MySQL 5.6 to MySQL 5.7 using Azure CLI
+
+Follow these steps to perform major version upgrade for your Azure Database of MySQL 5.6 server using Azure CLI
+
+> [!IMPORTANT]
+> We recommend to perform upgrade first on restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](howto-restore-server-cli.md#server-point-in-time-restore).
+
+1. Install [Azure CLI for Windows](/cli/azure/install-azure-cli) or use Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md) to run the upgrade commands. 
+ 
+    This upgrade requires version 2.16.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade.
+
+2. Once you are logged in, run the [az mysql server upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) command 
+    
+    ```azurecli
+    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
+    ```
+
+- Command prompt will show "-Running" message and once this message is gone this means the version upgrade completed successfully.
 
 ## Frequently asked questions
 
