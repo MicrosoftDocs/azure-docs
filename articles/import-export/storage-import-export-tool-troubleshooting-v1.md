@@ -18,7 +18,7 @@ The Microsoft Azure Import/Export Tool returns error messages if it runs into is
  - If the error can be retried - for example, if the network share was offline for a short period and now is back online - you can resume the copy session.
  - If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session.
  
-For information about resuming and aborting copy sessions, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md).<!--This is the article we removed from the DBG TOC.-->
+<!--For information about resuming and aborting copy sessions, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md  - Article we removed from TOC. File remains.-->
 
 ## I can't resume or abort a copy session.  
  If the copy session is the first copy session for a drive, then the error message should state: "The first copy session cannot be resumed or aborted." In this case, you can delete the old journal file and rerun the command.  
@@ -30,8 +30,8 @@ For information about resuming and aborting copy sessions, see [Preparing Hard D
 
 ## Next steps
 
-* [Setting up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)
-* [Prepare hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md)
+<!--* [Set up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md) - Removed from TOC. File remains-->
+<!--* [Prepare hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md) - No file-->
 * [Review job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Repair an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repair an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
