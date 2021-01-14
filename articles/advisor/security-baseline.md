@@ -156,7 +156,7 @@ Use highly secured user workstations and/or Azure Bastion for administrative tas
 
 Centrally manage the secured workstations to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Understand privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
  
 - [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
 
