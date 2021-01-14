@@ -1,14 +1,14 @@
 ---
 title: Open-source machine learning integration
 titleSuffix: Azure Machine Learning
-description: Learn how to use open-source Python machine learning frameworks to train, deploy and manage end-to-end machine learning solutions in Azure Machine Learning.
+description: Learn how to use open-source Python machine learning frameworks to train, deploy, and manage end-to-end machine learning solutions in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
+ms.date: 01/14/2020
 ---
 
 # Open-source integration with Azure Machine Learning projects
@@ -37,17 +37,17 @@ Open-source machine learning algorithms known as neural networks, a subset of ma
 
 Open-source deep learning frameworks and how-to guides include:
 
- *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning in PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
-Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing model repurpose it. See the [deep learning article](concept-deep-learning-vs-machine-learning.md#transfer-learning) to learn more about transfer learning.
+Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing model repurpose it. See the [deep learning vs machine learning article](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) to learn more about transfer learning.
 
 ### Reinforcement learning: Ray RLLib
 
 Reinforcement learning is an artificial intelligence technique that trains models using actions, states, and rewards: Reinforcement learning agents learn to take a set of predefined actions that maximize the specified rewards based on the current state of their environment. 
 
-The [Ray RLLib](https://github.com/ray-project/ray) project has a set features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
+The [Ray RLLib](https://github.com/ray-project/ray) project has a set of features that allow for high scalability throughout the training process. The iterative process is both time- and resource-intensive as reinforcement learning agents try to learn the optimal way of achieving a task.  Ray RLLib also natively supports deep learning frameworks like TensorFlow and PyTorch.  
 
 To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train a reinforcement learning model](how-to-use-reinforcement-learning.md).
 
@@ -96,4 +96,4 @@ Machine Learning Operations (MLOps), commonly thought of as DevOps for machine l
 
 Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
 
-Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). You can also [deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 

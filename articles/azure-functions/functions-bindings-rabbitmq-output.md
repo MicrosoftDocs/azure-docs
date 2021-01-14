@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ output binding for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
 
 Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
 

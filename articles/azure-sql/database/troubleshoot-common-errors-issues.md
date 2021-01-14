@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 1/14/2021
+ms.date: 01/14/2021
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -129,7 +129,6 @@ Typically, the service administrator can use the following steps to add the logi
    FOR LOGIN <login_name, sysname, login_name>
    WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-
    -- Add user to the database owner role
    EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
@@ -175,7 +174,7 @@ To work around this issue, try one of the following methods:
 - Verify whether there are long-running queries.
 
   > [!NOTE]
-  > This is a minimalist approach that might not resolve the issue.
+  > This is a minimalist approach that might not resolve the issue. For detailed information on troubleshooting query blocking, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 1. Run the following SQL query to check the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
 
@@ -188,10 +187,8 @@ To work around this issue, try one of the following methods:
 
     > [!Note]
     > For more information, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
-
+    
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
-
-For more information about dynamic management views, see [System dynamic management views](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 For more information about database limits, see  [SQL Database resource limits for servers](./resource-limits-logical-server.md).
 

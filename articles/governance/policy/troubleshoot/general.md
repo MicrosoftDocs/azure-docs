@@ -37,10 +37,9 @@ An incorrect or non-existent alias is used in a policy definition.
 #### Resolution
 
 First, validate that the Resource Manager property has an alias. Use
-[Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md),
-[Azure Resource Graph](../../resource-graph/samples/starter.md#distinct-alias-values), or SDK to
-look up available aliases. If the alias for a Resource Manager property doesn't exist, create a
-support ticket.
+[Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) or SDK to look up
+available aliases. If the alias for a Resource Manager property doesn't exist, create a support
+ticket.
 
 ### Scenario: Evaluation details not up-to-date
 

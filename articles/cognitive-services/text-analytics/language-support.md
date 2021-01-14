@@ -55,9 +55,9 @@ ms.author: aahi
 | Language               | Language code | v2.1 support | v3 support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabic                |     `ar`      |     ✓      |            |                                 |                    |
-| Czech                 |     `cs`      |     ✓      |            |                                 |                    |
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` also accepted |
 | Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Czech                 |     `cs`      |     ✓      |            |                                 |                    |
 | Danish                |     `da`      |     ✓      |            |                                 |                    |
 | Dutch                 |     `nl`      |     ✓      |            |                                 |                    |
 | English                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -71,8 +71,8 @@ ms.author: aahi
 | Korean                |     `ko`      |     ✓      |            |                                 |                    |
 | Norwegian  (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` also accepted |
 | Polish                |     `pl`      |     ✓      |            |                                 |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` also accepted |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` also accepted |
 | Russian              |     `ru`      |     ✓      |            |                                 |                    |
 | Spanish               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Swedish               |     `sv`      |     ✓      |            |                                 |                    |
@@ -80,26 +80,24 @@ ms.author: aahi
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> Model versions of Key Phrase Extraction prior to 2020-07-01 have a 64 character limit. This limit is not present in later model versions.
-
 | Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
-| Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Finnish               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| French                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| German                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Italian               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Japanese              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Korean                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` also accepted |
-| Polish                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` also accepted |
-| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Russian               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Spanish               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Swedish               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Danish                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
+| Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Finnish               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| French                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| German                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Italian               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Japanese              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Korean                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` also accepted |
+| Polish                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` also accepted |
+| Russian               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Spanish               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Swedish               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 
 #### [Entity linking](#tab/entity-linking)
 

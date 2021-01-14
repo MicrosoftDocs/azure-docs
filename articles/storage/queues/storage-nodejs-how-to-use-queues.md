@@ -345,4 +345,4 @@ To clear all messages from a queue without deleting it, call `clearMessages`.
 Now that you've learned the basics of Queue Storage, follow these links to learn about more complex storage tasks.
 
 - Visit the [Azure Storage team blog](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog) to learn what's new
-- Visit the [Azure Storage client library for JavaScript](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) repository on GitHub
+- Visit the [Azure Storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#Azure-storage-client-library-for-JavaScript) repository on GitHub

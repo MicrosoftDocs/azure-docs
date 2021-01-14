@@ -33,11 +33,16 @@ Azure Attestation provides a default provider in each region. Customers can choo
 
 | Region | Attest Uri | 
 |--|--|
+| East US | `https://sharedeus.eus.attest.azure.net` | 
+| West US | `https://sharedwus.wus.attest.azure.net` | 
 | UK South | `https://shareduks.uks.attest.azure.net` | 
+| UK West| `https://sharedukw.ukw.attest.azure.net	` | 
+| Canada East | `https://sharedcae.cae.attest.azure.net` | 
+| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
+| North Europe | `https://sharedneu.neu.attest.azure.net` | 
+| West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Central US | `https://sharedcus.cus.attest.azure.net` | 
-| East US| `https://sharedeus.eus.attest.azure.net` | 
-| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## Attestation request
 

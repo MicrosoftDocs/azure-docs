@@ -1,5 +1,5 @@
 ---
-title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory
+title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
 description: Secure access to Microsoft 365 services as a part of your overall external access security.
 services: active-directory
 author: BarbaraSelden
