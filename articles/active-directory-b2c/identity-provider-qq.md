@@ -27,7 +27,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a QQ application
 
-To enable sign-in for users with a QQ account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [QQ developer portal](http://open.qq.com). If you don't already have a QQ account, you can sign up at [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+To enable sign-in for users with a QQ account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [QQ developer portal](http://open.qq.com). If you don't already have a QQ account, you can sign up at [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### Register for the QQ developer program
 
