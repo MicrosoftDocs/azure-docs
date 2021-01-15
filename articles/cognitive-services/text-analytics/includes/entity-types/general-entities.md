@@ -11,9 +11,27 @@ ms.date: 01/15/2021
 ms.author: aahi
 ---
 
-## NER categories
+## General NER entity categories and subcategories
 
 The NER feature for Text Analytics returns the following general (non identifying) entity categories. for example when sending requests to the `/entities/recognition/general` endpoint.
+
+
+| Category | Description                          | 
+|------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
+| [Person](#category-person)     | Names of people.  | 
+| [PersonType](#category-persontype) | Job types or roles held by a person. | 
+| [Location](#category-location)    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| [Organization](#category-organization)  | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | 
+| [Event](#category-event)  | Historical, social, and naturally occurring events. |
+| [Product](#category-product) | Physical objects of various categories. |
+| [Skill](#category-skill) | A capability, skill, or expertise.  |
+| [Address](#category-address) | Full mailing addresses.  | 
+| [Phone number](#category-phonenumber) | Phone numbers. |
+| [Email](#category-email) | Email addresses. |
+| [URL](#category-url) | URLs to websites. |
+| [IP](#category-ip) | Network IP addresses. |
+| [DateTime](#category-datetime) | Dates and times of day. | 
+
 
 ## Category: Person
 
@@ -418,7 +436,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: Phone number
+## Category: PhoneNumber
 
 This category contains the following entity:
 
