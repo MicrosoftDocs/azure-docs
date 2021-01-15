@@ -12,7 +12,7 @@ ms.date: 01/13/2021
 ms.author: erhopf
 ---
 
-# Batch operations
+# Speech CLI batch operations
 
 Common tasks when using Azure Speech services, are batch operations. In this article, you'll learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI. Specifically, you'll learn how to:
 
