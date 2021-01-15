@@ -5,13 +5,13 @@ author: v-dalc
 services: storage
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: alkohli
 ms.subservice: common
 ---
 
 # Troubleshoot issues in Azure Import/Export
-This article describes how to troubleshoot common issues when importing and exporting data in Azure Import/Export. The Microsoft Azure Import/Export Tool returns an error message if it runs into an issue.
+This article describes how to troubleshoot common issues when importing and exporting data in Azure Import/Export.<!--I generalized to the service. The content does not strictly follow error messages in the tool, so that seemed more inclusive. Is that appropriate?--> The Microsoft Azure Import/Export Tool returns an error message if it runs into an issue.
 
 ## A copy session failed. What I should do?  
 
