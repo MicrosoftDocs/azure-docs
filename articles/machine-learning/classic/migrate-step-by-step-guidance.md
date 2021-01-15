@@ -13,11 +13,11 @@ ms.date: 11/27/2020
 
 # Migrate to Azure Machine Learning - step by step guidance
 
-Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. But new resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
+Azure Machine Learning Studio(classic) will retire on Feb 29, 2024. Before this date, customer will have access to their existing Machine Learning Studio(classic) assets. The experiments and web services can still run. New resource (workspace, web service plan) creation will be stopped after May 31 2021. Free workspace creation will still be allow without SLA commitment.
 
 Azure Machine Learning provides a modern machine learning platform with a fully managed experience. Customer should migrate their Studio(classic) projects to Azure Machine Learning before Feb 29,2024. We encourage customers to make the switch sooner to gain the richer benefit of the new platform.
 
-For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project at this time. We will further notice when there is migration tool available. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step-by-step guidance. 
+For customers prefer low code/no code experience, designer in Azure Machine Learning Studio provides the similar drag-n-drop experience for training and deployment. The migration from Studio(classic) to Azure Machine Learning designer will be manually rebuild the project. This article will focus on how to rebuild your Machine Learning Studio(classic) projects using Azure Machine Learning designer with step-by-step guidance. 
 
 
 ## Steps for the migration
