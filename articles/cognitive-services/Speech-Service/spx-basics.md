@@ -46,7 +46,7 @@ Additional help commands listed in the right column. You can enter these command
 
 Let's use the Speech CLI to convert speech to text (speech recognition) using your system's default microphone. After entering the command, SPX will begin listening for audio on the current active input device, and stop when you press **ENTER**. The recorded speech is then recognized and converted to text in the console output.
 
->[!WARNING]
+>[!IMPORTANT]
 > If you are using a Docker container, `--microphone` will not work.
 
 Run this command:
@@ -58,7 +58,7 @@ spx recognize --microphone
 With the Speech CLI, you can also recognize speech from an audio file.
 
 ```console
-spx recognize --file C:\path\to\file.wav
+spx recognize --file /path/to/file.wav
 ```
 
 > [!TIP]
@@ -119,7 +119,7 @@ spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
 If you want to save the output of your translation, use the `--output` flag. In this example, you'll also read from a file.
 
 ```console
-spx translate --file C:\some\file\path\input.wav --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
+spx translate --file /some/file/path/input.wav --source en-US --target ru-RU --output file /some/file/path/russian_translation.txt
 ```
 
 > [!NOTE]

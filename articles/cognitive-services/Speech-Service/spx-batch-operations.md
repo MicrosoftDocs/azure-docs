@@ -38,7 +38,7 @@ sample_1	07baa2f8d9fd4fbcb9faea451ce05475	A sample wave file.
 sample_2	8f9b378f6d0b42f99522f1173492f013	Sample text synthesized.
 ```
 
-## Batch text-to-speech (speech synthesis)
+## Batch text to speech (speech synthesis)
 
 The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and use the `--foreach` command in the Speech CLI. You can create a `.tsv` file using your favorite text editor, for this example, let's call it `text_synthesis.tsv`:
 
@@ -46,7 +46,7 @@ The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separ
 > When copying the contents of this text file, make sure that your file has a **tab** not spaces between the file location and the text. Sometimes, when copying the contents from this example, tabs are converted to spaces causing the `spx` command to fail when run.
 
 ```Input
-audio.outputtext
+audio.output	text
 C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
 C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
 C:\batch_wav_output\wav_3.wav	Some more text to test capabilities.
@@ -58,7 +58,7 @@ Next, you run a command to point to `text_synthesis.tsv`, perform synthesis on e
 spx synthesize --foreach in @C:\your\path\to\text_synthesis.tsv
 ```
 
-This command is the equivalent of running `spx synthesize --text Sample text to synthesize --audio output C:\batch_wav_output\wav_1.wav` **for each** record in the `.tsv` file.
+This command is the equivalent of running `spx synthesize --text "Sample text to synthesize" --audio output C:\batch_wav_output\wav_1.wav` **for each** record in the `.tsv` file.
 
 A couple things to note:
 
@@ -68,7 +68,7 @@ A couple things to note:
 
 However, if you have a `.tsv` file like the following example, with column headers that **do not match** command-line arguments:
 
-```output
+```Input
 wav_path    str_text
 C:\batch_wav_output\wav_1.wav	Sample text to synthesize.
 C:\batch_wav_output\wav_2.wav	Using the Speech CLI to run batch-synthesis.
