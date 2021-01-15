@@ -45,8 +45,8 @@ You can navigate directly to the _Create_ page for your service:
 >If you prefer, you can start the *Create* process on the Azure Portal home page as follows:
 > 1. Navigate to the Azure Portal.
 > 1. Select ➕**Create a resource**  from the Azure services menu.
->1. In the **Search the Marketplace** search box, enter and select **Cognitive Services** ([multi-service resource](#create-a-cognitive-services-resource)) or **Translator** ([single-service resource](#create-a-cognitive-services-resource)).
-> 1. Select **Create** to go to the project details page.
+>1. In the **Search the Marketplace** search box, enter and select **Cognitive Services** (multi-service resource) or **Translator** (single-service resource). *See* [Choose your resource type](#choose-your-resource-type), above.
+> 1. Select **Create** and you will be taken to the project details page.
 ><br/><br/>
 
 ### 2. Complete project and instance details
@@ -68,7 +68,7 @@ You can navigate directly to the _Create_ page for your service:
 
 ## Retrieve your authentication key and endpoint URL
 
-All Cognitive Services API requests require an authentication key. You can pass your key through a query string parameter or by specifying it in the HTTP request header.
+All Cognitive Services API requests require an authentication key. You can pass your key through a query-string parameter or by specifying it in the HTTP request header.
 
 1. Retrieve your authentication key by selecting **Keys and Endpoint** from the left-rail menu.
 1. Copy either of the listed subscription keys.
@@ -77,7 +77,7 @@ All Cognitive Services API requests require an authentication key. You can pass 
 
 ## Delete a  resource or resource group
 
-To remove a Cognitive Services or Translator resource, you can [delete the resource](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). Deleting the resource group also deletes the resources contained in the group.
+To remove a Cognitive Services or Translator resource, you can [delete the resource](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). **NOTE**: Deleting the resource group also deletes the resources contained in the group.
 
 ## Learn more
 
