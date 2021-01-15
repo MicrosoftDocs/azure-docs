@@ -16,12 +16,13 @@ When Azure Spring Cloud is deployed in your virtual network, it has **outbound**
 
 By default, Azure Spring Cloud has unrestricted outbound (egress) internet access. This level of network access allows applications you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible for maintenance tasks. The simplest solution to secure outbound addresses is use of a firewall device that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
 
-## Azure Spring Cloud Prohibitions
+## Azure Spring Cloud resource requirements 
 - Do not modify resource groups created and owned by Azure Spring Cloud.
   - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
 - Do not modify subnets used by Azure Spring Cloud.
 - Do not create more than one Azure Spring Cloud service instance in the same subnet.
 - When using a firewall to control traffic, *do not* block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
+- Do not modify resource groups created by Azure Spring Cloud and the underlying network resources.
 
 ## Azure Spring Cloud network requirements
 
@@ -58,5 +59,6 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI.​ |
 
 ## See also
-[Access your application in a private network](spring-cloud-access-app-virtual-network.md)
-[Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md) 
+* [Access your application in a private network](spring-cloud-access-app-virtual-network.md)
+
+* [Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md) 
