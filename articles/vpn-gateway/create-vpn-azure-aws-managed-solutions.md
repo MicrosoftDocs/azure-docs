@@ -154,7 +154,7 @@ In this section, you create the VPN connection between the Azure virtual network
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/save-aws-route.png" alt-text="Save the route configuration":::
 
-## Configure high availability
+## Configure second connection
 
 In this section, you create a second connection to ensure high availability.
 
