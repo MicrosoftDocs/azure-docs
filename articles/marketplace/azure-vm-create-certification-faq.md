@@ -30,7 +30,7 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 - [Windows images](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and lets Azure proceed with publishing your VM to Azure Marketplace.  
+> If you are using a Linux base image not taken from Azure Marketplace, please ensure the first 2048 sectors(each sector is of 512 bytes) on the VHD are empty so that Azure proceed with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -323,14 +323,14 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First MB (2048 KB) partition (Linux only)
+## First 1MB (2048 sectors, each sector of 512 bytes) partition (Linux only)
 
-When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail.
+When you submit the VHD, ensure that the first 2048 sectors(1MB) of the VHD is empty. Otherwise, your request will fail.Please note that this will be applicable to boot/OS disk and not for any additional data disks.
 
 >[!NOTE]
->For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
+>For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace or please ensure the first 1MB(2048 sectors) of the VHD is empty. 
 
-### Create a first MB (2048 KB) partition on an empty VHD
+### Create a first 1MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
 
 These steps apply to Linux only.
 
@@ -381,7 +381,7 @@ These steps apply to Linux only.
    1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
 
       >[!IMPORTANT]
-      >Any existing data will be erased till 2048 KB. Backup of the VHD before you create a new partition.
+      >Any existing data will be erased till 2048 sectors(each sector of 512 bytes). Backup of the VHD before you create a new partition.
 
       ![Putty client command line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -395,7 +395,7 @@ These steps apply to Linux only.
 
 1. Detach the VHD from VM and delete the VM.
 
-### Create a First MB (2048 KB) partition by moving existing data on VHD
+### Create a First MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
 
 These steps apply to Linux only.
 
