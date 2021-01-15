@@ -38,7 +38,7 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Consume machine learning datasets in training scripts
+## Consume datasets in machine learning training scripts
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
@@ -87,6 +87,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### Configure the training run
+
 A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) object is used to configure and submit the training run.
 
 This code creates a ScriptRunConfig object, `src`, that specifies
@@ -138,6 +139,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### Configure the training run
+
 We recommend passing the dataset as an argument when mounting via the `arguments` parameter of the `ScriptRunConfig` constructor. By doing so, you will get the data path (mounting point) in your training script via arguments. This way, you will be able use the same training script for local debugging and remote training on any cloud platform.
 
 The following example creates a ScriptRunConfig that passes in the FileDataset via `arguments`. After you submit the run, data files referred by the dataset `mnist_ds` will be mounted to the compute target.
@@ -157,7 +159,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### Retrieve the data in your training script
+### Retrieve data in your training script
 
 The following code shows how to retrieve the data in your script.
 
@@ -220,9 +222,9 @@ print (mounted_path)
 ```
 
 
-## Get machine learning datasets in scripts
+## Get datasets in machine learnings scripts
 
-Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and registered dataset by name. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
+Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and get the dataset that was used in your previously submitted run. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
 
 ```Python
 %%writefile $script_folder/train.py
