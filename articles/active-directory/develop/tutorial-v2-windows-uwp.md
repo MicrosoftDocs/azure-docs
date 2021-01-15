@@ -77,12 +77,8 @@ This guide creates an application that displays a button that queries the Micros
     Install-Package Microsoft.Graph
     ```
 
-<<<<<<< HEAD
-   The first command installs [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET acquires, caches, and refreshes user tokens that access APIs that are protected by the Microsoft identity platform. The second command installs [Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to authenticate requests to Microsoft Graph and make calls to the service.
-=======
    > [!NOTE]
    > The first command installs the [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET acquires, caches, and refreshes user tokens that access APIs that are protected by the Microsoft identity platform. The second command installs [Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to authenticate requests to Microsoft Graph and make calls to the service.
->>>>>>> 625526ddc1d21d6059c7526ce5b7635601b0fc03
 
 ### Create your application's UI
 
