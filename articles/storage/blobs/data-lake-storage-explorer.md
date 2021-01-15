@@ -101,6 +101,10 @@ Within both of these categories, there are three permissions you can then assign
 
 You can manage permissions on individual directories, as well as individual files, which are what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
 
+## Private endpoints in Azure Data Lake Storage Gen2
+
+Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure two private endpoints are created for the storage account - one with the target sub-resource of blob and the other with target sub-resource of dfs.
+
 ## Next steps
 
 Learn access control lists in Data Lake Storage Gen2.
