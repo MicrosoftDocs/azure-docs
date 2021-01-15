@@ -43,7 +43,8 @@ Model performance varies by selected domain. In the table below, we report the m
 
 |Task|Domain|ID|Model Size|CPU inference time|GPU inference time|
 |---|---|---|---|---|---|
-|Classification|General (compact)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 ms|5 ms|
+|Classification|General (compact)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 MB|10 ms|5 ms|
+|Classification|General (compact) [S1]|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 MB|50 ms|5 ms|
 |Object Detection|General (compact)|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 ms|5 ms|
 |Object Detection|General (compact) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 
