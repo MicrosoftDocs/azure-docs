@@ -178,7 +178,7 @@ Image version:
 - Regional replica count
 - Target regions
 - Exclude from latest
-- End of life date
+- <a id="anchortext">End of life date
 
 ## SDK support
 
