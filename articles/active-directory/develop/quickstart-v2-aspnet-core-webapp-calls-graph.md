@@ -52,7 +52,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Enter a **Redirect URI** of `https://localhost:44321/signin-oidc`.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Enter a **Logout URL** of `https://localhost:44321/signout-oidc`.
+> 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Select **Save**.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.

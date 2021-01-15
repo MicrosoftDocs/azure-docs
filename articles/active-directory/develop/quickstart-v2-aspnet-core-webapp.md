@@ -53,7 +53,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Under **Redirect URIs**, select **Add URI**, and then enter `https://localhost:44321/signin-oidc`.
-> 1. Enter a **Logout URL** of `https://localhost:44321/signout-oidc`.
+> 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Under **Implicit grant**, select **ID tokens**.
 > 1. Select **Save**.
 
