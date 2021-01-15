@@ -192,9 +192,11 @@ jobs:
 
 ## Monorepo support
 
-By default, the workflow file is configured to apply settings for the entire repository. To support a monorepo, you need to add `paths` values in the `push` and `pull_request` sections of the file.
+A monorepo is a repository that contains code for multiple applications. By default a workflow file tracks all the files in a repository, but you can configure multiple workflow files in a repository to support a monorepo.
 
-The following example demonstrates how to modify the configuration to support a monorepo.
+For a monorepo repo you can specify specific paths in the `push` and `pull_request` section for the workflow file to track.
+
+The following example demonstrates how to add a `paths` node to the `push` and `pull_request` sections of a file named _azure-static-web-apps-purple-pond-08f780f0f.yml_.
 
 ```yml
 on:
@@ -202,24 +204,20 @@ on:
     branches:
       - main
     paths:
-      - vue-app/**
-      - api/**
+      - customer-client/**
+      - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
     paths:
-      - vue-app/**
-      - api/**
+      - customer-client/**
+      - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
 ```
 
-In your case, enter paths to files and folders that you want to trigger a build.
+In this instance, only changes made to files under the _customer-client_ folder or the app's workflow file will kick off a new build.
 
-Additional things to consider for a monorepo:
-
-- You'll have 1 Azure Static Web App (SWA) per Web App, and 1 workflow/GitHub Action file per SWA.
-- You'll have multiple SWAs per 1 monorepo
-you may want to include the specific workflow file in the paths, if you want changes to the workflow file to kick off a new build
+Any additional instances of an Azure Static Web Apps site in the repo will have its own workflow file with path values specific to the web app.
 
 ## Next steps
 
