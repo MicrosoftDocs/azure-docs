@@ -148,17 +148,17 @@ To simplify the explanation, we'll start with the SUM aggregation type only.
 
 First raw metric data is collected and stored in the Azure Monitor metrics database. In this case, each server has transaction records stored with a timestamp because *Server* is a dimension. Given that the smallest time period you can view as a customer is 1 minute, those timestamps are first aggregated into 1-minute metric values for each individual server.  The aggregation process for Server B is shown in the graphic below. Servers A and C are done in the same way and have different data.  
 
-:::image type="content" source="media/metrics-aggregation-explained/sub-minute-transaction.png" alt-text="Screenshot showing sub minute transactional entries into 1-minute aggregations. " border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sub-minute-transaction.png" alt-text="Screenshot showing sub minute transactional entries into 1-minute aggregations. " border="false":::
 
 The resulting 1-minute aggregated values are stored as new entries in the metrics database so they can be gathered for later calculations. 
 
-:::image type="content" source="media/metrics-aggregation-explained/sub-minute-transaction-dimension-aggregated.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sub-minute-transaction-dimension-aggregated.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server. Server A, B, and C shown individually" border="false":::
 
 ### Dimension aggregation
 
 The 1-minute calculations are then collapsed by dimension and again stored as individual records.   In this case, all the data from all the individual servers are aggregated into a 1-minute interval metric and stored in the metrics database for use in later aggregations.
 
-:::image type="content" source="media/metrics-aggregation-explained/1-minute-transaction-dimension-flattened-aggregated.png" alt-text="Screenshot showing multiple 1-minute aggregated entries of Server A, B, and C aggregated into 1-minute All Servers entires" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/1-minute-transaction-dimension-flattened-aggregated.png" alt-text="Screenshot showing multiple 1-minute aggregated entries of Server A, B, and C aggregated into 1-minute All Servers entires" border="false":::
 
 For clarity, the following table shows the method of aggregation.
 
@@ -215,12 +215,11 @@ This shows that metrics with large numbers of dimensions have a larger number of
 
 Because this metric has a dimension *Server*, you can get to the underlying data for server A, B, and C above via splitting and filtering, as explained earlier in this article. If the metric didn't have *Server* as a dimension, you as a customer could only access the aggregated 1-minute sums shown in black on the diagram. That is, the values of 3, 6, 6, 9, etc. The system also would not do the underlying work to aggregate split values it would never use them in metric explorer or send them out via the metrics REST API. 
 
-
 ## Viewing time granularities above 1 minute
 
 If you ask for metrics at a larger granularity, the system uses the 1-minute aggregated sums to calculate the sums for the larger time granularities.  Below, dotted lines show the summation method for the 2-minute and 5-minute time granularities. Again, we are showing just the SUM aggregation type for simplicity.
 
-:::image type="content" source="media/metrics-aggregation-explained/1-minute-to-2-min-5-min.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server aggregated into 2-min and 5-min time periods." border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/1-minute-to-2-min-5-min.png" alt-text="Screenshot showing multiple 1-minute aggregated entries across dimension of server aggregated into 2-min and 5-min time periods." border="false":::
 
 For the 2-minute time granularity.
 
@@ -243,7 +242,7 @@ The system uses the stored aggregated data that gives the best performance.
 
 Below is the larger diagram for the above 1-minute aggregation process, with some of the arrows left out to improve readability.
 
-:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing consolidation of previous 3 screenshots. Multiple 1-minute aggregated entries across dimension of server aggregated in 1-minute, 2-minute, and 5-minute intervals. Server A, B, and C shown individually" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing consolidation of previous 3 screenshots. Multiple 1-minute aggregated entries across dimension of server aggregated in 1-minute, 2-minute, and 5-minute intervals. Server A, B, and C shown individually" border="false":::
 
 ## More complex example
 
@@ -254,9 +253,9 @@ Following is a larger example using values for a fictitious metric called HTTP R
 
 Consider the following example. The boxes and arrows show examples of how the values are aggregated and calculated. 
 
-The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT pre-aggregated. It is recalculated using aggregated data to avoid calculation errors. 
+The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT pre-aggregated. It is recalculated using aggregated data to avoid calculation errors.
  
-:::image type="content" source="media/metrics-aggregation-explained/full-aggregation-example-all-types.png" alt-text="Screenshot showing complex example of aggregation and calculation of sum, count, min, max and average from 1 minute to 10 minutes." border="true" lightbox="media/metrics-aggregation-explained/full-aggregation-example-all-types.png":::
+:::image type="content" source="media/metrics-aggregation-explained/full-aggregation-example-all-types.png" alt-text="Screenshot showing complex example of aggregation and calculation of sum, count, min, max and average from 1 minute to 10 minutes." border="false" lightbox="media/metrics-aggregation-explained/full-aggregation-example-all-types.png":::
 
 Consider minute 6 for the 1-minute aggregation as highlighted above. This minute is the point where Server B went offline and stopped reporting data, perhaps due to a reboot. 
 
