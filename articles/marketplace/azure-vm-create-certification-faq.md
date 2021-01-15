@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
+ms.date: 01/15/2021
 ---
 
 # Troubleshoot virtual machine certification
@@ -30,7 +30,7 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 - [Windows images](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> If you are using a Linux base image not taken from Azure Marketplace, please ensure the first 2048 sectors(each sector is of 512 bytes) on the VHD are empty so that Azure proceed with publishing your VM to Azure Marketplace.  
+> If you are using a Linux base image not taken from Azure Marketplace, ensure the first 2048 sectors (each sector is 512 bytes) on the VHD are empty so your offer can be published.  
 
 ## VM extension failure
 
@@ -74,7 +74,6 @@ Provisioning issues can include the following failure scenarios:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
-
 ## VHD specifications
 
 ### Conectix cookie and other VHD specifications
@@ -101,7 +100,7 @@ Checksum|4
 Unique ID|16
 Saved State|1
 Reserved|427
-
+|
 
 ### VHD specifications
 
@@ -217,7 +216,7 @@ To prevent a potential attack related to the WannaCry virus, ensure that all Win
 
 You can verify the image file version from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
-The following table shows the minimum patched version of Windows Server: 
+The following table shows the minimum patched version of Windows Server:
 
 |OS|Version|
 |---|---|
@@ -238,8 +237,8 @@ Update the kernel with an approved version, and resubmit the request. You can fi
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS family|Version|Kernel|
@@ -311,7 +310,7 @@ To submit your request with SSH disabled image for certification process:
 3. Resubmit your certification request.
 
 ## Download failure
-    
+
 Refer to the following table for any issues that arise when you download the VM image with a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
@@ -323,14 +322,11 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1MB (2048 sectors, each sector of 512 bytes) partition (Linux only)
+## First 1 MB (2048 sectors, each sector of 512 bytes) partition
 
-When you submit the VHD, ensure that the first 2048 sectors(1MB) of the VHD is empty. Otherwise, your request will fail.Please note that this will be applicable to boot/OS disk and not for any additional data disks.
+If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
 
->[!NOTE]
->For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace or please ensure the first 1MB(2048 sectors) of the VHD is empty. 
-
-### Create a first 1MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
+### Create a 1 MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
 
 These steps apply to Linux only.
 
@@ -389,13 +385,13 @@ These steps apply to Linux only.
 
       ![Putty client command line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value. 
+   1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value.
 
       ![Putty client command line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Detach the VHD from VM and delete the VM.
 
-### Create a First MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
+### Create a 1 MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
 
 These steps apply to Linux only.
 
@@ -463,11 +459,11 @@ When an image is created, it might be mapped to or assigned the wrong OS label. 
 
 If all images that are taken from Azure Marketplace are to be reused, the operating system VHD must be generalized.
 
-* For **Linux**, the following process generalizes a Linux VM and redeploys it as a separate VM.
+- For **Linux**, the following process generalizes a Linux VM and redeploys it as a separate VM.
 
   In the SSH window, enter the following command: `sudo waagent -deprovision+user`.
 
-* For **Windows**, you generalize Windows images by using `sysreptool`.
+- For **Windows**, you generalize Windows images by using `sysreptool`.
 
   For more information about the `sysreptool` tool, see [System preparation (Sysprep) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
