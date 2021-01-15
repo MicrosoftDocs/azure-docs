@@ -25,7 +25,7 @@ Learn how to troubleshoot issues with Docker environment image builds and packag
 
 ## Docker image build failures
  
-For the majority of image build failures, you'll find the root cause in the image build log.
+For most image build failures, you'll find the root cause in the image build log.
 Find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your Azure Container Registry task run logs.
  
 It's usually easier to reproduce errors locally. Check the kind of error and try one of the following `setuptools`:
@@ -45,7 +45,7 @@ The following network issues can cause timeout errors:
 - Server issues
 - Large dependencies that can't be downloaded with the given conda or pip timeout settings
  
-Messages similar to the following will indicate the issue:
+Messages similar to the following examples will indicate the issue:
  
 ```
 ('Connection broken: OSError("(104, \'ECONNRESET\')")', OSError("(104, 'ECONNRESET')"))
@@ -149,7 +149,7 @@ See the following scenarios to troubleshoot possible service side failures.
 
 Possible issues:
 - The path name to the container registry might not be resolving correctly. Check that image names use double slashes and the direction of slashes on Linux versus Windows hosts is correct.
-- If a container registry behind a virtual network is using a private endpoint in [an unsupported region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), configure the container registry behind a virtual network by using the service endpoint (Public access) from the portal and retry.
+- If a container registry behind a virtual network is using a private endpoint in [an unsupported region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), configure the container registry by using the service endpoint (public access) from the portal and retry.
 - After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) so the workspace can communicate with the container registry instance.
 
 ### 401 error from workspace container registry
@@ -176,13 +176,13 @@ Check if the [correct tag](https://docs.microsoft.com/azure/machine-learning/how
 ### Image build fails when you're trying to access network protected storage
 
 - Container Registry tasks don't work behind a virtual network. If the user has their container registry behind a virtual network, they need to use the compute cluster to build an image.
-- Storage should be behind a virtual network in order to be able to pull dependencies from it. 
+- Storage should be behind a virtual network in order to pull dependencies from it.
 
 ### Can't run experiments when storage has network security enabled
 
-When you're using default Docker images and enabling user-managed dependencies, you must use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) to allowlist Container Registry and its dependencies.
+If you're using default Docker images and enabling user-managed dependencies, use the MicrosoftContainerRegistry and AzureFrontDoor.FirstParty [service tags](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) to allowlist Container Registry and its dependencies.
 
- See [Enabling virtual networks](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) for more information.
+ For more information, see [Enabling virtual networks](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
 
 ### Create an ICM
 
