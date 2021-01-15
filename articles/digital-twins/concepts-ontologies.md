@@ -44,7 +44,7 @@ Please read about [DTDL-based Smart Building ontology](https://github.com/Azure/
 
 ## Extending ontologies 
 
-An industry ontology, such as the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building), is a great way to jumpstart building your IoT solution. These industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. However, it is possibly the case that your solution has specific needs that are not completely covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, it's easy to extend one of these ontologies to add your own capabilities while retaining all the benefits of the original ontology.
+An industry ontology, such as the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building), is a great way to jumpstart building your IoT solution. These industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. However, it is possibly the case that your solution has specific needs that are not completely covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, you can extend one of these ontologies to add your own capabilities while retaining all the benefits of the original ontology.
 
 For details on this process, see [*Concepts: Extending industry ontologies*](concepts-extending-ontologies.md).
 
