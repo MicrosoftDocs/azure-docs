@@ -11,6 +11,8 @@ ms.date: 11/05/2020
 ms.author: v-jawe
 ---
 
+# Quickstart: Face client library for JavaScript
+
 Get started with facial recognition using the Face client library for JavaScript. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for JavaScript to:
@@ -24,30 +26,60 @@ Use the Face client library for JavaScript to:
 
 ## Prerequisites
 
-* The latest version of [Node.js](https://nodejs.org/en/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* The latest version of [Node.js](https://nodejs.org/en/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
-### Install the client library 
+### Create a new Node.js application
 
-In a console window (such as cmd, PowerShell, or Bash), run the following command.
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
-npm install @azure/cognitiveservices-face
+mkdir myapp && cd myapp
 ```
 
-### Create environment variables
+Run the `npm init` command to create a node application with a `package.json` file. 
 
-Create the following environment variables:
-- FACE_SUBSCRIPTION_KEY. Set the value to your Face subscription key, which is a UUID.
-- FACE_ENDPOINT. Set the value to your Face endpoint. An example Face endpoint is https://westus.api.cognitive.microsoft.com/.
+```console
+npm init
+```
+
+### Install the client library 
+
+Install the `ms-rest-azure` and `azure-cognitiveservices-[Product Name]` NPM packages:
+
+```console
+npm install @azure/cognitiveservices-face @azure/ms-rest-js
+```
+
+Your app's `package.json` file will be updated with the dependencies.
+
+Create a file named `index.js` and import the following libraries:
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it on [GitHub](), which contains the code examples in this quickstart.
+
+```javascript
+const msRest = require("@azure/ms-rest-js");
+const Face = require("@azure/cognitiveservices-face");
+const uuid = require("uuid/v4");
+```
+
+Create variables for your resource's Azure endpoint and key. 
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the [Product name] resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+
+```javascript
+key = "<paste-your-[product-name]-key-here>"
+endpoint = "<paste-your-[product-name]-endpoint-here>"
+```
 
 ## Object model
 
@@ -75,19 +107,13 @@ The code snippets below show you how to do the following tasks with the Face cli
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/sdk_quickstart.js), which contains the code examples in this quickstart.
 
-## Add dependencies
-
-Create a new file named `sdk_quickstart.js`. Begin by adding the following dependencies.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="dependencies":::
-
 ## Authenticate the client
 
 Instantiate a client with your endpoint and key. Create a **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest)** object with your key, and use it with your endpoint to create a **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient?view=azure-node-latest)** object.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="credentials":::
 
-### Declare global values and helper function
+## Declare global values and helper function
 
 The following global values are needed for several of the Face operations you'll add later.
 
@@ -152,8 +178,6 @@ The following code:
 - Trains the person group.
 - Identifies the faces in the person group.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
-
 This **Person** group and its associated **Person** objects are now ready to be used in the Verify, Identify, or Group operations.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
@@ -167,7 +191,13 @@ Finally, create the `main` function and call it.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="main":::
 
----
+## Run the application
+
+Run the application with the `node` command on your quickstart file.
+
+```console
+node index.js
+```
 
 ## Clean up resources
 
