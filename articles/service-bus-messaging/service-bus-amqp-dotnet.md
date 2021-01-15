@@ -40,6 +40,14 @@ Where `namespace` and `SAS key` are obtained from the [Azure portal][Azure porta
 
 When using AMQP, append the connection string with `;TransportType=Amqp`. This notation instructs the client library to make its connection to Service Bus using AMQP 1.0.
 
+### AMQP over WebSockets
+To use AMQP over WebSockets, set `TransportType` in the connection string to `AmqpWebSockets`. For example: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
+
+If you are using .NET Microsoft.Azure.ServiceBus library, set the [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) to AmqpWebSockets of [TransportType enum](/dotnet/api/microsoft.azure.servicebus.transporttype).
+
+If you are using .NET Azure.Messaging.ServiceBus library, set the [ServiceBusClient.TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclient.transporttype) to AmqpWebSockets of [ServiceBusTransportType enum](/dotnet/api/azure.messaging.servicebus.servicebustransporttype).
+
+
 ## Message serialization
 
 When using the default protocol, the default serialization behavior of the .NET client library is to use the [DataContractSerializer][DataContractSerializer] type to serialize a [BrokeredMessage][BrokeredMessage] instance for transport between the client library and the Service Bus service. When using the AMQP transport mode, the client library uses the AMQP type system for serialization of the [brokered message][BrokeredMessage] into an AMQP message. This serialization enables the message to be received and interpreted by a receiving application that is potentially running on a different platform, for example, a Java application that uses the JMS API to access Service Bus.
