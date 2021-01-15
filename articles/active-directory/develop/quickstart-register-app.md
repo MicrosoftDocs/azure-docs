@@ -122,6 +122,8 @@ The client secret, known also as an *application password*, is a string value yo
 1. Select **Add**.
 1. **Record the secret's value** for use in your client application code - it's *never displayed again* after you leave this page.
 
+**Note:** The ID generated along with the secret's value is the ID of the secret, which is different than Application ID.
+
 ## Next steps
 
 Client applications typically need to access resources in a web API. In addition to protecting your client application with the Microsoft identity platform, you can use the platform for authorizing scoped, permissions-based access to your web API.
