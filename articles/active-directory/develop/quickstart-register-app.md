@@ -96,7 +96,7 @@ There are certain restrictions on the format of the redirect URIs you add to an 
 
 ## Add credentials
 
-Credentials are used by confidential client applications that access a web API. Examples of confidential clients are web apps, other web APIs, or service- and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+Credentials are used by [confidential client applications](msal-client-applications.md) that access a web API. Examples of confidential clients are [web apps](scenario-web-app-call-api-overview.md), other [web APIs](scenario-protected-web-api-overview.md), or [service- and daemon-type applications](scenario-daemon-overview.md). Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime. 
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
@@ -104,7 +104,7 @@ You can add both certificates and client secrets (a string) as credentials to yo
 
 ### Add a certificate
 
-Sometimes called a *public key*, certificates are the recommended credential type as they provide a higher level of assurance than a client secret.
+Sometimes called a *public key*, certificates are the recommended credential type as they provide a higher level of assurance than a client secret. For more information on details about using certificate as an authentication method in your application , see [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md)
 
 1. Select your application in **App registrations** in the Azure portal.
 1. Select **Certificates & secrets** > **Upload certificate**.
@@ -113,7 +113,7 @@ Sometimes called a *public key*, certificates are the recommended credential typ
 
 ### Add a client secret
 
-The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production.
+The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production. For more information on application security recommendations, please see [Microsoft identity platform best practices and recommendations](identity-platform-integration-checklist.md#security)
 
 1. Select your application in **App registrations** in the Azure portal.
 1. Select **Certificates & secrets** >  **New client secret**.
@@ -121,6 +121,8 @@ The client secret, known also as an *application password*, is a string value yo
 1. Select a duration.
 1. Select **Add**.
 1. **Record the secret's value** for use in your client application code - it's *never displayed again* after you leave this page.
+
+**Note:** The ID generated along with the secret's value is the ID of the secret, which is different than Application ID.
 
 ## Next steps
 

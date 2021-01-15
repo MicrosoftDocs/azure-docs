@@ -124,7 +124,7 @@ If the VM network use spikes or shows periods of high usage, you may also have t
 ## Advanced network administrator troubleshooting
 
 ### Capture network trace
-Capture a simultaneous network trace on the source VM, the NVA, and the destination VM while you run **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** or **Nmap**, and then stop the trace.
+Capture a simultaneous network trace on the source VM, the NVA, and the destination VM while you run **[PsPing](/sysinternals/downloads/psping)** or **Nmap**, and then stop the trace.
 
 1. To capture a simultaneous network trace, run the following command:
 

@@ -63,7 +63,7 @@ The Data Throughput tab allows you to review your inbound and outbound throughpu
 ### Flow Distribution
 The Flow Distribution Tab will help you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and virtual machine scale set instance is receiving. 
 
-These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you are approaching the [per VM flow limit](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) for your machine size.
+These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you are approaching the [per VM flow limit](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) for your machine size.
 
 ### Connection Monitors
 The Connection Monitors tab will show you the round-trip latency on a global map for all of the [Connection Monitors](../network-watcher/connection-monitor.md)  you've configured. These visuals provide useful information for services with strict latency requirements. To meet your requirements you may need to add additional regional deployments or  move to a [cross-regional load balancing](./cross-region-overview.md) model
