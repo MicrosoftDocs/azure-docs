@@ -35,7 +35,7 @@ Currently, only [specific built-in triggers and actions](../logic-apps/logic-app
 * Azure Resource Manager
 * HTTP with Azure AD
 
-Support for managed connectors is currently in preview, and support for more connectors is coming in the future. For the current list, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+Support for managed connectors is currently in preview. For the current list, see [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 This article shows how to set up both kinds of managed identities for your logic app. For more information, see these topics:
 

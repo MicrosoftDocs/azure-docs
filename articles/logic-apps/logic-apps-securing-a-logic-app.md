@@ -922,7 +922,7 @@ This table identifies the authentication types that are available on the trigger
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | **Built-in triggers and actions** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Managed connectors** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Monitor Logs, Azure Resource Manager, Azure Sentinel, HTTP with Azure AD <p><p>**Note**: Support for managed connectors is currently in preview, and support for more connectors is coming in the future. |
+| [Managed identity](#managed-identity-authentication) | **Built-in triggers and actions** <p><p>Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <p><p>**Managed connectors** <p><p>Azure AD Identity Protection, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Monitor Logs, Azure Resource Manager, Azure Sentinel, HTTP with Azure AD <p><p>**Note**: Support for managed connectors is currently in preview. |
 |||
 
 <a name="basic-authentication"></a>
