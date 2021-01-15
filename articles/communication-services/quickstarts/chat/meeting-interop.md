@@ -25,6 +25,8 @@ Get started with Azure Communication Services by connecting your chat solution t
 
 A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
 
+You must be a member of the owning organization of both entities to use this feature.
+
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 
 ## Clean up resources
