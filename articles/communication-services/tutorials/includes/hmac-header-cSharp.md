@@ -83,17 +83,19 @@ For this specific example we will try to sign request to create new identity cal
 Add following code into Main method:
 
 ```csharp
-    //Create an uri you are going to call
-    var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2020-07-20-preview2");
+string resourceEndpoint = "resourceEndpoint";
+//Create an uri you are going to call
+var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2020-07-20-preview2");
 
-    //Endpoint identities?api-version=2020-07-20-preview2 accepts list of scopes as a body
-    var body = new[] { "chat" };
-    
-    //Create your requestMessage
-    var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
-    {
-        Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8)
-    };
+//Endpoint identities?api-version=2020-07-20-preview2 accepts list of scopes as a body
+var body = new[] { "chat" };
 
+//Create your requestMessage
+var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
+{
+    Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8)
+};
 ```
+replace "resourceEndpoint" with your real resource endpoint value.
+
 ## 
