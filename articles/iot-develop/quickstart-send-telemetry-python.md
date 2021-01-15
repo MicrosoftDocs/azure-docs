@@ -135,12 +135,12 @@ In this section, you will use the Python SDK to send messages from your simulate
 
 As the Python code sends a message from your device to the IoT hub, the message appears in your CLI shell that is monitoring events:
 
-    ```output
-    Starting event monitor, use ctrl-c to stop...
-    event:
-    origin: <your Device name>
-    payload: This is a message that is being sent
-    ```
+```output
+Starting event monitor, use ctrl-c to stop...
+event:
+origin: <your Device name>
+payload: This is a message that is being sent
+```
 
 Your device is now securely connected and sending telemetry to Azure IoT Hub.
 

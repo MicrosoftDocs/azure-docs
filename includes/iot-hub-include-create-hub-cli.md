@@ -65,7 +65,7 @@ Run the [az extension add](https://docs.microsoft.com/cli/azure/extension?view=a
    ```azurecli
    az extension add --name azure-iot
    ```
-    [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 In this section, you use Azure CLI to create an IoT hub and a resource group.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and the devices. 
