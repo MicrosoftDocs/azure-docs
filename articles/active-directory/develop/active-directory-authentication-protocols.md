@@ -13,6 +13,7 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
+ROBOTS: NOINDEX
 ---
 
 # Microsoft identity platform authentication protocols

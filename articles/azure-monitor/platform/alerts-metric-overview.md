@@ -1,7 +1,7 @@
 ---
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-ms.date: 09/30/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
 
@@ -60,6 +60,10 @@ Say the usage on "myVM" continues being above the threshold in subsequent checks
 After some time, the usage on "myVM" comes back down to normal (goes below the threshold). The alert rule monitors the condition for two more times, to send out a resolved notification. The alert rule sends out a resolved/deactivated message when the alert condition is not met for three consecutive periods to reduce noise in case of flapping conditions.
 
 As the resolved notification is sent out via web hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
+
+> [!NOTE]
+>
+> When an alert rule monitors multiple conditions, a fired alert will be resolved if at least one of the conditions is no longer met for three consecutive periods.
 
 ### Using dimensions
 
@@ -133,7 +137,7 @@ This feature is currently supported for platform metrics (not custom metrics) fo
 
 | Service | Public Azure | Government | China |
 |:--------|:--------|:--------|:--------|
-| Virtual machines<sup>1</sup>  | **Yes** | No | No |
+| Virtual machines<sup>1</sup>  | **Yes** | **Yes** | No |
 | SQL server databases | **Yes** | **Yes** | **Yes** |
 | SQL server elastic pools | **Yes** | **Yes** | **Yes** |
 | NetApp files capacity pools | **Yes** | **Yes** | **Yes** |

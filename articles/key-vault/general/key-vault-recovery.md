@@ -389,4 +389,4 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 - [How to enable Key Vault logging](howto-logging.md)
 - [Secure access to a key vault](secure-your-key-vault.md)
 - [Azure Key Vault developer's guide](developers-guide.md)
-- [Best practices to use a key vault](best-practices.md)
+- [Best practices to use a key vault](security-overview.md)

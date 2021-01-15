@@ -18,15 +18,15 @@ ms.author: aahi
 
 | Category  | Description  |
 |---------|---------|
-| ANATOMY | concepts that capture information about body and anatomic systems, sites, locations or regions. |
- | DEMOGRAPHICS | concepts that capture information about gender and age. |
- | EXAMINATION | concepts that capture information about diagnostic procedures and tests. |
- | GENOMICS | concepts that capture information about genes and variants. |
- | HEALTHCARE | concepts that capture information about administrative events, care environments and healthcare professions. |
- | MEDICAL CONDITION | concepts that capture information about diagnoses, symptoms or signs. |
- | MEDICATION | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
- | SOCIAL | concepts that capture information about medically relevant social aspects such as family relation. |
- | TREATMENT | concepts that capture information about therapeutic procedures. |
+| [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations or regions. |
+ | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
+ | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
+ | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
+ | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments and healthcare professions. |
+ | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms or signs. |
+ | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
+ | [SOCIAL](#social) | concepts that capture information about medically relevant social aspects such as family relation. |
+ | [TREATMENT](#treatment) | concepts that capture information about therapeutic procedures. |
   
 Each category may include two concept groups:
 
@@ -262,7 +262,15 @@ Additionally, the service recognizes relations between the different concepts in
 +	**FREQUENCY_OF_MEDICATION**
 +	**ROUTE_OF_MEDICATION**
 +	**TIME_OF_MEDICATION**
-  
+
+## Social
+
+### Entities
+
+**FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Screenshot shows another example of a treatment time attribute.":::
+
 ## Treatment
 
 ### Entities
@@ -289,17 +297,8 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Screenshot shows an example of a treatment time attribute.":::
 
-
 ### Supported relations
 
 + **DIRECTION_OF_TREATMENT**
 +	**TIME_OF_TREATMENT**
 +	**FREQUENCY_OF_TREATMENT**
-
-## Social
-
-### Entities
-
-**FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Screenshot shows another example of a treatment time attribute.":::

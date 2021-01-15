@@ -175,6 +175,8 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 | **InvestigationPriority** | anomaly score, between 0-10 (0=benign, 10=highly anomalous)         |
 |
 
+You can see the full set of contextual enrichments referenced in **UsersInsights**, **DevicesInsights**, and **ActivityInsights** in the [UEBA enrichments reference document](ueba-enrichments.md).
+
 ### Querying behavior analytics data
 
 Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.

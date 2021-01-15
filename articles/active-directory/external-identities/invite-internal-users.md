@@ -42,8 +42,7 @@ In these instances, if the internal user must be changed to a B2B user, you shou
 
 You can use PowerShell or the invitation API to send a B2B invitation to the internal user. Make sure the email address you want to use for the invitation is set as the external email address on the internal user object.
 
-- For a cloud-only user, use the email address in the User.OtherMails property for the invitation.
-- For an on-premises synced user, you must use the value in the User.Mail property for the invitation.
+- You must use the the email address in the User.Mail property for the invitation.
 - The domain in the user’s Mail property must match the account they’re using to sign in. Otherwise, some services such as Teams won't be able to authenticate the user.
 
 By default, the invitation will send the user an email letting them know they’ve been invited, but you can suppress this email and send your own instead.

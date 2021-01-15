@@ -1,5 +1,5 @@
 ---
-title: Create a security plan for external access to Azure Active Directory
+title: Create a security plan for external access to Azure Active Directory 
 description: Plan the security for external access to your organization's resources..
 services: active-directory
 author: BarbaraSelden
@@ -170,7 +170,7 @@ Azure AD P2 and Microsoft 365 E5 have the full suite of security and governance 
 | Entitlement Management| **Add user via assignment or self-service access​**| **Access packages**| **Access packages**|  |
 | Office 365 Group| | Access to site(s) (and associated content) ​included with group| Access to teams (and associated content)​included with group|  |
 | Sensitivity labels| | **Manually and automatically classify and restrict access**| **Manually and automatically classify and restrict access**| **Manually and automatically classify and restrict access** |
-| Azure AD security groups| **CA policies for access not included in access packages**| | |  |
+| Azure AD security groups| **Conditional Access policies for access not included in access packages**| | |  |
 
 
 ### Entitlement Management 
@@ -190,7 +190,7 @@ You can achieve robust governance with Azure AD P1 and Microsoft 365 E3
 | Azure AD B2B Collaboration| **Invite via email, OTP, self-service**| Direct B2B federation| **Periodic review per partner**| Remove account<br>Restrict sign in |
 | Microsoft or Office 365 Groups| | | | Expiration of or deletion of group.<br>Removal from group. |
 | Security groups| | **Add external users to security groups (org, team, project, etc.)**| |  |
-| Conditional Access policies| | **Sign-in CA policies for external users**| |  |
+| Conditional Access policies| | **Sign-in Conditional Access policies for external users**| |  |
 
 
  ### Access to resources.
@@ -199,7 +199,7 @@ You can achieve robust governance with Azure AD P1 and Microsoft 365 E3
 | - |-|-|-|-|
 | Microsoft or Office 365 Groups| | **Access to site(s) included with group (and associated content)**|**Access to teams included with Microsoft 365 group (and associated content)**|  |
 | Sensitivity labels| | Manually classify and restrict access| Manually classify and restrict access.| Manually classify to restrict and encrypt |
-| Conditional Access Policies| CA policies for access control| | |  |
+| Conditional Access Policies| Conditional Access policies for access control| | |  |
 | Additional methods| | Restrict SharePoint site access granularly with security groups.<br>Disallow direct sharing.| **Restrict external invitations from within teams**|  |
 
 
