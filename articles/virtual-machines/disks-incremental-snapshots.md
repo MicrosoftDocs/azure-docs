@@ -4,21 +4,18 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 01/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Create an incremental snapshot for managed disks
 
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-description]((../../includes/virtual-machines-disks-incremental-snapshots-description.md)]
-
-## Regional availability
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions]((../../includes/virtual-machines-disks-incremental-snapshots-regions.md)]
+[!INCLUDE [virtual-machines-disks-incremental-snapshots-description](../../includes/virtual-machines-disks-incremental-snapshots-description.md)]
 
 ### Restrictions
 
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions]((../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
+[!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
 
 # [PowerShell](#tab/azure-powershell)

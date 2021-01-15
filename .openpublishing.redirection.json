@@ -36997,6 +36997,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/disks-incremental-snapshots-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-incremental-snapshots",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/disks-incremental-snapshots.md",
+      "redirect_url": "/azure/virtual-machines/disks-incremental-snapshots",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/disks-incremental-snapshots-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-incremental-snapshots",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/disks-incremental-snapshots.md",
+      "redirect_url": "/azure/virtual-machines/disks-incremental-snapshots",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/disks-performance-linux.md",
       "redirect_url": "/azure/virtual-machines/disk-performance",
       "redirect_document_id": false
