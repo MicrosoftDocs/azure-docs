@@ -26,7 +26,12 @@ Access key authentication uses a shared secret key to generate an HMAC for each 
 Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
-In this tutorial 
+hmac-sha256-signature consists of : 
+1. HTTP Verb (e.g. `GET` or `PUT`)
+2. HTTP request path
+3. Date
+4. Host
+5. x-ms-content-sha256
 
 ## Setting up
 The following steps describe how to construct the Authorization header:
@@ -98,4 +103,20 @@ var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 ```
 replace "resourceEndpoint" with your real resource endpoint value.
 
-## 
+## Create content hash
+content hash is a part of signature. 
+Use following code to create a method to hash a content and add it into Progma.cs under Main method.
+```csharp
+async static Task<string> ComputeContentHash(HttpRequestMessage requestMessage)
+{
+    string content = "";
+    if (requestMessage?.Content != null)
+    {
+        content = await requestMessage.Content.ReadAsStringAsync();
+    }
+
+    using var sha256 = SHA256.Create();
+    byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(content));
+    return Convert.ToBase64String(hashedBytes);
+}
+```
