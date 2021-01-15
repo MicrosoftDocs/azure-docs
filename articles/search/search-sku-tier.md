@@ -14,15 +14,15 @@ ms.custom: contperf-fy21q2
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. The tier you select determines:
+When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. You'll set the pricing tier when creating the service in Azure portal. If you're provisioning a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
 
-+ Upper limits of indexes and other objects you can create
+The tier you select determines:
+
++ Upper limits of indexes and other objects you can create on the service
 + Size and speed of partitions (physical storage)
 + Billable rate as a fixed monthly cost, but also an incremental cost if you add capacity
 
 In a few instances, the tier you choose determines the availability of [premium features](#premium-features).
-
-You'll set the pricing tier when creating the service in Azure portal. If you're provisioning a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
 
 ## Tier descriptions
 
@@ -71,7 +71,7 @@ Tiers have different billing rates, with higher rates for tiers that run on more
 
 Once you create a service, the billing rate becomes both a *fixed cost* of running the service around the clock, and an *incremental cost* if you choose to add more capacity.
 
-Search services are allocated computing resources in the form of *partitions* (for storage), and *replicas* (instances of the query engine). Initially, a service is created with one of each, and the billing rate is inclusive of both resources. However, if you scale capacity, the costs go up or down by the amount of the billable rate.
+Search services are allocated computing resources in the form of *partitions* (for storage), and *replicas* (instances of the query engine). Initially, a service is created with one of each, and the billing rate is inclusive of both resources. However, if you scale capacity, the costs go up or down in increments of the billable rate.
 
 The following example provides an illustration. Assume a hypothetical billing rate of $100 per month. If you keep the search service at it's initial capacity of one partition and one replica, then $100 is what you can expect to pay at the end of the month. However, if you add two more replicas to achieve high availability, the monthly bill increases to $300 ($100 for the first replica-partition pair, followed by $200 for the two replicas).
 

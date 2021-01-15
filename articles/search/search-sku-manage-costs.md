@@ -21,7 +21,9 @@ Mathematically, SU is the product of the number of *replicas* and *partitions* u
 
 ## Pricing model
 
-The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need. The amount resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
+The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need. 
+
+The amount resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
 
 For billing purposes, Cognitive Search has the concept of a *search unit* (SU). An SU is the product of the *replicas* and *partitions* used by a service: **(R x P = SU)**.
 
@@ -37,7 +39,7 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 
 + [Cost of the service](#service-costs) itself, running 24x7, at minimum configuration (one partition and replica), at the base rate. You can think of this as the fixed cost of running the service.
 
-+ Adding capacity (replicas or partitions), where costs increase at increments of the billable rate
++ Adding capacity (replicas or partitions), where costs increase at increments of the billable rate. If high availability is a business requirement, you'll need 3 replicas.
 
 + Bandwidth charges (outbound data transfer)
 
@@ -53,9 +55,11 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 
 Unlike virtual machines or other resources that can be "paused" to avoid charges, an Azure Cognitive Search service is always available on hardware dedicated for your exclusive use. As such, creating a service is a billable event that starts when you create the service, and ends when you delete the service. 
 
-The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: (replicas x partitions x rate), where the rate you're charged depends on the pricing tier you select.
+The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. 
 
-When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: **(replicas x partitions x billing rate)**, where the rate you're charged depends on the pricing tier you select.
+
+When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### Bandwidth charges
 
