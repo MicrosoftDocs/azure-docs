@@ -188,7 +188,9 @@
       - name: Application and database tuning guidance
         href: database/performance-guidance.md
       - name: Use DMVs to monitor performance
-        href: database/monitoring-with-dmvs.md 
+        href: database/monitoring-with-dmvs.md
+      - name: Understand and resolve blocking
+        href: database/understand-resolve-blocking.md 
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: In-memory OLTP
