@@ -389,8 +389,6 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Export your Custom Commands app as a skill
                       href: how-to-custom-commands-integrate-remote-skills.md
-                    - name: Reference secrets in Azure Key Vault for web endpoints
-                      href: how-to-custom-commands-integrate-key-vault.md
                     - name: Update a command from the client app
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: Update a command from a web endpoint
