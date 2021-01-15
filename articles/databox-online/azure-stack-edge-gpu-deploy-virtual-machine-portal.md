@@ -119,7 +119,7 @@ Follow these steps to create a VM after you have created a VM image.
     |---------|---------|
     |Virtual machine name     |         |
     |Image     | Select from the VM images available on the device.        |
-    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Size     | Choose from the [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Username     | Use the default username *azureuser*.        |
     |Authentication type    | Choose from SSH public key or a user-defined password.       |
     |Password     | Enter a password to sign into the virtual machine. The password must be at least 12 characters long and meet the defined [Complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).        |

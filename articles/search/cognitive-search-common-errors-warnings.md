@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
 manager: nitinme
-author: amotley
-ms.author: abmotley
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020

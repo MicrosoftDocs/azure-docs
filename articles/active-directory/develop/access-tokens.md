@@ -136,8 +136,8 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
        }
      }
   ...
- }
- ```
+}
+```
 
 You can use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) folder to help test overage scenarios.
 
@@ -182,7 +182,7 @@ Not all apps should validate tokens. Only in specific scenarios should apps vali
 
 If none of the above scenarios apply, your application will not benefit from validating the token, and may present a security and reliability risk if decisions are made based on the validity of the token.  Public clients like native apps or SPAs don't benefit from validating tokens - the app communicates directly with the IDP, so SSL protection ensures the tokens are valid.
 
- APIs and web apps must only validate tokens that have an `aud` claim that matches their application; other resources may have custom token validation rules. For example, tokens for Microsoft Graph won't validate according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.
+APIs and web apps must only validate tokens that have an `aud` claim that matches their application; other resources may have custom token validation rules. For example, tokens for Microsoft Graph won't validate according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.
 
 If your application needs to validate an id_token or an access_token according to the above, your app should first validate the token's signature and issuer against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 

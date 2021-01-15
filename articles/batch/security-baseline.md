@@ -319,7 +319,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: Use PAWs (privileged access workstations) with multifactor authentication configured to log into and configure your Azure Batch resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

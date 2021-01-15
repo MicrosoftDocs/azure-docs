@@ -167,6 +167,10 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
+> [!NOTE]
+> Starting from version 3.0.1-BETA, if you add a custom dimension named `service.version`, the value will be stored
+> in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
+
 ## Telemetry processors (preview)
 
 This feature is in preview.
@@ -233,6 +237,35 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 {
   "instrumentation": {
     "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
+
+## Suppressing specific auto-collected telemetry
+
+Starting from version 3.0.1-BETA.2, specific auto-collected telemetry can be suppressed using these configuration options:
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
       "enabled": false
     }
   }

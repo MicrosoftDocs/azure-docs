@@ -11,7 +11,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -30,12 +30,14 @@ The customer isolation within the infrastructure stamp is performed in tenants, 
 
 These bare-metal server units are supported to run SAP HANA only. The SAP application layer or workload middle-ware layer runs in virtual machines. The infrastructure stamps that run the SAP HANA on Azure (Large Instances) units are connected to the Azure network services backbones. In this way, low-latency connectivity between SAP HANA on Azure (Large Instances) units and virtual machines is provided.
 
-As of July 2019, we differentiate between two different revisions of HANA Large Instance stamps and location of deployments:
+As of January 2021, we differentiate between two different revisions of HANA Large Instance stamps and location of deployments:
 
 - "Revision 3" (Rev 3): Are the stamps that were made available for customer to deploy before July 2019
 - "Revision 4" (Rev 4): New stamp design that is deployed in close proximity to Azure VM hosts and which so far are released in the Azure regions of:
 	-  West US2 
-	-  East US 
+	-  East US
+	-  East US2 (across two Availability Zones)
+	-  South Central US (across two Availability Zones)
 	-  West Europe
 	-  North Europe
 
@@ -45,11 +47,11 @@ This document is one of several documents that cover SAP HANA on Azure (Large In
 
 The different documents of HANA Large Instance guidance cover the following areas:
 
-- [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md)
+- [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md)
+- [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md)
+- [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
+- [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md)
 - [High availability set up in SUSE by using the STONITH](./ha-setup-with-stonith.md)
 - [OS backup and restore for Type II SKUs of Revision 3 stamps](./os-backup-type-ii-skus.md)
 - [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)

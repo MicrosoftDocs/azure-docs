@@ -72,7 +72,7 @@ The Windows connector server needs to have TLS 1.2 enabled before you install th
 To enable TLS 1.2:
 
 1. Set the following registry keys:
-	
+
    ```
    Windows Registry Editor Version 5.00
 

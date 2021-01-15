@@ -564,7 +564,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
   * Create new folders
   * Upload, download, rename, and delete files and folders
   * Manage file and folder properties and permissions (right-hand side).
-	
+
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
 

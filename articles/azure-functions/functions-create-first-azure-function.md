@@ -62,7 +62,7 @@ Next, create a function in the new function app.
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    The request URL includes a key that is required, by default, to access your function over HTTP.
+    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you choose **Function** instead of **Anonymous** access level when creating the function. In this case, you should instead append `&name=<your_name>`.
 
 1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
 

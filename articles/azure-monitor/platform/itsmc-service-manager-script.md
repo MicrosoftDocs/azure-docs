@@ -11,7 +11,7 @@ ms.date: 01/23/2018
 
 # Create Service Manager Web app using the automated script
 
-Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](./itsmc-connections-scsm.md)
 
 Run the script by providing the following required details:
 
@@ -25,9 +25,6 @@ Run the script by providing the following required details:
 The script will create the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID**, and **client secret**.
 
 Save these values, you will need these values when you create a connection with IT Service Management Connector.
-
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -137,14 +134,14 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     {
         Write-Host "Failed to Register Microsoft.Web Resource Provider. Please register it in Azure Portal."
         exit
-    }   
+    }
 }
 do
 {
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
-    
+
     $resource = Get-AzResource -Name $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
@@ -232,7 +229,7 @@ try
     $appSettings['ida:ServerName'] = $serverName
     $appSettings['ida:Domain'] = $domain
     $appSettings['ida:Username'] = $userName
-	$appSettings['ida:WhitelistedClientId'] = $clientId
+    $appSettings['ida:WhitelistedClientId'] = $clientId
 
     $connStrings = @{}
     $kvp = @{"Type"="Custom"; "Value"=$password}
@@ -275,7 +272,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     catch
     {
         Write-Host "Failed to Register Microsoft.Relay Resource Provider. Please register it in Azure Portal."
-    }   
+    }
 }
 
 $resource = Get-AzResource -Name $serviceName -ResourceType Microsoft.Relay/namespaces
@@ -284,7 +281,7 @@ if(!$resource)
 {
     $serviceName = $siteName + "sbn"
     $properties = @{
-	    "sku" = @{
+        "sku" = @{
             "name"= "Standard"
             "tier"= "Standard"
             "capacity"= 1
@@ -317,5 +314,5 @@ if(!$err)
 ```
 
 ## Next steps
-[Configure the Hybrid connection](./itsmc-connections.md#configure-the-hybrid-connection).
+[Configure the Hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
 

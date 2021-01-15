@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
-ms.date: 03/13/2020
+ms.date: 01/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -27,7 +27,7 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either `HTTP` or `HTTPS`. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
+The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can only provide a URI value that includes either HTTP or HTTPS. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item. The URI is passed to template using a parameter. See the highlighted parameter definition.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 

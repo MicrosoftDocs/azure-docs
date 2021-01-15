@@ -26,7 +26,7 @@ The gateway service is hosted on group of stateless compute nodes sitting behind
 
 As part of ongoing service maintenance, we will periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for MariaDB servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing servers are planned for decommissioning. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if 
 
-* You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**. 
+* You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**. You should use fully qualified domain name (FQDN) of your server in the format <servername>.mariadb.database.azure.com, in the connection string for your application. 
 * You do not update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings.
 
 The following table lists the gateway IP addresses of the Azure Database for MariaDB gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
@@ -45,7 +45,7 @@ The following table lists the gateway IP addresses of the Azure Database for Mar
 | Brazil South |191.233.201.8, 191.233.200.16	 |  | 104.41.11.5|
 | Canada Central |40.85.224.249	 | | |
 | Canada East | 40.86.226.166	 | | |
-| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 	 | | |
+| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | China East | 139.219.130.35	 | | |
 | China East 2 | 40.73.82.1	 | | |
 | China North | 139.219.15.17	 | | |
