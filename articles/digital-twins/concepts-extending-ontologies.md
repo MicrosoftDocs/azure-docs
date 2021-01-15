@@ -27,7 +27,7 @@ In the DTDL-based REC ontology, the Space hierarchy is used to define various ki
 
 A portion of the hierarchy looks like the diagram below. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="Flow diagram illustrating part of the RealEstateCore space hierarchy. At the top level, there's an element called Space; it is connected by an 'extends' arrow down a level to Room; Room is connected by two 'extends' arrows down a level to ConferenceRoom and Office. "::: 
+:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="Flow diagram illustrating part of the RealEstateCore space hierarchy. At the top level, there's an element called Space; it is connected by an 'extends' arrow down a level to Room; Room is connected by two 'extends' arrows down a level to ConferenceRoom and Office."::: 
 
 ## Extending the RealEstateCore space hierarchy 
 
