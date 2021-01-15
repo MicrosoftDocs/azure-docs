@@ -22,37 +22,6 @@ In this quickstart, you learn a basic Azure IoT application workflow for securel
 
 [!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
-## Create a simulated device
-In this section, you create a simulated IoT device that is connected to your IoT hub. This is the simulated device that will use the Python SDK to send telemetry and receive messages from the hub. 
-
-To create a simulated device:
-1. Run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create&preserve-view=true) command in your CLI shell. This creates the simulated device identity. 
-
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
-
-    *myPythonDevice*. You can use this name directly for the simulated device in the rest of this quickstart. Optionally, use a different name. 
-
-    ```azurecli
-    az iot hub device-identity create --device-id myPythonDevice --hub-name {YourIoTHubName} 
-    ```
-
-1.  Run the [Retrieve your Device Connection String](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string&preserve-view=true) command.
-
-    ```azurecli
-    az iot hub device-identity show-connection-string --device-id myPythonDevice --hub-name {YourIoTHubName}
-    ```
-
-    The connection string output is in the following format:
-
-    ```Output
-    HostName=<your IoT Hub name>.azure-devices.net;DeviceId=<your device id>;SharedAccessKey=<some value>
-    ```
-
-1. Save the connection string in a secure location for use in the next section. 
-
-> [!NOTE]
-> Keep the CLI shell open. You'll use it in later sections to monitor events and clean up resources.
-
 ## Use the Python SDK to send messages
 In this section, you will use the Python SDK to send messages from your simulated device to your IoT hub. 
 
@@ -64,7 +33,7 @@ In this section, you will use the Python SDK to send messages from your simulate
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
-    and navigating to the `azure-iot-sdk-python/azure-iot-device/samples` directory:
+    and navigating to the *azure-iot-sdk-python/azure-iot-device/samples* directory:
 
     ```console
     cd azure-iot-sdk-python/azure-iot-device/samples

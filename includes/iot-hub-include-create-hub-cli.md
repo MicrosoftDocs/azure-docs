@@ -87,3 +87,34 @@ To create an IoT hub and a resource group:
     ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
+
+## Create a simulated device
+In this section, you create a simulated IoT device that is connected to your IoT hub. 
+
+To create a simulated device:
+1. Run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create&preserve-view=true) command in your CLI shell. This creates the simulated device identity. 
+
+    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
+
+    *myDevice*. You can use this name directly for the simulated device ID in the rest of this article. Optionally, use a different name. 
+
+    ```azurecli
+    az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
+    ```
+
+1.  Run the [Retrieve your Device Connection String](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string&preserve-view=true) command.
+
+    ```azurecli
+    az iot hub device-identity show-connection-string --device-id myDevice --hub-name {YourIoTHubName}
+    ```
+
+    The connection string output is in the following format:
+
+    ```Output
+    HostName=<your IoT Hub name>.azure-devices.net;DeviceId=<your device id>;SharedAccessKey=<some value>
+    ```
+
+1. Save the connection string in a secure location. 
+
+> [!NOTE]
+> Keep the CLI shell open. You'll use it in later steps.
