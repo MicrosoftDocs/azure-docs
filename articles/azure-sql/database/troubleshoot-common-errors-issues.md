@@ -129,10 +129,7 @@ Typically, the service administrator can use the following steps to add the logi
    FOR LOGIN <login_name, sysname, login_name>
    WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-<<<<<<< HEAD
 
-=======
->>>>>>> 2d0848a98a5e08c154c8c85c17430cedfc582831
    -- Add user to the database owner role
    EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
