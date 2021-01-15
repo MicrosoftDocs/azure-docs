@@ -8,14 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 01/15/2021
 ---
 
 # Estimate and manage capacity of an Azure Cognitive Search service
 
 Before [provisioning a search service](search-create-service-portal.md) and locking in a specific pricing tier, take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-Capacity is a function of the [tier you choose](search-sku-tier.md) (tiers determine hardware characteristics), and the replica and partition combination necessary for projected workloads. Once a service is created, you can increase or decrease the number of replicas or partitions independently. Costs will go up with each additional physical resource, but once large workloads are finished, you can reduce scale to lower your bill. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours.
+Capacity is a function of the [service tier](search-sku-tier.md). Tiers are differentiated by maximum storage, per-partition storage, and the maximum limits on the number of objects you can create. The Basic tier is designed for apps having modest storage requirements (one partition only) but with the ability to run in a high availability configuration (3 replicas). Other tiers are designed for specific workloads or patterns, such as multitenancy. Internally, services created on those tiers benefit from hardware that helps those scenarios.
+
+The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. Once a service is created, you can increase or decrease the number of replicas or partitions independently. Costs will go up with each additional physical resource, but once large workloads are finished, you can reduce scale to lower your bill. Depending on the tier and the size of the adjustment, adding or reducing capacity can take anywhere from 15 minutes to several hours.
 
 When modifying the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits of a tier. However, if you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](/rest/api/searchmanagement/services) are alternative solutions.
 
@@ -44,22 +46,11 @@ In Cognitive Search, shard management is an implementation detail and non-config
 
 ## How to evaluate capacity requirements
 
-In Azure Cognitive Search, capacity is structured as *replicas* and *partitions*.
+Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and content (a count of indexes on a service, for example). It's important to consider both because whichever limit you reach first is the effective limit.
 
-+ Replicas are instances of the search service. Each replica hosts one load-balanced copy of an index. For example, a service with six replicas has six copies of every index loaded in the service.
+Quantities of indexes and other objects are typically dictated by business and engineering requirements. For example, you might have multiple versions of the same index for active development, testing, and production.
 
-+ Partitions store indexes and automatically split searchable data. Two partitions split your index in half, three partitions split it into thirds, and so on. In terms of capacity, *partition size* is the primary differentiating feature among tiers.
-
-> [!NOTE]
-> All Standard and Storage Optimized tiers support [flexible combinations of replicas and partitions](search-capacity-planning.md#chart) so you can [optimize your system for speed or storage](search-performance-optimization.md) by changing the balance. The Basic tier offers up to three replicas for high availability but has only one partition. Free tiers don't provide dedicated resources: computing resources are shared by multiple subscribers.
-
-### Evaluating capacity
-
-Capacity and the costs of running the service go hand in hand. Tiers impose limits on two levels: storage and content (number of indexes, for example). You should think about both because whichever limit you reach first is the effective limit.
-
-Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
-
-To determine the size of an index, you have to [build one](search-what-is-an-index.md). Its size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting.
+Storage needs are determined by the size of the indexes you expect to build. There are no solid heuristics or generalities that help with estimates. The only way to determine the size of an index is [build one](search-what-is-an-index.md). Its size will be based on imported data, text analysis, and index configuration such as whether you enable suggesters, filtering, and sorting.
 
 For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
@@ -67,20 +58,20 @@ For full text search, the primary data structure is an [inverted index](https://
 > Even though estimating future needs for indexes and storage can feel like guesswork, it's worth doing. If a tier's capacity turns out to be too low, you'll need to provision a new service at a higher tier and then [reload your indexes](search-howto-reindex.md). There's no in-place upgrade of a service from one tier to another.
 >
 
-## Estimate with the Free tier
+### Estimate with the Free tier
 
 One approach for estimating capacity is to start with the Free tier. Remember that the Free service offers up to three indexes, 50 MB of storage, and 2 minutes of indexing time. It can be challenging to estimate a projected index size with these constraints, but these are the steps:
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you should use REST and [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to create the index and push the data.
++ Create an index and load your data. If the dataset can be hosted in an Azure data source supported by indexers, you can use the [Import data wizard in the portal](search-get-started-portal.md) to both create and load the index. Otherwise, you should use REST and [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to create the index and push the data. The push model requires data to be in the form of JSON documents, where fields in the document correspond to fields in the index.
 + Collect information about the index, such as size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. 
 
   Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
 With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
-## Estimate with a billable tier
+### Estimate with a billable tier
 
 Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
@@ -89,17 +80,19 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 1. [Create a service at a billable tier](search-create-service-portal.md):
 
     + Start low, at Basic or S1, if you're not sure about the projected load.
-    + Start high, at S2 or even S3, if you know you're going to have large-scale indexing and query loads.
+    + Start high, at S2 or even S3, if testing includes large-scale indexing and query loads.
     + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
 
 1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size.
 
-1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier. 
+1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
 
-Index number and size are equally important to your analysis. This is because maximum limits are reached through full utilization of storage (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. The portal helps you keep track of both, showing current usage and maximum limits side by side on the Overview page.
+1. Add replicas if you need high availability or if you experience slow query performance.
+
+   There are no guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result is not strictly linear: adding three replicas does not guarantee triple throughput. For guidance in estimating QPS for your solution, see [Scale for performance](search-performance-optimization.md)and [Monitor queries](search-monitor-queries.md).
 
 > [!NOTE]
-> Storage requirements can be inflated if documents contain extraneous data. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
+> Storage requirements can be inflated if you include data that will never be searched. Ideally, documents contain only the data that you need for the search experience. Binary data isn't searchable and should be stored separately (maybe in an Azure table or blob storage). A field should then be added in the index to hold a URL reference to the external data. The maximum size of an individual search document is 16 MB (or less if you're bulk uploading multiple documents in one request). For more information, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md).
 >
 
 **Query volume considerations**
@@ -122,13 +115,19 @@ The Free tier and preview features don't provide [service-level agreements (SLAs
 
 + Remember that the only downside of under provisioning is that you might have to tear down a service if actual requirements are greater than your predictions. To avoid service disruption, you would create a new service at a higher tier and run it side by side until all apps and requests target the new endpoint.
 
-## When to add nodes
+## When to add partitions and replicas
 
 Initially, a service is allocated a minimal level of resources consisting of one partition and one replica.
 
 A single service must have sufficient resources to handle all workloads (indexing and queries). Neither workload runs in the background. You can schedule indexing for times when query requests are naturally less frequent, but the service will not otherwise prioritize one task over another. Additionally, a certain amount of redundancy smooths out query performance when services or nodes are updated internally.
 
 As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
+
+The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might need fewer partitions than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
+
+Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read/write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
+
+Larger indexes take longer to query. As such, you might find that every incremental increase in partitions requires a smaller but proportional increase in replicas. The complexity of your queries and query volume will factor into how quickly query execution is turned around.
 
 > [!NOTE]
 > Adding more replicas or partitions increases the cost of running the service, and can introduce slight variations in how results are ordered. Be sure to check the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the billing implications of adding more nodes. The [chart below](#chart) can help you cross-reference the number of search units required for a specific configuration. For more information on how additional replicas impact query processing, see [Ordering results](search-pagination-page-layout.md#ordering-results).
@@ -197,33 +196,13 @@ Because it's easy and relatively fast to scale up, we generally recommend that y
 
 General recommendations for high availability are:
 
-* Two replicas for high availability of read-only workloads (queries)
++ Two replicas for high availability of read-only workloads (queries)
 
-* Three or more replicas for high availability of read/write workloads (queries plus indexing as individual documents are added, updated, or deleted)
++ Three or more replicas for high availability of read/write workloads (queries plus indexing as individual documents are added, updated, or deleted)
 
 Service level agreements (SLA) for Azure Cognitive Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
 Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to fluctuations in demand for both indexing and query throughput, consider one of the Standard tiers.  If you find your storage requirements are growing much more rapidly than your query throughput, consider one of the Storage Optimized tiers.
-
-## Disaster recovery
-
-Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by setting up a second search service in another region. As with availability during an index rebuild, the redirection or failover logic must come from your code.
-
-## Estimate replicas
-
-On a production service, you should allocate three replicas for SLA purposes. If you experience slow query performance, you can add replicas so that additional copies of the index are brought online to support bigger query workloads and to load balance the requests over the multiple replicas.
-
-We do not provide guidelines on how many replicas are needed to accommodate query loads. Query performance depends on the complexity of the query and competing workloads. Although adding replicas clearly results in better performance, the result is not strictly linear: adding three replicas does not guarantee triple throughput.
-
-For guidance in estimating QPS for your solution, see [Scale for performance](search-performance-optimization.md)and [Monitor queries](search-monitor-queries.md)
-
-## Estimate partitions
-
-The [tier you choose](search-sku-tier.md) determines partition size and speed, and each tier is optimized around a set of characteristics that fit various scenarios. If you choose a higher-end tier, you might need fewer partitions than if you go with S1. One of the questions you'll need to answer through self-directed testing is whether a larger and more expensive partition yields better performance than two cheaper partitions on a service provisioned at a lower tier.
-
-Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read/write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
-
-Larger indexes take longer to query. As such, you might find that every incremental increase in partitions requires a smaller but proportional increase in replicas. The complexity of your queries and query volume will factor into how quickly query execution is turned around.
 
 ## Next steps
 

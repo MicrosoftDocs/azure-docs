@@ -14,11 +14,11 @@ ms.custom: contperf-fy21q2
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. You'll set the pricing tier when creating the service in Azure portal. If you're provisioning a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
+When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. Estimated monthly costs are shown in the **Select a pricing tier** page in the portal. If you're creating a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
 
 The tier you select determines:
 
-+ Upper limits of indexes and other objects you can create on the service
++ Maximum number of indexes and other objects that you can create on the service
 + Size and speed of partitions (physical storage)
 + Billable rate as a fixed monthly cost, but also an incremental cost if you add capacity
 
@@ -32,7 +32,7 @@ Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Stan
 
 **Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, system resources are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
-**Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
+**Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default because it gives you more flexibility in scaling for workloads. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
 
 Some tiers are designed for certain types of work. For example, **Standard 3 High Density (S3 HD)** is a *hosting mode* for S3, where the underlying hardware is optimized for a large number of smaller indexes and is intended for multitenancy scenarios. S3 HD has the same per-unit charge as S3, but the hardware is optimized for fast file reads on a large number of smaller indexes.
 
@@ -75,7 +75,7 @@ Search services are allocated computing resources in the form of *partitions* (f
 
 The following example provides an illustration. Assume a hypothetical billing rate of $100 per month. If you keep the search service at it's initial capacity of one partition and one replica, then $100 is what you can expect to pay at the end of the month. However, if you add two more replicas to achieve high availability, the monthly bill increases to $300 ($100 for the first replica-partition pair, followed by $200 for the two replicas).
 
-This pricing model is based on the concept of applying the billing rate to the number *search units* (SU) used by a search service. All services are provisioned at one SU, but you can increase the SUs by adding either partitions or replicas to handle larger workloads. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
+This pricing model is based on the concept of applying the billing rate to the number *search units* (SU) used by a search service. All services are initially provisioned at one SU, but you can increase the SUs by adding either partitions or replicas to handle larger workloads. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
 
 ## Next steps
 

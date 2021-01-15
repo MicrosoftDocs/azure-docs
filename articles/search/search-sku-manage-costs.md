@@ -13,7 +13,7 @@ ms.date: 01/15/2021
 
 # How to estimate and manage costs of an Azure Cognitive Search service
 
-In this article, learn about billable events, the pricing model, and tips for managing the cost of running a Cognitive Search service.
+In this article, learn about the pricing model, billable events, and tips for managing the cost of running an Azure Cognitive Search service.
 
 <!-- The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. *Replicas* are instances of the search engine. *Partitions* are modules of storage. An *SU* is just a billing concept that represents the composite of replicas and partitions in use by your service.
 
@@ -21,11 +21,11 @@ Mathematically, SU is the product of the number of *replicas* and *partitions* u
 
 ## Pricing model
 
-The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need. 
+The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need.
 
 The amount resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
 
-For billing purposes, Cognitive Search has the concept of a *search unit* (SU). An SU is the product of the *replicas* and *partitions* used by a service: **(R x P = SU)**.
+For billing purposes, Cognitive Search has the concept of a *search unit* (SU). An SU is the product of the *replicas* and *partitions* used by a service: **(R x P = SU)**. The number of SUs multiplied by the billing rate **(SU * rate = monthly spend)** is the primary determinant of search-related costs. 
 
 Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs. This maximum can be reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, for example. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
 
@@ -69,7 +69,9 @@ You can eliminate data egress charges entirely if you create the Azure Cognitive
 
 + Inbound data: Microsoft doesn't charge for any inbound data to any service on Azure. 
 
-+ Outbound data:  Outbound data refers to query results. Cognitive Search does not charge for outbound data, but outbound charges from Azure are possible if services are in different regions. These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're sending results to other regions or non-Azure apps, you could see those costs reflected in your overall bill.
++ Outbound data:  Outbound data refers to query results. Cognitive Search does not charge for outbound data, but outbound charges from Azure are possible if services are in different regions.
+
+  These charges aren't actually part of your Azure Cognitive Search bill. They're mentioned here because if you're sending results to other regions or non-Azure apps, you could see those costs reflected in your overall bill.
 
 ### AI enrichment with Cognitive Services
 
@@ -104,3 +106,7 @@ In terms of the service itself, the only way to lower your bill is to reduce rep
 
 ## Next steps
 
+Learn how to monitor and manage costs across your Azure subscription.
+
+> [!div class="nextstepaction"]
+> [Azure Cost Management and Billing documentation](../cost-management-billing/cost-management-billing-overview.md)

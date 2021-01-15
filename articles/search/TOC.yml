@@ -316,6 +316,8 @@
       href: search-limits-quotas-capacity.md
     - name: Scale for performance
       href: search-performance-optimization.md
+    - name: Disaster recovery
+      href: search-disaster-recovery.md
     - name: Multitenant architecture
       href: search-modeling-multitenant-saas-applications.md
   - name: Develop
