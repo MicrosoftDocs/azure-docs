@@ -83,7 +83,7 @@ az postgres flexible-server create \
 
 ### Configure a PostgreSQL database
 
-The PostgreSQL server that you created earlier has an empty databse **postgres** . For this quickstart let's create a new database called `demo` following these steps:
+The PostgreSQL server that you created earlier has an empty database **postgres** . For this quickstart let's create a new database called `demo` following these steps:
 
 1. Install local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. 
 2. Run the following psql command to connect to **postgres** database on your PostgreSQL server
