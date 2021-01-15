@@ -43,5 +43,6 @@ To get started with the Speech CLI, see the [quickstart](spx-basics.md). This ar
 
 ## Next steps
 
-- [Speech CLI quickstart](spx-basics.md)
-- If your use-case is more complex, [get the Speech SDK](speech-sdk.md)
+- Get started with the [Speech CLI quickstart](spx-basics.md)
+- [Configure your data store](./spx-data-store-configuration.md)
+- Learn how to [run batch operations with the Speech CLI](./spx-batch-operations.md)
