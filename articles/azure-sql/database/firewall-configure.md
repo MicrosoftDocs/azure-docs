@@ -264,7 +264,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 ## Next steps
 
 - Confirm that your corporate network environment allows inbound communication from the compute IP address ranges (including SQL ranges) that are used by the Azure datacenters. You might have to add those IP addresses to the allow list. See [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).  
-- For a quickstart about creating a server-level IP firewall rule, see [Create a single database in Azure SQL Database](single-database-create-quickstart.md).
+- See our quickstart about [creating a single database in Azure SQL Database](single-database-create-quickstart.md).
 - For help with connecting to a database in Azure SQL Database from open-source or third-party applications, see [Client quickstart code samples to Azure SQL Database](connect-query-content-reference-guide.md#libraries).
 - For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md)
 - For an overview of Azure SQL Database security, see [Securing your database](security-overview.md).
