@@ -310,8 +310,8 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     **Azure CLI**
 
-    ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    ```azurecli
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:

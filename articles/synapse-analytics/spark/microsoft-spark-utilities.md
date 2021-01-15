@@ -702,12 +702,12 @@ Env.Help()
 
 Get result:
 ```
-getUserName(): returns user name
-getUserId(): returns unique user id
-getJobId(): returns job id
-getWorkspaceName(): returns workspace name
-getPoolName(): returns Spark pool name
-getClusterId(): returns cluster id
+GetUserName(): returns user name
+GetUserId(): returns unique user id
+GetJobId(): returns job id
+GetWorkspaceName(): returns workspace name
+GetPoolName(): returns Spark pool name
+GetClusterId(): returns cluster id
 ```
 
 ### Get user name
@@ -877,4 +877,4 @@ Env.GetClusterId()
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

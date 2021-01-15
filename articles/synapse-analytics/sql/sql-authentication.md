@@ -105,7 +105,7 @@ To create a database, the user must be a user based on a SQL Server login in the
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Add the new user, to the **dbmanager** database role in `master` using the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) procedure (note that [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement is not supported in SQL provisioned). Sample statements:
+4. Add the new user, to the **dbmanager** database role in `master` using the [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) procedure (note that [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statement is not supported in SQL provisioned). Sample statements:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -127,7 +127,7 @@ The other administrative role is the login manager role. Members of this role ca
 
 ## Non-administrator users
 
-Generally, non-administrator accounts don't need access to the master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) statement. 
+Generally, non-administrator accounts don't need access to the master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement. 
 
 The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.)  
 
@@ -185,7 +185,7 @@ The database roles can be the built-in roles such as **db_owner**, **db_ddladmin
 
 For example, the **db_datareader** fixed database role grants read access to every table in the database, which is usually more than is strictly necessary. 
 
-It's far better to use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. When a user is a member of multiple roles, they aggregate the permissions of them all.
+It's far better to use the [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) statement to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. When a user is a member of multiple roles, they aggregate the permissions of them all.
 
 ## Permissions
 
@@ -193,7 +193,7 @@ There are over 100 permissions that can be individually granted or denied in SQL
 
 Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. 
 
-Start with the list of permissions at [Permissions (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) and review the [poster size graphic](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) of the permissions.
+Start with the list of permissions at [Permissions (Database Engine)](/sql/relational-databases/security/permissions-database-engine) and review the [poster size graphic](/sql/relational-databases/security/media/database-engine-permissions.png) of the permissions.
 
 ### Considerations and restrictions
 
@@ -230,5 +230,4 @@ When managing logins and users in SQL Database, consider the following points:
 
 ## Next steps
 
-For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
- 
+For more information, see [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

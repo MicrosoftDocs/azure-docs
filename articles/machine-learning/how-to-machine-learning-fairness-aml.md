@@ -10,7 +10,7 @@ author: mesameki
 ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, responsible-ml
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
@@ -42,7 +42,7 @@ Later versions of Fairlearn should also work in the following example code.
 
 The following example shows how to use the fairness package. We will upload model fairness insights into Azure Machine Learning and see the fairness assessment dashboard in Azure Machine Learning studio.
 
-1. Train a sample model in a Jupyter notebook. 
+1. Train a sample model in Jupyter Notebook. 
 
     For the dataset, we use the well-known adult census dataset, which we fetch from OpenML. We pretend we have a loan decision problem with the label indicating whether an individual repaid a previous loan. We will train a model to predict if previously unseen individuals will repay a loan. Such a model might be used in making loan decisions.
 

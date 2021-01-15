@@ -148,7 +148,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Run some queries
 
-It is not recommended to run large queries while being logged as the server admin, as it uses a [limited resource class](resource-classes-for-workload-management.md). Instead configure [Workload Isolation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) as [illustrated in the tutorials](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
+It is not recommended to run large queries while being logged as the server admin, as it uses a [limited resource class](resource-classes-for-workload-management.md). Instead configure [Workload Isolation](./quickstart-configure-workload-isolation-tsql.md) as [illustrated in the tutorials](./load-data-wideworldimportersdw.md#create-a-user-for-loading-data).
 
 Azure Synapse Analytics uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps:
 

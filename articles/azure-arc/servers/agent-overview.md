@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 12/15/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
 ---
 
@@ -64,6 +64,8 @@ The following versions of the Windows and Linux operating system are officially 
 
 Before configuring your machines with Azure Arc enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
+Azure Arc enabled servers supports up to 5,000 machine instances in a resource group.
+
 ### Transport Layer Security 1.2 protocol
 
 To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.
@@ -76,6 +78,10 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 ### Networking configuration
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review the following to understand the network configuration requirements.
+
+> [!NOTE]
+> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) as a proxy for the Connected Machine agent.
+>
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
 
@@ -92,9 +98,11 @@ URLs:
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest Configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
+|`www.office.com`|Office 365|
 
 Preview agents (version 0.11 and lower) also require access to the following URLs:
 
@@ -105,7 +113,7 @@ Preview agents (version 0.11 and lower) also require access to the following URL
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
 
-The URLs in the previous table are required in addition to the Service Tag IP address range information because the majority of services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+The URLs in the previous table are required in addition to the Service Tag IP address range information because most services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
 ### Register Azure resource providers
 
@@ -158,7 +166,7 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
 
-After installing the Connected Machine agent for Windows, the following additional system-wide configuration changes are applied.
+After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
 * The following installation folders are created during setup.
 
@@ -210,7 +218,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
 
-After installing the Connected Machine agent for Linux, the following additional system-wide configuration changes are applied.
+After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 
 * The following installation folders are created during setup.
 

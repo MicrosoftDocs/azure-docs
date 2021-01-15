@@ -99,7 +99,7 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 ### How to get consistent ordering
 
-If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`**] expression(query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results. Fields commonly used in an **`$orderby`** include rating, date, and location fields if you specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values.
+If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results. Fields commonly used in an **`$orderby`** include rating, date, and location fields if you specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values.
 
 Another approach that promotes consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 

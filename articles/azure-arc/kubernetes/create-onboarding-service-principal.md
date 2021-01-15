@@ -78,7 +78,7 @@ az role assignment create \
 
 Reference the newly created Service Principal:
 
-```console
+```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```
