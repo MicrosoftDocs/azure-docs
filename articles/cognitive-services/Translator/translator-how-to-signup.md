@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 01/15/2021
 ms.author: lajanuar
 ---
 # Create a Translator Resource
@@ -83,7 +83,7 @@ All Cognitive Services API requests require an authentication key. You can pass 
 
 ## Delete a  resource or resource group
 
-To remove a Cognitive Services or Translator resource, you can [delete the resource](azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). Deleting the resource group also deletes the resources contained in the group.
+To remove a Cognitive Services or Translator resource, you can [delete the resource](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). Deleting the resource group also deletes the resources contained in the group.
 
 ## Learn more
 
