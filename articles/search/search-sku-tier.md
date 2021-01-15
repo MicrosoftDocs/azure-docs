@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q2
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. Estimated monthly costs are shown in the **Select a pricing tier** page in the portal. If you're creating a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
+When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. Estimated monthly costs are shown in the **Select Pricing Tier** page in the portal. If you're creating a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
 
 The tier you select determines:
 
@@ -73,7 +73,7 @@ Once you create a service, the billing rate becomes both a *fixed cost* of runni
 
 Search services are allocated computing resources in the form of *partitions* (for storage), and *replicas* (instances of the query engine). Initially, a service is created with one of each, and the billing rate is inclusive of both resources. However, if you scale capacity, the costs go up or down in increments of the billable rate.
 
-The following example provides an illustration. Assume a hypothetical billing rate of $100 per month. If you keep the search service at it's initial capacity of one partition and one replica, then $100 is what you can expect to pay at the end of the month. However, if you add two more replicas to achieve high availability, the monthly bill increases to $300 ($100 for the first replica-partition pair, followed by $200 for the two replicas).
+The following example provides an illustration. Assume a hypothetical billing rate of $100 per month. If you keep the search service at its initial capacity of one partition and one replica, then $100 is what you can expect to pay at the end of the month. However, if you add two more replicas to achieve high availability, the monthly bill increases to $300 ($100 for the first replica-partition pair, followed by $200 for the two replicas).
 
 This pricing model is based on the concept of applying the billing rate to the number *search units* (SU) used by a search service. All services are initially provisioned at one SU, but you can increase the SUs by adding either partitions or replicas to handle larger workloads. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
 
@@ -84,14 +84,3 @@ The best way to choose a pricing tier is to start with a least-cost tier, and th
 + [Create a search service](search-create-service-portal.md)
 + [Estimate costs](search-sku-manage-costs.md)
 + [Estimate capacity](search-sku-manage-costs.md)
-
-<!-- Start with a Free tier and build an initial index by using a subset of your data to understand its characteristics. The data structure in Azure Cognitive Search is an inverted index structure. The size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. So content characteristics rather than the size of the dataset determine index storage requirements.
-
-After you have an initial estimate of your index size, [provision a billable service](search-create-service-portal.md) on one of the tiers discussed in this article: Basic, Standard, or Storage Optimized. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all the data that you want to be searchable.
-
-[Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
-
-If performance and capacity are fine, you're done. Otherwise, re-create a search service at a different tier that more closely aligns with your needs.
-
-> [!NOTE]
-> If you have questions, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://azure.microsoft.com/support/options/). -->
