@@ -98,15 +98,14 @@ Related links:
 
 ### Configure service access
 
-Currently, Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Also, resources of the following services are unable to access a container registry with network restrictions:
+Currently, access to a container registry with network restrictions isn't allowed from several Azure services:
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Azure Container Registry Tasks
+* Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. 
+* Resources of certain Azure services are unable to access a container registry with network restrictions, including Azure App Service and  Azure Container Instances.
 
 If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
 
-A network-restricted registry can [allow access](allow-access-trusted-services.md)) by select trusted services.
+Starting January 2021, you can configure a network-restricted registry to [allow access](allow-access-trusted-services.md) from select trusted services.
 
 Related links:
 

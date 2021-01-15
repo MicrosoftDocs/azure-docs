@@ -2,7 +2,7 @@
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 01/15/2021
 ---
 
 # Import container images to a container registry
@@ -32,9 +32,9 @@ To import container images, this article requires that you run the Azure CLI in 
 >
 
 > [!IMPORTANT]
-> Changes to image import are introduced in API version XXX:
-> * Import to or from a network-restricted Azure container registry requires the restricted registry to [**enable trusted services**](allow-access-trusted-services.md) to bypass the network. If the option isn't enabled in a newly created registry with a private endpoint or with registry firewall rules, import will fail. In existing network-restricted Azure container registries that are used as an import source or target, enabling this network security feature is optional but recommended.
-> * Enabling or disabling network access by trusted services is a feature of the **Premium** service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+> Changes to image import between two Azure container registries have been introduced as of January 2021:
+> * Import to or from a network-restricted Azure container registry requires the restricted registry to [**allow access by trusted services**](allow-access-trusted-services.md) to bypass the network. By default, the setting is enabled, allowing import. If the setting isn't enabled in a newly created registry with a private endpoint or with registry firewall rules, import will fail. 
+> * In an existing network-restricted Azure container registry that is used as an import source or target, enabling this network security feature is optional but recommended.
 
 ## Prerequisites
 
