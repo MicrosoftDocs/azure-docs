@@ -10,8 +10,8 @@ ms.author: alkohli
 ms.subservice: common
 ---
 
-# Troubleshoot import and export issues in Azure Import/Export
-This article describes how to troubleshoot common issues when importing and exporting files in Azure Import/Export. The Microsoft Azure Import/Export Tool returns an error message if it runs into an issue.
+# Troubleshoot issues in Azure Import/Export
+This article describes how to troubleshoot common issues when importing and exporting data in Azure Import/Export. The Microsoft Azure Import/Export Tool returns an error message if it runs into an issue.
 
 ## A copy session failed. What I should do?  
 
