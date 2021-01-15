@@ -46,35 +46,36 @@ This article shows you how to use PowerShell to create and manage directories, f
 
 ## Connect to the account
 
-Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-```powershell
-Connect-AzAccount
-```
-
-If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Next, choose how you want your commands to obtain authorization to the storage account. 
+Choose how you want your commands to obtain authorization to the storage account. 
 
 ### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
-With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
+With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
+1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ``` 
+
+3. Get the storage account context.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
 
 ### Option 2: Obtain authorization by using the storage account key
 
-With this approach, the system doesn't check Azure RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ## Create a container

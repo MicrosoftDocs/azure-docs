@@ -43,7 +43,7 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 > ### Option 1: Register and auto configure your app and then download the code sample
 > #### Step 1: Register your application
 > To register your app,
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >

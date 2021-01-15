@@ -136,7 +136,7 @@ This setting applies to the following client apps:
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
 
 **Remarks**
 

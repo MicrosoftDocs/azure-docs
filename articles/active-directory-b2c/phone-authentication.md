@@ -35,7 +35,7 @@ With phone sign-up and sign-in, the user can sign up for the app using a phone n
 >
 > *&lt;insert: a link to your Privacy Statement&gt;*<br/>*&lt;insert: a link to your Terms of Service&gt;*
 
-To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the Phone-Email-Base.xml file in the phone sign-up & sign-in starter pack):
+To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the *Phone_Email_Base.xml* file in the [phone sign-up and sign-in starter pack][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        

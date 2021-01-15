@@ -17,10 +17,10 @@ ms.author: genli
 
 ---
 # Reset local Windows password for Azure VM offline
-You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. The steps described in this article do not apply to Windows domain controllers. 
+You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](reset-rdp.md) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. The steps described in this article do not apply to Windows domain controllers. 
 
 > [!WARNING]
-> Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) first.
+> Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md) first.
 
 ## Overview of the process
 The core steps for performing a local password reset for a Windows VM in Azure when there is no access to the Azure guest agent is as follows:
@@ -37,7 +37,7 @@ The core steps for performing a local password reset for a Windows VM in Azure w
 > [!NOTE]
 > The steps do not apply to Windows domain controllers. It only works on standalone server or a server that is a member of a domain.
 
-Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before trying the following steps. Make sure you have a backup of your VM before you start.
+Always try to reset a password using the [Azure portal or Azure PowerShell](reset-rdp.md) before trying the following steps. Make sure you have a backup of your VM before you start.
 
 1. Take a snapshot for the OS disk of the affected VM,  create a disk from the snapshot, and then attach the disk to a troubleshoot VM. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal](troubleshoot-recovery-disks-portal-windows.md).
 2. Connect to the troubleshooting VM using Remote Desktop.
@@ -217,4 +217,4 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](/pre
       * remove `gpt.ini` (if `gpt.ini` existed before, and you renamed it to `gpt.ini.bak`, rename the `.bak` file back to `gpt.ini`)
 
 ## Next steps
-If you still cannot connect using Remote Desktop, see the [RDP troubleshooting guide](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). The [detailed RDP troubleshooting guide](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) looks at troubleshooting methods rather than specific steps. You can also [open an Azure support request](https://azure.microsoft.com/support/options/) for hands-on assistance.
+If you still cannot connect using Remote Desktop, see the [RDP troubleshooting guide](troubleshoot-rdp-connection.md). The [detailed RDP troubleshooting guide](detailed-troubleshoot-rdp.md) looks at troubleshooting methods rather than specific steps. You can also [open an Azure support request](https://azure.microsoft.com/support/options/) for hands-on assistance.

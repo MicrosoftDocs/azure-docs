@@ -132,5 +132,4 @@ After you've submitted the support request, the Azure support team will contact 
 
 ## Other resources
 
-You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Microsoft Q&A question page for Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
-
+You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Microsoft Q&A question page for Azure Synapse Analytics](/answers/topics/azure-synapse-analytics.html).

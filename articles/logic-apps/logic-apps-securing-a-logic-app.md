@@ -1082,7 +1082,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. Before an Azure function can use a managed identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+1. Before an Azure function can use a managed identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
 1. In the trigger or action where you want to use the managed identity, specify these property values:
 

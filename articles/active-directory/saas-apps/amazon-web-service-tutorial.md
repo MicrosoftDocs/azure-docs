@@ -383,7 +383,11 @@ You can also use Microsoft Access Panel to test the application in any mode. Whe
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
-  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 120 characters
+  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 240 characters.
+
+## Change log
+
+* 01/12/2020 - Increased role length limit from 119 characters to 239 characters. 
 
 ## Next steps
 
