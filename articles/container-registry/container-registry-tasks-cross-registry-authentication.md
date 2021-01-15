@@ -38,8 +38,8 @@ For demonstration purposes, as a one-time operation, run [az acr import][az-acr-
 
 ```azurecli
 az acr import --name mybaseregistry \
-  --source docker.io/library/node:9-alpine \
-  --image baseimages/node:9-alpine 
+  --source docker.io/library/node:15-alpine \
+  --image baseimages/node:15-alpine 
 ```
 
 ## Define task steps in YAML file
