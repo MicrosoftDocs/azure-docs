@@ -128,7 +128,7 @@ Use following code to create a method for computing a signature.
 ```csharp
 static string ComputeSignature(string stringToSign)
 {
-    string secret = "rEoNm/+JOufiU5ZIj38qVDSR0i3yCOIttFH40efWRE5TJYiCtQhGJk1aIo+y+iCkdb93/c2FbVv8x4H3da5UVA==";
+    string secret = "resourceAccessKey";
 
     using (var hmacsha256 = new HMACSHA256(Convert.FromBase64String(secret)))
     {
@@ -138,4 +138,30 @@ static string ComputeSignature(string stringToSign)
     }
 } 
 ```
+replace "resourceAccessKey" with access key of your real Azure Communication Services resource.
+
+## Create an authorization header string
+Prepare a string will be used in authorization header.
+steps:
+1. Compute a content hash
+2. Specify the Coordinated Universal Time (UTC) timestamp
+3. Prepare a string to sign
+4. Compute the signature
+5. Concatenate the string, which will be used in authorization header
+ Add following code into Main method:
+```csharp
+//Compute a content hash
+var contentHash = await ComputeContentHash(requestMessage);
+//Specify the Coordinated Universal Time (UTC) timestamp
+var date = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
+//Prepare a string to sign
+var stringToSign = $"{requestMessage.Method}\n{requestMessage.RequestUri.PathAndQuery}\n{date};{requestMessage.RequestUri.Authority};{contentHash}";
+//Compute the signature
+var signature = ComputeSignature(stringToSign);
+//Concatenate the string, which will be used in authorization header
+var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
+```
+
+
+
 
