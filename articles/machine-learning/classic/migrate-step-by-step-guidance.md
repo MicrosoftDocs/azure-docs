@@ -50,34 +50,37 @@ To rebuild your Studio (classic) experiments and web services you must:
     - Configure applications to use the new Azure Machine Learning endpoint.
 
 
- ## Web services
-
-Add this in the deployment section
-    
-    In ML Studio(classic), there are three types of web service: request/respond web service, batch web service, and retraining web service. The mapping in Azure Machine Learning is summarized in below table.
-
-    |ML Studio(classic) web service|Azure Machine Learning endpoint|
-    |---|---|
-    |Request/respond web service (for real-time prediction)|Real-time endpoint|
-    |Batch web service (for batch prediction)|Pipeline endpoint|
-    |Retraining web service (for retraining purpose)|Pipeline endpoint| 
-    
-    This article will cover how to recreate the web service by:
-    - [Deploy real time endpoint for real time prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
-    - [Publish pipeline endpoint for batch prediction or retraining](#publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
-
-### Create 
 
 
 
-## Create Azure Machine Learning resource
 
-### Workspace
+
+Let's use Bike rentle prediction as an example go give you a glance what it looks like in Azure Machine Learning after migration. 
+
+In Machine Learning Studio(classic), there is a Bike dataset, an experiment that trains a XX model, and a web service. 
+[to do: screenshot of dataset, exp, web service] 
+
+
+After go through the migration steps, this is what it looks like in your Azure Machine Learning Studio.
+[to do: screenshot of dataset, pipeline graph, endpoint] 
+
+
+
+[to-do: add a screenshot of classic automobile exp + web service -> AML exp + web service] 
+
+
+
+
+
+Following sections will describe how to do each step in detail.
+
+## Create Azure Machine Learning workspace
 
 The workspace is the top-level resource for Azure Machine Learning, it provides a centralized place to work with all the artifacts you create in Azure Machine Learning.
 
 Follow [this article](../how-to-manage-workspace.md) to create Azure Machine Learning workspace. 
 
+After create the workspace, go to ml.azure.com and select your workspace. We will do the following migration steps in this web portal. 
 
 
 ### Compute cluster for training
@@ -100,9 +103,8 @@ Customer can easily create AKS clusters in the **Compute -> Inference clusters**
 [Create and attach an Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md) describes how to create or attach an AKS cluster with more details on limitation and AKS version. 
 
 
-## Rebuild the experiment to train a model
+## Rebuild the experiment for training
 
-This section will describe how to rebuild ML Studio(classic) experiment in Azure Machine Learning designer. Designer provides a similar drag and drop experience. If you have never use designer before, it's recommended to go through [designer tutorial](../tutorial-designer-automobile-price-train-score.md) to get familiar with it.
 
 Rebuild ML Studio(classic) experiment can be further divided into following steps:
 
@@ -227,6 +229,22 @@ After the run finish, you can check the output of each module. Here are a few he
 > [!TIP]
 > The [migration reference article](./migrate-reference.md) call outs the difference of Studio(classic) and designer that you should pay attention to. For example, it includes the module mapping table, the tips to migrate R script.
 
+
+
+## Web services
+
+
+In ML Studio(classic), there are three types of web service: request/respond web service, batch web service, and retraining web service. The mapping in Azure Machine Learning is summarized in below table.
+
+|ML Studio(classic) web service|Azure Machine Learning endpoint|
+|---|---|
+|Request/respond web service (for real-time prediction)|Real-time endpoint|
+|Batch web service (for batch prediction)|Pipeline endpoint|
+|Retraining web service (for retraining purpose)|Pipeline endpoint| 
+    
+This section will cover how to recreate the web service by:
+- [Deploy real time endpoint for real time prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
+- [Publish pipeline endpoint for batch prediction or retraining](#publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
 
 
 ## Deploy real time endpoint for real time prediction
