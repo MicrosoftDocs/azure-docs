@@ -1,7 +1,7 @@
 ---
 title: Get started - Translator
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to sign up for the Azure Cognitive Services Translator and get a subscription key.
+description: This article will show you how to create the Azure Cognitive Services Translator and get a subscription key.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 01/15/2021
 ms.author: lajanuar
 ---
-# Create a Translator Resource
+# Create a Translator Service 
 
 ## Prerequisites
 
 To get started, you need an active Azure subscription.
 If you don't have one, you can [**create a free Azure account**](https://azure.microsoft.com/free/cognitive-services/).
 
-## Create a Cognitive Services resource
+## Create your resource
 
 ### 1. Choose your resource type
 
-Translator  can be accessed through two different resource types:
+The Translator service can be accessed through two different resource types:
 
 * **Single-service resource**—enables access to a single service API key and endpoint.  
 * **Multi-service resource**—enables access to the following Cognitive Services using a single API key and endpoint:
