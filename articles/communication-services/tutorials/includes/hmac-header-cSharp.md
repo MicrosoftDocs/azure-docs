@@ -176,5 +176,16 @@ requestMessage.Headers.Add("Authorization", authorizationHeader);
 requestMessage.Headers.Add("Host", requestMessage.RequestUri.Authority);
 ```
 
+## Test the client
+Call the endpoint using HttpClient and check the response.
+```csharp
+HttpClient httpClient = new HttpClient();
+httpClient.BaseAddress = requestUri; 
+
+var response = await httpClient.SendAsync(requestMessage);
+var responseString = await response.Content.ReadAsStringAsync();
+
+Console.WriteLine(responseString);
+```
 
 
