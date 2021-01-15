@@ -1,5 +1,5 @@
 ---
-title: Offerings from partners | Azure partner solutions
+title: Offerings from partners - Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
 author: tfitzmac
 ms.topic: conceptual
