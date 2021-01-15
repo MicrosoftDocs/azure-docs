@@ -24,7 +24,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- An [Azure Synapse Analytics workspace](../get-started-create-workspace.md). Ensure that it has a Azure Data Lake Storage Gen2 storage account configured as the default storage. For the Data Lake Storage Gen2 file system that you work with, ensure that you're the *Storage Blob Data Contributor*.
+- An [Azure Synapse Analytics workspace](../get-started-create-workspace.md). Ensure that it has an Azure Data Lake Storage Gen2 storage account configured as the default storage. For the Data Lake Storage Gen2 file system that you work with, ensure that you're the *Storage Blob Data Contributor*.
 - An Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a dedicated SQL pool by using Synapse Studio](../quickstart-create-sql-pool-studio.md).
 - An Azure Machine Learning linked service in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md).
 
