@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 Azure Cosmos DB API for MongoDB operations may fail with rate-limiting (16500/429) errors if they exceed a collection's throughput limit (RUs). 
 
-Enabling the Server Side Retry (SSR) feature will cause these operations to be retried server-side automatically, after a short delay for all collections in your account. This feature is a convenient  alternative to handling rate-limiting errors in client application code.
+You can enable the Server Side Retry (SSR) feature and let the server retry these operations automatically. The requests are retried after a short delay for all collections in your account. This feature is a convenient alternative to handling rate-limiting errors in the client application.
 
 
 ## Use the Azure portal
