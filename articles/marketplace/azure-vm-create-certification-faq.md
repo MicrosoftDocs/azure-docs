@@ -232,7 +232,7 @@ If your image isn't installed with one of the following kernel versions, update 
 |OS family|Version|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
-||14.04 LTS|4.15.0-1049-*-azure|
+||14.04 LTS|4.15.0-1049-\*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -266,8 +266,8 @@ If your image isn't installed with one of the following kernel versions, update 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK follows RHEL above|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS Stable 2079.6.0|4.19.43*|
-||Beta 2135.3.1|4.19.50*|
-||Alpha 2163.2.1|4.19.50*|
+||Beta 2135.3.1|4.19.50\*|
+||Alpha 2163.2.1|4.19.50\*|
 |Debian|jessie (security)|3.16.68-2|
 ||jessie backports|4.9.168-1+deb9u3|
 ||stretch (security)|4.9.168-1+deb9u3|
@@ -310,11 +310,11 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1MB (2048 sectors, each sector of 512 bytes) partition
+## First 1-MB partition (2,048 sectors, each sector of 512 bytes)
 
-If you are [building your own image](azure-vm-create-using-own-image.md), ensure that the first 2048 sectors (1MB) of the OS disk is empty. Otherwise, your publishing will fail. Please note that this requirement is applicable to OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement. 
+If you're [building your own image](azure-vm-create-using-own-image.md), ensure that the first 2,048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable only to the OS disk (not to data disks). If you're building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement. 
 
-### Create a 1MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD (Linux only steps)
+### Create a 1-MB partition (2,048 sectors, each sector of 512 bytes) on an empty VHD (Linux-only steps)
 
 These steps apply to Linux only.
 
@@ -379,7 +379,7 @@ These steps apply to Linux only.
 
 1. Detach the VHD from VM and delete the VM.
 
-### Create a First MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
+### Create a first 1-MB partition (2,048 sectors, each sector of 512 bytes) by moving existing data on VHD
 
 These steps apply to Linux only.
 
