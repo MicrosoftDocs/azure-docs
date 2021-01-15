@@ -45,7 +45,7 @@ To resolve this issue, create a valid registration token:
 7. In the **Value data:** entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 0](media/isregisteredCopy.png)
+   > ![Screenshot of IsRegistered 0](media/isregistered-token.png)
 
 8. Open a command prompt as an administrator.
 9. Enter **net stop RDAgentBootLoader**. 
@@ -55,7 +55,7 @@ To resolve this issue, create a valid registration token:
 13. Verify that **IsRegistered** is set to 1 and there is nothing in the data column for **RegistrationToken**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 1](media/isregistered.png)
+   > ![Screenshot of IsRegistered 1](media/isregistered-registry.png)
 
 ## Error: Agent cannot connect to broker with INVALID_FORM or NOT_FOUND. URL
 
@@ -67,7 +67,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 3. Make note of the values for **BrokerURI** and **BrokerURIGlobal**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of broker uri and broker uri global](media/brokeruri.png)
+   > ![Screenshot of broker uri and broker uri global](media/broker-uri.png)
 
  
 4. Open a browser and go to *\<BrokerURI\>api/health*. 
@@ -77,19 +77,19 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says **"RDBroker is Healthy"** as shown in the following screen shots. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of successfully loaded broker uri access](media/brokuri.png)
+   > ![Screenshot of successfully loaded broker uri access](media/broker-uri-web.png)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of successfully loaded broker global uri access](media/brokglobal.png)
+   > ![Screenshot of successfully loaded broker global uri access](media/broker-global.png)
  
 
 7. If the network is blocking broker connection, the pages will not load, as shown in the following screen shot. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessfulbrokeruri.png)
+   > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.png)
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessfulbrokerglobal.png)
+   > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
 9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection.
@@ -122,7 +122,7 @@ To disable a policy:
 6. Select **Apply**.   
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Windows Installer policy in Resultant Set of Policy](media/gpopolicy.png)
+   > ![Screenshot of Windows Installer policy in Resultant Set of Policy](media/gpo-policy.png)
 
 ## Error: Win32Exception
 
@@ -154,7 +154,7 @@ To resolve this issue:
 4. Find **fReverseConnectMode** and make sure its data value is **1**. Also make sure that **fEnableWinStation** is set to **1**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of fReverseConnectMode](media/fenable2.png)
+   > ![Screenshot of fReverseConnectMode](media/fenable-2.png)
 
 5. If **fReverseConnectMode** isn't set to **1**, select **fReverseConnectMode** and enter **1** in its value field. 
 6. If **fEnableWinStation** isn't set to **1**, select **fEnableWinStation** and enter **1** into its value field.
@@ -252,7 +252,7 @@ To resolve this issue:
 5. Wait for 5-10 minutes for the session host status to say **Available**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/hostpool.png)
+   > ![Screenshot of available session host](media/hostpool-portal.png)
 
 ## Your issue isn't listed here or wasn't resolved
 
@@ -280,7 +280,7 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
 >You may see multiple instances of these programs. Make sure to remove all of them.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of uninstalling programs](media/uninstall.png)
+   > ![Screenshot of uninstalling programs](media/uninstall-program.png)
 
 ### Step 2: Remove the session host from the host pool
 
@@ -291,7 +291,7 @@ When you remove the session host from the host pool, the session host is no long
 4. Select **Remove**.  
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of removing VM from host pool](media/remove.png)
+   > ![Screenshot of removing VM from host pool](media/remove-sh.png)
 
 ### Step 3: Generate a new registration key for the VM
 
@@ -300,7 +300,7 @@ You must generate a new registration key that is used to re-register your VM to 
 2. Select **Registration key**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of registration key in portal](media/regkey.png)
+   > ![Screenshot of registration key in portal](media/reg-key.png)
 
 3. Open the **Registration key** tab and select **Generate new key**.
 4. Enter the expiration date and then select **Ok**.  
@@ -316,7 +316,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 1. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of agent and bootloader download page](media/downloads.png)
+   > ![Screenshot of agent and bootloader download page](media/download-agent.png)
 
 2. Right-click the agent and boot loader installers you just downloaded.
 3. Select **Properties**.
@@ -326,7 +326,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 7. When the installer asks you for the registration token, paste the registration key from your clipboard. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of pasted registration token](media/pasted-registration-token.png)
+   > ![Screenshot of pasted registration token](media/pasted-agent-token.png)
 
 8. Run the boot loader installer.
 9. Restart your VM. 
@@ -335,7 +335,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 12. You should now see the session host registered in the host pool with the status **Available**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of available session host](media/hostpool.png)
+   > ![Screenshot of available session host](media/hostpool-portal.png)
 
 ## Next steps
 
