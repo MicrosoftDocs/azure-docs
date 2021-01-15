@@ -26,6 +26,8 @@ Access key authentication uses a shared secret key to generate an HMAC for each 
 Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
+In this tutorial 
+
 ## Setting up
 The following steps describe how to construct the Authorization header:
 ### Create a new C# application
@@ -42,14 +44,28 @@ Change your directory to the newly created app folder and use the `dotnet build`
 cd SignHmacTutorial
 dotnet build
 ```
+
+## Install the package
+
+Install the  package Newtonsoft.Json, used for body serialization.
+
+```console
+dotnet add package Newtonsoft.Json --version 12.0.3
+```
+
 Update the Main method declaration to support async code
 Use the following code to begin:
 
 ```csharp
 using System;
+using System.Globalization;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace AccessTokensQuickstart
+namespace SignHmacTutorial
 {
     class Program
     {
@@ -80,4 +96,4 @@ Add following code into Main method:
     };
 
 ```
-
+## 
