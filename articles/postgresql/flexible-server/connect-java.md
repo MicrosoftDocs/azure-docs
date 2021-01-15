@@ -79,6 +79,8 @@ az postgres flexible-server create \
     | jq
 ```
 
+[Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
+
 ### Configure a PostgreSQL database
 
 The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Java application. Create a new database called `demo` by using the following command:
@@ -90,6 +92,8 @@ az postgres flexible-server db create \
     --server-name $AZ_DATABASE_NAME \
     | jq
 ```
+
+[Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ### Create a new Java project
 
@@ -205,6 +209,8 @@ public class DemoApplication {
     }
 }
 ```
+
+[Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 This Java code will use the *application.properties* and the *schema.sql* files that we created earlier, in order to connect to the PostgreSQL server and create a schema that will store our data.
 
