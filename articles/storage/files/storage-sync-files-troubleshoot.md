@@ -924,7 +924,7 @@ This error occurs when a data ingestion operation exceeds the timeout. This erro
 
 This error occurs if the directory used as the server endpoint path was renamed or deleted. If the directory was renamed, rename the directory back to the original name. 
 
-If the directory was deleted, perform the following steps to remove the exisitng server endpoint and create a new server endpoint using a new path:
+If the directory was deleted, perform the following steps to remove the existing server endpoint and create a new server endpoint using a new path:
 
 1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
 2. Create the server endpoint in the sync group and specify a new path by following the steps documented in [Add a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
