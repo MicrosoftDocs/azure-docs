@@ -198,6 +198,8 @@
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
+      - name: Understanding metrics aggregation 
+        href: platform/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -666,6 +668,8 @@
             href: app/javascript-react-native-plugin.md 
           - name: Angular plugin
             href: app/javascript-angular-plugin.md
+          - name: Click Analytics Auto-collection plugin
+            href: app/javascript-click-analytics-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
