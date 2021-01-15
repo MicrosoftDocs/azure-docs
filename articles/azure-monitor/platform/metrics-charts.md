@@ -1,6 +1,6 @@
 ---
-title: Advanced features of the metrics explorer
-description: Learn about advanced uses of the metrics explorer feature in Azure Monitor.
+title: Advanced features of the Azure metrics explorer
+description: Learn about advanced uses of the Azure metrics explorer.
 author: vgorbenko
 services: azure-monitor
 
@@ -10,10 +10,10 @@ ms.author: vitalyg
 ms.subservice: metrics
 ---
 
-# Advanced features of the metrics explorer in Azure Monitor
+# Advanced features of the Azure metrics explorer
 
 > [!NOTE]
-> This article assumes you're familiar with basic features of the metrics explorer in Azure Monitor. If you're a new user and want to learn how to create your first metric chart, see [Getting started with the metrics explorer](metrics-getting-started.md).
+> This article assumes you're familiar with basic features of the Azure metrics explorer feature of Azure Monitor. If you're a new user and want to learn how to create your first metric chart, see [Getting started with the metrics explorer](metrics-getting-started.md).
 
 In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured values and counts that are collected and stored over time. Metrics can be standard (also called "platform") or custom. 
 
@@ -25,7 +25,7 @@ The resource scope picker allows you to view metrics across single resources and
 ### Select a single resource
 Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope** to open the scope picker. 
 
-Use the scope picker to select the resources whose metrics you want to see. The scope should be populated if you opened the metrics explorer from a resource's menu. 
+Use the scope picker to select the resources whose metrics you want to see. The scope should be populated if you opened the Azure metrics explorer from a resource's menu. 
 
 ![Screenshot showing how to open the resource scope picker.](./media/metrics-charts/scope-picker.png)
 
@@ -53,7 +53,7 @@ For types that are compatible with multiple resources, you can query for metrics
 
 ## Multiple metric lines and charts
 
-In the metrics explorer, you can create charts that plot multiple metric lines or show multiple metric charts at the same time. This functionality allows you to:
+In the Azure metrics explorer, you can create charts that plot multiple metric lines or show multiple metric charts at the same time. This functionality allows you to:
 
 - Correlate related metrics on the same graph to see how one value relates to another.
 - Display metrics that use different units of measure in close proximity.

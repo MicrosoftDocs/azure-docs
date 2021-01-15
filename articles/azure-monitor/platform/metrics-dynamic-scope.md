@@ -1,6 +1,6 @@
 ---
-title: View multiple resources in the metrics explorer
-description: Learn how to visualize multiple resources by using the metrics explorer feature of Azure Monitor.
+title: View multiple resources in the Azure metrics explorer
+description: Learn how to visualize multiple resources by using the Azure metrics explorer.
 author: ritaroloff
 services: azure-monitor
 
@@ -10,9 +10,9 @@ ms.author: riroloff
 ms.subservice: metrics
 ---
 
-# View multiple resources in the metrics explorer
+# View multiple resources in the Azure metrics explorer
 
-The resource scope picker allows you to view metrics across multiple resources that are within the same subscription and region. This article explains how to view multiple resources by using the metrics explorer feature of Azure Monitor. 
+The resource scope picker allows you to view metrics across multiple resources that are within the same subscription and region. This article explains how to view multiple resources by using the Azure metrics explorer feature of Azure Monitor. 
 
 ## Select a resource 
 
