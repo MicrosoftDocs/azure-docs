@@ -111,6 +111,8 @@ namespace Driver
 }
 ```
 
+[Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
+
 ## Step 2: Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
@@ -132,7 +134,7 @@ namespace Driver
         // Obtain connection string information from the portal
         //
         private static string Host = "mydemoserver.postgres.database.azure.com";
-        private static string User = "mylogin@mydemoserver";
+        private static string User = "mylogin";
         private static string  DBname = "postgres";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -182,7 +184,7 @@ namespace Driver
     }
 }
 ```
-
+[Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 
 ## Step 3: Update data
@@ -205,7 +207,7 @@ namespace Driver
         // Obtain connection string information from the portal
         //
         private static string Host = "mydemoserver.postgres.database.azure.com";
-        private static string User = "mylogin@mydemoserver";
+        private static string User = "mylogin";
         private static string  DBname = "postgres";
         private static string Password = "<server_admin_password>";
         private static string Port = "5432";
@@ -247,7 +249,7 @@ namespace Driver
 
 ```
 
-
+[Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Step 4: Delete data
 Use the following code to connect and delete data using a **DELETE** SQL statement.
