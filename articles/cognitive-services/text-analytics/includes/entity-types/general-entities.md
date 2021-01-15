@@ -461,7 +461,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Email
+## Category: Email
 
 This category contains the following entity:
 
