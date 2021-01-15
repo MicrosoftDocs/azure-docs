@@ -104,9 +104,9 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-d
 ```json
     {
         "ApplicationInsights":
-            {
+        {
             "InstrumentationKey": "putinstrumentationkeyhere"
-            },
+        },
         "Logging":
         {
             "LogLevel":
