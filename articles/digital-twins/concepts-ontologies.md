@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Industry ontologies
+title: Industry-standard ontologies
 titleSuffix: Azure Digital Twins
 description: Learn about DTDL industry ontologies for modeling in a certain domain
 author: baanders
@@ -59,25 +59,9 @@ An industry ontology is a great way to jumpstart building your IoT solution. How
 
 For more about on this process, see [*Concepts: Extending industry ontologies*](concepts-extending-ontologies.md).
 
-## Tools for models 
+## Ontology tools
 
-There are several samples available to make it even easier to deal with models and ontologies. They are located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).  
-
-This section describes the current set of samples in more detail.
-
-### ModelUploader 
-
-_**For uploading models to Azure Digital Twins**_
-
-Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](how-to-use-apis-sdks), as described in [*How-to: Manage custom models*](how-to-manage-model.md#upload-models).
-
-However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this sample to upload many models at once: [**The ADT Model Uploader**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
-
-### ModelVisualizer 
-
-_**For visualizing models**_
-
-Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [**ADT Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
+In addition to the [model tools](concepts-models.md#model-tools) available to make it easier to deal with models and ontologies in general, you can also use a tool designed specifically for ontologies. This is also located in the  [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools) repository.
 
 ### OWL2DTDL Converter 
 
@@ -89,4 +73,6 @@ This converter was used to translate the [Real Estate Core Ontology](https://doc
 
 ## Next steps
 
-To learn how to manage models in your Azure Digital Twins instance, including update, retrieve, decommission, and delete, see [*How-to: Manage custom models*](how-to-manage-model.md).
+Read more about extending industry-standard ontologies in [*Concepts: Extending industry ontologies*](concepts-extending-ontologies.md).
+
+Or, learn how to manage models in your Azure Digital Twins instance, including update, retrieve, decommission, and delete, see [*How-to: Manage DTDL models*](how-to-manage-model.md).

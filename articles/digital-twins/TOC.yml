@@ -21,9 +21,9 @@
     href: tutorial-end-to-end.md
 - name: Concepts
   items:
-  - name: Custom models
+  - name: DTDL models
     href: concepts-models.md
-  - name: Industry ontologies
+  - name: Industry-standard ontologies
     href: concepts-extending-ontologies.md
   - name: Extending industry ontologies
     href: concepts-extending-ontologies.md
@@ -65,7 +65,7 @@
       href: how-to-move-regions.md
   - name: Design models
     items:
-    - name: Manage models
+    - name: Manage DTDL models
       href: how-to-manage-model.md
     - name: Integrate industry-standard models
       href: how-to-integrate-models.md

@@ -17,14 +17,7 @@ ms.service: digital-twins
 
 # Integrate industry-standard models with DTDL for Azure Digital Twins
 
-Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
-
-To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
-
-There are three possible paths to integrating industry-standard models with DTDL:
-* **Adopt**: You can start your solution with an open-source DTDL ontology that has been built on widely adopted industry standards. 
-* **Convert**: If you already have existing models, you'll need to convert them to DTDL.
-* **Author**: You can always develop your own custom DTDL models from scratch, as described in [*How-to: Manage custom models*](how-to-manage-model.md).
+[!INCLUDE [Azure Digital Twins: industry model paths](../../includes/digital-twins-industry-model-paths.md)]
 
 ## Adopt an open-source DTDL ontology
 
@@ -32,7 +25,9 @@ It is often easier to start with an open-source DTDL ontology than starting from
 
 For example, Smart Buildings solutions can leverage the open-source [**DTDL-based RealEstateCore ontology for smart buildings**](https://github.com/Azure/opendigitaltwins-building), which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
 
-These open-source DTDL ontologies also provide best practices for how to consume and properly extend the models. 
+These open-source DTDL ontologies also provide best practices for how to consume and properly extend the models.
+
+For more on using industry-standard ontologies with Azure Digital Twins, see [*Concepts: Industry-standard ontologies*](concepts-ontologies.md).
 
 ## Convert existing models to DTDL
 
@@ -75,12 +70,12 @@ You can use this sample to see the conversion patterns in context, and to have a
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-Once a model is converted and validated, you can **upload it to your Azure Digital Twins instance**. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
+Once a model is converted and validated, you can **upload it to your Azure Digital Twins instance**. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage DTDL models*.
 
 ## Next steps 
 
 Read more about designing and managing digital twin models:
  
 * [*Concepts: Custom models*](concepts-models.md)
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*How-to: Manage DTDL models*](how-to-manage-model.md)
 * [*How-to: Parse and validate models*](how-to-parse-models.md)
