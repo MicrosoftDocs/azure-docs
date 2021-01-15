@@ -61,5 +61,4 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
 
 ## See also
 * [Access your application in a private network](spring-cloud-access-app-virtual-network.md)
-
 * [Expose apps using Application Gateway and Azure Firewall](spring-cloud-expose-apps-gateway-azure-firewall.md) 
