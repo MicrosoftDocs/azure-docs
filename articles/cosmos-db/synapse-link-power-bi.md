@@ -36,7 +36,7 @@ Make sure to create the following resources before you start:
 
 ## Create a database and views
 
-From the Synapse workspace go the **Develop** tab, select the **+** icon, and select **SQL Script**.
+Creating views in the master or default databases is not recommended or supported. So you need to start this step by creating a database. From the Synapse workspace go the **Develop** tab, select the **+** icon, and select **SQL Script**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Add a SQL script to the Synapse Analytics workspace":::
 
