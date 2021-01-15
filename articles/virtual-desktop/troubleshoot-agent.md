@@ -74,7 +74,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    - Make sure you use the value from step 3 in the **BrokerURI**. In this section's example, it would be <https://rdbroker-g-us-r0.wvd.microsoft.com/api/health>.
 5. Open another tab in the browser and go to *\<BrokerURIGlobal\>api/health*. 
    - Make sure you use the value from step 3 in the **BrokerURIGlobal** link. In this section's example, it would be <https://rdbroker.wvd.microsoft.com/api/health>.
-6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says **"RDBroker is Healthy"** as shown in the following screenshots. 
+6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says **"RD Broker is Healthy"** as shown in the following screenshots. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of successfully loaded broker uri access](media/broker-uri-web.png)
@@ -96,7 +96,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 
 ## Error: 3703 or 3019
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703, that says **RDGateway Url: is not accessible** or any event with ID 3019 in the description, the agent is unable to reach the gateway URLs or the web socket transport URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703, that says **RD Gateway Url: is not accessible** or any event with ID 3019 in the description, the agent is unable to reach the gateway URLs or the web socket transport URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
 
 To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
 1. [Use Azure Firewall to protect Windows Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
