@@ -18,19 +18,6 @@ This article explains common error messages during VM image publishing, along wi
 > [!NOTE]
 > If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
 
-## Approved base image
-
-When you submit a request to republish your image with updates, the part-number verification test case might fail. If it fails, your image won't be approved.
-
-This failure occurs when you use a base image that belongs to another publisher and you've updated the image. In this situation, you won't be allowed to publish your image.
-
-To fix this issue, retrieve the image from Azure Marketplace and make changes to it. For more information, see the following articles:
-
-- [Linux images](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows images](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> If you are using a Linux base image not taken from Azure Marketplace, please ensure the first 2048 sectors(each sector is of 512 bytes) on the VHD are empty so that Azure proceed with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -323,14 +310,11 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1MB (2048 sectors, each sector of 512 bytes) partition (Linux only)
+## First 1MB (2048 sectors, each sector of 512 bytes) partition
 
-When you submit the VHD, ensure that the first 2048 sectors(1MB) of the VHD is empty. Otherwise, your request will fail.Please note that this will be applicable to boot/OS disk and not for any additional data disks.
+If you are [building your own image](azure-vm-create-using-own-image.md), ensure that the first 2048 sectors (1MB) of the OS disk is empty. Otherwise, your publishing will fail. Please note that this requirement is applicable to OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement. 
 
->[!NOTE]
->For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace or please ensure the first 1MB(2048 sectors) of the VHD is empty. 
-
-### Create a first 1MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
+### Create a 1MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD (Linux only steps)
 
 These steps apply to Linux only.
 
