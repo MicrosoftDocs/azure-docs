@@ -121,7 +121,7 @@ async static Task<string> ComputeContentHash(HttpRequestMessage requestMessage)
 }
 ```
 
-## ComputeSignature
+## Compute a signature
 Prepare a method to compute your signature.
 Use following code to create a method for computing a signature.
 
