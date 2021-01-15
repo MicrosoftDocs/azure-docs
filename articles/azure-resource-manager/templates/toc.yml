@@ -298,8 +298,6 @@
     href: template-best-practices.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
-  - name: Template Specs
-    href: template-specs.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
   - name: Deployment modes
@@ -423,6 +421,12 @@
       href: test-toolkit.md
     - name: Test cases
       href: test-cases.md
+  - name: Template specs
+    items:
+    - name: Create & deploy template specs
+      href: template-specs.md
+    - name: Convert portal template gallery
+      href: convert-to-template-spec.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
