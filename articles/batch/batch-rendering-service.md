@@ -38,17 +38,15 @@ For many reasons, rendering is a workload perfectly suited for Azure:
 
 The most common case is for there to be an existing on-premises render farm being managed by a render management application such as PipelineFX Qube, Royal Render, Thinkbox Deadline, or a custom application.  The requirement is to extend the on-premises render farm capacity using Azure VMs.
 
-Azure infrastructure and services are normally used to create a hybrid environment where Azure is used to supplement the on-premises capacity. For example:
+Azure infrastructure and services are used to create a hybrid environment where Azure is used to supplement the on-premises capacity. For example:
 
 * Use a [Virtual Network](../virtual-network/virtual-networks-overview.md) to place the Azure resources on the same network as the on-premises render farm.
 * Use [Avere vFXT for Azure](../avere-vfxt/avere-vfxt-overview.md) or [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) to cache source files in Azure to reduce bandwidth use and latency, maximizing performance.
 * Ensure the existing license server is on the virtual network and purchase the additional licenses required to cater for the extra Azure-based capacity.
 
-For more information about using Azure for rendering workloads see [the following article](https://azure.microsoft.com/solutions/high-performance-computing/rendering/).
-
 ## No existing render farm
 
-Client workstations may be performing rendering, but the rendering workload is increasing and it is taking too long to solely use workstation capacity.
+Client workstations may be performing rendering, but the rendering load is increasing and it is taking too long to solely use workstation capacity.
 
 There are two main options available:
 
@@ -58,6 +56,6 @@ There are two main options available:
 
 ## Next steps
 
- See [the following article](https://azure.microsoft.com/solutions/high-performance-computing/rendering/) to use Azure infrastructure and services to extend an existing on-premises render farm.
+ Learn how to [use Azure infrastructure and services to extend an existing on-premises render farm](https://azure.microsoft.com/solutions/high-performance-computing/rendering/).
 
 Learn more about [Azure Batch rendering capabilities](batch-rendering-functionality.md).
