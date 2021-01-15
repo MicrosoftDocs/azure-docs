@@ -36992,6 +36992,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/disk-benchmarks.md",
+      "redirect_url": "/azure/virtual-machines/disk-benchmarks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/disk-benchmarks.md",
+      "redirect_url": "/azure/virtual-machines/disk-benchmarks",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/disk-bursting.md",
       "redirect_url": "/azure/virtual-machines/disk-bursting",
       "redirect_document_id": false
