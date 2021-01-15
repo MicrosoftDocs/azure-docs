@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 01/15/2021
 ms.author: alkohli
 ---
 
@@ -23,6 +23,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 |-------------------------|----------------------------|
 | CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU            |
 | Memory                  | 128 (8x16 GB) GB RAM                     |
+| RAM                     | Dell Compatible 16GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
 
 
 ## Compute acceleration specifications
@@ -86,6 +87,7 @@ The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a 
 |    Total capacity                          |    8.0 TB             |
 |    Total usable capacity*                  |    ~ 4.19 TB          |
 |    SAS controller                          |    HBA330 12 Gbps     |
+|    RAID configuration                      |    Storage Spaces Direct with a combination of mirroring and parity  |
 
 
 **After parity resiliency and reserving space for internal use.*
@@ -146,7 +148,8 @@ This section lists the specifications related to the enclosure environment such 
 |     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
+| Ingress protection (IP)                 |    This type of rack-mounted equipment for indoor use typically isn't tested for ingress protection (protection against solids and liquids for an electrical enclosure). Safety assessment from Dell<!--Is the maker understood?--> shows IPXO (no ingress protection).  |
+|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
 |    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
 |    Shock, operational                   |    6 G for 11 milliseconds in 6   orientations                                                                                                                                                                         |
 |    Shock, non-operational               |    71 G for 2 milliseconds in 6 orientations                                                                                                                                                                           |
