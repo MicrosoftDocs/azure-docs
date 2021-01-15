@@ -2047,6 +2047,8 @@
         href: clarizen-one-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
+      - name: Cofense Recipient Sync
+        href: cofense-provision-tutorial.md
       - name: Contentful
         href: contentful-provisioning-tutorial.md
       - name: Comeet Recruiting Software
