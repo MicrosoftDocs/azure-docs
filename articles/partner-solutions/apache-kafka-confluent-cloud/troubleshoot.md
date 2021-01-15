@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Apache Kafka for Confluent Cloud on Azure
+title: Troubleshooting Apache Kafka for Confluent Cloud | Azure partner solutions
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.service: partner-services
 ms.topic: conceptual

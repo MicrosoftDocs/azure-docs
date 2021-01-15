@@ -1,5 +1,5 @@
 ---
-title: Partner solutions for Azure
+title: Offerings from partners | Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
 author: tfitzmac
 ms.topic: conceptual
@@ -14,8 +14,6 @@ Partner organizations offer solutions that you can use in Azure to enhance your 
 
 Partner solutions are available through the Marketplace.
 
-## Partner solutions
-
-| Solution | Description |
+| Partner solution | Description |
 | :--- | :--- |
 | [Apache Kafka for Confluent Cloud](./apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka |
