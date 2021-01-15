@@ -913,7 +913,7 @@
       items:
       - name: Red Hat Update Infrastructure
         href: ./workloads/redhat/redhat-rhui.md
-- name: Images and snapshots
+- name: Images
   items:
   - name: Marketplace images
     items:
@@ -1125,18 +1125,6 @@
       href: ./linux/build-image-with-packer.md
     - name: Windows
       href: ./windows/build-image-with-packer.md
-  - name: Snapshot a disk
-    items:
-    - name: CLI
-      href: ./linux/snapshot-copy-managed-disk.md
-    - name: PowerShell
-      href: ./windows/snapshot-copy-managed-disk.md
-  - name: Download existing disk
-    items: 
-    - name: Linux
-      href: ./linux/download-vhd.md
-    - name: Windows 
-      href: ./windows/download-vhd.md
 - name: Availability and scale
   items:
   - name: Scale sets
@@ -1373,6 +1361,12 @@
         href: disks-shared.md
       - name: Enable shared disks
         href: disks-shared-enable.md
+    - name: Snapshot a disk
+      items:
+      - name: CLI
+        href: ./linux/snapshot-copy-managed-disk.md
+      - name: PowerShell
+        href: ./windows/snapshot-copy-managed-disk.md
     - name: Upload a vhd to a disk
       items: 
       - name: PowerShell
@@ -1385,6 +1379,12 @@
         href: ./linux/disks-export-import-private-links-cli.md
       - name: Portal
         href: disks-enable-private-links-for-import-export-portal.md
+    - name: Download existing disk
+      items: 
+      - name: Linux
+        href: ./linux/download-vhd.md
+      - name: Windows 
+        href: ./windows/download-vhd.md
     - name: Resize a disk
       items: 
       - name: Linux 
