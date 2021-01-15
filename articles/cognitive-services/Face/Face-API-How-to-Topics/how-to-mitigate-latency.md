@@ -20,7 +20,7 @@ You may encounter latency when using the Face service. Latency refers to any kin
 - The time required by antivirus applications, firewalls, and other security mechanisms to inspect packets.
 - Malfunctions in client or server applications.
 
-This topic talks about possible causes for of latency specific to using the Azure Cognitive Services, and how you can mitigate these causes.
+This topic talks about possible causes of latency specific to using the Azure Cognitive Services, and how you can mitigate these causes.
 
 > [!NOTE]
 > Azure Cognitive Services do not provide any Service Level Agreement (SLA) regarding latency.
