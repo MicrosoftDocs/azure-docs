@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q2
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you [create a search service](search-create-service-portal.md), you choose a pricing tier that's fixed for the lifetime of the service. The tier you select determines:
+When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. The tier you select determines:
 
 + Upper limits of indexes and other objects you can create
 + Size and speed of partitions (physical storage)
@@ -22,11 +22,11 @@ When you [create a search service](search-create-service-portal.md), you choose 
 
 In a few instances, the tier you choose determines the availability of [premium features](#premium-features).
 
+You choose the pricing tier when creating the service in Azure portal. If you're provisioning a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
+
 ## Tier descriptions
 
-Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Standard and Storage Optimized are available with several configurations and capacities.
-
-The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). If you're provisioning a service through PowerShell or Azure CLI instead of Azure portal, the tier is specified through the **`-Sku`** parameter.
+Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Standard and Storage Optimized are available with several configurations and capacities. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). 
 
 :::image type="content" source="media/search-sku-tier/tiers.png" alt-text="Pricing tier chart" border="true":::
 
@@ -59,15 +59,15 @@ Resource-intensive features might not work well unless you give it sufficient ca
 
 ## Upper limits
 
-The tier you select determines maximum storage, as well as the maximum number of indexes, indexers, data sources, skillsets, and synonym maps. For a full break out of all limits, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md). 
+Tiers determine the  maximum storage of the service itself, as well as the maximum number of indexes, indexers, data sources, skillsets, and synonym maps that you can create. For a full break out of all limits, see [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md). 
 
 ## Partition size and speed
 
-Tier pricing includes details about per-partition storage that ranges from 2 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, are not published, but tiers that are designed for specific solution architectures are built on hardware that has the qualities that support those scenarios.
+Tier pricing includes details about per-partition storage that ranges from 2 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, are not published, but tiers that are designed for specific solution architectures are built on hardware that has the features to support those scenarios.
 
 ## Billing rates
 
-Each tier has a different billing rate, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for Azure Cognitive Search.
+Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for Azure Cognitive Search.
 
 The billing rate is fixed for the tier, but it's applied to *search units* (SU), which you can adjust in response to the expected workload. The scalability model in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. An SU is just a billing concept that represents the replicas and partitions in use by your service.
 
@@ -77,8 +77,8 @@ In practice, integration of other Azure services and processes can make cost est
 
 ## Next steps
 
-The best way to choose a pricing tier is to start with a least-cost tier, and then let experience and testing inform your decision to keep the service or create a new one at a higher tier. For next steps, we recommend that you [create a search service](search-create-service-portal.md) at a tier that can accommodate the level of testing you propose to do, and then review the following guidance for recommendations on estimating cost and capacity.
+The best way to choose a pricing tier is to start with a least-cost tier, and then let experience and testing inform your decision to keep the service or create a new one at a higher tier. For next steps, we recommend that you create a search service at a tier that can accommodate the level of testing you propose to do, and then review the following guidance for recommendations on estimating cost and capacity.
 
-> [!div class="nextstepaction"]
-> [How to estimate costs of an Azure Cognitive Search service](search-sku-manage-costs.md)
-> [How to estimate and manage capacity of an Azure Cognitive Search service](search-sku-manage-costs.md)
++ [Create a search service](search-create-service-portal.md)
++ [Estimate costs](search-sku-manage-costs.md)
++ [Estimate capacity](search-sku-manage-costs.md)

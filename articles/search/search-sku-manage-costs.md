@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/15/2022
 
 ---
 
