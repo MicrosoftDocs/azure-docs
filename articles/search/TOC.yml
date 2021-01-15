@@ -308,7 +308,7 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Estimate capacity
+    - name: Estimate and manage capacity
       href: search-capacity-planning.md
     - name: Estimate costs
       href: search-sku-manage-costs.md

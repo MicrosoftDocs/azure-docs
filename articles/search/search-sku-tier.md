@@ -18,11 +18,11 @@ When you [create a search service](search-create-service-portal.md), you choose 
 
 + Upper limits of indexes and other objects you can create
 + Size and speed of partitions (physical storage)
-+ Billable rate as a fixed monthly cost, but also an incremental cost if you add partitions or replicas
++ Billable rate as a fixed monthly cost, but also an incremental cost if you add capacity
 
 In a few instances, the tier you choose determines the availability of [premium features](#premium-features).
 
-You choose the pricing tier when creating the service in Azure portal. If you're provisioning a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
+You'll set the pricing tier when creating the service in Azure portal. If you're provisioning a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
 
 ## Tier descriptions
 
@@ -30,7 +30,7 @@ Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Stan
 
 :::image type="content" source="media/search-sku-tier/tiers.png" alt-text="Pricing tier chart" border="true":::
 
-**Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+**Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, system resources are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
 **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
 
@@ -69,16 +69,27 @@ Tier pricing includes details about per-partition storage that ranges from 2 GB 
 
 Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for Azure Cognitive Search.
 
-The billing rate is fixed for the tier, but it's applied to *search units* (SU), which you can adjust in response to the expected workload. The scalability model in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. An SU is just a billing concept that represents the replicas and partitions in use by your service.
+The billing rate is fixed for the tier, but it's applied to *search units* (SU), which you can adjust in response to the expected workload. The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. *Replicas* are instances of the search engine. *Partitions* are modules of storage. An *SU* is just a billing concept that represents the composite of replicas and partitions in use by your service.
 
-Mathematically, it's the product of the number of *replicas* and *partitions* used by your service (SU = replica * partition). Every service requires at least one replica and one partition. As such, the minimum SU is 1 X 1, or 1. Hypothetically, if the billing rates were $100, $200, and $300 for progressively higher tiers, the billing formula indicates that you could expect to pay approximately $100, $200, or $300 a month depending on which tier you chose, at the minimum configuration. 
+Mathematically, SU is the product of the number of *replicas* and *partitions* used by your service (SU = replica * partition). Every service requires at least one replica and one partition. As such, the minimum SU is 1 X 1, or 1. Hypothetically, if the billing rates were $100, $200, and $300 for progressively higher tiers, the billing formula indicates that you could expect to pay approximately $100, $200, or $300 a month depending on which tier you chose, at the minimum configuration. 
 
 In practice, integration of other Azure services and processes can make cost estimates more involved. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
 
 ## Next steps
 
-The best way to choose a pricing tier is to start with a least-cost tier, and then let experience and testing inform your decision to keep the service or create a new one at a higher tier. For next steps, we recommend that you create a search service at a tier that can accommodate the level of testing you propose to do, and then review the following guidance for recommendations on estimating cost and capacity.
+The best way to choose a pricing tier is to start with a least-cost tier, and then allow experience and testing inform your decision to keep the service or create a new one at a higher tier. For next steps, we recommend that you create a search service at a tier that can accommodate the level of testing you propose to do, and then review the following guidance for recommendations on estimating cost and capacity.
 
 + [Create a search service](search-create-service-portal.md)
 + [Estimate costs](search-sku-manage-costs.md)
 + [Estimate capacity](search-sku-manage-costs.md)
+
+<!-- Start with a Free tier and build an initial index by using a subset of your data to understand its characteristics. The data structure in Azure Cognitive Search is an inverted index structure. The size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. So content characteristics rather than the size of the dataset determine index storage requirements.
+
+After you have an initial estimate of your index size, [provision a billable service](search-create-service-portal.md) on one of the tiers discussed in this article: Basic, Standard, or Storage Optimized. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all the data that you want to be searchable.
+
+[Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
+
+If performance and capacity are fine, you're done. Otherwise, re-create a search service at a different tier that more closely aligns with your needs.
+
+> [!NOTE]
+> If you have questions, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) or [contact Azure support](https://azure.microsoft.com/support/options/). -->
