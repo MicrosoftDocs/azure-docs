@@ -34,7 +34,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 
     > ![Select a metric](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Optionally, you can [change the metric aggregation](metrics-charts.md#changing-aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
+4. Optionally, you can [change the metric aggregation](metrics-charts.md#aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
 
 > [!TIP]
 > Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **Add chart** button on top.
@@ -53,7 +53,7 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 ## Apply dimension filters and splitting
 
-[Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#apply-splitting-to-a-chart) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
+[Filtering](metrics-charts.md#filters) and [splitting](metrics-charts.md#apply-splitting) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
 
 - **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. You would need to apply the filter on the *success of request* dimension. 
 

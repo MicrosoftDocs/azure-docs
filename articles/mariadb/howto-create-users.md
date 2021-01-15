@@ -13,10 +13,8 @@ ms.date: 01/15/2021
 This article describes how you can create users in Azure Database for MariaDB.
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the words _master_ and _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes these as exclusionary words. The words are used in this article for consistency because they are currently the words that appears in the software. When the software is updated to remove the words, this article will be updated to be in alignment.
->
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
 
 When you first created your Azure Database for MariaDB, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md). You can locate your server admin login user name from the Azure portal.
 
