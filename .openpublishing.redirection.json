@@ -37017,12 +37017,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/linux/disks-performance-linux.md",
+      "source_path_from_root": "/articles/virtual-machines/linux/disk-performance-linux.md",
       "redirect_url": "/azure/virtual-machines/disk-performance",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/windows/disks-performance-windows.md",
+      "source_path_from_root": "/articles/virtual-machines/windows/disk-performance-windows.md",
       "redirect_url": "/azure/virtual-machines/disk-performance",
       "redirect_document_id": true
     },
