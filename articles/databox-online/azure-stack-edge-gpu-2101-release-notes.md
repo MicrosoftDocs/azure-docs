@@ -1,27 +1,27 @@
 ---
-title: Azure Stack Edge Pro 2012 release notes
-description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2012 release.
+title: Azure Stack Edge Pro 2101 release notes
+description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2101 release.
 services: databox
 author: alkohli
  
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 01/15/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge 2012 release notes
+# Azure Stack Edge 2101 release notes
 
-The following release notes identify the critical open issues and the resolved issues for the 2012 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
+The following release notes identify the critical open issues and the resolved issues for the 2101 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2012** release which maps to software version number **2.2.1438.2470**.
+This article applies to the **Azure Stack Edge 2101** release which maps to software version number **2.2.1473.2521**.
 
 ## What's new
 
-The following new features are available in the Azure Stack Edge 2012 release. 
+The following new features are available in the Azure Stack Edge 2101 release. 
 
 - **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-j-series-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-k-series-overview.md).  
 - **Cloud management of Virtual Machines** - Beginning this release, you can create and manage the virtual machines on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
@@ -32,9 +32,9 @@ The following new features are available in the Azure Stack Edge 2012 release.
 - **Proactive logging** - Starting this release, you can enable proactive log collection on your device based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
 
 
-## Known issues in 2012 release
+## Known issues in 2101 release
 
-The following table provides a summary of known issues in the 2012 release.
+The following table provides a summary of known issues in the 2101 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ The following table provides a summary of known issues in the 2012 release.
 |**9.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it is not possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create 1 VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available 1 GPU. |
 
 
-## Known issues from previous releases 
+## Known issues from previous releases
 
 The following table provides a summary of known issues carried over from the previous releases.
 

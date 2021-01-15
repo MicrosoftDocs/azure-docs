@@ -7,23 +7,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/15/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
 
-This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date. 
+This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date.
 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2012** is the current update and corresponds to:
->   - Device software version - **2.2.1438.2470**
+> - Update **2101** is the current update and corresponds to:
+>   - Device software version - **2.2.1473.2521**
 >   - Kubernetes server version - **v1.17.3**
 >   - IoT Edge version: **0.1.0-beta10**
 >    
->    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2012-release-notes.md).
-> - To apply 2012 update, your device must be running 2010.
+>    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2102-release-notes.md).
+> - To apply 2102 update, your device must be running 2010.
 > - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
 To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
@@ -48,7 +48,7 @@ Each of these steps is described in the following sections.
 
 ## Use the Azure portal
 
-We recommend that you install updates through the Azure portal. The device automatically scans for updates once a day. Once the updates are available, you see a notification in the portal. You can then download and install the updates. 
+We recommend that you install updates through the Azure portal. The device automatically scans for updates once a day. Once the updates are available, you see a notification in the portal. You can then download and install the updates.
 
 > [!NOTE]
 > Make sure that the device is healthy and status shows as **Online** before you proceed to install the updates.
@@ -71,13 +71,13 @@ We recommend that you install updates through the Azure portal. The device autom
 
     ![Software version after update 4](./media/azure-stack-edge-gpu-install-update/portal-update-3.png)
 
-    A notification banner is also displayed in the Azure portal. This indicates the download progress. 
+    A notification banner is also displayed in the Azure portal. This indicates the download progress.
 
     ![Software version after update 5](./media/azure-stack-edge-gpu-install-update/portal-update-4.png)
 
     You can select this notification or select **Update device** to see the detailed status of the update.
 
-    ![Software version after update 6](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)   
+    ![Software version after update 6](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)
 
 
 4. After the download is complete, the notification banner updates to indicate the completion. If you chose to download and install the updates, the installation will begin automatically.
@@ -88,7 +88,7 @@ We recommend that you install updates through the Azure portal. The device autom
   
     ![Software version after update 8](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 
-5. You see a notification that the install is in progress. 
+5. You see a notification that the install is in progress.
 
     ![Software version after update 9](./media/azure-stack-edge-gpu-install-update/portal-update-8.png)
  
@@ -161,7 +161,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge Pro**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2012**.
+    The update listing appears as **Azure Stack Edge Update 2102**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -196,15 +196,15 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2012**.
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2102**.
 
-   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
+   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)-->
 
 7. You will now update the Kubernetes software version. Repeat the above steps. Provide a path to the Kubernetes update file with the *Kubernetes_Package.exe* suffix.  
 
-   <!--![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)--> 
+   <!--![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)-->
 
-8. Select **Apply**. 
+8. Select **Apply**.
 
    ![update device 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
 
