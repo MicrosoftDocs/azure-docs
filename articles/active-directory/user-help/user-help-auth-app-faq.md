@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -29,13 +29,17 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **A**: Registering a device gives your device access to your organization's services and doesn't allow your organization access to your device.
 
-## Too many app permissions
+### Too many app permissions
 
 **Q**: Why does the app request so many permissions?
 
-**A**: Here's the full list of permissions that might be asked for, and how they're used by the app. The specific permissions you see will depend on the type of phone you have.
+**A**: Here's the full list of permissions that might be asked for, and how they're used by the app. The specific permissions you see will depend on the type of phone you have. Sometimes your organization wants to know your **Location** before allowing you to access certain resources. The app will request this permission only if your organization has a policy requiring location.
 
-- **Location**. Sometimes your organization wants to know your location before allowing you to access certain resources. The app will request this permission only if your organization has a policy requiring location. 
+### Error adding account
+
+**Q**: When I try to add my account, I get an error message saying “The account you're trying to add is not valid at this time. Contact your admin to fix this issue (uniqueness validation).” What should I do?
+
+**A**: Reach out to your admin and let them know you’re prevented from adding your account to Authenticator because of a uniqueness validation issue. You’ll need to provide your sign-in username so that your admin can look you up in your organization.
 
 ### Legacy APNs support deprecated
 
