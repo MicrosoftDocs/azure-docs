@@ -18,7 +18,7 @@ In this quickstart, you learn a basic Azure IoT application workflow for securel
 - Azure CLI. You can run all commands in this quickstart using the Azure Cloud Shell, an interactive CLI shell that runs in your browser. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this quickstart requires Azure CLI version 2.0.76 or later. Run az --version to find the version. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 - [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
     - **Note that this sample is configured for Python 3.7+.** To ensure that your Python version is up to date, run `python --version`. If you have both Python 2 and Python 3 installed (and are using a Python 3 environment for this SDK), then install all libraries using `pip3` as opposed to `pip`. This ensures that the libraries are installed to your Python 3 runtime. 
-- Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot-hub/iot-hub-mqtt-support.md).
 
 [!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
@@ -26,7 +26,7 @@ In this quickstart, you learn a basic Azure IoT application workflow for securel
 In this section, you create a simulated IoT device that is connected to your IoT hub. This is the simulated device that will use the Python SDK to send telemetry and receive messages from the hub. 
 
 To create a simulated device:
-1. Run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) command in your CLI shell. This creates the simulated device identity. 
+1. Run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create&preserve-view=true) command in your CLI shell. This creates the simulated device identity. 
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
 
@@ -36,7 +36,7 @@ To create a simulated device:
     az iot hub device-identity create --device-id myPythonDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Run the [Retrieve your Device Connection String](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) command.
+1.  Run the [Retrieve your Device Connection String](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string&preserve-view=true) command.
 
     ```azurecli
     az iot hub device-identity show-connection-string --device-id myPythonDevice --hub-name {YourIoTHubName}
@@ -90,7 +90,7 @@ In this section, you will use the Python SDK to send messages from your simulate
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     ```
 
-1. In your open CLI shell, run the [az iot hub monitor-events](https://docs.microsoft.com/en-us/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) command to begin monitoring for events on your simulated IoT device.  Event messages will be printed in the terminal as they arrive.
+1. In your open CLI shell, run the [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true) command to begin monitoring for events on your simulated IoT device.  Event messages will be printed in the terminal as they arrive.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -138,8 +138,8 @@ As the Python code sends a message from your device to the IoT hub, the message 
     ```output
     Starting event monitor, use ctrl-c to stop...
     event:
-      origin: <your Device name>
-      payload: This is a message that is being sent
+    origin: <your Device name>
+    payload: This is a message that is being sent
     ```
 
 Your device is now securely connected and sending telemetry to Azure IoT Hub.
@@ -175,12 +175,12 @@ If you no longer need the Azure resources created in this quickstart, you can us
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
 To delete a resource group by name:
-1. Run the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command. This removes the resource group, the IoT Hub, and the device registration you created.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Run the [az group list](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list) command to confirm the resource group is deleted.  
+1. Run the [az group list](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list&preserve-view=true) command to confirm the resource group is deleted.  
 
     ```azurecli
     az group list

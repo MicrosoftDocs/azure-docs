@@ -36,7 +36,7 @@ To launch the Cloud Shell:
 If you chose to use a local terminal rather than Cloud Shell, complete this section. 
 
 1. Open a local terminal.
-1. Run the [az login](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az_login) command:
+1. Run the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) command:
 
    ```azurecli
    az login
@@ -60,19 +60,19 @@ In this section you install the Microsoft Azure IoT Extension for Azure CLI to y
 > [!IMPORTANT]
 > The terminal commands in the rest of this quickstart work the same in Cloud Shell or a local terminal. To run a command, select **Copy** to copy a block of code in this quickstart. Then paste it into your CLI shell and run it.
 
-Run the [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) command. 
+Run the [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true) command. 
 
    ```azurecli
    az extension add --name azure-iot
    ```
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+    [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 In this section, you use Azure CLI to create an IoT hub and a resource group.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and the devices. 
 
 To create an IoT hub and a resource group:
 
-1. Run the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
+1. Run the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
     >[!NOTE]
     > You can optionally set an alternate location. To see available locations, run `az account list-locations`. This tutorial uses *eastus* as shown in the example command. 
 
@@ -80,7 +80,7 @@ To create an IoT hub and a resource group:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Run the [az iot hub create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
+1. Run the [az iot hub create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create&preserve-view=true) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
 
     *YourIotHubName*. Replace this placeholder and the surrounding braces in the following command, using the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. Use your IoT hub name in the rest of this quickstart wherever you see the placeholder.
 
