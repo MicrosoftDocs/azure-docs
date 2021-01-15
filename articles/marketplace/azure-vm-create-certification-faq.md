@@ -18,19 +18,6 @@ This article explains common error messages during VM image publishing, along wi
 > [!NOTE]
 > If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
 
-## Approved base image
-
-When you submit a request to republish your image with updates, the part-number verification test case might fail. If it fails, your image won't be approved.
-
-This failure occurs when you use a base image that belongs to another publisher and you've updated the image. In this situation, you won't be allowed to publish your image.
-
-To fix this issue, retrieve the image from Azure Marketplace and make changes to it. For more information, see the following articles:
-
-- [Linux images](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows images](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> If you are using a Linux base image not taken from Azure Marketplace, please ensure the first 2048 sectors(each sector is of 512 bytes) on the VHD are empty so that Azure proceed with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -165,7 +152,7 @@ Refer to the following table for the common errors you might see when running te
 The following table lists the Windows test cases that the toolkit will run, along with a description of the test validation:
 
 |Scenario |Test cases|Description|
-|---|---|---|---|
+|---|---|---|
 |1|OS architecture|Azure supports only 64-bit operating systems.|
 |2|User account dependency|Application execution shouldn't be dependent on the administrator account.|
 |3|Failover cluster|The Windows Server failover clustering feature isn't yet supported. The application shouldn't be dependent on this feature.|
@@ -245,7 +232,7 @@ If your image isn't installed with one of the following kernel versions, update 
 |OS family|Version|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
-||14.04 LTS|4.15.0-1049-*-azure|
+||14.04 LTS|4.15.0-1049-\*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -278,9 +265,9 @@ If your image isn't installed with one of the following kernel versions, update 
 |Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK follows RHEL above|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|CoreOS Stable 2079.6.0|4.19.43*|
-||Beta 2135.3.1|4.19.50*|
-||Alpha 2163.2.1|4.19.50*|
+|CoreOS Stable 2079.6.0|4.19.43\*|
+||Beta 2135.3.1|4.19.50\*|
+||Alpha 2163.2.1|4.19.50\*|
 |Debian|jessie (security)|3.16.68-2|
 ||jessie backports|4.9.168-1+deb9u3|
 ||stretch (security)|4.9.168-1+deb9u3|
@@ -323,14 +310,11 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1MB (2048 sectors, each sector of 512 bytes) partition (Linux only)
+## First 1-MB partition (2,048 sectors, each sector of 512 bytes)
 
-When you submit the VHD, ensure that the first 2048 sectors(1MB) of the VHD is empty. Otherwise, your request will fail.Please note that this will be applicable to boot/OS disk and not for any additional data disks.
+If you're [building your own image](azure-vm-create-using-own-image.md), ensure that the first 2,048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable only to the OS disk (not to data disks). If you're building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement. 
 
->[!NOTE]
->For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace or please ensure the first 1MB(2048 sectors) of the VHD is empty. 
-
-### Create a first 1MB (2048 sectors, each sector of 512 bytes) partition on an empty VHD
+### Create a 1-MB partition (2,048 sectors, each sector of 512 bytes) on an empty VHD (Linux-only steps)
 
 These steps apply to Linux only.
 
@@ -395,7 +379,7 @@ These steps apply to Linux only.
 
 1. Detach the VHD from VM and delete the VM.
 
-### Create a First MB (2048 sectors, each sector of 512 bytes) partition by moving existing data on VHD
+### Create a first 1-MB partition (2,048 sectors, each sector of 512 bytes) by moving existing data on VHD
 
 These steps apply to Linux only.
 

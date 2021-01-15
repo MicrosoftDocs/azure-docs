@@ -6797,6 +6797,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-resource-manager/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-insights/app-insights-sharepoint.md",
       "redirect_url": "/azure/azure-monitor/app/sharepoint",
       "redirect_document_id": true
@@ -15894,16 +15899,6 @@
     {
       "source_path_from_root": "/articles/billing/billing-how-to-pay-by-invoice.md",
       "redirect_url": "/azure/cost-management-billing/manage/pay-by-invoice",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-resource-manager/programmatically-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cost-management-billing/manage/programmatically-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": true
     },
     {
@@ -30622,68 +30617,98 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/notebooks/index.yml",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/notebooks/azure-notebooks-overview.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/notebooks/azure-notebooks-user-account.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/notebooks/azure-notebooks-user-profile.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/notebooks/quickstart-sign-in-azure-notebooks.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/notebooks/access-data-resources-jupyter-notebooks.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/azure-notebooks-samples.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/configure-manage-azure-notebooks-projects.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/create-clone-jupyter-notebooks.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/install-packages-jupyter-notebook.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/present-jupyter-notebooks-slideshow.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/quickstart-clone-jupyter-notebook.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/quickstart-create-jupyter-notebook-project-environment.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/quickstart-create-share-jupyter-notebook.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/quickstart-migrate-local-jupyter-notebook.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/tutorial-create-run-jupyter-notebook.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/use-data-science-virtual-machine.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/work-with-project-data-files.md",
-      "redirect_url": "/azure/notebooks/quickstart-export-jupyter-notebook-project",
+      "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
     {

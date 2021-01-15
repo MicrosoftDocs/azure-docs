@@ -22,7 +22,7 @@ Let's say you have created a simple static threshold metric alert rule as follow
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Static
-- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#changing-aggregation) are Min, Max, Avg, Total, Count): Average
+- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#aggregation) are Min, Max, Avg, Total, Count): Average
 - Period (The look back window over which metric values are checked): Over the last 5 mins
 - Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -39,7 +39,7 @@ Let's say you have created a simple Dynamic Thresholds metric alert rule as foll
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Dynamic
-- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#changing-aggregation) are Min, Max, Avg, Total, Count): Average
+- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#aggregation) are Min, Max, Avg, Total, Count): Average
 - Period (The look back window over which metric values are checked): Over the last 5 mins
 - Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -176,7 +176,7 @@ You can find the full list of supported resource types in this [article](./alert
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](alerts-metric.md)
-- [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#create-alert-rules)
+- [Learn how to create alerts within Azure Montior Metrics Explorer](./metrics-charts.md#alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)
