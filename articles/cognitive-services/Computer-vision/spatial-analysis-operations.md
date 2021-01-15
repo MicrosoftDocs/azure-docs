@@ -85,7 +85,7 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all spatial analys
 | Name | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | string| The GPU index on which this operation will run.|
-| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly.|
+| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly. do_calibration is set by default to True. |
 | `enable_recalibration` | bool | Indicates whether automatic recalibration is turned on. Default is `true`.|
 | `calibration_quality_check_frequency_seconds` | int | Minimum number of seconds between each quality check to determine whether or not recalibration is needed. Default is `86400` (24 hours). Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_sampling_num` | int | Number of randomly selected stored data samples to use per quality check error measurement. Default is `80`. Only used when `enable_recalibration=True`.|
@@ -169,10 +169,10 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `line` | list| The definition of the line. This is a directional line allowing you to understand "entry" vs. "exit".|
 | `start` | value pair| x, y coordinates for line's starting point. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
 | `end` | value pair| x, y coordinates for line's ending point. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
-| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
+| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. The default value is 16. These are the recommended value to achieve maximum accuracy. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingline** this should be `linecrossing`.|
 |`trigger`|string|The type of trigger for sending an event.<br>Supported Values: "event": fire when someone crosses the line.|
-| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
+| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcrossingpolygon
 
@@ -213,10 +213,10 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
-| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
+| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy.  |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
-| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
+| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-persondistance
 
@@ -610,7 +610,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
 | `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side|
-| `durationMs` | int | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
+| `durationMs` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
 | Detections Field Name | Type| Description|
