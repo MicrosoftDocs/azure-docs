@@ -13,7 +13,7 @@ ms.date: 12/09/2020
 
 [Azure Monitor resource logs](./platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service specific fields then added for different log categories. For more information,  see [Common and service specific schema for Azure Resource Logs]()
+A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service-specific fields then added for different log categories. For more information,  see [Common and service-specific schema for Azure Resource Logs]()
 
 
 ## Costs
@@ -114,7 +114,7 @@ Cost to export: Free
 
 |Category |Category Display Name|
 |---|---|
-|WebApplicationFirewallLogs|Web Appliation Firewall Logs|
+|WebApplicationFirewallLogs|Web Application Firewall Logs|
 
 
 ## Microsoft.Cdn/profiles

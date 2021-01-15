@@ -98,7 +98,7 @@ When you chart a metric in metric explorer, you have the option to "split" the c
 
 For example, [Microsoft.ApiManagement/service](metrics-supported.md#microsoftapimanagementservice) has *Location* as a dimension for many metrics. 
 
-- **Capacity** is one such metric. This implies that the underlying system is storing a metric record for the capacity of each location, rather than just one for the aggregate amount. This allows you to know capacity of each location and split that out on a chart.  
+- **Capacity** is one such metric. Having the *Location* dimension implies that the underlying system is storing a metric record for the capacity of each location, rather than just one for the aggregate amount. You can then retrieve or split out that information in a metric chart.  
 
 - Looking at **Overall Duration of Gateway Requests**, there are 2 dimensions *Location* and *Hostname*, again letting you know the location of a duration and which hostname it came from.  
 
@@ -126,7 +126,7 @@ For more information on how to show split dimension data on a metric explorer ch
 
 When the system expects metric data from a resource but doesn't receive it, it records a NULL value.  NULL is different than a zero value, which becomes important in the calculation of aggregations and charting. NULL values are not counted as valid measurements. 
 
-NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown in the screenshot in teh previous section . When calculating averages that include NULLs, there are fewer data points to take the average from.  This can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
+NULLs show up differently on different charts. Scatter plots skip showing a dot on the chart. Bar charts skip showing the bar. On line charts, NULL can show up as [dotted or dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line) like those shown in the screenshot in the previous section. When calculating averages that include NULLs, there are fewer data points to take the average from.  This behavior can sometimes result in an unexpected drop in values on a chart, though usually less so than if the value was converted to a zero and used as a valid datapoint.  
 
 [Custom metrics](metrics-custom-overview.md) always use NULLs when no data is received. With [platform metrics](data-platform.md), each resource provider decides whether to use zeros or NULLs based on what makes the most sense for a given metric.
 
@@ -243,7 +243,7 @@ The system uses the stored aggregated data that gives the best performance.
 
 Below is the larger diagram for the above 1-minute aggregation process, with some of the arrows left out to improve readability.
 
-:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing consolidation of previous 3 screenshots. Multiple 1-minute aggregated entries across dimension of server aggregated in 1-minute, 2-minute and 5-minute intervals. Server A, B, and C shown individually" border="true":::
+:::image type="content" source="media/metrics-aggregation-explained/sum-aggregation-full.png" alt-text="Screenshot showing consolidation of previous 3 screenshots. Multiple 1-minute aggregated entries across dimension of server aggregated in 1-minute, 2-minute, and 5-minute intervals. Server A, B, and C shown individually" border="true":::
 
 ## More complex example
 
@@ -265,14 +265,14 @@ From Minute 6 above, the calculated 1-minute aggregation types are:
 | Aggregation type | Value        | Notes |
 |------------------|--------------|-------|
 | Sum              | 53+20=73 | |
-| Count            | 2            | This shows the effect of NULLs.  The value would have been 3 if the server had been online.  |
+| Count            | 2            | Shows the effect of NULLs.  The value would have been 3 if the server had been online.  |
 | Minimum          | 20           | |
 | Maximum          | 53           | |
-| Average          | 73 / 2       | This is always the Sum divided by the Count. It's never stored and always recalculated for each time granularity using the aggregated numbers for that granularity. Notice the recalculation for the 5-minute and 10-minute time granularities as highlighted above. |
+| Average          | 73 / 2       | Always the Sum divided by the Count. It's never stored and always recalculated for each time granularity using the aggregated numbers for that granularity. Notice the recalculation for the 5-minute and 10-minute time granularities as highlighted above. |
 
-The red text color indicates values that might be considered out of the normal range and shows how they propagate (or fail to) as the time-granularity goes up. Notice how the Min and Max indicate there is are underlying anomalies while the average and sums lose that information as your time granularity goes up.  
+The red text color indicates values that might be considered out of the normal range and shows how they propagate (or fail to) as the time-granularity goes up. Notice how the *Min* and *Max* indicate there are underlying anomalies while the *Average* and *Sums* lose that information as your time granularity goes up.  
 
-You can also see that the NULLs give a better calculations of average than if zeros were used instead.  
+You can also see that the NULLs give a better calculation of average than if zeros were used instead.  
 
 > [!NOTE] 
 > Though not the case in this example, *Count* is equal to *Sum* in cases where a metric is always captured with the value of 1. This is common when a metric tracks the occurrence of a transactional event--for example, the number of HTTP failures mentioned in a previous example in this article.
