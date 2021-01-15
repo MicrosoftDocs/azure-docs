@@ -604,6 +604,9 @@ Run your Event Grid function locally.
 
 Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
 
+> [!NOTE]
+> The `Content-Type` and `aeg-event-type` headers are required to be manually set, while and all other values can be left as default.
+
 * Set a `Content-Type: application/json` header.
 * Set an `aeg-event-type: Notification` header.
 * Paste the RequestBin data into the request body.
