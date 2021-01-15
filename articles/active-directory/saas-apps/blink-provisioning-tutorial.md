@@ -45,7 +45,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Blink for provisioning
 
-1. Log a [Support Case](https://support.joinblink.com) or email **Blink support** at support@joinblink.com to request a SCIM token. .
+1. Log a [Support Case](https://support.joinblink.com) or email **Blink support** at support@joinblink.com to request a SCIM token.
 
 2.	Copy the **SCIM Authentication Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Blink application in the Azure portal.
 
@@ -158,7 +158,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 
-* 01/14/2021 - Custom extension attribute **company** , **description** and **location** has been added.
+* 01/14/2021 - Custom extension attributes **company**, **description**, and **location** have been added.
 
 ## Additional resources
 
