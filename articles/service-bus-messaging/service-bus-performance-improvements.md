@@ -336,6 +336,10 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching doesn't affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol doesn't support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
+# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+For more information, see the following `PrefetchCount` properties:
+
+
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
 For more information, see the following `PrefetchCount` properties:
