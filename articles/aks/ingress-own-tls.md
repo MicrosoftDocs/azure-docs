@@ -360,7 +360,7 @@ kubectl delete -f hello-world-ingress.yaml
 Delete the certificate Secret:
 
 ```console
-kubectl delete secret aks-ingress-tls
+kubectl delete secret aks-ingress-tls --namespace ingress-basic
 ```
 
 Finally, you can delete the itself namespace. Use the `kubectl delete` command and specify your namespace name:
