@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 01/19/2021
 ms.author: tisande
 
 ---
