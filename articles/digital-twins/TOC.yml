@@ -23,6 +23,8 @@
   items:
   - name: Custom models
     href: concepts-models.md
+  - name: Extending DTDL industry ontologies
+    href: concepts-extending-ontologies.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -61,7 +63,7 @@
       href: how-to-move-regions.md
   - name: Design models
     items:
-    - name: Manage custom models
+    - name: Manage models
       href: how-to-manage-model.md
     - name: Integrate industry-standard models
       href: how-to-integrate-models.md
