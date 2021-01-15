@@ -13,7 +13,7 @@ ms.author: lagayhar
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
 
-Click Analytics Auto-collection plugin for Application Insights JavaScript SDK, enables automatic tracking of the click events on web pages based on `data-*`meta tags. This plugin uses the `data-*` global attributes to capture the click events and populate telemetry data.
+Click Analytics Auto-collection Plugin for Application Insights JavaScript SDK enables automatic tracking of the click events on web pages and populates telemetry data based on `data-*` HTML global attributes.
 
 ## Getting started
 
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 |---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | When a particular element is not tagged with default customDataPrefix or customDataPrefix is not provided by user, this flag is used to collect standard HTML attribute for contentName. |
 | customDataPrefix          | string  | `data-`   | Automatic capture content name and value of elements that are tagged with provided prefix.       |
-| aiBlobAttributeTag        | string  | `ai-blob` | Plugin supports a JSON blob content meta data tagging instead of individual `data-*` attributes. |
+| aiBlobAttributeTag        | string  | `ai-blob` | Plugin supports a JSON blob attribute instead of individual `data-*` attributes. |
 | metaDataPrefix            | string  | null      | Automatic capture HTML Head's meta element name and content with provided prefix. |
 | captureAllMetaDataContent | string  | null      | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled this will override provided metaDataPrefix. |
 | parentDataTag             | string  | null      | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag.|
@@ -308,6 +308,7 @@ appInsights.loadAppInsights();
 
 ## Next steps
 
+- Check out the [Github Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
 - Build a [Workbook](../platform/workbooks-overview.md) to create custom visualizations of click data.
