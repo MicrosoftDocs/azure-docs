@@ -29,7 +29,7 @@ When a copy session fails, you have two options:
 
 ## I lost the journal file. Can I still create the job?
 
-The journal file for a drive contains the complete information of copying data to that drive. When you add files to the drive, the journal file is used to create an import job. If you lose the journal file, you'll have to redo all the copy sessions for the drive.
+The journal file for a drive contains complete information from copying data to that drive.<!--Could we say instead "a complete history of data copies to that drive"?--> When you add files to the drive, the journal file is used to create an import job. If you lose the journal file, you'll have to redo all the copy sessions for the drive.
 
 ## Next steps
 
