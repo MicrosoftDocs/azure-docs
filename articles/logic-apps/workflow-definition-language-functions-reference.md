@@ -2622,11 +2622,11 @@ json(xml('value'))
 ```
 
 > [!IMPORTANT]
-> Without an XML schema that defines the output's structure, the function might return results where 
-> where the structure dramatically differs from the expected format, depending on the provided input.
+> Without an XML schema that defines the output's structure, the function might return results 
+> where the structure greatly differs from the expected format, depending on the input.
 >  
-> This behavior makes this function unsuitable for scenarios where the output must conform to a 
-> well-defined contract, for example, in critical business systems or solutions.
+> This behavior makes this function unsuitable for scenarios where the output must conform 
+> to a well-defined contract, for example, in critical business systems or solutions.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
