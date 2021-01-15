@@ -25,11 +25,11 @@ The following will walk you through the process for updating the VM size and ope
 >
 > Do not attempt a primary node type scale up procedure if the cluster status is unhealthy, as this will only destabilize the cluster further.
 
-Here are the step-by-step Azure deployment templates that we'll use to complete this sample upgrade scenario: https://github.com/erikadoyle/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample
+Here are the step-by-step Azure deployment templates that we'll use to complete this sample upgrade scenario: https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade
 
 ## Set up the test cluster
 
-Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/erikadoyle/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample) the Azure Resource Manager sample templates that we'll use to complete this scenario.
+Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) the Azure Resource Manager sample templates that we'll use to complete this scenario.
 
 Next, sign in to your Azure account.
 
@@ -38,7 +38,7 @@ Next, sign in to your Azure account.
 Login-AzAccount -SubscriptionId "<subscription ID>"
 ```
 
-Next open the [*parameters.json*](https://github.com/erikadoyle/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/parameters.json) file and update the value for `clusterName` to something unique (within Azure).
+Next open the [*parameters.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/parameters.json) file and update the value for `clusterName` to something unique (within Azure).
 
 The following commands will guide you through generating a new self-signed certificate and deploying the test cluster. If you already have a certificate you'd like to use, skip to [Use an existing certificate to deploy the cluster](#use-an-existing-certificate-to-deploy-the-cluster).
 
@@ -88,7 +88,7 @@ The operation will return the certificate thumbprint, which you can now use to [
 
 ### Use an existing certificate to deploy the cluster
 
-You can also use an existing Azure Key Vault certificate  to deploy the test cluster. To do this, you'll need to [obtain references to your Key Vault](#obtain-your-key-vault-references) and certificate thumbprint.
+Alternately, you can use an existing Azure Key Vault certificate  to deploy the test cluster. To do this, you'll need to [obtain references to your Key Vault](#obtain-your-key-vault-references) and certificate thumbprint.
 
 ```powershell
 # Key Vault variables
@@ -97,7 +97,7 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Finally, designate a resource group name for the cluster and set the `templateFilePath` and `parameterFilePath` locations:
+Next, designate a resource group name for the cluster and set the `templateFilePath` and `parameterFilePath` locations:
 
 > [!NOTE]
 > The designated resource group must already exist and be located in the same region as your Key Vault.
@@ -151,13 +151,12 @@ With that, we're ready to begin the upgrade procedure.
 
 In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type with new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set (unless you're doing a non-primary node type upgrade). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original ones will be deleted.
 
-The required changes for this step have already been made for you in the *Step1-AddPrimaryNodeType.json* template file, and the following sections will explain these template changes in detail. If you prefer, you can skip the explanation and continue to [deploy the updated template](#deploy-the-updated-template) that adds a new primary node type to your cluster.
 
 ### Update the cluster template with the upgraded scale set
 
 Here are the section-by-section modifications of the original cluster deployment template for adding a new primary node type and supporting resources.
 
-Once you've implemented all the changes in your template and parameters files, proceed to the next section to acquire your Key Vault references and deploy the updates to your cluster.
+The required changes for this step have already been made for you in the [*Step1-AddPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step1-AddPrimaryNodeType.json) template file, and the following will explain these  changes in detail. If you prefer, you can skip the explanation and continue to [obtain your Key Vault references](#obtain-your-key-vault-references) and [deploy the updated template](#deploy-the-updated-template) that adds a new primary node type to your cluster.
 
 > [!Note]
 > Ensure that you use names that are unique from the original node type, scale set, load balancer, public IP, and subnet of the original primary node type, as these resources will be deleted at a later step in the process.
@@ -195,7 +194,7 @@ Once you've implemented all the changes in your template and parameters files, p
 ```
 
 #### Create a new load balancer for the public IP
- 
+
 ```json
 "dependsOn": [
     "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType1Name')))]"
@@ -205,11 +204,13 @@ Once you've implemented all the changes in your template and parameters files, p
 #### Create a new virtual machine scale set (with upgraded VM and OS SKUs)
 
 Node Type Ref
+
 ```json
 "nodeTypeRef": "[variables('vmNodeType1Name')]"
 ```
 
 VM SKU
+
 ```json
 "sku": {
     "name": "[parameters('vmNodeType1Size')]",
@@ -218,7 +219,8 @@ VM SKU
 }
 ```
 
-OS SKU 
+OS SKU
+
 ```json
 "imageReference": {
     "publisher": "[parameters('vmImagePublisher1')]",
@@ -228,11 +230,11 @@ OS SKU
 }
 ```
 
-Ensure you include any additional extensions that are required for your workload.
+Alos, ensure you include any additional extensions that are required for your workload.
 
 #### Add a new primary node type to the cluster
 
-The new node type (vmNodeType1Name) can reuse all other variables from the original node type (for example, `nt0applicationEndPort`, `nt0applicationStartPort`, and `nt0fabricTcpGatewayPort`).
+The new node type (vmNodeType1Name) can reuse all other variables from the original node type (such as `nt0applicationEndPort`, `nt0applicationStartPort`, and `nt0fabricTcpGatewayPort`).
 
 ```json
 "name": "[variables('vmNodeType1Name')]",
@@ -278,7 +280,7 @@ To deploy the updated configuration, you'll need several references to the clust
 
 ### Deploy the updated template
 
-Adjust the `templateFilePath` as needed and then run the following command:
+Adjust the `templateFilePath` as needed and run the following command:
 
 ```powershell
 # Deploy the new node type and its resources
@@ -366,8 +368,8 @@ For Silver and Gold durability, some nodes will go into Disabled state, while ot
 If your cluster is Bronze durability, wait for all nodes to reach *Disabled* state.
 
 ### Stop data on the disabled nodes
- 
-Next, stop data on the disabled nodes.
+
+Now you can stop data on the disabled nodes.
 
 ```powershell
 # Stop data on the disabled nodes.
@@ -384,7 +386,7 @@ foreach($node in $nodes)
 
 ## Remove the original node type and cleanup its resources
 
-Next we'll remove the original node type and its associated resources.
+We're ready to remove the original node type and its associated resources to conclude the vertical scaling procedure.
 
 ### Remove the original scale set
 
@@ -398,14 +400,16 @@ Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceTyp
 ```
 
 ### Delete the original IP and load balancer resources
-> [!Note]
-> This step is optional if you're already using a *Standard* SKU public IP and load balancer. In this case you could have multiple scale sets / node types under the same load balancer.
 
 You can now delete the original IP, and load balancer resources. In this step you will also update the DNS name.
+
+> [!Note]
+> This step is optional if you're already using a *Standard* SKU public IP and load balancer. In this case you could have multiple scale sets / node types under the same load balancer.
 
 Run the following commands, modifying the `$lbname` value as needed.
 
 ```powershell
+# Delete the original IP and load balancer resources
 $lbName = "LB-sftestupgrade-nt0vm"
 $lbResourceType = "Microsoft.Network/loadBalancers"
 $ipResourceType = "Microsoft.Network/publicIPAddresses"
@@ -424,11 +428,13 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ```
+
 ### Remove node state from the original node type
 
-The original node type nodes will now show *Error* for their Health State. Remove the node state from the original nodes.
+The original node type nodes will now show *Error* for their **Health State**. Remove their node state from the cluster.
 
 ```powershell
+# Remove state of the obsolete nodes from the cluster
 $nodeType = "nt0vm"
 $nodes = Get-ServiceFabricNode
 
@@ -448,7 +454,7 @@ Service Fabric Explorer should now reflect only the five nodes of the new node t
 
 ### Update the deployment template to reflect the newly scaled-up primary node type
 
-The required changes for this step have already been made for you in the Step3-CleanupOriginalPrimaryNodeType.json template file, and the following sections will explain these template changes in detail. If you prefer, you can skip the explanation and continue to [deploy the updated template](#deploy-the-finalized-template) that completes the tutorial.
+The required changes for this step have already been made for you in the [*Step3-CleanupOriginalPrimaryNodeType.json*](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade/Step3-CleanupOriginalPrimaryNodeType.json) template file, and the following sections will explain these template changes in detail. If you prefer, you can skip the explanation and continue to [deploy the updated template](#deploy-the-finalized-template) and complete the tutorial.
 
 #### Update the cluster management endpoint
 
@@ -482,7 +488,7 @@ Remove the original node type reference from the Service Fabric resource in the 
 
 #### Configure health policies to ignore existing errors
 
-Only for Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding applicationDeltaHealthPolicies under cluster resource properties as given below. The below policy should ignore existing errors but not allow new health errors.
+Only for Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore `fabric:/System` application health by adding *applicationDeltaHealthPolicies* under cluster resource properties as given below. The below policy will ignore existing errors but not allow new health errors.
 
 ```json
 "upgradeDescription":  
@@ -538,10 +544,10 @@ Remove all other resources related to the original node type from the ARM templa
 
 #### Deploy the finalized template
 
-Next, deploy the modified Azure Resource Manager template.
+Finally, deploy the modified Azure Resource Manager template.
 
 ```powershell
-# deploy the updated template files to the existing resource group
+# Deploy the updated template file
 $templateFilePath = "C:\Step3-CleanupOriginalPrimaryNodeType"
 
 New-AzResourceGroupDeployment `
@@ -559,9 +565,9 @@ New-AzResourceGroupDeployment `
 
 The upgrade will change settings to the *InfrastructureService*; therefore, a node restart is needed. In this case, *forceRestart* is ignored. The parameter `upgradeReplicaSetCheckTimeout` specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter `upgradeTimeout` can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 
-Finally, validate that the Service Fabric resource in Portal shows as ready.
+Once the deployment has completed, verify in Azure portal that the Service Fabric resource Status is *Ready*. Verify you can reach the new Service Fabric Explorer endpoint, the **Cluster Health State** is *OK*, and any deployed applications function properly.
 
-With that, you've vertically scaled a cluster primary node type. Verify that any deployed applications function properly and the Cluster Health State is *OK*.
+With that, you've vertically scaled a cluster primary node type!
 
 ## Next steps
 
