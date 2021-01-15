@@ -162,6 +162,19 @@ var signature = ComputeSignature(stringToSign);
 var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
+## Add headers to requestMessage
+In previous steps we prepared value for authorization part.
+Add following code into Main method to add headers to requestMessage
+```csharp
+//Add content hash header
+requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
+//add date header
+requestMessage.Headers.Add("Date", date);
+//add Authorization header
+requestMessage.Headers.Add("Authorization", authorizationHeader);
+//add host header
+requestMessage.Headers.Add("Host", requestMessage.RequestUri.Authority);
+```
 
 
 
