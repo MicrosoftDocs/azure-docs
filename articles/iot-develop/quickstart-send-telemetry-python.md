@@ -43,7 +43,7 @@ In this section, you will use the Python SDK to send messages from your simulate
     ```console
     pip install azure-iot-device
     ```
-1. Set the Device Connection String as an enviornment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. This is the string you obtained in the previous section after creating your simulated Python device. 
+1. Set the Device Connection String as an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. This is the string you obtained in the previous section after creating your simulated Python device. 
 
     **Windows (cmd)**
 
