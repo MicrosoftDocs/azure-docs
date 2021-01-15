@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
+ms.date: 01/15/2021
 ---
 
 # Transform data securely by using mapping data flow
@@ -29,6 +29,7 @@ In this tutorial, you do the following steps:
 > * Monitor a data flow activity.
 
 ## Prerequisites
+
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Data Lake Storage as *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
 
@@ -59,12 +60,14 @@ In this step, you create a data factory and open the Data Factory UI to create a
 1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
 ## Create an Azure IR in Data Factory Managed Virtual Network
+
 In this step, you create an Azure IR and enable Data Factory Managed Virtual Network.
 
 1. In the Data Factory portal, go to **Manage**, and select **New** to create a new Azure IR.
 
    ![Screenshot that shows creating a new Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Select the **Azure** IR option.
+1. On the **Integration runtime setup** page, choose what integration runtime to create based on required capabilities. In this tutorial, select **Azure, Self-Hosted** and then click **Continue**. 
+1. Select **Azure** and then click **Continue** to create an Azure Integration runtime.
 
    ![Screenshot that shows a new Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
