@@ -47,7 +47,3 @@ ms.date: 12/09/2020
 |Server entity|Managed instance or instance| N/A as the SQL Managed Instance is in itself the server |
 |Resource type|vCore|A CPU core provided to the compute resource for SQL Managed Instance.|
 ||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources for SQL Managed Instance.  Storage size is the maximum amount of storage available for a SQL Managed Instance.  For sizing options, [SQL Managed Instances](managed-instance/resource-limits.md). |
-
-## SQL on Azure VM
-
-need more stuff here

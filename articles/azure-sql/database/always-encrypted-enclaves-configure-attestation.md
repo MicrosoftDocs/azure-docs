@@ -8,9 +8,9 @@ ms.subservice: security
 ms.devlang: 
 ms.topic: how-to
 author: jaszymas
-ms.author: vanto
-ms.reviwer: 
-ms.date: 12/09/2020
+ms.author: jaszymas
+ms.reviwer: vanto
+ms.date: 01/15/2021
 ---
 
 # Configure Azure Attestation for your Azure SQL logical server
@@ -111,8 +111,8 @@ During the attestation workflow, the Azure SQL logical server containing your da
 
 To assign the identity of an Azure SQL server to the Attestation Reader role for an attestation provider, follow the general instructions in [Add or remove Azure role assignments using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). When you are in the **Add role assignment** pane:
 
-- In the **Role** drop-down Select the **Attestation Reader** role.
-- In the **Select** field, enter the name of your Azure SQL server to search for it.
+1. In the **Role** drop-down, select the **Attestation Reader** role.
+1. In the **Select** field, enter the name of your Azure SQL server to search for it.
 
 See the below screenshot for an example.
 

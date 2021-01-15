@@ -5,13 +5,12 @@ keywords: encrypt data, sql encryption, database encryption, sensitive data, Alw
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: jaszymas
-ms.author: vanto
-ms.reviwer: 
-ms.date: 12/09/2020
+ms.author: jaszymas
+ms.reviwer: vanto
+ms.date: 01/15/2021
 --- 
 # Plan for Intel SGX enclaves and attestation in Azure SQL Database
 

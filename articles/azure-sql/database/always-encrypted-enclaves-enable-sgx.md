@@ -8,9 +8,9 @@ ms.subservice: security
 ms.devlang: 
 ms.topic: conceptual
 author: jaszymas
-ms.author: vanto
-ms.reviwer: 
-ms.date: 12/09/2020 
+ms.author: jaszymas
+ms.reviwer: vanto
+ms.date: 01/15/2021 
 ---
 # Enable Intel SGX for your Azure SQL Database 
 

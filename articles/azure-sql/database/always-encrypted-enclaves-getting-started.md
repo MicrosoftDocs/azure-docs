@@ -8,9 +8,9 @@ ms.subservice: security
 ms.devlang: 
 ms.topic: tutorial
 author: jaszymas
-ms.author: vanto
-ms.reviwer: 
-ms.date: 12/09/2020
+ms.author: jaszymas
+ms.reviwer: vanto
+ms.date: 01/15/2021
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
@@ -19,7 +19,7 @@ ms.date: 12/09/2020
 > [!NOTE]
 > Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
-This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves)] in Azure SQL Database. It will show you:
+This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database. It will show you:
 
 > [!div class="checklist"]
 > - How to create an environment for testing and evaluating Always Encrypted with secure enclaves.
