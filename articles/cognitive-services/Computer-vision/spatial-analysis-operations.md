@@ -65,6 +65,38 @@ These are the parameters required by each of these spatial analysis operations.
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to [camera placement](spatial-analysis-camera-placement.md) guide for more information |
 
+This is an example of the DETECTOR_NODE_CONFIG parameters for all spatial analysis operations.
+
+```json
+{
+"gpu_index": 0,
+"do_calibration": true,
+"enable_recalibration": true,
+"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_sampling_num": 80,
+"calibration_quality_check_sampling_times": 5,
+"calibration_quality_check_sample_collect_frequency_seconds": 300,
+"calibration_quality_check_one_round_sample_collect_num":10,
+"calibration_quality_check_queue_max_size":1000,
+"recalibration_score": 75
+}
+```
+
+| Name | Type| Description|
+|---------|---------|---------|
+| `gpu_index` | string| The GPU index on which this operation will run.|
+| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly.|
+| `enable_recalibration` | bool | Indicates whether automatic recalibration is turned on. Default is `true`.|
+| `calibration_quality_check_frequency_seconds` | int | Minimum number of seconds between each quality check to determine whether or not recalibration is needed. Default is `86400` (24 hours). Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_sampling_num` | int | Number of randomly selected stored data samples to use per quality check error measurement. Default is `80`. Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_sampling_times` | int | Number of times error measurements will be performed on different sets of randomly selected data samples per quality check. Default is `5`. Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimum number of seconds between collecting new data samples for recalibration and quality checking. Default is `300` (5 minutes). Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
+| `recalibration_score` | int | Maximum quality threshold to begin recalibration. Default is `75`. Only used when `enable_recalibration=True`. Calibration quality is calculated based on an inverse relationship with image target reprojection error. Given detected targets in 2D image frames, the targets are projected into 3D space and re-projected back to the 2D image frame using existing camera calibration parameters. The reprojection error is measured by the average distances between the detected targets and the re-projected targets.|
+| `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
+
+
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
  This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
@@ -223,29 +255,6 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `minimum_distance_threshold` | float| A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.|
 | `maximum_distance_threshold` | float| A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
-
-This is an example of a JSON input for the DETECTOR_NODE_CONFIG parameter that configures a **cognitiveservices.vision.spatialanalysis-persondistance** zone.
-
-```json
-{ 
-"gpu_index": 0, 
-"do_calibration": true
-}
-```
-
-| Name | Type| Description|
-|---------|---------|---------|
-| `gpu_index` | string| The GPU index on which this operation will run.|
-| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly.|
-| `enable_recalibration` | bool | Indicates whether automatic recalibration is turned on. Default is `true`.|
-| `calibration_quality_check_frequency_seconds` | int | Minimum number of seconds between each quality check to determine whether or not recalibration is needed. Default is `86400` (24 hours). Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_sampling_num` | int | Number of randomly selected stored data samples to use per quality check error measurement. Default is `80`. Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_sampling_times` | int | Number of times error measurements will be performed on different sets of randomly selected data samples per quality check. Default is `5`. Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimum number of seconds between collecting new data samples for recalibration and quality checking. Default is `300` (5 minutes). Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
-| `recalibration_score` | int | Maximum quality threshold to begin recalibration. Default is `75`. Only used when `enable_recalibration=True`. Calibration quality is calculated based on an inverse relationship with image target reprojection error. Given detected targets in 2D image frames, the targets are projected into 3D space and re-projected back to the 2D image frame using existing camera calibration parameters. The reprojection error is measured by the average distances between the detected targets and the re-projected targets.|
-| `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 
 See the [camera placement](spatial-analysis-camera-placement.md) guidelines to learn about zone and line configurations.
 
