@@ -129,7 +129,10 @@ Typically, the service administrator can use the following steps to add the logi
    FOR LOGIN <login_name, sysname, login_name>
    WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d0848a98a5e08c154c8c85c17430cedfc582831
    -- Add user to the database owner role
    EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
@@ -191,7 +194,7 @@ To work around this issue, try one of the following methods:
 
 1. Tune the head blocker query.
 
-If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
+If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/).
 
 For more information about database limits, see  [SQL Database resource limits for servers](./resource-limits-logical-server.md).
 
