@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Java and JDBC with Azure Database for MySQL'
-description: Learn how to use Java and JDBC with an Azure Database for MySQL database.
+title: 'Quickstart: Use Java and JDBC with Azure Database for MySQLFlexible Server'
+description: Learn how to use Java and JDBC with an Azure Database for MySQL Flexible Server database.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -10,14 +10,14 @@ ms.devlang: java
 ms.date: 01/16/2021
 ---
 
-# Quickstart: Use Java and JDBC with Azure Database for MySQL
+# Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server
 
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL Flexible Server](./index.yml).
 
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
 - A supported [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
 
@@ -61,7 +61,7 @@ az group create \
 The first thing we'll create is a managed MySQL server.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
+> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-server-portal.md).
 
 In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
 
