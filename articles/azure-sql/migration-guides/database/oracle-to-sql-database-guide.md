@@ -27,144 +27,112 @@ To migrate your Oracle database to SQL Database you need:
 - A target [Azure SQL Database](../../database/single-database-create-quickstart.md). 
  
 
+## Pre-migration
+
+After you have met the prerequisites, you are ready to discover the topology of your environment and assess the feasibility of your migration. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
 
 
-## Preparing for database migration
 
-As you prepare for migrating your database to the cloud, verify that your source environment is supported and that you have addressed any prerequisites. This will help to ensure an efficient and successful migration.
-
-### Overview
-
-This scenario describes how to migrate an Oracle instance to Azure SQL Database.
-
-### Offline versus online migrations
-
-When you migrate databases to Azure by using Azure Database Migration Service, you can perform an offline or an online migration. With an *offline* migration, application downtime begins when the migration starts. For an *online* migration, downtime is limited to the time required to cut over to the new environment when the migration completes. It's recommended to test an offline migration to determine whether the downtime is acceptable; if not, perform an online migration.
+### Assess 
 
 
-## Pre-migration overview
+Use the SQL Server Migration Assistant (SSMA) for Oracle to review database objects and data, assess databases for migration, migrate database objects to Azure SQL Database, and then finally migrate data to the database. 
 
-After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you are ready to start the Pre-migration stage. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
 
-### Assess and Convert
+To create an assessment, follow these steps: 
 
-After identifying the data sources, the next step is to assess the Oracle instance(s) migrating to Azure SQL Database database(s) so that you understand the gaps between the two.
 
-By using the SQL Server Migration Assistant (SSMA) for Oracle, you can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
+1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
+1. Select **File** and then choose **New Project**. 
+1. Provide a project name, a location to save your project, and then select Azure SQL Database as the migration target from the drop-down. Select **OK**.
 
-To use SSMA for Oracle to create an assessment, perform the following steps.
+   ![New Project](./media/oracle-to-sql-database-guide/new-project.png)
 
-### Steps
+1. Enter in values for the DB2 connection details on the Connect to **Connect to Oracle** dialog box.
 
-1. **Download [SSMA](https://www.microsoft.com/en-us/download/details.aspx?id=54258)**, and then install it.
+   ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
-2. **Assess the source database** and discover conversion rate and effort to resolve issues.
+1. Right-click the Oracle database you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
-   1. Click on the "File" menu and choose "New Project". Provide the project name, a location to save your project and the migration target.
-   
-   2. Select Azure SQL Database from the “Migrate To” options
-   
-   3. Click "OK".
-   
-      ![New Project](./media/oracle-to-sql-database/image1.png)
-   
-   4. Connect to the Oracle server by providing the connection details in the "Connect to Oracle" dialog.
-   
-      ![Connect to Oracle](./media/oracle-to-sql-database/image2.png)
-   
-   5. Create the conversion report by selecting the Oracle schema in the "Oracle Metadata Explorer" by choosing "Create Report" from the right-click menu options or the menu bar on the top.
-   
-      ![Create Report](./media/oracle-to-sql-database/image3.png)
-   
-   6. This will generate an HTML report with conversion statistics and error/ warnings, if any. Analyze this report to understand conversion issues and its cause.
-   
-      ![Assessment Report](./media/oracle-to-sql-database/image4.png)
-   
-   7. This report can also be accessed from the SSMA projects folder as selected in the first screen. From the example above locate the report.xml file from:
-   
-      *drive*:\Users<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\
-   
-      and open it in Excel to get an inventory of oracle objects and the effort required to perform schema conversions.
+![Create Report](./media/oracle-to-sql-database-guide/create-report.png)
 
-3. **Perform schema conversion**.
+1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
-   1. Before you perform schema conversion validate the default datatype mappings or change them based on requirements. You could do so either by navigating to the "Tools" menu and choosing "Project Settings" or you can change type mapping for each table by selecting the table in the "Oracle Metadata Explorer".
-   
-      ![Image Alt Text Type Mappings](./media/oracle-to-sql-database/image5.png)
-   
-   2. Dynamic or ad hoc queries can be added to the "Statements" node by selecting that node and choosing "Add Statement" from the right-click menu options.
-   
-   3. For converting and moving the schema to Azure SQL Database, connect to the SQL instance by providing the connection details in the "Connect to Azure SQL" dialog. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
-   
-      ![Image Alt Text Connect to SQL](./media/oracle-to-sql-database/image6.png)
-   
-   4. Convert the schema by choosing "Convert Schema" from the right-click menu options or the menu bar on the top.
-   
-      ![Image Alt Text Convert Schema](./media/oracle-to-sql-database/image7.png)
-   
-   5. After the schema has converted compare and review the structure of the schema to identify potential problems.
-   
-      ![Image Alt Text Schema to identify](./media/oracle-to-sql-database/image8.png)
+   For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
 
-## Migration overview  
+   ![Assessment Report](./media/oracle-to-sql-database-guide/assessment-report.png)
 
-After you have the necessary prerequisites in place and have completed the tasks associated with the **Pre-migration** stage, you are ready to perform the schema and data migration.
 
-### Migrate schema and data
+### Validate data types
 
-After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. SSMA for Oracle is the correct tool to use for this process.
+Validate the default data type mappings and change them based on requirements if necessary. To do so, follow these steps:
 
-### Steps
+1. Select **Tools** from the menu. 
+1. Select **Project Settings**. 
+1. Select the **Type mappings** tab. 
 
-To use SSMA for Oracle to publish the database schema and migrate the data, perform the following steps.
+   ![Type Mappings](./media/oracle-to-sql-database-guide/type-mappings.png)
 
-1. **Publish the schema to Azure SQL Database**.
+1. You can change the type mapping for each table by selecting the table in the **Oracle Metadata Explorer**.
 
-   1. After schema conversion you can save this project locally for an offline schema remediation exercise. You can do so by choosing "Save Project" from the "File" menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you can publish the schema to Azure SQL Database.
-   
-   2. To Publish the schema, select the database from the "Databases" node in the "SQL Azure Metadata Explorer" and choose "Synchronize with Database" from the right-click menu options
-   
-      ![Image Alt Text Synchronize with Database](./media/oracle-to-sql-database/image9.png)
-   
-   3. This action will publish the Oracle schema to the Azure SQL instance.
+### Convert schema
 
-2. **Migrate data to Azure SQL Database**.
+To convert the schema, follow these steps: 
 
-   1. After publishing the schema to the Azure SQL instance, select the Oracle schema from the "Oracle Metadata Explorer” and choose "Migrate Data" from the right-click menu options or the menu bar on the top.
-   
-   2. At this step you will be required to provide connection details for Oracle and Azure SQL in their respective connection dialogs to migrate the data.
-   
-      ![Image Alt Text Migrate Data](./media/oracle-to-sql-database/image10.png)
-   
-   3. After the migration is complete you will be able to view the "Data Migration report".
-   
-      ![Image Alt Text Data Migration Report](./media/oracle-to-sql-database/image11.png)
-   
-   4. Validate the migration by reviewing the data and schema on the Azure SQL instance by using SQL Server Management Studio (SSMS).
-   
-      ![Image Alt Text Validate in SSMA](./media/oracle-to-sql-database/image12.png)
+1. (Optional) Add dynamic or ad-hoc queries to statements. Right-click the node, and then choose **Add statements**.
+1. Select **Connect to Azure SQL Database**. 
+    1. Enter connection details to connect your database in Azure SQL Database.
+    1. Choose your target SQL Database from the drop-down.
+    1. Select **Connect**.
 
-SSMA is not the only option for migrating data, though. You could also use SQL Server Integration Services (SSIS).
+    ![Connect to SQL Database](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
-> [!NOTE]
-> For complete step-by-step guidance on publishing the schema and migrating the data, see the following resources:
+1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
 
-  - The blog posting [SQL Server Migration Assistant: How to assess and migrate data from non-Microsoft data platforms to SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
+   ![Convert Schema](./media/oracle-to-sql-database-guide/convert-schema.png)
 
-  - The article [Getting Started with SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+1. After the conversion completes, compare and review the structure of the schema to identify potential problems and address them based on the recommendations.
 
-  - The white paper [SQL Server Integration Services: SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
+   ![Review recommendations](./media/oracle-to-sql-database-guide/review-recommendations.png)
+
+1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
+
+## Migrate
+
+After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) is the correct tool to use for this process.
+
+To publish your schema and migrate your data, follow these steps:
+
+1. Publish the schema: Right-click the database from the **Databases** node in the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**.
+
+   ![Synchronize with Database](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
+
+1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
+
+  ![Migrate Data](./media/oracle-to-sql-database-guide/migrate-data.png)
+
+1. Provide connection details for both Oracle and Azure SQL Database.
+1. View the **Data Migration report**.
+
+   ![Data Migration Report](./media/oracle-to-sql-database-guide/data-migration-report.png)
+
+1. Connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema.
+
+   ![Validate in SSMA](./media/oracle-to-sql-database-guide/validate-data.png)
+
+
+Alternatively, you can also use SQL Server Integration Services (SSIS) to perfrom the migration. To learn more, see: 
+
+- [SQL Server Migration Assistant: How to assess and migrate data from non-Microsoft data platforms to SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
+- [Getting Started with SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services: SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
+
 
 > [!NOTE]
 > If you are interested in participating in a Private preview of online migrations for Oracle to Azure SQL Database (or to Azure SQL Database Managed Instance) using the Azure Database Migration Service, submit a nomination on the Azure Database Migration Service [preview site](https://aka.ms/dms-preview).
 
-### Data sync and Cutover
 
-With minimal-downtime migrations, the source you are migrating continues to change, drifting from the target in terms of data and schema, after the one-time migration occurs. During the **Data sync** phase, you need to ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes in source have been applied to the target, you can cutover from the source to the target environment.
-
-The Azure Database Migration Service does not yet support minimal-downtime migrations for this scenario, so the **Data sync** and **Cutover** phases are not currently applicable.
-
-## Post-migration overview
+## Post-migration 
 
 After you have successfully completed the **Migration** stage, you need to go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
 
@@ -192,7 +160,7 @@ The test approach for database migration consists of performing the following ac
 The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload.
 
 > [!NOTE]
-> For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide](https://docs.microsoft.com/sql/relational-databases/post-migration-validation-and-optimization-guide).
+> For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 
 ## Migration assets 
@@ -212,14 +180,21 @@ For additional assistance with completing this migration scenario, please see th
 > [!NOTE]
 > These resources were developed as part of the Data Migration Jumpstart Program (DM Jumpstart), which is sponsored by the Azure Data Group engineering team. The core charter DM Jumpstart is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft’s Azure Data platform. If you think your organization would be interested in participating in the DM Jumpstart program, please contact your account team and ask that they submit a nomination.
 
-### Additional resources
+## Next steps
 
-  - Be sure to check out the [Azure Total Cost of Ownership (TCO) Calculator](https://aka.ms/azure-tco) to help estimate the cost savings you can realize by migrating your workloads to Azure.
+- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
 
-  - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- To learn more about Azure SQL Database, see: 
+  - [An overview of Azure SQL Database](../../database/sql-database-paas-overview.md)
+  - [Azure Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
 
-### Videos
 
-  - For an overview of the Azure Database Migration Guide and the information it contains, see the video [How to Use the Database Migration Guide](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/).
+- To learn more about the framework and adoption cycle for Cloud migrations, see
+    - [Cloud Adoption Framework for Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+    - [Best practices for costing and sizing workloads migrate to Azure](/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
 
-  - For a walk through of the phases of the migration process and detail about the specific tools and services recommended to perform assessment and migration, see the video [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+- For video content, see: 
+    - [How to Use the Database Migration Guide](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
+    - [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
+
+
