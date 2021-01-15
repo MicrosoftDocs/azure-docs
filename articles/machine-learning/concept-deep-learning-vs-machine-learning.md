@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/15/2020
+ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
 ---
 
@@ -52,7 +52,7 @@ The following table compares the two techniques in more detail:
 |  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Usually takes a long time to train because a deep learning algorithm involves many layers. |
 |  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have multiple formats, like a text, a score or a sound. |
 
-## Transfer learning
+## What is transfer learning
 
 Training deep learning models often requires large amounts of training data, high-end compute resources (GPU, TPU), and a longer training time. In scenarios when you don't have any of these available to you, you can shortcut the training process using a technique known as *transfer learning.*
 
@@ -60,7 +60,7 @@ Transfer learning is a technique that applies knowledge gained from solving one 
 
 Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
 
-Learn how to apply transfer learning for image classification using an open-source framework in Azure Machine Learning : [Classify images by using a Pytorch model](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+Learn how to apply transfer learning for image classification using an open-source framework in Azure Machine Learning : [Train a deep learning PyTorch model using transfer learning](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
 ## Deep learning use cases
 
