@@ -221,8 +221,7 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
-
-## Get datasets in machine learnings scripts
+## Get datasets in machine learning scripts
 
 Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and get the dataset that was used in your previously submitted run. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
 

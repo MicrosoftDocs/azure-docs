@@ -47,7 +47,7 @@ The following diagram provides a visual demonstration of this recommended workfl
 
 ![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
 
-## Datastores
+## Store data in datastores
 
 Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage service. 
 
@@ -102,7 +102,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 
 <a name="label"></a>
 
-## Data labeling
+## Label data with data labeling
 
 Labeling large amounts of data has often been a headache in machine learning projects. Those with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
 
@@ -112,7 +112,7 @@ Create a [data labeling project](how-to-create-labeling-projects.md), and output
 
 <a name="drift"></a>
 
-## Data drift
+## Monitor model performance with data drift
 
 In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
 
