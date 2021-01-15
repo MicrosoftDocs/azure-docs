@@ -75,7 +75,7 @@ To download files by using **Azure Storage Explorer**, with a file selected, sel
 
 You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
-![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 The **Manage Permission** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
@@ -103,7 +103,7 @@ You can manage permissions on individual directories, as well as individual file
 
 ## Private endpoints in Azure Data Lake Storage Gen2
 
-Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure two private endpoints are created for the storage account - one with the target sub-resource of blob and the other with target sub-resource of dfs.
+Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure two private endpoints are created for the storage account - one with the target sub-resource of blob and the other with target sub-resource of dfs.
 
 ## Next steps
 
