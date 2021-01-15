@@ -210,7 +210,7 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 | | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Total Monthly Cost**  | |**$38,688**   |
 
-## Billing examples with Azure Cosmos DB free tier accounts
+## <a id="azure-free-tier"></a>Billing examples with Azure Cosmos DB free tier accounts
 
 With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 400 RU/s and 5 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 400 Ru/s and 5 GB, only the RU/s and storage beyond what is covered by free tier. 
 The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale, and multi-region writes.  
