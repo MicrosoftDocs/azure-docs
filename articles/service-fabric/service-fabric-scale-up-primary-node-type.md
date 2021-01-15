@@ -151,7 +151,7 @@ With that, we're ready to begin the upgrade procedure.
 
 In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type with new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set (unless you're doing a non-primary node type upgrade). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original ones will be deleted.
 
-The required changes for this step have already been made for you in the *Step1-AddPrimaryNodeType.json* template file, and the following sections will explain these template changes in detail. If you prefer, you can skip the explanation and continue to [deploy the the updated template](#deploy-the-updated-template) that adds a new primary node type to your cluster.
+The required changes for this step have already been made for you in the *Step1-AddPrimaryNodeType.json* template file, and the following sections will explain these template changes in detail. If you prefer, you can skip the explanation and continue to [deploy the updated template](#deploy-the-updated-template) that adds a new primary node type to your cluster.
 
 ### Update the cluster template with the upgraded scale set
 
@@ -332,7 +332,7 @@ New-AzResourceGroupDeployment `
 > [!Note]
 > It will take some time to complete the seed node migration to the new scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
 
-Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set.
+Use Service Fabric Explorer to monitor the migration of seed nodes to the new scale set. The nodes of the original node type (nt0vm) should all be *false* in the **Is Seed Node** column, and those of the new node type (nt1vm) will be *true*.
 
 ### Disable the nodes in the original node type scale set
 
@@ -384,7 +384,11 @@ foreach($node in $nodes)
 
 ## Remove the original node type and cleanup its resources
 
+Next we'll remove the original node type and its associated resources.
+
 ### Remove the original scale set
+
+First remove the node type's backing scale set.
 
 ```powershell
 $scaleSetName = "nt0vm"
@@ -399,39 +403,36 @@ Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceTyp
 
 You can now delete the original IP, and load balancer resources. In this step you will also update the DNS name.
 
+Run the following commands, modifying the `$lbname` value as needed.
+
 ```powershell
-$lbname = "LB-sftestupgrade-nt0vm"
+$lbName = "LB-sftestupgrade-nt0vm"
 $lbResourceType = "Microsoft.Network/loadBalancers"
 $ipResourceType = "Microsoft.Network/publicIPAddresses"
 $oldPublicIpName = "PublicIP-LB-FE-nt0vm"
 $newPublicIpName = "PublicIP-LB-FE-nt1vm"
 
-$oldprimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
-$primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
-$primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
+$oldPrimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
+$primaryDNSName = $oldPrimaryPublicIP.DnsSettings.DomainNameLabel
+$primaryDNSFqdn = $oldPrimaryPublicIP.DnsSettings.Fqdn
 
-Remove-AzResource -ResourceName $lbname -ResourceType $lbResourceType -ResourceGroupName $resourceGroupName -Force
+Remove-AzResource -ResourceName $lbName -ResourceType $lbResourceType -ResourceGroupName $resourceGroupName -Force
 Remove-AzResource -ResourceName $oldPublicIpName -ResourceType $ipResourceType -ResourceGroupName $resourceGroupName -Force
 
 $PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $resourceGroupName
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
-``` 
-
-Next, update the cluster `managementEndpoint` on the deployment template to reference the new IP (by updating *vmNodeType0Name* with *vmNodeType1Name*).
-
-```json
-  "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-
 ### Remove node state from the original node type
+
+The original node type nodes will now show *Error* for their Health State. Remove the node state from the original nodes.
 
 ```powershell
 $nodeType = "nt0vm"
 $nodes = Get-ServiceFabricNode
 
-Write-Host "Disabling nodes..."
+Write-Host "Removing node state..."
 foreach($node in $nodes)
 {
   if ($node.NodeType -eq $nodeType)
@@ -443,7 +444,23 @@ foreach($node in $nodes)
 }
 ```
 
-9. Remove the original node type reference from the Service Fabric resource in the deployment template:
+Service Fabric Explorer should now reflect only the five nodes of the new node type (nt1vm), all with Health State values of *OK*. Your Cluster Health State will still show *Error*. We'll remediate that next by updating the template to reflect the latest changes and redeploying.
+
+### Update the deployment template to reflect the newly scaled-up primary node type
+
+The required changes for this step have already been made for you in the Step3-CleanupOriginalPrimaryNodeType.json template file, and the following sections will explain these template changes in detail. If you prefer, you can skip the explanation and continue to [deploy the updated template](#deploy-the-finalized-template) that completes the tutorial.
+
+#### Update the cluster management endpoint
+
+Update the cluster `managementEndpoint` on the deployment template to reference the new IP (by updating *vmNodeType0Name* with *vmNodeType1Name*).
+
+```json
+  "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
+```
+
+#### Remove the original node type reference
+
+Remove the original node type reference from the Service Fabric resource in the deployment template:
 
 ```json
 "name": "[variables('vmNodeType0Name')]",
@@ -462,6 +479,8 @@ foreach($node in $nodes)
 "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
 "vmInstanceCount": "[parameters('nt0InstanceCount')]"
 ```
+
+#### Configure health policies to ignore existing errors
 
 Only for Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding applicationDeltaHealthPolicies under cluster resource properties as given below. The below policy should ignore existing errors but not allow new health errors.
 
@@ -497,7 +516,10 @@ Only for Silver and higher durability clusters, update the cluster resource in t
  } 
 }
 ```
-10. Remove all other resources related to the original node type from the ARM template and the parameters file, deleting
+
+#### Remove supporting resources for the original node type
+
+Remove all other resources related to the original node type from the ARM template and the parameters file. Delete the following:
 
 ```json
     "vmImagePublisher": {
@@ -514,9 +536,9 @@ Only for Silver and higher durability clusters, update the cluster resource in t
     },
 ```
 
-11. Deploy the modified Azure Resource Manager template. This step will take a while, usually up to two hours. The upgrade will change settings to the InfrastructureService; therefore, a node restart is needed. In this case, forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
+#### Deploy the finalized template
 
-Finally, validate that the Service Fabric resource in Portal shows as ready.
+Next, deploy the modified Azure Resource Manager template.
 
 ```powershell
 # deploy the updated template files to the existing resource group
@@ -532,7 +554,14 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-The cluster's primary node type has now been upgraded. Verify that any deployed applications function properly and cluster health is ok.
+> [!NOTE]
+> This step will take a while, usually up to two hours.
+
+The upgrade will change settings to the *InfrastructureService*; therefore, a node restart is needed. In this case, *forceRestart* is ignored. The parameter `upgradeReplicaSetCheckTimeout` specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter `upgradeTimeout` can be reduced to 6 hours, but for maximal safety 12 hours should be used.
+
+Finally, validate that the Service Fabric resource in Portal shows as ready.
+
+With that, you've vertically scaled a cluster primary node type. Verify that any deployed applications function properly and the Cluster Health State is *OK*.
 
 ## Next steps
 
