@@ -36,7 +36,7 @@ Make sure to create the following resources before you start:
 
 ## Create a database and views
 
-Creating views in the master or default databases is not recommended or supported. So you need to start this step by creating a database. From the Synapse workspace go the **Develop** tab, select the **+** icon, and select **SQL Script**.
+From the Synapse workspace go the **Develop** tab, select the **+** icon, and select **SQL Script**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Add a SQL script to the Synapse Analytics workspace":::
 
@@ -44,7 +44,7 @@ Every workspace comes with a serverless SQL endpoint. After creating a SQL scrip
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Enable the SQL script to use the serverless SQL endpoint in the workspace":::
 
-Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
+Creating views in the **master** or **default** databases is not recommended or supported. Create a new database, named **RetailCosmosDB**, and a SQL view over the Synapse Link enabled containers. The following command shows how to create a database:
 
 ```sql
 -- Create database
