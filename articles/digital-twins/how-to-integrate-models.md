@@ -30,7 +30,7 @@ There are three possible paths to integrating industry-standard models with DTDL
 
 It is often easier to start with an open-source DTDL ontology than starting from a blank page. 
 
-For example, Smart Buildings solutions can leverage the open-source [**DTDL-based RealEstateCore ontology**](https://github.com/Azure/opendigitaltwins-building), which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
+For example, Smart Buildings solutions can leverage the open-source [**DTDL-based RealEstateCore ontology for smart buildings**](https://github.com/Azure/opendigitaltwins-building), which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
 
 These open-source DTDL ontologies also provide best practices for how to consume and properly extend the models. 
 
