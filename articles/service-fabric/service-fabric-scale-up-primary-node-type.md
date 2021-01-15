@@ -149,8 +149,7 @@ With that, we're ready to begin the upgrade procedure.
 
 ## Deploy a new primary node type with upgraded scale set
 
-In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type with new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set (unless you're doing a non-primary node type upgrade). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original ones will be deleted.
-
+In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type backed by a new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set (unless you're doing a non-primary node type upgrade). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original primary node type resources will be deleted.
 
 ### Update the cluster template with the upgraded scale set
 
@@ -230,11 +229,11 @@ OS SKU
 }
 ```
 
-Alos, ensure you include any additional extensions that are required for your workload.
+Also, ensure you include any additional extensions that are required for your workload.
 
 #### Add a new primary node type to the cluster
 
-The new node type (vmNodeType1Name) can reuse all other variables from the original node type (such as `nt0applicationEndPort`, `nt0applicationStartPort`, and `nt0fabricTcpGatewayPort`).
+Now that the new node type (vmNodeType1Name) has its own name, subnet, IP, load balancer, and scale set, it can reuse all other variables from the original node type (such as `nt0applicationEndPort`, `nt0applicationStartPort`, and `nt0fabricTcpGatewayPort`):
 
 ```json
 "name": "[variables('vmNodeType1Name')]",
