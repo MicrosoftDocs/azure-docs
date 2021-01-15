@@ -270,6 +270,8 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
+    - name: Plan and manage costs 
+      href: database/cost-management.md
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md
