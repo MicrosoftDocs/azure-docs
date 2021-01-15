@@ -1,12 +1,15 @@
 ---
 title: Outputs in templates
-description: Describes how to define output values in an Azure Resource Manager template.
+description: Describes how to define output values in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 11/24/2020
 ---
-# Outputs in Azure Resource Manager template
 
-This article describes how to define output values in your Azure Resource Manager template. You use outputs when you need to return values from the deployed resources.
+# Outputs in ARM templates
+
+This article describes how to define output values in your Azure Resource Manager template (ARM template). You use `outputs` when you need to return values from the deployed resources.
+
+The format of each output value must match one of the [data types](template-syntax.md#data-types).
 
 ## Define output values
 
@@ -23,7 +26,7 @@ The following example shows how to return the resource ID for a public IP addres
 
 ## Conditional output
 
-In the outputs section, you can conditionally return a value. Typically, you use condition in the outputs when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+In the `outputs` section, you can conditionally return a value. Typically, you use `condition` in the `outputs` when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
 
 ```json
 "outputs": {
@@ -39,7 +42,7 @@ For a simple example of conditional output, see [conditional output template](ht
 
 ## Dynamic number of outputs
 
-In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the **copy** element.
+In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the `copy` element.
 
 ```json
 "outputs": {
@@ -53,7 +56,7 @@ In some scenarios, you don't know the number of instances of a value you need to
 }
 ```
 
-For more information, see [Outputs iteration in Azure Resource Manager templates](copy-outputs.md).
+For more information, see [Output iteration in ARM templates](copy-outputs.md).
 
 ## Linked templates
 
@@ -112,4 +115,4 @@ The following examples demonstrate scenarios for using outputs.
 
 ## Next steps
 
-* To learn about the available properties for outputs, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](template-syntax.md).

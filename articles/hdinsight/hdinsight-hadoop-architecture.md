@@ -1,8 +1,8 @@
 ---
 title: Apache Hadoop architecture - Azure HDInsight 
 description: Describes Apache Hadoop storage and processing on Azure HDInsight clusters.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
@@ -48,12 +48,12 @@ To undelete a file from your Storage Account, see:
 
 ### Azure Storage
 
-* [Soft delete for Azure Storage blobs](../storage/blobs/storage-blob-soft-delete.md)
-* [Undelete Blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+* [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md)
+* [Undelete Blob](/rest/api/storageservices/undelete-blob)
 
 ### Azure Data Lake Storage Gen 1
 
-[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+[Restore-AzDataLakeStoreDeletedItem](/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 
 ### Azure Data Lake Storage Gen 2
 

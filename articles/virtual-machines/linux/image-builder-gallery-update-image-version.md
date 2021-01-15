@@ -1,6 +1,6 @@
 ---
 title: Create a new VM image version from an existing image version using Azure Image Builder (preview)
-description: Create a new VM image version from an existing image version using Azure Image Builder.
+description: Create a new VM image version from an existing image version using Azure Image Builder in Linux.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
@@ -179,4 +179,4 @@ az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o t
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To learn more about the components of the .json file used in this article, see [Image builder template reference](../linux/image-builder-json.md).

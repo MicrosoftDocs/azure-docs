@@ -14,7 +14,7 @@ For more information on activity log alerts, see how to [create Azure activity l
 For information on action groups, see how to [create action groups](./action-groups.md).
 
 > [!NOTE]
-> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](./alerts-common-schema-definitions.md)​
 
 
 ## Authenticate the webhook
@@ -22,6 +22,20 @@ The webhook can optionally use token-based authorization for authentication. The
 
 ## Payload schema
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
+
+> [!NOTE]
+> Currently, the description that is part of the Activity log event is copied to the fired **"Alert Description"** property.
+>
+> In order to align the Activity Log payload with other alert types, Starting April 1, 2021 the fired alert property **"Description“** will contain the alert rule description instead.
+>
+> In preparation for this change, we created a new property **“Activity Log Event Description“** to the Activity Log fired Alert. This new property will be filled with the **"Description"** property that is already available for use. This means that the new field **“Activity Log Event Description“** will contain the description that is part of the Activity log event.
+>
+> Please review your alert rules, action rules, webhooks, logic app or any other configurations where you might be using the **“Description”** property from the fired alert and replace it with **“Activity Log Event Description”** property.
+>
+> if your condition (in your action rules, webhooks, logic app or any other configurations) is currently based on the **"Description"** property for activity log alerts, you may need to modify it to be based on the **“Activity Log Event Description”** property instead.
+>
+> In order to fill the new **"Description"** property, you can add a description in the alert rule definition.
+> ![Fired Activity Log Alerts](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### Common
 
@@ -264,7 +278,7 @@ For specific schema details on service health notification activity log alerts, 
 | resourceGroupName |Name of the resource group for the impacted resource. |
 | properties |Set of `<Key, Value>` pairs (that is, `Dictionary<String, String>`) that includes details about the event. |
 | event |Element that contains metadata about the event. |
-| authorization |The Role-Based Access Control properties of the event. These properties usually include the action, the role, and the scope. |
+| authorization |The Azure role-based access control properties of the event. These properties usually include the action, the role, and the scope. |
 | category |Category of the event. Supported values include Administrative, Alert, Security, ServiceHealth, and Recommendation. |
 | caller |Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
 | correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |
@@ -287,4 +301,3 @@ For specific schema details on all other activity log alerts, see [Overview of t
 * [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
-

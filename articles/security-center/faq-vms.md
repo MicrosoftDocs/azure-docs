@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-
 ---
 
 
@@ -22,7 +21,7 @@ ms.author: memildin
 
 ## What types of virtual machines are supported?
 
-Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md).
+Monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-resource-manager/management/deployment-models.md).
 
 See [Supported platforms in Azure Security Center](security-center-os-coverage.md) for a list of supported platforms.
 
@@ -48,7 +47,7 @@ Below are the latency times for Security Center scans of vulnerabilities, update
 Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
 
 > [!NOTE]
-> Security Center uses the Log Analytics agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md).
+> Security Center uses the Log Analytics agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](./security-center-enable-data-collection.md).
 
 
 ## Why do I get the message "VM Agent is Missing?"

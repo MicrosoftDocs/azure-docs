@@ -11,6 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
+ROBOTS: NOINDEX
 ---
 
 # How to find a specific API needed for a custom-developed application
@@ -27,4 +28,4 @@ When you add permissions to your app registration, you can **add API access** to
 
 ## Next steps
 
-- [Understanding the Azure Active Directory application manifest](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
+- [Understanding the Azure Active Directory application manifest](./reference-app-manifest.md)

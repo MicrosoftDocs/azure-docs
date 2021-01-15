@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Get a token for a mobile app that calls web APIs
 
-Before your app can call protected web APIs, it needs an access token. This article walks you through the process to get a token by using Microsoft Authentication Library (MSAL).
+Before your app can call protected web APIs, it needs an access token. This article walks you through the process to get a token by using the Microsoft Authentication Library (MSAL).
 
 ## Define a scope
 
@@ -206,7 +206,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` has only one mandatory parameter: `scopes`. The `scopes` parameter enumerates strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API. In the reference, go to the "Permissions" section.
 
-For example, to [list the user's contacts](https://docs.microsoft.com/graph/api/user-list-contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+For example, to [list the user's contacts](/graph/api/user-list-contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 On Android, you can specify parent activity when you create the app by using `PublicClientApplicationBuilder`. If you don't specify the parent activity at that time, later you can specify it by using `.WithParentActivityOrWindow` as in the following section. If you specify parent activity, then the token gets back to that parent activity after the interaction. If you don't specify it, then the `.ExecuteAsync()` call throws an exception.
 
@@ -231,7 +231,7 @@ The class defines the following constants:
 - `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed.
 
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
-- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](./msal-net-web-browsers.md).
 
     If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then you need to use another `Prompt` parameter.
 - `NoPrompt` doesn't send a prompt to the identity provider.
@@ -252,7 +252,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### Other optional parameters
 
-To learn about the other optional parameters for `AcquireTokenInteractive`, see the [reference documentation for AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+To learn about the other optional parameters for `AcquireTokenInteractive`, see the [reference documentation for AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### Acquire tokens via the protocol
 
@@ -291,5 +291,5 @@ client_id=<CLIENT_ID>
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Calling a web API](scenario-mobile-call-api.md)
+Move on to the next article in this scenario,
+[Calling a web API](scenario-mobile-call-api.md).

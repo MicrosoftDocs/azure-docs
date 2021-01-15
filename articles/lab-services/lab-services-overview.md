@@ -2,11 +2,11 @@
 title: About Azure Lab Services | Microsoft Docs
 description: Learn how Lab Services can make it easy to create, manage, and secure labs with virtual machines that can be used by developers, testers, educators, students, and others. 
 ms.topic: overview
-ms.date: 06/26/2020
+ms.date: 09/16/2020
 ---
 
 # An introduction to Azure Lab Services
-**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. Currently, classroom lab is the only type of managed lab that's supported by Azure Lab Services. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab account in Azure Lab Services, an instructor can quickly set up a lab for the class, specify the number and type of VMs that are need to exercises in the class, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.  
+**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. Currently, classroom lab is the only type of managed lab that's supported by Azure Lab Services. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab account in Azure Lab Services, an instructor can quickly set up a lab for the class, specify the number and type of VMs that are needed for exercises in the class, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.  
 
 ## Key capabilities
 Azure Lab Services supports the following key capabilities/features:

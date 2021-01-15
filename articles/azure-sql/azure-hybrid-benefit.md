@@ -9,7 +9,7 @@ ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
@@ -20,7 +20,7 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
 
-![pricing](./media/azure-hybrid-benefit/pricing.png)
+![vcore pricing structure](./media/azure-hybrid-benefit/pricing.png)
 
 ## Choose a license model
 
@@ -90,5 +90,5 @@ SQL Database customers have the following rights associated with Azure Hybrid Be
 
 ## Next steps
 
-- For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
+- For help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](database/features-comparison.md).

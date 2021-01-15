@@ -20,6 +20,9 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
+> [!NOTE]
+> For the Microsoft identity platform version of this article, see [Developer guidance for Azure Active Directory Conditional Access](../develop/v2-conditional-access-dev-guide.md).
+
 The Conditional Access feature in Azure Active Directory (Azure AD) offers one of several ways that you can use to secure your app and protect a service. Conditional Access enables developers and enterprise customers to protect services in a multitude of ways including:
 
 * Multi-factor authentication
@@ -86,7 +89,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md). Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). You can learn more about licensing requirements in the [unlicensed usage report](../reports-monitoring/overview-reports.md). Developers can join the [Microsoft Developer Network](/), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
 
 ### Considerations for specific scenarios
 
@@ -173,7 +176,7 @@ To try out this scenario, see our [JS SPA On-behalf-of code sample](https://gith
 
 ## See also
 
-* To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../conditional-access/overview.md).
 * For more Azure AD code samples, see [GitHub repo of code samples](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
 * For more info on the ADAL SDK's and access the reference documentation, see [library guide](active-directory-authentication-libraries.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

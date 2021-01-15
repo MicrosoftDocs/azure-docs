@@ -1,6 +1,8 @@
 ---
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ---
@@ -66,7 +68,7 @@ Rich-text editing of your answer text gives you markdown styling from a simple t
 
 
     > [!div class="mx-imgBorder"]
-    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Screenshot shows the in-place editor with the publicly accessible image URL and alternate text for the image entered.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Add a link to a URL by either selecting the text in the answer, then selecting the Link icon in the toolbar or by selecting the Link icon in the toolbar then entering new text and the URL.
 
@@ -120,11 +122,11 @@ Periodically select **Save and train** after making edits to avoid losing change
 
 [Rich-text editing](#add-an-editorial-qna-set) of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
 
-[Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../Quickstarts/batch-testing.md).
+[Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../index.yml).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collaborate on a knowledge base](./collaborate-knowledge-base.md)
+> [Collaborate on a knowledge base](../index.yml)
 
 * [Manage Azure resources used by QnA Maker](set-up-qnamaker-service-azure.md)

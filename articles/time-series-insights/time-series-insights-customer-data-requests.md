@@ -4,10 +4,10 @@ description: Learn about customer data request features in Azure Time Series Ins
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
@@ -29,7 +29,7 @@ A tenant administrator can delete customer data using the Azure portal.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](./concepts-access-policies.md).
 
 You can also perform delete operations on access policies using the REST API. For more information, read [Access Policies - Delete](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -41,7 +41,7 @@ Similarly to deleting data, a tenant administrator can view and export data stor
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](./concepts-access-policies.md).
 
 It is also possible to perform export operations on access policies using the "list by environment" operation in the provided REST API. For more information, read [Access Policies - List By Environment](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -49,13 +49,13 @@ It is also possible to perform export operations on access policies using the "l
 
 Personal data might make its way into Time Series Insights storage, a different scenario from user and admin data. If you consider the data stored in Time Series Insights as personal data, you can export and delete that data using the following steps:
 
-**View and export data**
+### View and export data
 
 To view and export data stored within Time Series Insights, you need to search for that data. You can use the Time Series Insights explorer or Time Series Insights query APIs to view and export data. To view and export data using the Time Series Insights explorer, first search to find the user data in question. After searching, right-click on the chart and select **Explore events**. The events grid appears and presents options to export the data as CSV and JSON.
 
 For more information, read [Azure Time Series Insights explorer](time-series-insights-explorer.md).
 
-**Delete data**
+### Delete data
 
 Currently, Time Series Insights does not support granular deletion of data. However, Time Series Insights provides the ability to remove customer data stored within Time Series Insights by configuring retention policies. You can adjust the retention period of the entire Time Series Insights environment to any number of days to support your deletion requirements.
 
@@ -63,7 +63,7 @@ For more information, read [Configuring retention in Time Series Insights](time-
 
 ## Next steps
 
-* Read more about [granting data access to your Azure Time Series Insights environment](./time-series-insights-data-access.md).
+* Read more about [granting data access to your Azure Time Series Insights environment](./concepts-access-policies.md).
 
 * View the [Azure Time Series Insights explorer](time-series-insights-explorer.md).
 

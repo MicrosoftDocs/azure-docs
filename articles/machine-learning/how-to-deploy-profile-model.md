@@ -1,7 +1,7 @@
 ---
 title: Profile model memory and CPU usage
 titleSuffix: Azure Machine Learning
-description: Learn to profile your model memory and CPU usage
+description: Learn to profile your model before deployment. Profiling determines the memory and CPU usage of your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,6 +10,8 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # Profile your model to determine resource utilization
@@ -19,6 +21,10 @@ This article shows how to profile a machine learning to model to determine how m
 ## Prerequisites
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
+
+## Limitations
+
+* Profiling will not work when the Azure Container Registry (ACR) for your workspace is behind a virtual network.
 
 ## Run the profiler
 
@@ -31,6 +37,9 @@ In order to profile your model, you will need:
 
 > [!IMPORTANT]
 > At this point we only support profiling of services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc. The content of each row of the dataset (string) will be put into the body of the HTTP request and sent to the service encapsulating the model for scoring.
+
+> [!IMPORTANT]
+> We only support profiling up to 2 CPUs in ChinaEast2 and USGovArizona region.
 
 Below is an example of how you can construct an input dataset to profile a service that expects its incoming request data to contain serialized json. In this case, we created a dataset based 100 instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
 

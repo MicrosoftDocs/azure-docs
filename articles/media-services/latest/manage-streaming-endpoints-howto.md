@@ -4,7 +4,7 @@ title: Manage streaming endpoints with Azure Media Services v3
 description: This article demonstrates how to manage streaming endpoints with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,14 +13,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/11/2020
-ms.author: juliako 
-ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel 
+ms.custom: "devx-track-azurecli, devx-track-csharp"
 
 ---
 
 # Manage streaming endpoints with  Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When your Media Services account is created a **default** [Streaming Endpoint](streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
 

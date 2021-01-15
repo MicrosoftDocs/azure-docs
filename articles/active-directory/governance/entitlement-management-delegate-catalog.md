@@ -3,7 +3,7 @@ title: Delegate access governance to catalog creators in Azure AD entitlement ma
 description: Learn how to delegate access governance from IT administrators to catalog creators and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory

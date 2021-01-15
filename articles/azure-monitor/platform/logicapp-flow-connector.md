@@ -64,7 +64,7 @@ Click **+ New step** to add an action that runs after the recurrence action. Und
 
 Click **Azure Log Analytics – Run query and visualize results**.
 
-![Run query and visualize results action](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Screenshot of a new action being added to a step in the Logic App Designer. Azure Monitor Logs is highlighted under Choose an action.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### Add Azure Monitor Logs action
@@ -83,7 +83,7 @@ Event
 
 Select *Set in query* for the **Time Range** and **HTML Table** for the **Chart Type**.
    
-![Run query and visualize results action](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 The mail will be sent by the account associated with the current connection. You can specify another account by clicking on **Change connection**.
 

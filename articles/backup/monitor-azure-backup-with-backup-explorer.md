@@ -23,8 +23,8 @@ These capabilities are provided out-of-box by native integration with Azure Reso
 > * Backup Explorer is currently available only for Azure virtual machines (VMs) data.
 > * Backup Explorer is meant to be an operational dashboard for viewing information about your backups over the last 7 days (maximum).
 > * Backup Explorer is currently not supported in national clouds.
-> * Currently, customizing the Backup Explorer template is not supported.
-> * We do not recommend writing custom automations on Azure Resource Graph data.
+> * Currently, customizing the Backup Explorer template isn't supported.
+> * We don't recommend writing custom automations on Azure Resource Graph data.
 > * Currently, Backup Explorer allows you to monitor backups across a maximum of 1000 subscriptions (across tenants).
 
 ## Get started
@@ -73,7 +73,7 @@ You can select the **Policies** tab to view key information about all the backup
 
 ### The Backup Not Enabled tab
 
-Backup should be enabled for all machines that require protection. With Backup Explorer, backup administrators can quickly identify which machines in an organization are not yet protected by backup. To view this information, select the **Backup Not Enabled** tab.
+Backup should be enabled for all machines that require protection. With Backup Explorer, backup administrators can quickly identify which machines in an organization aren't yet protected by backup. To view this information, select the **Backup Not Enabled** tab.
 
 The **Backup Not Enabled** pane displays a table with a list of unprotected machines. Your organization might assign different tags to production machines and test machines, or to machines that serve a variety of functions. Because each class of machines needs a separate backup policy, filtering by tags helps you view information that's specific to each. Selecting the name of any machine redirects you to that machine's **Configure Backup** pane, where you can choose to apply an appropriate backup policy.
 

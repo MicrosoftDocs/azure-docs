@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy expressions | Microsoft Docs
-description: Learn about policy expressions in Azure API Management.
+description: Learn about policy expressions in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -248,4 +248,4 @@ For more information working with policies, see:
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy samples](./policy-reference.md)

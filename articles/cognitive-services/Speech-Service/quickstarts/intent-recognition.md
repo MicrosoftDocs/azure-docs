@@ -1,20 +1,21 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities - Speech service"
+title: "Intent recognition quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Speech SDK to interactively recognize speech from audio data captured from a microphone.
+description: In this quickstart, you use intent recognition to interactively recognize intents from audio data captured from a microphone.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/02/2020
 ms.author: erhopf
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js
+keywords: intent recognition
 ---
 
-# Quickstart: Recognize speech, intents, and entities with Language Understanding (LUIS)
+# Get started with intent recognition
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

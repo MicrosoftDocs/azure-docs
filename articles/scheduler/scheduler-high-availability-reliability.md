@@ -22,7 +22,7 @@ ms.date: 08/16/2016
 > and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
 > at this time so that you can manage your jobs and job collections.
 
-Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/framework/#resiliency) and reliability for your jobs. For more information, see [SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+Azure Scheduler provides both [high availability](/azure/architecture/framework/#resiliency) and reliability for your jobs. For more information, see [SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## High availability
 

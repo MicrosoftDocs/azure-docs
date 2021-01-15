@@ -14,7 +14,7 @@ Runbooks in [System Center 2012 - Orchestrator](/previous-versions/system-center
 
 ## Download the Orchestrator migration toolkit
 
-The first step in migration is to download the [System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all). This toolkit includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  
+The first step in migration is to download the [System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323). This toolkit includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  
 
 ## Import the Standard Activities module
 

@@ -192,7 +192,7 @@ Open Power BI with your work or school account, and select the dataset and table
 
 Now you can use this dataset in reports and dashboards in [Power BI](https://powerbi.microsoft.com).
 
-![In Power BI, select your dataset and fields.](./media/export-stream-analytics/210.png)
+![Screenshot shows a report example made from a dataset in Power BI.](./media/export-stream-analytics/210.png)
 
 ## No data?
 * Check that you [set the date format](#set-path-prefix-pattern) correctly to YYYY-MM-DD (with dashes).

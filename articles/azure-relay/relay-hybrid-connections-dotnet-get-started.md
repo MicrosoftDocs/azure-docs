@@ -2,6 +2,7 @@
 title: Azure Relay Hybrid Connections - WebSockets in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections WebSockets.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
 ---
 
@@ -47,7 +48,7 @@ In Visual Studio, write a C# console application to send messages to the relay.
 2. Run the client application and enter some text.
 3. Ensure that the server application console displays the text that was entered in the client application.
 
-    ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![Console windows testing both the server and client applications.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Congratulations, you've created a complete Hybrid Connections application!
 

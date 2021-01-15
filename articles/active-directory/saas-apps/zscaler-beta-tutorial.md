@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zscaler Beta | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Beta.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 56b846ae-a1e7-45ae-a79d-992a87f075ba
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Beta
 
@@ -28,7 +21,7 @@ When you integrate Zscaler Beta with Azure AD, you can:
 * Allow your users to be automatically signed in to Zscaler Beta with their Azure AD accounts. This access control is called single sign-on (SSO).
 * Manage your accounts in one central location by using the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -137,7 +130,7 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 	g. Select **Save**.
 
 	> [!NOTE]
-	> To learn how to configure roles in Azure AD, see [Configure the role claim](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
+	> To learn how to configure roles in Azure AD, see [Configure the role claim](../develop/active-directory-enterprise-app-role-management.md).
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)**. Save it on your computer.
 
@@ -297,11 +290,10 @@ In this section, the user Britta Simon is created in Zscaler Beta. Zscaler Beta 
 
 Test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the Zscaler Beta tile in the Access Panel, you should be automatically signed in to the Zscaler Beta for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Zscaler Beta tile in the Access Panel, you should be automatically signed in to the Zscaler Beta for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

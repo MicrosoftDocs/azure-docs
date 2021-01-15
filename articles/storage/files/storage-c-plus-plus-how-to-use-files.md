@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to perform basic operations on Azure Files. T
 * Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
 
 > [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure file share using the standard C++ I/O classes and functions. This article will describe how to write applications that use the Azure Storage C++ SDK, which uses the [File REST API](/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
 
 ## Create a C++ application
 

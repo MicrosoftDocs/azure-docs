@@ -1,6 +1,6 @@
 ---
 title: Creating and configuring a key vault for Azure Disk Encryption
-description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption
+description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption on a Windows VM.
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
@@ -45,7 +45,7 @@ While the portal is accessible through your browser, Azure CLI and Azure PowerSh
 
 ### Connect to your Azure account
 
-Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), or supplying your credentials to the Azure portal when prompted.
+Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), or supplying your credentials to the Azure portal when prompted.
 
 ```azurecli-interactive
 az login

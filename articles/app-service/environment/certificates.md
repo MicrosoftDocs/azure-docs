@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Certificates and the App Service Environment 
 
-The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) document.
+The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](./create-ilb-ase.md) document.
 
 The ASE is a single tenant system. Because it is single tenant, there are some features available only with an ASE that are not available in the multi-tenant App Service. 
 

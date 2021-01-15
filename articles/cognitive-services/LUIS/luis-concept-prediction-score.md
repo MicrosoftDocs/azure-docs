@@ -1,6 +1,8 @@
 ---
 title: Prediction scores - LUIS
 description: A prediction score indicates the degree of confidence the LUIS API service has for prediction results, based on a user utterance.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
 ---

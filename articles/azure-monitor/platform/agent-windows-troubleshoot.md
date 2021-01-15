@@ -18,6 +18,40 @@ If none of these steps work for you, the following support channels are also ava
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one. 
 
+## Log Analytics Troubleshooting Tool
+
+The Log Analytics Agent Windows Troubleshooting Tool is a collection of PowerShell scripts designed to help find and diagnose issues with the Log Analytics Agent. It is automatically included with the agent upon installation. Running the tool should be the first step in diagnosing an issue.
+
+### How to use
+1. Open PowerShell prompt as Administrator on the machine where Log Analytics Agent is installed.
+1. Navigate to the directory where the tool is located.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Execute the main script using this command:
+   * `.\GetAgentInfo.ps1`
+1. Select a troubleshooting scenario.
+1. Follow instructions on the console. (Note: trace logs steps requires manual intervention to stop log collection. Based upon the reproducibility of the issue, wait for the time duration and press 's' to stop log collection and proceed to the next step).
+
+   Locations of the results file is logged upon completion and a new explorer window highlighting it is opened.
+
+### Installation
+The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent build 10.20.18053.0 and onwards.
+
+### Scenarios covered
+Below is a list of scenarios checked by the Troubleshooting Tool:
+
+- Agent not reporting data or heartbeat data missing
+- Agent extension deployment failing
+- Agent crashing
+- Agent consuming high CPU/memory
+- Installation/uninstallation failures
+- Custom logs issue
+- OMS Gateway issue
+- Performance counters issue
+- Collect all logs
+
+>[!NOTE]
+>Please run the Troubleshooting tool when you experience an issue. When opening a ticket, having the logs initially will greatly help our support team troubleshoot your issue quicker.
+
 ## Important troubleshooting sources
 
  To assist with troubleshooting issues related to Log Analytics agent for Windows, the agent logs events to the Windows Event Log, specifically under *Application and Services\Operations Manager*.  
@@ -35,7 +69,7 @@ Double check that the firewall or proxy is configured to allow the following por
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  
 |*.agentsvc.azure-automation.net |Port 443 |Outbound|Yes |  
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 

@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create an Azure Stream Analytics job using Visual Studio
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs, outputs, and defining a query with Visual Studio.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
@@ -25,7 +25,7 @@ This quickstart shows you how to create and run a Stream Analytics job using Azu
 
 * Install Visual Studio 2019, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported.
 
-* Follow the  [installation instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics tools for Visual Studio.
+* Follow the  [installation instructions](./stream-analytics-tools-for-visual-studio-install.md) to install Stream Analytics tools for Visual Studio.
 
 ## Prepare the input data
 

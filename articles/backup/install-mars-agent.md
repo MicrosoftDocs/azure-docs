@@ -38,10 +38,10 @@ The data that's available for backup depends on where the agent is installed.
 
 ## Modify storage replication
 
-By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md).
+By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
-* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) to reduce Azure storage costs.
+* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) to reduce Azure storage costs.
 
 To modify the storage replication type:
 

@@ -3,7 +3,7 @@ title: Azure Functions reliable event processing
 description: Avoid missing Event Hub messages in Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
 ---
 
@@ -45,7 +45,7 @@ Azure Functions consumes Event Hub events while cycling through the following st
 
 This behavior reveals a few important points:
 
-- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.
+- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.  Setting a [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) will delay progressing the pointer until the entire retry policy has been evaluated.
 - *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to [account for the fact that the same message could be received twice](./functions-idempotent.md).
 
 ## Handling exceptions
@@ -54,9 +54,9 @@ As a general rule, every function should include a [try/catch block](./functions
 
 ### Retry mechanisms and policies
 
-Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. You could write retry processing rules yourself, but they are so commonplace that a number of tools are available. Using these libraries allow you to define robust retry policies, which can also help preserve processing order.
+Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation.  You can leverage the function app [retry policies](./functions-bindings-error-pages.md#retry-policies-preview) or author retry logic within the function execution.
 
-Introducing fault-handling libraries to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
+Introducing fault-handling behaviors to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
 
 - Try to insert a message three times (potentially with a delay between retries).
 - If the eventual outcome of all retries is a failure, then add a message to a queue so processing can continue on the stream.
@@ -64,10 +64,6 @@ Introducing fault-handling libraries to your functions allow you to define both 
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) is an example of a resilience and transient-fault-handling library for C# applications.
-
-When working with pre-complied C# class libraries, [exception filters](/dotnet/csharp/language-reference/keywords/try-catch) allow you to run code whenever an unhandled exception occurs.
-
-Samples that demonstrate how to use exception filters are available in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) repo.
 
 ## Non-exception errors
 

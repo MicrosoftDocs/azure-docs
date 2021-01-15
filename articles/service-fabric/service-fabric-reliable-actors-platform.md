@@ -1,11 +1,9 @@
 ---
 title: Reliable Actors on Service Fabric 
 description: Describes how Reliable Actors are layered on Reliable Services and use the features of the Service Fabric platform.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 3/9/2018
-ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # How Reliable Actors use the Service Fabric platform
 This article explains how Reliable Actors work on the Azure Service Fabric platform. Reliable Actors run in a framework that is hosted in an implementation of a stateful reliable service called the *actor service*. The actor service contains all the components necessary to manage the lifecycle and message dispatching for your actors:

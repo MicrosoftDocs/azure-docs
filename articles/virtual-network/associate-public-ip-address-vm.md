@@ -1,7 +1,7 @@
 ﻿---
 title: Associate a public IP address to a virtual machine
 titlesuffix: Azure Virtual Network
-description: Associate a public IP address to a virtual machine (VM) by using the Azure portal or the Azure CLI.
+description: Learn to associate a public IP address to a virtual machine (VM) by using the Azure portal or the Azure CLI.
 services: virtual-network
 documentationcenter: ''
 author: asudbring
@@ -210,4 +210,4 @@ Before you can connect to the public IP address from the internet, ensure that y
 
 ## Next steps
 
-Allow inbound internet traffic to your VM with a network security group. To learn how to create a network security group, see [Work with network security groups](manage-network-security-group.md#work-with-network-security-groups). To learn more about network security groups, see [Security groups](security-overview.md).
+Allow inbound internet traffic to your VM with a network security group. To learn how to create a network security group, see [Work with network security groups](manage-network-security-group.md#work-with-network-security-groups). To learn more about network security groups, see [Security groups](./network-security-groups-overview.md).

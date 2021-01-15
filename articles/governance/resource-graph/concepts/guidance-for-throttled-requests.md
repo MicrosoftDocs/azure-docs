@@ -1,8 +1,9 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
@@ -141,7 +142,7 @@ sending 60 queries at the same time, stagger the queries into four 5-second wind
   |---------------------|-----|------|-------|-------|
   | Time Interval (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Below is an example of respecting throttling headers when querying Azure Resource Graph:
+Here is an example of respecting throttling headers when querying Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -167,7 +168,7 @@ while (/* Need to query more? */)
 
 Even though grouping is recommended over parallelization, there are times where queries can't be
 easily grouped. In these cases, you may want to query Azure Resource Graph by sending multiple
-queries in a parallel fashion. Below is an example of how to _backoff_ based on throttling headers
+queries in a parallel fashion. Here is an example of how to _backoff_ based on throttling headers
 in such scenarios:
 
 ```csharp
@@ -239,8 +240,8 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
   When using either Azure CLI or Azure PowerShell, queries to Azure Resource Graph are automatically
   paginated to fetch at most 5000 entries. The query results return a combined list of entries from
   all paginated calls. In this case, depending on the number of entries in the query result, a
-  single paginated query may consume more than one query quota. For example, in the example below, a
-  single run of the query may consume up to five query quota:
+  single paginated query may consume more than one query quota. For example, in the following
+  examples, a single run of the query may consume up to five query quota:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

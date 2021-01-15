@@ -1,6 +1,7 @@
 ---
-title: Create an Azure Active Directory tenant
-description: Learn how to create an Azure AD tenant to use for registering and building applications.
+title: "Quickstart: Create an Azure Active Directory tenant"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how to create an Azure Active Directory tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -24,6 +25,10 @@ A tenant is a representation of an organization. It's a dedicated instance of Az
 
 Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants.
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 ## Determining environment type
 
 There are two types of environments you can create. Deciding which you need is based solely on the types of users your app will authenticate.
@@ -39,7 +44,7 @@ The quickstart is broken into two scenarios depending on the type of app you wan
 
 Many developers already have tenants through services or subscriptions that are tied to Azure AD tenants such as Microsoft 365 or Azure subscriptions.
 
-1. To check the tenant, sign in to the [Azure portal](https://portal.azure.com) with the account you want to use to manage your application.
+1. To check the tenant, sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> with the account you want to use to manage your application.
 1. Check the upper right corner. If you have a tenant, you'll automatically be logged in and can see the tenant name directly under your account name.
    * Hover over your account name on the upper right-hand side of the Azure portal to see your name, email, directory / tenant ID (a GUID), and your domain.
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
@@ -47,7 +52,7 @@ Many developers already have tenants through services or subscriptions that are 
 > [!TIP]
 > If you need to find the tenant ID, you can:
 > * Hover over your account name to get the directory / tenant ID, or
-> * Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
+> * Search and select **Azure Active Directory > Properties > Tenant ID** in the Azure portal
 
 If you don't have an existing tenant associated with your account, you'll see a GUID under your account name and you won't be able to perform actions like registering apps until you follow the steps of the next section.
 
@@ -68,6 +73,5 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 ## Next steps
 
-* [Register an app](quickstart-register-app.md) and integrate with Microsoft identity platform. 
-* Learn the [basics of authentication](authentication-scenarios.md).
-* See [Associate or add an Azure subscription to your Azure Active Directory tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) for details on the relationship between subscriptions and an Azure AD tenant.
+> [!div class="nextstepaction"]
+> [Register an app](quickstart-register-app.md) to integrate with Microsoft identity platform.

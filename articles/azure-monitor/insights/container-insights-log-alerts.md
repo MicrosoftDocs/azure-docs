@@ -1,8 +1,8 @@
 ---
 title: Log alerts from Azure Monitor for containers | Microsoft Docs
-description: This article describes how to create custom alerts based on log queries for memory and CPU utilization from Azure Monitor for containers.
+description: This article describes how to create custom log alerts for memory and CPU utilization from Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/05/2021
 
 ---
 
@@ -206,11 +206,11 @@ KubeNodeInventory
 The following query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -220,13 +220,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterName
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,
@@ -271,7 +271,7 @@ InsightsMetrics
 
 ## Create an alert rule
 
-This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for containers. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Sample Log alert creation using Azure Resource Template](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for containers. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../platform/alerts-log-api-switch.md).
@@ -303,4 +303,4 @@ This section walks through the creation of a metric measurement alert rule using
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
 
-- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](container-insights-health.md).
+- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](./container-insights-overview.md).

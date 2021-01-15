@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop PowerShell - Azure
 description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
@@ -28,10 +25,10 @@ This section lists PowerShell commands that are typically used while setting up 
 ### Error: New-AzRoleAssignment: The provided information does not map to an AD object ID
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Cause:** The user specified by the *-SignInName* parameter can't be found in the Azure Active Directory tied to the Windows Virtual Desktop environment. 
+**Cause:** The user specified by the *-SignInName* parameter can't be found in the Azure Active Directory tied to the Windows Virtual Desktop environment.
 
 **Fix:** Make sure of the following things.
 
@@ -41,7 +38,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### Error: New-AzRoleAssignment: "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)"
 
-**Cause 1:** The account being used doesn't have Owner permissions on the subscription. 
+**Cause 1:** The account being used doesn't have Owner permissions on the subscription.
 
 **Fix 1:** A user with Owner permissions needs to execute the role assignment. Alternatively, the user needs to be assigned to the User Access Administrator role to assign a user to an application group.
 
@@ -52,7 +49,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### Error: New-AzWvdHostPool -- the location is not available for resource type
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Cause: Windows Virtual Desktop supports selecting the location of host pools, application groups, and workspaces to store service metadata in certain locations. Your options are restricted to where this feature is available. This error means that the feature isn't available in the location you chose.

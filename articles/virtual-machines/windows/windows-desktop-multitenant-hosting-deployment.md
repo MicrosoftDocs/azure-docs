@@ -1,12 +1,12 @@
 ---
 title: How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
+description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure with Multitenant Hosting Rights.
 author: xujing
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
-ms.author: xujing
+ms.author: mimckitt
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
@@ -19,14 +19,33 @@ For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Deskt
 >
 
 ## Deploying Windows 10 Image from Azure Marketplace 
-For Powershell, CLI and Azure Resource Manager template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
+For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`.
 
-| OS  |      PublisherName      |  Offer | Sku |
-|:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
+```powershell
+Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
+
+Skus                        Offer      PublisherName           Location 
+----                        -----      -------------           -------- 
+rs4-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
+rs4-pron                    Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-enterprise              Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-enterprisen             Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
+rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
+```
+
+For more information on available images see [Find and use Azure Marketplace VM images with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+
+## Qualify for Multi-tenant hosting rights 
+To qualify for multi-tenant hosting rights and to run Windows 10 images on Azure users must have one of the following subscriptions: 
+
+-	Microsoft 365 E3/E5 
+-	Microsoft 365 F3 
+-	Microsoft 365 A3/A5 
+-	Windows 10 Enterprise E3/E5
+-	Windows 10 Education A3/A5 
+-	Windows VDA E3/E5
+
 
 ## Uploading Windows 10 VHD to Azure
 if you are uploading a generalized Windows 10 VHD, please note Windows 10 does not have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
@@ -35,7 +54,7 @@ if you are uploading a generalized Windows 10 VHD, please note Windows 10 does n
 Net user <username> /active:yes
 ```
 
-The following powershell snippet is to mark all administrator accounts as active, including the built-in administrator. This example is useful if the built-in administrator username is unknown.
+The following PowerShell snippet is to mark all administrator accounts as active, including the built-in administrator. This example is useful if the built-in administrator username is unknown.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
@@ -98,7 +117,7 @@ LicenseType              :
 
 ## Additional Information about joining Azure AD
 >[!NOTE]
->Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link is the *Next Steps* section to learn more.
+>Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 >
 >
 

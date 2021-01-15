@@ -22,7 +22,7 @@ ms.author: genli
 If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect the disk to another Windows VM to fix any errors, then repair your original VM. 
 
 > [!Important]
-> The scripts in this article only apply to the VMs that use [Managed Disk](../windows/managed-disks-overview.md). 
+> The scripts in this article only apply to the VMs that use [Managed Disk](../managed-disks-overview.md). 
 
  
 
@@ -39,7 +39,7 @@ The troubleshooting process is as follows:
 6. Unmount and detach disk from recovery VM.
 7. Change the OS disk for the affected VM.
 
-You can use the VM repair commands to automate steps 1, 2, 3, 4, 6, and 7. For more documentation and instructions, see [Repair a Windows VM by using the Azure Virtual Machine repair commands](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You can use the VM repair commands to automate steps 1, 2, 3, 4, 6, and 7. For more documentation and instructions, see [Repair a Windows VM by using the Azure Virtual Machine repair commands](repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
 
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/) installed and logged in to your subscription:
 
@@ -255,6 +255,6 @@ Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).

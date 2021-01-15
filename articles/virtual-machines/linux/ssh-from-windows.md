@@ -4,7 +4,7 @@ description: Learn how to generate and use SSH keys from a Windows computer to c
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 
@@ -14,7 +14,7 @@ ms.author: cynthn
 This article is for Windows users who want to [create](#create-an-ssh-key-pair) and use *secure shell* (SSH) keys to [connect](#connect-to-your-vm) to Linux virtual machines (VMs) in Azure. You can also [generate and store SSH keys in the Azure portal](../ssh-keys-portal.md) to use when creating VMs in the portal.
 
 
-To use SSH keys from a Linux or macOS client, see the [quick](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
+To use SSH keys from a Linux or macOS client, see the [quick steps](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
 
 ## Overview of SSH and keys
 
@@ -40,7 +40,7 @@ Recent versions of Windows 10 include [OpenSSH client commands](https://blogs.ms
 
 You can also use Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your VM. You can use Cloud Shell in a [web browser](https://shell.azure.com/bash), from the [Azure portal](https://portal.azure.com), or as a terminal in Visual Studio Code using the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-You can also install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools within a Bash shell.
+You can also install the [Windows Subsystem for Linux](/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools within a Bash shell.
 
 ## Create an SSH key pair
 

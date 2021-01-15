@@ -19,7 +19,7 @@ ms.custom: devops
 
 # Tutorial - Configure the rolling deployment strategy for Azure Linux virtual machines
 
-Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
+Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
 
 ![The Azure portal with Azure DevOps selected under Services](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
@@ -27,7 +27,7 @@ Azure DevOps is a built-in Azure service that automates each part of the DevOps 
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 
-This article shows how to set up a CI/CD pipeline for rolling multimachine deployments from the Azure portal. The Azure portal also supports other strategies like [canary](https://aka.ms/AA7jdrz) and [blue-green](https://aka.ms/AA83fwu).
+This article shows how to set up a CI/CD pipeline for rolling multimachine deployments from the Azure portal. The Azure portal also supports other strategies like [canary](./tutorial-azure-devops-canary-strategy.md) and [blue-green](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### Configure CI/CD on virtual machines
 
@@ -76,8 +76,8 @@ Using the continuous-delivery option, you can configure rolling updates to your 
 
 ## Other deployment strategies
 
-- [Configure the canary deployment strategy](https://aka.ms/AA7jdrz)
-- [Configure the blue-green deployment strategy](https://aka.ms/AA83fwu)
+- [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
+- [Configure the blue-green deployment strategy](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## Azure DevOps Projects
 

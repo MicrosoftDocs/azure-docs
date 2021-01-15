@@ -1,6 +1,6 @@
 ---
 title: 'Azure PowerShell script sample - Configure a vnet-to-vnet VPN | Microsoft Docs'
-description: Configure site-to-site VPN.
+description: Learn how to use a PowerShell script to configure a site-to-site VNet-to-VNet VPN gateway connection.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD

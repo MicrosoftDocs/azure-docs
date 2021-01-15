@@ -3,7 +3,7 @@ title: Design efficient list queries
 description: Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes.
 ms.topic: how-to
 ms.date: 06/18/2020
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Create queries to list Batch resources efficiently

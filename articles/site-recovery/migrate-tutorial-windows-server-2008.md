@@ -1,6 +1,6 @@
 ---
-title: Migrate Windows Server 2008 servers to Azure with Azure Site Recovery 
-description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, using Azure Site Recovery.
+title: Migrate Windows Server 2008 servers to Azure with Azure Migrate/Site Recovery
+description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -27,9 +27,11 @@ In this tutorial, you learn how to:
 
 ## Migrate with Azure Migrate
 
-We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate provides a centralized hub for assessment and migration of on-premises machines to Azure, using Azure Migrate, other Azure services, and third-party tools. Azure Site Recovery should be used for disaster recovery only, and not migration.
+We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. 
 
-Azure Migrate supports migration of servers running Windows Server 2008.
+- Azure Migrate is purpose-built for server migration.
+- Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure. Azure Site Recovery should be used for disaster recovery only, and not migration.
+- Azure Migrate supports migration of servers running Windows Server 2008.
 
 
 ## Migrate with Site Recovery
@@ -55,7 +57,7 @@ To migrate Hyper-V virtual machines running Windows Server 2008 or Windows Serve
 
 The rest of this tutorial shows you how you can migrate on-premises VMware virtual machines and Physical servers running Windows Server 2008 or 2008 R2.
 > [!TIP]
-> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
+> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](../migrate/tutorial-migrate-vmware.md)
 
 
 ### Limitations and known issues

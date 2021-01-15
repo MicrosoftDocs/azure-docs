@@ -562,7 +562,6 @@ zookeeper-3.4.11.2.6.99.201-1240.jar
 zstd-jni-1.3.2-2.jar
 
 ## Python libraries
-_license==1.1
 
 absl-py==0.8.1
 
@@ -573,8 +572,6 @@ alabaster==0.7.10
 altair==3.2.0
 
 applicationinsights==0.11.9
-
-asn1crypto==0.22.0
 
 asn1crypto==1.0.1
 
@@ -588,7 +585,11 @@ attrs==19.2.0
 
 azure-common==1.1.23
 
+azure-core==1.6.0
+
 azure-graphrbac==0.61.1
+
+azure-identity==1.2.0
 
 azure-mgmt-authorization==0.60.0
 
@@ -596,43 +597,68 @@ azure-mgmt-containerregistry==2.8.0
 
 azure-mgmt-keyvault==2.0.0
 
+azure-mgmt-network==10.2.0
+
 azure-mgmt-resource==5.1.0
 
 azure-mgmt-storage==4.2.0
 
-azureml-automl-core==1.0.65.1
+azure-storage-blob==2.1.0
 
-azureml-core==1.0.65.1
+azure-storage-common==2.1.0
 
-azureml-dataprep==1.1.20
+azureml-automl-core==1.6.0
 
-azureml-dataprep-native==13.1.0
+azureml-automl-runtime==1.6.0.post1
 
-azureml-pipeline==1.0.65
+azureml-core==1.6.0
 
-azureml-pipeline-core==1.0.65
+azureml-dataprep==1.6.3
 
-azureml-pipeline-steps==1.0.65
+azureml-dataprep-native==14.1.0
 
-azureml-sdk==1.0.65
+azureml-defaults==1.6.0
 
-azureml-telemetry==1.0.65
+azureml-explain-model==1.6.0
 
-azureml-train==1.0.65
+azureml-interpret==1.6.0
 
-azureml-train-automl==1.0.65
+azureml-model-management-sdk==1.0.1b6.post1
 
-azureml-train-core==1.0.65
 
-azureml-train-restclients-hyperdrive==1.0.65
+azureml-opendatasets==1.6.0
 
-babel==2.4.0
+azureml-pipeline==1.6.0
+
+azureml-pipeline-core==1.6.0
+
+azureml-pipeline-steps==1.6.0
+
+azureml-sdk==1.6.0
+
+azureml-telemetry==1.6.0
+
+azureml-train==1.6.0
+
+azureml-train-automl==1.6.0
+
+azureml-train-automl-client==1.6.0.post1
+
+azureml-train-automl-runtime==1.6.0
+
+azureml-train-core==1.6.0
+
+azureml-train-restclients-hyperdrive==1.6.0
+
+Babel==2.4.0
+
+backcall==0.2.0
+
+backports.shutil-get-terminal-size==1.0.0
 
 backports.tempfile==1.0
 
 backports.weakref==1.0.post1
-
-backports==1.0
 
 beautifulsoup4==4.6.0
 
@@ -642,37 +668,25 @@ blaze==0.10.1
 
 bleach==1.5.0
 
-bokeh==0.12.5
-
 bokeh==1.3.4
-
-boto==2.46.1
 
 boto==2.49.0
 
-boto3==1.9.245
+boto3==1.9.247
 
-botocore==1.12.245
+botocore==1.12.247
 
-bottleneck==1.2.1
-
-cairo==1.14.8
+Bottleneck==1.2.1
 
 certifi==2019.9.11
 
-cffi==1.10.0
-
 cffi==1.12.3
-
-chardet==3.0.3
 
 chardet==3.0.4
 
+chart-studio==1.0.0
+
 click==6.7
-
-Click==7.0
-
-cloudpickle==0.2.2
 
 cloudpickle==1.2.2
 
@@ -680,21 +694,13 @@ clyent==1.2.2
 
 colorama==0.3.9
 
-contextlib2==0.5.5
+configparser==3.7.4
 
-contextlib2==0.6.0
-
-cryptography==1.8.1
+contextlib2==0.6.0.post1
 
 cryptography==2.7
 
-curl==7.52.1
-
 cycler==0.10.0
-
-cycler==0.10.0
-
-cython==0.25.2
 
 Cython==0.29.13
 
@@ -704,9 +710,7 @@ dask==0.14.3
 
 datashape==0.5.4
 
-dbus==1.10.10
-
-decorator==4.0.11
+decorator==4.4.0
 
 dill==0.3.1.1
 
@@ -716,31 +720,23 @@ distro==1.4.0
 
 docker==4.1.0
 
-docutils==0.13.1
-
 docutils==0.15.2
 
-dotnetcore2==2.1.9
-
-entrypoints==0.2.2
+dotnetcore2==2.1.14
 
 entrypoints==0.3
 
-et_xmlfile==1.0.1
-
-expat==2.1.0
+et-xmlfile==1.0.1
 
 fastcache==1.0.2
 
 fire==0.2.1
 
-flask==0.12.2
+flake8==3.7.9
 
-flask-cors==3.0.2
+Flask==1.0.3
 
-fontconfig==2.12.1
-
-freetype==2.5.5
+Flask-Cors==3.0.2
 
 fsspec==0.5.2
 
@@ -750,11 +746,7 @@ gast==0.3.2
 
 gensim==3.8.1
 
-get_terminal_size==1.0.0
-
 gevent==1.2.1
-
-glib==2.50.2
 
 google-pasta==0.1.7
 
@@ -762,37 +754,31 @@ greenlet==0.4.12
 
 grpcio==1.24.1
 
-gst-plugins-base==1.8.0
-
-gstreamer==1.8.0
+gunicorn==19.9.0
 
 h5py==2.10.0
 
-h5py==2.7.0
-
-harfbuzz==0.9.39
-
-hdf5==1.8.17
-
-heapdict==1.0.0
+HeapDict==1.0.1
 
 html5lib==0.999
 
-icu==54.1
-
-idna==2.5
-
 idna==2.8
+
+imageio==2.6.1
 
 imagesize==0.7.1
 
 importlib-metadata==0.23
 
+interpret-community==0.10.2
+
+interpret-core==0.1.21
+
 ipykernel==4.6.1
 
-ipython_genutils==0.2.0
+ipython==7.8.0
 
-ipython==5.3.0
+ipython-genutils==0.2.0
 
 ipywidgets==6.0.0
 
@@ -802,8 +788,6 @@ isort==4.2.5
 
 itsdangerous==0.24
 
-jbig==2.1
-
 jdcal==1.3
 
 jedi==0.10.2
@@ -812,71 +796,43 @@ jeepney==0.4.1
 
 Jinja2==2.10.3
 
-jinja2==2.9.6
-
 jmespath==0.9.4
 
-jpeg==9b
+joblib==0.14.1
+
+json-logging-py==0.2
 
 JsonForm==0.0.2
 
 jsonpickle==1.2
 
-jsonschema==2.6.0
-
-jsonschema==3.1.0
+jsonschema==3.1.1
 
 JsonSir==0.0.2
 
-js-regex==1.0.0
-
-jupyter_client==5.0.1
-
-jupyter_console==5.1.0
-
-jupyter_core==4.3.0
-
 jupyter==1.0.0
 
-keras2onnx==1.5.2
+jupyter-client==5.0.1
+
+jupyter-console==5.1.0
+
+jupyter-core==4.3.0
 
 Keras-Applications==1.0.8
 
 Keras-Preprocessing==1.1.0
 
+keras2onnx==1.5.2
+
 kiwisolver==1.1.0
 
 lazy-object-proxy==1.2.2
 
-libffi==3.2.1
-
-libgcc==4.8.5
-
-libgfortran==3.0.0
-
-libiconv==1.14
-
-libpng==1.6.27
-
-libsodium==1.0.10
-
-libtiff==4.0.6
-
-libtool==2.4.2
-
-libxcb==1.12
-
-libxml2==2.9.4
-
-libxslt==1.1.29
+liac-arff==2.4.0
 
 lightgbm==2.2.3
 
 llvmlite==0.18.0
-
-llvmlite==0.29.0
-
-locket==0.2.0
 
 locket==0.2.0
 
@@ -884,25 +840,25 @@ lxml==3.7.3
 
 Markdown==3.1.1
 
-markupsafe==0.23
-
 MarkupSafe==1.1.1
 
-matplotlib==2.0.2
-
 matplotlib==3.1.1
+
+mccabe==0.6.1
 
 missingno==0.4.2
 
 mistune==0.7.4
 
-mkl==2017.0.1
-
-mkl-service==1.1.2
+mmlspark==1.0.0.dev1
 
 more-itertools==7.2.0
 
 mpmath==0.19
+
+msal==1.3.0
+
+msal-extensions==0.1.3
 
 msgpack==0.6.2
 
@@ -911,6 +867,8 @@ msgpack-python==0.4.8
 msrest==0.6.10
 
 msrestazure==0.6.2
+
+multimethods==1.0.0
 
 multipledispatch==0.4.9
 
@@ -922,7 +880,7 @@ nbformat==4.3.0
 
 ndg-httpsclient==0.5.1
 
-networkx==1.11
+networkx==2.3
 
 nimbusml==1.5.0
 
@@ -932,13 +890,11 @@ nose==1.3.7
 
 notebook==5.0.0
 
+notebookutils==20200602.4
+
 numba==0.33.0
 
-numba==0.45.1
-
 numexpr==2.6.2
-
-numpy==1.12.1
 
 numpy==1.16.2
 
@@ -960,35 +916,21 @@ onnxruntime==0.4.0
 
 openpyxl==2.4.7
 
-openssl==1.0.2l
-
-packaging==16.8
-
 packaging==19.2
-
-pandas==0.20.1
 
 pandas==0.23.4
 
 pandocfilters==1.4.1
 
-pango==1.40.3
-
-partd==0.3.8
+param==1.9.2
 
 partd==1.0.0
-
-path.py==10.3.1
 
 pathlib2==2.2.1
 
 pathspec==0.6.0
 
-patsy==0.4.1
-
 patsy==0.5.1
-
-pcre==8.39
 
 pep8==1.7.0
 
@@ -996,15 +938,7 @@ pexpect==4.2.1
 
 pickleshare==0.7.4
 
-pillow==4.1.1
-
 Pillow==6.2.0
-
-pip==9.0.1
-
-pip==9.0.1
-
-pixman==0.34.0
 
 plotly==4.1.1
 
@@ -1012,7 +946,9 @@ ply==3.10
 
 pmdarima==1.1.1
 
-prompt_toolkit==1.0.14
+portalocker==1.7.0
+
+prompt-toolkit==2.0.10
 
 protobuf==3.10.0
 
@@ -1022,23 +958,31 @@ ptyprocess==0.5.1
 
 py==1.4.33
 
+py-cpuinfo==6.0.0
+
+py4j==0.10.7
+
+pyarrow==0.15.1
+
 pyasn1==0.4.7
 
-pycosat==0.6.2
+pycodestyle==2.5.0
 
-pycparser==2.17
+pycosat==0.6.2
 
 pycparser==2.19
 
 pycrypto==2.6.1
 
+pyct==0.4.6
+
 pycurl==7.43.0
 
-pyflakes==1.5.0
+pyflakes==2.1.1
 
 pygal==2.4.0
 
-pygments==2.2.0
+Pygments==2.2.0
 
 PyJWT==1.7.1
 
@@ -1048,53 +992,33 @@ pymssql==2.1.4
 
 pyodbc==4.0.16
 
-pyopenssl==17.0.0
-
 pyOpenSSL==19.0.0
-
-pyparsing==2.1.4
 
 pyparsing==2.4.2
 
-pyqt==5.6.0
-
 pyrsistent==0.15.4
 
-pytables==3.3.0
+pyspark==2.4.4
 
 pytest==3.0.7
-
-python==3.6.1
-
-python-dateutil==2.6.0
 
 python-dateutil==2.8.0
 
 Python-EasyConfig==0.1.7
 
-pytz==2017.2
-
 pytz==2019.3
 
-pywavelets==0.5.2
-
-pyyaml==3.12
+PyWavelets==1.0.3
 
 PyYAML==5.1.2
 
 pyzmq==16.0.2
 
-qt==5.6.2
-
-qtawesome==0.4.4
+QtAwesome==0.4.4
 
 qtconsole==4.3.0
 
-qtpy==1.2.1
-
-readline==6.2
-
-requests==2.14.2
+QtPy==1.2.1
 
 requests==2.22.0
 
@@ -1104,41 +1028,27 @@ Resource==0.2.1
 
 retrying==1.3.3
 
-rope==0.9.4
+rope-py3k==0.9.4.post1
 
 ruamel.yaml==0.15.89
 
-ruamel_yaml==0.11.14
-
 s3transfer==0.2.1
 
-scikit-image==0.13.0
-
-scikit-learn==0.18.1
+scikit-image==0.15.0
 
 scikit-learn==0.20.3
 
-scipy==0.19.0
-
 scipy==1.1.0
-
-seaborn==0.7.1
 
 seaborn==0.9.0
 
 SecretStorage==3.1.1
 
-setuptools==27.2.0
-
-setuptools==41.4.0
+shap==0.34.0
 
 simplegeneric==0.8.1
 
 singledispatch==3.4.0.3
-
-sip==4.18
-
-six==1.10.0
 
 six==1.12.0
 
@@ -1152,25 +1062,19 @@ snowballstemmer==1.2.1
 
 sortedcollections==0.5.3
 
-sortedcontainers==1.5.7
-
 sortedcontainers==2.1.0
 
-sphinx==1.5.6
+Sphinx==1.5.6
 
 spyder==3.1.4
 
-sqlalchemy==1.1.9
-
-sqlite==3.13.0
+SQLAlchemy==1.1.9
 
 statsmodels==0.10.1
 
-statsmodels==0.8.0
-
 sympy==1.0
 
-tblib==1.3.2
+tables==3.3.0
 
 tblib==1.4.0
 
@@ -1186,17 +1090,13 @@ terminado==0.6
 
 testpath==0.3
 
-tk==8.5.18
-
 toolz==0.10.0
 
-toolz==0.8.2
-
-torch==1.2.0
-
-tornado==4.5.1
+torch==1.3.0
 
 tornado==6.0.3
+
+tqdm==4.46.1
 
 traitlets==4.3.2
 
@@ -1204,45 +1104,29 @@ typing-extensions==3.7.4
 
 unicodecsv==0.14.1
 
-unixodbc==2.3.4
-
 urllib3==1.25.6
+
+vega-datasets==0.7.0
 
 wcwidth==0.1.7
 
 websocket-client==0.56.0
 
-werkzeug==0.12.2
-
 Werkzeug==0.16.0
 
-wheel==0.29.0
-
-wheel==0.30.0
-
 widgetsnbextension==2.0.0
-
-wrapt==1.10.10
 
 wrapt==1.11.2
 
 xlrd==1.0.0
 
-xlsxwriter==0.9.6
+XlsxWriter==0.9.6
 
 xlwt==1.2.0
 
-xz==5.2.2
-
-yaml==0.1.6
-
-zeromq==4.1.5
-
-zict==0.1.2
+zict==1.0.0
 
 zipp==0.6.0
-
-zlib==1.2.8
 
 ## Next steps
 

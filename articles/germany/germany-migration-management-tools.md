@@ -1,24 +1,17 @@
 ---
 title: Migrate Azure management tools from Azure Germany to global Azure
 description: This article provides information about migrating your Azure management tools from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 11/12/2019
-ms.topic: article
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurecli
 ---
 
 # Migrate management tool resources to global Azure
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure management tools from Azure Germany to global Azure.
 
@@ -38,9 +31,9 @@ You can define additional endpoints in the target environment by using Traffic M
 
 For more information:
 
-- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager).
+- Refresh your knowledge by completing the [Traffic Manager tutorials](../traffic-manager/index.yml).
 - Review the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
-- Learn how to [create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- Learn how to [create a Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Read about the [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/).
 
 ## Backup
@@ -49,8 +42,8 @@ You can't migrate Azure Backup jobs and snapshots from Azure Germany to global A
 
 For more information: 
 
-- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/).
-- Review the [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md).
+- Refresh your knowledge by completing the [Backup tutorials](../backup/index.yml).
+- Review the [Azure Backup overview](../backup/backup-overview.md).
 
 ## Scheduler
 
@@ -58,8 +51,8 @@ Azure Scheduler is being retired. To create scheduling jobs, you can use [Azure 
 
 For more information:
 
-- Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+- Learn more by completing the [Azure Logic Apps tutorials](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+- Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
 
@@ -67,7 +60,7 @@ Migrating an Azure Network Watcher instance from Azure Germany to global Azure i
 
 For more information:
 
-- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher).
+- Refresh your knowledge by completing the [Network Watcher tutorials](../network-watcher/index.yml).
 - Review the [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md).
 - Learn about [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Read about [Connection Monitor](../network-watcher/connection-monitor.md).

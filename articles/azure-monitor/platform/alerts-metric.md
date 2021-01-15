@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
@@ -35,9 +35,9 @@ The following procedure describes how to create a metric alert rule in Azure por
 7. You will see a chart for the metric for the last six hours. Use the **Chart period** dropdown to select to see longer history for the metric.
 
 8. If the metric has dimensions, you will see a dimensions table presented. Select one or more values per dimension.
-    - The displayed dimension values are based on metric data from the last three days.
-    - If the dimension value you're looking for isn't displayed, click "+" to add a custom value.
-    - You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
+    - The displayed dimension values are based on metric data from the last day.
+    - If the dimension value you're looking for isn't displayed, click "Add custom value" to add a custom dimension value.
+    - You can also **Select all current and future values** for any of the dimensions. This will dynamically scale the selection to all current and future values for a dimension.
 
     The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md).
 
@@ -81,6 +81,7 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
     > You can't edit the **Target resource** and **Alert Rule Name** after the metric alert is created.
 
 6. Click **Done** to save your edits.
+
 
 ## With Azure CLI
 
@@ -128,10 +129,27 @@ The previous sections described how to create, view, and manage metric alert rul
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
+## With PowerShell
+
+Metric alert rules have dedicated PowerShell cmdlets available:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): Create a new metric alert rule or update an existing one.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Get one or more metric alert rules.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Delete a metric alert rule.
+
+## With REST API
+
+- [Create Or Update](/rest/api/monitor/metricalerts/createorupdate): Create a new metric alert rule or update an existing one.
+- [Get](/rest/api/monitor/metricalerts/get): Get a specific metric alert rule.
+- [List By Resource Group](/rest/api/monitor/metricalerts/listbyresourcegroup): Get a list of metric alert rules in a specific resource group.
+- [List By Subscription](/rest/api/monitor/metricalerts/listbysubscription): Get a list of metric alert rules in a specific subscription.
+- [Update](/rest/api/monitor/metricalerts/update): Update a metric alert rule.
+- [Delete](/rest/api/monitor/metricalerts/delete): Delete a metric alert rule.
+
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md).
-- [Understand how metric alerts work](alerts-metric-overview.md).
-- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md).
+- [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md)
+- [Understand how metric alerts work](alerts-metric-overview.md)
+- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md)
 - [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema)
-
+- [Troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)

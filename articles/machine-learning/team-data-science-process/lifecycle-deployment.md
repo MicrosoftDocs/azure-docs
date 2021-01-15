@@ -44,7 +44,7 @@ After you have a set of models that perform well, you can operationalize them fo
    * Line-of-business applications 
    * Back-end applications 
 
-For examples of model operationalization with an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.  
+For examples of model operationalization with an Azure Machine Learning web service, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md). It is a best practice to build telemetry and monitoring into the production model and the data pipeline that you deploy. This practice helps with subsequent system status reporting and troubleshooting.  
 
 ## Artifacts
 
@@ -65,4 +65,4 @@ Here are links to each step in the lifecycle of the TDSP:
 
 We provide full walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](./index.yml).
