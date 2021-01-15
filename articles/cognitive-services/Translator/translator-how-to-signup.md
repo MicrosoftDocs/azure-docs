@@ -25,8 +25,7 @@ If you don't have one, you can [**create a free Azure account**](https://azure.m
 Translator  can be accessed through two different resource types:
 
 * **Single-service resource**—enables access to a single service API key and endpoint.  
-* **Multi-service resource**—enables access to multiple services, including Translator,  with a single API key and endpoint.
-Currently, the multi-service resource enables access to the following Cognitive Services:
+* **Multi-service resource**—enables access to the following Cognitive Services using a single API key and endpoint.:
 
 |API Pillar|Service Name|
 |---|---|
