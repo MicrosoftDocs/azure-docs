@@ -149,22 +149,30 @@ To assign the key:
 
     1. Enter the **Key URI** with which you want to encrypt the data in this Recovery Services vault. You  also need to specify the subscription in which the Azure Key Vault (that contains this key) is present. This key URI can be obtained from the corresponding key in your Azure Key Vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
+        >[!NOTE]
+        >When specifying the encryption key using the Key URI, the key will not be auto-rotated. So key updates will need to be done manually, by specifying the new key when required.
+
         ![Enter key URI](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     1. Browse and select the key from the Key Vault in the key picker pane.
+
+        >[!NOTE]
+        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled.
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
 1. Select **Save**.
 
-1. **Tracking progress of encryption key update:** You can track the progress of the key assignment using the **Activity Log** in the Recovery Services vault. The status should soon change to **Succeeded**. Your vault will now encrypt all the data with the specified key as KEK.
+1. **Tracking progress and status of encryption key update**: You can track the progress and status of the encryption key assignment using the **Backup Jobs** view on the left navigation bar. The status should soon change to **Completed**. Your vault will now encrypt all the data with the specified key as KEK.
 
-    ![Track progress with activity log](./media/encryption-at-rest-with-cmk/activity-log.png)
+    ![Status completed](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
-    ![Status succeeded](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+    The encryption key updates are also logged in the vault’s Activity Log.
+
+    ![Activity log](./media/encryption-at-rest-with-cmk/activity-log.png)
 
 >[!NOTE]
-> This process remains the same when you wish to update/change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
+> This process remains the same when you wish to update or change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
 >
 > - The Key Vault is located in the same region as the Recovery Services vault
 >

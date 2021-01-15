@@ -1,6 +1,6 @@
 ---
-title: Securing external access to resources in Azure Active Directory
-description: A guide for architects and IT administrators on securing external access to internal resources
+title: Securing external collaboration in Azure Active Directory
+description: A guide for architects and IT administrators on securing external access to internal resources 
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Securing external access to resources
+# Securing external collaboration in Azure Active Directory and Microsoft 365
 
 Secure collaboration with external partners ensures that the right external partners have appropriate access to internal resources for the right length of time. Through a holistic governance approach, you can reduce security risks, meet compliance goals, and ensure that you know who has access.
 
@@ -38,7 +38,7 @@ This document set is designed to enable you to move from ad hoc or loosely gover
 See the following articles on securing external access to resources. We recommend you take the actions in the listed order.
 
 
-1. [Determine your desired security posture for external access](1-secure-access-posture.md)
+1. [Determine your security posture for external access](1-secure-access-posture.md)
 
 2. [Discover your current state](2-secure-access-current-state.md)
 

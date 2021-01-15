@@ -63,19 +63,8 @@
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
+          displayName: labs within Teams
           href: lab-services-within-teams-overview.md
-        - name: Create a lab from Teams
-          href: how-to-get-started-create-lab-within-teams.md
-        - name: Manage user lists
-          href: how-to-manage-user-lists-within-teams.md
-        - name: Manage VM pool
-          href: how-to-manage-vm-pool-within-teams.md
-        - name: Delete labs
-          href: how-to-delete-lab-within-teams.md
-        - name: Schedules and settings
-          href: how-to-create-schedules-within-teams.md
-        - name: Access a VM (student view)
-          href: how-to-access-vm-for-students-within-teams.md
 - name: How-to guides
   items:
   - name: Administrator guide
@@ -163,7 +152,22 @@
     - name: Set or reset passwords for virtual machines 
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information (student)
-      href: lab-user-support-information.md             
+      href: lab-user-support-information.md        
+  - name: Use labs within Teams
+    items:
+      - name: Create a lab from Teams
+        href: how-to-get-started-create-lab-within-teams.md
+      - name: Manage user lists
+        href: how-to-manage-user-lists-within-teams.md
+      - name: Manage VM pool
+        href: how-to-manage-vm-pool-within-teams.md
+      - name: Delete labs
+        href: how-to-delete-lab-within-teams.md
+      - name: Schedules and settings
+        href: how-to-create-schedules-within-teams.md
+      - name: Access a VM (student view)
+        href: how-to-access-vm-for-students-within-teams.md
+      
 - name: Reference
   items:
   - name: REST API

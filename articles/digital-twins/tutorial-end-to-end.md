@@ -54,8 +54,6 @@ Here are the components implemented by the building scenario *AdtSampleApp* samp
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
 
-The sample project also contains an interactive authorization component. Every time you start up the project, a browser window will open, prompting you to log in with your Azure account.
-
 ### Instantiate the pre-created twin graph
 
 First, you'll use the *AdtSampleApp* solution from the sample project to build the Azure Digital Twins piece of the end-to-end scenario (**section A**):
@@ -92,10 +90,7 @@ Query
 >
 > Here is the full query body to get all digital twins in your instance:
 > 
-> ```sql
-> SELECT *
-> FROM DIGITALTWINS
-> ``` 
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="GetAllTwins":::
 
 After this, you can stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -135,7 +130,7 @@ For a specific target, choose **Azure Function App (Windows)** and hit *Next*.
 
 On the *Functions instance* page, choose your subscription. This should populate a box with the *resource groups* in your subscription.
 
-Select your instance's resource group and hit *+ Create a new Azure Function...*.
+Select your instance's resource group and hit *+* to create a new Azure Function.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publish Azure function in Visual Studio: Functions instance (before function app)":::
 

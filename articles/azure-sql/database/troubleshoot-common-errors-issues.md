@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 1/14/2021
+ms.date: 01/14/2021
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -192,8 +192,6 @@ To work around this issue, try one of the following methods:
 1. Tune the head blocker query.
 
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
-
-For more information about dynamic management views, see [System dynamic management views](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 For more information about database limits, see  [SQL Database resource limits for servers](./resource-limits-logical-server.md).
 

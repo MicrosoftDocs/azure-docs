@@ -251,7 +251,7 @@ Attackers might try to target privileged accounts so that they can disrupt the i
 * Impersonation attacks
 * Credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket
 
-By deploying privileged access workstations, you can reduce the risk that admins enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+By deploying privileged access workstations, you can reduce the risk that admins enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents
 
