@@ -74,7 +74,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    - Make sure you use the value from step 3 in the **BrokerURI**. In this section's example, it would be <https://rdbroker-g-us-r0.wvd.microsoft.com/api/health>.
 5. Open another tab in the browser and go to *\<BrokerURIGlobal\>api/health*. 
    - Make sure you use the value from step 3 in the **BrokerURIGlobal** link. In this section's example, it would be <https://rdbroker.wvd.microsoft.com/api/health>.
-6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says **"RDBroker is Healthy"** as shown in the following screen shots. 
+6. If the network isn't blocking broker connection, both pages will load successfully and will show a message that says **"RDBroker is Healthy"** as shown in the following screenshots. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of successfully loaded broker uri access](media/broker-uri-web.png)
@@ -83,7 +83,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of successfully loaded broker global uri access](media/broker-global.png)
  
 
-7. If the network is blocking broker connection, the pages will not load, as shown in the following screen shot. 
+7. If the network is blocking broker connection, the pages will not load, as shown in the following screenshot. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.png)
@@ -92,7 +92,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
-9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-current-cipher-suites-supported-by-azure-front-door). For more information, see [Connection Security](network-connectivity.md#connection-security).
+9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
 ## Error: 3703 or 3019
 
@@ -178,7 +178,7 @@ To resolve this issue, change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
 3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in teh following screen shot. If it is, make sure to write this number down for later.
+   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in the following screenshot. If it is, make sure to write this number down for later.
 4. Open the Registry Editor.
 5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 6. Under **WinStations** you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
@@ -229,7 +229,7 @@ To resolve this issue:
 
 ## Error: Operating a Pro VM or other unsupported OS
 
-The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that OSes like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack will be installed on your VM but won't be activated, so you won't see it show up when you run **qwinsta** in your command line.
+The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that operating systems like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack will be installed on your VM but won't be activated, so you won't see it show up when you run **qwinsta** in your command line.
 
 To resolve this issue, create a VM that is Windows Enterprise or Windows Server.
 1. Go to [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details) and follow steps 1-12 to set up one of the following recommended images:
