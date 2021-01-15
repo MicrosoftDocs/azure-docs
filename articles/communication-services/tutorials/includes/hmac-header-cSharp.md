@@ -104,7 +104,7 @@ var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 replace "resourceEndpoint" with your real resource endpoint value.
 
 ## Create content hash
-content hash is a part of signature. 
+Content hash is a part of signature. 
 Use following code to create a method to hash a content and add it into Progma.cs under Main method.
 ```csharp
 async static Task<string> ComputeContentHash(HttpRequestMessage requestMessage)
@@ -120,3 +120,22 @@ async static Task<string> ComputeContentHash(HttpRequestMessage requestMessage)
     return Convert.ToBase64String(hashedBytes);
 }
 ```
+
+## ComputeSignature
+Prepare a method to compute your signature.
+Use following code to create a method for computing a signature.
+
+```csharp
+static string ComputeSignature(string stringToSign)
+{
+    string secret = "rEoNm/+JOufiU5ZIj38qVDSR0i3yCOIttFH40efWRE5TJYiCtQhGJk1aIo+y+iCkdb93/c2FbVv8x4H3da5UVA==";
+
+    using (var hmacsha256 = new HMACSHA256(Convert.FromBase64String(secret)))
+    {
+        var bytes = Encoding.ASCII.GetBytes(stringToSign);
+        var hashedBytes = hmacsha256.ComputeHash(bytes);
+        return Convert.ToBase64String(hashedBytes);
+    }
+} 
+```
+
