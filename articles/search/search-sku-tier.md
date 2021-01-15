@@ -67,13 +67,15 @@ Tier pricing includes details about per-partition storage that ranges from 2 GB 
 
 ## Billing rates
 
-Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for Azure Cognitive Search.
+Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for each service tier of Azure Cognitive Search.
 
-The billing rate is fixed for the tier, but it's applied to *search units* (SU), which you can adjust in response to the expected workload. The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. *Replicas* are instances of the search engine. *Partitions* are modules of storage. An *SU* is just a billing concept that represents the composite of replicas and partitions in use by your service.
+Once you create a service, the billing rate becomes both a *fixed cost* of running the service around the clock, and an *incremental cost* if you choose to add more capacity.
 
-Mathematically, SU is the product of the number of *replicas* and *partitions* used by your service (SU = replica * partition). Every service requires at least one replica and one partition. As such, the minimum SU is 1 X 1, or 1. Hypothetically, if the billing rates were $100, $200, and $300 for progressively higher tiers, the billing formula indicates that you could expect to pay approximately $100, $200, or $300 a month depending on which tier you chose, at the minimum configuration. 
+Search services are allocated computing resources in the form of *partitions* (for storage), and *replicas* (instances of the query engine). Initially, a service is created with one of each, and the billing rate is inclusive of both resources. However, if you scale capacity, the costs go up or down by the amount of the billable rate.
 
-In practice, integration of other Azure services and processes can make cost estimates more involved. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
+The following example provides an illustration. Assume a hypothetical billing rate of $100 per month. If you keep the search service at it's initial capacity of one partition and one replica, then $100 is what you can expect to pay at the end of the month. However, if you add two more replicas to achieve high availability, the monthly bill increases to $300 ($100 for the first replica-partition pair, followed by $200 for the two replicas).
+
+This pricing model is based on the concept of applying the billing rate to the number *search units* (SU) used by a search service. All services are provisioned at one SU, but you can increase the SUs by adding either partitions or replicas to handle larger workloads. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
 
 ## Next steps
 

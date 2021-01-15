@@ -15,6 +15,10 @@ ms.date: 01/15/2021
 
 In this article, learn about billable events, the pricing model, and tips for managing the cost of running a Cognitive Search service.
 
+<!-- The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. *Replicas* are instances of the search engine. *Partitions* are modules of storage. An *SU* is just a billing concept that represents the composite of replicas and partitions in use by your service.
+
+Mathematically, SU is the product of the number of *replicas* and *partitions* used by your service (SU = replica * partition). Every service requires at least one replica and one partition. As such, the minimum SU is 1 X 1, or 1. Hypothetically, if the billing rates were $100, $200, and $300 for progressively higher tiers, the billing formula indicates that you could expect to pay approximately $100, $200, or $300 a month depending on which tier you chose, at the minimum configuration. -->
+
 ## Pricing model
 
 The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need. The amount resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
@@ -49,7 +53,7 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 
 Unlike virtual machines or other resources that can be "paused" to avoid charges, an Azure Cognitive Search service is always available on hardware dedicated for your exclusive use. As such, creating a service is a billable event that starts when you create the service, and ends when you delete the service. 
 
-The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: [(replicas x partitions x rate)](#search-units), where the rate you're charged depends on the pricing tier you select.
+The minimum charge is the first search unit (one replica x one partition) at the billable rate. This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration. Beyond the minimum, you can add replicas and partitions independently of each other. Incremental increases in capacity through replicas and partitions will increase your bill based on the following formula: (replicas x partitions x rate), where the rate you're charged depends on the pricing tier you select.
 
 When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
