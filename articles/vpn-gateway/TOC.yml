@@ -101,6 +101,8 @@
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
+  - name: Site-to-Site connection between Azure and AWS
+    href: create-vpn-azure-aws-managed-solutions.md
   - name: VNet-to-VNet connections
     items:
     - name: Configure VNet-to-VNet connections
@@ -199,8 +201,6 @@
         href: vpn-gateway-about-forced-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
-  - name: Create a VPN connection between Azure and AWS
-    href: create-vpn-azure-aws-managed-solutions.md
   - name: Modify a local network gateway
     items:
     - name: Azure portal
