@@ -83,15 +83,26 @@ az postgres flexible-server create \
 
 ### Configure a PostgreSQL database
 
-The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Java application. Create a new database called `demo` by using the following command:
+The PostgreSQL server that you created earlier has an empty databse **postgres** . For this quickstart let's create a new database called `demo` following these steps:
 
-```azurecli
-az postgres flexible-server db create \
-    --resource-group $AZ_RESOURCE_GROUP \
-    --name demo \
-    --server-name $AZ_DATABASE_NAME \
-    | jq
-```
+1. Install local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. 
+2. Run the following psql command to connect to **postgres** database on your PostgreSQL server
+
+   ```bash
+   psql --host=<servername> --port=<port> --username=<user> --dbname=postgres
+   ```
+
+   Example: 
+  
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
+   ```
+
+3. Create a new database called **demo** at the prompt by typing the following command:
+
+    ```bash
+    CREATE DATABASE demo;
+    ```
 
 [Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
