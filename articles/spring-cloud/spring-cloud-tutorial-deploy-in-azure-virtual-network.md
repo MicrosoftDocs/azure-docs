@@ -159,7 +159,7 @@ Those network resources are connected to your virtual network created in the pre
    > [!Important]
    > The resource groups are fully managed by the Azure Spring Cloud service. Do *not* manually delete or modify any resource inside.
 
-## Limitations
+## Using smaller subnet ranges
 
 A small subnet range saves IP addresses, but it brings limitations to the maximum number of app instances the Azure Spring Cloud instance can hold.
 
