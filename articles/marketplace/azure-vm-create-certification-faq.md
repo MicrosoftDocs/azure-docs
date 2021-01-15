@@ -4,8 +4,8 @@ description: Troubleshoot common issues related to testing and certifying virtua
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: mathaplimicrosoft
-ms.author: mathapli
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 10/19/2020
 ---
 
