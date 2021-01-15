@@ -186,7 +186,7 @@ Waiting for an agent...
 Sending build context to Docker daemon   25.6kB
 Step 1/6 : ARG REGISTRY_NAME
 Step 2/6 : FROM ${REGISTRY_NAME}/baseimages/node:15-alpine
-9-alpine: Pulling from baseimages/node
+15-alpine: Pulling from baseimages/node
 [...]
 Successfully built 41b49a112663
 Successfully tagged myregistry.azurecr.io/hello-world:cf10
