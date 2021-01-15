@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -33,7 +33,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Google application
 
-To use a Google account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Google Developers Console. If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+To enable sign-in for users with a Google account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Google Developers Console](https://console.developers.google.com/). For more information, see [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849). If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 1. In the upper-left corner of the page, select the project list, and then select **New Project**.
@@ -185,7 +185,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add Google identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Google identity provider.
+1. Click the user flow that you want to add the Google identity provider.
 1. Under the **Social identity providers**, select **Google**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.

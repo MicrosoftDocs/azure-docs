@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -34,9 +34,9 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a GitHub OAuth application
 
-To use a GitHub account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://www.github.com/).
+To enable sign-in with a GitHub account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [GitHub Developer](https://github.com/settings/developers) portal. For more information, see [Creating an OAuth App](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-an-oauth-app). If you don't already have a GitHub account, you can sign up at [https://www.github.com/](https://www.github.com/).
 
-1. Sign in to the [GitHub Developer](https://github.com/settings/developers) website with your GitHub credentials.
+1. Sign in to the [GitHub Developer](https://github.com/settings/developers) with your GitHub credentials.
 1. Select **OAuth Apps** and then select **New OAuth App**.
 1. Enter an **Application name** and your **Homepage URL**.
 1. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Authorization callback URL**. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
@@ -214,7 +214,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add GitHub identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the GitHub identity provider.
+1. Click the user flow that you want to add the GitHub identity provider.
 1. Under the **Social identity providers**, select **GitHub**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
