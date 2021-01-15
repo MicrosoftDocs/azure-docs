@@ -4,7 +4,7 @@ description: Go-To-Market Services - Microsoft resources that publishers can use
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
 ---
@@ -60,7 +60,7 @@ If you publish a trial or consulting proof of concept, implementation, or worksh
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 
-![Go-To-Market benefits](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Go-To-Market benefits](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
@@ -99,16 +99,16 @@ All the activities described on this page are covered by the Microsoft [publishe
 
 Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who:
 
-* Engage in illegal activity using their marketplace listing.
-* Receive a purchase that is known or believed to be fraudulent.
-* Are de-listed from the commercial marketplace.
-* Use their offer to show marketing or other content that violates copyright or trademark laws.
-* Violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
+- Engage in illegal activity using their marketplace listing.
+- Receive a purchase that is known or believed to be fraudulent.
+- Are de-listed from the commercial marketplace.
+- Use their offer to show marketing or other content that violates copyright or trademark laws.
+- Violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
 
 Microsoft reserves the right to revoke and terminate Marketplace Rewards when:
 
-* The customer making the purchase did so accidentally and wishes to cancel the purchase.
-* The customer cancels before using the partner’s product.
+- The customer making the purchase did so accidentally and wishes to cancel the purchase.
+- The customer cancels before using the partner’s product.
 
 ### Offer availability
 

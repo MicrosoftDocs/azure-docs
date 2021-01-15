@@ -45,7 +45,6 @@ Here are three example billing scenarios for Hybrid Connections:
     *   You send 6 GB of data across connection B during the month.
     *   Your total charge is $10.50. That's $5 for connection A + $5 for connection B + $0.50 (for the sixth gigabyte on connection B).
 
-Note that the prices used in the examples are applicable only during the Hybrid Connections preview period. Prices are subject to change upon general availability of Hybrid Connections.
 
 ### How are hours calculated for Relay?
 

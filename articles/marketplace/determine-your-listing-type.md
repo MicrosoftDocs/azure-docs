@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
+ms.date: 12/18/2020
 ---
 
 # Introduction to listing options
@@ -21,21 +21,23 @@ When you create an offer type, you choose one or more listing options. These opt
 
 This table shows which listing options are available for each offer type.
 
-| Offer type | Free Trial | Test Drive | Contact Me | Get It Now (Transactable) |
+| Offer type | Free Trial | Test Drive | Contact Me | Get It Now `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure Application (Managed app) |   | &#10004; |   | &#10004; |
-| Azure Application (Solution template) |  |  |  |  |
+| Azure Application (Solution template) |  |  |  | &#10004; |
 | Consulting service |  |  | &#10004; |  |
-| Azure Container |  |  |  |  |
-| Dynamics 365 business central | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; |  |
-| IoT Edge module |  |  |  |  |
-| Managed Service |  |  |  |  |
-| Power BI App |  |  |  |  |
+| Azure Container |  |  |  | &#10004; |
+| Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| IoT Edge module |  |  |  | &#10004; |
+| Managed Service |  |  |  | &#10004; |
+| Power BI App |  |  |  | &#10004; |
 | Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | Software as a service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` The Get It Now listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For details, see [Get It Now](#get-it-now).
 
 ### Free Trial
 
