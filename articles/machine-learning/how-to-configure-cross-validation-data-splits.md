@@ -40,6 +40,10 @@ For this article you need,
     * [About Train, Validation and Test Sets in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    
+## How metrics are calculated for cross validation in machine learning
+
+The metrics from cross validations are "aggregated" across the folds, where the aggregation function is different per metric. Specifically, the aggregation operation is mean for scalar metrics and for non-scalar metrics the aggregation operation is usually a sum.
 
 ## Default data splits and cross-validation
 
