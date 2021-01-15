@@ -19,7 +19,7 @@ In this tutorial, you'll learn how set up the prerequisites for securely using A
 This tutorial covers:
 > [!div class="checklist"]
 > - Create a Cognitive Services resource like Text Analytics or Anomaly Detector.
-> - Store an authentication key to Cognitive Services resources as secrets in Azure Key Vault and configure access for an Azure Synapse Analytics workspace.
+> - Store an authentication key to Cognitive Services resources as secrets in Azure Key Vault, and configure access for an Azure Synapse Analytics workspace.
 > - Create an Azure Key Vault linked service in your Azure Synapse Analytics workspace.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
