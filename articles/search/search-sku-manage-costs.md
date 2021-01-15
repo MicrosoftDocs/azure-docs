@@ -15,10 +15,6 @@ ms.date: 01/15/2021
 
 In this article, learn about the pricing model, billable events, and tips for managing the cost of running an Azure Cognitive Search service.
 
-<!-- The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power. *Replicas* are instances of the search engine. *Partitions* are modules of storage. An *SU* is just a billing concept that represents the composite of replicas and partitions in use by your service.
-
-Mathematically, SU is the product of the number of *replicas* and *partitions* used by your service (SU = replica * partition). Every service requires at least one replica and one partition. As such, the minimum SU is 1 X 1, or 1. Hypothetically, if the billing rates were $100, $200, and $300 for progressively higher tiers, the billing formula indicates that you could expect to pay approximately $100, $200, or $300 a month depending on which tier you chose, at the minimum configuration. -->
-
 ## Pricing model
 
 The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need.
