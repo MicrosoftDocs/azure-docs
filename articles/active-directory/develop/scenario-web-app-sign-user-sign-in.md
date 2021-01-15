@@ -224,10 +224,6 @@ During the application registration, you register a front-channel logout URL. In
 
 During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL. 
 
-# [Java](#tab/java)
-
-During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL.
-
 # [Python](#tab/python)
 
 During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL.
