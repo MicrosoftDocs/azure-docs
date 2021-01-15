@@ -14,7 +14,7 @@ ms.author: negust
 
 # Tutorial: Sentiment analysis with Cognitive Services (Preview)
 
-In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) capabilities to perform sentiment analysis. A user in Azure Synapse can simply select a table containing a text column to enrich with sentiments. These sentiments can be positive, negative, mixed or neutral and a probability will also be returned.
+In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](../../cognitive-services/index.yml). We will be using the [Text Analytics](../../cognitive-services/text-analytics/index.yml) capabilities to perform sentiment analysis. A user in Azure Synapse can simply select a table containing a text column to enrich with sentiments. These sentiments can be positive, negative, mixed or neutral and a probability will also be returned.
 
 This tutorial covers:
 
@@ -94,7 +94,7 @@ The notebook you just opened is using the [mmlspark library](https://github.com/
 
 The Azure Key Vault details you provided allow you to securely reference your secrets from this experience without revealing them.
 
-You can now **Run All** cells to enrich your data with sentiments. The sentiments will be returned as Positive/Negative/Neutral/Mixed, and you will also get probabilities per sentiment. Learn more about [Cognitive Services - Sentiment analysis](https://go.microsoft.com/fwlink/?linkid=2147792).
+You can now **Run All** cells to enrich your data with sentiments. The sentiments will be returned as Positive/Negative/Neutral/Mixed, and you will also get probabilities per sentiment. Learn more about [Cognitive Services - Sentiment analysis](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
 ![Run Sentiment Analysis](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 

@@ -95,8 +95,8 @@ These code snippets show you how to do the following tasks with the Form Recogni
 #### [version 2.0](#tab/ga)
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -104,10 +104,10 @@ These code snippets show you how to do the following tasks with the Form Recogni
 #### [version 2.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
-* [Recognize business cards](#recognize-business-cards)
-* [Recognize invoices](#recognize-invoices)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Analyze business cards](#analyze-business-cards)
+* [Analyze invoices](#analyze-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -132,7 +132,7 @@ You'll need to add references to the URLs for your training and testing data.
 > [!NOTE]
 > The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-## Recognize form content
+## Analyze layout
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
@@ -166,7 +166,7 @@ Confidence score: 1.0
 
 ```
 
-## Recognize receipts
+## Analyze receipts
 
 This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
 
@@ -198,7 +198,7 @@ Total: 1203.39 has confidence 0.774
 ```
 
 
-## Recognize business cards
+## Analyze business cards
 
 #### [version 2.0](#tab/ga)
 
@@ -216,7 +216,7 @@ This section demonstrates how to recognize and extract common fields from Englis
 
 ---
 
-## Recognize invoices
+## Analyze invoices
 
 #### [version 2.0](#tab/ga)
 

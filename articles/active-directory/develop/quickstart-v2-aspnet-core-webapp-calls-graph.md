@@ -35,7 +35,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://aka.ms/aspnetcore-webapp-calls-graph-quickstart-v2).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -49,10 +49,10 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `AspNetCoreWebAppCallsGraph-Quickstart`. Users of your app might see this name, and you can change it later.
-> 1. Enter a **Redirect URI** of `https://localhost:44321/signin-oidc`
+> 1. Enter a **Redirect URI** of `https://localhost:44321/signin-oidc`.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Enter a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`
+> 1. Enter a **Logout URL** of `https://localhost:44321/signout-oidc`.
 > 1. Select **Save**.
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
 > 1. Enter a **Description**, for example `clientsecret1`.

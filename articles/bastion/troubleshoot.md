@@ -19,11 +19,7 @@ This article shows you how to troubleshoot Azure Bastion.
 
 **Q:** When I try to create an NSG on the Azure Bastion subnet, I get the following error: *'Network security group <NSG name> does not have necessary rules for Azure Bastion Subnet AzureBastionSubnet"*.
 
-**A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the following rules in your NSG. If you do not add these rules, the NSG creation/update will fail.
-
-1. Control plane connectivity – Inbound on 443 from GatewayManager
-2. Diagnostics logging and others – Outbound on 443 to AzureCloud (Regional tags within this service tag are not supported yet.)
-3. Target VM – Outbound for 3389 and 22 to VirtualNetwork
+**A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the required rules to the NSG. For a list of required rules, see [Working with NSG access and Azure Bastion](./bastion-nsg.md). If you do not add these rules, the NSG creation/update will fail.
 
 An example of the NSG rules is available for reference in the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).

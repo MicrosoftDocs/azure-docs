@@ -39,7 +39,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 1. Select **Register** to create the app.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need this value to configure the application later in this project.
 1. Under **Manage**, select **Authentication**.
-1. Select **Add a platform** > **Web** 
+1. Select **Add a platform** > **Web**. 
 1. In the **Redirect URIs** section,  enter `http://localhost:3000/auth/openid/return`.
 1. Enter a **Front-channel logout URL** `https://localhost:3000`.
 1. In the Implicit grant section, check **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.

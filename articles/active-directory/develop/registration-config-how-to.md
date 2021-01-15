@@ -13,6 +13,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: ryanwi
+ROBOTS: NOINDEX
 ---
 
 # How to discover endpoints
