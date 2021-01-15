@@ -30619,7 +30619,7 @@
     {
       "source_path_from_root": "/articles/notebooks/index.yml",
       "redirect_url": "https://notebooks.azure.com",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/notebooks/azure-notebooks-overview.md",
