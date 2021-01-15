@@ -13,11 +13,11 @@ Standard Azure Batch capabilities are used to run rendering workloads and applic
 
 For an overview of Batch concepts, including pools, jobs, and tasks, see [this article](./batch-service-workflow-features.md).
 
-## Batch pools using custom VM images
+## Batch pools using custom VM images and standard application licensing
 
-As with other workloads and types of application, a custom VM image can be created with the required applications and plug-ins. The custom image is placed in the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
+As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
 
-The task command line strings will need to reference the applications and path used when installing on the custom VM image.
+The task command line strings will need to reference the applications and paths used when creating the custom VM image.
 
 Most rendering applications will require licenses obtained from a license server. If there's an existing on-premises license server, then both the pool and license server need to be on the same [virtual network](../virtual-network/virtual-networks-overview.md). It is also possible to run a license server on an Azure VM, with the Batch pool and license server VM being on the same virtual network.
 
