@@ -30,7 +30,7 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed servers within a specific region and using the same performance tier and hardware generation.</br>
 
-For example, let's suppose that you are running one general purpose Gen5 – 32 vCore PostgreSQL database, and two memory-optimized Gen5 – 16 vCore PostgreSQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose Gen5 – 32 vCore database server, and one memory-optimized Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least one year. In this case, you should purchase a 64 (2x32) vCores, one-year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore one year reservation for single database memory optimized - Gen5
+For example, let's suppose that you are running one general purpose Gen5 – 32 vCore PostgreSQL database, and two memory-optimized Gen5 – 16 vCore PostgreSQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose Gen5 – 8 vCore database server, and one memory-optimized Gen5 – 32 vCore database server. Let's suppose that you know that you will need these resources for at least one year. In this case, you should purchase a 40 (32 + 8) vCores, one-year reservation for single database general purpose - Gen5 and a 64 (2x16 + 32) vCore one year reservation for single database memory optimized - Gen5
 
 
 ## Buy Azure Database for PostgreSQL reserved capacity
@@ -62,7 +62,8 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## vCore size flexibility
 
-vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. 
+vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. If you scale to higher vCores than your reserved capacity, you will be billed for the excess vCores using pay-as-you-go pricing.
+
 
 ## Need help? Contact us
 
