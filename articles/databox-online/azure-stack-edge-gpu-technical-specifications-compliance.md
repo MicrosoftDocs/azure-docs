@@ -23,7 +23,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 |-------------------------|----------------------------|
 | CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU            |
 | Memory                  | 128 (8x16 GB) GB RAM                     |
-| RAM                     | Dell Compatible 16GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
+| RAM                     | Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM |
 
 
 ## Compute acceleration specifications
@@ -53,7 +53,7 @@ Your Azure Stack Edge Pro device has six network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
-|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. These can also operate as 10 GbE interfaces.  | 
+|  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. They can also operate as 10 GbE interfaces.  | 
 
 Your Azure Stack Edge Pro device has the following network hardware:
 
@@ -65,7 +65,7 @@ Here are the details for the Mellanox card:
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
