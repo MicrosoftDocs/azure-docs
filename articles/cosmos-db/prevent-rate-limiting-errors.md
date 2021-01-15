@@ -7,7 +7,6 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 01/13/2021
 ms.author: gahllevy
-ms.custom: devx-track-js
 ---
 
 # Prevent rate-limiting errors for Azure Cosmos DB API for MongoDB operations
