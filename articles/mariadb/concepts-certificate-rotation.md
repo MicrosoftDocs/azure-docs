@@ -68,15 +68,17 @@ To avoid your application's availability being interrupted due to certificates
 
   - For .NET users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates don't exist, create the missing certificate file.
 
-  - For other (MariaDB Client/MariaDB Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) users, you can merge two CA certificate files like this format below</b>
+  - For other (MariaDB Client/MariaDB Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) users, you can merge two CA certificate files like this format below
 
-    </br>-----BEGIN CERTIFICATE-----
-    </br>(Root CA1: BaltimoreCyberTrustRoot.crt.pem)
-    </br>-----END CERTIFICATE-----
-    </br>-----BEGIN CERTIFICATE-----
-    </br>(Root CA2: DigiCertGlobalRootG2.crt.pem)
-    </br>-----END CERTIFICATE-----
-
+   ```
+   -----BEGIN CERTIFICATE-----
+   (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+   -----END CERTIFICATE-----
+   -----BEGIN CERTIFICATE-----
+    (Root CA2: DigiCertGlobalRootG2.crt.pem)
+   -----END CERTIFICATE-----
+   ```
+   
 - Replace the original root CA pem file with the combined root CA file and restart your application/client.
 - In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
