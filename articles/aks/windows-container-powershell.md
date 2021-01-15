@@ -30,7 +30,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell][install-azure-powershell]. Additionally you are required to install the Az.Aks Powershell module. 
+[Install Azure PowerShell][install-azure-powershell]. You also must install the Az.Aks PowerShell module: 
 
 ```azurepowershell-interactive
 Install-Module Az.Aks
