@@ -4,7 +4,7 @@ description: Reference guide to functions in expressions for Azure Logic Apps an
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: referemce
+ms.topic: reference
 ms.date: 01/13/2021
 ---
 
