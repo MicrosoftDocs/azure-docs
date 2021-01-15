@@ -45,7 +45,7 @@ You can navigate directly to the _Create_ page for your service:
 >If you prefer, you can start the *Create* process on the Azure Portal home page as follows:
 > 1. Navigate to the Azure Portal.
 > 1. Select ➕**Create a resource**  from the Azure services menu.
->1. In the **Search the Marketplace** search box, enter and select **Cognitive Services** (multi-service resource) or **Translator** (single-service resource). *See* [Choose your resource type](#choose-your-resource-type), above.
+>1. In the **Search the Marketplace** search box, enter and select **Cognitive Services** (multi-service resource) or **Translator** (single-service resource). *See* [Choose your resource type](#1-choose-your-resource-type), above.
 > 1. Select **Create** and you will be taken to the project details page.
 ><br/><br/>
 
