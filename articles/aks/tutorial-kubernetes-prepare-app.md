@@ -36,7 +36,7 @@ To complete this tutorial, you need a local Docker development environment runni
 
 ## Get application code
 
-The [sample application](https://github.com/Azure-Samples/azure-voting-app-redis) used in this tutorial is a basic voting app consisting of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
+The [sample application](sample-application) used in this tutorial is a basic voting app consisting of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
 
 Use [git][] to clone the sample application to your development environment:
 
@@ -153,6 +153,7 @@ Advance to the next tutorial to learn how to store container images in Azure Con
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
 [git]: https://git-scm.com/downloads
+[sample-application]: https://github.com/Azure-Samples/azure-voting-app-redis
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
