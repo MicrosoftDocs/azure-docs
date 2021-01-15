@@ -16,7 +16,7 @@ ms.author: mnayak
 ---
 # Configure routing preference for a public IP address using the Azure portal
 
-This article shows you how to configure [routing preference](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) via ISP network (**Internet** option) for a public IP address. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
+This article shows you how to configure [routing preference](./routing-preference-overview.md) via ISP network (**Internet** option) for a public IP address. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
 
 * Virtual machine
 * Virtual machine scale set
@@ -52,5 +52,5 @@ You can associate the above created public IP address with a [Windows](../virtua
 - Learn more about [public IP with routing preference](routing-preference-overview.md).
 - [Configure routing preference for a VM](tutorial-routing-preference-virtual-machine-portal.md).
 - [Configure routing preference for a public IP address using the PowerShell](routing-preference-powershell.md).
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
