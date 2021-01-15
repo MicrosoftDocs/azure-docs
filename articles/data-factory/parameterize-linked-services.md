@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
 manager: anandsub
@@ -37,6 +37,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure Databricks
+- Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
