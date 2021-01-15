@@ -6,7 +6,7 @@ ms.author: sstein
 ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 01/15/2021
 ---
 
 
@@ -44,11 +44,11 @@ For environments with multiple databases that have varying and unpredictable usa
 
 ## Estimate Azure SQL Database costs
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for different Azure SQL Database configurations.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for different Azure SQL Database configurations. The information and pricing in the following image are for example purposes only:
 
 :::image type="content" source="media/cost-management/pricing-calc.png" alt-text="Azure SQL Database pricing calculator example":::
 
-You can also estimate how different Retention Policy options affect cost:
+You can also estimate how different Retention Policy options affect cost. The information and pricing in the following image are for example purposes only:
 
 :::image type="content" source="media/cost-management/backup-storage.png" alt-text="Azure SQL Database pricing calculator example for storage":::
 
@@ -69,7 +69,7 @@ You can pay for Azure SQL Database charges with your EA monetary commitment cred
 
 As you go through the process of creating an Azure SQL Database, you can see the estimated costs during configuration of the compute tier. 
 
-To access this screen, select **Configure database** on the **Basics** tab of the **Create SQL Database** page.
+To access this screen, select **Configure database** on the **Basics** tab of the **Create SQL Database** page. The information and pricing in the following image are for example purposes only:
 
   :::image type="content" source="media/cost-management/cost-estimate.png" alt-text="Example showing cost estimate in the Azure portal":::
 
@@ -83,7 +83,7 @@ As you start using Azure SQL Database, you can see the estimated costs in the po
 
 1. Sign into the Azure portal and navigate to your Azure SQL database's resource group. You can locate the resource group by navigating to your database and select **Resource group** in the **Overview** section.
 1. In the menu, select **Cost analysis**.
-1. View **Accumulated costs** and set the chart at the bottom to **Service name**. This chart shows an estimate of your current SQL Database costs. To narrow costs for the entire page to Azure SQL Database, select **Add filter** and then, select **Azure SQL Database**.
+1. View **Accumulated costs** and set the chart at the bottom to **Service name**. This chart shows an estimate of your current SQL Database costs. To narrow costs for the entire page to Azure SQL Database, select **Add filter** and then, select **Azure SQL Database**. The information and pricing in the following image are for example purposes only:
 
    :::image type="content" source="media/cost-management/cost-analysis.png" alt-text="Example showing accumulated costs in the Azure portal":::
 
