@@ -33,11 +33,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -82,16 +82,16 @@ A GitHub Actions [trigger](https://help.github.com/actions/reference/events-that
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Through settings associated with the `on` property, you can define which branches trigger a job, and set triggers to fire for different pull request states.
 
-In this example, a workflow is started as the _master_ branch changes. Changes that start the workflow include pushing commits and opening pull requests against the chosen branch.
+In this example, a workflow is started as the _main_ branch changes. Changes that start the workflow include pushing commits and opening pull requests against the chosen branch.
 
 ## Jobs
 
@@ -102,7 +102,7 @@ In the Static Web Apps workflow file, there are two available jobs.
 | Name  | Description |
 |---------|---------|
 |`build_and_deploy_job` | Executes when you push commits or open a pull request against the branch listed in the `on` property. |
-|`close_pull_request_job` | Executes ONLY when you close a pull request which removes the staging environment created from pull requests. |
+|`close_pull_request_job` | Executes ONLY when you close a pull request, which removes the staging environment created from pull requests. |
 
 ## Steps
 
@@ -134,7 +134,7 @@ with:
 | Property | Description | Required |
 |---|---|---|
 | `app_location` | Location of your application code.<br><br>For example, enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory called `app`. | Yes |
-| `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you do not want an API. | No |
+| `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
 | `output_location` | Location of the build output directory relative to the `app_location`.<br><br>For example, if your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `output_location` value. | No |
 
 The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set for you by Azure Static Web Apps shouldn't be manually changed.
@@ -194,7 +194,7 @@ jobs:
 
 A monorepo is a repository that contains code for multiple applications. By default a workflow file tracks all the files in a repository, but you can configure multiple workflow files in a repository to support a monorepo.
 
-For a monorepo repo you can specify specific paths in the `push` and `pull_request` section for the workflow file to track.
+For a monorepo repo, you can specify specific paths in the `push` and `pull_request` section for the workflow file to track.
 
 The following example demonstrates how to add a `paths` node to the `push` and `pull_request` sections of a file named _azure-static-web-apps-purple-pond-08f780f0f.yml_.
 
@@ -217,7 +217,7 @@ on:
 
 In this instance, only changes made to files under the _customer-client_ folder or the app's workflow file will kick off a new build.
 
-Any additional instances of an Azure Static Web Apps site in the repo will have its own workflow file with path values specific to the web app.
+Any other instances of an Azure Static Web Apps site in the repo will have its own workflow file with path values specific to the web app.
 
 ## Next steps
 
