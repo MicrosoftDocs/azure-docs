@@ -66,11 +66,11 @@ To connect by using Remote Desktop, follow these steps.
 3. Select the virtual machine in the list.
 4. On the page for the virtual machine, select **Connect**.
 
-For more information, see [How to connect and sign on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+For more information, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
 
 **Linux**:
 
-For more information, see [Connect to a Linux VM in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
+For more information, see [Connect to a Linux VM in Azure](../virtual-machines/linux/quick-create-portal.md).
 
 If the Remote Desktop or SSH connection is successful, go to next step.
 
@@ -78,9 +78,9 @@ If the Remote Desktop or SSH connection is successful, go to next step.
 
 Run a connectivity check on the source VM, and check the response.
 
-**Windows**: [Check connectivity with Azure Network Watcher using PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-powershell)
+**Windows**: [Check connectivity with Azure Network Watcher using PowerShell](../network-watcher/network-watcher-connectivity-powershell.md)
 
-**Linux**: [Check connectivity with Azure Network Watcher using Azure CLI 2.0](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-cli)
+**Linux**: [Check connectivity with Azure Network Watcher using Azure CLI 2.0](../network-watcher/network-watcher-connectivity-cli.md)
 
 The following is an example response:
 
@@ -128,12 +128,12 @@ Hops             : [
 
     |Issue type  |Value  |Resolution action |
     |---------|---------|---------|
-    |NetworkSecurityRule|Name of the blocking NSG|You can [delete the NSG rule](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#delete-a-security-rule) or modify the rule as described [here](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#change-a-security-rule).|
-    |UserDefinedRoute     |   Name of the blocking UDR      | If you do not require this route, delete the UDR. If you can’t delete the route, update the route by using the appropriate address prefix and next hop. You can also adjust the Network Virtual Appliance to forward traffic appropriately. For more information, see: [Virtual network traffic routing](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) and [Route network traffic with a route table using PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-udr-arm-ps).|
+    |NetworkSecurityRule|Name of the blocking NSG|You can [delete the NSG rule](./manage-network-security-group.md#delete-a-security-rule) or modify the rule as described [here](./manage-network-security-group.md#change-a-security-rule).|
+    |UserDefinedRoute     |   Name of the blocking UDR      | If you do not require this route, delete the UDR. If you can’t delete the route, update the route by using the appropriate address prefix and next hop. You can also adjust the Network Virtual Appliance to forward traffic appropriately. For more information, see: [Virtual network traffic routing](./virtual-networks-udr-overview.md) and [Route network traffic with a route table using PowerShell](./tutorial-create-route-table-powershell.md).|
     |CPU    |    Usage     |     Follow these recommendations that describe in [Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows](https://support.microsoft.com/en-in/help/3150851/generic-performance-troubleshooting-for-azure-virtual-machine-running).|
     |Memory    |      Usage   |    Follow the recommendations that are described in [Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows](https://support.microsoft.com/en-in/help/3150851/generic-performance-troubleshooting-for-azure-virtual-machine-running).|
     |Guest Firewall    |      Name of the firewall blocking   |      Follow these steps: [Turn Windows Defender Firewall on or off](https://support.microsoft.com/help/4028544/windows-turn-windows-firewall-on-or-off).|
-    |DNS Resolution     |    Name of the DNS     |    Follow these steps: [Azure DNS troubleshooting guide](https://docs.microsoft.com/azure/dns/dns-troubleshoot) and [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).     |
+    |DNS Resolution     |    Name of the DNS     |    Follow these steps: [Azure DNS troubleshooting guide](../dns/dns-troubleshoot.md) and [Name resolution for resources in Azure virtual networks](./virtual-networks-name-resolution-for-vms-and-role-instances.md).     |
     |Socket Error    |      Not applicable   |     The specified port is already in use by another application. Try to use a different port.    |
 
 3. Run the connectivity check again to determine whether the problem is resolved.
@@ -180,9 +180,9 @@ For both the primary and secondary network adapters, check the default Inbound p
 
 For more information about how to run the connectivity check, see the following articles:
 
-**Windows**: [Check connectivity with Azure Network Watcher using PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-powershell)
+**Windows**: [Check connectivity with Azure Network Watcher using PowerShell](../network-watcher/network-watcher-connectivity-powershell.md)
 
-**Linux**: [Check connectivity with Azure Network Watcher using Azure CLI 2.0](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-cli).
+**Linux**: [Check connectivity with Azure Network Watcher using Azure CLI 2.0](../network-watcher/network-watcher-connectivity-cli.md).
 
 The following is an example response:
 
@@ -256,4 +256,4 @@ Follow these steps to check the state of the NIC:
 
 ## Next steps
 
-[Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
+[Troubleshooting connectivity problems between Azure VMs](./virtual-network-troubleshoot-connectivity-problem-between-vms.md)
