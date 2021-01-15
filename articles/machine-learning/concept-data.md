@@ -47,7 +47,7 @@ The following diagram provides a visual demonstration of this recommended workfl
 
 ![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
 
-## Store data in datastores
+## Connect to storage with datastores
 
 Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage service. 
 
@@ -62,7 +62,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Databricks File System
 + Azure Database for MySQL
 
-## Datasets
+## Reference data in storage with datasets
 
 Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
 
@@ -102,7 +102,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 
 <a name="label"></a>
 
-## Label data with data labeling
+## Label data with data labeling projects
 
 Labeling large amounts of data has often been a headache in machine learning projects. Those with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
 
