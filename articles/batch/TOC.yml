@@ -229,8 +229,6 @@
         href: batch-rendering-functionality.md
       - name: Using Batch rendering
         href: batch-rendering-using.md
-      - name: Using render managers
-        href: batch-rendering-render-managers.md
       - name: Rendering application reference
         href: batch-rendering-application-reference.md
       - name: Storage and data movement
