@@ -25,7 +25,7 @@ This topic talks about possible causes of latency specific to using the Azure Co
 > [!NOTE]
 > Azure Cognitive Services do not provide any Service Level Agreement (SLA) regarding latency.
 
-## Possible causes for latency
+## Possible causes of latency
 
 ### Slow connection between the Cognitive Service and a remote URL
 
