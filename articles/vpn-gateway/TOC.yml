@@ -199,8 +199,8 @@
         href: vpn-gateway-about-forced-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
-    - name: Create a VPN connection between Azure and AWS
-      href: create-vpn-azure-aws-managed-solutions.md
+  - name: Create a VPN connection between Azure and AWS
+    href: create-vpn-azure-aws-managed-solutions.md
   - name: Modify a local network gateway
     items:
     - name: Azure portal
