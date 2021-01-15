@@ -59,9 +59,9 @@ An industry ontology is a great way to jumpstart building your IoT solution. How
 
 For more about on this process, see [*Concepts: Extending industry ontologies*](concepts-extending-ontologies.md).
 
-## Ontology tools
+## Tools for ontologies
 
-In addition to the [model tools](concepts-models.md#model-tools) available to make it easier to deal with models and ontologies in general, you can also use a tool designed specifically for ontologies. This is also located in the  [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools) repository.
+In addition to the [tools for models](concepts-models.md#tools-for-models) available to make it easier to deal with models and ontologies in general, you can also use a tool designed specifically for ontologies. This is also located in the  [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools) repository.
 
 ### OWL2DTDL Converter 
 

@@ -143,13 +143,13 @@ Sometimes, when your solution is tied to a particular industry, it can be easier
 
 [!INCLUDE [Azure Digital Twins: industry model paths](../../includes/digital-twins-industry-model-paths.md)]
 
-## Model tools 
+## Tools for models 
 
 There are several samples available to make it even easier to deal with models and ontologies. They are located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
 This section describes the current set of samples in more detail.
 
-### ModelUploader 
+### Model uploader 
 
 _**For uploading models to Azure Digital Twins**_
 
@@ -157,7 +157,7 @@ Once you are finished creating, extending, or selecting your models, you can upl
 
 However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this sample to upload many models at once: [**The ADT Model Uploader**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
-### ModelVisualizer 
+### Model visualizer 
 
 _**For visualizing models**_
 
