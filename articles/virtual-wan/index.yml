@@ -78,15 +78,15 @@ landingContent:
         links:
           - text: About virtual hub routing
             url: about-virtual-hub-routing.md
-          - text: Routing scenario - Route traffic through an NVA
+          - text: Scenario - Route traffic through an NVA
             url: scenario-route-through-nva.md
-          - text: Routing scenario - Any spoke to any spoke
+          - text: Scenario - Any spoke to any spoke
             url: scenario-any-to-any.md
-          - text: Routing scenario - Isolate a VNet
+          - text: Scenario - Isolate a VNet
             url: scenario-isolate-vnets.md
-          - text: Routing scenario - Routes to accessa shared services VNet
+          - text: Scenario - Route to a shared services VNet
             url: scenario-shared-services-vnet.md
-          - text: Routing scenario - Custom routing using Azure Firewall
+          - text: Scenario - Custom routing via Azure Firewall
             url: scenario-route-between-vnets-firewall.md
       - linkListType: how-to-guide
         links:
