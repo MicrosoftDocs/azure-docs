@@ -63,7 +63,7 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 Or, you can fetch the IP using the following az CLI command:
 
-```
+```azurecli
 SPRING_CLOUD_RG= # Resource group name of your Azure Spring Cloud service instance \ SPRING_CLOUD= # Name of your Azure Spring Cloud service instance
 
 SERVICE_RUNTIME_RG=`az spring-cloud show -g $SPRING_CLOUD_RG -n $SPRING_CLOUD --query \ "properties.networkProfile.serviceRuntimeNetworkResourceGroup" -o tsv`
