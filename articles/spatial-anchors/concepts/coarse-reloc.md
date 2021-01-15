@@ -17,14 +17,13 @@ Coarse relocalization is a feature that enables large-scale localization by prov
 
 Coarse relocalization works by tagging anchors with various on-device sensor readings that are later used for fast querying. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS isn't available or unreliable (such as indoors), the sensor data consists of the WiFi access points and Bluetooth beacons in range. The collected sensor data contributes to maintaining a spatial index used by Azure Spatial Anchors to quickly determine which anchors are in proximity of your device.
 
-# When to use coarse relocalization
+## When to use coarse relocalization
 
-When you find yourself querying for more than 50 anchors at a time, you'll need to index your anchors to ensure scalability.
-If your anchors are spread on a large space, you would likely benefit from coarse relocalization spatial indexing.
+If you're planning to handle more than 50 spatial anchors in a space larger than a tennis court, you'll likely benefit from coarse relocalization spatial indexing.
 
 The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of anchor spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
 
-# Using coarse relocalization
+## Using coarse relocalization
 
 The typical workflow to create and query Azure Spatial Anchors with coarse relocalization is:
 1.  Create and configure a sensor fingerprint provider to collect sensor data of your choice.
@@ -32,21 +31,16 @@ The typical workflow to create and query Azure Spatial Anchors with coarse reloc
 3.  Query surrounding anchors using coarse relocalization, using the dedicated search criteria in the Azure Spatial Anchor session.
 
 You can refer to the corresponding following tutorial to set up coarse relocalization in your application:
-> [Coarse Relocalization in Unity](../how-tos/set-up-coarse-reloc-unity.md)
+* [Coarse Relocalization in Unity](../how-tos/set-up-coarse-reloc-unity.md)
+* [Coarse Relocalization in Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+* [Coarse Relocalization in Swift](../how-tos/set-up-coarse-reloc-swift.md)
+* [Coarse Relocalization in Java](../how-tos/set-up-coarse-reloc-java.md)
+* [Coarse Relocalization in C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+* [Coarse Relocalization in C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
 
-> [Coarse Relocalization in Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+## Sensors and platforms
 
-> [Coarse Relocalization in Swift](../how-tos/set-up-coarse-reloc-swift.md)
-
-> [Coarse Relocalization in Java](../how-tos/set-up-coarse-reloc-java.md)
-
-> [Coarse Relocalization in C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
-
-> [Coarse Relocalization in C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
-
-# Sensors and platforms
-
-## Platform availability
+### Platform availability
 
 The sensor data you can send to the anchor service are:
 
@@ -70,16 +64,16 @@ The table below summarizes the availability of the sensor data on supported plat
 <sup>5</sup> Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5].<br/>
 <sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2]
 
-## Which sensor to enable
+### Which sensor to enable
 
 The choice of sensor is specific to the application you're developing and the platform.
 The following diagram provides a starting point on which combination of sensors can be enabled depending on the localization scenario:
 
-![Selection of anchor candidates with GPS](media/coarse-reloc-enabling-sensors.png)
+![Diagram of enabled sensors selection](media/coarse-reloc-enabling-sensors.png)
 
 The following sections give more insights on the advantages and limitations for each sensor type.
 
-## GPS
+### GPS
 
 GPS is the go-to option for outdoor scenarios.
 When using GPS in your application, keep in mind that the readings provided by the hardware are typically:
@@ -99,7 +93,7 @@ The same reasoning is applied when querying with GPS. The device is represented 
 
 ![Selection of anchor candidates with GPS](media/coarse-reloc-gps-separation-distance.png)
 
-## WiFi
+### WiFi
 
 On HoloLens and Android, WiFi signal strength can be a good option to enable indoor coarse relocalization.
 Its advantage is the potential immediate availability of WiFi access points (common in, e.g.,  office spaces or shopping malls) with no extra set-up needed.
@@ -118,7 +112,7 @@ Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map 
 * create the session well before placing the first anchor.
 * keep the session alive for as long as possible (that is, create all anchors and query in one session).
 
-## Bluetooth beacons
+### Bluetooth beacons
 <a name="beaconsDetails"></a>
 
 Carefully deploying bluetooth beacons is the only solution for cross-platform, large scale, indoor coarse relocalization.
@@ -139,7 +133,7 @@ A beacon running out of battery will affect the results negatively, so make sure
 
 Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
 
-## Sensors accuracy
+### Sensors accuracy
 
 The accuracy of the GPS signal, both on anchor creation as well as during queries, has a large influence over the set of returned anchors. In contrast, queries based on WiFi / beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on WiFi / beacons is mostly determined by the physical range of the access points / beacons, and environmental obstructions.
 The table below estimates the expected search space for each sensor type:
