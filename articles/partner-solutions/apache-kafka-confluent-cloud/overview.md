@@ -54,12 +54,23 @@ You decide which billing option to use when you create the service.
 
 ## Confluent links
 
-For additional help with using Apache Kafka for Confluent Cloud, see the following links to the Confluent site.
+For additional help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
 
-* [Confluent Documentation](https://docs.confluent.io/home/overview.html)
+To learn about billing options, see:
+
 * [Azure Marketplace with Pay As You Go](https://docs.confluent.io/cloud/current/billing/ccloud-azure-payg.html)
 * [Azure Marketplace with Commitments](https://docs.confluent.io/cloud/current/billing/ccloud-azure-ubb.html)
+
+To learn about managing the solutions, see:
+
+* [Create a Cluster in Confluent Cloud](https://docs.confluent.io/cloud/current/clusters/create-cluster.html)
+* [Confluent Cloud Environments](https://docs.confluent.io/current/cloud/using/environments.html)
+* [Confluent Cloud Basics](https://docs.confluent.io/current/cloud/using/cloud-basics.html)
+
+For support and terms, see:
+
 * [Confluent support](https://support.confluent.io)
+* [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
 
 ## Next steps
 
