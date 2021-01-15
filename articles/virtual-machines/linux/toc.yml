@@ -234,7 +234,7 @@
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md
     - name: Virtual machine and disk performance
-      href: disk-performance-linux.md
+      href: ../disk-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Designing for high performance
       href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk bursting

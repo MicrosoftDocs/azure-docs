@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
 ms.topic: how-to
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 # Benchmarking a disk
