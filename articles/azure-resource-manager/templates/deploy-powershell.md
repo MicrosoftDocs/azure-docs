@@ -2,7 +2,7 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/15/2021
 ---
 
 # Deploy resources with ARM templates and Azure PowerShell
@@ -130,7 +130,7 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 
-The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
+The following examples show how to create and deploy a template spec.
 
 First, create the template spec by providing the ARM template.
 
