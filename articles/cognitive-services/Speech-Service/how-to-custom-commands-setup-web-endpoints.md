@@ -70,7 +70,6 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 
     > [!NOTE]
     > - The suggested query parameters are only needed for the example endpoint
-    > - You can configure query or header parameters to retrieve secrets from your own key vault. See [how to reference key vault stored secrets in calling web endpoints](./how-to-custom-commands-integrate-key-vault.md)
 
 1. In **On Success - Action to execute**, select **Send speech response**.
 
