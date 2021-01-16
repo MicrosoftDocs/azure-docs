@@ -870,8 +870,6 @@
         href: instavr-viewer-tutorial.md
       - name: insuite
         href: insuite-tutorial.md
-      - name: Intacct
-        href: intacct-tutorial.md
       - name: IntelligenceBank
         href: intelligencebank-tutorial.md
       - name: International SOS Assistance Products
@@ -1484,6 +1482,8 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
+      - name: Sage Intacct
+        href: intacct-tutorial.md
       - name: SailPoint IdentityNow
         href: sailpoint-identitynow-tutorial.md
       - name: Salesforce
