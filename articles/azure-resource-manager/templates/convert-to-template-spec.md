@@ -10,9 +10,11 @@ author: tfitzmac
 
 The Azure portal provides a way to store Azure Resource Manager templates (ARM templates) in your account. **This feature is being deprecated.** To continue using templates in this gallery, convert them to [template specs](template-specs.md).
 
-In the portal, this feature is called **Templates (Preview)**. To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). You may also see these templates through their resource type `Microsoft.Gallery/myareas/galleryitems`.
-
 This article shows how to convert existing templates in the template gallery to template specs.
+
+In the portal, the feature being deprecated is called **Templates (Preview)**. To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). These templates have the resource type `Microsoft.Gallery/myareas/galleryitems`.
+
+
 
 ## Deprecation of portal feature
 
@@ -24,12 +26,12 @@ Before June 22, you should migrate any templates that you want to continue using
 
 ## Convert with PowerShell script
 
-To simplify converting templates in the template gallery to template specs, use a PowerShell script in the Azure Quickstart Templates repo. Specify whether you want the script to create a new template spec for each template or download each template. The script doesn't delete the template from the template gallery.
+To simplify converting templates in the template gallery, use a PowerShell script from the Azure Quickstart Templates repo. When you run the script, you can either create a new template spec for each template or download each template. The script doesn't delete the template from the template gallery.
 
 1. Copy the [migration script](https://github.com/Azure/azure-quickstart-templates/blob/master/201-templatespec-migrate-create/Migrate-GalleryItems.ps1). Save a local copy with the name *Migrate-GalleryItems.ps1*.
 1. To create new template specs, provide values for the `-ResourceGroupName` and `-Location` parameters. 
 
-   In `ItemsToExport`, specify whether you want to export the templates in your gallery or all templates you have access to. Use `MyGalleryItems` to export your templates. Use `AllGalleryItems` to export all template you have access to.
+   Set `ItemsToExport` to `MyGalleryItems` to export your templates. Set it to `AllGalleryItems` to export all templates you have access to.
 
    The following example creates new template specs for each template in a resource group named **migratedRG**. The script creates the resource group if it doesn't exist.
 
