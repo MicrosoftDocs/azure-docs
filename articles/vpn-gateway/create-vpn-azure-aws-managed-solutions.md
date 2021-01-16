@@ -188,7 +188,7 @@ The connections are now established.
 
 1. Select a VPC and **Attach the Internet gateway**.
 
-   :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw2.png" alt-text="Attach the gateway":::
+   :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw-2.png" alt-text="Attach the gateway":::
 
 1. Create a route to allow connections to **0.0.0.0/0** (Internet) through the Internet Gateway.
 
