@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 06/27/2020
+ms.date: 01/16/2021
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
@@ -341,7 +341,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 | Control/Command + Delete      | Delete word after |                              
 | Control/Command + /           | Toggle comment on cu
 
-## Find compute details 
+## Find compute details
 
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
