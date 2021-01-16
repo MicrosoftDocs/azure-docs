@@ -19,12 +19,6 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 > [!NOTE]
 > If your source server is version 10.2 or newer, we recommend that you set up Data-in Replication by using [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
 
-> [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the words _master_ and _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes these as exclusionary words. The words are used in this article for consistency because they are currently the words that appears in the software. When the software is updated to remove the words, this article will be updated to be in alignment.
->
-
 ## Create a MariaDB server to use as a replica
 
 1. Create a new Azure Database for MariaDB server (for example, replica.mariadb.database.azure.com). The server is the replica server in Data-in Replication.
@@ -41,6 +35,10 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 3. Add the source server's IP address to the replica's firewall rules. 
 
    Update firewall rules using the [Azure portal](howto-manage-firewall-portal.md) or [Azure CLI](howto-manage-firewall-cli.md).
+
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+>
 
 ## Configure the source server
 
