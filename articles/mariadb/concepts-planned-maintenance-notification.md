@@ -55,7 +55,7 @@ You can either check the planned maintenance notification on Azure portal or con
 7. Ensure Enable rule upon creation is set to Yes.
 8. Select **Create alert rule** to complete your alert
 
-For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
+For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## Can I cancel or postpone planned maintenance?
 
@@ -72,7 +72,7 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MariaDB, send an email to the Azure Database for MariaDB Team at *AskAzureDBforMySQL@service.microsoft.com*.
+- For any questions or suggestions you might have about working with Azure Database for MariaDB, send an email to the Azure Database for MariaDB Team at AskAzureDBforMariaDB@service.microsoft.com
 - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MariaDB](concepts-connectivity.md)

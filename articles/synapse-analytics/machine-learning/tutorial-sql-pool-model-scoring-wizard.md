@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Machine learning model scoring wizard for dedicated SQL pools
+# Tutorial: Machine learning model scoring wizard (preview) for dedicated SQL pools
 
 Learn how to easily enrich your data in dedicated SQL pools with predictive machine learning models.  The models that your data scientists create are now easily accessible to data professionals for predictive analytics. A data professional in Synapse can simply select a model from the Azure Machine Learning model registry for deployment in Synapse SQL pools and launch predictions to enrich the data.
 
@@ -27,8 +27,8 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Prerequisites
 
 - [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Dedicated SQL pool in your Synapse Analytics workspace. For details, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md).
-- Azure Machine Learning linked service in your Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
+- Dedicated SQL pool in your Azure Synapse Analytics workspace. For details, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md).
+- Azure Machine Learning linked service in your Azure Synapse Analytics workspace. For details, see [Create an Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## Sign in to the Azure portal
 
@@ -145,4 +145,4 @@ Before running all cells in the notebook, check if the compute instance is runni
 ## Next steps
 
 - [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

@@ -60,4 +60,4 @@ To create a Recovery Services vault, follow these steps.
      ![Refresh the list of backup vaults](./media/backup-create-rs-vault/refresh-button.png)
 
 >[!IMPORTANT]
-> We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. For more information, see the [Set Storage redundancy](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) section.
+> We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. For more information, see the [Set Storage redundancy](../articles/backup/backup-create-rs-vault.md#set-storage-redundancy) section.

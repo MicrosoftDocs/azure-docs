@@ -29,7 +29,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Parameters are case-sensitive.
 
-| Inputs	        | Allowed Values | Description |
+| Inputs | Allowed Values | Description |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Set to `default` for document extraction from files that are not pure text or json. Set to `text` to improve performance on plain text files. Set to `json` to extract structured content from json files. If `parsingMode` is not defined explicitly, it will be set to `default`. |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. Set to `allMetadata` to extract only the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files). If `dataToExtract` is not defined explicitly, it will be set to `contentAndMetadata`. |
@@ -95,11 +95,11 @@ This file reference object can be generated one of 3 ways:
     "outputs": [
       {
         "name": "content",
-        "targetName": "content"
+        "targetName": "extracted_content"
       },
       {
         "name": "normalized_images",
-        "targetName": "normalized_images"
+        "targetName": "extracted_normalized_images"
       }
     ]
   }

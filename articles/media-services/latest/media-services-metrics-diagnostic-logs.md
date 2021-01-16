@@ -64,8 +64,8 @@ The following Media Services [Streaming Endpoints](/rest/api/media/streamingendp
 |Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
 |Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
 |SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
-|CPU usage| CPU usage for premium streaming endpoints. This data is not available for standard streaming endpoints. |
-|Egress bandwidth | Egress bandwidth in bits per second.|
+|CPU usage| | CPU usage for premium streaming endpoints. This data is not available for standard streaming endpoints. |
+|Egress bandwidth | | Egress bandwidth in bits per second.|
 
 ### Metrics are useful
 

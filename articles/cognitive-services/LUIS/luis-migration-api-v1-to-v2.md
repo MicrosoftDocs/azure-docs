@@ -17,7 +17,7 @@ ms.date: 04/02/2019
 The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs.
 
 ## New Azure regions
-LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different portal for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
+LUIS has new [regions](./luis-reference-regions.md) provided for the LUIS APIs. LUIS provides a different portal for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
 
 ## Authoring route changes
 The authoring API route changed from using the **prog** route to using the **api** route.
@@ -140,7 +140,7 @@ LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-
 
 
 ## Create app from prebuilt domains
-[Prebuilt domains](luis-how-to-use-prebuilt-domains.md) provide a predefined domain model. Prebuilt domains allow you to quickly develop your LUIS application for common domains. This API allows you to create a new app based on a prebuilt domain. The response is the new appID.
+[Prebuilt domains](./howto-add-prebuilt-models.md) provide a predefined domain model. Prebuilt domains allow you to quickly develop your LUIS application for common domains. This API allows you to create a new app based on a prebuilt domain. The response is the new appID.
 
 |v2 route|verb|
 |--|--|
@@ -151,7 +151,7 @@ LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-
 The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0.
 
 ### Prebuilt entities
-The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-reference-prebuilt-datetimev2.md), instead of datetime.
+The [prebuilt entities](./howto-add-prebuilt-models.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-reference-prebuilt-datetimev2.md), instead of datetime.
 
 ### Actions
 The actions property is no longer valid. It should be an empty
@@ -166,4 +166,4 @@ See [LUIS API response codes](luis-reference-response-codes.md).
 
 Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs.
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: ./luis-reference-regions.md

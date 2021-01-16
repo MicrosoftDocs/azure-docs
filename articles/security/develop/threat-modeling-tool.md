@@ -45,7 +45,7 @@ See also: [System requirements](threat-modeling-tool-releases.md)
 
 Here are a few older articles still relevant to threat modeling today:
 
-* [Article on the Importance of Threat Modeling](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
+* [Article on the Importance of Threat Modeling](/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Training Published by Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Check out what a few Threat Modeling Tool experts have done:

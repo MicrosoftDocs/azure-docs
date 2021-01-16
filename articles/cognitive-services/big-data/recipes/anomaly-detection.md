@@ -26,13 +26,13 @@ There could be outliers in the data in random frequency. In those situations, RP
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Azure Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configured with a [serverless Apache Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Azure Synapse workspace](../../../synapse-analytics/quickstart-create-workspace.md) configured with a [serverless Apache Spark pool](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 ## Setup
 
 ### Create an Anomaly Detector resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md). You can also:
 
 - View an existing resource in the  [Azure portal](https://portal.azure.com/).
 

@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
 ---
 
@@ -49,6 +49,10 @@ If you're the Account Administrator and accidentally canceled an individual subs
     ![Screenshot that shows reactivate links on the right pane](./media/subscription-disabled/reactivate-sub.png)
 
 For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
+
+## After reactivation
+
+After your subscription is reactivated, there might be a delay in creating or managing resources. If the delay exceeds 30 minutes, please contact [Azure Billing Support](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance. Most Azure resources automatically resume and don't require any action. However, we recommend that you check your Azure service resources and restart any that don't resume automatically.
 
 ## Need help? Contact us.
 

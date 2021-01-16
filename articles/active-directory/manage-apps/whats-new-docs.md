@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 10/21/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,12 +9,53 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-services: active-directory
 ---
 
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## December 2020
+
+### Updated articles
+
+- [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Use the AD FS application activity report (preview) to migrate applications to Azure AD](migrate-adfs-application-activity.md)
+- [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md)
+
+
+## November 2020
+
+### New articles
+- [Header-based single sign-on for on-premises apps with Azure AD App Proxy (Preview)](application-proxy-configure-single-sign-on-with-headers.md)
+
+### Updated articles
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
+
+
+## October 2020
+
+### New articles
+
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Configure permission classifications](configure-permission-classifications.md)
+- [Configure group owner consent to apps accessing group data](configure-user-consent-groups.md)
+- [Manage app consent policies](manage-app-consent-policies.md)
+
+### Updated articles
+
+- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
+- [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Configure how end-users consent to applications](configure-user-consent.md)
+
 
 ## September 2020
 
@@ -48,7 +89,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [What is single sign-on (SSO)?](what-is-single-sign-on.md)
 - [Take action on overprivileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
-- [Automate SAML-based SSO app configuration with Microsoft Graph API](application-saml-sso-configure-api.md)
+- [Automate SAML-based SSO app configuration with Microsoft Graph API](/graph/application-saml-sso-configure-api)
 
 
 ## July 2020

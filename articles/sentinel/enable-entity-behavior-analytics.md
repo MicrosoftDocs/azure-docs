@@ -21,12 +21,12 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> - The UEBA feature is now in **General Availability** in the following Azure Sentinel geographies and regions:
+> - The UEBA and Entity Pages features are now in **General Availability** in the following Azure Sentinel geographies and regions:
 >    - United States geography
 >    - Europe West region
 >    - Australia geography
 >
-> - In all other geographies and regions, this feature remains for the time being in **public preview**, and is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - In all other geographies and regions, these features remain for the time being in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 

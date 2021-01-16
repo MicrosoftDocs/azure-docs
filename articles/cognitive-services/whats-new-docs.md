@@ -1,81 +1,69 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for October 1, 2020 through October 31, 2020. "
+description: "What's new in the Cognitive Services docs for December 1, 2020 - December 31, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 11/03/2020
+ms.date: 01/05/2021
 ---
 
-# Cognitive Services: What's new in docs for October 1, 2020 - October 31, 2020
+# Cognitive Services docs: What's new for December 1, 2020 - December 31, 2020
 
-Welcome to what's new in the Cognitive Services docs from October 1, 2020 through October 31, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from December 1, 2020 through December 31, 2020. This article lists some of the major changes to docs during this period.
 
 ## Cognitive Services
 
 ### New articles
 
-- [Cognitive Services development options](cognitive-services-development-options.md)
+- [Plan and manage costs for Azure Cognitive Services](plan-manage-costs.md)
 
 ### Updated articles
 
-- [What are Azure Cognitive Services?](what-are-cognitive-services.md)
-- [Azure Cognitive Services support and help options](cognitive-services-support-options.md)
 - [Configure Azure Cognitive Services virtual networks](cognitive-services-virtual-networks.md)
+
+## Anomaly Detector
+
+### Updated articles
+
+- [Anomaly Detector REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+
+## Bing Visual Search
+
+### Updated articles
+
+- [Use an insights token to get insights for an image](/azure/cognitive-services/bing-visual-search/use-insights-token)
 
 ## Containers
 
 ### Updated articles
 
-- [Use Docker Compose to deploy multiple containers](/azure/cognitive-services/containers/docker-compose-recipe.md)
+- [Deploy and run container on Azure Container Instance](/azure/cognitive-services/containers/azure-container-instance-recipe)
 
 ## Form Recognizer
 
 ### Updated articles
 
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new.md)
-
-## Immersive Reader
-
-### New articles
-
-- [Immersive Reader JavaScript SDK Release Notes](/azure/cognitive-services/immersive-reader/release-notes.md)
-
-### Updated articles
-
-- [How to store user preferences](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
-- [Immersive Reader JavaScript SDK Reference (v1.1)](/azure/cognitive-services/immersive-reader/reference.md)
-
-## Metrics Advisor
-
-### Updated articles
-
-- [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq.md)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/)
+- [Quickstart: Use the Form Recognizer client library](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Migrate to version 3.x of the Text Analytics API](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [How to: Detect sentiment using the Text Analytics API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Example: How to extract key phrases using Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction)
+- [Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs](/azure/cognitive-services/text-analytics/)
+- [Quickstart: Use the Text Analytics client library and REST API](/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api)
 
 ## Community contributors
 
-The following people contributed to the Cognitive Services docs during this period. Thank you! 
+The following people contributed to the Cognitive Services docs during this period. Thank you!
 
-- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
-- [jarrad-obrien](https://github.com/jarrad-obrien) - Jarrad O'Brien (2)
-- [nkgami](https://github.com/nkgami) - Hiroki Nakagami (2)
-- [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
-- [dem108](https://github.com/dem108) - SeokJin Han (1)
-- [iAmBipinPaul](https://github.com/iAmBipinPaul) - Bipin Paul (1)
-- [JinyuID](https://github.com/JinyuID) - Jinyu (1)
-- [joelhulen](https://github.com/joelhulen) - Joel Hulen (1)
-- [jptarqu](https://github.com/jptarqu) (1)
-- [neibla](https://github.com/neibla) - Neil Blake (1)
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (1)
+- [pymia](https://github.com/pymia) - Mia // Huai-Wen Chang (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

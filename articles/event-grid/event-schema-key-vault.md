@@ -80,5 +80,5 @@ An event has the following top-level data:
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For more information about Key VAult, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+* For more information about Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 

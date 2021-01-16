@@ -7,9 +7,9 @@ author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
@@ -175,5 +175,5 @@ Each WADMetrics table contains the following columns:
 
 ## Next Steps
 * For a complete sample template of a Windows virtual machine with diagnostics extension, see [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Deploy the Azure Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* Deploy the Azure Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md)
 * Learn more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)

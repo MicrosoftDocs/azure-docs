@@ -213,7 +213,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
 
-1. On the **Branch Selection** screen, ensure that **master** is selected, and then click **Next**.
+1. On the **Branch Selection** screen, ensure that **main** is selected, and then click **Next**.
 
 1. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
 

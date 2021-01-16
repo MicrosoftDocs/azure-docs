@@ -1,15 +1,14 @@
 ---
 title: What happened to Workbench?
 titleSuffix: Azure Machine Learning
-description: Learn about what's possible without Workbench application and what the support timeline is.
+description: Azure Machine Learning is an integrated data science solution to model and deploy ML applications at cloud scale. Workbench feature has been retired.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.reviewer: jmartens
-author: j-martens
-ms.author: jmartens
+ms.author: larryfr
+author: BlackMist
 ms.date: 03/05/2020
 ---
 # What happened to Azure Machine Learning Workbench?

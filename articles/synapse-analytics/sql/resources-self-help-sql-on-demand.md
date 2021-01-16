@@ -1,26 +1,26 @@
 ---
-title: Serverless SQL pool (preview) self-help
-description: This section contains information that can help you troubleshoot problems with serverless SQL pool (preview).
+title: Serverless SQL pool self-help
+description: This section contains information that can help you troubleshoot problems with serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ---
 
-# Self-help for serverless SQL pool (preview)
+# Self-help for serverless SQL pool
 
-This article contains information about how to troubleshoot most frequent problems with serverless SQL pool (preview) in Azure Synapse Analytics.
+This article contains information about how to troubleshoot most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
 ## Serverless SQL pool is grayed out in Synapse Studio
 
 If Synapse Studio can't establish connection to serverless SQL pool, you'll notice that serverless SQL pool is grayed out or shows status "Offline". Usually, this problem occurs when one of the following cases happens:
 
 1) Your network prevents communication to Azure Synapse backend. Most frequent case is that port 1443 is blocked. To get the serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
-2) You don't have permissions to log into serverless SQL pool. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](access-control.md).
+2) You don't have permissions to log into serverless SQL pool. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](../security/synapse-workspace-access-control-overview.md).
 
 ## Query fails because file cannot be opened
 
@@ -32,7 +32,7 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Make sure data types of reasonable sizes are used. Also, specify schema for Parquet files for string columns as they'll be VARCHAR(8000) by default. 
 
-- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
+- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Visit [performance best practices for serverless SQL pool](best-practices-sql-on-demand.md) to optimize query.  
 

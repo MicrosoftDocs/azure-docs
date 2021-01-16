@@ -1,12 +1,14 @@
 ---
-title: Configuration options - Azure Monitor Application Insights Java
-description: Configuration options for Azure Monitor Application Insights Java
+title: Configuration options - Azure Monitor Application Insights for Java
+description: How to configure Azure Monitor Application Insights for Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
-# Configuration options for Azure Monitor Application Insights Java
+# Configuration options - Azure Monitor Application Insights for Java
 
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
@@ -20,7 +22,7 @@ Connection string and role name are the most common settings needed to get start
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "InstrumentationKey=...",
   "role": {
     "name": "my cloud role name"
   }
@@ -34,25 +36,25 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0.jar`.
+By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.1.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.1.jar` is located.
 
 ## Connection string
 
-This is required. You can find your connection string in your Application Insights resource:
+Connection string is required. You can find your connection string in your Application Insights resource:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -102,7 +104,7 @@ Sampling is performed as a function on the operation ID (also known as trace ID)
 
 For example, if you set sampling to 10%, you will only see 10% of your transactions, but each one of those 10% will have full end-to-end transaction details.
 
-Here is an example how to set the sampling to capture approximately **1/3 of all transactions** - please make sure you set the sampling rate that is correct for your use case:
+Here is an example how to set the sampling to capture approximately **1/3 of all transactions** - make sure you set the sampling rate that is correct for your use case:
 
 ```json
 {
@@ -165,11 +167,15 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
+> [!NOTE]
+> Starting from version 3.0.1, if you add a custom dimension named `service.version`, the value will be stored
+> in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
+
 ## Telemetry processors (preview)
 
-This is a preview feature.
+This feature is in preview.
 
-It allows you to configure rules that will be applied to request, dependency and trace telemetry, e.g.
+It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
  * Mask sensitive data
  * Conditionally add custom dimensions
  * Update the telemetry name used for aggregation and display
@@ -181,9 +187,10 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
 is auto-collected.
 
-By default, logging is only collected when that logging is performed at the `INFO` level or above.
+Logging is only captured if it first meets the logging frameworks' configured threshold,
+and second also meets the Application Insights configured threshold.
 
-If you want to change this collection level:
+The default Application Insights threshold is `INFO`. If you want to change this level:
 
 ```json
 {
@@ -223,10 +230,42 @@ then metrics configured by Spring Boot Actuator are also auto-collected.
 
 To disable auto-collection of Micrometer metrics (including Spring Boot Actuator metrics):
 
+> [!NOTE]
+> Custom metrics are billed separately and may generate additional costs. Make sure to check the detailed [pricing information](https://azure.microsoft.com/pricing/details/monitor/). To disable the Micrometer and Spring Actuator metrics, add the below configuration to your config file.
+
 ```json
 {
   "instrumentation": {
     "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
+
+## Suppressing specific auto-collected telemetry
+
+Starting from version 3.0.1, specific auto-collected telemetry can be suppressed using these configuration options:
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
       "enabled": false
     }
   }
@@ -246,7 +285,7 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 ```
 
 > [!NOTE]
-> You cannot decrease the frequency of this heartbeat, as the heartbeat data is also used to track Application Insights usage.
+> You cannot decrease the frequency of the heartbeat, as the heartbeat data is also used to track Application Insights usage.
 
 ## HTTP Proxy
 
@@ -281,7 +320,7 @@ If your application is behind a firewall and cannot connect directly to Applicat
 
 "Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
 
-This can be helpful for spotting and diagnosing issues with Application Insights itself.
+This functionality can be helpful for spotting and diagnosing issues with Application Insights itself.
 
 By default, Application Insights Java 3.0 logs at level `INFO` to both the file `applicationinsights.log`
 and the console, corresponding to this configuration:
@@ -305,8 +344,52 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.0.0.jar` is located.
+`applicationinsights-agent-3.0.1.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
+
+## An example
+
+This is just an example to show what a configuration file looks like with multiple components.
+Please configure specific options based on your needs.
+
+```json
+{
+  "connectionString": "InstrumentationKey=...",
+  "role": {
+    "name": "my cloud role name"
+  },
+  "sampling": {
+    "percentage": 100
+  },
+  "jmxMetrics": [
+  ],
+  "customDimensions": {
+  },
+  "instrumentation": {
+    "logging": {
+      "level": "INFO"
+    },
+    "micrometer": {
+      "enabled": true
+    }
+  },
+  "proxy": {
+  },
+  "preview": {
+    "processors": [
+    ]
+  },
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
+    }
+  }
+}
+```

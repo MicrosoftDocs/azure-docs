@@ -215,7 +215,7 @@ Storage Accounts should use a virtual network service endpoint
 
 ### 2.6: Monitor and Review Logs
 
-**Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. In Azure Storage, the logs are stored in blobs that must be accessed directly at http://accountname.blob.core.windows.net/$logs (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
+**Guidance**: To review the Azure Storage logs, there are the usual options such as queries through the Log Analytics offering as well as a unique option of viewing the log files directly. In Azure Storage, the logs are stored in blobs that must be accessed directly at `http://accountname.blob.core.windows.net/$logs` (The logging folder is hidden by default, so you will need to navigate directly. It will not display in List commands) 
 
 Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with Azure Security Center, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. 
 
@@ -343,7 +343,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Storage account resources. 
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 

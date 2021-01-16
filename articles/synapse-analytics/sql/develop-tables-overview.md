@@ -14,9 +14,9 @@ ms.reviewer: jrasnick
 
 # Design tables using Synapse SQL in Azure Synapse Analytics
 
-This document includes key concepts for designing tables with dedicated SQL pool and serverless SQL pool (preview).  
+This document includes key concepts for designing tables with dedicated SQL pool and serverless SQL pool.  
 
-[Serverless SQL pool (preview)](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
+[Serverless SQL pool](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
 
 The following table lists the topics that are relevant to dedicated SQL pool vs. serverless SQL pool:
 
@@ -97,7 +97,7 @@ For more information, see  [Temporary tables](develop-tables-temporary.md).
 
 [External tables](develop-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Storage.
 
-Import data from external tables into dedicated SQL pools using the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Import data from external tables into dedicated SQL pools using the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 For serverless SQL pool, you can use [CETAS](develop-tables-cetas.md) to save the query result to an external table in Azure Storage.
 

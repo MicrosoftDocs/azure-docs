@@ -13,17 +13,18 @@ A number of features have size, count, or other limitations.
 
 ## Azure Frontend
 
-* Total AzureFrontend instances per process: 16.
-* Total AzureSession instances per AzureFrontend: 16.
+The following limitations apply to the frontend API (C++ and C#):
+* Total [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) instances per process: 16.
+* Total [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession) instances per [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
 
 ## Objects
 
-* Total allowable objects of a single type (Entity, CutPlaneComponent, etc.): 16,777,215.
+* Total allowable objects of a single type ([Entity](../concepts/entities.md), [CutPlaneComponent](../overview/features/cut-planes.md), etc.): 16,777,215.
 * Total allowable active cut planes: 8.
 
 ## Geometry
 
-* **Animation:** Animations are limited to animating individual transforms of game objects. Skeletal animations with skinning or vertex animations are not supported. Animation tracks from the source asset file are not preserved. Instead, object transform animations have to be driven by client code.
+* **Animation:** Animations are limited to animating individual transforms of [game objects](../concepts/entities.md). Skeletal animations with skinning or vertex animations are not supported. Animation tracks from the source asset file are not preserved. Instead, object transform animations have to be driven by client code.
 * **Custom shaders:** Authoring of custom shaders is not supported. Only built-in [Color materials](../overview/features/color-materials.md) or [PBR materials](../overview/features/pbr-materials.md) can be used.
 * **Maximum number of distinct materials** in an asset: 65,535. For more information about automatic material count reduction, see the [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) chapter.
 * **Maximum dimension of a single texture**: 16,384 x 16,384. Larger source textures will be reduced in size by the conversion process.

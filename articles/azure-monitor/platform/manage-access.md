@@ -19,7 +19,7 @@ This article explains how to manage access to logs and to administer the workspa
 * Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](design-logs-deployment.md#access-mode)
 * Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
-To understand the Logs concepts around RBAC and access strategies, read [designing your Azure Monitor Logs deployment](design-logs-deployment.md)
+To understand the Logs concepts around Azure RBAC and access strategies, read [designing your Azure Monitor Logs deployment](design-logs-deployment.md)
 
 ## Configure access control mode
 
@@ -192,7 +192,7 @@ When users query logs from a workspace using resource-context access, they'll ha
 
 `/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
-See [Defining per-table access control](#table-level-rbac) below if you want to create different access control for different tables.
+See [Defining per-table access control](#table-level-azure-rbac) below if you want to create different access control for different tables.
 
 ## Custom role examples
 
@@ -235,9 +235,9 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`. 
 
-## Table level RBAC
+## Table level Azure RBAC
 
-**Table level RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
+**Table level Azure RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
 You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](./data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
 
@@ -281,7 +281,7 @@ The examples above define a list of tables that are allowed. This example shows 
 
 ### Custom logs
 
- Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](../log-query/get-started-portal.md#understand-the-schema).
+ Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](../log-query/log-analytics-tutorial.md#table-schema).
 
  You can't grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 

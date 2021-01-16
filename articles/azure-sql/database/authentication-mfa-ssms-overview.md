@@ -36,13 +36,13 @@ There are two non-interactive authentication models for Azure AD, which can be u
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-The interactive method that also supports Azure Multi-Factor Authentication (MFA) is: 
+The interactive method that also supports Azure AD Multi-Factor Authentication (MFA) is: 
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
+Azure AD MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
-For a description of Azure Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+For a description of Azure AD Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### Azure AD domain name or tenant ID parameter

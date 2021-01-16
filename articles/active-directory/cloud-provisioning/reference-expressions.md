@@ -289,7 +289,7 @@ The InStr function finds the first occurrence of a substring in a string
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck: string to be searched
 * stringmatch: string to be found
@@ -735,7 +735,7 @@ Split([extensionAttribute5], ",")
 
 **Sample input/output:** <br>
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### Output date as a string in a certain format

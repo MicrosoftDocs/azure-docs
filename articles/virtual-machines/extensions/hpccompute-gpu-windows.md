@@ -6,9 +6,9 @@ documentationcenter: ''
 author: vermagit
 manager: gwallace
 editor: ''
-
 ms.assetid: 
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
