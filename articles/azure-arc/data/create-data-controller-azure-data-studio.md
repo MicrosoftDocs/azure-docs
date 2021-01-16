@@ -34,6 +34,7 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
 5. Use the default kubeconfig file or select another one.  Click **Next**.
 6. Choose a Kubernetes cluster context. Click **Next**.
 7. Choose a deployment configuration profile depending on your target Kubernetes cluster. **Click Next**.
+8. If you are using Azure Red Hat OpenShift or Red Hat OpenShift container platform, apply security context constraints. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
 8. Choose the desired subscription and resource group.
 9. Select an Azure location.
    
