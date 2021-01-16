@@ -11,7 +11,7 @@ ms.date: 11/05/2020
 ms.author: v-jawe
 ---
 
-# Quickstart: Face client library for JavaScript
+## Quickstart: Face client library for JavaScript
 
 Get started with facial recognition using the Face client library for JavaScript. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
