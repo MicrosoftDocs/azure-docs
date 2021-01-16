@@ -25,7 +25,7 @@ In this quickstart, you learn a basic Azure IoT application workflow for securel
 ## Use the Python SDK to send messages
 In this section, you will use the Python SDK to send messages from your simulated device to your IoT hub. 
 
-1. Open a new terminal window. You will use this terminal to install the Python SDK and work with Python sample code.
+1. Open a new terminal window. You will use this terminal to install the Python SDK and work with Python sample code. You should now have two terminals open: the one you just opened to work with Python, and the CLI shell that you used in previous sections to enter Azure CLI commands. 
 
 1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine:
 

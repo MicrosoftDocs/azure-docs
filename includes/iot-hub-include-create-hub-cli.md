@@ -102,10 +102,10 @@ To create a simulated device:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Run the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string&preserve-view=true) command. 
+1.  Run the [az iot hub device-identity connection-string show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string?view=azure-cli-latest#ext_azure_iot_az_iot_hub_device_identity_connection_string_show&preserve-view=true) command. 
 
     ```azurecli
-    az iot hub device-identity show-connection-string --device-id myDevice --hub-name {YourIoTHubName}
+    az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}
     ```
 
     The connection string output is in the following format:
