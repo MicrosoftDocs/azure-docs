@@ -1,7 +1,7 @@
 ---
-title: How to run Jupyter Notebooks in your workspace
+title: How to run Jupyter notebooks in your workspace
 titleSuffix: Azure Machine Learning
-description: Learn how run a Jupyter Notebook without leaving your workspace in Azure Machine Learning studio.
+description: Learn how run a Jupyter notebook without leaving your workspace in Azure Machine Learning studio.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -17,11 +17,11 @@ ms.date: 06/27/2020
 # How to run Jupyter Notebooks in your workspace
 
 
-Learn how to run your Jupyter Notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
+Learn how to run your Jupyter notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
 
 See how you can:
 
-* Create Jupyter Notebooks in your workspace
+* Create Jupyter notebooks in your workspace
 * Run an experiment from a notebook
 * Change the notebook environment
 * Find details of the compute instances used to run your notebooks
@@ -44,7 +44,7 @@ To create a new notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
 
 1. Name the file. 
-1. For Jupyter Notebook Files, select **Notebook** as the file type.
+1. For Jupyter notebook Files, select **Notebook** as the file type.
 1. Select a file directory.
 1. Select **Create**.
 
@@ -101,9 +101,9 @@ To edit a notebook, open any notebook located in the **User files** section of y
 
 You can edit the notebook without connecting to a compute instance.  When you want to run the cells in the notebook, select or create a compute instance.  If you select a stopped compute instance, it will automatically start when you run the first cell.
 
-When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
+When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python notebook.
 
-You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
+You can also launch Jupyter or JupyterLab from the notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
 
 ### Focus mode
 
@@ -150,18 +150,6 @@ Every notebook is autosaved every 30 seconds. Autosave updates only th
  
 Select **Checkpoints** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
 
-
-### Useful keyboard shortcuts
-
-|Keyboard  |Action  |
-|---------|---------|
-|Shift+Enter     |  Run a cell       |
-|Ctrl+Space | Activate IntelliSense |
-|Ctrl+M(Windows)     |  Enable/disable tab trapping in notebook.       |
-|Ctrl+Shift+M(Mac & Linux)     |    Enable/disable tab trapping in notebook.     |
-|Tab (when tab trap enabled) | Add a '\t' character (indent)
-|Tab (when tab trap disabled) | Change focus to next focusable item (delete cell button, run button, etc.)
-
 ## Delete a notebook
 
 You *can't* delete the **Samples** notebooks.  These notebooks are part of the studio and are updated each time a new SDK is published.  
@@ -169,27 +157,43 @@ You *can't* delete the **Samples** notebooks.  These notebooks are part of the s
 You *can* delete **User files** notebooks in any of these ways:
 
 * In the studio, select the **...** at the end of a folder or file.  Make sure to use a supported browser (Microsoft Edge, Chrome, or Firefox).
-* From any Notebook toolbar, select [**Open terminal**](#terminal)  to access the terminal window for the compute instance.
+* From any notebook toolbar, select [**Open terminal**](#terminal)  to access the terminal window for the compute instance.
 * In either Jupyter or JupyterLab with their tools.
 
-## Run an experiment
+## Run a notebook or Python script
 
-To run an experiment from a Notebook, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
+To run a notebook or a Python script, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
 
-1. Select **+** in the Notebook toolbar. 
+1. Select **+** in the notebook or script toolbar. 
 2. Name the Compute and choose a **Virtual Machine Size**. 
 3. Select **Create**.
-4. The compute instance is connected to the Notebook automatically and you can now run your cells.
+4. The compute instance is connected to the file automatically.  You can now run the notebook cells or the Python script using the tool to the left of the compute instance
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 
 ### View logs and output
 
-Use [Notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+
+## Explore variables in the notebook
+
+On the notebook toolbar, use the **Variable explorer** tool to show the name, type, length, and sample values for all variables that have been created in your notebook.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer.png" alt-text="Screenshot: Variable explorer tool":::
+
+Select the tool to show the variable explorer window.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer-window.png" alt-text="Screenshot: Variable explorer window":::
+
+## Navigate with a TOC
+
+On the notebook toolbar, use the  **Table of contents** tool to display or hide the table of contents.  Start a markdown cell with a heading to add it to the table of contents. Click on an entry in the table to scroll to that cell in the notebook.  
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Screenshot: Table of contents in the notebook":::
 
 ## Change the notebook environment
 
-The Notebook toolbar allows you to change the environment on which your Notebook runs.  
+The notebook toolbar allows you to change the environment on which your notebook runs.  
 
 These actions will not change the notebook state or the values of any variables in the notebook:
 
@@ -210,9 +214,9 @@ These actions will reset the notebook state and will reset all variables in the 
 
 ### Add new kernels
 
-The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
+The notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
-1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
+1. Select [**Open terminal**](#terminal) in the notebook toolbar.
 1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
     ```shell
     conda create -y --name newenv
@@ -253,6 +257,89 @@ An indicator next to the **Kernel** dropdown shows its status.
 |---------|---------|
 |  Green |Kernel connected, idle, busy|
 |  Gray |Kernel not connected |
+
+## Shortcut keys
+Similar to Jupyter Notebooks, Azure Machine Learning Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
+
+### Command mode shortcuts
+
+A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.  The left border of the active cell is blue and solid, and its **Run** button is blue.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Notebook cell in command mode ":::
+
+| Shortcut                      | Description                          |
+| ----------------------------- | ------------------------------------|
+| Enter                         | Enter edit mode             |        
+| Shift + Enter                 | Run cell, select below         |     
+| Control/Command + Enter       | Run cell                            |
+| Alt + Enter                   | Run cell, insert code cell below    |
+| Control/Command + Alt + Enter | Run cell, insert markdown cell below|
+| Alt + R                       | Run all      |                       
+| Y                             | Convert cell to code    |                         
+| M                             | Convert cell to markdown  |                       
+| Up/K                          | Select cell above    |               
+| Down/J                        | Select cell below    |               
+| A                             | Insert code cell above  |            
+| B                             | Insert code cell below   |           
+| Control/Command + Shift + A   | Insert markdown cell above    |      
+| Control/Command + Shift + B   | Insert markdown cell below   |       
+| X                             | Cut selected cell    |               
+| C                             | Copy selected cell   |               
+| Shift + V                     | Paste selected cell above           |
+| V                             | Paste selected cell below    |       
+| D D                           | Delete selected cell|                
+| O                             | Toggle output         |              
+| Shift + O                     | Toggle output scrolling   |          
+| I I                           | Interrupt kernel |                   
+| 0 0                           | Restart kernel |                     
+| Shift + Space                 | Scroll up  |                         
+| Space                         | Scroll down|
+| Tab                           | Change focus to next focusable item (when tab trap disabled)|
+| Control/Command + S           | Save notebook |                      
+| 1                             | Change to h1|                       
+| 2                             | Change to h2|                        
+| 3                             | Change to h3|                        
+| 4                             | Change to h4 |                       
+| 5                             | Change to h5 |                       
+| 6                             | Change to h6 |                       
+
+### Edit mode shortcuts
+
+Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to select on a cell's editor area. The left border of the active cell is green and hatched, and its **Run** button is green. You also see the cursor prompt in the cell in Edit mode.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Notebook cell in edit mode":::
+
+Using the following keystroke shortcuts, you can more easily navigate and run code in Azure Machine Learning notebooks when in Edit mode.
+
+| Shortcut                      | Description|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Escape                        | Enter command mode|  
+| Control/Command + Space       | Activate IntelliSense |
+| Shift + Enter                 | Run cell, select below |                         
+| Control/Command + Enter       | Run cell  |                                      
+| Alt + Enter                   | Run cell, insert code cell below  |              
+| Control/Command + Alt + Enter | Run cell, insert markdown cell below  |          
+| Alt + R                       | Run all cells     |                              
+| Up                            | Move cursor up or previous cell    |             
+| Down                          | Move cursor down or next cell |                  
+| Control/Command + S           | Save notebook   |                                
+| Control/Command + Up          | Go to cell start   |                             
+| Control/Command + Down        | Go to cell end |                                 
+| Tab                           | Code completion or indent (if tab trap enabled) |
+| Control/Command + M           | Enable/disable tab trap  |                       
+| Control/Command + ]           | Indent |                                         
+| Control/Command + [           | Dedent  |                                        
+| Control/Command + A           | Select all|                                      
+| Control/Command + Z           | Undo |                                           
+| Control/Command + Shift + Z   | Redo |                                           
+| Control/Command + Y           | Redo |                                           
+| Control/Command + Home        | Go to cell start|                                
+| Control/Command + End         | Go to cell end   |                               
+| Control/Command + Left        | Go one word left |                               
+| Control/Command + Right       | Go one word right |                              
+| Control/Command + Backspace   | Delete word before |                             
+| Control/Command + Delete      | Delete word after |                              
+| Control/Command + /           | Toggle comment on cu
 
 ## Find compute details 
 
