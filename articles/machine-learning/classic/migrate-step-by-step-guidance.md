@@ -54,25 +54,48 @@ To rebuild your Studio (classic) experiments and web services you must:
 
 
 
+Let's use [Automobile price prediction](./create-experiment.md) project as an example go give you a glance what it looks like in Azure Machine Learning after rebuild. 
 
-Let's use Bike rentle prediction as an example go give you a glance what it looks like in Azure Machine Learning after migration. 
+In Machine Learning Studio(classic), there are there assets for the Automobile price prediction - dataset, experiment and web service.
 
-In Machine Learning Studio(classic), there is a Bike dataset, an experiment that trains a XX model, and a web service. 
-[to do: screenshot of dataset, exp, web service] 
+**Dataset**: This project use a sample dataset. Your own datasets lays under **MY DATASETS** tab. 
+![automobile-price-classic-dataset](./media/migrate-to-AML/classic-automobile-dataset.png)
 
+**Experiment**:  
+![automobile-price-classic-experiment](./media/migrate-to-AML/classic-automobile.png)
 
-After go through the migration steps, this is what it looks like in your Azure Machine Learning Studio.
-[to do: screenshot of dataset, pipeline graph, endpoint] 
-
-
-
-[to-do: add a screenshot of classic automobile exp + web service -> AML exp + web service] 
-
+**Web service**: There REQUES/RESPOND API can be used for realtime prediction. The BATCH EXECUTION API can be used for batch prediction or retraining. 
+![automobile-price-classic-webservice](./media/migrate-to-AML/classic-automobile-webservice.png)
 
 
+To rebuild the project in Azure Machine Learning, you will use several components and below screenshot shows what it looks like in Azure Machine Learning Studio. 
 
 
-Following sections will describe how to do each step in detail.
+**Dataset**:  Dataset is the component to manage your data in Azure Machine Learning. For this example, we download the dataset from Studio(classic) and upload to Azure Machine Learning.
+![automobile-price-aml-dataset](./media/migrate-to-AML/automobile-aml-dataset.png)
+
+**Designer**: Designer is the component to train the model by drag-and-drop and deploy the model with a few clicks.
+![automobile-price-aml-pipeline](./media/migrate-to-AML/aml-automobile-pipeline-draft.png)
+
+
+**Real-time endpoint** By deploy the real-time inference pipeline in designer, you will get a real-time endpoint, which can be used for real-time prediction.
+![aml-automobile-realtime-endpoint](./media/migrate-to-AML/aml-automobile-realtime-endpoint.png)
+
+
+**Pipeline endpoint** By publish a pipeline in designer, you will get a pipeline endpoint. Pipeline endpoint is used for batch prediction or retraining purpose.
+![aml-automobile-pipeline-endpoint](./media/migrate-to-AML/aml-automobile-pipeline-endpoints.png)
+
+
+**Compute**  Azure Machine Learning allows you to use the remote compute resources in Azure for training and inference. Compute is the component to manage your compute resources. 
+![aml-automobile-compute](./media/migrate-to-AML/aml-automobile-compute.png)
+
+  
+
+
+
+
+For each of the migration step, we have following articles to describe how-to in detail.   
+
 
 ## Create Azure Machine Learning workspace
 
