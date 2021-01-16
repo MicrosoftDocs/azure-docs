@@ -111,6 +111,13 @@ If you have accidentally deleted or corrupted your data, you should contact [Azu
 
 If you provision throughput at the database level, the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, you can't select a subset of containers to restore.
 
+## Required permissions to change retention or restore from the portal
+Principals who are part of the role [CosmosdbBackupOperator](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cosmosbackupoperator) , owner or contributor are allowed to request restore or change the retention.
+
+## Understanding Costs of extra backups
+2 backups are provided free and extra backups are charged according to the region based  pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). For example if Backup Retention is configured  to  240 hrs i.e., 10 days and Backup Interval to 24 hrs. This implies 10 copies of the backup data. Assuming  1 TB of data in West US 2, the would be 1000 * 0.12 ~ $ 120 for backup storage in given month. 
+
+
 ## Options to manage your own backups
 
 With Azure Cosmos DB SQL API accounts, you can also maintain your own backups by using one of the following approaches:
