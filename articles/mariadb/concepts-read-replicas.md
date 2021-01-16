@@ -18,10 +18,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the words _master_ and _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes these as exclusionary words. The words are used in this article for consistency because they are currently the words that appears in the software. When the software is updated to remove the words, this article will be updated to be in alignment.
->
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## When to use a read replica
 
@@ -118,8 +115,11 @@ Since replication is asynchronous, there is lag between the source and the repli
 After you have decided you want to failover to a replica,
 
 1. Stop replication to the replica<br/>
+
    This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will be delinked from the master. After you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
-2. Point your application to the (former) replica<br/>
+
+2. Point your application to the (former) replica
+
    Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
 
 After your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
