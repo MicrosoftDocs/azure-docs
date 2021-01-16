@@ -1124,8 +1124,8 @@
           href: mongodb-troubleshoot-query.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
-        - name: Troubleshoot common issues
-          href: mongodb-troubleshoot.md
+        - name: Prevent rate-limiting errors
+          href: prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: MongoDB extension commands
