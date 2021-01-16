@@ -5,7 +5,8 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 01/15/2021
+ms.custom: references_regions
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -17,10 +18,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
->
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## When to use a read replica
 
@@ -33,11 +31,12 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 The read replica feature uses asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
 ## Cross-region replication
+
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
 You can have a source server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A source server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your source region.
 
-[ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your source server is located. The supported universal replica regions include:
@@ -113,15 +112,17 @@ Since replication is asynchronous, there is lag between the source and the repli
 > [!Tip]
 > If you failover to the replica, the lag at the time you delink the replica from the source will indicate how much data is lost.
 
-Once you have decided you want to failover to a replica, 
+After you have decided you want to failover to a replica,
 
 1. Stop replication to the replica<br/>
-   This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will be delinked from the master. Once you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
-	
-2. Point your application to the (former) replica<br/>
+
+   This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will be delinked from the master. After you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
+
+2. Point your application to the (former) replica
+
    Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
-	
-Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
+
+After your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 
 ## Considerations and limitations
 
