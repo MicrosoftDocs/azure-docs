@@ -37017,12 +37017,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/linux/disks-scalability-targets.md",
+      "source_path_from_root": "/articles/virtual-machines/linux/disk-scalability-targets.md",
       "redirect_url": "/azure/virtual-machines/disks-scalability-targets",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/windows/disks-scalability-targets.md",
+      "source_path_from_root": "/articles/virtual-machines/windows/disk-scalability-targets.md",
       "redirect_url": "/azure/virtual-machines/disks-scalability-targets",
       "redirect_document_id": true
     },
