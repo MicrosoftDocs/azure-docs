@@ -13,7 +13,7 @@ ms.author: lagayhar
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
 
-Click Analytics Auto-collection Plugin for Application Insights JavaScript SDK enables automatic tracking of the click events on web pages and populates telemetry data based on `data-*` HTML global attributes.
+Click Analytics Auto-collection Plugin for Application Insights JavaScript SDK enables automatic tracking of click events on web pages and populates telemetry information based on data-* attributes on the HTML elements.
 
 ## Getting started
 
