@@ -15,6 +15,10 @@
         href: quickstart-send-telemetry-python.md
     - name: Get started with embedded development
       href: quickstart-device-development.md
+- name: Tutorials
+  items:
+    - name: Securely connect IoT devices to the cloud
+      href: https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/
 - name: Concepts
   items:
   - name: Using CMAKE
