@@ -29,7 +29,7 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 1. Click **Enable** to enable this feature for all collections in your account.
 
-:::image type="content" source="./media/prevent-rate-limiting-errors/portal-features-ssr.png" alt-text="Screenshot of the server side retry feature for Azure Cosmos DB API for MongoDB":::
+:::image type="content" source="./media/prevent-rate-limiting-errors/portal-features-server-side-retry.png" alt-text="Screenshot of the server side retry feature for Azure Cosmos DB API for MongoDB":::
 
 
 ## Next steps
