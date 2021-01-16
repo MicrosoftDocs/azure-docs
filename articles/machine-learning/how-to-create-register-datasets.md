@@ -1,5 +1,5 @@
 ---
-title: Create Azure Machine Learning datasets to access data
+title: Create Azure Machine Learning datasets
 titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning datasets to access your data for machine learning experiment runs.
 services: machine-learning
@@ -18,8 +18,6 @@ ms.date: 07/31/2020
 ---
 
 # Create Azure Machine Learning datasets
-
-
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
@@ -127,6 +125,7 @@ To reuse and share datasets across experiment in your workspace, [register your 
 > Upload files from a local directory and create a FileDataset in a single method with the public preview method, [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). This method is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
 > 
 >  This method uploads data to your underlying storage, and as a result incur storage costs. 
+
 ### Create a TabularDataset
 
 Use the [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation. 
@@ -176,7 +175,6 @@ titanic_ds.take(3).to_pandas_dataframe()
 2|3|True|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 To reuse and share datasets across experiments in your workspace, [register your dataset](#register-datasets).
-
 
 ## Explore data
 
