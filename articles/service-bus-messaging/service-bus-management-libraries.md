@@ -90,7 +90,7 @@ namespace adminClientTrack2
 You can use the [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) class in the [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code: 
 
 > [!NOTE]
-> We recommend that you use the `ServiceBusAdministrationClient` class from the `Azure.Messaging.ServiceBus.Administration` library, which is the latest SDK. For details, see the [first section](#azuremessagingservicebusadministration-recommended). 
+> We recommend that you use the `ServiceBusAdministrationClient` class from the `Azure.Messaging.ServiceBus.Administration` library, which is the latest SDK. For details, see the [first section](#azuremessagingservicebusadministration). 
 
 ```csharp
 using System;
@@ -157,7 +157,7 @@ To get started using this library, you must authenticate with the Azure Active D
 
 * [Use the Azure portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have at-least [**Azure Service Bus Data Owner**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) or [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) permissions for the resource group on which you wish to run.
 
