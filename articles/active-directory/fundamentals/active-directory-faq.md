@@ -126,7 +126,7 @@ For Microsoft 365 users, your admin can reset the password by using the steps ou
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
 
 ---

@@ -34,7 +34,7 @@ Key building blocks of an enterprise team analytics environment include:
 This series provides guidance and pointers for each of the preceding topics. It doesn't cover all the considerations and requirements for deploying DSVMs in large enterprise configurations. Here are some other Azure resources that you can use while implementing DSVM instances in your enterprise:
 
 * [Network security](../../security/fundamentals/network-overview.md)
-* [Monitoring](../../azure-monitor/insights/monitor-vm-azure.md) and [management](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [Monitoring](../../azure-monitor/insights/monitor-vm-azure.md) and [management](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Logging and auditing](../../security/fundamentals/log-audit.md)
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Policy setting and enforcement](../../governance/policy/overview.md)

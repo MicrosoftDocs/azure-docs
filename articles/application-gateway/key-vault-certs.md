@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.author: victorh
 ---
 
@@ -38,7 +38,7 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Create a user-assigned managed identity**
 
-   You create or reuse an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault on your behalf. For more information, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). This step creates a new identity in the Azure Active Directory tenant. The identity is trusted by the subscription that's used to create the identity.
+   You create or reuse an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault on your behalf. For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). This step creates a new identity in the Azure Active Directory tenant. The identity is trusted by the subscription that's used to create the identity.
 
 1. **Configure your key vault**
 
@@ -66,7 +66,9 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Configure the application gateway**
 
-   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. You can also configure the HTTP listener’s TLS/SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
+   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. For more information see, [Set-AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity).
+
+   You can also configure the HTTP listener’s TLS/SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
 
    ![Key vault certificates](media/key-vault-certs/ag-kv.png)
 

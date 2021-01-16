@@ -170,7 +170,7 @@ No. The Cassandra API supports [secondary indexes](cassandra-secondary-index.md)
 
 ### Can I use the new Cassandra API SDK locally with the emulator?
 
-Yes, this is supported. You can find details on how to enable this in the [Use the Azure Cosmos Emulator for local development and testing](local-emulator.md#cassandra-api) article.
+Yes, this is supported. You can find details on how to enable this in the [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md#cassandra-api) article.
 
 
 ### How can I migrate data from Apache Cassandra clusters to Azure Cosmos DB?

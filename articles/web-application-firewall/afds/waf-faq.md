@@ -52,6 +52,17 @@ You may configure IP Access Control List in your back-end to allow for only Fron
 
 There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## What's the recommended approach to enabling WAF on Front Door?
+
+When you enable the WAF on an existing application, it's common to have false positive detections where the WAF rules detect legitimate traffic as a threat. To minimize the risk of an impact to your users, we recommend the following process:
+
+* Enable the WAF in [**Detection** mode](./waf-front-door-create-portal.md#change-mode) to ensure that the WAF doesn't block requests while you are working through this process.
+  > [!IMPORTANT]
+  > This process describes how to enable the WAF on a new or existing solution when your priority is to minimize the disturbance to your application's users. If you are under attack or imminent threat, you may want to instead deploy the WAF in **Prevention** mode immediately, and use the tuning process to monitor and tune the WAF over time. This will probably cause some of your legitimate traffic to be blocked, which is why we only recommend doing this when you are under threat.
+* Follow our [guidance for tuning the WAF](./waf-front-door-tuning.md). This process requires that you enable diagnostic logging, review the logs regularly, and add rule exclusions and other mitigations.
+* Repeat this whole process, checking the logs regularly, until you're satisfied that no legitimate traffic is being blocked. The whole process may take several weeks. Ideally you should see fewer false positive detections after each tuning change you make.
+* Finally, enable the WAF in **Prevention mode**.
+* Even once you're running the WAF in production, you should keep monitoring the logs to identify any other false-positive detections. Regularly reviewing the logs will also help you to identify any real attack attempts that have been blocked.
 
 ## Do you support same WAF features in all integrated platforms?
 

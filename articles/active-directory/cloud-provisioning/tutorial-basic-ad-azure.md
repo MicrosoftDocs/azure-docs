@@ -326,7 +326,7 @@ Now that you have the VM created and it has been renamed and has a static IP add
 
     ```powershell
     # Filename:    3_InstallAD_CP.ps1
-    # Description: Creates an on-premises AD envrionment.  This is part of
+    # Description: Creates an on-premises AD environment.  This is part of
     #              the Azure AD Connect password hash sync tutorial.
     #
     # DISCLAIMER:

@@ -36,6 +36,12 @@ To migrate the **gateway-001** device:
 
 After a few seconds, the migration completes. Your device is now using the **LVA Edge Gateway v2** device template with your customized deployment manifest.
 
+There are now no devices using the original **LVA Edge Gateway** device template. Delete this device template:
+
+1. Navigate to the **Device templates** page and select the **LVA Edge Gateway** device template.
+
+1. Select **Delete** to delete the device template.
+
 ### Get the device credentials
 
 You need the credentials that allow the device to connect to your IoT Central application. The get the device credentials:

@@ -1,6 +1,9 @@
 ---
 title: Support for Hyper-V assessment in Azure Migrate
 description: Learn about support for Hyper-V assessment with Azure Migrate Server Assessment
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
 ---

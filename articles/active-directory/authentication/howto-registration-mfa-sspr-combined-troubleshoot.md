@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 04/15/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 
@@ -154,4 +154,4 @@ Users will no longer be prompted to register by using the updated experience.
 
 ## Next steps
 
-* [Learn more about combined registration for self-service password reset and Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Learn more about combined registration for self-service password reset and Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

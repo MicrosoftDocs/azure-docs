@@ -6,7 +6,7 @@ description: See how to enable logging with diagnostics settings and query the l
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
 ---
 

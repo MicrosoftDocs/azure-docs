@@ -1,5 +1,5 @@
 ---
-title: Connect to Synapse SQL pool 
+title: Connect to a SQL pool in Azure Synapse 
 description: Get connected to SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: "seo-lt-2019, devx-track-csharp"
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
 ---
 
-# Connect to Synapse SQL pool
+# Connect to a SQL pool in Azure Synapse 
 
-Get connected to SQL pool.
+Get connected to a SQL pool in Azure Synapse.
 
 ## Find your server name
 
@@ -65,7 +65,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 SQL pool standardizes some settings during connection and object creation. These settings cannot be overridden and include:
 
-| Database Setting | Value |
+| SQL pool setting | Value |
 |:--- |:--- |
 | [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |
 | [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |

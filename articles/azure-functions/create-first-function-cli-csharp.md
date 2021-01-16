@@ -22,6 +22,8 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
++ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
+
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
 + One of the following tools for creating Azure resources:
@@ -42,6 +44,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
++ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
@@ -49,6 +53,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
+
++ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
 
 ---
 
@@ -116,7 +122,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
     
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

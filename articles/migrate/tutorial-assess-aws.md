@@ -1,6 +1,9 @@
 ---
 title: Assess AWS instances for migration to Azure with Azure Migrate Server Assessment
-description: Describes how to assess AWS instances for migration to Azure using Azure Migrate Server Assessment.
+description: Learn to access AWS instances for migration to Azure with Azure Migrate Server Assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC

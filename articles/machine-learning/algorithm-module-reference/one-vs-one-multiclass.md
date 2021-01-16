@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
+ms.date: 11/13/2020
 ---
 # One-vs-One Multiclass
 
@@ -26,6 +26,8 @@ This module implements the one-versus-one method, in which a binary model is cre
 In essence, the module creates an ensemble of individual models and then merges the results, to create a single model that predicts all classes. Any binary classifier can be used as the basis for a one-versus-one model.  
 
 For example, let’s say you configure a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) model and provide that as input to the One-vs-One Multiclass module. The module would create two-class support vector machine models for all members of the output class. It would then apply the one-versus-one method to combine the results for all classes.  
+
+The module uses OneVsOneClassifier of sklearn, and you can learn more details [here](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html).
 
 ## How to configure the One-vs-One Multiclass classifier  
 

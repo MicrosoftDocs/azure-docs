@@ -42,12 +42,16 @@ Storage account owners can manage consent requests and the private endpoints, th
 
 You can secure your storage account to only accept connections from your VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
 
+> [!NOTE]
+> When copying blobs between storage accounts, your client must have network access to both accounts. So if you choose to use a private link for only one account (either the source or the destination), make sure that your client has network access to the other account. To learn about other ways to configure network access, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
+
 ### Private endpoints for Azure Storage
 
 When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You need a separate private endpoint for each storage service in a storage account that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md).
 
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
+> Make sure to create a general-purpose v2(Standard or Premium) storage account.
 
 For read access to the secondary region with a storage account configured for geo-redundant storage, you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover. For more information about storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -120,10 +124,6 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 ## Known Issues
 
 Keep in mind the following known issues about private endpoints for Azure Storage.
-
-### Copy Blob support
-
-If the storage account is protected by a firewall and the account is accessed through private endpoints, then that account cannot serve as the source of a [Copy Blob](/rest/api/storageservices/copy-blob) operation.
 
 ### Storage access constraints for clients in VNets with private endpoints
 

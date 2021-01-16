@@ -1,6 +1,6 @@
 ---
 title: Copy data by using the Azure Copy Data tool 
-description: Create an Azure data factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
+description: Create an Azure Data Factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -38,7 +38,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
  
-   The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
+   The name of the Azure Data Factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
    ![Error when a name is not available](./media/doc-common-process/name-not-available-error.png)
 1. For **Subscription**, select your Azure subscription in which you want to create the data factory. 

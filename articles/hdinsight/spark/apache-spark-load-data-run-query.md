@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations.
 
@@ -46,7 +46,7 @@ Applications can create dataframes directly from files or folders on the remote 
 
 ![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
-1. Paste the following code in an empty cell of the Jupyter notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
+1. Paste the following code in an empty cell of the Jupyter Notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
     ```python
     from pyspark.sql import *
@@ -92,7 +92,7 @@ Once the table is created, you can run an interactive query on the data.
 
 ## Clean up resources
 
-With HDInsight, your data and Jupyter notebooks are stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it's not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
+With HDInsight, your data and Jupyter Notebooks are stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it's not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
 
 Open the cluster in the Azure portal, and select **Delete**.
 

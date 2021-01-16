@@ -58,7 +58,7 @@ Use Azure Security Center and follow network protection recommendations to help 
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Service Bus namespaces to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -195,7 +195,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results related to your Service Bus entities. Use Azure Monitor to review logs and perform queries on log data related to Service Bus.
 
-- [For more information about the Log Analytics workspace](../azure-monitor/log-query/get-started-portal.md)
+- [For more information about the Log Analytics workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -297,7 +297,7 @@ You may also construct custom policy definitions if the built-in definitions do 
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Service Bus-enabled resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -653,7 +653,7 @@ Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custo
 
 - [Configure customer-managed keys for Service Bus](configure-customer-managed-key.md)
 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center monitoring**: Yes
 

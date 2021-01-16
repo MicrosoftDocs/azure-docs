@@ -29,7 +29,21 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 6. On the guest VM, ensure that the latest version of Integration Services is running.
     - [Check](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
     - [Keep](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
-    
+
+### Cannot enable protection as the virtual machine is not highly available (error code 70094)
+
+When you're enabling replication for a machine and you encounter an error stating that replication cannot be enabled as the machine is not highly available, then to fix this issue try the below steps:
+
+- Restart the VMM service on the VMM server.
+- Remove the virtual machine from the cluster and add it again.
+
+### The VSS writer NTDS failed with status 11 and writer specific failure code 0x800423F4
+
+When trying to enable replication, you may face an error informing that enable replication failed ast NTDS failed. One of the possible causes for this issue is that the virtual machine's operating system in Windows Server 2012 and not Windows Server 2012 R2. To fix this issue, try the below steps:
+
+- Upgrade to Windows Server R2 with 4072650 applied.
+- Ensure that Hyper-V Host is also Windows 2016 or higher.
+
 ## Replication issues
 
 Troubleshoot issues with initial and ongoing replication as follows:

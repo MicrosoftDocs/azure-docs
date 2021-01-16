@@ -16,8 +16,6 @@ ms.reviewer: igorstan
 
 This article describes the architecture components of Synapse SQL.
 
-[!INCLUDE [preview](../includes/note-preview.md)]
-
 ## Synapse SQL architecture components
 
 Synapse SQL leverages a scale out architecture to distribute computational processing of data across multiple nodes. Compute is separate from storage, which enables you to scale compute independently of the data in your system. 

@@ -10,7 +10,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics Managed Virtual Network (preview)
+# Azure Synapse Analytics Managed Virtual Network
 
 This article will explain Managed Virtual Network in Azure Synapse Analytics.
 
@@ -36,7 +36,7 @@ Dedicated SQL pool and serverless SQL pool are multi-tenant capabilities and the
 
 ## Create an Azure Synapse workspace with a Managed workspace Virtual Network
 
-If you have not already done so, register the Network resource provider. Registering a resource provider configures your subscription to work with the resource provider. Choose *Microsoft.Network* from the list of resource providers when you [register](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+If you have not already done so, register the Network resource provider. Registering a resource provider configures your subscription to work with the resource provider. Choose *Microsoft.Network* from the list of resource providers when you [register](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 To create an Azure Synapse workspace that has a Managed workspace Virtual Network associated with it, select the **Networking** tab in Azure portal and check the **Enable managed virtual network** checkbox.
 
@@ -47,8 +47,6 @@ If you leave the checkbox unchecked, then your workspace won't have a Virtual Ne
 
 ![Enable Managed workspace Virtual Network](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
->[!NOTE]
->All outbound traffic from the Managed workspace Virtual Network except through Managed private endpoints will be blocked in the future. It's recommended that you create Managed private endpoints to connect to all your Azure data sources external to the workspace. 
 
 You can check whether your Azure Synapse workspace is associated to a Managed workspace Virtual Network by selecting **Overview** from Azure portal.
 

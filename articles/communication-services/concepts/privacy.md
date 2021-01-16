@@ -33,13 +33,13 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](https://docs.microsoft.com/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
 ### Azure Resource Manager
 
-Using the Azure portal or Azure Resource Manager APIs with Communication Services, can create personal data. [Use this page to learn how to manage personal data in Azure Resource Manager systems.](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-manager-personal-data)
+Using the Azure portal or Azure Resource Manager APIs with Communication Services, can create personal data. [Use this page to learn how to manage personal data in Azure Resource Manager systems.](../../azure-resource-manager/management/resource-manager-personal-data.md)
 
 ### Telephone number management
 
@@ -48,7 +48,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Chat threads and messages are retained until explicitly deleted. A fully idle thread will be automatically deleted after 30 days. Use [Chat APIs](https://docs.microsoft.com/rest/api/communication/chat/deletechatmessage/deletechatmessage) to get, list, update, and delete messages.
+Chat threads and messages are retained until explicitly deleted. A fully idle thread will be automatically deleted after 30 days. Use [Chat APIs](/rest/api/communication/chat/deletechatmessage/deletechatmessage) to get, list, update, and delete messages.
 
 - `Get Thread`
 - `Get Message`
@@ -69,10 +69,10 @@ Audio and video communication is ephemerally processed by the service and no dat
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt). You may also want to configure [the default retention period for Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/platform/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## Additional resources
 
-- [Azure Data Subject Requests for the GDPR and CCPA](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure?view=o365-worldwide&preserve-view=true)
+- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)

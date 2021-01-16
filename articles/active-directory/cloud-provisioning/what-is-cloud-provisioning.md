@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ Azure AD Connect cloud provisioning is a new Microsoft agent designed to meet an
 With Azure AD Connect cloud provisioning, provisioning from AD to Azure AD is orchestrated in Microsoft Online Services. An organization only needs to deploy, in their on-premises and IaaS-hosted environment, a lightweight agent that acts as a bridge between Azure AD and AD. The provisioning configuration is stored in Azure AD and managed as part of the service.
 
 ## Azure AD Connect cloud provisioning video
-The following short video provides an excellent overveiw of Azure AD Connect cloud provisioning:
+The following short video provides an excellent overview of Azure AD Connect cloud provisioning:
 
 > [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
@@ -49,7 +49,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for contact objects |● |● |
 | Support for device objects |● | |
 | Allow basic customization for attribute flows |● |● |
-| Sychronize Exchange online attributes |● |● |
+| Synchronize Exchange online attributes |● |● |
 | Synchronize extension attributes 1-15 |● |● |
 | Synchronize customer defined AD attributes (directory extensions) |● | |
 | Support for Password Hash Sync |●|●|
@@ -67,6 +67,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Support for more than 50,000 objects per AD domain |● | |
+| Cross domain references|● | |
 
 ## Next steps 
 

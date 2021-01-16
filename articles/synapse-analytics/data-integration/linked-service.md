@@ -18,7 +18,7 @@ In this article, you'll learn how to secure a linked service in Synapse with a p
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the blade **Firewalls and virtual networks** should look like the picture below.
+* **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/common/storage-account-create.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the blade **Firewalls and virtual networks** should look like the picture below.
 
 ![Secured Storage Account](./media/secure-storage-account.png)
 
@@ -64,7 +64,7 @@ You've now established a secure and private connection between Synapse and your 
 ## Next steps
 
 
-To develop further understanding of Managed private endpoint in Synapse Analytics, see [Managed private endpoints](../security/synapse-workspace-managed-private-endpoints.md).
+To develop further understanding of Managed private endpoint in Azure Synapse Analytics, see [Managed private endpoints](../security/synapse-workspace-managed-private-endpoints.md).
 
 
-For more information on data integration for Synapse Analytics, see the [Ingesting data into a Data Lake](data-integration-data-lake.md) article.
+For more information on data integration for Azure Synapse Analytics, see the [Ingesting data into a Data Lake](data-integration-data-lake.md) article.

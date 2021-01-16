@@ -61,9 +61,10 @@ The following example provides a JSON definition to enable data consistency veri
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+			"path": "sessionlog/"
         }
     }
 } 

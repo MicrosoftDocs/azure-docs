@@ -16,7 +16,7 @@ ms.date: 11/04/2019
 ms.author: memildin
 ---
 
-# Working with security policies
+# Manage security policies
 
 This article explains how security policies are configured, and how to view them in Security Center. 
 
@@ -82,7 +82,7 @@ To view your security policies in Security Center:
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell.
 
-Security Center uses Role-Based Access Control (RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Security Center, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Security Center roles:
+Security Center uses Azure role-based access control (Azure RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Security Center, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Security Center roles:
 
 - **Security reader**: Has rights to view Security Center items such as recommendations, alerts, policy, and health. Can't make changes.
 - **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.

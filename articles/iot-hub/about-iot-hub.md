@@ -81,6 +81,7 @@ There's a 99.9% [Service Level Agreement for IoT Hub](https://azure.microsoft.co
 Use the [Azure IoT device SDK](./iot-hub-devguide-sdks.md) libraries to build applications that run on your devices and interact with IoT Hub. Supported platforms include multiple Linux distributions, Windows, and real-time operating systems. Supported languages include:
 
 * C
+* Embedded C
 * C#
 * Java
 * Python
@@ -109,6 +110,12 @@ Each Azure subscription has default quota limits in place to prevent service abu
 * [Azure subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
+
+## IoT Hub on Azure Stack Hub (preview)
+
+IoT Hub on Azure Stack Hub (preview) allows you to create hybrid IoT solutions. IoT Hub is a managed service, acting as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use IoT Hub on Azure Stack Hub to build IoT solutions with reliable and secure communications between IoT devices and your on-premises solutions.
+
+IoT Hub on Azure Stack Hub is free during public preview. For more information, see the [IoT Hub on Azure Stack Hub overview](/azure-stack/operator/iot-hub-rp-overview).
 
 ## Next steps
 

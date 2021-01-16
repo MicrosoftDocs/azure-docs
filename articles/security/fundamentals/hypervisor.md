@@ -21,7 +21,7 @@ The Azure hypervisor is built keeping the following security objectives in mind:
 | Isolation | A security policy mandates no information transfer between VMs. This constraint requires capabilities in the Virtual Machine Manager (VMM) and hardware for isolation of memory, devices, the network, and managed resources such as persisted data. |
 | VMM integrity | To achieve overall system integrity, the integrity of individual hypervisor components is established and maintained. |
 | Platform integrity | The integrity of the hypervisor depends on the integrity of the hardware and software on which it relies. Although the hypervisor doesn't have direct control over the integrity of the platform, Azure relies on hardware and firmware mechanisms such as the [Cerberus](project-cerberus.md) chip to protect and detect the underlying platform integrity. The VMM and guests are prevented from running if platform integrity is compromised. |
-| Restricted access | Management functions are exercised only by authorized administrators connected over secure connections. A principle of least privilege is enforced by role-based access control (RBAC) mechanisms. |
+| Restricted access | Management functions are exercised only by authorized administrators connected over secure connections. A principle of least privilege is enforced by Azure role-based access control (Azure RBAC) mechanisms. |
 | Audit | Azure enables audit capability to capture and protect data about what happens on a system so that it can later be inspected. |
 
 Microsoft’s approach to hardening the Azure hypervisor and the virtualization subsystem can be broken down into the following three categories.

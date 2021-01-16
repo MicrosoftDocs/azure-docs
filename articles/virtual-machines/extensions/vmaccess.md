@@ -7,9 +7,9 @@ author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli

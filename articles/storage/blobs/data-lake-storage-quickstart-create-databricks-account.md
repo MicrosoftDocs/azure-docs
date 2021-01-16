@@ -18,7 +18,7 @@ In this quickstart, you run an Apache Spark job using Azure Databricks to perfor
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* The name of your Azure Data Lake Gen2 storage account. [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+* A storage account that has the hierarchical namespace feature enabled it. To create one, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * The tenant ID, app ID, and password of an Azure service principal with an assigned role of **Storage Blob Data Contributor**. [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -193,7 +193,7 @@ In this article, you created a Spark cluster in Azure Databricks and ran a Spark
 Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Extract, transform, and load data using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - To learn how to import data from other data sources into Azure Databricks, see [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 

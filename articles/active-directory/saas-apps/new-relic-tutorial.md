@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Be sure to substitute `acc_id` with your own Account ID of New Relic by Account.
+    `https://rpm.newrelic.com:443/accounts/{acc_id}/sso/saml/finalize` - Be sure to substitute `acc_id` with your own Account ID of New Relic by Account.
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `rpm.newrelic.com`

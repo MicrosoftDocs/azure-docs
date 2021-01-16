@@ -10,7 +10,7 @@ ms.date: 4/9/2019
 ms.topic: article
 # Use ms.service for services or ms.prod for on-premises products. Remove the # before the relevant field.
 ms.service: azure-government
-# ms.prod: product-name-from-white-list
+# ms.prod: product-name-from-allow-list
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -128,7 +128,7 @@ As mentioned earlier, you can build this SACA reference by using a variety of ap
     - [Azure Firewall](../../firewall/overview.md) 
     - [Azure Front Door](../../frontdoor/front-door-overview.md)
     - [Azure security groups](../../virtual-network/network-security-groups-overview.md)
-    - [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)
+    - [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)
     - [Azure Sentinel](../../sentinel/overview.md)
 - Sizing
     - A sizing exercise must be completed. Look at the number of concurrent connections you might have through the SACA instance and the network throughput requirements. 

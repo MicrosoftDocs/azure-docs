@@ -19,4 +19,4 @@ Enabling a system-assigned managed identity is a one-click experience. You can e
 
 1. [Sign in to Azure portal](https://portal.azure.com)
 
-2. [Create a virtual machine with system-assigned identity enabled](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+2. [Create a virtual machine with system-assigned identity enabled](../articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
