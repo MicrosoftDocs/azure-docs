@@ -25,7 +25,7 @@ In this quickstart, you learn a basic Azure IoT application workflow for securel
 ## Use the Python SDK to send messages
 In this section, you will use the Python SDK to send messages from your simulated device to your IoT hub. 
 
-1. Open a new terminal window. You will use this terminal to install the Python SDK and work with Python sample code.
+1. Open a new terminal window. You will use this terminal to install the Python SDK and work with Python sample code. You should now have two terminals open: the one you just opened to work with Python, and the CLI shell that you used in previous sections to enter Azure CLI commands. 
 
 1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine:
 
@@ -51,7 +51,8 @@ In this section, you will use the Python SDK to send messages from your simulate
     set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
     ```
 
-    * Note that there are **NO** quotation marks around the connection string.
+    > [!NOTE]
+    > For Windows CMD there are no quotation marks surrounding the connection string.
 
     **Linux (bash)**
 
@@ -129,13 +130,13 @@ To visualize messaging metrics in the Azure portal:
 
 2. Select *Iot Hub Standard Metrics* in **Metric Namespace**.
 
-3. Select *Total number of messages used* in **Metric**. 
+3. Select *Telemetry messages sent* in **Metric**. 
 
 4. Hover your mouse pointer over the area of the timeline in which your device sent messages. The total number of messages at a point in time appears in the lower left corner of the timeline.
 
     ![View Azure IoT Hub metrics](media/quickstart-send-telemetry-python/iot-hub-portal-view-metrics.png)
 
-5. Optionally, use the **Metric** dropdown to display other metrics on your simulated device. For example, *C2d message deliveries completed* or *Total devices (preview)*. 
+5. Optionally, use the **Metric** dropdown to display other metrics on your simulated device.  
 
 ## Clean up resources
 If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete them.

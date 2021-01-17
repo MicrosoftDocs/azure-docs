@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 01/14/2021
 ---
 
-In the following sections, you set up a terminal and use Azure CLI to create an IoT hub. To create a terminal that runs CLI commands, you can either use the browser-based Azure Cloud Shell, or use a local terminal.
+In the following sections, you set up a terminal and use Azure CLI to create an IoT hub. To configure a terminal that runs Azure CLI commands, you can either use the browser-based Azure Cloud Shell, or use a local terminal.
 * To use Cloud Shell, go to the next section: [Launch the Cloud Shell](#launch-the-cloud-shell). 
 * To use a local terminal, skip the next section and go to [Open a local terminal](#open-a-local-terminal).
 
@@ -33,7 +33,7 @@ To launch the Cloud Shell:
 3. Skip the next section and go to [Install the Azure IoT Extension](#install-the-azure-iot-extension). 
 
 ## Open a local terminal
-If you chose to use a local terminal rather than Cloud Shell, complete this section. 
+If you chose to use a local terminal rather than Cloud Shell, complete this section.  
 
 1. Open a local terminal.
 1. Run the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) command:
@@ -102,10 +102,10 @@ To create a simulated device:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Run the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string&preserve-view=true) command. 
+1.  Run the [az iot hub device-identity connection-string show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string?view=azure-cli-latest#ext_azure_iot_az_iot_hub_device_identity_connection_string_show&preserve-view=true) command. 
 
     ```azurecli
-    az iot hub device-identity show-connection-string --device-id myDevice --hub-name {YourIoTHubName}
+    az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}
     ```
 
     The connection string output is in the following format:
