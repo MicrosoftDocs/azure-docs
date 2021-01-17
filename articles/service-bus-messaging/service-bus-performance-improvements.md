@@ -339,6 +339,8 @@ Prefetching doesn't affect the number of billable messaging operations, and is a
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
 For more information, see the following `PrefetchCount` properties:
 
+- [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
+- [ServiceBusProcessor.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -375,7 +377,7 @@ If a single queue or topic can't handle the expected, use multiple messaging ent
 ## Development and testing features
 
 > [!NOTE]
-> This section only applies to the WindowsAzure.ServiceBus SDK, as the Microsoft.Azure.ServiceBus SDK doesn't expose this functionality.
+> This section only applies to the WindowsAzure.ServiceBus SDK, as Microsoft.Azure.ServiceBus and Azure.Messaging.ServiceBus don't expose this functionality.
 
 Service Bus has one feature, used specifically for development, which **should never be used in production configurations**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
 
