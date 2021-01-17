@@ -25,6 +25,9 @@ ms.author: yelevin
 
 This article explains how to connect your Trend Micro TippingPoint Threat Protection System solution to Azure Sentinel. The Trend Micro TippingPoint data connector allows you to easily connect your TippingPoint Security Management System (SMS) logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. 
 
+> [!NOTE]
+> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+
 ## Prerequisites
 
 - You must have read and write permissions on your Azure Sentinel workspace.

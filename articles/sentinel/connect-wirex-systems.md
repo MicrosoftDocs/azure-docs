@@ -25,7 +25,8 @@ ms.author: yelevin
 
 This article explains how to connect your WireX Systems Network Forensics Platform (NFP) appliance to Azure Sentinel. The WireX NFP data connector allows you to easily connect your NFP logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. 
 
-> [!NOTE] Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> [!NOTE] 
+> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Prerequisites
 
