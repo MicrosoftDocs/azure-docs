@@ -1,5 +1,5 @@
 ---
-title: How to manually fix ServiceNow sync problems 
+title: Troubleshooting problems in ITSM Connector 
 description: Troubleshooting problems in ITSM Connector  
 ms.subservice: alerts
 ms.topic: conceptual
