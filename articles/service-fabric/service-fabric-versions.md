@@ -8,40 +8,37 @@ ms.date: 06/15/2020
 
 # Supported Service Fabric versions
 
-Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://azure.microsoft.com/updates/?product=service-fabric).
+Make sure your cluster is always running a supported version of Azure Service Fabric. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://azure.microsoft.com/updates/?product=service-fabric).
 
-For a given version of the Service Fabric runtime, you can use the specified or older versions of the SDK/NuGet packages. Newer versions of the packages are not supported and might have issues targeting older clusters as they might have feature or protocol changes not supported by those environments.
+For each version of the Service Fabric runtime, you can use the specified or older versions of the SDK/NuGet packages. Newer versions of the packages might be unable to target older clusters. Older clusters might have feature or protocol changes that are not supported by those environments.
 
 Refer to the following documents for details on how to keep your cluster running a supported Service Fabric version:
 
 - [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md)
 - [Upgrade the Service Fabric version that runs on your standalone Windows Server cluster](service-fabric-cluster-upgrade-windows-server.md)
 
-## Unsupported versions
+## Upgrade alert for versions between 5.7 and 6.3.63.*
 
-### Upgrade alert for versions between 5.7 and 6.3.63.*
+To improve security and availability, Azure infrastructure will make a change that might affect Service Fabric customers. This change impacts all Service Fabric clusters running versions 5.7 to 6.3.
 
-To improve security and availability, Azure infrastructure will make a change that might affect Service Fabric customers. **All Service Fabric clusters on unsupported versions from 5.7 to 6.3. are impacted**. Addressing the change requires an update to the Service Fabric runtime, which is already available for all supported Service Fabric versions in all regions.
+An update to the Service Fabric runtime is available for all supported Service Fabric versions in all regions. Upgrade to one of the latest supported versions by **January 19, 2021**, to avoid service disruptions.
 
-We request and recommend taking action to upgrade to the latest supported versions by **Jan 19, 2021** to avoid service disruptions.
-If you have a support plan and you need technical help, please reach out via Azure support channels. Open a support request for Azure Service Fabric and mention this context in the support ticket.
+If you have a support plan and you need technical help, reach out via Azure support channels. Open a support request for Azure Service Fabric and mention this context in the support ticket.
 
-#### Impact if not upgraded to supported versions
+### Impact if you don't upgrade to a supported version
 
-Azure Service Fabric clusters that run on unsupported versions from 5.7 to 6.3.63.\* won't be able to come up and will be unavailable if you have not upgraded to one of below supported versions by January 19, 2021.
+Azure Service Fabric clusters that run on versions from 5.7 to 6.3.63.\* won't be able to come up and will be unavailable if you have not upgraded to one of below supported versions by January 19, 2021.
 
-#### Required Action
+### Required Action
 
-Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment.
+Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Ensure that your clusters are running at least these versions to prevent issues in your environment.
 
-**Supported Service Fabric runtime versions**:
-
-   If you're not on the below listed supported versions of Service Fabric, please upgrade to one of these versions, which already contain the necessary changes to prevent downtime to cluster.
+**Supported runtime versions**:
 
 > [!Note]
-> All release versions of 7.2 include the necessary changes.
+> All released versions of 7.2 include the necessary changes.
   
-  | OS | Current Service Fabric runtime in the cluster | CU/Patch release  |
+  | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
@@ -52,25 +49,25 @@ Upgrade to the Service Fabric supported versions listed below to prevent downtim
   | Linux Ubuntu 16.04 | 7.2.* | 7.2.* |
   | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
 
-### Upgrade alert for versions greater than 6.3
+## Upgrade alert for versions greater than 6.3
 
-To improve security and availability, Azure infrastructure will make a change that might affect Service Fabric customers. All Service Fabric clusters that use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), run on unsupported versions greater than 6.3 and below 7.0 and incompatible supported versions from 7.0 onwards are impacted. Addressing the change requires an update to the Service Fabric runtime, which is already available for all supported Service Fabric versions in all regions.
+To improve security and availability, Azure infrastructure will make a change that might affect Service Fabric customers. This change will impact all Service Fabric clusters that use [Open networking mode for containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) and run versions 6.3 to 7.0 or incompatible supported versions greater than 7.0. An update to the Service Fabric runtime is available for all supported Service Fabric versions in all regions.
 
-#### Impact if not upgraded to supported versions
+### Impact if you don't upgrade to a supported version
 
-Azure Service Fabric clusters that use the [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) feature and run on unchanged versions greater than 6.3 will experience loss of functionality or service disruptions if not upgraded to one of below supported versions by **January 19,2021**.
+Azure Service Fabric clusters that use **Open** networking mode and run on unchanged versions greater than 6.3 will experience loss of functionality or service disruptions if they're not upgraded to a supported version by January 19, 2021.
 
-- **For clusters running a version of Service Fabric greater than 6.3 not using Open Networking feature**, the cluster will remain up, however the Open Networking feature for Containers clusters, will stop functioning, which could cause service interruptions for your workloads.
+- Versions that **aren't** using **Open** mode: The cluster will stay up, but **Open** mode will stop functioning, which could cause service interruptions for your workloads.
 
-- **For clusters running a version of Service Fabric greater than 6.3 and using [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)**, the cluster could become unavailable and will stop functioning, which could cause service interruptions for your workloads.
+- Versions that **are** using **Open** mode: The cluster could become unavailable and will stop functioning, which could cause service interruptions for your workloads.
   
-#### Required action
+### Required action
 
-Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment.
+To prevent downtime or loss of functionality, ensure that your clusters are running one of the versions below.
 
 **Supported Service Fabric runtime versions**:
 
- If you're not on the below listed supported versions of Service Fabric, please upgrade to one of these versions, which already contain the necessary changes to prevent loss of functionality.  
+ The versions of Service Fabric in the table contain the necessary changes to prevent loss of functionality. Make sure you're using one of these versions.  
 
 > [!Note]
 > All release versions of 7.2 include the necessary changes.
