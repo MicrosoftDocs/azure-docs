@@ -64,7 +64,7 @@ By default, each user goes through a consent experience to sign in. The consent 
 
 For applications that you trust, you can simplify the user experience by consenting to the application on behalf of your organization.
 
-For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](../develop/quickstart-register-app.md).
+For more information about user consent and the consent experience in Azure, see [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
 
 ## Related Articles
 * [Enable secure remote access to on-premises applications with Azure AD Application Proxy](application-proxy.md)

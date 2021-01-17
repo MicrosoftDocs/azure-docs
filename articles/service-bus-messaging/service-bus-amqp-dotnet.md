@@ -9,6 +9,9 @@ ms.date: 06/23/2020
 
 AMQP 1.0 support is available in the Service Bus package version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
 
+> [!NOTE]
+> You can use either Advanced Message Queuing Protocol (AMQP) or Service Bus Messaging Protocol (SBMP) with the .NET library for Service Bus. AMQP is the default protocol used by the .NET library. We recommend that you use the AMQP protocol (which is the default) and not override it. 
+
 ## Configure .NET applications to use AMQP 1.0
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using AMQP protocol. You can also explicitly specify AMQP as the transport type as shown in the following section. 
@@ -36,6 +39,14 @@ The value of the `Microsoft.ServiceBus.ConnectionString` setting is the Service 
 Where `namespace` and `SAS key` are obtained from the [Azure portal][Azure portal] when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal].
 
 When using AMQP, append the connection string with `;TransportType=Amqp`. This notation instructs the client library to make its connection to Service Bus using AMQP 1.0.
+
+### AMQP over WebSockets
+To use AMQP over WebSockets, set `TransportType` in the connection string to `AmqpWebSockets`. For example: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
+
+If you are using .NET Microsoft.Azure.ServiceBus library, set the [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) to AmqpWebSockets of [TransportType enum](/dotnet/api/microsoft.azure.servicebus.transporttype).
+
+If you are using .NET Azure.Messaging.ServiceBus library, set the [ServiceBusClient.TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclient.transporttype) to AmqpWebSockets of [ServiceBusTransportType enum](/dotnet/api/azure.messaging.servicebus.servicebustransporttype).
+
 
 ## Message serialization
 
