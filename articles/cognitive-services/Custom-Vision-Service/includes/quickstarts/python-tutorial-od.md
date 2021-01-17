@@ -54,7 +54,7 @@ Create variables for your resource's Azure endpoint and subscription keys.
 
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get both your training and prediction keys.
+> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get both your training and prediction keys, along with the training resources' endpoint.
 >
 > You can find the prediction resource ID value on the resource's **Overview** tab, listed as **Subscription ID**.
 >
@@ -107,6 +107,9 @@ To create object tags in your project, add the following code:
 
 First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) to your local device.
 
+> [!NOTE]
+> Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) to learn more.
+
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. The following code associates each of the sample images with its tagged region. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_tagging)]
@@ -155,6 +158,8 @@ python CustomVisionQuickstart.py
 ```
 
 The output of the application should appear in the console. You can then verify that the test image (found in **<base_image_location>/images/Test**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+
+## Clean up resources
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

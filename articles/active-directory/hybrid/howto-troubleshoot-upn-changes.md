@@ -1,5 +1,5 @@
 ---
-title: Plan and troubleshoot Azure User Principle name (UPN) changes
+title: Plan and troubleshoot Azure User Principal name (UPN) changes
 description: Understand known issues and mitigations for UPN changes
 
 services: active-directory
@@ -132,7 +132,7 @@ Users may experience single sign-on issues with applications that depend on Azur
 The issues mentioned on this section have been fixed on the Windows 10 May 2020 update (2004).
 
 **Workaround** <br>
-Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. You can also verify through [PowerShell](/powershell/module/azuread/get-azureaduser). After signing in with their new UPN, references to the old UPN might still appear on the "Access work or school" Windows setting.
 
 ![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/other-user.png)
 

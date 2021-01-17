@@ -16,6 +16,10 @@ This article discusses how to register and scan an instance of Azure Synapse Ana
 
 Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to capture the metadata and schema. Scans also classify the data automatically based on system and custom classification rules.
 
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure Synapse Analytics
+
 ## Prerequisites
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).

@@ -90,6 +90,8 @@
         href: data-box-local-web-ui-admin.md
       - name: Use self-managed shipping
         href: data-box-portal-customer-managed-shipping.md
+      - name: Bring your own certificates
+        href: data-box-bring-your-own-certificates.md
       - name: Enable customer managed key
         href: data-box-customer-managed-encryption-key-portal.md
       - name: Use Customer Lockbox

@@ -13,6 +13,6 @@ ms.author: billmath
 ms.reviewer: daveba
 ---
 
-# Azure AD Connect Provisioning Agent: Version release history
+# Azure AD Connect Cloud Sync Agent: Version release history
 
 [!INCLUDE [active-directory-cloud-sync-version-history.md](../../../includes/active-directory-cloud-sync-version-history.md)]

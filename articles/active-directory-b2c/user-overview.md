@@ -46,21 +46,21 @@ When you add a new work account, you need to consider the following configuratio
 You can use the following information to create a new work account:
 
 - [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users)
 
 ### Update a user profile
 
 You can use the following information to update the profile of a user:
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ### Reset a password for a user
 
 You can use the following information to reset the password of a user:
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ## Guest user
 

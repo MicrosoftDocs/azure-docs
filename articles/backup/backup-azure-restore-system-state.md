@@ -196,6 +196,8 @@ This article will only be discussing the first scenario, which calls for a nonau
 1. After you've successfully completed a restore, you should restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
 1. Reboot the server.
 
+For more information, see [Back up and restore Active Directory domain controllers](active-directory-backup-restore.md).
+
 ## Troubleshoot failed System State restore
 
 If the previous process of applying System State doesn't complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use this option only if Windows Server doesn't boot normally after a System State restore. The following process erases non-system data, use caution.

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 12/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -35,7 +35,7 @@ This article describes how to create one or more access reviews for privileged A
 
 1. In the left menu, select **Azure resources**.
 
-1. Select the resource you want to manage, such as a subscription or management group.
+1. Select the resource you want to manage, such as a subscription.
 
 1. Under Manage, select **Access reviews**.
 

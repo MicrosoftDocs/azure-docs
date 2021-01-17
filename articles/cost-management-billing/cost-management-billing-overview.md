@@ -8,7 +8,7 @@ ms.date: 10/26/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: contentperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # What is Azure Cost Management + Billing?

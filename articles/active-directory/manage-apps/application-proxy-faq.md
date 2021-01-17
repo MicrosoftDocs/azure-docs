@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Active Directory (Azure AD) Application Proxy frequently asked questions
@@ -75,10 +75,12 @@ There are Performance Monitor counters that are installed along with the connect
 The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ### What versions of Windows Server can I install a connector on?
+
 Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you will need to add the following registry key and restart the server:
-	```
-	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-	```
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## Application configuration
 
@@ -199,5 +201,5 @@ This scenario isn't supported directly. Your options for this scenario are:
 1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
 
 2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Application Proxy Application Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Application Proxy Connector Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector Management](/powershell/module/azuread/#application_proxy_connector_management&preserve-view=true)

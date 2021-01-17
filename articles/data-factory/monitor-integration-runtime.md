@@ -99,7 +99,7 @@ The following table provides possible statuses of a self-hosted integration runt
 | Online | Node is connected to the Data Factory service. |
 | Offline | Node is offline. |
 | Upgrading | The node is being auto-updated. |
-| Limited | Due to a connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or a credential sync issue. |
+| Limited | Due to a connectivity issue. May be due to HTTP port 8060 issue, service bus connectivity issue, or a credential sync issue. |
 | Inactive | Node is in a configuration different from the configuration of other majority nodes. |
 
 A node can be inactive when it cannot connect to other nodes.

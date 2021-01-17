@@ -10,7 +10,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an Azure subscription to another account

@@ -40,7 +40,7 @@ The application you create in this tutorial enables a JavaScript SPA to query th
 
 This tutorial uses the following library:
 
-[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Microsoft Authentication Library for JavaScript v2.0 browser package
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) the Microsoft Authentication Library for JavaScript v2.0 browser package
 
 ## Get the completed code sample
 
@@ -355,7 +355,7 @@ graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
 ```
 
-## Use Microsoft Authentication Library (MSAL) to sign in user
+## Use the Microsoft Authentication Library (MSAL) to sign in user
 
 ### Pop-up
 

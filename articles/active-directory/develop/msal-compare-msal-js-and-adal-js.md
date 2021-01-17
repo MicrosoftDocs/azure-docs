@@ -17,9 +17,9 @@ ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.js and MSAL.js libraries so I can migrate my applications to MSAL.js.
 ---
 
-# Differences between MSAL JS and ADAL JS
+# Differences between MSAL.js and ADAL.js
 
-Both Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD for developers (v1.0) to authenticate Azure AD identities (work and school accounts) by requesting tokens using ADAL. Now, using MSAL.js, you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) through Microsoft identity platform (v2.0).
+Both the Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD for developers (v1.0) to authenticate Azure AD identities (work and school accounts) by requesting tokens using ADAL. Now, using MSAL.js, you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) through Microsoft identity platform (v2.0).
 
 This article describes how to choose between the Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) and compares the two libraries.
 

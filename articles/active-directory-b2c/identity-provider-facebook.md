@@ -9,17 +9,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2019
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with a Facebook account using Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-custom-policy"
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
+::: zone-end
+
+## Prerequisites
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
 ## Create a Facebook application
 
-To use a Facebook account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a Facebook account, you can sign up at [https://www.facebook.com/](https://www.facebook.com/).
+To enable sign-in for users with a Facebook account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Facebook App Dashboard](https://developers.facebook.com/). For more information, see [App Development](https://developers.facebook.com/docs/development). If you don't already have a Facebook account, you can sign up at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 1. If you have not already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
@@ -41,6 +54,8 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. Select **Save Changes** at the bottom of the page.
 1. To make your Facebook application available to Azure AD B2C, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**.  At this point, the Status should change from **Development** to **Live**.
 
+::: zone pivot="b2c-user-flow"
+
 ## Configure a Facebook account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
@@ -51,3 +66,51 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
 1. For the **Client secret**, enter the App Secret that you recorded.
 1. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## Add Facebook as an identity provider
+
+1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
+
+::: zone-end
+
+::: zone pivot="b2c-user-flow"
+
+## Add Facebook identity provider to a user flow 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Click the user flow that you want to add the Facebook identity provider.
+1. Under the **Social identity providers**, select **Facebook**.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Click **Run user flow**
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## Upload and test the policy
+
+Update the relying party (RP) file that initiates the user journey that you created.
+
+1. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
+1. Under **Custom policies**, select **B2C_1A_signup_signin**.
+1. For **Select Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy.
+
+::: zone-end
+
+## Next steps
+
+Learn how to [pass Facebook token to your application](idp-pass-through-user-flow.md).

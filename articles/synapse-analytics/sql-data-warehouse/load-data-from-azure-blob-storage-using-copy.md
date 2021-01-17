@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Tutorial: Load the New York Taxicab dataset
 
-This tutorial uses the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load New York Taxicab dataset from an Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to:
+This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load New York Taxicab dataset from an Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to:
 
 > [!div class="checklist"]
 >
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).  
 
-This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
+This tutorial assumes you have already created a SQL dedicated pool from the following [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
 ## Create a user for loading data
 
@@ -246,7 +246,7 @@ Run the following SQL scripts and specify information about the data you wish to
 
 ## Load the data into your data warehouse
 
-This section uses the [COPY statement to load](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) the sample data from Azure Storage Blob.  
+This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) the sample data from Azure Storage Blob.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. You would typically load into a staging table for your production workloads. While data is in the staging table you can perform any necessary transformations. 
@@ -388,7 +388,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) to load data into your data warehouse.
+In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) to load data into your data warehouse.
 
 You did these things:
 > [!div class="checklist"]
@@ -408,6 +408,6 @@ Advance to the development overview to learn how to migrate an existing database
 
 For more loading examples and references, view the following documentation:
 
-- [COPY statement reference documentation](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- [COPY examples for each authentication method](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-- [COPY quickstart for a single table](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [COPY examples for each authentication method](./quickstart-bulk-load-copy-tsql-examples.md)
+- [COPY quickstart for a single table](./quickstart-bulk-load-copy-tsql.md)

@@ -48,7 +48,7 @@ Azure Stack Edge Pro has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
-<!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).-->
+<!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
 ## Components
 

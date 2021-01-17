@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - On-premises connection using ExpressRoute 
 description: Describes how to request an on-premises connection using ExpressRoute from CloudSimple region network 
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

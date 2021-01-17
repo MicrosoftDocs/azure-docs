@@ -7,11 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/18/2020
 
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management

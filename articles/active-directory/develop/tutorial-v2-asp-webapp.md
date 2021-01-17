@@ -357,7 +357,7 @@ To register your application and add your application registration information t
 
 To quickly register your application, follow these steps:
 
-1. Go to the new  [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) pane.
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.  
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in a single click.
 
@@ -369,15 +369,17 @@ To register your application and add the app's registration information to your 
    1. in Solution Explorer, select the project and view the Properties window (if you don't see a Properties window, press F4).
    1. Change SSL Enabled to `True`.
    1. Right-click the project in Visual Studio, select **Properties**, and then select the **Web** tab. In the **Servers** section, change the **Project Url** setting to the **SSL URL**.
-   1. Copy the SSL URL. You'll add this URL to the list of Redirect URLs in the Registration portal's list of Redirect URLs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account, or by using a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the upper-right corner, and set your portal session to the Azure AD tenant that you want.
-1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Select **New registration**.
-1. When the **Register an application** page appears, enter your application's registration information:
-   1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, like **ASPNET-Tutorial**.
-   1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Reply URL**, and select **Register**.
-1. Select the **Authentication** menu, select **ID tokens** under **Implicit Grant**, and then select **Save**.
+   1. Copy the SSL URL. You'll add this URL to the list of Redirect URIs in the Registration portal's list of Redirect URIs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations** > **New registration**.
+1. Enter a **Name** for your application, for example `ASPNET-Tutorial`. Users of your app might see this name, and you can change it later.
+1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Redirect URI**.
+1. Select **Register**.
+1. Under **Manage**, select **Authentication**.
+1. In the **Implicit Grant** section, select **ID tokens**, and then select **Save**.
 1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
     ```xml

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/13/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -39,7 +39,38 @@ The **UserJourney** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
+| AuthorizationTechnicalProfiles | 0:1 | List of authorization technical profiles. | 
 | OrchestrationSteps | 1:n | An orchestration sequence that must be followed through for a successful transaction. Every user journey consists of an ordered list of orchestration steps that are executed in sequence. If any step fails, the transaction fails. |
+
+## AuthorizationTechnicalProfiles
+
+Suppose a user has completed a UserJourney and obtained an access or an ID token. To manage additional resources, such the [UserInfo endpoint](userinfo-endpoint.md), the user must be identified. To begin this process, the user must present the access token issued earlier as proof that they were originally authenticated by a valid Azure AD B2C policy. A valid token for the user must always be present during this process to ensure the user is allowed to make this request. The authorization technical profiles validate the incoming token and extract claims from the token.
+
+The **AuthorizationTechnicalProfiles** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| AuthorizationTechnicalProfile | 0:1 | List of authorization technical profiles. | 
+
+The **AuthorizationTechnicalProfile** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| TechnicalProfileReferenceId | Yes | The identifier of the technical profile that is to be executed. |
+
+The following example shows a user journey element with authorization technical profiles:
+
+```xml
+<UserJourney Id="UserInfoJourney" DefaultCpimIssuerTechnicalProfileReferenceId="UserInfoIssuer">
+  <Authorization>
+    <AuthorizationTechnicalProfiles>
+      <AuthorizationTechnicalProfile ReferenceId="UserInfoAuthorization" />
+    </AuthorizationTechnicalProfiles>
+  </Authorization>
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="ClaimsExchange">
+     ...
+```
 
 ## OrchestrationSteps
 
@@ -139,17 +170,17 @@ Preconditions can check multiple preconditions. The following example checks whe
 ```xml
 <OrchestrationStep Order="4" Type="ClaimsExchange">
   <Preconditions>
-  <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-	  <Value>objectId</Value>
-	  <Action>SkipThisOrchestrationStep</Action>
-	</Precondition>
-	<Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-	  <Value>email</Value>
-	  <Action>SkipThisOrchestrationStep</Action>
-	</Precondition>
+    <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+      <Value>objectId</Value>
+      <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
+    <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+      <Value>email</Value>
+      <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
   </Preconditions>
   <ClaimsExchanges>
-	<ClaimsExchange Id="SelfAsserted-SocialEmail" TechnicalProfileReferenceId="SelfAsserted-SocialEmail" />
+    <ClaimsExchange Id="SelfAsserted-SocialEmail" TechnicalProfileReferenceId="SelfAsserted-SocialEmail" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -168,7 +199,7 @@ The **ClaimsProviderSelections** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| DisplayOption| No | Controls the behavior of a case where a single claims provider selection is available. Possible values: `DoNotShowSingleProvider` (default), the user is redirected immediately to the federated identity provider. Or `ShowSingleProvider` Azure AD B2C presents the sign-in page with the single identity provider selection. To use this attribute, the [content definition version](page-layout.md) must be `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` and above.|
+| DisplayOption| No | Controls the behavior of a case where a single claims provider selection is available. Possible values: `DoNotShowSingleProvider` (default) , the user is redirected immediately to the federated identity provider. Or `ShowSingleProvider` Azure AD B2C presents the sign-in page with the single identity provider selection. To use this attribute, the [content definition version](page-layout.md) must be `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` and above.|
 
 The **ClaimsProviderSelection** element contains the following attributes:
 
@@ -183,17 +214,17 @@ In the following orchestration step, the user can choose to sign in with Faceboo
 
 ```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
-    <ClaimsProviderSelections>
+  <ClaimsProviderSelections>
     <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
     <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-    </ClaimsProviderSelections>
-    <ClaimsExchanges>
-    <ClaimsExchange Id="LocalAccountSigninEmailExchange"
-                    TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-    </ClaimsExchanges>
+  </ClaimsProviderSelections>
+  <ClaimsExchanges>
+  <ClaimsExchange Id="LocalAccountSigninEmailExchange"
+        TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+  </ClaimsExchanges>
 </OrchestrationStep>
 
 
@@ -207,7 +238,7 @@ In the following orchestration step, the user can choose to sign in with Faceboo
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-	<ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>

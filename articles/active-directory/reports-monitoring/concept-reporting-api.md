@@ -44,7 +44,7 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 
 ## API Endpoints 
 
-The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/v1.0/auditLogs/signIns`. For more information, see the [audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-1.0) and [sign-in API reference](/graph/api/resources/signIn?view=graph-rest-1.0).
+The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/v1.0/auditLogs/signIns`. For more information, see the [audit API reference](/graph/api/resources/directoryaudit) and [sign-in API reference](/graph/api/resources/signIn).
 
 In addition, you can use the [Identity Protection risk detections API](/graph/api/resources/identityriskevent?view=graph-rest-beta) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   

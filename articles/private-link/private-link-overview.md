@@ -19,6 +19,8 @@ Traffic between your virtual network and the service travels the Microsoft backb
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. Check [availability](#availability) section in this article for accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
 
+:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Azure Private Link center in Azure portal" border="false":::
+
 ## Key benefits
 Azure Private Link provides the following benefits:  
 - **Privately access services on the Azure platform**: Connect your virtual network to services in Azure without a public IP address at the source or destination. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
@@ -66,7 +68,7 @@ Azure Private Link provides the following benefits:
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | All public regions except: Germany CENTRAL, Germany NORTHEAST <br/> All Government regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
-|Azure Managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Click here for known limitations](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
+|Azure Managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Click here for known limitations](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 

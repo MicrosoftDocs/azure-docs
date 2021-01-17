@@ -37,18 +37,18 @@ See [Install tools](./install-client-tools.md).
 
 ## Register the resource provider
 
-Prior to uploading metrics or user data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureData` resource provider registered.
+Prior to uploading metrics or user data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureArcData` resource provider registered.
 
 To verify the resource provider, run the following command:
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 If the resource provider is not currently registered in your subscription, you can register it. To register it, run the following command.  This command may take a minute or two to complete.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## Create service principal

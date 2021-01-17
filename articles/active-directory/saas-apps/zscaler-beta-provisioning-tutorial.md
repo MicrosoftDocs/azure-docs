@@ -76,6 +76,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zscaler Beta, following the instructions provided in the [Zscaler Beta single sign-on tutorial](zscaler-beta-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
+> [!NOTE]
+> When users and groups are provisioned or de-provisioned we recommend to periodically restart provisioning to ensure that group memberships are properly updated. Doing a restart will force our service to re-evaluate all the groups and update the memberships.  
+
 ### To configure automatic user provisioning for Zscaler Beta in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Zscaler Beta**.

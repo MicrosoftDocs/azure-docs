@@ -153,7 +153,7 @@ When you submit a training run by using a `ScriptRunConfig` object, the `submit`
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(src)
+run = Experiment(ws,'Tutorial-fastai').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 

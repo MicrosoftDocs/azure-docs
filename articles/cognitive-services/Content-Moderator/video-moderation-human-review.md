@@ -99,4 +99,3 @@ Once the videos expire from limbo, their reviews are marked as complete.
 - Get started with the [video moderation quickstart](video-moderation-api.md).
 - Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) for your human reviewers from your moderated output.
 - Add [video transcript reviews](video-transcript-reviews-quickstart-dotnet.md) to your video reviews.
-- Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
