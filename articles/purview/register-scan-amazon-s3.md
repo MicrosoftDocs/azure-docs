@@ -358,7 +358,6 @@ For example:
 
 ![Show AWS S3 bucket scans under your AWS account source](./media/setup-configuration-connector-amazon-s3/account-scan-history.png)
 
-
 Use the other areas of Purview to find out details about the content in your data estate, including your Amazon S3 buckets:
 
 - **Search the Purview data catalog,** and filter for a specific bucket. For example:

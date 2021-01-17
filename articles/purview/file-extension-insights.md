@@ -14,11 +14,11 @@ ms.date: 01/17/2021
 
 This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data.
 
-Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Amazon S3 buckets
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
-> * Launch your Purview account from Azure. 
+> * Launch your Purview account from Azure 
 > - View file extension insights on your data
 > - Drill down for more file extension details on your data
 
