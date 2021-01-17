@@ -208,7 +208,7 @@ You'll need to record your AWS Role ARN and copy it in to Purview when [creating
 
 ### Retrieve your Amazon S3 bucket name
 
-You'll need the name of your Amazon S3 bucket to copy it in to Purview in the [next step](#create-your-amazon-s3-scan-in-purview). 
+You'll need the name of your Amazon S3 bucket to copy it in to Purview when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket)
 
 **To retrieve your bucket name:**
 
@@ -367,10 +367,6 @@ Use the other areas of Purview to find out details about the content in your dat
 - **View Insight reports** to view statistics for the classification, sensitivity labels, file types, and more details about your content.
 
     All Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon S3** asset type was added to the report filtering options.
-
-    For example:
-
-    ![Sensitivity report including Amazon S3 assets](./media/setup-configuration-connector-amazon-s3/sensitivity-report-amazons3.png)
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
 
