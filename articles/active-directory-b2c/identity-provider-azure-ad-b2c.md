@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -39,7 +39,7 @@ This article describes how to set up a federation with another Azure AD B2C tena
 
 ## Create an Azure AD B2C application
 
-To use an Azure AD B2C account as an [identity provider](openid-connect.md) in your Azure AD B2C tenant (for example, Contoso), in the other Azure AD B2C (for example, Fabrikam):
+To enable sign-in for users with an account from another Azure AD B2C tenant (for example, Fabrikam), in your Azure AD B2C (for example, Contoso):
 
 1. Create a [user flow](tutorial-create-user-flows.md), or a [custom policy](custom-policy-get-started.md).
 1. Then create an application in the Azure AD B2C, as describe in this section. 
