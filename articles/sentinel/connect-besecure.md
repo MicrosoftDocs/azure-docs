@@ -49,9 +49,10 @@ beSECURE can integrate with and export logs directly to Azure Sentinel.
     1. Enable Azure Sentinel
 
     **Provide beSECURE with Azure Sentinel settings:**
+
+      Copy the *Workspace ID* and *Primary Key* values from the Azure Sentinel connector page, paste them in the beSECURE configuration, and click **Modify**.
       
       :::image type="content" source="media/connectors/workspace-id-primary-key.png" alt-text="{Workspace ID and primary key}":::
-      Copy the *Workspace ID* and *Primary Key* values from the Azure Sentinel connector page, paste them in the beSECURE configuration, and click **Modify**.
 
 ## Find your data
 
