@@ -214,10 +214,8 @@ The following screenshot shows the IoT Central UI when it receives the property 
 
 This section shows you how a device handles an offline command. If a device is online, it can handle the offline command as soon it's received. If a device is offline, it handles the offline command when it next connects to IoT Central. Devices can't send a return value in response to an offline command.
 
-The following code snippet shows how a device can implement an offline command:
-
 > [!NOTE]
-> This article uses Node.js for simplicity. For other language examples, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
+> This article uses Node.js for simplicity.
 
 The following screenshot shows an offline command called **GenerateDiagnostics**. The request parameter is an object with datetime property called **StartTime** and an integer enumeration property called **Bank**:
 
