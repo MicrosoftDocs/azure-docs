@@ -18,24 +18,53 @@ ms.date: 01/12/2021
 ms.author: yelevin
 
 ---
-# Connect Trend Micro TippingPoint
+# Connect your Trend Micro TippingPoint solution to Azure Sentinel
 
 > [!IMPORTANT]
 > The Trend Micro TippingPoint connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Trend Micro TippingPoint connector lets you easily connect your TippingPoint SMS logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's networks and systems, and improves your security operation capabilities.
+This article explains how to connect your Trend Micro TippingPoint Threat Protection System solution to Azure Sentinel. The Trend Micro TippingPoint data connector allows you to easily connect your TippingPoint Security Management System (SMS) logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. 
 
 ## Prerequisites
 
-- Read and write permissions to the Azure Sentinel workspace.
+- You must have read and write permissions on your Azure Sentinel workspace.
 
-## Connect Azure Sentinel to Trend Micro TippingPoint
+- You must have read permissions to shared keys for the workspace.
 
-1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Trend Micro TippingPoint** connector.
+## Send Trend Micro TippingPoint logs to Azure Sentinel
 
-2. Select **Open connector page**.
+To get its logs into Azure Sentinel, configure your TippingPoint TPS solution to send Syslog messages in CEF format to a Linux-based log forwarding server (running rsyslog or syslog-ng). This server will have the Log Analytics agent installed on it, and the agent forwards the logs to your Azure Sentinel workspace.
 
-3. Follow the instructions and next steps.
+1. In the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. From the **Data connectors** gallery, select **Trend Micro TippingPoint (Preview)**, and then **Open connector page**.
+
+1. Follow the instructions in the **Instructions** tab, under **Configuration**:
+
+    1. **1. Linux Syslog agent configuration** - Do this step if you don't already have a log forwarder running, or if you need another one. See [STEP 1: Deploy the log forwarder](connect-cef-agent.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+
+    1. **2. Forward Trend Micro TippingPoint SMS logs to Syslog agent** - This configuration should include the following elements:
+        - Log destination – the hostname and/or IP address of your log forwarding server
+        - Protocol and port – **TCP 514** (if recommended otherwise, be sure to make the parallel change in the syslog daemon on your log forwarding server)
+        - Log format – **ArcSight CEF Format v4.2**
+        - Log types – all available
+
+    1. **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+
+        It may take up to 20 minutes until your logs start to appear in Log Analytics.
+
+## Find your data
+
+After a successful connection is established, the data appears in **Logs**, under the **Azure Sentinel** section, in the *CommonSecurityLog* table.
+
+To query TrendMicro TippingPoint data in Log Analytics, copy the following into the query window, applying other filters as you choose:
+
+```kusto
+CommonSecurityLog 
+| where DeviceVendor == "TrendMicroTippingPoint"
+```
+
+See the **Next steps** tab in the connector page for more query samples.
 
 ## Next steps
 
