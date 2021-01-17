@@ -70,7 +70,7 @@ The price difference between both options is reflected in the internet egress da
 
 ## Limitations
 
-* Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.
+* Routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
 * Routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
 * Virtual machines with multiple NICs can have only one type of routing preference.
 

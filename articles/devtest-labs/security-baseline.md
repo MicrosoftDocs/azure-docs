@@ -178,7 +178,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 **Guidance:** Use privileged access workstations (PAWs) with MFA configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)  
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)  
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 
 **Azure Security Center monitoring:** N/A

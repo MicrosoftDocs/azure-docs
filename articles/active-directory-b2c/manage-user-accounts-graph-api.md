@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 01/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -38,85 +38,6 @@ The following user management operations are available in the [Microsoft Graph A
 - [Update a user](/graph/api/user-update)
 - [Delete a user](/graph/api/user-delete)
 
-## User properties
-
-### Display name property
-
-The `displayName` is the name to display in Azure portal user management for the user, and in the access token Azure AD B2C returns to the application. This property is required.
-
-### Identities property
-
-A customer account, which could be a consumer, partner, or citizen, can be associated with these identity types:
-
-- **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
-- **Federated** identity - Also known as a *social* or *enterprise* accounts, the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
-
-A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password.
-
-In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity][graph-objectIdentity]. The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities.
-
-| Property   | Type |Description|
-|:---------------|:--------|:----------|
-|signInType|string| Specifies the user sign-in types in your directory. For local account:  `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`,  `userName`, or any other type you like. Social account must be set to  `federated`.|
-|issuer|string|Specifies the issuer of the identity. For local accounts (where **signInType** is not `federated`), this property is the local B2C tenant default domain name, for example `contoso.onmicrosoft.com`. For social identity (where **signInType** is  `federated`) the value is the name of the issuer, for example `facebook.com`|
-|issuerAssignedId|string|Specifies the unique identifier assigned to the user by the issuer. The combination of **issuer** and **issuerAssignedId** must be unique within your tenant. For local account, when **signInType** is set to `emailAddress` or `userName`, it represents the sign-in name for the user.<br>When **signInType** is set to: <ul><li>`emailAddress` (or starts with `emailAddress` like `emailAddress1`) **issuerAssignedId** must be a valid email address</li><li>`userName` (or any other value), **issuerAssignedId** must be a valid [local part of an email address](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** represents the federated account unique identifier</li></ul>|
-
-The following **Identities** property, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity. 
-
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
-
-For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
-
-### Password profile property
-
-For a local identity, the **passwordProfile** property is required, and contains the user's password. The `forceChangePasswordNextSignIn` property must set to `false`.
-
-For a federated (social) identity, the **passwordProfile** property is not required.
-
-```json
-"passwordProfile" : {
-    "password": "password-value",
-    "forceChangePasswordNextSignIn": false
-  }
-```
-
-### Password policy property
-
-The Azure AD B2C password policy (for local accounts) is based on the Azure Active Directory [strong password strength](../active-directory/authentication/concept-sspr-policy.md) policy. The Azure AD B2C sign-up or sign-in and password reset policies require this strong password strength, and don't expire passwords.
-
-In user migration scenarios, if the accounts you want to migrate have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. To change the default password policy, set the `passwordPolicies` property to `DisableStrongPassword`. For example, you can modify the create user request as follows:
-
-```json
-"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
-```
-
-### Extension properties
-
-Every customer-facing application has unique requirements for the information to be collected. Your Azure AD B2C tenant comes with a built-in set of information stored in properties, such as Given Name, Surname, City, and Postal Code. With Azure AD B2C, you can extend the set of properties stored in each customer account. For more information on defining custom attributes, see [custom attributes](user-flow-custom-attributes.md).
-
-Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application (found in **App registrations** > **All Applications** in the Azure portal). Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-```
 
 ## Code sample: How to programmatically manage user accounts
 

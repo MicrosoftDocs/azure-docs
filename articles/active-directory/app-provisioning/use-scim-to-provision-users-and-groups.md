@@ -785,6 +785,7 @@ The SCIM service must have an HTTP address and server authentication certificate
 * Go Daddy
 * VeriSign
 * WoSign
+* DST Root CA X3
 
 The .NET Core SDK includes an HTTPS development certificate that can be used during development, the certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it will listen to a different port:
 
