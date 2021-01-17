@@ -24,7 +24,7 @@ The protocol is based on the [HTTP Correlation protocol](https://github.com/dotn
 ## Service Bus .NET Client autotracing
 The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) provides tracing instrumentation points that can be hooked by tracing systems, or piece of client code. The instrumentation allows tracking all calls to the Service Bus messaging service from client side. If message processing is done by using [`ProcessMessageAsync` of `ServiceBusProcessor`](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (message handler pattern), the message processing is also instrumented.
 
-### Tracking with Azure Application Insights
+## Tracking with Azure Application Insights
 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
@@ -35,7 +35,7 @@ These links provide details on installing SDK, creating resources, and configuri
 
 If you use [`ProcessMessageAsync` of `ServiceBusProcessor`](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (message handler pattern) to process messages, the message processing is also instrumented. All Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
 
-#### Trace message processing
+### Trace message processing
 
 ```csharp
 async Task ProcessAsync(ProcessMessageEventArgs args)
@@ -76,7 +76,7 @@ If you are running any external code in addition to the Application Insights SDK
 
 It doesn't mean that there was a delay in receiving the message. In this scenario, the message has already been received since the message is passed in as a parameter to the SDK code. And, the **name** tag in the App Insights logs (**Process**) indicates that the message is now being processed by your external event processing code. This issue isn't Azure-related. Instead, these metrics refer to the efficiency of your external code given that the message has already been received from Service Bus. 
 
-### Tracking without tracing system
+## Tracking without tracing system
 In case your tracing system does not support automatic Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
@@ -129,14 +129,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In this example, listener logs duration, result, unique identifier, and start time for each Service Bus operation.
 
-#### Events
+## Events
 For every operation, two events are sent: 'Start' and 'Stop'. Most probably, you are only interested in 'Stop' events. They provide the result of operation, as well as start time and duration as Activity properties.
 
 Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
-
-All events also have 'Entity' and 'Endpoint' properties, they are omitted in below table
-  * `string Entity` -  - Name of the entity (queue, topic, etc.)
-  * `Uri Endpoint` - Service Bus endpoint URL
 
 Each 'Stop' event has `Status` property with `TaskStatus` async operation was completed with, that is also omitted in the following table for simplicity.
 
@@ -147,6 +143,11 @@ All events will have the following properties that conform with the open telemet
 - `kind` – either producer, consumer, or client. Producer is used when sending messages, consumer when receiving, and client when settling.
 - `component` – `servicebus`
 
+All events also have 'Entity' and 'Endpoint' properties, they are omitted in below table
+  * `string Entity` -  - Name of the entity (queue, topic, etc.)
+  * `Uri Endpoint` - Service Bus endpoint URL
+
+## Instrumented operations
 Here is the full list of instrumented operations:
 
 | Operation Name | Tracked API |
@@ -168,7 +169,7 @@ Here is the full list of instrumented operations:
 | ServiceBusProcessor.ProcessMessage | Processor callback set on ServiceBusProcessor. ProcessMessageAsync property |
 | ServiceBusSessionProcessor.ProcessSessionMessage | Processor callback set on ServiceBusSessionProcessor. ProcessMessageAsync property |
 
-#### Filtering and sampling
+## Filtering and sampling
 
 In some cases, it's desirable to log only part of the events  to reduce performance overhead or storage consumption. You could log 'Stop' events only (as in preceding example) or sample percentage of the events. 
 `DiagnosticSource` provide way to achieve it with `IsEnabled` predicate. For more information, see [Context-Based Filtering in DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
