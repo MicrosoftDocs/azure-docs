@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure Security Center
-description: A description of what's new and changed in Azure Security Center.
+description: A description of what's new and changed in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2021
+ms.date: 01/17/2021
 ms.author: memildin
 
 ---
@@ -28,6 +28,24 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 
 ## January 2021
+
+Updates in December include:
+
+- [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
+- [Vulnerability assessment for on-premise and multi-cloud machines is generally available](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
+
+
+### CSV export of filtered list of recommendations 
+
+In November 2020, we added filters to the recommendations page ([Recommendations list now includes filters](#recommendations-list-now-includes-filters)). In December, we expanded those filters ([Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+With this announcement, we're changing the behavior of the **Download to CSV** button so that the CSV export only includes the recommendations currently displayed in the filtered list. 
+
+For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Banner with link to the new preview alerts experience":::
+
+Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is generally available
 
