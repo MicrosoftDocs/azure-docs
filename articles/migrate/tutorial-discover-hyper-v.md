@@ -98,7 +98,7 @@ Set up a new Azure Migrate project.
 ![Page showing Server Assessment tool added by default](./media/tutorial-discover-hyper-v/added-tool.png)
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of VMs.[Learn more](create-manage-projects.md#find-a-project).
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of VMs.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Set up the appliance
 
