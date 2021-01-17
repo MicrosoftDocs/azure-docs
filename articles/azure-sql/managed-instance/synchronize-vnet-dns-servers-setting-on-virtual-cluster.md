@@ -5,6 +5,7 @@ services: sql-database
 ms.service: sql-managed-instance
 author: srdan-bozovic-msft
 ms.author: srbozovi
+ms.topic: how-to
 ms.date: 01/17/2021
 ---
 
