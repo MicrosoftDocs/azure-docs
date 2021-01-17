@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Tutorial: Discover VMware VMs with Server Assessment
 
-As part of your migration journey to Azure, you discover your on-premises inventory and workloads. 
+As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to discover on-premises VMware virtual machines (VMs) with the Azure Migrate: Server Assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance as a VMware VM, to continuously discover VMs and their performance metadata, applications running on VMs, and VM dependencies.
 
@@ -123,7 +123,6 @@ Set up a new Azure Migrate project.
 
 ![Page showing Server Assessment tool added by default](./media/tutorial-discover-vmware/added-tool.png)
 
-
 > [!NOTE]
 > If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of VMs.[Learn more](create-manage-projects.md#find-a-project).
 
@@ -154,8 +153,7 @@ To set up the appliance using an OVA template you:
 
 ### 2. Download the OVA template
 
-In **2: Download Azure Migrate appliance**, select the .OVA file and click on **Download**. 
-
+In **2: Download Azure Migrate appliance**, select the .OVA file and click on **Download**.
 
 ### Verify security
 
@@ -182,9 +180,6 @@ Check that the OVA file is secure, before you deploy it:
         --- | --- | ---
         VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
-
-
-
 ### 3. Create the appliance VM
 
 Import the downloaded file, and create a VM.
@@ -205,7 +200,7 @@ will be hosted.
 Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 
-### Configure the appliance
+### 4. Configure the appliance
 
 Set up the appliance for the first time.
 
