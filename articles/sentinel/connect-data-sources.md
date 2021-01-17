@@ -65,6 +65,8 @@ The following data connection methods are supported by Azure Sentinel:
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Barracuda WAF](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+    - [BETTER Mobile Threat Defense](connect-better-mtd.md)
+    - [Beyond Security beSECURE](connect-besecure.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
