@@ -47,4 +47,4 @@ To change data warehouse units:
     ![Move Slider](./media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## Next steps
-To learn more about SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) tutorial. 
+To learn more about SQL pool, continue to the [Load data into SQL pool](./load-data-from-azure-blob-storage-using-copy.md) tutorial.

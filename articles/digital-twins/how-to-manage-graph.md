@@ -158,7 +158,7 @@ Here is the console output of the above program:
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
-### Create a twin graph from a CSV file
+## Create graph from a CSV file
 
 In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 

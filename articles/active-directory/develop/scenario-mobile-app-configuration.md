@@ -246,8 +246,8 @@ To register your app's URL scheme, follow these steps:
 
    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
 
-   > [!NOTE]
-   > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
+  
+      This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -307,10 +307,9 @@ When MSAL for iOS and macOS calls the broker, the broker calls back to your appl
     }
 ```
 
-> [!NOTE]
-> If you adopted `UISceneDelegate` on iOS 13 or later, then place the MSAL callback into the `scene:openURLContexts:` of `UISceneDelegate` instead. MSAL `handleMSALResponse:sourceApplication:` must be called only once for each URL.
->
-> For more information, see the [Apple documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+If you adopted `UISceneDelegate` on iOS 13 or later, then place the MSAL callback into the `scene:openURLContexts:` of `UISceneDelegate` instead. MSAL `handleMSALResponse:sourceApplication:` must be called only once for each URL.
+
+For more information, see the [Apple documentation](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### Step 2: Register a URL scheme
 
@@ -326,8 +325,7 @@ To register a scheme for your app:
 
    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
 
-   > [!NOTE]
-   > This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
+    This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>

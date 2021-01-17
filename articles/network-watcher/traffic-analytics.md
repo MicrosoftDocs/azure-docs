@@ -265,7 +265,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Statistics of blocked traffic.
     - Why is a host blocking a significant volume of benign traffic? This behavior requires further investigation and probably optimization of configuration
 - Statistics of malicious allowed/blocked traffic
-  - Why is a host receiving malicious traffic and why flows from malicious source is allowed? This behavior requires further investigation and probably optimization of configuration.
+  - Why is a host receiving malicious traffic and why are flows from malicious sources allowed? This behavior requires further investigation and probably optimization of configuration.
 
     Select **See all**, under **Host**, as shown in the following picture:
 

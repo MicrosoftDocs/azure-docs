@@ -7,16 +7,13 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, contperf-fy21q3
 ---
 
 # Export IoT data to cloud destinations using data export
 
 > [!Note]
-> This article describes the data export features in IoT Central.
->
-> - For information about the legacy data export features, see [Export IoT data to cloud destinations using data export (legacy)](./howto-export-data-legacy.md).
-> - To learn about the differences between the data export and legacy data export features, see the [comparison table](#comparison-of-legacy-data-export-and-data-export) below.
+> This article describes the data export features in IoT Central. For information about the legacy data export features, see [Export IoT data to cloud destinations using data export (legacy)](./howto-export-data-legacy.md).
 
 This article describes how to use the new data export feature in Azure IoT Central. Use this feature to continuously export filtered and enriched IoT data from your IoT Central application. Data export pushes changes in near real time to other parts of your cloud solution for warm-path insights, analytics, and storage.
 

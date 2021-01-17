@@ -247,7 +247,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 

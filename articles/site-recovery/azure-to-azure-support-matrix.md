@@ -228,6 +228,7 @@ Standard SSD | Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
+NVMe storage interface | Not supported
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks
 Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md)

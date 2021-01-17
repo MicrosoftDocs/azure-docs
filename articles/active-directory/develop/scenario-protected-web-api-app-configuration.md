@@ -37,7 +37,7 @@ Consider the following questions:
 
 The bearer token that's set in the header when the app is called holds information about the app identity. It also holds information about the user unless the web app accepts service-to-service calls from a daemon app.
 
-Here's a C# code example that shows a client calling the API after it acquires a token with Microsoft Authentication Library for .NET (MSAL.NET):
+Here's a C# code example that shows a client calling the API after it acquires a token with the Microsoft Authentication Library for .NET (MSAL.NET):
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};

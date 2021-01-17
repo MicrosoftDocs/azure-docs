@@ -50,7 +50,7 @@ For example, if you have an orders table, which is distributed by order_id, and 
 
 When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  The articles that follow give further details on improving performance by selecting a distribution column and how to define a distributed table in the WITH clause of your CREATE TABLES statement.
 
-See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distribution](sql-data-warehouse-tables-distribute.md), [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md), and [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
+See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distribution](sql-data-warehouse-tables-distribute.md), [Selecting table distribution](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](sql-data-warehouse-tables-overview.md), and [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
 
 ## Do not over-partition
 
@@ -115,7 +115,7 @@ See also [Table indexes](sql-data-warehouse-tables-index.md), [Columnstore index
 
 If you don't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  
 
-The [Microsoft Q&A question page for Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to post questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
+The [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to post questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
 If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
