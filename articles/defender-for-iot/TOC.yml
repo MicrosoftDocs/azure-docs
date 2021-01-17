@@ -201,6 +201,10 @@
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
+    - name: Horizon API
+      href: references-horizon-api.md
+    - name: Horizon SDK
+      href: references-horizon-sdk.md
     - name: Work with Defender for IoT CLI commands
       href: references-work-with-defender-for-iot-cli-commands.md
     - name: Manage proprietary protocols (Horizon)
@@ -226,7 +230,7 @@
     - name: Azure Security Center documentation
       href: ../security-center/
     - name: Azure security documentation 
-      href: https://docs.microsoft.com/azure/security/
+      href: ../security/index.yml
     - name: Azure RTOS security module on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
     - name: Azure IoT Security, Privacy, & Compliance blog
