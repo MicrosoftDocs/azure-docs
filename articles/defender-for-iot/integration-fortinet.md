@@ -146,7 +146,7 @@ To set a FortiGate firewall rule that blocks this malicious source:
 
 1. In FortiGate, create an API key required for the Defender for IoT forwarding rule. For more information, see [Create an API key in FortiGate](#create-an-api-key-in-fortigate).
 
-1. In Defender for IoT **Forwarding**, set a forwarding rule that blocks malware-related alerts. For more information, see [Configure a forwarding rule to block suspected traffic using the FortiGate firewall](#configure-a-forwarding-rule-to-block-suspected-traffic-using-the-fortigate-firewall).
+1. In Defender for IoT **Forwarding**, set a forwarding rule that blocks malware-related alerts. For more information, see [Block suspected traffic using the FortiGate firewall](#block-suspected-traffic-using-the-fortigate-firewall).
 
 1. In Defender for IoT, **Alerts** block a malicious source. For more information, see [Block the suspicious source](#block-the-suspicious-source).
 
