@@ -336,7 +336,7 @@ from azureml.core import Experiment
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline)
+pipeline_run = Experiment(ws, 'Tutorial-Batch-Scoring').submit(pipeline)
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
@@ -400,7 +400,7 @@ import requests
 rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
-                         json={"ExperimentName": "batch_scoring",
+                         json={"ExperimentName": "Tutorial-Batch-Scoring",
                                "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
@@ -413,7 +413,7 @@ The new run will look similar to the pipeline you ran earlier in the tutorial. Y
 from azureml.pipeline.core.run import PipelineRun
 from azureml.widgets import RunDetails
 
-published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
+published_pipeline_run = PipelineRun(ws.experiments["Tutorial-Batch-Scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 

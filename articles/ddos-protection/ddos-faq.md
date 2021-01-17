@@ -28,6 +28,8 @@ DDoS protection plans have a fixed monthly charge of $2,944 per month which cove
 
 Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
 
+See [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
+
 ## What about protection at the service layer (layer 7)?
 Customers can use Azure DDoS Protection service in combination with a Web Application Firewall (WAF) to for protection both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection Standard) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) as well as third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 

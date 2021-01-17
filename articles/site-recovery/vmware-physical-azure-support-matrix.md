@@ -226,6 +226,7 @@ Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - No
 Guest/server - Storage Spaces | No
+Guest/server - NVMe interface | No
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
