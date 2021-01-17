@@ -45,7 +45,7 @@ The scope detailed below is specific and limited to **Purview connector for Amaz
 Before using Purview to scan your Amazon AWS buckets, ensure that you've performed the following prerequisites:
 
 - [Create a Purview account](#create-a-purview-account)
-- [Create a Purview credential for your AWS bucket scan](#create-a-credential-for-your-aws-bucket-scan)
+- [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan)
 - [Create a new AWS role for Purview](#create-a-new-aws-role-for-purview)
 - [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets) (AWS-KMS encryption only) 
 
@@ -61,16 +61,16 @@ When you're done with the prerequisites, continue with one of the following:
 
 ### Create a Purview account
 
-- **If you already have a Purview account,** you can skip these instructions and continue with [configurations required in AWS](#grant-purview-access-to-your-amazon-s3-buckets).
+- **If you already have a Purview account,** you can continue with the configurations required for AWS S3 support. Start with [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan).
 
-- **If you need to create a Purview account,** follow the instructions in [Create an Azure Purview account instance](create-catalog-portal). After creating your account, return here to complete configuration and begin using Purview connector for Amazon S3.  
+- **If you need to create a Purview account,** follow the instructions in [Create an Azure Purview account instance](create-catalog-portal.md). After creating your account, return here to complete configuration and begin using Purview connector for Amazon S3.  
 
 ### Create a Purview credential for your AWS bucket scan
 
 This procedure describes how to create a new Purview credential to use when scanning your AWS buckets.
 
 > [!TIP]
-> You can also create a new credential in the middle of the process, while [configuring your scan](#create-your-amazon-s3-scan-in-purview). In that case, in the **Credential** field, select **New**.
+> You can also create a new credential in the middle of the process, while [configuring your scan](#create-a-scan-for-your-amazon-s3-bucket). In that case, in the **Credential** field, select **New**.
 > 
 
 1. In Purview, navigate to the **Management Center**, and under **Security and access**, select **Credentials**. 
@@ -139,7 +139,7 @@ For more information about Purview credentials, see the [Azure Purview public pr
 AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** encryption, special configuration is required to enable scanning. 
 
 > [!NOTE]
-> For buckets that use no encryption, AES-256 or AWS-KMS S3 encryption, skip this section and continue to [Retrieving your Bucket URL from Amazon](#retrieve-your-amazon-s3-bucket-url). 
+> For buckets that use no encryption, AES-256 or AWS-KMS S3 encryption, skip this section and continue to [Retrieve your Amazon S3 bucket name](#retrieve-your-amazon-s3-bucket-name).
 > 
  
 **To check the type of encryption used in your Amazon S3 buckets:** 
@@ -150,7 +150,7 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
 1. Select the bucket you want to check. On the bucket's details page, select the **Properties** tab and scroll down to the **Default encryption** area.
 
-    - If the bucket you selected is configured for anything but **AWS-KMS** encryption, including if default encryption for your bucket is **Disabled**, skip the rest of this procedure and continue with [Retrieving your Bucket URL from Amazon](#retrieve-your-amazon-s3-bucket-url).
+    - If the bucket you selected is configured for anything but **AWS-KMS** encryption, including if default encryption for your bucket is **Disabled**, skip the rest of this procedure and continue with [Retrieve your Amazon S3 bucket name](#retrieve-your-amazon-s3-bucket-name).
 
     - If the bucket you selected is configured for **AWS-KMS** encryption, continue as described below to add a new policy that allows for scanning a bucket with custom **AWS-KMS** encryption.
 
@@ -194,17 +194,17 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
 ### Retrieve your new Role ARN
 
-You'll need to record your AWS Role ARN and copy it in to Purview in the [next step](#create-your-amazon-s3-scan-in-purview).
+You'll need to record your AWS Role ARN and copy it in to Purview when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
 
 **To retrieve your role ARN:**
 
-1. In the AWS **Identity and Access Management (IAM)** > **Roles** area, search for and select the new role you [created for Purview](#grant-purview-access-to-your-amazon-s3-buckets). 
+1. In the AWS **Identity and Access Management (IAM)** > **Roles** area, search for and select the new role you [created for Purview](#create-a-purview-credential-for-your-aws-bucket-scan). 
 
 1. On the role's **Summary** page, select the **Copy to clipboard** button to the right of the **Role ARN** value.
 
     ![Copy role ARN to clipboard](./media/setup-configuration-connector-amazon-s3/aws-copy-role-purview.png)
 
-1. Paste this value in a secure location, ready to use when you [create your scan in Purview](#create-your-amazon-s3-scan-in-purview).
+1. Paste this value in a secure location, ready to use when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
 
 ### Retrieve your Amazon S3 bucket name
 
@@ -238,7 +238,7 @@ Your AWS account ID is the ID you use to log in to the AWS console. You can also
 
 For example:
 
-![Retrieve and copy bucket URL](./media/setup-configuration-connector-amazon-s3/aws-locate-account-id.png)
+![Retrieve your AWS account ID](./media/setup-configuration-connector-amazon-s3/aws-locate-account-id.png)
 
 
 ## Add a single Amazon S3 bucket as a Purview resource
@@ -291,7 +291,7 @@ Use this procedure if you have multiple S3 buckets in your Amazon account, and y
     |---------|---------|
     |**Name**     |Enter a meaningful name, or use the default provided.         |
     |**AWS account ID**     | Enter your AWS account ID. For more information, see [Locate your AWS account ID](#locate-your-aws-account-id)|
-    |**Select a collection** |If you selected to register a data source from within a collection, that collection already listed. <br><br>Select a different collection as needed, **None** to assign no collection, or **New** to create a new collection now. <br><br>For more information about Purview collections, see [Manage data sources in Azure Purview](manage-data-sources#manage-collections.md).|
+    |**Select a collection** |If you selected to register a data source from within a collection, that collection already listed. <br><br>Select a different collection as needed, **None** to assign no collection, or **New** to create a new collection now. <br><br>For more information about Purview collections, see [Manage data sources in Azure Purview](manage-data-sources.md#manage-collections).|
 
     When you're done, select **Finish** to complete the registration.
 
@@ -312,7 +312,7 @@ Once you've added your buckets as Purview data sources, you can configure a scan
     |---------|---------|
     |**Name**     |  Enter a meaningful name for your scan or use the default.       |
     |**Type** |Displayed only if you've added your AWS account, with all buckets included. <br><br>Current options include only **All** > **Amazon S3**. Stay tuned for more options to select as Purview's support matrix expands. |
-    |**Credential**     |  Select a Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create a new credential for your AWS bucket scan](create-a-new-credential-for-your-aws-bucket-scan).     |
+    |**Credential**     |  Select a Purview credential with your role ARN. <br><br>**Tip**: If you want to create a new credential at this time, select **New**. For more information, see [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan).     |
     |     |         |
 
     Purview automatically checks that the role ARN is valid, and that the bucket and object within the bucket are accessible, and then continues if the connection succeeds.
