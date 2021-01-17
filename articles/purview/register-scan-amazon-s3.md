@@ -392,4 +392,6 @@ For more information, see the documented Purview limits at:
 ## Next steps
 
 Learn more about Azure Purview Insight reports:
-[Understand Insights in Azure Purview](concept-insights.md)
+
+> [!div class="nextstepaction"]
+> [Understand Insights in Azure Purview](concept-insights.md)
