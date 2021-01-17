@@ -43,7 +43,7 @@ With this announcement, we're changing the behavior of the **Download to CSV** b
 
 For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Banner with link to the new preview alerts experience":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file":::
 
 Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
 
