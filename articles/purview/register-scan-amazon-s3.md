@@ -109,17 +109,17 @@ For more information about Purview credentials, see the [Azure Purview public pr
 
     For example:
 
-    ![Add the Microsoft Account ID to your AWS account](./media/setup-configuration-connector-amazon-s3/aws-create-role-amazons3.png)
+    ![Add the Microsoft Account ID to your AWS account](./media/register-scan-amazon-s3/aws-create-role-amazons3.png)
 
 1. In the **Create role > Attach permissions policies** area, filter the permissions displayed to **S3**. Select **AmazonS3ReadOnlyAccess**, and then select **Next: Tags**.
 
-    ![Select **ReadOnlyAccess** policy for the new Amazon S3 scanning role](./media/setup-configuration-connector-amazon-s3/aws-permission-role-amazons3.png)
+    ![Select **ReadOnlyAccess** policy for the new Amazon S3 scanning role](./media/register-scan-amazon-s3/aws-permission-role-amazons3.png)
 
 1. In the **Add tags (optional)** area, you can optionally choose to create a meaningful tag for this new role. Useful tags enable you to organize, track, and control access for each role you create. 
 
     Enter a new key and value for your tag as needed. When you're done, or if you want to skip this step, select **Next: Review** to review the role details and complete the role creation. 
 
-    ![Add a meaningful tag to organize, track, or control access for your new role](./media/setup-configuration-connector-amazon-s3/add-tag-new-role.png)
+    ![Add a meaningful tag to organize, track, or control access for your new role](./media/register-scan-amazon-s3/add-tag-new-role.png)
 
 1. In the **Review** area, do the following:
 
@@ -131,7 +131,7 @@ For more information about Purview credentials, see the [Azure Purview public pr
 
     For example:
 
-    ![Review role before creating](./media/setup-configuration-connector-amazon-s3/review-role.png)
+    ![Review role before creating](./media/register-scan-amazon-s3/review-role.png)
 
 
 ### Configure scanning for encrypted Amazon S3 buckets
@@ -146,7 +146,7 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
 1. In AWS, navigate to **Storage** > **S3** > and select **Buckets** from the menu on the left.  
 
-    ![Amazon S3 Buckets tab](./media/setup-configuration-connector-amazon-s3/check-encryption-type-buckets.png)
+    ![Amazon S3 Buckets tab](./media/register-scan-amazon-s3/check-encryption-type-buckets.png)
 
 1. Select the bucket you want to check. On the bucket's details page, select the **Properties** tab and scroll down to the **Default encryption** area.
 
@@ -156,7 +156,7 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
     For example:
 
-    ![Amazon S3 bucket configured with AWS-KMS encryption](./media/setup-configuration-connector-amazon-s3/default-encryption-buckets.png)
+    ![Amazon S3 bucket configured with AWS-KMS encryption](./media/register-scan-amazon-s3/default-encryption-buckets.png)
 
 **To add a new policy to allow for scanning a bucket with custom AWS-KMS encryption:**
 
@@ -172,7 +172,7 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
 
     When you're done, select **Review policy** to continue.
 
-    ![Create a policy for scanning a bucket with AWS-KMS encryption](./media/setup-configuration-connector-amazon-s3/create-policy-kms.png)
+    ![Create a policy for scanning a bucket with AWS-KMS encryption](./media/register-scan-amazon-s3/create-policy-kms.png)
 
 1. On the **Review policy** page, enter a meaningful name for your policy and an optional description, and then select **Create policy**.
 
@@ -184,13 +184,13 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
     
     1. On the **Permissions** tab, select **Attach policies**.
 
-        ![On your role's Permissions tab, select Attach policies](./media/setup-configuration-connector-amazon-s3/iam-attach-policies.png)
+        ![On your role's Permissions tab, select Attach policies](./media/register-scan-amazon-s3/iam-attach-policies.png)
 
     1. On the **Attach Permissions** page, search for and select the new policy you created above. Select **Attach policy** to attach your policy to the role.
     
         The **Summary** page is updated, with your new policy attached to your role.
 
-        ![Updated Summary page with the new policy attached to your role](./media/setup-configuration-connector-amazon-s3/attach-policy-role.png)
+        ![Updated Summary page with the new policy attached to your role](./media/register-scan-amazon-s3/attach-policy-role.png)
 
 ### Retrieve your new Role ARN
 
@@ -202,7 +202,7 @@ You'll need to record your AWS Role ARN and copy it in to Purview when [creating
 
 1. On the role's **Summary** page, select the **Copy to clipboard** button to the right of the **Role ARN** value.
 
-    ![Copy role ARN to clipboard](./media/setup-configuration-connector-amazon-s3/aws-copy-role-purview.png)
+    ![Copy role ARN to clipboard](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
 1. Paste this value in a secure location, ready to use when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
 
@@ -214,13 +214,13 @@ You'll need the name of your Amazon S3 bucket to copy it in to Purview when [cre
 
 1. In AWS, navigate to **Storage** > **S3** > and select **Buckets** from the menu on the left.  
 
-    ![Amazon S3 Buckets tab](./media/setup-configuration-connector-amazon-s3/check-encryption-type-buckets.png)
+    ![Amazon S3 Buckets tab](./media/register-scan-amazon-s3/check-encryption-type-buckets.png)
 
 1. Search for and select your bucket to view the bucket details page, and then copy the bucket name to the clipboard. 
 
     For example: 
 
-    ![Retrieve and copy bucket URL](./media/setup-configuration-connector-amazon-s3/retrieve-bucket-url-amazon.png)
+    ![Retrieve and copy bucket URL](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
 
     Paste your bucket name in a secure file, and add an `s3://` prefix to it to create the value you'll need to enter when configuring your bucket as a Purview resource.
 
@@ -238,7 +238,7 @@ Your AWS account ID is the ID you use to log in to the AWS console. You can also
 
 For example:
 
-![Retrieve your AWS account ID](./media/setup-configuration-connector-amazon-s3/aws-locate-account-id.png)
+![Retrieve your AWS account ID](./media/register-scan-amazon-s3/aws-locate-account-id.png)
 
 
 ## Add a single Amazon S3 bucket as a Purview resource
@@ -247,14 +247,14 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 1. Launch the Purview portal using the dedicated Purview connector for Amazon S3 URL. This URL was provided to you by the Amazon S3 Purview connector product management team. 
 
-    ![Launch Connector for Amazon S3 dedicated Purview portal](./media/setup-configuration-connector-amazon-s3/purview-portal-amazons3.png)
+    ![Launch Connector for Amazon S3 dedicated Purview portal](./media/register-scan-amazon-s3/purview-portal-amazons3.png)
 
-1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon](./media/setup-configuration-connector-amazon-s3/ico-register.png) > **Amazon S3** > **Continue**.
+1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon](./media/register-scan-amazon-s3/ico-register.png) > **Amazon S3** > **Continue**.
 
-    ![Add an Amazon AWS bucket as a Purview data source](./media/setup-configuration-connector-amazon-s3/add-s3-datasource-to-purview.png)
+    ![Add an Amazon AWS bucket as a Purview data source](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
     > [!TIP]
-    > If you have multiple [collections](manage-data-sources.md#manage-collections) and want to add your Amazon S3 to a specific collection, select the **Map view** at the top right, and then select the **Register** ![Register icon](./media/setup-configuration-connector-amazon-s3/ico-register.png) button inside your collection.
+    > If you have multiple [collections](manage-data-sources.md#manage-collections) and want to add your Amazon S3 to a specific collection, select the **Map view** at the top right, and then select the **Register** ![Register icon](./media/register-scan-amazon-s3/ico-register.png) button inside your collection.
     >      
         
 1. In the **Register sources (Amazon S3)** pane that opens, enter the following details:
@@ -275,14 +275,14 @@ Use this procedure if you have multiple S3 buckets in your Amazon account, and y
 
 1. Launch the Purview portal using the dedicated Purview connector for Amazon S3 URL. This URL was provided to you by the Amazon S3 Purview connector product management team. 
 
-    ![Launch Connector for Amazon S3 dedicated Purview portal](./media/setup-configuration-connector-amazon-s3/purview-portal-amazons3.png)
+    ![Launch Connector for Amazon S3 dedicated Purview portal](./media/register-scan-amazon-s3/purview-portal-amazons3.png)
 
-1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon](./media/setup-configuration-connector-amazon-s3/ico-register.png) > **Amazon accounts** > **Continue**.
+1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon](./media/register-scan-amazon-s3/ico-register.png) > **Amazon accounts** > **Continue**.
 
-    ![Add an Amazon account as a Purview data source](./media/setup-configuration-connector-amazon-s3/add-s3-account-to-purview.png)
+    ![Add an Amazon account as a Purview data source](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
     > [!TIP]
-    > If you have multiple [collections](manage-data-sources.md#manage-collections) and want to add your Amazon S3 to a specific collection, select the **Map view** at the top right, and then select the **Register** ![Register icon](./media/setup-configuration-connector-amazon-s3/ico-register.png) button inside your collection.
+    > If you have multiple [collections](manage-data-sources.md#manage-collections) and want to add your Amazon S3 to a specific collection, select the **Map view** at the top right, and then select the **Register** ![Register icon](./media/register-scan-amazon-s3/ico-register.png) button inside your collection.
     >         
 
 1. In the **Register sources (Amazon S3)** pane that opens, enter the following details:
@@ -303,8 +303,8 @@ Once you've added your buckets as Purview data sources, you can configure a scan
 
 1. Navigate to the Azure Purview **Sources** area, and then do one of the following:
 
-    - In the **Map view**, select **New scan** ![New scan icon](./media/setup-configuration-connector-amazon-s3/ico-new-scan.png) in your data source box. 
-    - In the **List view**, hover over the row for your data source, and select **New scan** ![New scan icon](./media/setup-configuration-connector-amazon-s3/ico-new-scan.png).
+    - In the **Map view**, select **New scan** ![New scan icon](./media/register-scan-amazon-s3/ico-new-scan.png) in your data source box. 
+    - In the **List view**, hover over the row for your data source, and select **New scan** ![New scan icon](./media/register-scan-amazon-s3/ico-new-scan.png).
 
 1. On the **Scan...** pane that opens on the right, define the following fields and then select **Continue**:
     
@@ -356,13 +356,13 @@ If you've added an AWS account with multiple buckets, the scan history for each 
 
 For example: 
 
-![Show AWS S3 bucket scans under your AWS account source](./media/setup-configuration-connector-amazon-s3/account-scan-history.png)
+![Show AWS S3 bucket scans under your AWS account source](./media/register-scan-amazon-s3/account-scan-history.png)
 
 Use the other areas of Purview to find out details about the content in your data estate, including your Amazon S3 buckets:
 
 - **Search the Purview data catalog,** and filter for a specific bucket. For example:
 
-    ![Search the catalog for AWS S3 asset](./media/setup-configuration-connector-amazon-s3/search-catalog-screen-aws.png)
+    ![Search the catalog for AWS S3 asset](./media/register-scan-amazon-s3/search-catalog-screen-aws.png)
 
 - **View Insight reports** to view statistics for the classification, sensitivity labels, file types, and more details about your content.
 
