@@ -144,7 +144,7 @@ All events will have the following properties that conform with the open telemet
 - `component` – `servicebus`
 
 All events also have 'Entity' and 'Endpoint' properties, they're omitted in below table
-  * `string Entity` -  - Name of the entity (queue, topic, etc.)
+  * `string Entity` -  - Name of the entity (queue, topic, and so on.)
   * `Uri Endpoint` - Service Bus endpoint URL
 
 ### Instrumented operations
@@ -178,7 +178,7 @@ In some cases, it's desirable to log only part of the events  to reduce performa
 
 `IsEnabled` is called in following sequence:
 
-1. `IsEnabled(<OperationName>, string entity, null)` for example, `IsEnabled("ServiceBusSender.Send", "MyQueue1")`. Note there's's no 'Start' or 'Stop' at the end. Use it to filter out particular operations or queues. If callback returns `false`, events for the operation aren't sent.
+1. `IsEnabled(<OperationName>, string entity, null)` for example, `IsEnabled("ServiceBusSender.Send", "MyQueue1")`. Note there's no 'Start' or 'Stop' at the end. Use it to filter out particular operations or queues. If the callback method returns `false`, events for the operation aren't sent.
 
    * For the 'Process' and 'ProcessSession' operations, you also receive `IsEnabled(<OperationName>, string entity, Activity activity)` callback. Use it to filter events based on `activity.Id` or Tags properties.
   
@@ -190,7 +190,7 @@ If some operation result is exception, `IsEnabled("ServiceBusSender.Send.Excepti
 
 You can use `IsEnabled` also implement sampling strategies. Sampling based on the `Activity.Id` or `Activity.RootId` ensures consistent sampling across all tires (as long as it's propagated by tracing system or by your own code).
 
-In presence of multiple `DiagnosticSource` listeners for the same source, it's enough for just one listener to accept the event, so `IsEnabled` isn't guaranteed to be called,
+In presence of multiple `DiagnosticSource` listeners for the same source, it's enough for just one listener to accept the event, so there's no guarantee that `IsEnabled` is called.
 
 
 
@@ -264,7 +264,7 @@ Service Bus .NET Client is instrumented using .NET tracing primitives [System.Di
 
 `Activity` serves as a trace context while `DiagnosticSource` is a notification mechanism. 
 
-If there's's no listener for the DiagnosticSource events, instrumentation is off, keeping zero instrumentation costs. DiagnosticSource gives all control to the listener:
+If there's no listener for the DiagnosticSource events, instrumentation is off, keeping zero instrumentation costs. DiagnosticSource gives all control to the listener:
 - listener controls which sources and events to listen to
 - listener controls event rate and sampling
 - events are sent with a payload that provides full context so you can access and modify Message object during the event
@@ -314,7 +314,7 @@ In this example, listener logs duration, result, unique identifier, and start ti
 #### Events
 
 For every operation, two events are sent: 'Start' and 'Stop'. 
-Most probably, you're only interested in 'Stop' events. They provide the result of operation, as well as start time and duration as Activity properties.
+Most probably, you're only interested in 'Stop' events. They provide the result of operation, and start time and duration as Activity properties.
 
 Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
 
@@ -354,7 +354,7 @@ In every event, you can access `Activity.Current` that holds current operation c
 
 #### Logging more properties
 
-`Activity.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) for more details.
+`Activity.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
 Service Bus instrumentation provides more information in the `Activity.Current.Tags` - they hold `MessageId` and `SessionId` whenever they're available.
 
 Activities that track 'Receive', 'Peek' and 'ReceiveDeferred' event also may have `RelatedTo` tag. It holds distinct list of `Diagnostic-Id`(s) of messages that were received as a result.
@@ -384,19 +384,19 @@ In some cases, it's desirable to log only part of the events  to reduce performa
 
 `IsEnabled` is called in following sequence:
 
-1. `IsEnabled(<OperationName>, string entity, null)` for example, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Note there's's no 'Start' or 'Stop' at the end. Use it to filter out particular operations or queues. If callback returns `false`, events for the operation aren't sent
+1. `IsEnabled(<OperationName>, string entity, null)` for example, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Note there's no 'Start' or 'Stop' at the end. Use it to filter out particular operations or queues. If the callback method returns `false`, events for the operation aren't sent
 
    * For the 'Process' and 'ProcessSession' operations, you also receive `IsEnabled(<OperationName>, string entity, Activity activity)` callback. Use it to filter events based on `activity.Id` or Tags properties.
   
 2. `IsEnabled(<OperationName>.Start)` for example, `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Checks whether 'Start' event should be fired. The result only affects 'Start' event, but further instrumentation doesn't depend on it.
 
-THere's no `IsEnabled` for 'Stop' event.
+There's no `IsEnabled` for 'Stop' event.
 
 If some operation result is exception, `IsEnabled("Microsoft.Azure.ServiceBus.Exception")` is called. You could only subscribe to 'Exception' events and prevent the rest of the instrumentation. In this case, you still have to handle such exceptions. Since other instrumentation is disabled, you shouldn't expect trace context to flow with the messages from consumer to producer.
 
 You can use `IsEnabled` also implement sampling strategies. Sampling based on the `Activity.Id` or `Activity.RootId` ensures consistent sampling across all tires (as long as it's propagated by tracing system or by your own code).
 
-In presence of multiple `DiagnosticSource` listeners for the same source, it's enough for just one listener to accept the event, so `IsEnabled` isn't guaranteed to be called,
+In presence of multiple `DiagnosticSource` listeners for the same source, it's enough for just one listener to accept the event, so there's no guarantee that `IsEnabled` is called.
 
 ---
 
