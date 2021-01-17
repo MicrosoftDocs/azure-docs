@@ -1,15 +1,20 @@
 ---
 title: About the ServiceNow integration
+titleSuffix: Azure Defender for IoT
 description: The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/4/2021
+ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ---
 
-# About the ServiceNow Defender for IoT integration
+# The Defender for IoT ICS management application for ServiceNow
+
+The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. This is an important evolution given the ongoing convergence of IT and OT to support new IoT initiatives, such as smart machines and real-time intelligence.
+
+The application also enables both IT and OT incident response from within one corporate SOC.
 
 ## About Defender for IoT
 
@@ -29,12 +34,6 @@ Defender for IoT delivers the only ICS and IoT cybersecurity platform built by b
 ## About the integration
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
-
-## About the Defender for IoT ICS management application for ServiceNow
-
-The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior. This is an important evolution given the ongoing convergence of IT and OT to support new IoT initiatives, such as smart machines and real-time intelligence.
-
-The application also enables both IT and OT incident response from within one corporate SOC.
 
 ### Threat management
 
@@ -136,14 +135,14 @@ To define the rule:
 
 1. In the **Actions** pane, set the following parameters:
 
-| Parameter | Description |
-|--|--|
-| Domain | Enter the ServiceNow server IP address. |
-| Username | Enter the ServiceNow server username. |
-| Password | Enter the ServiceNow server password. |
-| Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
-| Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
-| Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
+  | Parameter | Description |
+  |--|--|
+  | Domain | Enter the ServiceNow server IP address. |
+  | Username | Enter the ServiceNow server username. |
+  | Password | Enter the ServiceNow server password. |
+  | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+  | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+  | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
 
 1. Select **SAVE**. Defenders for IoT alerts appear as incidents in ServiceNow.
 
@@ -163,17 +162,17 @@ To add a ServiceNow instance:
 
 1. Enter the following sync parameters in the ServiceNow Sync dialog box.
 
-  :::image type="content" source="media/integration-servicenow/sync.png" alt-text="The ServiceNow sync dialog box.":::
+    :::image type="content" source="media/integration-servicenow/sync.png" alt-text="The ServiceNow sync dialog box.":::
 
-  | Parameter | Description |
-  |--|--|
-  | Enable Sync | Enable and disable the sync after defining parameters. |
-  | Sync Frequency (minutes) | By default, information is pushed to ServiceNow every 60 minutes. The minimum is 5 minutes. |
-  | ServiceNow Instance | Enter the ServiceNow instance URL. |
-  | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
-  | Client Secret | Enter the Client Secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
-  | Username | Enter the username for this instance. |
-  | Password | Enter the password for this instance. |
+     Parameter | Description |
+    |--|--|
+    | Enable Sync | Enable and disable the sync after defining parameters. |
+    | Sync Frequency (minutes) | By default, information is pushed to ServiceNow every 60 minutes. The minimum is 5 minutes. |
+    | ServiceNow Instance | Enter the ServiceNow instance URL. |
+    | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+    | Client Secret | Enter the Client Secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+    | Username | Enter the username for this instance. |
+    | Password | Enter the password for this instance. |
 
 1. Select **SAVE**.
 
@@ -183,7 +182,7 @@ Verify that the on-premises management console is connected to the ServiceNow in
 
 :::image type="content" source="media/integration-servicenow/sync-confirmation.png" alt-text="Verify the communication occurred by looking at the last sync.":::
 
-## Setting up Defender for IoT and ServiceNow integration using the HTTPS proxy
+## Set up the integrations using the HTTPS proxy
 
 When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind the proxy, the default port cannot be used.
 
@@ -242,7 +241,7 @@ To view device attributes:
 
 3. Navigate to **Inventory** or **Alert**.
 
-   :::image type="content" source="media/integration-servicenow/alert-list.png" alt-text="Inventory or Alert":::
+   [:::image type="content" source="media/integration-servicenow/alert-list.png" alt-text="Inventory or Alert":::](media/integration-servicenow/alert-list.png#lightbox)
 
 ## Inventory information
 
@@ -280,7 +279,7 @@ To view connected devices:
 
 1. Select a device and then select the **Appliance** listed in for that device.
 
-  :::image type="content" source="media/integration-servicenow/appliance.png" alt-text="Select the desired appliance from the list.":::
+    :::image type="content" source="media/integration-servicenow/appliance.png" alt-text="Select the desired appliance from the list.":::
 
 1. In the **Device Details** dialog box, select **Connected Devices**.
 
@@ -339,7 +338,7 @@ This article describes the device alert information pushed to ServiceNow.
 
 Select the entry in the created column to view alert information in a form. You can update alert details and assign the alert to an individual to review and handle.
 
-:::image type="content" source="media/integration-servicenow/alert.png" alt-text="View the alert's information.":::
+[:::image type="content" source="media/integration-servicenow/alert.png" alt-text="View the alert's information.":::](media/integration-servicenow/alert.png#lightbox)
 
 ### About alert engines
 
@@ -352,3 +351,7 @@ This article describes the kind of alerts each engine triggers.
 | Operational alerts | Triggered when the Operational engine detects network operational incidents or device malfunctioning. For example, a network device was stopped using a Stop PLC command, or an interface on a  sensor stopped monitoring traffic. |
 | Malware alerts | Triggered when the Malware engine detects malicious network activity, for example, known attacks such as Conficker. |
 | Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scanning but is not defined as a scanning device. |
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

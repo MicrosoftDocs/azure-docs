@@ -1,10 +1,11 @@
 ---
 title: Palo Alto integration
+titleSuffix: Azure Defender for IoT
 description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/11/2021
+ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -96,7 +97,7 @@ In addition, Defender for IoT sends an email to the relevant Panorama user to no
 
 :::image type="content" source="media/integration-paloalto/structure.png" alt-text="CyberX-Panorama Integration Architecture":::
 
-## To configure creating Panorama blocking policies, Defender for IoT configuration
+## Create Panorama blocking policies in Defender for IoT configuration
 
 ### To configure DNS Lookup
 
@@ -124,11 +125,11 @@ In addition, Defender for IoT sends an email to the relevant Panorama user to no
 
 1. In the left pane, select **Forwarding**. The Forwarding pane appears.
 
-  :::image type="content" source="media/integration-paloalto/forward.png" alt-text="The forwarding screen.":::
+   :::image type="content" source="media/integration-paloalto/forward.png" alt-text="The forwarding screen.":::
 
 1. In the **Forwarding** pane, select **Create Forwarding Rule**.
 
-  :::image type="content" source="media/integration-paloalto/forward-rule.png" alt-text="Create Forwarding Rule":::
+   :::image type="content" source="media/integration-paloalto/forward-rule.png" alt-text="Create Forwarding Rule":::
 
 1. To configure the Palo Alto Panorama Forwarding Rule:
 
@@ -144,28 +145,41 @@ In addition, Defender for IoT sends an email to the relevant Panorama user to no
    - **Username**: Enter the Panorama server username.
    - **Password**: Enter the Panorama server password.
    - **Report Address**: Define how the blocking is executed, as follows:
+   
      - **By IP Address**: Always creates blocking policies on Panorama based on the IP address.
+     
      - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address.
+     
    - **Email**: Set the email address for the policy notification email
      > [!NOTE]
      > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
    - **Execute a DNS lookup upon alert detection (Checkbox)**: When the By FQDN, or IP Address option is set in the Report Address. This checkbox is selected by default. If only the IP address is set, this option is disabled..
    - **Configure**: Set up the following options to allow blocking of the suspicious sources by the Palo Alto Panorama:
+   
      - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS, protocol specification (potential exploit).
+     
      - **Block unauthorized PLC programming/firmware updates**: Unauthorized PLC changes.
+     
      - **Block unauthorized PLC stop**: PLC stop (downtime).
+     
      - **Block malware-related alerts**: Blocking of industrial malware attempts (TRITON, NotPetya, etc.). You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately.
+     
      - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance).
+     
 1. Select **Submit**.
 
 ### To block the suspicious source
 
 1. In the **Alerts** pane, select the alert related to Palo Alto integration. The **Alert’s Details** dialog box appears.
 
-  :::image type="content" source="media/integration-paloalto/unauthorized.png" alt-text="Alert details":::
+   :::image type="content" source="media/integration-paloalto/unauthorized.png" alt-text="Alert details":::        
 
 1. To automatically block the suspicious source, select **Block Source**.
 
 1. In the **Please Confirm** dialog box, select **OK.**
 
-  :::image type="content" source="media/integration-paloalto/please.png" alt-text="Confirm":::
+   :::image type="content" source="media/integration-paloalto/please.png" alt-text="Confirm":::
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

@@ -1,10 +1,11 @@
 ---
 title: ClearPass integration
+titleSuffix: Azure Defender for IoT
 description: This integration article covers the configuration and use of the integration between the Defender for IoT platform and ClearPass Policy Manager. The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/4/2021
+ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -81,9 +82,7 @@ Defender for IoT uses the REST API as part of the integration. REST APIs are aut
 
 In order to secure access to only the REST API for the API Client, create a restricted access operator profile.
 
-To create a ClearPass operator profile:
-
-- In the Edit operator profile window, set all the options to **No Access** except for the following:
+To create a ClearPass operator profile, in the **Edit Operator Profile** window, set all the options to **No Access** except for the following:
 
 | Parameter | Description |
 |--|--|
@@ -216,11 +215,11 @@ To define the ClearPass forwarding rule on the Defender for IoT sensor:
 
 4. In the **Actions** pane, set the following parameters:
 
-| Parameter | Description |
-|--|--|
-| **Host** | Type the ClearPass server IP address. |
-| **Port** | Type the port of the ClearPass on which the forwarding is done. |
-| **Configure** | Set-up the following options to allow viewing of Defender for IoT alerts in the ClearPass system: <br />- **Report illegal function codes:** Protocol violations - Illegal field value violating ICS protocol specification (potential exploit).<br />- **Report unauthorized PLC programming and firmware updates:** Unauthorized PLC changes.<br />- **Report unauthorized PLC stop:** PLC stop (downtime).<br />- **Report malware related alerts:** Industrial malware attempts, such as TRITON, NotPetya.<br />- **Report unauthorized scanning:** Unauthorized scanning (potential reconnaissance). |
+    | Parameter | Description |
+    |--|--|
+    | **Host** | Type the ClearPass server IP address. |
+    | **Port** | Type the port of the ClearPass on which the forwarding is done. |
+    | **Configure** | Set-up the following options to allow viewing of Defender for IoT alerts in the ClearPass system: <br />- **Report illegal function codes:** Protocol violations - Illegal field value violating ICS protocol specification (potential exploit).<br />- **Report unauthorized PLC programming and firmware updates:** Unauthorized PLC changes.<br />- **Report unauthorized PLC stop:** PLC stop (downtime).<br />- **Report malware related alerts:** Industrial malware attempts, such as TRITON, NotPetya.<br />- **Report unauthorized scanning:** Unauthorized scanning (potential reconnaissance). |
 
 5. Select **Submit**.
 
@@ -237,3 +236,7 @@ If Sync is not working or shows an error then, it’s likely you’ve missed cap
 Example of API logs between Defender for IoT and ClearPass:
 
 :::image type="content" source="media/integration-clearpass/log.png" alt-text="API logs between CyberX and ClearPass.":::
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

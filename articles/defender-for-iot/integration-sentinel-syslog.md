@@ -1,17 +1,38 @@
 ---
 title: Sentinel syslog integration
+titleSuffix: Azure Defender for IoT
 description: Defender for IoT delivers out-of-the-box integration with Azure Sentinel to provide real-time threat information over encrypted connections in order to enhance security analytics and threat intelligence across the enterprise.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/4/2021
+ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ---
 
-# About the Microsoft Azure Sentinel integration
+# About the integration
 
-## AboutDefender for IoT
+Defender for IoT delivers out-of-the-box integration with Azure Sentinel to provide real-time threat information over encrypted connections in order to enhance security analytics and threat intelligence across the enterprise.
+
+IoT and OT security threats are identified by Defender for IoT security engines, which provide immediate alert response to malware attacks, network and security baseline deviations, as well as operational and protocol anomalies.
+
+[:::image type="content" source="media/integration-sentinel-syslog/alerts.png" alt-text="The alert response screen to malware attacks.":::](media/integration-sentinel-syslog/alerts.png#lightbox)
+
+Threat information is displayed in **Microsoft Azure Sentinel.**
+
+[:::image type="content" source="media/integration-sentinel-syslog/sentinel.png" alt-text="The graphical display of the threat information in Microsoft Azure Sentinel.":::](media/integration-sentinel-syslog/sentinel.png#lightbox)
+
+[:::image type="content" source="media/integration-sentinel-syslog/report.png" alt-text="The threat information report based on a specific time range.":::](media/integration-sentinel-syslog/report.png#lightbox)
+
+These bridged platforms help SOC Administrators, IT teams, and analysts:
+
+- Reduce the time required for industrial and critical infrastructure organizations to detect, investigate, and act on cyber threats.
+
+- Obtain real-time intelligence about OT risks.
+
+- Correlate Defender for IoT threat detection with Sentinel threat monitoring and incident management workflows.
+
+## About Defender for IoT
 
 Defender for IoT delivers the only OT and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure. Defender for IoT is the only platform with patented OT-aware threat analytics and machine learning. Defender for IoT provides:
 
@@ -29,29 +50,7 @@ Microsoft Azure Sentinel is a scalable, cloud-native, security information event
 
 Azure Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution timeframes.
 
-## About the integration
-
-Defender for IoT delivers out-of-the-box integration with Azure Sentinel to provide real-time threat information over encrypted connections in order to enhance security analytics and threat intelligence across the enterprise.
-
-IoT and OT security threats are identified by Defender for IoT security engines, which provide immediate alert response to malware attacks, network and security baseline deviations, as well as operational and protocol anomalies.
-
-:::image type="content" source="media/integration-sentinel-syslog/alerts.png" alt-text="The alert response screen to malware attacks.":::
-
-Threat information is displayed in **Microsoft Azure Sentinel.**
-
-:::image type="content" source="media/integration-sentinel-syslog/sentinel.png" alt-text="The graphical display of the threat information in Microsoft Azure Sentinel.":::
-
-:::image type="content" source="media/integration-sentinel-syslog/report.png" alt-text="The threat information report based on a specific time range.":::
-
-These bridged platforms help SOC Administrators, IT teams, and analysts:
-
-- Reduce the time required for industrial and critical infrastructure organizations to detect, investigate, and act on cyber threats.
-
-- Obtain real-time intelligence about OT risks.
-
-- Correlate Defender for IoT threat detection with Sentinel threat monitoring and incident management workflows.
-
-## System Requirements and Architecture
+## System requirements and architecture
 
 - Defender for IoT version 2.8 or above
 
@@ -434,3 +433,7 @@ This article provides sample setup output files for the steps carried out above.
     -rw-r--r-- 1 root root 1074 2008-06-19 12:43 cert.pem
     -rw-r--r-- 1 root root  887 2008-06-19 12:40 key.pem
     ```
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

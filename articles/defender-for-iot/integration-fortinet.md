@@ -1,10 +1,11 @@
 ---
 title: About the Fortinet integration
+titleSuffix: Azure Defender for IoT
 description: Defender for IoT and Fortinet has established a technology partnership in order to detect and stop attacks on IoT and ICS networks.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/4/2021
+ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -55,13 +56,13 @@ Next generation firewalls reduce cost and complexity with full visibility into a
 
 ## Use cases
 
-### Prevent Unauthorized changes to Programmable Logic Controllers
+### Prevent unauthorized changes to programmable logic controllers
 
 Organizations use programmable logic controllers (PLCs) to manage physical processes such as robotic arms in factories, spinning turbines in wind farms, and centrifuges in nuclear power plants.
 
 An update to the ladder logic or firmware of a PLC can represent a legitimate activity or an attempt to compromise the device by inserting malicious code.  Defender for IoT can detect unauthorized changes to PLCs, and then deliver information about that change to both FortiSIEM and FortiGate. Armed with that information, FortSIEM administrators can decide how to best mitigate the solution. One mitigation option would be to create a rule in FortiGate that stops further communication to the affected device.
 
-### Stop Ransomware before it damages IoT and ICS networks
+### Stop ransomware before it damages IoT and ICS networks
 
 Defender for IoT continuously monitors IoT and ICS networks for behaviors that are caused by ransomware such as LockerGoga, WannaCry, and NotPetya. When integrated with FortiSIEM and FortiGate, Defender for IoT can deliver information about the presence of these types of ransomware so that ForiSIEM operators can see where the malware is, and FortiGate administrators can stop the ransomware from spreading and wreaking more havoc.
 
@@ -101,7 +102,7 @@ To create a forwarding rule
 
 1. From the sensor or on-premises management console left pane, select **Forwarding**.
 
-    :::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="View your forwarding rules in the Forwarding window.":::
+    [:::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="View your forwarding rules in the Forwarding window.":::](media/integration-fortinet/forwarding-view.png#lightbox)
 
 2. Select **Create Forwarding Rules**. In the **Create Forwarding Rule** window, and define your rule's parameters.
 
@@ -184,11 +185,11 @@ To set a FortiGate firewall rule that blocks this malicious source:
 
     :::image type="content" source="media/integration-fortinet/api-key.png" alt-text="Cell phone description automatically generates New API Key":::
 
-## Configure a forwarding rule to block suspected traffic using the FortiGate firewall
+## Block suspected traffic using the FortiGate firewall
 
 1. In the left pane, select **Forwarding**.
 
-    :::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="The Forwarding window option in a sensor.":::
+    [:::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="The Forwarding window option in a sensor.":::](media/integration-fortinet/forwarding-view.png#lightbox)
 
 1. Select **Create Forwarding Rules** and define rule parameters.
 
@@ -212,15 +213,15 @@ To set a FortiGate firewall rule that blocks this malicious source:
 
 1. In the **Actions** pane, set the following parameters:
 
-| Parameter | Description |
-|--|--|
-| Host | The FortiGate server IP address type. |
-| Port | The FortiGate server port type. |
-| Username | The FortiGate server username type. |
-| API Key | Enter the API key that you created in FortiGate. |
-| Incoming Interface| Define how blocking is executed:<br /><br />**By IP Address**: Always creates blocking policies on Panorama based on IP address.<br /><br />**By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if exists, otherwise IP Address.| 
-| Outgoing Interface |Set the email address for the policy notification email. <br /><br /> **Note**: Make sure you have configured a Mail Server in XSense. If no email address is entered, XSense does not send a notification email.| 
-|Configure| Set-up the following options to allow blocking of the suspicious sources by the FortiGate firewall: <br /><br />**Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)<br /><br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes<br /><br />**Block unauthorized PLC stop**: PLC stop (downtime)<br /><br />**Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately.<br /><br />*Block unauthorized scanning*: Unauthorized scanning (potential reconnaissance)
+    | Parameter | Description |
+    |--|--|
+    | Host | The FortiGate server IP address type. |
+    | Port | The FortiGate server port type. |
+    | Username | The FortiGate server username type. |
+    | API Key | Enter the API key that you created in FortiGate. |
+    | Incoming Interface| Define how blocking is executed:<br /><br />**By IP Address**: Always creates blocking policies on Panorama based on IP address.<br /><br />**By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if exists, otherwise IP Address.| 
+    | Outgoing Interface |Set the email address for the policy notification email. <br /><br /> **Note**: Make sure you have configured a Mail Server in XSense. If no email address is entered, XSense does not send a notification email.| 
+    |Configure| Set-up the following options to allow blocking of the suspicious sources by the FortiGate firewall: <br /><br />**Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)<br /><br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes<br /><br />**Block unauthorized PLC stop**: PLC stop (downtime)<br /><br />**Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately.<br /><br />*Block unauthorized scanning*: Unauthorized scanning (potential reconnaissance)
 
 1. Select **Submit**.
 
@@ -235,3 +236,7 @@ To set a FortiGate firewall rule that blocks this malicious source:
     :::image type="content" source="media/integration-fortinet/confirm.png" alt-text="The confirmation window.":::
 
 1. In the **Please Confirm** dialog box, select **OK**.
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

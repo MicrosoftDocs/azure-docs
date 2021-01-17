@@ -1,10 +1,11 @@
 ---
 title: About the Forescout integration
+titleSuffix: Azure Defender for IoT
 description: The Azure Defender for IoT integration with the Forescout platform provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/4/2021
+ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -153,11 +154,9 @@ To view a device's attributes:
 
 View extra device information for devices directed by Defender for IoT. For example, Forescout compliance and policy information.
 
-To view extra details:
+To accomplish this, right-click on a device from the **Device Inventory Hosts** section. The host details dialog box opens with additional information.
 
-1. Right-click on a device from the device inventory hosts section. The host details dialog box opens with additional information.
-
-   :::image type="content" source="media/integration-forescout/details-dialog-box-in-forescout.png" alt-text="Host Details":::
+:::image type="content" source="media/integration-forescout/details-dialog-box-in-forescout.png" alt-text="Host Details":::
 
 ## Create Azure Defender for IoT policies in Forescout
 
@@ -176,3 +175,7 @@ To access Defender for IoT properties:
 1. Expand the **CyberX Platform** folder in the **Properties Tree**. The Defender for IoT following properties are available.
 
 :::image type="content" source="media/integration-forescout/forescout-property-tree.png" alt-text="Properties":::
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

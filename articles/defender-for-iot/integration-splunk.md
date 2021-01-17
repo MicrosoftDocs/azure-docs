@@ -1,5 +1,6 @@
 ---
 title: About the Splunk integration
+titleSuffix: Azure Defender for IoT
 description: To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
 author: shhazam-ms
 manager: rkarlin
@@ -36,7 +37,7 @@ The integration of Defender for IoT and Splunk via the native application lets u
 
 - Monitor and respond from a single-pane-of-glass.
 
-:::image type="content" source="media/integration-splunk/splunk-mainpage-v2.png" alt-text="Main page of the splunk tool.":::
+[:::image type="content" source="media/integration-splunk/splunk-mainpage-v2.png" alt-text="Main page of the splunk tool.":::](media/integration-splunk/splunk-mainpage-v2.png#lightbox)
 
 :::image type="content" source="media/integration-splunk/alerts.png" alt-text="The alerts page in splunk.":::
 
@@ -66,7 +67,7 @@ The following versions are requirements.
   
 ## Download the application
 
-Download the *CyberX ICS Threat Monitoring for Splunk Application* from the [Splunkbase](https://splunkbase.splunk.com/application/4313/).
+Download the *CyberX ICS Threat Monitoring for Splunk Application* from the [Splunkbase](https://splunkbase.splunk.com/app/4313/).
 
 ## Splunk permission requirements
 
@@ -168,3 +169,7 @@ To create a forwarding rule:
     | **Password** | Splunk server password |
 
 1. Select **Submit**
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

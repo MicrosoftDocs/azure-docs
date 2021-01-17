@@ -1,5 +1,6 @@
 ---
 title: QRadar integration
+titleSuffix: Azure Defender for IoT
 description: Configure the Defender for IoT solution integration with QRadar.
 author: shhazam-ms
 manager: rkarlin
@@ -33,9 +34,9 @@ When building sites and assigning appliances to zones in the on-premises managem
 
 To change the appliance name:
 
-1. On the side menu, click on the current appliance name. The **Edit Defender for IoT Platform Configuration** dialog box appears.
+1. On the side menu, select the current appliance name. The **Edit Defender for IoT Platform Configuration** dialog box appears.
 
-1. In the **Defender for IoT Platform Name** text box, type the new appliance name and click **Save**.
+1. In the **Defender for IoT Platform Name** text box, type the new appliance name and select **Save**.
 
 1. The **Edit Defender for IoT Platform Configuration** dialog box closes, and the new name appears in the left pane.
 
@@ -43,42 +44,45 @@ To change the appliance name:
 
 To configure the Syslog listener to work with QRadar:
 
-1. Login to QRadar.
+1. Sign in to QRadar.
 
 1. From the left pane select **Admin** > **Data Sources**, the **Data Sources** window appears.
 
-   :::image type="content" source="media/integration-qradar/log.png" alt-text="Select log sources from the available options.":::
+   [:::image type="content" source="media/integration-qradar/log.png" alt-text="Select log sources from the available options.":::](media/integration-qradar/log.png#lightbox)
 
-1. In the **Data Sources** window, click **Log Sources**. The **Modal** window appears.
+1. In the **Data Sources** window, select **Log Sources**. The **Modal** window appears.
 
-   :::image type="content" source="media/integration-qradar/modal.png" alt-text="After selecting Syslog the modal window opens.":::
+   [:::image type="content" source="media/integration-qradar/modal.png" alt-text="After selecting Syslog the modal window opens.":::](media/integration-qradar/modal.png#lightbox)
 
-1. In the **Modal** window, click **Add**. The **Add a log source** dialog box appears.
+1. In the **Modal** window, select **Add**. The **Add a log source** dialog box appears.
 
    :::image type="content" source="media/integration-qradar/source.png" alt-text="Add a log source by filling in the appropriate fields.":::
 
 1. In the **Add a log source** dialog box, set the following parameters:
+
    - **Log Source Name**: `<XSense Name>`
+   
    - **Log Source Description**: `<XSense Name>`
    - **Log Source Type**: `Universal LEEF`
    - **Protocol Configuration**: `Syslog`
    - **Log Source Identifier**: `<XSenseName>`
+   
    > [!NOTE]
    > Log Source Identifier name must not include a white space. It is recommended to replace each white space character with an underscore.
 
-1. Click **Save**, the **Add a log source** dialog box closes.
+1. Select **Save**, the **Add a log source** dialog box closes.
 
-1. Click **Deploy Changes**.
+1. Select **Deploy Changes**.
 
 :::image type="content" source="media/integration-qradar/deploy.png" alt-text="Screenshot of Deploy Changes view":::
 
 ## Deploying Defender for IoT platform QID
 
-QID is an event identifier in QRadar. All of Defender for IoT platform reports are tagged under the same event (XSense Alert).
+QID is an event identifier in QRadar. All of Defenders for IoT platform reports are tagged under the same event (XSense Alert).
 
 To deploy Xsense QID:
 
-1. Login to QRadar console.
+1. Sign in to QRadar console.
 
 1. Create a file named `xsense_qids`.
 
@@ -88,11 +92,11 @@ To deploy Xsense QID:
 
 ## Setting Up QRadar forwarding rules
 
-QRadar forwarding rule must be configured in the Defender for IoT appliance and mapped in the on-premises management console.
+In the Defender for IoT appliance, configure a Qradar forwarding rule. You must then map the rule on the on-premises management console.
 
 To define QRadar notifications in the Defender for IoT appliance:
 
-1. In the From the side menu, select **Forwarding**. The **Forwarding** window appears.
+1. In the side menu, select **Forwarding**. The **Forwarding** window appears.
 
    :::image type="content" source="media/integration-qradar/create.png" alt-text="Create a Forwarding Rule":::
 
@@ -100,7 +104,7 @@ To define QRadar notifications in the Defender for IoT appliance:
 
 1. Configure the QRadar IP address and the timezone.
 
-1. Click **Submit**.
+1. Select **Submit**.
 
 To map notifications to QRadar in the Central Manager:
 
@@ -116,7 +120,7 @@ To map notifications to QRadar in the Central Manager:
 
 1. Double-click an unknown report from XSense.
 
-1. Click **Map Event**.
+1. Select **Map Event**.
 
 1. The **Modal Log Source Event** page appears.
 
@@ -124,9 +128,9 @@ To map notifications to QRadar in the Central Manager:
    - High-Level Category - Suspicious Activity + Low-Level Category - Unknown Suspicious Event + Log
    - Source Type - any
 
-1. Click **Search**.
+1. Select **Search**.
 
-1. From the results, choose the line in which the name XSense appears and click **OK**.
+1. From the results, choose the line in which the name XSense appears and select **OK**.
 
 All the XSense reports from now on are tagged as XSense Alerts.
 
@@ -134,7 +138,7 @@ All the XSense reports from now on are tagged as XSense Alerts.
 
 To add custom fields to alerts:
 
-1. Click **Extract** Property, a modal window will appear.
+1. Select **Extract Property**, a modal window will appear.
 
 1. Choose Regex Based.
 
@@ -168,3 +172,7 @@ To add custom fields to alerts:
       - Xsense Sender Name RegEx: `senderName=(.*)(?=\t)`
       - Xsense Alert Engine RegEx: `engine =(.*)(?=\t)`
       - Xsense Source Device Name RegEx: `src`
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).

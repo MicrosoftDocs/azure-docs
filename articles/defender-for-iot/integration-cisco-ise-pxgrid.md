@@ -1,5 +1,6 @@
 ---
 title: About the Cisco ISE pxGrid integration
+titleSuffix: Azure Defender for IoT
 description: Bridging the capabilities of Defender for IoT with Cisco ISE pxGrid, provides security teams unprecedented device visibility to the enterprise ecosystem.
 author: shhazam-ms
 manager: rkarlin
@@ -128,11 +129,7 @@ To set up communication:
 
 ## Subscribe to the endpoint device topic
 
-Verify that the ISE pxGrid node has subscribed to the endpoint device topic.
-
-To subscribe:
-
-1. Select **Administration**>**pxGrid Services**>**Web Clients**. Verify you that can see that ISE has subscribed to the endpoint device topic.
+Verify that the ISE pxGrid node has subscribed to the endpoint device topic. Navigate to **Administration**>**pxGrid Services**>**Web Clients**. There, you can verify that ISE has subscribed to the endpoint device topic.
 
 ## Generate certificates
 
@@ -219,3 +216,7 @@ Logs can be found in:
 - `/var/cyberx/logs/pxgrid.log`
 
 - `/var/cyberx/logs/core.log`
+
+## Next steps
+
+Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).
