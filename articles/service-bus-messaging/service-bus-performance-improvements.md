@@ -37,7 +37,9 @@ For more information on minimum .NET Standard platform support, see [.NET implem
 
 ## Reusing factories and clients
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-The Service Bus objects that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). We recommend that you don't close or dispose these objects after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. Establishing a connection is an expensive operation that you can avoid by reusing the same ServiceBusClient and creating the necessary entity-specific objects from the same ServiceBusClient instance. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
+The Service Bus objects that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
+
+We recommend that you don't close or dispose these objects after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. Establishing a connection is an expensive operation that you can avoid by reusing the same ServiceBusClient and creating the necessary entity-specific objects from the same ServiceBusClient instance. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -131,9 +133,7 @@ var options = new ServiceBusProcessorOptions
       AutoCompleteMessages = false,
       MaxConcurrentCalls = 20
 };
-await using ServiceBusProcessor processor = client.CreateProcessor(
-queueName,
-options);
+await using ServiceBusProcessor processor = client.CreateProcessor(queueName,options);
 processor.ProcessMessageAsync += MessageHandler;
 processor.ProcessErrorAsync += ErrorHandler;
 
@@ -219,11 +219,11 @@ Service Bus doesn't support transactions for receive-and-delete operations. Also
 Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue or subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching doesn't occur for peek or receive operations, nor does batching occur across clients.
 
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-Batching functionality for the .NET Standard SDK, doesn't yet expose a property to manipulate.
+Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Batching functionality for the .NET Standard SDK, doesn't yet expose a property to manipulate.
+Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -440,9 +440,9 @@ To maximize throughput, follow these guidelines:
 * Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
-### Topic with a small number of subscriptions
+### Topic with a few subscriptions
 
-Goal: Maximize the throughput of a topic with a small number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
+Goal: Maximize the throughput of a topic with a few subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
 
 To maximize throughput, follow these guidelines:
 
