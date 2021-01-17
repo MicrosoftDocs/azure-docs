@@ -48,6 +48,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 To create an Azure Migrate project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on the Azure subscription
 - Permissions to register Azure Active Directory (AAD) apps
+- Owner or Contributor plus User Access Administrator permissions on the Azure subscription to create a Key Vault, used during agentless VMware migration
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -66,7 +67,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Opens the Add Role assignment page to assign a role to the account](./media/tutorial-discover-vmware/assign-role.png)
 
-7. To register the appliance, your Azure account needs **permissions to register AAD apps.**
+1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
