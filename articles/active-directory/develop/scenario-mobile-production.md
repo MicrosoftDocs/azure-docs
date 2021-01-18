@@ -56,7 +56,5 @@ Here are some suggestions for data collection:
 
 ## Next steps
 
-Here are some things to consider when moving your application to production.
 1. Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
-
-To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+1. To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
