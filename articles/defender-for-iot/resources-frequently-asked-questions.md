@@ -35,7 +35,7 @@ Azure Defender for IoT provides comprehensive protocol support. In addition to e
 This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
 
 ## Do I have to purchase hardware appliances from Microsoft partners?
-Azure Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
+Azure Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](./how-to-identify-required-appliances.md), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
 
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 

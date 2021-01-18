@@ -436,7 +436,7 @@ Implement multifactor authentication for Azure AD. Administrators need to ensure
 
 **Guidance**: Use Privileged Access Workstations (PAW) with multifactor authentication configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
+ms.custom: responsible-ml
 #Customer intent: As a data scientist, I want to learn about assessing and mitigating fairness in machine learning models.
 ---
 

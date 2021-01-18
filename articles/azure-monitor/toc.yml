@@ -8,6 +8,8 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
+  - name: Migrate from Operations Manager
+    href: azure-monitor-operations-manager.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
@@ -196,6 +198,8 @@
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
+      - name: Understanding metrics aggregation 
+        href: platform/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -226,8 +230,6 @@
         href: platform/service-providers.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
-      - name: Troubleshooting logs
-        href: platform/azure-monitor-troubleshooting-logs.md
     - name: Log Analytics
       items:
       - name: Overview
@@ -569,7 +571,11 @@
       - name: Data Synced From Your ITSM Product
         href: platform/itsmc-synced-data.md
       - name: Troubleshooting problems in ITSM Connector
-        href: platform/itsmc-resync-servicenow.md
+        items:
+        - name: Overview
+          href: platform/itsmc-resync-servicenow.md
+        - name: Dashboard Investigation
+          href: platform/itsmc-dashboard.md
       - name: Integrate with Secure Export
         items:
            - name: Overview
@@ -666,6 +672,8 @@
             href: app/javascript-react-native-plugin.md 
           - name: Angular plugin
             href: app/javascript-angular-plugin.md
+          - name: Click Analytics Auto-collection plugin
+            href: app/javascript-click-analytics-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -701,14 +709,17 @@
             - name: Configuration options
               href: app/java-standalone-config.md
             - name: Telemetry processors
-              href: app/java-standalone-telemetry-processors.md
+              items:
+              - name: Overview
+                href: app/java-standalone-telemetry-processors.md
+              - name: Examples
+                href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
               href: app/java-standalone-upgrade-from-2x.md
             - name: Troubleshooting
               href: app/java-standalone-troubleshoot.md
-
       - name: On-Premises servers
         items:
         - name: ASP.NET
