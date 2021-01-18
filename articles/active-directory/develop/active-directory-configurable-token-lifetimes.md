@@ -15,7 +15,7 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
 ---
-# Configurable token lifetimes in Microsoft identity platform (preview)
+# Configurable token lifetimes in the Microsoft identity platform (preview)
 
 You can specify the lifetime of a access, ID, or SAML token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
@@ -96,12 +96,20 @@ Confidential clients are applications that can securely store a client password 
 
 Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. To do this, use the [Refresh Token Max Inactive Time property](#refresh-token-max-inactive-time) (`MaxInactiveTime`). You also can use policies to set a period beyond which the refresh tokens are no longer accepted. To do this, use the [Single-Factor Refresh Token Max Age](#single-factor-session-token-max-age) or [Multi-Factor Session Token Max Age](#multi-factor-refresh-token-max-age) property. You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
 
+<<<<<<< HEAD
 The Max Age property is the length of time a single token can be used. 
+=======
+> [!NOTE]
+> The Max Age property is the length of time a single token can be used. 
+
+### ID tokens
+ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with the Microsoft identity platform (either silently or interactively).
+>>>>>>> endpoint-v2-standardization
 
 ### Single sign-on session tokens
 When a user authenticates with Microsoft identity platform, a single sign-on session (SSO) is established with the user’s browser and Microsoft identity platform. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
 
-Microsoft identity platform uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
+The Microsoft identity platform uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
 Usually, a nonpersistent session token is stored. But, when the user selects the **Keep me signed in** check box during authentication, a persistent session token is stored.
 
 Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 90 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
@@ -133,7 +141,44 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 
 ### Configurable policy property details
 
+<<<<<<< HEAD
 #### Refresh Token Max Inactive Time
+=======
+All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
+
+> [!NOTE]
+> Here's an example scenario.
+>
+> A user wants to access two web applications: Web Application A and Web Application B.
+> 
+> Factors:
+> * Both web applications are in the same parent organization.
+> * Token Lifetime Policy 1 with a Session Token Max Age of eight hours is set as the parent organization’s default.
+> * Web Application A is a regular-use web application and isn’t linked to any policies.
+> * Web Application B is used for highly sensitive processes. Its service principal is linked to Token Lifetime Policy 2, which has a Session Token Max Age of 30 minutes.
+>
+> At 12:00 PM, the user starts a new browser session and tries to access Web Application A. The user is redirected to the Microsoft identity platform and is asked to sign in. This creates a cookie that has a session token in the browser. The user is redirected back to Web Application A with an ID token that allows the user to access the application.
+>
+> At 12:15 PM, the user tries to access Web Application B. The browser redirects to Microsoft identity platform, which detects the session cookie. Web Application B’s service principal is linked to Token Lifetime Policy 2, but it's also part of the parent organization, with default Token Lifetime Policy 1. Token Lifetime Policy 2 takes effect because policies linked to service principals have a higher priority than organization default policies. The session token was originally issued within the last 30 minutes, so it is considered valid. The user is redirected back to Web Application B with an ID token that grants them access.
+>
+> At 1:00 PM, the user tries to access Web Application A. The user is redirected to Microsoft identity platform. Web Application A is not linked to any policies, but because it is in an organization with default Token Lifetime Policy 1, that policy takes effect. The session cookie that was originally issued within the last eight hours is detected. The user is silently redirected back to Web Application A with a new ID token. The user is not required to authenticate.
+>
+> Immediately afterward, the user tries to access Web Application B. The user is redirected to Microsoft identity platform. As before, Token Lifetime Policy 2 takes effect. Because the token was issued more than 30 minutes ago, the user is prompted to reenter their sign-in credentials. A brand-new session token and ID token are issued. The user can then access Web Application B.
+>
+>
+
+## Configurable policy property details
+### Access Token Lifetime
+**String:** AccessTokenLifetime
+
+**Affects:** Access tokens, ID tokens, SAML tokens
+
+**Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
+
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
+
+### Refresh Token Max Inactive Time
+>>>>>>> endpoint-v2-standardization
 **String:** MaxInactiveTime
 
 **Affects:** Refresh tokens

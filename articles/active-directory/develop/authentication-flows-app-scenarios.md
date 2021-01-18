@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform authentication flows & app scenarios | Azure
+title: The Microsoft identity platform authentication flows & app scenarios | Azure
 description: Learn about application scenarios for the Microsoft identity platform, including authenticating identities, acquiring tokens, and calling protected APIs.
 services: active-directory
 author: jmprieur
@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 # Authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for different kinds of modern application architectures. All of the architectures are based on the industry-standard protocols [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md). By using the [authentication libraries for the Microsoft identity platform](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs.
+The Microsoft identity platform supports authentication for different kinds of modern application architectures. All of the architectures are based on the industry-standard protocols [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md). By using the [authentication libraries for the Microsoft identity platform](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs.
 
 This article describes authentication flows and the application scenarios that they're used in.
 
@@ -76,7 +76,7 @@ For more information, see [Supported account types](v2-supported-account-types.m
 
 ## Application scenarios
 
-The Microsoft identity platform endpoint supports authentication for these app architectures:
+The Microsoft identity platform supports authentication for these app architectures:
 
 - Single-page apps
 - Web apps
@@ -92,7 +92,7 @@ Applications use the different authentication flows to sign in users and get tok
 
 Many modern web apps are built as client-side single-page applications. These applications use JavaScript or a framework like Angular, Vue, and React. These applications run in a web browser.
 
-Single-page applications differ from traditional server-side web apps in terms of authentication characteristics. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs. Microsoft identity platform offers two grant types for JavaScript applications: 
+Single-page applications differ from traditional server-side web apps in terms of authentication characteristics. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs. The Microsoft identity platform offers two grant types for JavaScript applications: 
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -157,7 +157,7 @@ For more information, see [Mobile app that calls web APIs](scenario-mobile-overv
 
 ### Protected web API
 
-You can use the Microsoft identity platform endpoint to secure web services like your app's RESTful web API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
+You can use the Microsoft identity platform to secure web services like your app's RESTful web API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
 
 If you want to protect your ASP.NET or ASP.NET Core web API, you need to validate the access token. For this validation, you use the ASP.NET JWT middleware. The validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library and not by MSAL.NET.
 

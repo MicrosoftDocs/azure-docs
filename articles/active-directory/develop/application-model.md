@@ -1,7 +1,7 @@
 ---
 title: Application model | Azure
-titleSuffix: Microsoft identity platform
-description: Learn about the process of registering your application so it can integrate with Microsoft identity platform (v2.0).
+titleSuffix: The Microsoft identity platform
+description: Learn about the process of registering your application so it can integrate with Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -29,11 +29,11 @@ For an identity provider to know that a user has access to a particular app, bot
 * Decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from LinkedIn, Google, and so on.
 * Request scope permissions. For example, you can request the "user.read" scope, which grants permission to read the profile of the signed-in user.
 * Define scopes that define access to your web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
-* Share a secret with Microsoft identity platform that proves the app's identity.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
+* Share a secret with the Microsoft identity platform that proves the app's identity.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
 
-Once registered, the application will be given a unique identifier that the app shares with Microsoft identity platform when it requests tokens. If the app is a [confidential client application](developer-glossary.md#client-application), it will also share the secret or the public key-depending on whether certificates or secrets were used.
+Once registered, the application will be given a unique identifier that the app shares with the Microsoft identity platform when it requests tokens. If the app is a [confidential client application](developer-glossary.md#client-application), it will also share the secret or the public key-depending on whether certificates or secrets were used.
 
-Microsoft identity platform represents applications using a model that fulfills two main functions:
+The Microsoft identity platform represents applications using a model that fulfills two main functions:
 
 * Identify the app by the authentication protocols it supports
 * Provide all the identifiers, URLs, secrets, and related information that are needed to authenticate
@@ -52,7 +52,7 @@ Microsoft identity platform:
 
 ## Multi-tenant apps
 
-In Microsoft identity platform, an [application object](developer-glossary.md#application-object) describes an application. At deployment time, Microsoft identity platform uses the application object as a blueprint to create a [service principal](developer-glossary.md#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. Microsoft identity platform creates a service principal from an application object through [consent](developer-glossary.md#consent).
+In Microsoft identity platform, an [application object](developer-glossary.md#application-object) describes an application. At deployment time, the Microsoft identity platform uses the application object as a blueprint to create a [service principal](developer-glossary.md#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through [consent](developer-glossary.md#consent).
 
 The following diagram shows a simplified Microsoft identity platform provisioning flow driven by consent. It shows two tenants: *A* and *B*.
 
@@ -66,7 +66,7 @@ In this provisioning flow:
 1. A user from tenant B attempts to sign in with the app, the authorization endpoint requests a token for the application.
 1. The user credentials are acquired and verified for authentication.
 1. The user is prompted to provide consent for the app to gain access to tenant B.
-1. Microsoft identity platform uses the application object in tenant A as a blueprint for creating a service principal in tenant B.
+1. The Microsoft identity platform uses the application object in tenant A as a blueprint for creating a service principal in tenant B.
 1. The user receives the requested token.
 
 You can repeat this process for additional tenants. Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent keep control over what the application is allowed to do via the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](app-objects-and-service-principals.md).

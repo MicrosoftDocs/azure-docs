@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform certificate credentials
+title: The Microsoft identity platform certificate credentials
 titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication.
 services: active-directory
@@ -16,9 +16,9 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ---
 
-# Microsoft identity platform application authentication certificate credentials
+# The Microsoft identity platform application authentication certificate credentials
 
-Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
+The Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 
 One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assertion signed with a certificate that the application owns.
 
@@ -85,7 +85,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## Register your certificate with Microsoft identity platform
 
-You can associate the certificate credential with the client application in Microsoft identity platform through the Azure portal using any of the following methods:
+You can associate the certificate credential with the client application in the Microsoft identity platform through the Azure portal using any of the following methods:
 
 ### Uploading the certificate file
 
