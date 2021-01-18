@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an app in the Amazon developer console
 
-To use an Amazon account as a federated identity provider in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your [Amazon Developer Services and Technologies](https://developer.amazon.com). If you don't already have an Amazon account, you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
+To enable sign-in for users with an Amazon account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Amazon Developer Services and Technologies](https://developer.amazon.com). For more information, see [Register for Login with Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). If you don't already have an Amazon account, you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
 
 > [!NOTE]  
 > Use the following URLs in **step 8** below, replacing `your-tenant-name` with the name of your tenant. When entering your tenant name, use all lowercase letters, even if the tenant is defined with uppercase letters in Azure AD B2C.
@@ -177,7 +177,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add Amazon identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Amazon identity provider.
+1. Click the user flow that you want to add the Amazon identity provider.
 1. Under the **Social identity providers**, select **Amazon**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
