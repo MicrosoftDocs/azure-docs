@@ -1,5 +1,5 @@
 ---
-title: Single-page app sign-in & sign-out - Microsoft identity platform | Azure
+title: Single-page app sign-in & sign-out - The Microsoft identity platform | Azure
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
 author: navyasric
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Sign-in and Sign-out

@@ -1,5 +1,5 @@
 ---
-title: Remove accounts from the token cache on sign-out - Microsoft identity platform | Azure
+title: Remove accounts from the token cache on sign-out - The Microsoft identity platform | Azure
 description: Learn how to remove an account from the token cache on sign-out
 services: active-directory
 author: jmprieur
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Remove accounts from the token cache on global sign-out

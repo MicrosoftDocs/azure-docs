@@ -1,6 +1,6 @@
 ---
 title: Register single-page applications (SPA) | Azure
-titleSuffix: Microsoft identity platform
+titleSuffix: The Microsoft identity platform
 description: Learn how to build a single-page application (app registration)
 services: active-directory
 author: hahamil
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-# Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
+# Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: App registration

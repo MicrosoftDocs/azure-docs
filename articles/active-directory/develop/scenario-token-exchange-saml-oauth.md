@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform token exchange scenario with SAML and OIDC/OAuth in Azure Active Directory
+title: The Microsoft identity platform token exchange scenario with SAML and OIDC/OAuth in Azure Active Directory
 description: Learn about common token exchange scenarios when working with SAML and OIDC/OAuth in Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ---
 
-# Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth
+# The Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth
 
 SAML and OpenID Connect (OIDC) / OAuth are popular protocols used to implement Single Sign-On (SSO). Some apps might only implement SAML and others might only implement OIDC/OAuth. Both protocols use tokens to communicate secrets. To learn more about SAML, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md). To learn more about OIDC/OAuth, see [OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform](active-directory-v2-protocols.md).
 

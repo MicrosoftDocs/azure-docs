@@ -1,6 +1,6 @@
 ---
 title: Configure a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+titleSuffix: The Microsoft identity platform
 description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web app that calls web APIs: Code configuration

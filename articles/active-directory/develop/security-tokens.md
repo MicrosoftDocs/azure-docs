@@ -1,7 +1,7 @@
 ---
 title: Security tokens | Azure
-titleSuffix: Microsoft identity platform
-description: Learn about the basics of security tokens in Microsoft identity platform (v2.0).
+titleSuffix: The Microsoft identity platform
+description: Learn about the basics of security tokens in the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -19,13 +19,13 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 # Security tokens
 
-A centralized identity provider is especially useful for apps that have users located around the globe that don't necessarily sign in from the enterprise's network. Microsoft identity platform authenticates users and provides security tokens, such as [access token](developer-glossary.md#access-token), [refresh token](developer-glossary.md#refresh-token), and [ID token](developer-glossary.md#id-token), that allow a [client application](developer-glossary.md#client-application) to access protected resources on a [resource server](developer-glossary.md#resource-server).
+A centralized identity provider is especially useful for apps that have users located around the globe that don't necessarily sign in from the enterprise's network. The Microsoft identity platform authenticates users and provides security tokens, such as [access token](developer-glossary.md#access-token), [refresh token](developer-glossary.md#refresh-token), and [ID token](developer-glossary.md#id-token), that allow a [client application](developer-glossary.md#client-application) to access protected resources on a [resource server](developer-glossary.md#resource-server).
 
-An **access token** is a security token that is issued by an [authorization server](developer-glossary.md#authorization-server) as part of an [OAuth 2.0](active-directory-v2-protocols.md) flow. It contains information about the user and the app for which the token is intended; which can be used to access web APIs and other protected resources. To learn more about how Microsoft identity platform issues access tokens, see [Access tokens](access-tokens.md).
+An **access token** is a security token that is issued by an [authorization server](developer-glossary.md#authorization-server) as part of an [OAuth 2.0](active-directory-v2-protocols.md) flow. It contains information about the user and the app for which the token is intended; which can be used to access web APIs and other protected resources. To learn more about how the Microsoft identity platform issues access tokens, see [Access tokens](access-tokens.md).
 
-Access tokens are only valid for a short period of time, so authorization servers will sometimes issue a **refresh token** at the same time the access token is issued. The client application can then exchange this refresh token for a new access token when needed. To learn more about how Microsoft identity platform uses refresh tokens to revoke permissions, see [Token revocation](access-tokens.md#token-revocation).
+Access tokens are only valid for a short period of time, so authorization servers will sometimes issue a **refresh token** at the same time the access token is issued. The client application can then exchange this refresh token for a new access token when needed. To learn more about how the Microsoft identity platform uses refresh tokens to revoke permissions, see [Token revocation](access-tokens.md#token-revocation).
 
-**ID tokens** are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user. To learn more about how Microsoft identity platform issues ID tokens, see [ID tokens](id-tokens.md).
+**ID tokens** are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user. To learn more about how the Microsoft identity platform issues ID tokens, see [ID tokens](id-tokens.md).
 
 > [!NOTE]
 > This article discusses security tokens used by the OAuth2 and OpenID Connect protocols. Many enterprise applications use SAML to authenticate users. See [Azure AD SAML token reference](reference-saml-tokens.md) for information on SAML assertions.
@@ -43,7 +43,7 @@ Access tokens are passed to a web API as the bearer token in the `Authorization`
 
 ## JSON Web Tokens (JWTs) and claims
 
-Microsoft identity platform implements security tokens as **JSON Web Tokens (JWTs)** that contain **claims**. Since JWTs are used as security tokens, this form of authentication is sometimes called **JWT authentication**.
+The Microsoft identity platform implements security tokens as **JSON Web Tokens (JWTs)** that contain **claims**. Since JWTs are used as security tokens, this form of authentication is sometimes called **JWT authentication**.
 
 A [claim](developer-glossary.md#claim) provides assertions about one entity, such as a client application or [resource owner](developer-glossary.md#resource-owner), to another entity, such as a resource server. A claim may also be referred to as a JWT claim or JSON Web Token claim.
 
@@ -64,7 +64,7 @@ A claim consists of key-value pairs that provide information such as the:
 * Audience, which is the app for which the token was generated
 * App (the client) that asked for the token. In the case of web apps, this may be the same as the audience
 
-To learn more about how Microsoft identity platform implements tokens and claim information, see [access tokens](access-tokens.md) and [ID tokens](id-tokens.md).
+To learn more about how the Microsoft identity platform implements tokens and claim information, see [access tokens](access-tokens.md) and [ID tokens](id-tokens.md).
 
 ## How each flow emits tokens and codes
 
