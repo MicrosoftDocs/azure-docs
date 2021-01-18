@@ -300,14 +300,14 @@ az lock list --resource-group exampleresourcegroup
 To delete a lock for a resource, use:
 
 ```azurecli
-$lockid=(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
 az lock delete --ids $lockid
 ```
 
 To delete a lock for a resource group, use:
 
 ```azurecli
-$lockid=(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
 az lock delete --ids $lockid
 ```
 
