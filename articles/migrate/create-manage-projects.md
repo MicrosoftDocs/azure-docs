@@ -1,7 +1,7 @@
 ---
 title: Create and manage Azure Migrate projects
 description: Find, create, manage, and delete projects in Azure Migrate.
-author: ms-vineet
+author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
