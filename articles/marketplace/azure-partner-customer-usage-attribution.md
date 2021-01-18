@@ -1,6 +1,6 @@
 ---
 title: Azure customer usage attribution
-description: Get an overview of tracking customer usage for Azure Applications on commercial marketplace and other deployable IP developed by partners.
+description: Get an overview of tracking customer usage for Azure Applications on the commercial marketplace and other deployable IP developed by partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -12,11 +12,11 @@ ms.custom: devx-track-terraform
 
 # Azure customer usage attribution
 
-Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#Commercial-marketplace-Azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#Commercial-marketplace-Azure-apps), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
 Customer usage attribution supports three deployment options:
 
-1. Azure Resource Manager templates (the common underpinnings of Azure Applications, also referred to in the commercial marketplace as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows your customers to deploy your solution's resources in a consistent and repeatable state.
+1. Azure Resource Manager templates (the common underpinnings of Azure apps, also referred to in the commercial marketplace as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows your customers to deploy your solution's resources in a consistent and repeatable state.
 1. Azure Resource Manager APIs: partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 1. Terraform: partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
@@ -27,9 +27,9 @@ There are secondary use cases for customer usage attribution outside of the comm
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
 >- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
 
-## Commercial marketplace Azure applications
+## Commercial marketplace Azure apps
 
-Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure Application's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
+Tracking Azure usage from Azure apps published to the commercial marketplace is largely automatic. When you upload a Resource Manager template as part of the [technical configuration of your marketplace Azure app's plan](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), Partner Center will add a tracking ID readable by Azure Resource Manager.
 
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page.
 
@@ -44,11 +44,11 @@ There are several manual steps required:
 
 1. Create one or more GUIDs to use as your tracking IDs.
 1. Register those GUIDs in Partner Center.
-1. Add your registered GUIDs to your Azure Application and/or user agent strings.
+1. Add your registered GUIDs to your Azure app and/or user agent strings.
 
 ### Create GUIDs
 
-Unlike the tracking IDs that Partner Center creates on your behalf for Azure Applications in the commercial marketplace, other uses of CUA require you to create a GUID to use as your tracking ID. A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example, via PowerShell:
+Unlike the tracking IDs that Partner Center creates on your behalf for Azure apps in the commercial marketplace, other uses of CUA require you to create a GUID to use as your tracking ID. A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example, via PowerShell:
 
 ```powershell
 [guid]::NewGuid()
@@ -168,7 +168,7 @@ In some cases, you may make calls directly against the Resource Manager REST API
 To enable customer usage attribution, when you design your API calls, include your tracking ID in the user agent header in the request. Format the string with the `pid-` prefix. Examples:
 
 ```xml
-//Commercial Marketplace Azure Application
+//Commercial Marketplace Azure app
 pid-contoso-myoffer-partnercenter //copy the tracking ID exactly as it appears in Partner Center
 
 //Other use cases
@@ -241,7 +241,7 @@ provider "azurerm" {
 Set the value of *partner_id* to a registered GUID. DO NOT prefix the GUID with "pid-", just set it to the actual GUID.
 
 > [!IMPORTANT]
-> If you are using Terraform with an Azure Application in the commercial marketplace, use the entire tracking ID provided in Partner Center. Do NOT use a GUID.
+> If you are using Terraform with an Azure app in the commercial marketplace, use the entire tracking ID provided in Partner Center. Do NOT use a GUID.
 
 ## Report
 
