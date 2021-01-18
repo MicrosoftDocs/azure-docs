@@ -304,7 +304,7 @@ The following table shows two examples of the effective permissions for a [Micro
 
 ### Differences between NotActions and deny assignments
 
-`NotActions` and deny assignments are not same and serve different purposes. `NotActions` are a convenient way to subtract specific permissions from a wildcard (`*`) permission.
+`NotActions` and deny assignments are not the same and serve different purposes. `NotActions` are a convenient way to subtract specific actions from a wildcard (`*`) operation.
 
 Deny assignments block users from performing specific actions even if a role assignment grants them access. For more information, see [Understand Azure deny assignments](deny-assignments.md).
 
