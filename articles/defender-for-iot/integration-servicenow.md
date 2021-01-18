@@ -158,7 +158,7 @@ To add a ServiceNow instance:
 
 1. Select **System Settings** and then **ServiceNow** from the on-premises management console Integration section.
 
-  :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Select the ServiceNow button.":::
+      :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Select the ServiceNow button.":::
 
 1. Enter the following sync parameters in the ServiceNow Sync dialog box.
 
