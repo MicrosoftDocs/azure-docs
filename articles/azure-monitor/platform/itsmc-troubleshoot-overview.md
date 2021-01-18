@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting problems in IT Service Management Connector 
+title: Troubleshooting problems in ITSM Connector 
 description: Troubleshooting problems in ITSM Connector  
 ms.subservice: alerts
 ms.topic: conceptual
