@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2020
+ms.date: 01/18/2021
 ms.author: yelevin
 
 ---
@@ -28,22 +28,6 @@ ms.author: yelevin
 Entity mapping is an integral part of the configuration of [scheduled query analytics rules](tutorial-detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
-
-<!-- 
-## Prerequisites
-
-To enable or disable this feature (these prerequisites are not required to use the feature):
-
-- Your user must be a member of your organization's Azure Active Directory, and not a guest user.
-
-- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
-
-- Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
-    - **Azure Sentinel Contributor** at the workspace or resource group levels.
-    - **Log Analytics Contributor** at the resource group or subscription levels.
-
-- Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md). 
--->
 
 ## How to map entities
 

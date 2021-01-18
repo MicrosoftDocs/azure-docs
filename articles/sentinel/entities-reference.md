@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/28/2020
+ms.date: 01/18/2021
 ms.author: yelevin
 
 ---
@@ -207,7 +207,7 @@ Weak identifiers of a process entity:
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | ‘cloud-application’ |
-| AppId | int | The technical identifier of the application. ***This should be one of the values defined in the constants in [Cloud Application Identifiers](./CloudApplicationIdentifier.md)?*** The value for AppId field is optional. |
+| AppId | int | The technical identifier of the application. This should be one of the values defined in the list of [cloud application identifiers](#cloud-application-identifiers). The value for AppId field is optional. |
 | Name | String | The name of the related cloud application. The value of application name is optional. |
 | InstanceName | String | The user-defined instance name of the cloud application. It is often used to distinguish between several applications of the same type that a customer has. |
 |
@@ -392,11 +392,11 @@ Strong identifiers of a mailbox entity:
 | MailCount | int? | The number of mail messages that are part of the mail cluster. |
 | IsVolumeAnomaly | bool? | Determines whether this is a volume anomaly mail cluster. |
 | Source | String | The source of the mail cluster (default is 'O365 ATP'). |
-| ***ClusterSourceIdentifier?*** |  |  |
-| ***ClusterSourceType?*** |  |  |
-| ***ClusterQueryStartTime?*** |  |  |
-| ***ClusterQueryEndTime?*** |  |  |
-| ***ClusterGroup?*** |  |  |
+| ClusterSourceIdentifier | String | The network message ID of the mail that is the source of this mail cluster |
+| ClusterSourceType | String | The source type of the mail cluster. This maps to OATP MailClusterSourceType |
+| ClusterQueryStartTime | DateTime? | Cluster start time - used as start time for cluster counts query. Usually dates to the End time minus DaysToLookBack setting of OATP |
+| ClusterQueryEndTime | DateTime? | Cluster end time - used as end time for cluster counts query. Usually the mail data's received time. |
+| ClusterGroup | String | Corresponds to the Kusto query key used on OATP. |
 |
 
 Strong identifiers of a mail cluster entity:
@@ -414,27 +414,22 @@ Strong identifiers of a mail cluster entity:
 | Urls | IList&lt;String&gt; | The URLs contained in this mail message. |
 | Threats | IList&lt;String&gt; | The threats contained in this mail message. |
 | Sender | String | The sender's email address. |
-| ***P1Sender?*** |  |  |
-| ***P1SenderDisplayName?*** |  |  |
-| ***P1SenderDomain?*** |  |  |
-| ***P2Sender?*** |  |  |
-| ***P2SenderDisplayName?*** |  |  |
-| ***P2SenderDomain?*** |  |  |
+| P1Sender | String | Email ID of (delegated) user who sent this mail "on-behalf of P2 (primary) user". If email not sent by delegate, this value is equal to P2Sender. |
+| P1SenderDisplayName | String | Display name of the (delegated) user who sent this mail "on behalf of P2 (primary) user". Represented in email header by "OnbehalfofSenderDisplayName" property. |
+| P1SenderDomain | String | Email domain of the (delegated) user who sent this mail "on behalf of P2 (primary) user". If email not sent by delegate, this value is equal to P2SenderDomain. |
+| P2Sender | String | Email of the (primary) user on behalf of whom this email was sent. |
+| P2SenderDisplayName | String | Display name of the (primary) user on behalf of whom this email was sent. If email not sent by delegate, this represents the display name of the sender. |
+| P2SenderDomain | String | Email domain of the (primary) user on behalf of whom this email was sent. If email not sent by delegate, this represents the domain of the sender. |
 | SenderIP | String | The sender's IP address. |
 | ReceivedDate | DateTime | The received date of this message. |
 | NetworkMessageId | Guid? | The network message ID of this mail message. |
 | InternetMessageId | String | The internet message ID of this mail message. |
 | Subject | String | The subject of this mail message. |
-| ***BodyFingerprintBin1?*** |  |  |
-| ***BodyFingerprintBin2?*** |  |  |
-| ***BodyFingerprintBin3?*** |  |  |
-| ***BodyFingerprintBin4?*** |  |  |
-| ***BodyFingerprintBin5?*** |  |  |
 | AntispamDirection | AntispamMailDirection?<br>**not String**? | The directionality of this mail message. |
 | DeliveryAction | DeliveryAction?<br>**not String**? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
 | DeliveryLocation | DeliveryLocation?<br>**not String**? | The delivery location of this mail message - Inbox, JunkFolder, and others |
-| ***Language?*** |  |  |
-| ***ThreatDetectionMethods?*** |  |  |
+| Language | String | The language in which the contents of the mail are written. |
+| ThreatDetectionMethods | IList&lt;String&gt; | The list of Threat Detection Methods applied on this mail |
 |
 
 Strong identifiers of a mail message entity:
@@ -461,3 +456,83 @@ Strong identifiers of a mail message entity:
 
 Strong identifiers of a SubmissionMail entity:
 - SubmissionId, Submitter, NetworkMessageId, Recipient
+
+## Cloud application identifiers
+
+The following list defines identifiers for known cloud applications. The App ID value is used as a [cloud application](#cloud-application) entity identifier.
+
+|App ID|Name|
+|------|----|
+|10026|DocuSign|
+|10395|Anaplan|
+|10489|Box|
+|10549|Cisco Webex|
+|10618|Atlassian|
+|10915|Cornerstone OnDemand|
+|10921|Zendesk|
+|10980|Okta|
+|11042|Jive Software|
+|11114|Salesforce|
+|11161|Office 365|
+|11162|Microsoft OneNote Online|
+|11394|Microsoft Online Services|
+|11522|Yammer|
+|11599|Amazon Web Services|
+|11627|Dropbox|
+|11713|Expensify|
+|11770|G Suite|
+|12005|SuccessFactors|
+|12260|Microsoft Azure|
+|12275|Workday|
+|13843|LivePerson|
+|13979|Concur|
+|14509|ServiceNow|
+|15570|Tableau|
+|15600|Microsoft OneDrive for Business|
+|15782|Citrix ShareFile|
+|17152|Amazon|
+|17865|Ariba Inc|
+|18432|Zscaler|
+|19688|Xactly|
+|20595|Microsoft Cloud App Security|
+|20892|Microsoft SharePoint Online|
+|20893|Microsoft Exchange Online|
+|20940|Active Directory|
+|20941|Adallom CPanel|
+|22110|Google Cloud Platform|
+|22930|Gmail|
+|23004|Autodesk Fusion Lifecycle|
+|23043|Slack|
+|23233|Microsoft Office Online|
+|25275|Microsoft Skype for Business|
+|25988|Google Docs|
+|26055|Microsoft Office 365 admin center|
+|26060|OPSWAT Gears|
+|26061|Microsoft Word Online|
+|26062|Microsoft PowerPoint Online|
+|26063|Microsoft Excel Online|
+|26069|Google Drive|
+|26206|Workiva|
+|26311|Microsoft Dynamics|
+|26318|Microsoft Azure AD|
+|26320|Microsoft Office Sway|
+|26321|Microsoft Delve|
+|26324|Microsoft Power BI|
+|27548|Microsoft Forms|
+|27592|Microsoft Flow|
+|27593|Microsoft PowerApps|
+|28353|Workplace by Facebook|
+|28373|CAS Proxy Emulator|
+|28375|Microsoft Teams|
+|32780|Microsoft Dynamics 365|
+|33626|Google|
+|34127|Microsoft AppSource|
+|34667|HighQ|
+|35395|Microsoft Dynamics Talent|
+|
+
+## Next steps
+
+In this document you learned about entity structure, identifiers, and schema in Azure Sentinel.
+
+Learn more about [entities](entities-in-azure-sentinel.md) and [entity mapping](map-data-fields-to-entities.md). 
