@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 01/07/2021
 ms.author: alkohli
 ---
 
@@ -38,6 +38,9 @@ If your existing device has a hardware failure, open a Support ticket. Microsoft
 
 
 ## Create a resource for replacement device
+
+> [!NOTE]
+> Create a new resource for the activation of your replacement device. Activation of replacement device against an existing resource is not supported.
 
 Follow these steps to create a resource.
 

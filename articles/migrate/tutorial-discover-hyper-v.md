@@ -38,16 +38,14 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Requirement** | **Details**
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which VMs are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull VM metadata and performance data, using a Common Information Model (CIM) session.
-**Appliance deployment** | Hyper-V host needs resources to allocate a VM for the appliance:<br/><br/> - Windows Server 2016<br/><br/> -16 GB of RAM<br/><br/> - Eight vCPUs<br/><br/> - Around 80 GB of disk storage.<br/><br/> - An external virtual switch.<br/><br/> - Internet access on for the VM, directly or via a proxy.
+**Appliance deployment** | Hyper-V host needs resources to allocate a VM for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance VM, directly or via a proxy.
 **VMs** | VMs can be running any Windows or Linux operating system. 
-
-Before you start, you can [review the data](migrate-appliance.md#collected-data---hyper-v) that the appliance collects during discovery.
 
 ## Prepare an Azure user account
 
 To create an Azure Migrate project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Azure Active Directory(AAD) apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -67,20 +65,20 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Opens the Add Role assignment page to assign a role to the account](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. In the portal, search for users, and under **Services**, select **Users**.
-8. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
+1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App(s). [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare Hyper-V hosts
 
 Set up an account with Administrator access on the Hyper-V hosts. The appliance uses this account for discovery.
 
 - Option 1: Prepare an account with Administrator access to the Hyper-V host machine.
-- Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.
-
+- Option 2: If you don't want to assign Administrator permissions, create a local or domain user account, and add the user account to these groups- Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.
 
 ## Set up a project
 
@@ -95,26 +93,28 @@ Set up a new Azure Migrate project.
    ![Boxes for project name and region](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Select **Create**.
-8. Wait a few minutes for the Azure Migrate project to deploy.
-
-The **Azure Migrate: Server Assessment** tool is added by default to the new project.
+8. Wait a few minutes for the Azure Migrate project to deploy.The **Azure Migrate: Server Assessment** tool is added by default to the new project.
 
 ![Page showing Server Assessment tool added by default](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of VMs.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Set up the appliance
 
+Azure Migrate: Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM configuration and performance metadata to Azure Migrate. The appliance can be set up by deploying a VHD file that can be downloaded from the Azure Migrate project.
+
+> [!NOTE]
+> If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+
 This tutorial sets up the appliance on a Hyper-V VM, as follows:
 
-- Provide an appliance name and generate an Azure Migrate project key in the portal.
-- Download a compressed Hyper-V VHD from the Azure portal.
-- Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
-- Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
-> [!NOTE]
-> If for some reason you can't set up the appliance using a template, you can set it up using a PowerShell script. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+1. Provide an appliance name and generate an Azure Migrate project key in the portal.
+1. Download a compressed Hyper-V VHD from the Azure portal.
+1. Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
+1. Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
 
-
-### Generate the Azure Migrate project key
+### 1. Generate the Azure Migrate project key
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
@@ -123,10 +123,9 @@ This tutorial sets up the appliance on a Hyper-V VM, as follows:
 1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
-### Download the VHD
+### 2. Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**. 
-
+In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
 ### Verify security
 
@@ -152,7 +151,7 @@ Check that the zipped file is secure, before you deploy it.
         --- | --- | ---
         Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### Create the appliance VM
+### 3. Create the appliance VM
 
 Import the downloaded file, and create the VM.
 
@@ -173,7 +172,7 @@ Import the downloaded file, and create the VM.
 
 Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
-### Configure the appliance
+### 4. Configure the appliance
 
 Set up the appliance for the first time.
 
@@ -210,8 +209,6 @@ Set up the appliance for the first time.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 4. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-
-
 
 ### Delegate credentials for SMB VHDs
 

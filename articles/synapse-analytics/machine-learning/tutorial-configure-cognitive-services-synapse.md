@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create a Cognitive Services Resource
 
-[Azure Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492) include many different types of services. Below are some examples that are used in the Synapse tutorials.
+[Azure Cognitive Services](../../cognitive-services/index.yml) include many different types of services. Below are some examples that are used in the Synapse tutorials.
 
 ### Create an Anomaly Detector resource
 Create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in Azure portal.
@@ -49,7 +49,7 @@ Create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.Cognitiv
 ## Create Key Vault and configure secrets and access
 
 1. Create a [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in Azure portal.
-2. Go to **Key Vault -> Access policies**, and grant the [Azure Synapse workspace MSI](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-identity) permissions to read secrets from Azure Key Vault.
+2. Go to **Key Vault -> Access policies**, and grant the [Azure Synapse workspace MSI](../security/synapse-workspace-managed-identity.md) permissions to read secrets from Azure Key Vault.
 
 >Make sure that the policy changes are saved. This step is easy to miss.
 

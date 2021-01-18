@@ -39,6 +39,18 @@ ___
         <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"> </a>
     :::column-end:::
 :::row-end:::
+:::row:::
+  :::column:::
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (20:30)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"> <img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."></a> (20:30)
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 
 <!-- IMAGES -->

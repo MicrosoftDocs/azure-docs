@@ -1,5 +1,5 @@
 ---
-title: Transition to governed collaboration with Azure Active Directory B2B Collaboration
+title: Transition to governed collaboration with Azure Active Directory B2B Collaboration 
 description: Move to governed collaboration with Azure Ad B2B collaboration.
 services: active-directory
 author: BarbaraSelden

@@ -75,8 +75,7 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > [!NOTE]  
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
-Soft delete does not save your data in cases of container or account deletes, nor when blob metadata and blob properties are overwritten. To protect a storage account from erroneous deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock Resources to Prevent Unexpected
-Changes](../../azure-resource-manager/management/lock-resources.md).
+Soft delete does not save your data in cases of container or account deletion, nor when blob metadata and blob properties are overwritten. To protect a storage account from deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 
 The following table details expected behavior when soft delete is turned on:
 
@@ -168,7 +167,7 @@ No, soft deleted snapshots do not count toward this limit.
 
 ### If I delete an entire account or container with soft delete turned on, will all associated blobs be saved?
 
-No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from accidental deletes, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/management/lock-resources.md).
+No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from being accidentally deleted, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/management/lock-resources.md).
 
 ### Can I view capacity metrics for deleted data?
 

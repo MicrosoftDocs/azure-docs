@@ -25,6 +25,7 @@ ms.author: jroth
 | Custom domain [SSL support](../articles/app-service/configure-ssl-certificate.md) |Not supported, wildcard certificate for \*.azurewebsites.net available by default|Not supported, wildcard certificate for \*.azurewebsites.net available by default|Unlimited SNI SSL connections |Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included | Unlimited SNI SSL and 1 IP SSL connections included|
 | Hybrid connections | | | 5 per plan | 25 per plan | 200 per app | 200 per app |
 | [Virtual Network Integration](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Private Endpoints](../articles/app-service/networking/private-endpoint.md) | | |   |   |  100 per app  |    |
 | Integrated load balancer | |X |X |X |X |X<sup>10</sup> |
 | [Access restrictions](../articles/app-service/networking-features.md#access-restrictions) | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |

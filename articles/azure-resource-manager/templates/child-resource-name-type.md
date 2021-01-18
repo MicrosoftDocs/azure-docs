@@ -4,6 +4,7 @@ description: Describes how to set the name and type for child resources in an Az
 ms.topic: conceptual
 ms.date: 12/21/2020
 ---
+
 # Set name and type for child resources
 
 Child resources are resources that exist only within the context of another resource. For example, a [virtual machine extension](/azure/templates/microsoft.compute/virtualmachines/extensions) can't exist without a [virtual machine](/azure/templates/microsoft.compute/virtualmachines). The extension resource is a child of the virtual machine.
@@ -131,5 +132,4 @@ The following example shows a virtual network and subnet that are both defined a
 ## Next steps
 
 * To learn about creating ARM templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-
 * To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).

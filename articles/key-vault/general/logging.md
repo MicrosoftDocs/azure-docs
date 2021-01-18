@@ -178,6 +178,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificatePendingDelete** |Delete pending certificate |
 | **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
 | **CertificateExpiredEventGridNotification** |Certificate expired event published |
+
 ---
 
 ## Use Azure Monitor logs

@@ -69,7 +69,7 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 - [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/manage-ddos-protection) 
 
-- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-networking)
 
 **Azure Security Center monitoring**: Yes
 

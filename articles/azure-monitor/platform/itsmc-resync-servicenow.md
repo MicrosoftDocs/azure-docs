@@ -18,13 +18,17 @@ ITSM gives you the option to send the alerts to external ticketing system such a
 
 ## Visualize and analyze the incident and change request data
 
-Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](./itsmc-overview.md) of this article.
+Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. The log record schema for this data is provided in the [Additional information Section](./itsmc-synced-data.md) of this article.
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
 
 ![Screenshot that shows the ITSMC dashboard.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 The dashboard also provides information about connector status, which you can use as a starting point to analyze problems with the connections.
+
+In order to get more information about the dashboard investigation, see [Error Investigation using the dashboard](./itsmc-dashboard.md).
+
+### Service map
 
 You can also visualize the incidents synced against the affected computers in Service Map.
 
