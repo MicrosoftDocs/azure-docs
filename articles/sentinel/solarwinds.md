@@ -43,13 +43,13 @@ Providing full security coverage is a [shared responsibility](/azure/security/fu
 > 
 
 > [!NOTE]
-> If you are not sure whether your organization has been infected, we recommend that you review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack.
+> If you are not sure whether your organization has been affected, we recommend that you review the indicators of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack.
 >
 > For more information, see [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
 
 ## Using Azure Sentinel to secure your network after a systemic-identity compromise
 
-1. Make sure that you have the following Azure Sentinel connectors set up in order to stream a range of alerts and queries for known pattern related to the Solorigate attack:
+1. Make sure that you have the following Azure Sentinel connectors set up in order to stream a range of alerts and queries for known patterns related to the Solorigate attack:
 
     - [Windows security events](connect-windows-security-events.md) 
     - [Microsoft 365 Defender](connect-microsoft-365-defender.md) 
