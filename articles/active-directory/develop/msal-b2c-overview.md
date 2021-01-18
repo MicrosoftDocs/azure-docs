@@ -126,7 +126,7 @@ There are two points of interest in configuring your application:
         }
     };
 
-    // Add here scopes for id token to be used at the MS Identity Platform endpoint
+    // Add here scopes for id token to be used at the Microsoft identity platform
     const loginRequest = {
         scopes: ["openid", "profile"],
     };

@@ -1,5 +1,5 @@
 ---
-title: Best practices for Microsoft identity platform | Azure
+title: Best practices for the Microsoft identity platform | Azure
 description: Learn about best practices, recommendations, and common oversights when integrating with the Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -16,7 +16,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to learn about best practices so I can integrate my application with the Microsoft identity platform.
 ---
 
-# Microsoft identity platform best practices and recommendations
+# The Microsoft identity platform best practices and recommendations
 
 This article highlights best practices, recommendations, and common oversights when integrating with the Microsoft identity platform.  This checklist will guide you to a high-quality and secure integration. Review this list on a regular basis to make sure you maintain the quality and security of your app’s integration with the identity platform. The checklist isn't intended to review your entire application. The contents of the checklist are subject to change as we make improvements to the platform.
 
@@ -101,8 +101,8 @@ Use the following checklist to ensure that your application is effectively integ
 
 Explore in-depth information about v2.0:
 
-* [Microsoft identity platform (v2.0 overview)](v2-overview.md)
-* [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
+* [The Microsoft identity platform (overview)](v2-overview.md)
+* [The Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
 * [Access tokens reference](access-tokens.md)
 * [ID tokens reference](id-tokens.md)
 * [Authentication libraries reference](reference-v2-libraries.md)

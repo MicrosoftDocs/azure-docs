@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Microsoft identity platform documentation
+title: The Microsoft identity platform documentation
 summary: The Microsoft identity platform is an authentication service, open-source libraries, and application management tools. Learn to create modern, standards-based authentication solutions with our quickstarts, tutorials, and code samples. Build applications your users and customers sign in to using their Microsoft identities or social accounts, and authorize access to your APIs or Microsoft APIs like Microsoft Graph.
 
 metadata:
@@ -40,11 +40,11 @@ landingContent:
       - linkListType: video
         links:
           - text: Identity platform for developers
-            url: identity-videos.md#microsoft-identity-platform-for-developers
+            url: identity-videos.md#the-microsoft-identity-platform-for-developers
           - text: Authentication fundamentals
             url: identity-videos.md#authentication-fundamentals
           - text: "One Dev Question: platform basics"
-            url: identity-videos.md#microsoft-identity-platform-basics
+            url: identity-videos.md#the-microsoft-identity-platform-basics
 ## ROW 2 ################################################### ROW 2 ##
   - title: Single-page app (SPA)
     linkLists:
