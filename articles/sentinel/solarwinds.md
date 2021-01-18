@@ -26,9 +26,9 @@ The Solorigate attack is an example of how a systemic-identity compromise can pr
 
 The global administrator account or certificates enable the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
-Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
+Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the Solorigate attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
 
-**Microsoft swiftly took the following steps against the SolarWinds attack**:
+**Microsoft swiftly took the following steps against the Solorigate attack**:
 
 1. **Disclosed the set of complex techniques** used by the advanced threat actor in the attack, affecting several key customers.
 
@@ -39,7 +39,7 @@ Providing full security coverage is a [shared responsibility](/azure/security/fu
 1. **Sinkholed one of the domains used** for the malware's command-and-control servers.
 
 > [!IMPORTANT]
-> The SolarWinds attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
+> The Solorigate attack is an ongoing investigation, and our teams continue to act as first responders. As new information becomes available, we provide updates through the Microsoft Security Response Center (MSRC) blog at https://aka.ms/solorigate.
 > 
 
 > [!NOTE]
@@ -80,7 +80,7 @@ This workbook hunts for activity in both Microsoft Defender for Endpoint data, a
 We recommend that Microsoft 365 Defender customers to start their investigations with the following threat analytics reports, created by Microsoft specifically for Solorigate:
 
 - [Sophisticated actor attacks FireEye](https://security.microsoft.com/threatanalytics3/a43fc0c6-120a-40c5-a948-a9f41eef0bf9/overview) provides information about the FireEye breach and compromised red team tools
-- [Solorigate supply chain attack](https://security.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview) provides a detailed analysis of the SolarWinds supply chain compromise
+- [Solorigate supply chain attack](https://security.microsoft.com/threatanalytics3/2b74f636-146e-48dd-94f6-5cb5132467ca/overview) provides a detailed analysis of the Solorigate supply chain compromise
 
 These reports include a deep-dive analysis, MITRE techniques, detection details, recommended actions, updated lists of IOCs, and advanced hunting techniques to expand detection coverage.
 
