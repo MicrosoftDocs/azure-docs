@@ -742,7 +742,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -878,7 +878,7 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 **Guidance**: If you are running your Runtime Integration in an Azure Virtual Machine, depending on the type of scripts, you may use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-* [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [How to use Azure Security Center Adaptive Application Controls](../security-center/security-center-adaptive-application.md)
 
@@ -916,7 +916,7 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 **Guidance**: Define and implement standard security configurations for Azure Data Factory with Azure Policy. Use Azure Policy aliases in the "Microsoft.DataFactory" namespace to create custom policies to audit or enforce the configuration of your Azure Data Factory instances.
 
-* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -962,7 +962,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [Information on creating Azure Resource Manager templates](../virtual-machines/windows/ps-template.md)
 
-* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Azure Security Center monitoring**: Yes
 
