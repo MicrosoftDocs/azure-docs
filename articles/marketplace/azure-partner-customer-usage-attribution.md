@@ -243,10 +243,6 @@ Set the value of *partner_id* to a registered GUID. DO NOT prefix the GUID with 
 > [!IMPORTANT]
 > If you are using Terraform with an Azure app in the commercial marketplace, use the entire tracking ID provided in Partner Center. Do NOT use a GUID.
 
-## Report
-
-You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). To see the report, sign in with your Partner Center credentials. If you encounter any issues with report or sign in, create a [support request](#get-support).
-
 ## Get support
 
 Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](support.md).
