@@ -401,10 +401,6 @@ The performance configuration is as follows:
 
 If more IOPS are required in case of Azure premium storage, we recommend using Windows Storage Pools (only available in Windows Server 2012 and later) to create one large logical device over multiple mounted disks. This approach simplifies the administration overhead for managing the disk space, and helps you avoid the effort of manually distributing files across multiple mounted disks.
 
-If you plan to use Azure NetApp Files make sure the dNFS client is configured properly. Using dNFS is mandatory to have a supported environment. The configuration of dNFS is documented in the article [Creating an Oracle Database on Direct NFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA).
-
-An example demonstrating the usage of Azure NetApp Files based NFS for Oracle databases is presented in the blog [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043).
-
 
 #### Write Accelerator
 For Azure M-Series VMs, the latency writing into the online redo logs can be reduced by factors when compared to Azure premium storage. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](../../how-to-enable-write-accelerator.md). Or use Azure Ultra disk for the online redo log volume.
@@ -504,6 +500,10 @@ Performance configuration:
 
 
 If more IOPS are required when using Azure premium storage, we recommend using LVM (Logical Volume Manager) or MDADM to create one large logical volume over multiple mounted disks. For more information, see [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) regarding guidelines and pointers on how to leverage LVM or MDADM. This approach simplifies the administration overhead of managing the disk space and helps you avoid the effort of manually distributing files across multiple mounted disks.
+
+If you plan to use Azure NetApp Files make sure the dNFS client is configured properly. Using dNFS is mandatory to have a supported environment. The configuration of dNFS is documented in the article [Creating an Oracle Database on Direct NFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA).
+
+An example demonstrating the usage of Azure NetApp Files based NFS for Oracle databases is presented in the blog [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043).
 
 
 #### Write Accelerator
