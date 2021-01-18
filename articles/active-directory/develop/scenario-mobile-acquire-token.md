@@ -1,6 +1,6 @@
 ---
 title: Acquire a token to call a web API (mobile apps) | Azure
-titleSuffix: Microsoft identity platform
+titleSuffix: The Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs. (Get a token for the app.)
 services: active-directory
 author: jmprieur
@@ -14,7 +14,7 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Get a token for a mobile app that calls web APIs
@@ -25,7 +25,7 @@ Before your app can call protected web APIs, it needs an access token. This arti
 
 When you request a token, you need to define a scope. The scope determines what data your app can access.
 
-The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells Microsoft identity platform that your app requires all scopes that are set in the portal.
+The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells the Microsoft identity platform that your app requires all scopes that are set in the portal.
 
 ### Android
 ```Java
@@ -240,7 +240,7 @@ The class defines the following constants:
 
 ##### WithExtraScopeToConsent
 
-Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or Microsoft identity platform 2.0. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or the Microsoft identity platform. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Here's a code example:
 

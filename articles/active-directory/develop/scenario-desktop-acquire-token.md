@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Acquire a token
@@ -436,7 +436,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 
 - This flow is enabled for .NET desktop, .NET Core, and UWP apps.
 
-For more information on consent, see [Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
+For more information on consent, see [The Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
 
 ### Learn how to use it
 

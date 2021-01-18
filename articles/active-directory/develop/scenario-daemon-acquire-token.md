@@ -1,5 +1,5 @@
 ---
-title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
+title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 author: jmprieur
@@ -13,7 +13,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 
@@ -202,7 +202,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-For more information, see the protocol documentation: [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
+For more information, see the protocol documentation: [The Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
 ## Troubleshooting
 

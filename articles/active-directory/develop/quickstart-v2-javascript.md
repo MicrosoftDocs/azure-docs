@@ -14,7 +14,7 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
 
-#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
+#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA
@@ -215,7 +215,7 @@ For more information about available configurable options, see [Initialize clien
 The following code snippet shows how to sign in users:
 
 ```javascript
-// Add scopes for the id token to be used at Microsoft identity platform endpoints.
+// Add scopes for the id token to be used at the Microsoft identity platform.
 const loginRequest = {
     scopes: ["openid", "profile", "User.Read"],
 };
@@ -264,14 +264,14 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### Get a user token interactively
 
-There are situations where you need to force users to interact with the Microsoft identity platform endpoint. For example:
+There are situations where you need to force users to interact with the Microsoft identity platform. For example:
 * Users might need to reenter their credentials because their password has expired.
 * Your application is requesting access to additional resource scopes that the user needs to consent to.
 * Two-factor authentication is required.
 
 The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint.) In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
+Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform.) In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.

@@ -1,5 +1,5 @@
 ---
-title: Move a daemon app that calls web APIs to production - Microsoft identity platform | Azure
+title: Move a daemon app that calls web APIs to production - The Microsoft identity platform | Azure
 description: Learn how to move a daemon app that calls web APIs to production
 services: active-directory
 author: jmprieur
@@ -13,7 +13,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 

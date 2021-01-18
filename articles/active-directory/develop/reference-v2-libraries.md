@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform authentication libraries
-description: Compatible client libraries and server middleware libraries, along with related library, source, and sample links, for the Microsoft identity platform endpoint.
+title: The Microsoft identity platform authentication libraries
+description: Compatible client libraries and server middleware libraries, along with related library, source, and sample links, for the Microsoft identity platform.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -15,9 +15,9 @@ ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ---
 
-# Microsoft identity platform authentication libraries
+# The Microsoft identity platform authentication libraries
 
-The [Microsoft identity platform endpoint](../azuread-dev/azure-ad-endpoint-comparison.md) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Microsoft identity platform endpoint. You can also use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
+The [Microsoft identity platform ](../azuread-dev/azure-ad-endpoint-comparison.md) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Microsoft identity platform. You can also use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
 
 We recommend that you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology. Such methodologies include [the one that Microsoft follows][Microsoft-SDL]. If you hand code for the protocols, you should follow a methodology such as Microsoft SDL. Pay close attention to the security considerations in the standards specifications for each protocol.
 
@@ -26,7 +26,7 @@ We recommend that you use libraries written by protocol domain experts who follo
 
 ## Types of libraries
 
-The Microsoft identity platform endpoint works with two types of libraries:
+The Microsoft identity platform works with two types of libraries:
 
 * **Client libraries**: Native clients and servers use client libraries to acquire access tokens for calling a resource such as Microsoft Graph.
 * **Server middleware libraries**: Web apps use server middleware libraries for user sign-in. Web APIs use server middleware libraries to validate tokens that are sent by native clients or by other servers.
@@ -36,9 +36,9 @@ The Microsoft identity platform endpoint works with two types of libraries:
 Libraries come in two support categories:
 
 * **Microsoft-supported**: Microsoft provides fixes for these libraries and has done SDL due diligence on these libraries.
-* **Compatible**: Microsoft has tested these libraries in basic scenarios and has confirmed that they work with the Microsoft identity platform endpoint. Microsoft doesn't provide fixes for these libraries and hasn't done a review of these libraries. Issues and feature requests should be directed to the library's open-source project.
+* **Compatible**: Microsoft has tested these libraries in basic scenarios and has confirmed that they work with the Microsoft identity platform. Microsoft doesn't provide fixes for these libraries and hasn't done a review of these libraries. Issues and feature requests should be directed to the library's open-source project.
 
-For a list of libraries that work with the Microsoft identity platform endpoint, see the following sections.
+For a list of libraries that work with the Microsoft identity platform, see the following sections.
 
 ## Microsoft-supported client libraries
 
@@ -94,16 +94,16 @@ See also [Scenarios by supported platforms and languages](authentication-flows-a
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-oauth2: 1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS, & Android  | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | [Version 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-For any standards-compliant library, you can use the Microsoft identity platform endpoint. It's important to know where to go for support:
+For any standards-compliant library, you can use the Microsoft identity platform. It's important to know where to go for support:
 
 * For issues and new feature requests in library code, contact the library owner.
 * For issues and new feature requests in the service-side protocol implementation, contact Microsoft.
 * [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you want to see in the protocol.
-* [Create a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you find an issue where the Microsoft identity platform endpoint isn't compliant with OAuth 2.0 or OpenID Connect 1.0.
+* [Create a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you find an issue where the Microsoft identity platform isn't compliant with OAuth 2.0 or OpenID Connect 1.0.
 
 ## Related content
 
-For more information about the Microsoft identity platform endpoint, see the [Microsoft identity platform overview][AAD-App-Model-V2-Overview].
+For more information about the Microsoft identity platform, see the [Microsoft identity platform overview][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

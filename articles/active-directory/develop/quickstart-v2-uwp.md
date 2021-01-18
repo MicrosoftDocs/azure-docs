@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-#Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
+#Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 
 # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
@@ -121,7 +121,7 @@ When the app's window appears, you can select the **Call Microsoft Graph API** b
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by Microsoft Identity platform for developers. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform for developers. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -152,7 +152,7 @@ MSAL has two methods for acquiring tokens in a UWP app: `AcquireTokenInteractive
 
 #### Get a user token interactively
 
-Some situations require forcing users to interact with the Microsoft identity platform endpoint through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users to interact with the Microsoft identity platform through a popup window to either validate their credentials or to give consent. Some examples include:
 
 - The first-time users sign in to the application
 - When users may need to reenter their credentials because the password has expired
