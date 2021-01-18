@@ -1,6 +1,6 @@
 ---
 title: Surface custom details in Azure Sentinel alerts | Microsoft Docs
-description: Map data fields in tables to Azure Sentinel entities in analytics rules, for better incident information
+description: Extract and surface custom event details in alerts in Azure Sentinel analytics rules, for better and more complete incident information
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -51,11 +51,18 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     
         :::image type="content" source="media/surface-custom-details-in-alerts/custom-details.png" alt-text="Add custom details":::
 
-1. Click **Add new** to surface more details, repeating the last steps to define key-value pairs. You can define **up to 20 custom details** in a single analytics rule.
+1. Click **Add new** to surface more details, repeating the last steps to define key-value pairs. 
 
     If you change your mind, or if you made a mistake, you can remove a custom detail by clicking the trash can icon next to the **Value** drop-down list for that detail.
 
 1. When you have finished defining custom details, click the **Review and create** tab. Once the rule validation is successful, click **Save**.
+
+    > [!NOTE]
+    > 
+    >**Service limits**
+    > - You can define **up to 20 custom details** in a single analytics rule.
+    >
+    > - The size limit for all custom details, collectively, is **2 KB**.
 
 ## Next steps
 In this document, you learned how to surface custom details in alerts using Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:

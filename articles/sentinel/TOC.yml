@@ -202,6 +202,8 @@
     href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
+  - name: Surface custom details in alerts
+    href: surface-custom-details-in-alerts.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics

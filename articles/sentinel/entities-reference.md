@@ -45,6 +45,7 @@ For best results - for guaranteed unique identification - you should use an iden
 | [**Registry value**](#registry-value) | Name<br>Value<br>ValueType | Name | |
 | [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
 | [**URL**](#url) | Url | Url | |
+| [**IoT device**](#iot-device) | IoTHub<br>DeviceId<br>DeviceName<br>IoTSecurityAgentId<br>DeviceType<br>Source<br>SourceRef<br>Manufacturer<br>Model<br>OperatingSystem<br>IpAddress<br>MacAddress<br>Protocols<br>SerialNumber | IoTHub<br>DeviceId | IoTHub + DeviceId |
 | [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
 | [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Query<br>Source | Query + Source |
 | [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>Language<br>ThreatDetectionMethods | NetworkMessageId<br>Recipient | NetworkMessageId + Recipient |
@@ -330,10 +331,9 @@ Strong identifiers of a URL entity:
 Weak identifiers of a URL entity:
 - Url (when a relative URL)
 
-## IoTDevice
+## IoT device
 
-> [!NOTE]
-> Entity mapping is not yet supported for this entity type.
+*Entity name: IoTDevice*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -425,9 +425,9 @@ Strong identifiers of a mail cluster entity:
 | NetworkMessageId | Guid? | The network message ID of this mail message. |
 | InternetMessageId | String | The internet message ID of this mail message. |
 | Subject | String | The subject of this mail message. |
-| AntispamDirection | AntispamMailDirection?<br>**not String**? | The directionality of this mail message. |
-| DeliveryAction | DeliveryAction?<br>**not String**? | The delivery action of this mail message - Delivered, Blocked, Replaced, and others. |
-| DeliveryLocation | DeliveryLocation?<br>**not String**? | The delivery location of this mail message - Inbox, JunkFolder, and others |
+| AntispamDirection | Enum? | The directionality of this mail message. Possible values:<li>Unknown<li>Inbound<li>Outbound<li>Intraorg (internal) |
+| DeliveryAction | Enum? | The delivery action of this mail message. Possible values:<li>Unknown<li>DeliveredAsSpam<li>Delivered<li>Blocked<li>Replaced |
+| DeliveryLocation | Enum? | The delivery location of this mail message. Possible values:<li>Unknown<li>Inbox<li>JunkFolder<li>DeletedFolder<li>Quarantine<li>External<li>Failed<li>Dropped<li>Forwarded |
 | Language | String | The language in which the contents of the mail are written. |
 | ThreatDetectionMethods | IList&lt;String&gt; | The list of Threat Detection Methods applied on this mail |
 |

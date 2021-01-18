@@ -62,6 +62,7 @@ The following types of entities are currently identified in Azure Sentinel:
 - Registry value
 - Security group
 - URL
+- IoT device
 - Mailbox
 - Mail cluster
 - Mail message
