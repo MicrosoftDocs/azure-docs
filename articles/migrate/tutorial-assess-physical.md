@@ -66,7 +66,7 @@ Run an assessment as follows:
     
 1. Click **Edit** to review the assessment properties.
 
-    ![Location of the View all button to review assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Location of the edit button to review assessment properties":::
 
 1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
@@ -113,7 +113,7 @@ Run an assessment as follows:
 
 1. In **Select or create a group** > select **Create New** and specify a group name. 
     
-     ![Add VMs to a group](./media/tutorial-assess-physical/assess-group.png)
+    :::image type="content" source="./media/tutorial-assess-physical/assess-group.png" alt-text="Add VMs to a group":::
 
 
 1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.

@@ -54,7 +54,7 @@ Run an assessment as follows:
     
 1. Click **Edit** to review the assessment properties.
 
-    ![Location of the View all button to review assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Location of the Edit button to review assessment properties":::
 
 1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
@@ -74,6 +74,7 @@ Run an assessment as follows:
         - If you're using performance-based assessment, Azure Migrate suggests a value for you.
         - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
+    
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
         --- | --- | ---
         Cores | 2  | 4
@@ -99,9 +100,8 @@ Run an assessment as follows:
 1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
 
 1. In **Select or create a group** > select **Create New** and specify a group name. 
-    
-     ![Add VMs to a group](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Add VMs to a group":::
 
 1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
 
@@ -109,8 +109,8 @@ Run an assessment as follows:
 1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
 
 1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-1. Click **Export assessment**, to download it as an Excel file.
 
+1. Click **Export assessment**, to download it as an Excel file.
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 

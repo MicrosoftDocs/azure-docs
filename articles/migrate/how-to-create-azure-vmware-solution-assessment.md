@@ -57,17 +57,17 @@ Run an Azure VMware Solution (AVS) assessment as follows:
 
 3. In **Assess servers**, select the assessment type as "Azure VMware Solution (AVS)", select the discovery source.
 
-    ![Assessment Basics](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="Add assessment basics":::
 
 4. Click **Edit** to review the assessment properties.
 
-    ![Page for selecting the assessment settings](./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Location of the Edit button to review assessment properties":::
 
 1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
  
 1. In **Select or create a group** > select **Create New** and specify a group name. A group gathers one or more VMs together for assessment.
     
-     ![Add VMs to a group](./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add VMs to a group":::
 
 1. In **Add machines to the group**, select VMs to add to the group.
 
@@ -101,7 +101,7 @@ input in coming releases further allowing user to fine tune their required sizin
 
 2. In **Assessments**, click on an assessment to open it.
 
-    ![AVS Assessment summary](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
 
 ### Review Azure VMware Solution (AVS) readiness
 
