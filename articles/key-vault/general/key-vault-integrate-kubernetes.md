@@ -33,6 +33,8 @@ In this tutorial, you learn how to:
 
 * Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
+This tutorial assumes you runnig Azure Kubernetes Service on Linux nodes.
+
 ## Use managed identities
 
 This diagram illustrates the AKS–Key Vault integration flow for Managed Identity:
@@ -73,6 +75,8 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ![Screenshot of the Azure CLI with subscriptionId and nodeResourceGroup values highlighted](../media/kubernetes-key-vault-3.png)
     
 ## Install Helm and the Secrets Store CSI driver
+> [!NOTE]
+> Below installation works only on AKS on Linux. For more information about Secrets Store CSI driver installation, see [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 To install the Secrets Store CSI driver, you first need to install [Helm](https://helm.sh/docs/intro/install/).
 

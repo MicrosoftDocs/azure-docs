@@ -28,7 +28,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 >
 >Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
 >
-> If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md).  
 > 
 > 
 
@@ -245,4 +245,4 @@ To create a managed image from a VM that doesn't use managed disks, you need the
 
 	
 ## Next steps
-- [Create a VM from a managed image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).	
+- [Create a VM from a managed image](create-vm-generalized-managed.md).	

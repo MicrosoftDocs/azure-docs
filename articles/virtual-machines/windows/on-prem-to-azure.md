@@ -22,7 +22,7 @@ You can upload either generalized and specialized VHDs.
 - **Specialized VHD** - maintains the user accounts, applications, and other state data from your original VM. 
 
 > [!IMPORTANT]
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md)
 >
 >
 
@@ -89,4 +89,4 @@ Review the [pricing for Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## Next Steps
 
-- Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md)

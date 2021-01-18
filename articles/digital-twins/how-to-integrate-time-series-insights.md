@@ -85,13 +85,13 @@ The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-
 
 Before moving on, take note of your *Event Hubs namespace* and *resource group*, as you will use them again to create another event hub later in this article.
 
-## Create an Azure function 
+## Create a function in Azure
 
-Next, you'll create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own. 
+Next, you'll use Azure Functions to create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own. 
 
 This function will convert those twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
 
-For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+For more information about using Event Hubs with Azure Functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Inside your published function app, replace the function code with the following code.
 

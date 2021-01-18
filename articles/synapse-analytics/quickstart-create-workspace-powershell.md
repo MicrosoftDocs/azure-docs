@@ -30,10 +30,10 @@ before you begin.
     > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2
     > account. For any storage account that you link as the primary storage account, you must enable
     > **hierarchical namespace** at the creation of the storage account as described in
-    > [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell#create-a-storage-account).
+    > [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).
 
 If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for more
+[Overview of Azure Cloud Shell](../cloud-shell/overview.md) for more
 information.
 
 ### Install the Azure PowerShell module locally

@@ -27,15 +27,19 @@ If your security solution already has an existing connector, use the connector-s
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Check Point](connect-checkpoint.md)
-- [Cisco](connect-cisco.md)
+- [Cisco ASA](connect-cisco.md)
+- [Citrix WAF](connect-citrix-waf.md)
+- [CyberArk Enterprise Password Vault](connect-cyberark.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
-- [F5 ASM](connect-f5.md)  
+- [F5 ASM](connect-f5.md)
 - [Forcepoint products](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
+- [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
+- [WireX Network Forensics Platform](connect-wirex-systems.md)
 - [Zscaler](connect-zscaler.md)
 ## Configure any other solution
 

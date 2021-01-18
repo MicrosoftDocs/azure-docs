@@ -26,28 +26,7 @@ You can visualize the incident and change request data by using the ITSMC dashbo
 
 The dashboard also provides information about connector status, which you can use as a starting point to analyze problems with the connections.
 
-### Error Investigation using the dashboard
-
-In order to view the errors in the dashboard, you should follow the next steps:
-
-1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
-
-   ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
-
-2. Under **Workspace Data Sources** in the left pane, select **ITSM Connections**:
-
-   ![Screenshot that shows the ITSM Connections menu item.](media/itsmc-overview/add-new-itsm-connection.png)
-
-3. Under **Summary** in the left box **IT Service Management Connector**, select **View Summary**:
-
-    ![Screenshot that shows view summary.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
-
-4. Under **Summary** in the left box **IT Service Management Connector**, click on the graph:
-
-    ![Screenshot that shows graph click.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. Using this dashboard you will be able to review the status and the errors in your connector.
-    ![Screenshot that shows connector status.](media/itsmc-resync-servicenow/connector-dashboard.png)
+In order to get more information about the dashboard investigation, see [Error Investigation using the dashboard](./itsmc-dashboard.md).
 
 ### Service map
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -27,7 +27,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a QQ application
 
-To use a QQ account as an identity provider in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a QQ account, you can sign up at [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+To enable sign-in for users with a QQ account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [QQ developer portal](http://open.qq.com). If you don't already have a QQ account, you can sign up at [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### Register for the QQ developer program
 
@@ -185,7 +185,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add QQ identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the QQ identity provider.
+1. Click the user flow that you want to add the QQ identity provider.
 1. Under the **Social identity providers**, select **QQ**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
