@@ -113,6 +113,7 @@ To plan your rack installation:
 1. Prepare a monitor and a keyboard for your appliance network settings.
 
 1. Allocate the rack space for the appliance.
+
 1. Have AC power available for the appliance.
 1. Prepare the LAN cable for connecting the management to the network switch.
 1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
@@ -122,19 +123,19 @@ To plan your rack installation:
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS | TCP | IN/OUT | 443 | Sensor + CM Web Console | Access to Web console | Client | Sensor/CM |
-| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor/CM |
-| SSL | TCP | IN/OUT | 443 | Sensor and CM | Connection Between CyberX platform and the Central Management platform | sensor | CM |
-| NTP | UDP | IN | 123 | Time Sync | CM use as NTP to sensor | sensor | CM |
+| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
+| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection Between CyberX platform and the Central Management platform | sensor | On-premises management console |
+| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | On-premises management console |
 | NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server | sensor | NTP |
-| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor/CM | Email server |
-| Syslog | UDP | OUT | 514 | LEEF | Logs that send from CM to Syslog server | CM/Sensor | Syslog server |
-| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | CM/Sensor | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | CM/Sensor | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | CM/Sensor | LDAPS server |
-| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | CM/Sensor | SNMP server |
+| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
+| Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
+| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
+| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
 | WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
-| Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the CM. <br /><br />- Port 22 from sensor to the CM  | monitoring | Tunneling | Sensor | CM |
+| Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
 
 ## About passive network monitoring
 
@@ -153,6 +154,7 @@ The following sections describe Purdue levels.
 Level 0 consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as:
 
 - Driving a motor.
+
 - Measuring variables.
 - Setting an output.
 - Performing key functions, such as painting, welding, and bending.
