@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.author: keithp
+ms.date: 01/15/2021
+ms.author: mbaldwin
 
 ---
 # Azure Dedicated HSM high availability
