@@ -15,7 +15,7 @@ ms.author: allensu
 
 # Quickstart: Create a Private Link service by using the Azure portal
 
-Get started creating a Private Link by using the Azure portal to create a Private Link service that refers your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.
+Get started creating a Private Link service that refers to your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an internal load balancer
 
-In this section you'll create a virtual network and an internal Azure Load Balancer.
+In this section, you'll create a virtual network and an internal Azure Load Balancer.
 
 ### Virtual network
 
@@ -71,7 +71,7 @@ In this section, you create a virtual network and subnet to host the load balanc
 
 ### Create a standard load balancer
 
-Use the portal to create a standard internal load balancer. The name and IP address you specify are automatically configured as the load balancer's front end.
+Use the portal to create a standard internal load balancer. 
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 
@@ -150,7 +150,7 @@ In this section, you'll create a load balancer rule:
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
-2. Under **Settings**, select **Load balancing rules**, then select **Add**.
+2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
 
 3. Use these values to configure the load-balancing rule:
     
@@ -171,7 +171,7 @@ In this section, you'll create a load balancer rule:
 
 ## Create a Private Link service
 
-In this section, you will create a Private Link service behind a standard load balancer.
+In this section, you'll create a Private Link service behind a standard load balancer.
 
 1. On the upper-left part of the page in the Azure portal, select **Create a resource**.
 
@@ -181,7 +181,7 @@ In this section, you will create a Private Link service behind a standard load b
 
 4. In **Overview** under **Private Link Center**, select the blue **Create private link service** button.
 
-5. In the **Basics** tab under **Create private link service**, enter or select the following information:
+5. In the **Basics** tab under **Create private link service**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -217,7 +217,7 @@ In this section, you will create a Private Link service behind a standard load b
 
 ## Clean up resources
 
-When you are done using the Private Link service, delete the resource group to clean up the resources used in this quickstart.
+When you're done using the Private Link service, delete the resource group to clean up the resources used in this quickstart.
 
 1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal, and select **CreatePrivLinkService-rg** from the search results.
 1. Select **Delete resource group**.
@@ -226,7 +226,7 @@ When you are done using the Private Link service, delete the resource group to c
 
 ## Next steps
 
-In this quickstart you:
+In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
 * Created a private link service
