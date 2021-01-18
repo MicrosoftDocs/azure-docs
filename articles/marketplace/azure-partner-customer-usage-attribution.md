@@ -16,7 +16,7 @@ Customer usage attribution associates usage from Azure resources running in cust
 
 Customer usage attribution supports three deployment options:
 
-1. Azure Resource Manager templates (the common underpinnings of Azure Marketplace apps, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident your resources are deployed in a consistent and repeatable state.
+1. Azure Resource Manager templates (the common underpinnings of Azure Applications, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident your resources are deployed in a consistent and repeatable state.
 1. Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
 1. Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
