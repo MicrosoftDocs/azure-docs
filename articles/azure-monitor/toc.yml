@@ -573,7 +573,7 @@
       - name: Troubleshooting problems in ITSM Connector
         items:
         - name: Overview
-          href: platform/itsmc-troubleshooting-overview.md
+          href: platform/itsmc-troubleshoot-overview.md
         - name: Sync ITSM Connector
           href: platform/itsmc-resync-servicenow.md
         - name: Dashboard Investigation
