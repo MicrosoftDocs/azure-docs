@@ -105,6 +105,5 @@ For Microsoft personal account users, reprompting for consent on each native cli
 ## Next steps
 
 Here are some things to consider when moving your application to production.
-1. [Enable logging](msal-logging.md) to make your app production ready.
 1. Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
 

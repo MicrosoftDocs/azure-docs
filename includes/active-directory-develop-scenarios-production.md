@@ -19,7 +19,18 @@ ms.custom: include file
 
 ## Enable logging
 
-[Enable logging](msal-logging.md) to make your app production ready.
+:::row:::
+    :::column:::
+        - [Logging in MSAL.NET](msal-logging-dotnet.md)
+        - [Logging in MSAL for Android](msal-logging-android.md)
+        - [Logging in MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
+        - [Logging in MSAL for Java](msal-logging-java.md)
+        - [Logging in MSAL for Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## Test your integration
 
