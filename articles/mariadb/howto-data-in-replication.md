@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/18/2021
 ---
 
 # Configure Data-in Replication in Azure Database for MariaDB
@@ -18,6 +18,9 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 > [!NOTE]
 > If your source server is version 10.2 or newer, we recommend that you set up Data-in Replication by using [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Create a MariaDB server to use as a replica
 
@@ -35,10 +38,6 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 3. Add the source server's IP address to the replica's firewall rules. 
 
    Update firewall rules using the [Azure portal](howto-manage-firewall-portal.md) or [Azure CLI](howto-manage-firewall-cli.md).
-
-> [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
->
 
 ## Configure the source server
 
@@ -90,7 +89,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Turn on binary logging.
 
-    To see if binary logging is enabled on the master, enter the following command:
+    To see if binary logging is enabled on the primary, enter the following command:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
