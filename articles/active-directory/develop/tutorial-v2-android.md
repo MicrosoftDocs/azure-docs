@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create an Android app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+titleSuffix: The Microsoft identity platform
 description: In this tutorial, you build an Android app that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: mmacy
@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
-In this tutorial, you build an Android app that integrates with Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API.
+In this tutorial, you build an Android app that integrates with the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API.
 
 When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
 

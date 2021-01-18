@@ -143,7 +143,7 @@ To learn more about authentication, see [What is authentication?](../azuread-dev
 
 For OpenID Connect, the application must be multi-tenanted and the [Azure AD consent framework](consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
 
-To review specific examples, see [Microsoft identity platform code samples](sample-v2-code.md). 
+To review specific examples, see [The Microsoft identity platform code samples](sample-v2-code.md). 
 
 To review mobile specific examples, see: 
 * [Android](quickstart-v2-android.md)

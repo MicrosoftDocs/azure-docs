@@ -243,4 +243,8 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 ## Next steps
 
 > [!div class="nextstepaction"]
+<<<<<<< HEAD
 > [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
+=======
+> [The Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
+>>>>>>> endpoint-v2-standardization

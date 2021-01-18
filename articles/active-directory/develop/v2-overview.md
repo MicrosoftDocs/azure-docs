@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform overview - Azure
+title: The Microsoft identity platform overview - Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
@@ -75,7 +75,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 ## Next steps
 
-If you have an Azure account you already have access to an Azure Active Directory tenant, but most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
+If you have an Azure account you already have access to an Azure Active Directory tenant, but most the Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
 
 Learn how to create your own tenant for use while building your applications:
 
