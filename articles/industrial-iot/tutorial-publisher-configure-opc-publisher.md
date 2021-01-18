@@ -79,7 +79,8 @@ There are several command-line arguments that can be used to set global settings
 
 ## Configuration via the built-in OPC UA Server Interface
 
->[!NOTE] This feature is only available in version 2.5 and below of OPC Publisher.**
+>[!NOTE] 
+> This feature is only available in version 2.5 and below of OPC Publisher.**
 
 OPC Publisher has a built-in OPC UA server, running on port 62222. It implements three OPC UA methods:
 
@@ -91,7 +92,8 @@ This interface can be accessed using an OPC UA client application, for example [
 
 ## Configuration via IoT Hub Direct Methods
 
->[!NOTE] This feature is only available in version 2.5 and below of OPC Publisher.**
+>[!NOTE] 
+> This feature is only available in version 2.5 and below of OPC Publisher.**
 
 OPC Publisher implements the following [IoT Hub Direct Methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods), which can be called from an application (from anywhere in the world) leveraging the [IoT Hub Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks):
 
@@ -110,15 +112,17 @@ We have provided a [sample configuration application](https://github.com/Azure-S
 
 ## Configuration via Cloud-based, Companion REST Microservice
 
->[!NOTE] This feature is only available in version 2.6 and above of OPC Publisher.
+>[!NOTE] 
+> This feature is only available in version 2.6 and above of OPC Publisher.
 
 A cloud-based, companion microservice with a REST interface is described and available [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/services/publisher.md). It can be used to configure OPC Publisher via an OpenAPI-compatible interface, for example through Swagger.
 
 ## Configuration of the simple JSON telemetry format via Separate Configuration File
 
->[!NOTE] This feature is only available in version 2.5 and below of OPC Publisher.
+>[!NOTE] 
+> This feature is only available in version 2.5 and below of OPC Publisher.
 
-OPC Publisher allows filtering the parts of the non-standardized, simple telemetry format via a separate configuration file, which can be specified via the tc command line option. If no configuration file is specified, the full JSON telemetry format is sent to IoT Hub. The format of the separate telemetry configuration file is described [here](reference-opc-publisher-telemetry-format.md#OPC-Publisher-Telemetry-Configuration-File-Format).
+OPC Publisher allows filtering the parts of the non-standardized, simple telemetry format via a separate configuration file, which can be specified via the tc command line option. If no configuration file is specified, the full JSON telemetry format is sent to IoT Hub. The format of the separate telemetry configuration file is described [here](reference-opc-publisher-telemetry-format.md#opc-publisher-telemetry-configuration-file-format).
 
 ## Next steps
 Now that you have configured the OPC Publisher, the next step is to learn how to tune the performance and memory of the Edge module:

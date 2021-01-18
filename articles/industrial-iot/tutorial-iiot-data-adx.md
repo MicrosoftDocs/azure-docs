@@ -120,7 +120,8 @@ As soon as the above query is executed, data will start flowing and populating t
 
 We can see that the query that uses the parsed table is roughly twice as fast as that for the staging table. In this example, we have a small dataset and there are no concurrent queries running so the effect on the query execution time it isn't great, however for a realistic workload there would be a large impact on the performance. This is why it's important to consider separating the different data types into different columns.
 
-> [!NOTE] The Update Policy only works on the data that is ingested into the staging table after the policy was set up and doesn't apply to any pre-existing data. This needs to be taken into consideration when, for example, we need to change the update policy. Full details can be found in the ADX documentation.
+> [!NOTE] 
+> The Update Policy only works on the data that is ingested into the staging table after the policy was set up and doesn't apply to any pre-existing data. This needs to be taken into consideration when, for example, we need to change the update policy. Full details can be found in the ADX documentation.
 
 ## Next steps
 Now that you have learned how to change the default values of the configuration, you can 
