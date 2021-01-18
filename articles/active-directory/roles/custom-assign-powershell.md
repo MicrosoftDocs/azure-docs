@@ -157,5 +157,5 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 ## Next steps
 
 - Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-- For more about roles and azure AD administrator role assignments, see [Assign administrator roles](permissions-reference.md)
+- For more about roles and Azure AD administrator role assignments, see [Assign administrator roles](permissions-reference.md)
 - For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)
