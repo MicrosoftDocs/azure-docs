@@ -286,7 +286,11 @@ The `Actions` permission specifies the management operations that the role allow
 
 ## NotActions
 
-The `NotActions` permission specifies the management operations that are subtracted or excluded from the allowed `Actions` that have a wildcard (`*`). Use the `NotActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `Actions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotActions` operations from the `Actions` operations. The following table shows two examples of the effective permissions for a [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) wildcard operation:
+The `NotActions` permission specifies the management operations that are subtracted or excluded from the allowed `Actions` that have a wildcard (`*`). Use the `NotActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `Actions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotActions` operations from the `Actions` operations.
+
+`Actions - NotActions = Effective management permissions`
+
+The following table shows two examples of the effective permissions for a [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) wildcard operation:
 
 > [!div class="mx-tableFixed"]
 > | Actions | NotActions | Effective management permissions |
@@ -318,7 +322,11 @@ The `DataActions` permission specifies the data operations that the role allows 
 
 ## NotDataActions
 
-The `NotDataActions` permission specifies the data operations that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations. The following table shows two examples of the effective permissions for a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) wildcard operation:
+The `NotDataActions` permission specifies the data operations that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+The following table shows two examples of the effective permissions for a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) wildcard operation:
 
 > [!div class="mx-tableFixed"]
 > | DataActions | NotDataActions | Effective data permissions |
