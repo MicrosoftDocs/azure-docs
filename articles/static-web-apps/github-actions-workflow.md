@@ -205,6 +205,7 @@ on:
       - main
     paths:
       - customer-client/**
+      - api/**
       - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -212,12 +213,17 @@ on:
       - main
     paths:
       - customer-client/**
+      - api/**
       - .github/workflows/azure-static-web-apps-purple-pond-08f780f0f.yml
 ```
 
-In this instance, only changes made to files under the _customer-client_ folder or the app's workflow file will kick off a new build.
+In this instance, only changes made to files following files trigger a new build:
 
-Any other instances of an Azure Static Web Apps site in the repo will have its own workflow file with path values specific to the web app.
+- Any files inside the _customer-client_ folder
+- Any files inside the _api_ folder
+- Changes to the app's workflow file
+
+Other instances of an Azure Static Web Apps static site in the repo need its own workflow file with corresponding path values.
 
 ## Next steps
 
