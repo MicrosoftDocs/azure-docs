@@ -64,8 +64,6 @@ The following steps will help you recover all backed-up files in a volume:
 
 The following steps will help you recover all backed-up files in a volume to an alternate machine. You can use these steps to recover data from Azure Backup if your entire server is lost.
 
-If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.
-
 These steps include the following terminology:
 
 - *Source machine* – The original machine from which the backup was taken, and which is currently unavailable.
