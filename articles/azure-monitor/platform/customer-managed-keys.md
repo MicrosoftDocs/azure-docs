@@ -91,7 +91,7 @@ N/A
 
 # [REST](#tab/rest)
 
-When using REST, the response initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
+When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with *Azure-AsyncOperation* property:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -197,7 +197,7 @@ It takes the propagation of the key a few minutes to complete. You can check the
 2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
 A response to GET request should look like this when the key update is complete:
-200 OK and header
+202 (Accepted) and header
 ```json
 {
   "identity": {
