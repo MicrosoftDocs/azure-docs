@@ -52,7 +52,6 @@ The table summarizes support for physical servers you want to migrate using agen
 **NFS** | NFS volumes mounted as volumes on the machines won't be replicated.
 **iSCSI targets** | Machines with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
-**Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 
