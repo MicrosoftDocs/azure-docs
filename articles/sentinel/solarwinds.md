@@ -1,5 +1,5 @@
 ---
-title: Securing your system against systemic-identity compromise | Microsoft Docs
+title: Securing your system against systemic-identity compromise| Microsoft Docs
 description: Learn how to use Microsoft resources to secure your system against systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: bagol
 
 ---
 
 # Securing your system against systemic-identity compromise
 
-In December 2020, [FireEye discovered a nation-state cyber-attack on SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html) (Solorigate).
+In December 2020, a massive systemic-identity compromise was [discovered by FireEye in the SolarWinds software](https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html) (Solorigate).
 
-The Solorigate attack provided the attackers with a foothold into affected customer networks, which they then used to gain elevated credentials. The attackers then used those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
+The Solorigate attack is an example of how a systemic-identity compromise can provide attackers with a foothold into affected customer networks, which they can then use to gain elevated credentials. The attackers can use those credentials to access global administrator accounts or trusted SAML token-signing certificates. 
 
-The global administrator account or certificates enabled the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
+The global administrator account or certificates enable the attackers to forge SAML tokens that can impersonate any of the organization's existing users and accounts, including highly privileged accounts.
 
 Providing full security coverage is a [shared responsibility](/azure/security/fundamentals/shared-responsibility). This article provides information both about the steps that Microsoft has taken to shut down the SolarWinds attack and steps you can take to identify risks and evidence of compromise while hardening your system against attacks.
 
@@ -43,9 +43,9 @@ Providing full security coverage is a [shared responsibility](/azure/security/fu
 > 
 
 > [!NOTE]
-> If you are not sure whether your organization has been infected, review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack: 
+> If you are not sure whether your organization has been infected, we recommend that you review the indications of compromise listed in the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity) to understand about how to identify a Solorigate attack.
 >
-> [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
+> For more information, see [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)
 
 ## Using Azure Sentinel to secure your network after a systemic-identity compromise
 
