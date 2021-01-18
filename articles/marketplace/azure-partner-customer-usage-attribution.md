@@ -1,29 +1,29 @@
 ---
 title: Azure customer usage attribution
-description: Get an overview of tracking customer usage for Azure Marketplace applications and other deployable IP developed by partners.
+description: Get an overview of tracking customer usage for Azure Applications on commercial marketplace and other deployable IP developed by partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 01/06/2021
+ms.date: 01/18/2021
 ms.custom: devx-track-terraform
 ---
 
 # Azure customer usage attribution
 
-Customer usage attribution associates usage from Azure resources running in customer subscriptions; they are created while deploying your IP, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
+Customer usage attribution associates usage from Azure resources in customer subscriptions created while deploying your IP with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. For [Azure Application offers in the commercial marketplace](#commercial-marketplace-azure-applications), this tracking capability helps you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
 Customer usage attribution supports three deployment options:
 
-1. Azure Resource Manager templates (the common underpinnings of Azure Applications, referred to in that context also as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident your resources are deployed in a consistent and repeatable state.
-1. Azure Resource Manager APIs: Partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
-1. Terraform: Partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
+1. Azure Resource Manager templates (the common underpinnings of Azure Applications, also referred to in the commercial marketplace as "solution templates" or "managed apps"): partners create Resource Manager templates to define the infrastructure and configuration of their Azure solutions. A Resource Manager template allows your customers to deploy your solution's resources in a consistent and repeatable state.
+1. Azure Resource Manager APIs: partners can call the Resource Manager APIs to deploy a Resource Manager template or directly provision Azure services.
+1. Terraform: partners can use Terraform to deploy a Resource Manager template or directly deploy Azure services.
 
 There are secondary use cases for customer usage attribution outside of the commercial marketplace described [later in this article](#other-use-cases).
 
 >[!IMPORTANT]
->- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed to deploy and manage software running on Azure Marketplace.
+>- Customer usage attribution is not intended to track the work of systems integrators, managed service providers, or tools designed primarily to deploy and manage Azure resources.
 >- Customer usage attribution is for new deployments and does not support tracking resources that have already been deployed.
 >- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues that cause under-reporting of usage.
 
@@ -34,7 +34,7 @@ Tracking Azure usage from Azure apps is largely automatic. When you upload a Res
 If you use Azure Resource Manager APIs, you will need to add your tracking ID per the [instructions below](#use-resource-manager-apis) to pass it to Azure Resource Manager as your code deploys resources. This ID is visible in Partner Center on your plan's Technical Configuration page.
 
 > [!NOTE]
-> For existing Azure apps, a one-time migration was performed in January 20201 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
+> For existing Azure apps, a one-time migration was performed in January 2021 to update the tracking IDs in each plan's technical configuration. Usage from past deployments of those offers will remain tracked in Microsoft systems.
 
 ## Other use cases 
 
@@ -76,7 +76,7 @@ GUIDs must next be registered in Partner Center so they can be associated with y
 
 ### Add a GUID to a Resource Manager template
 
-Many partner solutions are deployed using Resource Manager templates. To add your registered GUID, make a single modification to the main template file:
+To add your registered GUID to a Resource Manager template, make a single modification to the main template file:
 
 1. Open the Resource Manager template.
 
@@ -99,8 +99,7 @@ Many partner solutions are deployed using Resource Manager templates. To add you
     }
 } // remove all comments from the file when complete
 ```
-
-1. Check the template for errors.
+4. Check the template for errors.
 
 1. Republish the template in the appropriate repositories.
 
@@ -270,7 +269,7 @@ You will be contacted by a Microsoft Partner Technical Consultant to set up a ca
 
 #### After a tracking ID is added, can it be changed?
 
-Tracking IDs for Azure apps are managed automatically by Partner Center. A customer can download a template and change or remove the tracking ID. Partners should proactively describe the role of the tracking ID to their customers to prevent removal or edits. Changing the tracking ID affects only new deployments and resources, not existing ones.
+Tracking IDs for Azure apps in the commercial marketplace are managed automatically by Partner Center. A customer however can download a template and change or remove the tracking ID. Partners should proactively describe the role of the tracking ID to their customers to prevent removal or edits. Changing the tracking ID affects only new deployments and resources, not existing ones.
 
 #### Can I track templates deployed from a non-Microsoft repository like GitHub?
 
@@ -280,6 +279,6 @@ Yes, as long as the tracking ID is present when the template is deployed, usage 
 
 Customers can track their usage of individual resources or customer-defined resource groups within the Azure portal. Customers do not see usage broken out by GUID.
 
-#### Is this methodology similar to the Digital Partner of Record (DPOR)?
+#### Is customer usage attribution similar to the digital partner of record (DPOR) or partner admin link (PAL)?
 
-This new method of connecting the deployment and usage to a partner's solution provides a mechanism to link a partner solution to Azure usage. DPOR is intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer's Azure subscription.
+Customer usage attribution is a mechanism to associate Azure usage with a partner's repeatable, deployable IP - forming the association at time of deployment. DPOR and PAL are intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer's relevant Azure footprint for the time while the partner is engaged with the customer.
