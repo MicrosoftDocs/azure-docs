@@ -56,19 +56,23 @@ To rebuild your Studio (classic) experiments and web services you must:
 
 Let's use [Automobile price prediction](./create-experiment.md) project as an example go give you a glance what it looks like in Azure Machine Learning after rebuild. 
 
-In Machine Learning Studio(classic), there are there assets for the Automobile price prediction - dataset, experiment and web service.
+### In Machine Learning Studio(classic)
 
-**Dataset**: This project use a sample dataset. Your own datasets lays under **MY DATASETS** tab. 
+In Machine Learning Studio(classic), there are there key assets for an end-to-end machine learning project- dataset, experiment and web service.
+
+**Dataset**: The data that will be used for training. The Automobile price prediction project use a sample dataset. Your own datasets lays under **MY DATASETS** tab. 
 ![automobile-price-classic-dataset](./media/migrate-to-AML/classic-automobile-dataset.png)
 
-**Experiment**:  
+**Experiment**: The experiment that trains a model. It's a visual graph build by modules and datasets.
 ![automobile-price-classic-experiment](./media/migrate-to-AML/classic-automobile.png)
 
 **Web service**: There REQUES/RESPOND API can be used for realtime prediction. The BATCH EXECUTION API can be used for batch prediction or retraining. 
 ![automobile-price-classic-webservice](./media/migrate-to-AML/classic-automobile-webservice.png)
 
 
-To rebuild the project in Azure Machine Learning, you will use several components and below screenshot shows what it looks like in Azure Machine Learning Studio. 
+### In Azure Machine Learning
+
+To rebuild the project in Azure Machine Learning, you will use several components and below screenshot shows what it looks like in Azure Machine Learning Studio using the automobile price prediction as an example. [This tutorial] walks through how to train a model and deploy a real-time endpoint for the automobile price prediction problem.  
 
 
 **Dataset**:  Dataset is the component to manage your data in Azure Machine Learning. For this example, we download the dataset from Studio(classic) and upload to Azure Machine Learning.
