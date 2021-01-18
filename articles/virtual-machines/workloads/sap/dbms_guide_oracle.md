@@ -375,7 +375,7 @@ The minimum configuration is as follows:
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA & mirrlogB | Premium or Ultra disk | None | Not needed |
 | \oracle\<SID>\origlogaB & mirrlogA | Premium or Ultra disk | None | Not needed |
-| \oracle\<SID>\sapdata1...n | Premium, Premium or Ultra disk | Read-only | Can be used for Premium |
+| \oracle\<SID>\sapdata1...n | Premium or Ultra disk | Read-only | Can be used for Premium |
 | \oracle\<SID>\oraarch | Standard | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
