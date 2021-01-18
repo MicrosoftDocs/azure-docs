@@ -13,9 +13,9 @@
   - name: Agent-based solution for device builders
     items: 
     - name: Standalone agent binary installation
-      href:
+      href: quickstart-standalone-agent-binary-installation.md
     - name: Building the Defender for IoT Micro Agent from source
-      href:
+      href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Classic
       items:
       - name: Security agents
@@ -287,7 +287,5 @@
         href: azure-iot-security-local-configuration-c.md
       - name: Local configuration C#
         href: azure-iot-security-local-configuration-csharp.md
-        
-    - name: Pricing and associated costs
-      href: concept-pricing.md
+
 
