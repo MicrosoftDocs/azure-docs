@@ -111,13 +111,29 @@ Verify that your organizational security policy allows access to the following:
 To plan your rack installation:
 
 1. Prepare a monitor and a keyboard for your appliance network settings.
-2. Allocate the rack space for the appliance.
-3. Have AC power available for the appliance.
-4. Prepare the LAN cable for connecting the management to the network switch.
-5. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
-6. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
-7. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
-8. Open all the relevant firewall ports.
+
+1. Allocate the rack space for the appliance.
+1. Have AC power available for the appliance.
+1. Prepare the LAN cable for connecting the management to the network switch.
+1. Prepare the LAN cables for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
+1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
+1. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
+1. Open all the relevant firewall ports.
+
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | IN/OUT | 443 | Sensor + CM Web Console | Access to Web console | Client | Sensor/CM |
+| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor/CM |
+| SSL | TCP | IN/OUT | 443 | Sensor and CM | Connection Between CyberX platform and the Central Management platform | sensor | CM |
+| NTP | UDP | IN | 123 | Time Sync | CM use as NTP to sensor | sensor | CM |
+| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server | sensor | NTP |
+| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor/CM | Email server |
+| Syslog | UDP | OUT | 514 | LEEF | Logs that send from CM to Syslog server | CM/Sensor | Syslog server |
+| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | CM/Sensor | DNS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | CM/Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | CM/Sensor | LDAPS server |
+| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | CM/Sensor | SNMP server |
+| WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
 
 ## About passive network monitoring
 
@@ -222,7 +238,7 @@ Here are some recommendations for deploying multiple sensors:
 |--|--|--|--|
 | The maximum distance between switches | 80 meters | Prepared Ethernet cable | More than 1 |
 | Number of OT networks | More than 1 | No physical connectivity | More than 1 |
-| Number of switches | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
+| Number of switches | Can use RSPAN configuration | Up to eight switches with local span close to the sensor by cabling distance | More than 1 |
 
 #### Traffic mirroring  
 
@@ -348,9 +364,9 @@ An active or passive aggregation TAP is installed inline to the network cable. I
 
 The terminal access point (TAP) is a hardware device that allows network traffic to flow from port A to port B, and from port B to port A, without interruption. It creates an exact copy of both sides of the traffic flow, continuously, without compromising network integrity. Some TAPs aggregate transmit and receive traffic by using switch settings if desired. If aggregation is not supported, each TAP uses two sensor ports to monitor send and receive traffic.
 
-TAPs are advantageous for a variety of reasons. They're hardware-based and can't be compromised. They pass all traffic, even damaged messages, which switches often drop. They're not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a TAP is the best device.
+TAPs are advantageous for various reasons. They're hardware-based and can't be compromised. They pass all traffic, even damaged messages, which switches often drop. They're not processor sensitive, so packet timing is exact where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a TAP is the best device.
 
-TAP aggregators can also be used for port monitoring. These devices are processor based and are not as intrinsically secure as hardware TAPs. They might not reflect exact packet timing.
+TAP aggregators can also be used for port monitoring. These devices are processor-based and are not as intrinsically secure as hardware TAPs. They might not reflect exact packet timing.
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagram of active and passive TAPs.":::
 
@@ -359,10 +375,10 @@ TAP aggregators can also be used for port monitoring. These devices are processo
 These models have been tested for compatibility. Other vendors and models might also be compatible.
 
 | Image | Model |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503.":::  | US Robotics USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot of Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot of US Robotics USR 4503."::: | US Robotics USR 4503 |
 
 ##### Special TAP configuration
 
@@ -420,7 +436,7 @@ Relevant information:
 
 - If the Defender for IoT appliance should be connected to that switch, is there physical available rack space in that cabinet?
 
-#### Additional considerations
+#### Other considerations
 
 The purpose of the Defender for IoT appliance is to monitor traffic from layers 1 and 2.
 
@@ -542,7 +558,7 @@ Review this list before site deployment:
 | 14 | Rack and cable the appliances. | ☐ |  |
 | 15 | Allocate site resources to support deployment. | ☐ |  |
 | 16 | Create Active Directory groups or local users. | ☐ |  |
-| 17 | Set up training (self-learning). | ☐ |  |
+| 17 | Set-up training (self-learning). | ☐ |  |
 | 18 | Go or no-go. | ☐ |  |
 | 19 | Schedule the deployment date. | ☐ |  |
 
