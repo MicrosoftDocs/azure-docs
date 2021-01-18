@@ -373,10 +373,10 @@ The minimum configuration is as follows:
 
 | Component | Disk | Caching | Storage pool |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium, Ultra disk, or ANF | None | Not needed |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium, Ultra disk, or ANF | None | Not needed |
-| \oracle\<SID>\sapdata1...n | Premium, Ultra disk, or ANF | Read-only | Can be used for Premium |
-| \oracle\<SID>\oraarch | Standard or ANF | None | Not needed |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium or Ultra disk | None | Not needed |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium or Ultra disk | None | Not needed |
+| \oracle\<SID>\sapdata1...n | Premium, Premium or Ultra disk | Read-only | Can be used for Premium |
+| \oracle\<SID>\oraarch | Standard | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
 
@@ -386,13 +386,13 @@ The performance configuration is as follows:
 
 | Component | Disk | Caching | Storage pool |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium, Ultra disk, or ANF | None | Can be used for Premium  |
-| \oracle\<SID>\origlogaB | Premium, Ultra disk, or ANF | None | Can be used for Premium |
-| \oracle\<SID>\mirrlogAB | Premium, Ultra disk, or ANF | None | Can be used for Premium |
-| \oracle\<SID>\mirrlogBA | Premium, Ultra disk, or ANF | None | Can be used for Premium |
-| \oracle\<SID>\sapdata1...n | Premium, Ultra disk, or ANF | Read-only | Recommended for premium  |
-| \oracle\SID\sapdata(n+1)* | Premium, Ultra disk, or ANF | None | Can be used for Premium |
-| \oracle\<SID>\oraarch* | Premium, Ultra disk, or ANF | None | Not needed |
+| \oracle\<SID>\origlogaA | Premium or Ultra disk | None | Can be used for Premium  |
+| \oracle\<SID>\origlogaB | Premium or Ultra disk | None | Can be used for Premium |
+| \oracle\<SID>\mirrlogAB | Premium or Ultra disk | None | Can be used for Premium |
+| \oracle\<SID>\mirrlogBA | Premium or Ultra disk | None | Can be used for Premium |
+| \oracle\<SID>\sapdata1...n | Premium or Ultra disk | Read-only | Recommended for premium  |
+| \oracle\SID\sapdata(n+1)* | Premium or Ultra disk | None | Can be used for Premium |
+| \oracle\<SID>\oraarch* | Premium or Ultra disk | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | Not needed |
 
 *(n+1): hosting SYSTEM, TEMP, and UNDO tablespaces. The I/O pattern of System and Undo tablespaces are different from other tablespaces hosting application data. No caching is the best option for performance of the System and Undo tablespaces.
@@ -473,10 +473,10 @@ Minimum configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | Premium or Ultra disk | None | Not needed |
-| /oracle/\<SID>/origlogaB & mirrlogA | Premium or Ultra disk | None | Not needed |
-| /oracle/\<SID>/sapdata1...n | Premium or Ultra disk | Read-only | Can be used for Premium |
-| /oracle/\<SID>/oraarch | Standard | None | Not needed |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium, Ultra disk, or ANF | None | Not needed |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium, Ultra disk, or ANF | None | Not needed |
+| /oracle/\<SID>/sapdata1...n | Premium, Ultra disk, or ANF | Read-only | Can be used for Premium |
+| /oracle/\<SID>/oraarch | Standard or ANF | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -487,13 +487,13 @@ Performance configuration:
 
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium or Ultra disk | None | Can be used for Premium  |
-| /oracle/\<SID>/origlogaB | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/mirrlogAB | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/mirrlogBA | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/sapdata1...n | Premium or Ultra disk | Read-only | Recommended for Premium  |
-| /oracle/\<SID>/sapdata(n+1)* | Premium or Ultra disk | None | Can be used for Premium |
-| /oracle/\<SID>/oraarch* | Premium or Ultra disk | None | Not needed |
+| /oracle/\<SID>/origlogaA | Premium, Ultra disk, or ANF | None | Can be used for Premium  |
+| /oracle/\<SID>/origlogaB | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/mirrlogAB | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/mirrlogBA | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/sapdata1...n | Premium, Ultra disk, or ANF | Read-only | Recommended for Premium  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium, Ultra disk, or ANF | None | Can be used for Premium |
+| /oracle/\<SID>/oraarch* | Premium, Ultra disk, or ANF | None | Not needed |
 | Oracle Home, `saptrace`, ... | OS disk (Premium) | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
