@@ -47,7 +47,7 @@ in this section you can find the common errors taht you can find in the status l
 
     **Cause**: Refresh token is expired.
 
-    **Resolution**: Sync the ITSM Connector to generate a new refresh token as explained [here](platform/itsmc-resync-servicenow.md)
+    **Resolution**: Sync the ITSM Connector to generate a new refresh token as explained [here](./platform/itsmc-resync-servicenow.md)
 
 6. **Error**: "Could not create/update work item for alert {alertName}. ITSM Connector {connectionIdentifier} does not exist or was deleted."
 
@@ -55,8 +55,8 @@ in this section you can find the common errors taht you can find in the status l
 
     **Resolution**: The ITSM Connector was deleted but there are still ITSM Actions defined to use it. There are 2 options to solve this issue:
     * Find and disable or delete such actions
-    * [Reconfigure the action group]((itsmc-definition.md#create-itsm-work-items-from-azure-alerts)) to use an existing ITSM Connector.
-    * [Create a new ITSM connector](itsmc-definition.md#create-an-itsm-connection) and [reconfigure the action group to use it](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+    * [Reconfigure the action group](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) to use an existing ITSM Connector.
+    * [Create a new ITSM connector](./itsmc-definition.md#create-an-itsm-connection) and [reconfigure the action group to use it](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ## UI Common Errors
 
@@ -64,4 +64,4 @@ in this section you can find the common errors taht you can find in the status l
 
     **Cause**: Newly created ITSM Connector has yet to finish the initial Sync.
 
-    **Resolution**: When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](platform/itsmc-resync-servicenow.md).
+    **Resolution**: When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./platform/itsmc-resync-servicenow.md).
