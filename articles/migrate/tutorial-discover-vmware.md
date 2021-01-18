@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.custom: mvc
 #Customer intent: As an VMware admin, I want to discover my on-premises VMware VM inventory.
 ---
