@@ -77,9 +77,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 You can prepare Hyper-V hosts manually, or using a script. The preparation steps are summarized in the table. The script prepares these automatically.
 
-
-- Option 1: Prepare an account with Administrator access to the Hyper-V host machine.	**Step** | **Script** | **Manual**
-- Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.	--- | --- | ---
+**Step** | **Script** | **Manual**
+--- | --- | ---
 Verify host requirements | Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.<br/><br/>Enables the WinRM service, and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection). | The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull VM metadata and performance data, using a Common Information Model (CIM) session.
 Verify PowerShell version | Checks that you're running the script on a supported PowerShell version. | Check you're running PowerShell version 4.0 or later on the Hyper-V host.
 Create an account | Verifies that you have the correct permissions on the Hyper-V host.<br/><br/> Allows you to to create a local user account with the correct permissions. | Option 1: Prepare an account with Administrator access to the Hyper-V host machine.<br/><br/> Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.

@@ -18,7 +18,7 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 
 ## Limitations
 
-**Support** | **Details**
+**Requirement** | **Details**
 --- | ---
 **Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 35,000 VMware VMs in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can also include physical servers, and Hyper-V VMs, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 VMware VMs on a vCenter Server.
