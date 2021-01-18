@@ -53,7 +53,7 @@ More details are billing for Log Analytics dedicated clusters are available [her
 
 ## Asynchronous operations and status check
 
-Some of the configuration steps run asynchronously because they can't be completed quickly. The status in response contains can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' including the error code. When using REST, the response initially returns an HTTP status code 200 (OK) and header with Azure-AsyncOperation property when accepted:
+Some of the configuration steps run asynchronously because they can't be completed quickly. The status in response contains can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' including the error code. When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with Azure-AsyncOperation property:
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -120,7 +120,7 @@ Content-type: application/json
 
 *Response*
 
-Should be 200 OK and a header.
+Should be 202 (Accepted) and a header.
 
 ### Check cluster provisioning status
 
@@ -224,7 +224,7 @@ Content-type: application/json
 
 *Response*
 
-200 OK and header.
+202 (Accepted) and header.
 
 ### Check workspace link status
   
