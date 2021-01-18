@@ -1,4 +1,4 @@
-﻿---
+---
 title: High availability - Azure Dedicated HSM | Microsoft Docs
 description: Learn about basic considerations for Azure Dedicated HSM high availability. This article includes an example.
 services: dedicated-hsm
