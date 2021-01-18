@@ -100,6 +100,8 @@
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
+      - name: BETTER Mobile Threat Defense
+        href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
       - name: Citrix Analytics (Security)
@@ -174,6 +176,10 @@
             href: connect-paloalto.md
           - name: Trend Micro Deep Security
             href: connect-trend-micro.md
+          - name: Trend Micro TippingPoint
+            href: connect-trend-micro-tippingpoint.md
+          - name: WireX Systems NFP
+            href: connect-wirex-systems.md
           - name: Zscaler
             href: connect-zscaler.md   
         - name: STEP 3 Validate connectivity 
