@@ -33,7 +33,7 @@ Distributed denial of service (DDoS) attacks attempt to exhaust an application's
 
 1. Select **Azure DDoS Protection** from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
 
-1. Enable **Diagnostic logs** on all the firewalls whose logs you wish to connect:
+1. Enable **Diagnostic logs** on all the public IP addresses whose logs you wish to connect:
 
     1. Select the **Open Diagnostics settings >** link, and choose a **Public IP Address** resource from the list.
 
