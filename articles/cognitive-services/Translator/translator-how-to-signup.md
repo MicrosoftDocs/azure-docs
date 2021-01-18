@@ -1,5 +1,5 @@
 ---
-title: Get started - Translator
+title: Create a Translator Service
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to create the Azure Cognitive Services Translator and get a subscription key.
 services: cognitive-services
