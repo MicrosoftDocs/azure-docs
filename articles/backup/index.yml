@@ -63,6 +63,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Disk Backup
+            url: disk-backup-overview.md
           - text: Backup Center
             url: backup-center-overview.md
           - text: Backup Azure Database for PostgreSQL 

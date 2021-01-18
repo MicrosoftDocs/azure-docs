@@ -67,7 +67,7 @@ Tier pricing includes details about per-partition storage that ranges from 2 GB 
 
 ## Billing rates
 
-Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for each service tier of Azure Cognitive Search.
+Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The per-tier billing rate can be found in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for Azure Cognitive Search.
 
 Once you create a service, the billing rate becomes both a *fixed cost* of running the service around the clock, and an *incremental cost* if you choose to add more capacity.
 
