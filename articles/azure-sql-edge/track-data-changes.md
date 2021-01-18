@@ -31,6 +31,9 @@ To administer and monitor this feature, see [Administer and monitor change data 
 
 To understand how to query and work with the changed data, see [Work with change data](/sql/relational-databases/track-changes/work-with-change-data-sql-server).
 
+> [!NOTE]
+> Change Data Capture functions which are dependent on CLR are not supported on Azure SQL Edge.
+
 ## Change tracking
 
 To understand the details of how this feature works, see [About change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server).

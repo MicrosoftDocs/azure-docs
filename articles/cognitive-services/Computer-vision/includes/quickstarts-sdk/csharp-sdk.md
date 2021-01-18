@@ -46,7 +46,7 @@ Once you've created a new project, install the client library by right-clicking 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n computer-vision-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:

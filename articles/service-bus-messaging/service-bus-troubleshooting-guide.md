@@ -21,7 +21,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     
     An example of failure error message:
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>

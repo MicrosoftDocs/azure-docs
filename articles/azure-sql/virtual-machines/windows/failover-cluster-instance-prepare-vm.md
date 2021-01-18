@@ -64,7 +64,7 @@ On an Azure VM guest failover cluster, we recommend a single NIC per server (clu
 Place both virtual machines:
 
 - In the same Azure resource group as your availability set, if you're using availability sets.
-- On the same virtual network as your domain controller.
+- On the same virtual network as your domain controller or on a virtual network that has suitable connectivity to your domain controller.
 - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
 - In the Azure availability set or availability zone.
 
