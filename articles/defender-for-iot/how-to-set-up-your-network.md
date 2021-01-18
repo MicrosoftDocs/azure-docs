@@ -134,6 +134,7 @@ To plan your rack installation:
 | LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | CM/Sensor | LDAPS server |
 | SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | CM/Sensor | SNMP server |
 | WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
+| Tunneling | TCP | IN | 9000 <br />- on top of port 443 <br />From end user to the CM. <br /> - Port 22 from sensor to the CM  | monitoring | Tunneling | Sensor | CM |
 
 ## About passive network monitoring
 
