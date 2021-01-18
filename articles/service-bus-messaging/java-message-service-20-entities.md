@@ -1,11 +1,11 @@
 ---
-title: Azure Service Bus messaging - Java message service entities (preview)
+title: Azure Service Bus messaging - Java message service entities
 description: This article provides an overview of Azure Service Bus messaging entities accessible through the Java message service API.
 ms.topic: article
 ms.date: 07/20/2020
 ---
 
-# Java message service (JMS) 2.0 entities (Preview)
+# Java message service (JMS) 2.0 entities
 
 Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below entities.
 
@@ -182,7 +182,7 @@ Any attempts to access a subscription scoped to a specific client id (say client
 For more information and examples of using Service Bus messaging, see the following advanced topics:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Use Java Message Service 2.0 API with Azure Service Bus Premium (Preview)](how-to-use-java-message-service-20.md)
+* [Use Java Message Service 2.0 API with Azure Service Bus Premium](how-to-use-java-message-service-20.md)
 
 
 

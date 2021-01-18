@@ -6,12 +6,12 @@ ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
-# Use Java Message Service 2.0 API with Azure Service Bus Premium (Preview)
+# Use Java Message Service 2.0 API with Azure Service Bus Premium
 
 This article explains how to use the popular **Java Message Service (JMS) 2.0** API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP 1.0) protocol.
 
 > [!NOTE]
-> Support for Java Message Service (JMS) 2.0 API is only available on the **Azure Service Bus Premium tier** and is currently in **preview**.
+> Support for Java Message Service (JMS) 2.0 API is only available on the **Azure Service Bus Premium tier**.
 >
 
 ## Pre-requisites
@@ -88,7 +88,7 @@ To connect with Azure Service Bus using JMS clients, you need the **connection s
 
 Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations.
 
-Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
+Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported.
 
 Below are some sample code snippets to get started with JMS -
 
