@@ -48,6 +48,7 @@ output of deployment script or reset the password
 * IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher (for standalone OPC Publisher operation only)
 
 
+## Configuration options
 
 |Configuration Option (shorthand/full name)    |    Description   |
 |----------------------------------------------|------------------|
@@ -74,3 +75,13 @@ ct/createsessiontimeout |The interval the publisher is sending keep alive messag
 kt/keepalivethresholt |Specify the number of keep alive packets a server can miss, before the session is disconnected.
 tm/trustmyself |The publisher certificate is put into the trusted store automatically.
 at/appcertstoretype |The own application cert store type (allowed: Directory, X509Store).
+
+
+## Next steps
+Now that you have learned how to change the default values of the configuration, you can 
+
+> [!div class="nextstepaction"]
+> [Pull IIoT data into ADX](tutorial-iiot-data-adx.md)
+
+> [!div class="nextstepaction"]
+> [Visualize and analyze the data using Time Series Insights](tutorial-iiot-visualize-data-tsi.md)

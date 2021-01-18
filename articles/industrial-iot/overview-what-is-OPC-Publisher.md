@@ -12,7 +12,7 @@ ms.date: 12/01/2020
 
 OPC Publisher is a fully supported Microsoft product, developed in the open, that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting to OPC UA-enabled assets or industrial connectivity software and publishes telemetry data to Azure IoT Hub in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards).
 
-It runs on Azure IoT Edge as a Module or on plain Docker as a container. Since it leverages the .Net cross-platform runtime, it also runs natively on Linux and Windows 10.
+It runs on Azure IoT Edge as a Module or on plain Docker as a container. Since it leverages the .NET cross-platform runtime, it also runs natively on Linux and Windows 10.
 
 OPC Publisher is a reference implementation that demonstrates how to:
 
@@ -30,6 +30,8 @@ You can download the [OPC Publisher reference implementation](https://github.com
 
 The application is implemented using .NET Core technology and can run on any platform supported by .NET Core.
 
+## What does the OPC Publisher do?
+
 OPC Publisher implements retry logic to establish connections to endpoints that don't respond to a certain number of keep alive requests. For example, if an OPC UA server stops responding because of a power outage.
 
 For each distinct publishing interval to an OPC UA server, the application creates a separate subscription over which all nodes with this publishing interval are updated.
@@ -42,4 +44,4 @@ This application uses the OPC Foundation OPC UA reference stack as NuGet package
 Now that you have learned what the OPC Publisher is, you can get started by deploying it:
 
 > [!div class="nextstepaction"]
-> [Deploy OPC Publisher in standalone mode](tut-publisher-deploy-OPC-Publisher-standalone.md)
+> [Deploy OPC Publisher in standalone mode](tutorial-publisher-deploy-opc-publisher-standalone.md)

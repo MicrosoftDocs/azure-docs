@@ -1,5 +1,5 @@
 ---
-title: Deploy the OPC Publisher
+title: Deploy the Microsoft OPC Publisher
 description: In this tutorial you learn how to deploy the OPC Publisher in standalone mode.
 author: jehona-m
 ms.author: jemorina
@@ -12,14 +12,14 @@ ms.date: 12/07/2020
 
 OPC Publisher is a fully supported Microsoft product, developed in the open, that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting to OPC UA-enabled assets or industrial connectivity software and publishes telemetry data to [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards).
 
-It runs on [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) as a Module or on plain Docker as a container. Since it leverages the [.Net cross-platform runtime](https://docs.microsoft.com/dotnet/core/introduction), it also runs natively on Linux and Windows 10.
+It runs on [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) as a Module or on plain Docker as a container. Since it leverages the [.NET cross-platform runtime](https://docs.microsoft.com/dotnet/core/introduction), it also runs natively on Linux and Windows 10.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy the OPC Publisher
 > * Run the latest released version of OPC Publisher as a container
-> * Specify Container Create Options in the Azure Portal
+> * Specify Container Create Options in the Azure portal
 
 If you don’t have an Azure subscription, create a free trial account
 
@@ -48,8 +48,8 @@ docker run mcr.microsoft.com/iotedge/opc-publisher:latest <name>
 
 Where "name" is the name for the container.
 
-### Specifying Container Create Options in the Azure Portal
-When deploying OPC Publisher through the Azure Portal, container create options can be specified in the Update IoT Edge Module page of OPC Publisher. These create options must be in JSON format. The OPC Publisher command line arguments can be specified via the Cmd key, e.g.:
+## Specifying Container Create Options in the Azure portal
+When deploying OPC Publisher through the Azure portal, container create options can be specified in the Update IoT Edge Module page of OPC Publisher. These create options must be in JSON format. The OPC Publisher command line arguments can be specified via the Cmd key, e.g.:
 ```
 "Cmd": [
     "--pf=./pn.json",
@@ -92,4 +92,4 @@ A connection to an OPC UA server using its hostname without a DNS server configu
 Now that you have deployed the OPC Publisher Edge module, the next step is to configure it:
 
 > [!div class="nextstepaction"]
-> [Configure the OPC Publisher](tut-publisher-configure-OPC-Publisher.md)
+> [Configure the OPC Publisher](tutorial-publisher-configure-opc-publisher.md)

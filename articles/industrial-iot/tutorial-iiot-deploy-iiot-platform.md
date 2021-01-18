@@ -1,5 +1,5 @@
 ---
-title: Deploy the IIoT Platform
+title: Deploy the Azure Industrial IoT Platform
 description: In this tutorial, you learn how to deploy the IIoT Platform.
 author: jehona-m
 ms.author: jemorina
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 11/16/2020
 ---
 
-# Tutorial: Deploy the IIoT Platform
+# Tutorial: Deploy the Azure Industrial IoT Platform
 
 In this tutorial, you learn:
 
@@ -88,4 +88,4 @@ References:
 Now that you have deployed the IIoT Platform, you can learn how to customize configuration of the components:
 
 > [!div class="nextstepaction"]
-> [Customize the configuration of the components](tut-IIoT-configure-IIoT-components.md)
+> [Customize the configuration of the components](tutorial-iiot-configure-iiot-components.md)
