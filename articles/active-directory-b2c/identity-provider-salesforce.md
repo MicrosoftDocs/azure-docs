@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -33,7 +33,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Salesforce application
 
-To use a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Salesforce **App Manager**. For more information, see [Configure Basic Connected App Settings](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm), and [Enable OAuth Settings for API Integration](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
+To enable sign-in for users with a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Salesforce [App Manager](https://login.salesforce.com/). For more information, see [Configure Basic Connected App Settings](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm), and [Enable OAuth Settings for API Integration](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
 1. [Sign in to Salesforce](https://login.salesforce.com/).
 1. From the menu, select **Setup**.
@@ -206,7 +206,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add Salesforce identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Salesforce identity provider.
+1. Click the user flow that you want to add the Salesforce identity provider.
 1. Under the **Social identity providers**, select **Salesforce**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.

@@ -19,9 +19,14 @@ In this article, learn about the pricing model, billable events, and tips for ma
 
 The scalability architecture in Azure Cognitive Search is based on flexible combinations of replicas and partitions so that you can vary capacity depending on whether you need more query or indexing power, and pay only for what you need.
 
-The amount resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
+The amount of resources used by your search service, multiplied by the billing rate established by the service tier, determines the cost of running the service. Costs and capacity are tightly bound. When estimating costs, understanding the capacity required to run your indexing and query workloads gives you the best idea as to what projected costs will be.
 
-For billing purposes, Cognitive Search has the concept of a *search unit* (SU). An SU is the product of the *replicas* and *partitions* used by a service: **(R x P = SU)**. The number of SUs multiplied by the billing rate **(SU * rate = monthly spend)** is the primary determinant of search-related costs. 
+For billing purposes, there are two simple formulas to be aware of:
+
+| Formula | Description |
+|---------|-------------|
+| **R x P = SU** | Number of replicas used, multiplied by the number of partitions used, equals the quantity of *search units* (SU)  used by a service. An SU is a unit of resource, and it can be either a partition or a replica. |
+| **SU * billing rate = monthly spend** | The number of SUs multiplied by the billing rate of the tier at which you provisioned the service is the primary determinant of your overall monthly bill. Some features or workloads have dependencies on other Azure services, which can increase the cost of your solution at the subscription level. The billable events section below identifies features that can add to your bill. |
 
 Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs. This maximum can be reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, for example. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
 

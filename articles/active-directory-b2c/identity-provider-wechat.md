@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -29,7 +29,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a WeChat application
 
-To use a WeChat account as an identity provider in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a WeChat account, you can get information at [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
+To enable sign-in for users with a WeChat account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [WeChat management center](https://open.weixin.qq.com/). If you don't already have a WeChat account, you can get information at [https://kf.qq.com](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
 
 ### Register a WeChat application
 
@@ -179,7 +179,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add WeChat identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the WeChat identity provider.
+1. Click the user flow that you want to add the WeChat identity provider.
 1. Under the **Social identity providers**, select **WeChat**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.

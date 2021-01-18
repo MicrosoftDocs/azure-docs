@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Weibo application
 
-To use a Weibo account as an identity provider in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a Weibo account, you can sign up at [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
+To enable sign-in for users with a Weibo account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Weibo developer portal](https://open.weibo.com/). If you don't already have a Weibo account, you can sign up at [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
 
 1. Sign in to the [Weibo developer portal](https://open.weibo.com/) with your Weibo account credentials.
 1. After signing in, select your display name in the top-right corner.
@@ -259,7 +259,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add Weibo identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Weibo identity provider.
+1. Click the user flow that you want to add the Weibo identity provider.
 1. Under the **Social identity providers**, select **Weibo**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
