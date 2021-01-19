@@ -119,7 +119,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Guidance**: Azure Defender for IoT use Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
-Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical devices.
+Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
@@ -227,11 +227,11 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 **Responsibility**: Customer
 
-## Device Management
+## Asset Management
 
-*For more information, see the [Azure Security Benchmark: Device Management](../security/benchmarks/security-controls-v2-asset-management.md).*
+*For more information, see the [Azure Security Benchmark: Asset Management](../security/benchmarks/security-controls-v2-asset-management.md).*
 
-### AM-1: Ensure security team has visibility into risks for devices
+### AM-1: Ensure security team has visibility into risks for assets
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -263,9 +263,9 @@ Additional permissions might be required to get visibility into workloads and se
 
 **Responsibility**: Customer
 
-### AM-4: Ensure security of device lifecycle management
+### AM-4: Ensure security of asset lifecycle management
 
-**Guidance**: Establish or update security policies that address device lifecycle management processes for potentially high impact modifications. These modifications include changes to: identity providers and access, data sensitivity, network configuration, and administrative privilege assignment.
+**Guidance**: Establish or update security policies that address asset lifecycle management processes for potentially high impact modifications. These modifications include changes to: identity providers and access, data sensitivity, network configuration, and administrative privilege assignment.
 
 Remove Azure resources when they are no longer needed.
 
@@ -317,7 +317,7 @@ Remove Azure resources when they are no longer needed.
 
 High-quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-Azure Security Center provides high-quality alerts across many Azure devices. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
+Azure Security Center provides high-quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
@@ -361,7 +361,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
-**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and device sensitivity. 
+**Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -413,7 +413,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 *For more information, see the [Azure Security Benchmark: Governance and Strategy](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
-### GS-1: Define device management and data protection strategy 
+### GS-1: Define asset management and data protection strategy 
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -421,11 +421,11 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Data classification standard in accordance with the business risks
 
--	Security organization visibility into risks and device inventory 
+-	Security organization visibility into risks and asset inventory 
 
 -	Security organization approval of Azure services for use 
 
--	Security of devices through their lifecycle
+-	Security of assets through their lifecycle
 
 -	Required access control strategy in accordance with organizational data classification
 
@@ -442,7 +442,7 @@ For more information, see the following references:
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - Device management](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-asset-management.md)
 
 - [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
@@ -452,7 +452,7 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
-**Guidance**: Establish an enterprise-wide strategy to segmenting access to devices using a combination of identity, network, application, subscription, management group, and other controls.
+**Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
 Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
 
@@ -470,7 +470,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
-**Guidance**: Continuously measure and mitigate risks to your individual devices and the environment they are hosted in. Prioritize high value devices and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
+**Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
