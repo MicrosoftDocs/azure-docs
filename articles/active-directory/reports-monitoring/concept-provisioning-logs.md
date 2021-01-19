@@ -56,6 +56,14 @@ The provisioning logs provide answers to the following questions:
 * What users were successfully removed from Adobe?
 * What users were unsuccessfully created in DropBox?
 
+## Ways of interacting with the provisioning logs 
+Customers have four ways of interacting with the provisioning logs
+1. Access the logs from the Azure Portal as described below.
+1. Streaming the provisioning logs into [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), allowing for extended data retention, building custom dashboard, alerts, and queries.
+1. Query the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
+1. Download the provisioning logs as a CSV file or json.
+
+## Accessing the provisioning logs through the Azure Portal
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
 
 ![Provisioning logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
@@ -201,10 +209,66 @@ The **troubleshoot and recommendations** tab provides the error code and reason.
 
 The **modified properties** shows the old value and new value. In cases where there is no old value the old value column is blank. 
 
-
 ### Summary
 
 The **summary** tab provides an overview of what happened and identifiers for the object in the source and target system. 
+
+## Download provisioning logs as a CSV or JSON file
+
+You can download the provisioning logs for use later by navigating to the logs in the Azure portal and clicking download. The file will be filtered based on the filter criteria you have selected. You may want to make the filters as specific as possible to reduce the time it takes to download and the size of the download. The CSV download is broken up into three files:
+
+* ProvisioningLogs: Downloads all the logs, except the provisioning steps and modified properties.
+* ProvisioningLogs_ProvisioningSteps: Contains the provisioning steps and the change ID. The change ID can be used to join the event with the other two files.
+* ProvisioningLogs_ModifiedProperties: Contains the attributes that were changed and the change ID. The change ID can be used to join the event with the other two files.
+
+### Viewing the Json logs
+
+#### Opening the Json File
+To open the Json file, a text editor [Microsoft Visual Studio Code](https://aka.ms/vscode) can be used. Visual Studio Code provides syntax highlighting which makes it easier to read. **Note:** Opening the file in an editor allows user to edit the file, which may not be desirable. The json file can also be opened using browsers in a non editable format e.g. [Microsoft Edge](https://aka.ms/msedge) 
+
+#### Prettifying the Json Logs
+*Note: This Json file will be edited when logs are prettified. This step is not necessary for working with the Json file.*
+To save space for storage the json logs are downloaded in a minifed format. This however results in the data being very hard to read. To prettify the logs i.e. add spacing and line breaks to make it legible there are various methods. Two of them are listed (but the list is not exhaustive):
+
+
+**1. Using online formatters**
+A popular way to format json files is copying and pasting the json to third-party online formatters e.g. [Jsonlint](https://jsonlint.com). After formatting it can be pasted back to the file.
+
+**2. Using powershell scripts**
+There are many ways of using powershell script to prettify the data. A simple way is to just read and write it back.
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+This script will output the json in a prettified format with tabs and spaces. It can be further improved with customization.
+
+### Working with the Json logs
+The Json Logs can be parsed using scripting and programming languages like powershell, python, C# etc. 
+
+#### Powershell
+Here are some sample commands to work with the Json file. 
+
+Before all steps read the Json File by running:
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+This reads the Json content as Json to JSONContent variable as a hashtable. Refer to the [documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1).
+
+**1. Output all jobIDs in the JsonFile**
+This code iterates over all the provisioning items in the the Json read, and outputs the jobId. 
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+
+**2. Output all changeId if the action is create**
+This code iterates over all the provisioning items in the the Json read, and outputs the changeId if the action is create. 
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## What you should know
 
