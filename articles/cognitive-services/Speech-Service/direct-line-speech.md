@@ -40,7 +40,7 @@ We also offer quickstarts designed to have you running code and learning the API
 
 Sample code for creating a voice assistant is available on GitHub. These samples cover the client application for connecting to your assistant in several popular programming languages.
 
-* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples/#voice-assistants-quickstarts)
 * [Tutorial: Voice enable your assistant with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## Customization
