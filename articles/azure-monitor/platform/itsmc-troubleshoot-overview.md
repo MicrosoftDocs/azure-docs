@@ -80,4 +80,4 @@ The list below contain common symptoms and how should it be resolved:
 
     **Cause**:Newly created ITSM Connector has yet to finish the initial Sync.
 
-    **Resolution**: you can review the [common UI errors](itsmc-dashboard-errors#ui-common-errors.md) and find out how to resolve the error.
+    **Resolution**: you can review the [common UI errors](itsmc-dashboard-errors.md#ui-common-errors) and find out how to resolve the error.
