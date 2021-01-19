@@ -125,7 +125,7 @@ Azure Analysis Services supports Impact Level 5 workloads in Azure Government wi
 
 Azure Data Explorer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](https://docs.microsoft.com/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
 
 ### [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
@@ -349,7 +349,7 @@ Azure Logic Apps supports Impact Level 5 workloads in Azure Government. To meet 
 
 ### [Event Grid](https://azure.microsoft.com/services/event-grid/)
 
-Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](https://docs.microsoft.com/azure/event-grid/security-authentication#encryption-at-rest).  All data written to disk is encrypted with Microsoft-managed keys. 
+Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](../event-grid/security-authentication.md#encryption-at-rest).  All data written to disk is encrypted with Microsoft-managed keys. 
 
 Azure Event Grid supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
