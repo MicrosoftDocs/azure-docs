@@ -406,8 +406,8 @@ In the next cell, we'll get the results of the key-value pair extraction. This c
 ```python
 n_tries = 10
 n_try = 0
-wait_sec = 2
-max_wait_sec = 6
+wait_sec = 5
+max_wait_sec = 5
 while n_try < n_tries:
    try:
        resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": cognitive_service_subscription_key})
