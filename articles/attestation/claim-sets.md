@@ -106,7 +106,7 @@ maa-ehd | x-ms-sgx-ehd
 aas-ehd | x-ms-sgx-ehd
 maa-attestationcollateral | x-ms-sgx-collateral
 
-## Claims issued specific to TPM attestation
+## Claims issued specific to Trusted Platform Module (TPM) attestation
 
 ### Incoming claims (can also be used as outgoing claims)
 
