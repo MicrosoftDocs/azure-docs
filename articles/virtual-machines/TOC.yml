@@ -1162,317 +1162,261 @@
       href: ./windows/proximity-placement-groups.md
   - name: Create VM in availability zone
     href: ./linux/create-cli-availability-zone.md
-- name: Maintenance and updates
-  items: 
-  - name: Overview
-    href: maintenance-and-updates.md
-  - name: Automatic VM guest patching (preview)
-    href: ./windows/automatic-vm-guest-patching.md
-  - name: Maintenance control
-    items:
-    - name: Maintenance notifications
-      items:
-      - name: Overview
-        href: maintenance-notifications.md
-      - name: CLI
-        href: maintenance-notifications-cli.md
-      - name: Portal
-        href: maintenance-notifications-portal.md
-      - name: PowerShell
-        href: maintenance-notifications-powershell.md
-    - name: Platform maintenance
-      items:
-      - name: Overview
-        href: maintenance-control.md
-      - name: CLI
-        href: maintenance-control-cli.md
-      - name: PowerShell
-        href: maintenance-control-powershell.md
-      - name: Portal
-        href: maintenance-control-portal.md
-    - name: Scheduled events
-      href: ./linux/scheduled-events.md
-    - name: Track and update VMs
-      items:
-      - name: Linux
-        href: ./linux/tutorial-config-management.md
-      - name: Windows
-        href: ./windows/tutorial-config-management.md
-    - name: Virtual machine scale set OS image upgrades
-      items:
-      - name: Automatic OS upgrades
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md
-      - name: Maintenance control
-        items:
-        - name: Overview (Preview)
-          href: virtual-machine-scale-sets-maintenance-control.md
-        - name: PowerShell (Preview)
-          href: virtual-machine-scale-sets-maintenance-control-powershell.md
 - name: Disks
   items:
   - name: Introduction to managed disks
     href: managed-disks-overview.md
-  - name: Disk types
+  - name: Select a disk type for IaaS VMs
     href: disks-types.md
-  - name: Disk Storage reservations
-    href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
+  - name: Shared disks
+    href: disks-shared.md
+  - name: Enable shared disks
+    href: disks-shared-enable.md
   - name: Encryption
     items:
-    - name: Overview
-      href: disk-encryption.md
-    - name: Disk encryption scenarios
+    - name: Server-side encryption
       items:
+      - name: Server-side encryption overview
+        href: disk-encryption.md
+      - name: Enable customer-managed keys
+        items:
+        - name: Portal
+          href: disks-enable-customer-managed-keys-portal.md
+        - name: PowerShell
+          href: windows/disks-enable-customer-managed-keys-powershell.md
+        - name: CLI
+          href: linux/disks-enable-customer-managed-keys-cli.md
+      - name: Enable encryption at host
+        items:
+        - name: Portal
+          href: disks-enable-host-based-encryption-portal.md
+        - name: PowerShell
+          href: windows/disks-enable-host-based-encryption-powershell.md
+        - name: CLI
+          href: linux/disks-enable-host-based-encryption-cli.md
+      - name: Enable double encryption at rest
+        items:
+        - name: Portal
+          href: disks-enable-double-encryption-at-rest-portal.md
+        - name: PowerShell
+          href: windows/disks-enable-double-encryption-at-rest-powershell.md
+        - name: CLI
+          href: linux/disks-enable-double-encryption-at-rest-cli.md
+    - name: Azure Disk Encryption scenarios
+      items:
+      - name: Azure Disk Encryption overviews
+        items:
+        - name: Windows
+        - name: Linux 
       - name: Linux
         href: ./linux/disk-encryption-linux.md
       - name: Windows
         href: ./windows/disk-encryption-windows.md
-    - name: CLI
-      items: 
-      - name: Linux
-        href: ./linux/disk-encryption-cli-quickstart.md
-      - name: Windows
-        href: ./windows/disk-encryption-cli-quickstart.md
-    - name: PowerShell
-      items:
-      - name: Linux
-        href: ./linux/disk-encryption-powershell-quickstart.md
-      - name: Windows
-        href: ./windows/disk-encryption-powershell-quickstart.md
-    - name: Portal
-      items: 
-      - name: Linux
-        href: ./linux/disk-encryption-portal-quickstart.md
-      - name: Windows
-        href: ./windows/disk-encryption-portal-quickstart.md
-    - name: Key vault for Azure Disk Encryption
-      items: 
-      - name: Linux
-        href: ./linux/disk-encryption-key-vault.md
-      - name: Windows
-        href: ./windows/disk-encryption-key-vault.md
-    - name: Disk encryption sample scripts
-      items:
-      - name: Linux
-        href: ./linux/disk-encryption-sample-scripts.md
-      - name: Windows
-        href: ./windows/disk-encryption-sample-scripts.md
-    - name: Disk encryption on an isolated network
-      href: ./linux/disk-encryption-isolated-network.md
-    - name: How to verify encryption status
-      href: ./linux/how-to-verify-encryption-status.md
-    - name: How to configure LVM RAID on crypt
-      href: ./linux/how-to-configure-lvm-raid-on-crypt.md
-    - name: How to resize encrypted LVM volumes
-      href: ./linux/how-to-resize-encrypted-lvm.md
-    - name: Resize Linux GPT OS partitions
-      href: linux/resize-os-disk-gpt-partition.md
-    - name: Disk encryption troubleshooting
-      items:
-      - name: Linux
-        href: ./linux/disk-encryption-troubleshooting.md
-      - name: Windows
-        href: ./windows/disk-encryption-troubleshooting.md
-    - name: Disk encryption FAQ
-      items: 
-      - name: Linux
-        href: ./linux/disk-encryption-faq.md
-      - name: Windows
-        href: ./windows/disk-encryption-faq.md
-    - name: Disk encryption - previous version
-      items:
-      - name: Overview
+      - name: CLI
+        items: 
+        - name: Linux
+          href: ./linux/disk-encryption-cli-quickstart.md
+        - name: Windows
+          href: ./windows/disk-encryption-cli-quickstart.md
+      - name: PowerShell
         items:
         - name: Linux
-          href: ./linux/disk-encryption-overview-aad.md
+          href: ./linux/disk-encryption-powershell-quickstart.md
         - name: Windows
-          href: ./windows/disk-encryption-overview-aad.md
+          href: ./windows/disk-encryption-powershell-quickstart.md
+      - name: Portal
+        items: 
+        - name: Linux
+          href: ./linux/disk-encryption-portal-quickstart.md
+        - name: Windows
+          href: ./windows/disk-encryption-portal-quickstart.md
       - name: Key vault for Azure Disk Encryption
+        items: 
+        - name: Linux
+          href: ./linux/disk-encryption-key-vault.md
+        - name: Windows
+          href: ./windows/disk-encryption-key-vault.md
+      - name: Sample scripts
         items:
         - name: Linux
-          href: ./linux/disk-encryption-key-vault-aad.md
+          href: ./linux/disk-encryption-sample-scripts.md
         - name: Windows
-          href: ./windows/disk-encryption-key-vault-aad.md
-      - name: Disk encryption scenarios
+          href: ./windows/disk-encryption-sample-scripts.md
+      - name: Azure Disk encryption on an isolated network
+        href: ./linux/disk-encryption-isolated-network.md
+      - name: How to verify encryption status
+        href: ./linux/how-to-verify-encryption-status.md
+      - name: How to configure LVM RAID on crypt
+        href: ./linux/how-to-configure-lvm-raid-on-crypt.md
+      - name: How to resize encrypted LVM volumes
+        href: ./linux/how-to-resize-encrypted-lvm.md
+      - name: Resize Linux GPT OS partitions
+        href: linux/resize-os-disk-gpt-partition.md
+      - name: troubleshooting
         items:
         - name: Linux
-          href: ./linux/disk-encryption-linux-aad.md
+          href: ./linux/disk-encryption-troubleshooting.md
         - name: Windows
-          href: ./windows/disk-encryption-windows-aad.md
-  - name: Disk performance
+          href: ./windows/disk-encryption-troubleshooting.md
+      - name: FAQ
+        items: 
+        - name: Linux
+          href: ./linux/disk-encryption-faq.md
+        - name: Windows
+          href: ./windows/disk-encryption-faq.md
+      - name: Azure Disk Encryption - previous version
+        items:
+        - name: Overview
+          items:
+          - name: Linux
+            href: ./linux/disk-encryption-overview-aad.md
+          - name: Windows
+            href: ./windows/disk-encryption-overview-aad.md
+        - name: Key vault for Azure Disk Encryption
+          items:
+          - name: Linux
+            href: ./linux/disk-encryption-key-vault-aad.md
+          - name: Windows
+            href: ./windows/disk-encryption-key-vault-aad.md
+        - name: Disk encryption scenarios
+          items:
+          - name: Linux
+            href: ./linux/disk-encryption-linux-aad.md
+          - name: Windows
+            href: ./windows/disk-encryption-windows-aad.md
+  - name: Disk Storage reservations
+    href: ../cost-management-billing/reservations/understand-disk-reservations.md
+  - name: Reserve Disk Storage
+    href: disks-reserved-capacity.md
+  - name: Performance
     items:
-    - name: Linux
+    - name: Ultra disks
+      href: disks-enable-ultra-ssd.md
+    - name: Virtual machine and disk performance
       href: ./linux/disk-performance-linux.md
-    - name: Windows
-      href: ./windows/disk-performance-windows.md
-  - name: Disk performance tiers
-    href: disks-change-performance.md
-  - name: Designing for high performance
-    href: premium-storage-performance.md
-  - name: Disk bursting
-    href: disk-bursting.md
-  - name: Scalability targets for disks
-    href: ./linux/disk-scalability-targets.md
-  - name: Backup and disaster recovery for disks
-    href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-  - name: Ephemeral OS disks
-    href: ephemeral-os-disks.md
-  - name: Manage storage
-    items:
-    - name: Add a data disk
-      items:
-      - name: Linux
-        items:
-        - name: Azure CLI
-          href: ./linux/add-disk.md
-        - name: Azure portal
-          href: ./linux/attach-disk-portal.md
-      - name: Windows
-        items:
-        - name: Azure PowerShell
-          href: ./windows/attach-disk-ps.md
-        - name: Azure portal
-          href: ./windows/attach-managed-disk-portal.md
-        - name: Change temp disk drive letter 
-          href: ./windows/change-drive-letter.md
+    - name: Design for high performance
+      href: premium-storage-performance.md
+    - name: Disk bursting
+      href: disk-bursting.md
+    - name: Disk performance tiers
+      href: disks-change-performance.md
     - name: Change disk performance tier
       items: 
       - name: CLI and PowerShell
         href: disks-performance-tiers.md
       - name: Portal
         href: disks-performance-tiers-portal.md
-    - name: Detach a disk
-      items:
-      - name: Linux
-        href: ./linux/detach-disk.md
-      - name: Windows
-        href: ./windows/detach-disk.md        
-    - name: Swap the OS disk
-      items:
-      - name: CLI
-        href: ./linux/os-disk-swap.md
-      - name: PowerShell
-        href: ./windows/os-disk-swap.md        
-    - name: Deploy disks with ARM template
-      displayName: Azure Resource Manager
-      href: using-managed-disks-template-deployments.md
-    - name: Shared disks
-      items:
-      - name: Overview
-        href: disks-shared.md
-      - name: Enable shared disks
-        href: disks-shared-enable.md
-    - name: Snapshot a disk
-      items:
-      - name: CLI
-        href: ./linux/snapshot-copy-managed-disk.md
-      - name: PowerShell
-        href: ./windows/snapshot-copy-managed-disk.md
-    - name: Upload a vhd to a disk
-      items: 
-      - name: PowerShell
-        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
-      - name: CLI
-        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
-    - name: Securely import/export a disk
-      items: 
-      - name: CLI
-        href: ./linux/disks-export-import-private-links-cli.md
-      - name: Portal
-        href: disks-enable-private-links-for-import-export-portal.md
-    - name: Download existing disk
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md
+    - name: Benchmark a disk
       items: 
       - name: Linux
-        href: ./linux/download-vhd.md
+        href: ./linux/disks-benchmarks.md
       - name: Windows 
-        href: ./windows/download-vhd.md
-    - name: Resize a disk
-      items: 
-      - name: Linux 
-        href: ./linux/expand-disks.md
-      - name: Windows
-        href: ./windows/expand-os-disk.md
-    - name: Use Storage Explorer to manage disks
-      href: disks-use-storage-explorer-managed-disks.md
-    - name: Find a disk
-      items:
-      - name: Linux
-        href: ./linux/azure-to-guest-disk-mapping.md
-      - name: Windows
-        href: ./windows/azure-to-guest-disk-mapping.md
-    - name: Reserve Disk Storage
-      href: disks-reserved-capacity.md
+        href: ./windows/disks-benchmarks.md
+  - name: Scalability targets for disks
+    href: ./linux/disk-scalability-targets.md
+  - name: Backup and data protection
+    items:
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Incremental snapshots
-      items: 
-      - name: Overview
-        href: ./linux/incremental-snapshots.md
+      href: ./linux/incremental-snapshots.md
+    - name: Enabling incremental snapshots
+      items:
       - name: CLI
         href: ./linux/disks-incremental-snapshots.md
       - name: PowerShell
         href: ./windows/disks-incremental-snapshots.md
       - name: Portal
         href: ./linux/disks-incremental-snapshots-portal.md
-    - name: Encryption
+    - name: Snapshot a disk - CLI
+      href: ./linux/snapshot-copy-managed-disk.md
+    - name:  Snapshot a disk - PowerShell
+      href: ./windows/snapshot-copy-managed-disk.md
+  - name: Ephemeral OS disks
+    href: ephemeral-os-disks.md
+  - name: Migration and conversion
+    items:
+    - name: Convert disk between Standard and Premium
       items:
-      - name: Enable encryption at host
-        items:
-        - name: CLI
-          href: ./linux/disks-enable-host-based-encryption-cli.md
-        - name: PowerShell
-          href: ./windows/disks-enable-host-based-encryption-powershell.md
-        - name: Portal
-          href: disks-enable-host-based-encryption-portal.md
-      - name: Enable customer-managed keys
-        items:  
-        - name: CLI
-          href: ./linux/disks-enable-customer-managed-keys-cli.md
-        - name: PowerShell
-          href: ./windows/disks-enable-customer-managed-keys-powershell.md
-        - name: Portal
-          href: disks-enable-customer-managed-keys-portal.md
-      - name: Enable double encryption-at-rest
-        items: 
       - name: CLI
-        href: ./linux/disks-enable-double-encryption-at-rest-cli.md
+        href: ./linux/convert-disk-storage.md
       - name: PowerShell
-        href: ./windows/disks-enable-double-encryption-at-rest-powershell.md
-      - name: Enable double encryption at rest - Portal
-        href: disks-enable-double-encryption-at-rest-portal.md
-    - name: Migration and conversion
+        href: ./windows/convert-disk-storage.md
+    - name: Migrate to Premium storage with Azure Site Recovery
       items:
-      - name: Convert disk between Standard and Premium
-        items:
-        - name: CLI
-          href: ./linux/convert-disk-storage.md
-        - name: PowerShell
-          href: ./windows/convert-disk-storage.md
-      - name: Migrate to Premium storage with Azure Site Recovery
-        items:
-        - name: Linux
-          href: ./linux/migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: Windows
-          href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
-      - name: Migrate to Managed Disks
-        href: ./windows/migrate-to-managed-disks.md
-      - name: Unmanaged VM to Managed Disks
-        items:
-        - name: CLI
-          href: ./linux/convert-unmanaged-to-managed-disks.md
-        - name: PowerShell
-          href: ./windows/convert-unmanaged-to-managed-disks.md
-    - name: Performance
+      - name: Linux
+        href: ./linux/migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Windows
+        href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Migrate to Managed Disks
+      href: ./windows/migrate-to-managed-disks.md
+    - name: Unmanaged VM to Managed Disks
       items:
-      - name: Enable write accelerator
-        href: how-to-enable-write-accelerator.md
-      - name: Using ultra disks
-        href: disks-enable-ultra-ssd.md
-      - name: Benchmark a disk
-        items: 
-        - name: Linux
-          href: ./linux/disks-benchmarks.md
-        - name: Windows 
-          href: ./windows/disks-benchmarks.md
+      - name: CLI
+        href: ./linux/convert-unmanaged-to-managed-disks.md
+      - name: PowerShell
+        href: ./windows/convert-unmanaged-to-managed-disks.md  
+  - name: Add a data disk
+    items:
+    - name: Linux
+      items:
+      - name: Azure CLI
+        href: ./linux/add-disk.md
+      - name: Azure portal
+        href: ./linux/attach-disk-portal.md
+    - name: Windows
+      items:
+      - name: Azure PowerShell
+        href: ./windows/attach-disk-ps.md
+      - name: Azure portal
+        href: ./windows/attach-managed-disk-portal.md
+      - name: Change temp disk drive letter 
+        href: ./windows/change-drive-letter.md
+  - name: Detach a disk
+    items:
+    - name: Linux
+      href: ./linux/detach-disk.md
+    - name: Windows
+      href: ./windows/detach-disk.md        
+  - name: Swap the OS disk
+    items:
+    - name: CLI
+      href: ./linux/os-disk-swap.md
+    - name: PowerShell
+      href: ./windows/os-disk-swap.md
+  - name: Upload a vhd to a disk
+    items: 
+    - name: PowerShell
+      href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+    - name: CLI
+      href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+  - name: Expand OS disk
+    items: 
+    - name: Linux 
+      href: ./linux/expand-disks.md
+    - name: Windows
+      href: ./windows/expand-os-disk.md
+  - name: Manage storage
+    items:
+    - name: Deploy disks with ARM template
+      displayName: Azure Resource Manager
+      href: using-managed-disks-template-deployments.md
+    - name: Securely import/export a disk
+      items: 
+      - name: CLI
+        href: ./linux/disks-export-import-private-links-cli.md
+      - name: Portal
+        href: disks-enable-private-links-for-import-export-portal.md
+    - name: Use Storage Explorer to manage disks
+      href: disks-use-storage-explorer-managed-disks.md
+    - name: Map managed disk to guest disk - Linux
+      href: ./linux/azure-to-guest-disk-mapping.md
+    - name: Map managed disk to guest disk - Windows
+      href: ./windows/azure-to-guest-disk-mapping.md
     - name: Find unattached disks
-      itesm: 
+      items: 
       - name: CLI
         href: ./linux/find-unattached-disks.md
       - name: PowerShell
@@ -1481,6 +1425,36 @@
         href: disks-find-unattached-portal.md
     - name: Disks FAQs
       href: faq-for-disks.md
+  - name: Code samples
+    items:
+    - name: CLI
+      items:
+      - name: Create managed disk from a VHD
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md
+      - name: Create a managed disk from a snapshot
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md
+      - name: Copy a managed disk to the same or different subscription
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+      - name: Copy a snapshot to the same or different subscription
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+      - name: Export a snapshot as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md
+    - name: PowerShell
+      items:
+      - name: Create managed disk from a VHD
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md
+      - name: Create a managed disk from a snapshot
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md
+      - name: Copy a snapshot to the same or different subscription
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+      - name: Export a snapshot as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md
+      - name: Create a snapshot from a VHD
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md
 - name: Networking
   items: 
   - name: Overview
@@ -1596,6 +1570,52 @@
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
     href: ./linux/login-using-aad.md
+- name: Maintenance and updates
+  items: 
+  - name: Overview
+    href: maintenance-and-updates.md
+  - name: Automatic VM guest patching (preview)
+    href: ./windows/automatic-vm-guest-patching.md
+  - name: Maintenance control
+    items:
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: maintenance-notifications.md
+      - name: CLI
+        href: maintenance-notifications-cli.md
+      - name: Portal
+        href: maintenance-notifications-portal.md
+      - name: PowerShell
+        href: maintenance-notifications-powershell.md
+    - name: Platform maintenance
+      items:
+      - name: Overview
+        href: maintenance-control.md
+      - name: CLI
+        href: maintenance-control-cli.md
+      - name: PowerShell
+        href: maintenance-control-powershell.md
+      - name: Portal
+        href: maintenance-control-portal.md
+    - name: Scheduled events
+      href: ./linux/scheduled-events.md
+    - name: Track and update VMs
+      items:
+      - name: Linux
+        href: ./linux/tutorial-config-management.md
+      - name: Windows
+        href: ./windows/tutorial-config-management.md
+    - name: Virtual machine scale set OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: virtual-machine-scale-sets-maintenance-control.md
+        - name: PowerShell (Preview)
+          href: virtual-machine-scale-sets-maintenance-control-powershell.md
 - name: Monitoring
   items:
   - name: Overview
