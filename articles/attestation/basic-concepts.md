@@ -127,7 +127,7 @@ Example of JWT generated for an SGX enclave:
   "x-ms-ver": "1.0"
 }.[Signature]
 ```
-Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names.See [claims issued by Azure Attestation](claim-sets.md) for more information.
+Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names. See [claims issued by Azure Attestation](claim-sets.md) for more information.
 
 ## Encryption of data at rest
 
