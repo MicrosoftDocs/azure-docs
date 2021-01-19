@@ -59,7 +59,7 @@ The following table shows the accepted settings for `featurization` in the [Auto
 The following table summarizes techniques that are automatically applied to your data. These techniques are applied for experiments that are configured by using the SDK or the studio. To disable this behavior, set `"featurization": 'off'` in your `AutoMLConfig` object.
 
 > [!NOTE]
-> If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX]((./how-to-use-automl-onnx-model-dotnet.md)).
+> If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX]((how-to-use-automl-onnx-model-dotnet.md)).
 
 |Featurization&nbsp;steps| Description |
 | ------------- | ------------- |
