@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| administrator | true |
 
     > [!NOTE]
-    > To know the instructions on how to add a claim, please follow the [link](ttps://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).
+    > To know the instructions on how to add a claim, please follow the [link](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
