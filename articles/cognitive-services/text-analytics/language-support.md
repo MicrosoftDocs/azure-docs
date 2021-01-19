@@ -90,7 +90,7 @@ ms.author: aahi
 | Italian               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Japanese              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Korean                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` also accepted |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2020-07-01                 | `nb` also accepted |
 | Polish                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` also accepted |
