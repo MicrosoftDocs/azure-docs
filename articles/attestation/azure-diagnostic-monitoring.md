@@ -1,5 +1,5 @@
 ---
-title: Azure diagnostic monitoring
+title: Azure diagnostic monitoring - Azure Attestation
 description: Azure diagnostic monitoring for Azure Attestation
 services: attestation
 author: msmbaldwin
