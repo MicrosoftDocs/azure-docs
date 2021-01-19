@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/20/2021
 ms.author: tisande
 
 ---
@@ -105,7 +105,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## LIKE
 
-Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the RegexMatch system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer this syntax over regular expressions.
+Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the [RegexMatch](sql-query-regexmatch.md) system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer its syntax more than regular expressions.
 
 > [!NOTE]
 > Because `LIKE` can utilize an index, you should [create a range index](indexing-policy.md) for properties you are comparing using `LIKE`.
