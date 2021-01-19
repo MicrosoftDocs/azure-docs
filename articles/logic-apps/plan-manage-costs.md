@@ -99,15 +99,9 @@ Based on spending compared to budget and cost thresholds, alerts automatically n
 
 ### Monitor costs
 
-After you create and use resources in Azure, you can monitor incurred costs 
+After you create and start using resources in Azure, costs are incurred. You can review and monitor these costs by using the [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) capabilities in [Azure Cost Management and Billing](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). 
-
-by using the service's cost analysis capabilities and export cost data for storage.
-
-As soon as Logic Apps use starts, costs are incurred, and you can review these costs by using the [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) capabilities in [Azure Cost Management and Billing](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-When you use cost analysis, you view Azure Logic Apps costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
+Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on). Some examples are by day, current and prior month, and year. Switching to longer views over time can help you identify spending trends. If you use the cost analysis features, you can view costs as graphs and tables over various time intervals. If you created budgets and cost forecasts, you can also easily find where budgets are exceeded and overspending might have occurred.
 
 To view <ServiceName> costs in cost analysis:
 
@@ -135,7 +129,7 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 ### Export cost data
 
-You can [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you or others need to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule, and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+When you need to do additional data analysis for costs, you can [export cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. For example, a finance team can analyze this data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule, and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Other ways to manage and reduce costs
 
