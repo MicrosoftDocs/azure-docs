@@ -2,7 +2,7 @@
 title: Convert portal template to template spec
 description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -14,11 +14,9 @@ This article shows how to convert existing templates in the template gallery to 
 
 In the portal, the feature being deprecated is called **Templates (Preview)**. To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). These templates have the resource type `Microsoft.Gallery/myareas/galleryitems`.
 
-
-
 ## Deprecation of portal feature
 
-The template gallery in the portal is being deprecated on January 21, 2021. You can continue using it without change until February 21. Starting on February 22, you can't create new templates in the portal gallery but you can still view and deploy existing templates.
+The template gallery in the portal is being deprecated on January 21, 2021. You can continue using it until February 21. Starting on February 22, you can't create new templates in the portal gallery but you can still view and deploy existing templates.
 
 On June 22, the feature will be removed from the portal and all API operations will be blocked. You'll not be able to view or deploy any templates from the gallery.
 
