@@ -13,7 +13,7 @@ ms.date: 01/19/2021
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 
-Organizations need to do data preparation and wrangling for accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.
+Organizations need to the ability to explore their critical business data for data preparation and wrangling in order to provide accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.
 
 Data Factory empowers you with code-free data preparation at cloud scale iteratively using Power QUery. Data Factory integrates with [Power Query Online](/power-query/) and makes Power Query M functions available as a pipeline activity.
 
@@ -56,8 +56,8 @@ Currently not all Power Query M functions are supported for data wrangling despi
 
 `The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
 
-For more information on supported transformations, see [wrangling data flow functions](wrangling-data-flow-functions.md).
+For more information on supported transformations, see [data wrangling functions](wrangling-functions.md).
 
 ## Next steps
 
-Learn how to [create a wrangling data flow](wrangling-data-flow-tutorial.md).
+Learn how to [create a data wrangling Power Query mash-up](wrangling-tutorial.md).
