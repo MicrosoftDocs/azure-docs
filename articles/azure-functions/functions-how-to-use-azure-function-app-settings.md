@@ -80,7 +80,7 @@ When you develop a function app locally, you must maintain local copies of these
 
 ## Hosting plan type
 
-When you create a function app, you also create an App Service hosting plan in which the app runs. A plan can have one or more function apps. The functionality, scaling, and pricing of your functions depend on the type of plan. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+When you create a function app, you also create a hosting plan in which the app runs. A plan can have one or more function apps. The functionality, scaling, and pricing of your functions depend on the type of plan. To learn more, see [Azure Functions hosting options](functions-scale.md).
 
 You can determine the type of plan being used by your function app from the Azure portal, or by using the Azure CLI or Azure PowerShell APIs. 
 
