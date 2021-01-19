@@ -316,7 +316,7 @@ Refer to the following table for any issues that arise when you download the VM 
 |Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 |
 
-## First 1 MB (2048 sectors, each sector of 512 bytes) partition
+## First partition starts at 1 MB (2048 Sectors)
 
 If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
 
