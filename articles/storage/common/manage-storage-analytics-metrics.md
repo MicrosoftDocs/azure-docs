@@ -36,11 +36,11 @@ The [Azure portal](https://portal.azure.com) doesn't currently enable you to con
 
 2. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
-    ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/orage-account/storage-enable-metrics-00.png)
+    ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
 
 3. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
 
-    ![MonitoringOptions](./media/orage-account/storage-enable-metrics-01.png)
+    ![MonitoringOptions](./media/manage-storage-analytics-metrics/storage-enable-metrics-01.png)
 
    To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
@@ -135,17 +135,17 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
    In this example, uses the following chart that appears on the **storage account blade**:
 
-   ![Chart selection in Azure portal](./media/orage-account/stg-customize-chart-00.png)
+   ![Chart selection in Azure portal](./media/manage-storage-analytics-metrics/stg-customize-chart-00.png)
 
 1. Click anywhere within the chart to edit the chart.
 
 1. Next, select the **Time Range** of the metrics to display in the chart, and the **service** (blob, queue, table, file) whose metrics you wish to display. Here, the past week's metrics are selected to display for the blob service:
 
-   ![Time range and service selection in the Edit Chart blade](./media/orage-account/storage-edit-metric-time-range.png)
+   ![Time range and service selection in the Edit Chart blade](./media/manage-storage-analytics-metrics/storage-edit-metric-time-range.png)
 
 1. Select the individual **metrics** you'd like displayed in the chart, then click **OK**.
 
-   ![Individual metric selection in Edit Chart blade](./media/orage-account/storage-edit-metric-selections.png)
+   ![Individual metric selection in Edit Chart blade](./media/manage-storage-analytics-metrics/storage-edit-metric-selections.png)
 
 Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account.
 
@@ -153,7 +153,7 @@ Your chart settings do not affect the collection, aggregation, or storage of mon
 
 The list of available metrics changes based on which service you've chosen in the drop-down, and the unit type of the chart you're editing. For example, you can select percentage metrics like *PercentNetworkError* and *PercentThrottlingError* only if you're editing a chart that displays units in percentage:
 
-![Request error percentage chart in the Azure portal](./media/orage-account/stg-customize-chart-04.png)
+![Request error percentage chart in the Azure portal](./media/manage-storage-analytics-metrics/stg-customize-chart-04.png)
 
 ##### Metrics resolution test
 
@@ -251,7 +251,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 5. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
 6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../azure-monitor/platform/alerts-webhooks.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
 
-!['Add an alert rule' blade in the Azure portal](./media/orage-account/add-alert-rule.png)
+!['Add an alert rule' blade in the Azure portal](./media/manage-storage-analytics-metrics/add-alert-rule.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -280,7 +280,7 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
 1. Select **Categories** > **Monitoring**.
 1. Drag-and-drop the chart tile onto your dashboard for the metric you'd like displayed. Repeat for all metrics you'd like displayed on the dashboard. In the following image, the "Blobs - Total requests" chart is highlighted as an example, but all the charts are available for placement on your dashboard.
 
-   ![Tile gallery in Azure portal](./media/orage-account/storage-customize-dashboard.png)
+   ![Tile gallery in Azure portal](./media/manage-storage-analytics-metrics/storage-customize-dashboard.png)
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
 Once you've added charts to your dashboard, you can further customize them as described in Customize metrics charts.
