@@ -15,23 +15,25 @@ ms.author: mbaldwin
 
 TPM endpoint service is enabled with diagnostic setting and can be used to monitor activity. To setup [Azure Monitoring](/azure/azure-monitor/overview) for the TPM service endpoint using PowerShell kindly follow the below steps. 
 
-1. Setup Azure Attestation service. 
+- Setup Azure Attestation service. 
 
-2. [Set up Azure Attestation with Azure PowerShell](/azure/attestation/quickstart-powershell#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20)
+- [Set up Azure Attestation with Azure PowerShell](/azure/attestation/quickstart-powershell#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20)
 
-3. Connect-AzAccount 
+```powershell
 
-4. Set-AzContext -Subscription <Subscription id> 
+ Connect-AzAccount 
 
-5. $attestationProviderName=<Name of the attestation provider> 
+ Set-AzContext -Subscription <Subscription id> 
 
-6. $attestationResourceGroup=<Name of the resource Group> 
+ $attestationProviderName=<Name of the attestation provider> 
 
-7. $attestationProvider=Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroup 
+ $attestationResourceGroup=<Name of the resource Group> 
 
-8. $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name <Name for Storage Account> -SkuName Standard_LRS -Location <Location> 
+ $attestationProvider=Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroup 
 
-9. Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
+ $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name <Name for Storage Account> -SkuName Standard_LRS -Location <Location> 
 
+ Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
 
+```
 The activity logs can be found in the Containers section of the storage account. Detailed info can be found at [Collect resource logs from an Azure Resource and analyze with Azure Monitor - Azure Monitor](/azure/azure-monitor/learn/tutorial-resource-logs)
