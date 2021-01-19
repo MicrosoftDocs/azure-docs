@@ -1,6 +1,6 @@
 ---
-title: Azure Diagnostic Monitoring
-description: Azure Diagnostic Monitoring for Azure Attestation
+title: Azure diagnostic monitoring
+description: Azure diagnostic monitoring for Azure Attestation
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -9,7 +9,7 @@ ms.date: 08/31/2020
 ms.author: mbaldwin
 ---
 
-# Setting up diagnostics with Trusted Platform Module (TPM) endpoint
+# Setting up diagnostics with Trusted Platform Module (TPM) endpoint of Azure Attestation
 
 [Platform logs](/azure/azure-monitor/platform/platform-logs-overview) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](/azure/azure-monitor/platform/data-platform-metrics) are collected by default and typically stored in the Azure Monitor metrics database. This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations. 
 
