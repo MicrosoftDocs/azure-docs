@@ -15,9 +15,9 @@ ms.author: mbaldwin
 
 TPM endpoint service is enabled with diagnostic setting and can be used to monitor activity. To setup [Azure Monitoring](/azure/azure-monitor/overview) for the TPM service endpoint using PowerShell kindly follow the below steps. 
 
-- Setup Azure Attestation service. 
+Setup Azure Attestation service. 
 
-- [Set up Azure Attestation with Azure PowerShell](/azure/attestation/quickstart-powershell#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20)
+[Set up Azure Attestation with Azure PowerShell](/azure/attestation/quickstart-powershell#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20)
 
 ```powershell
 
