@@ -44,15 +44,15 @@ To get its logs into Azure Sentinel, configure your TippingPoint TPS solution to
 
 1. Follow the instructions in the **Instructions** tab, under **Configuration**:
 
-    1. **1. Linux Syslog agent configuration** - Do this step if you don't already have a log forwarder running, or if you need another one. See [STEP 1: Deploy the log forwarder](connect-cef-agent.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+    1. Under **1. Linux Syslog agent configuration** - Do this step if you don't already have a log forwarder running, or if you need another one. See [STEP 1: Deploy the log forwarder](connect-cef-agent.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
-    1. **2. Forward Trend Micro TippingPoint SMS logs to Syslog agent** - This configuration should include the following elements:
+    1. Under **2. Forward Trend Micro TippingPoint SMS logs to Syslog agent** - This configuration should include the following elements:
         - Log destination – the hostname and/or IP address of your log forwarding server
         - Protocol and port – **TCP 514** (if recommended otherwise, be sure to make the parallel change in the syslog daemon on your log forwarding server)
         - Log format – **ArcSight CEF Format v4.2**
         - Log types – all available
 
-    1. **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+    1. Under **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
         It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
