@@ -32,6 +32,8 @@ docker login myregistry.azurecr.io
 ```
 
 Both commands return `Login Succeeded` once completed.
+> [!NOTE]
+>* You might want to use Visual Studio Code with Docker extention for a faster and more convenient login.
 
 > [!TIP]
 > Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag images for pushing to your registry. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.

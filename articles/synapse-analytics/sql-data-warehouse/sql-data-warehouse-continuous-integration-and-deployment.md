@@ -56,5 +56,5 @@ At this point, you have a simple environment where any check-in to your source c
 
 - Explore [Dedicated SQL pool (formerly SQL DW) architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md)
-- [Load sample data](load-data-from-azure-blob-storage-using-polybase.md)
+- [Load sample data](./load-data-from-azure-blob-storage-using-copy.md)
 - Explore [Videos](sql-data-warehouse-videos.md)

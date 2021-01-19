@@ -20,7 +20,7 @@ For more information about authenticating with Azure AD, see the following artic
 > [Service Bus REST API](/rest/api/servicebus/) supports OAuth authentication with Azure AD.
 
 > [!IMPORTANT]
-> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use using Azure AD with your Azure Service Bus applications when possible. 
+> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure Service Bus applications when possible. 
 
 ## Shared access signature
 [SAS authentication](service-bus-sas.md) enables you to grant a user access to Service Bus resources, with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.

@@ -132,6 +132,7 @@
         "Ja-Dunn",
         "Jak-MS",
         "jborsecnik",
+        "john-par",
         "jomolnar",
         "KatieCumming",
         "Kellylorenebaker",
@@ -159,11 +160,13 @@
         "shawnmariejones",
         "TedA-M",
         "tfosmark",
+        "TimShererWithAquent",
         "tiburd",
         "trishamc",
         "ttorble",
         "tysonn",
         "v-albemi",
+        "v-andreaco",
         "v-anpasi",
         "v-ccolin",
         "v-dansch",
@@ -742,6 +745,9 @@
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
       },
+      "recommendations": {
+        "articles/machine-learning/*.md": true
+        },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
         "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
@@ -912,8 +918,23 @@
     "rules": {
       "sensitive-language": {
         "exclude": [
+          "articles/event-hubs/event-hubs-kafka-connect-debezium.md",
+          "articles/event-hubs/event-hubs-kafka-mirror-maker-tutorial.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
+          "articles/hdinsight/hdinsight-high-availability-components.md",
+          "articles/hdinsight/kafka/apache-kafka-mirroring.md",
+          "articles/hdinsight/interactive-query/apache-hive-warehouse-connector-zeppelin.md",
+          "articles/mariadb/howto-data-in-replication.md",
+          "articles/mariadb/howto-create-users.md",
+          "articles/mariadb/concepts-certificate-rotation.md",
+          "articles/mariadb/concepts-read-replicas.md",
+          "articles/mysql/howto-troubleshoot-replication-latency.md",
+          "articles/mysql/howto-data-in-replication.md",
+          "articles/mysql/howto-create-users.md",
+          "articles/mysql/concepts-read-replicas.md",
+          "articles/mysql/flexible-server/concepts-read-replicas.md",
+          "articles/mysql/concepts-certificate-rotation.md",
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
           "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",

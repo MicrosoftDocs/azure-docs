@@ -60,6 +60,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 * Install the `azureml-mlflow` package. 
     * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which provides the connectivity for MLflow to access your workspace.
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+    * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 ## Track local runs
 
@@ -205,7 +206,7 @@ run.get_metrics()
 
 Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow related metadata such as, run ID is also tagged with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs. 
 
-If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](how-to-deploy-models-with-mlflow.md).
+If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](how-to-deploy-mlflow-models.md).
 
 To register and view a model from a run, use the following steps:
 
@@ -254,7 +255,7 @@ The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNot
 
 ## Next steps
 
-* [Deploy models with MLflow](how-to-deploy-models-with-mlflow.md).
+* [Deploy models with MLflow](how-to-deploy-mlflow-models.md).
 * Monitor your production models for [data drift](./how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
 * [Manage your models](concept-model-management-and-deployment.md).

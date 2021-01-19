@@ -567,6 +567,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: EPHOTO DAM
+        href: ephoto-dam-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
       - name: Elqano SSO
@@ -868,10 +870,10 @@
         href: instavr-viewer-tutorial.md
       - name: insuite
         href: insuite-tutorial.md
-      - name: Intacct
-        href: intacct-tutorial.md
       - name: IntelligenceBank
         href: intelligencebank-tutorial.md
+      - name: International SOS Assistance Products
+        href: international-sos-assistance-products-tutorial.md
       - name: InTime
         href: intime-tutorial.md
       - name: Intralinks
@@ -994,8 +996,12 @@
         href: kronos-tutorial.md
       - name: Kudos
         href: kudos-tutorial.md
+      - name: Kumolus
+        href: kumolus-tutorial.md
     - name: L - M
       items:
+      - name: LabLog
+        href: lablog-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
       - name: LaunchDarkly
@@ -1162,6 +1168,8 @@
         href: namely-tutorial.md
       - name: Nature Research
         href: nature-research-tutorial.md
+      - name: NAVEX One
+        href: navex-one-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
@@ -1198,6 +1206,8 @@
         href: nomadesk-tutorial.md
       - name: Nomadic
         href: nomadic-tutorial.md
+      - name: Notion
+        href: notion-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
       - name: NS1 SSO for Azure
@@ -1210,6 +1220,8 @@
         href: oc-tanner-tutorial.md
       - name: OfficeSpace Software
         href: officespace-tutorial.md
+      - name: Oktopost SAML
+        href: oktopost-saml-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
       - name: OneDesk
@@ -1374,6 +1386,10 @@
         href: proware-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
+      - name: Pulse Secure PCS
+        href: pulse-secure-pcs-tutorial.md
+      - name: Pulse Secure Virtual Traffic Manager
+        href: pulse-secure-virtual-traffic-manager-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1466,6 +1482,8 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
+      - name: Sage Intacct
+        href: intacct-tutorial.md
       - name: SailPoint IdentityNow
         href: sailpoint-identitynow-tutorial.md
       - name: Salesforce
@@ -1686,9 +1704,11 @@
         href: synchronet-click-tutorial.md
       - name: Syncplicity
         href: syncplicity-tutorial.md
+      - name: Syndio
+        href: syndio-tutorial.md
       - name: Synergi
         href: synergi-tutorial.md
-      - name: Synerise AI Growth Ecosystem
+      - name: Synerise AI Growth Operating System
         href: synerise-ai-growth-ecosystem-tutorial.md
       - name: Syxsense
         href: syxsense-tutorial.md
@@ -1722,6 +1742,8 @@
         href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
+      - name: TeamzSkill
+        href: teamzskill-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
       - name: Terraform Cloud
@@ -2029,6 +2051,8 @@
         href: clarizen-one-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
+      - name: Cofense Recipient Sync
+        href: cofense-provision-tutorial.md
       - name: Contentful
         href: contentful-provisioning-tutorial.md
       - name: Comeet Recruiting Software
@@ -2053,16 +2077,18 @@
         href: envoy-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
-      - name: Figma
-        href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
-      - name: Fuze
-        href: fuze-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
       - name: Flock
         href: flock-provisioning-tutorial.md
       - name: Foodee
         href: foodee-provisioning-tutorial.md
+      - name: Fortes Change Cloud
+        href: fortes-change-cloud-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: g-suite-provisioning-tutorial.md
       - name: GitHub

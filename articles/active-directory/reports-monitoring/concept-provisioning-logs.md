@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -211,8 +211,6 @@ The **summary** tab provides an overview of what happened and identifiers for th
 - The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to [log analytics](../app-provisioning/application-provisioning-log-analytics.md) for retention beyond 30 days. 
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
-
-- There is currently no option to download provisioning data as a CSV file, but you can export the data using [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - You may see skipped events for users that are not in scope. This is expected, especially when the sync scope is set to all users and groups. Our service will evaluate all the objects in the tenant, even the ones that are out of scope. 
 

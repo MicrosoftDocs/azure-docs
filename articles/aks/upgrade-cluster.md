@@ -104,7 +104,7 @@ To confirm that the upgrade was successful, use the [az aks show][az-aks-show] c
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows that the cluster now runs *1.13.10*:
+The following example output shows that the cluster now runs *1.18.10*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

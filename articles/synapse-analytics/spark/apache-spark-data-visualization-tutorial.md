@@ -20,7 +20,7 @@ In particular, we will analyze the [New York City (NYC) Taxi](https://azure.micr
 - Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](../articles/../quickstart-create-apache-spark-pool-studio.md) 
 
 ## Download and prepare the data
-1. Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook). 
+1. Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](../quickstart-apache-spark-notebook.md#create-a-notebook). 
    
 > [!Note]
 > 
@@ -175,5 +175,5 @@ After you have finished running the application, shut down the notebook to relea
 
 ## Next steps
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
