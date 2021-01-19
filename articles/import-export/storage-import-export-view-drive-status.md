@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/17/2018
+ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ---
