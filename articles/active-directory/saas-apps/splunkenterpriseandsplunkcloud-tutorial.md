@@ -69,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following pattern:
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<splunkserverUrl>/en-US/app/launcher/home`
+    `https://<splunkserverUrl>/app/launcher/home`
 
     b. In the **Identifier** box, type a URL using the following pattern:
     `<splunkserverUrl>`
@@ -125,8 +125,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Splunk Enterprise and Splunk Cloud Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Splunk Enterprise and Splunk Cloud tile in the My Apps, this will redirect to Splunk Enterprise and Splunk Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access).
+* You can use Microsoft My Apps. When you click the Splunk Enterprise and Splunk Cloud tile in the My Apps, this will redirect to Splunk Enterprise and Splunk Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## Next steps
 
-Once you configure Splunk Enterprise and Splunk Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/en-us/cloud-app-security/proxy-deployment-any-app)
+Once you configure Splunk Enterprise and Splunk Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
