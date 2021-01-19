@@ -21,7 +21,7 @@ From the settings tab of your Custom Vision project, you can select a domain for
 |Domain|Purpose|
 |---|---|
 |__General__| Optimized for a broad range of image classification tasks. If none of the other domains are appropriate, or you're unsure of which domain to choose, select the General. domain ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
-|__General [A1]__| Optimized for better accuracy with comparable inference time as General Domain. Recommend for larger dataset/harder user scenario. This domain will use more training time. ID: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
+|__General [A1]__| Optimized for better accuracy with comparable inference time as General Domain. Recommended for larger datasets or more difficult user scenarios. This domain requires more training time. ID: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
 |__Food__|Optimized for photographs of dishes as you would see them on a restaurant menu. If you want to classify photographs of individual fruits or vegetables, use the Food domain. ID: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Landmarks__|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph. This domain works even if the landmark is slightly obstructed by people in front of it. ID: `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Retail__|Optimized for images that are found in a shopping catalog or shopping website. If you want high precision classifying between dresses, pants, and shirts, use this domain. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
