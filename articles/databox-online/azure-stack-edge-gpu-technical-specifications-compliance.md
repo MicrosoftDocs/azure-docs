@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.author: alkohli
 ---
 
@@ -84,12 +84,9 @@ The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a 
 |    Boot SATA solid-state drives (SSD)      |    1                  |
 |    Boot SSD capacity                       |    240 GB             |
 |    Total capacity                          |    8.0 TB             |
-|    Total usable capacity*                  |    ~ 4.19 TB          |
-|    SAS controller                          |    HBA330 12 Gbps     |
+|    Total usable capacity                   |    ~ 4.19 TB          |
 |    RAID configuration                      |    Storage Spaces Direct with a combination of mirroring and parity  |
-
-
-**After parity resiliency and reserving space for internal use.*
+|    SAS controller                          |    HBA330 12 Gbps     |
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
