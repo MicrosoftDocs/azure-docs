@@ -13,6 +13,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- January 2021
+  - [Azure Disk Backup (in preview)](disk-backup-overview.md)
+  - [Encryption at rest using customer-managed keys now generally available](encryption-at-rest-with-cmk.md)
 - November 2020
   - [Azure Resource Manager template for Azure file share (AFS) backup](#azure-resource-manager-template-for-afs-backup)
   - [Incremental backups for SAP HANA databases on Azure VMs](#incremental-backups-for-sap-hana-databases)
@@ -26,6 +29,18 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Zone redundant storage (ZRS) for backup data](#zone-redundant-storage-zrs-for-backup-data)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Azure Disk Backup (in preview)
+
+Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) by automating periodic creation of snapshots and retaining it for a configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using [incremental snapshots](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
+
+For more information, see [Azure Disk Backup (in preview)](disk-backup-overview.md).
+
+## Encryption at rest using customer-managed keys
+
+Support for encryption at rest using customer-managed keys is now generally available. This gives you the ability to encrypt the backup data in your Recovery Services vaults using your own keys stored in Azure Key Vaults. The encryption key used for encrypting backups in the Recovery Services vault may be different from the ones used for encrypting the source. The data is protected using an AES 256 based data encryption key (DEK), which is, in turn, protected using your keys stored in the Key Vault. Compared to encryption using platform-managed keys (which is available by default), this gives you more control over your keys and can help you better meet your compliance needs.
+
+For more information, see [Encryption of backup data using customer-managed keys](encryption-at-rest-with-cmk.md).
 
 ## Azure Resource Manager template for AFS backup
 
