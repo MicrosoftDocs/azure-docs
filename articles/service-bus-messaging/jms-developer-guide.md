@@ -182,7 +182,7 @@ Consumers on topics, however, have 2 parts -
    * A **client side object** that lives in the context of the Session(or JMSContext), and,
    * A **subscription** that is an entity on Azure Service Bus.
 
-The subscriptions are documented [here](java-message-service-20-entities.md#java-message-service-JMS-subscriptions) and can be one of the below - 
+The subscriptions are documented [here](java-message-service-20-entities.md#java-message-service-jms-subscriptions) and can be one of the below - 
    * Shared durable subscriptions
    * Shared non-durable subscriptions
    * Unshared durable subscriptions
