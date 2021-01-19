@@ -785,9 +785,9 @@
     - name: Azure Monitor
       items:
       - name: Azure Monitor agent
-        href: ../azure-monitor/platform/azure-monitor-agent-install.md
+        href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
       - name: Diagnostics extension
-        href: ../azure-monitor/platform/diagnostics-extension-overview.md
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
       - name: Log Analytics
         items:
         - name: Linux
