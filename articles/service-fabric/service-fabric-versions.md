@@ -27,7 +27,7 @@ If you have a support plan and you need technical help, reach out via Azure supp
 
 ### Impact if you don't upgrade to a supported version
 
-Azure Service Fabric clusters that run on versions from 5.7 to 6.3.63.* won't be able to come up and will be unavailable if you have not upgraded to a version by January 19, 2021.
+Azure Service Fabric clusters that run on versions from 5.7 to 6.3.63.* won't be able to come up and will be unavailable if you haven't upgraded to a version by January 19, 2021.
 
 ### Required Action
 
