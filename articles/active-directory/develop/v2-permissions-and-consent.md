@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
-title: Microsoft identity platform scopes, permissions, & consent
-description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
-=======
 title: The Microsoft identity platform scopes, permissions, and consent
 description: Learn about authorization in the Microsoft identity platform, including scopes, permissions, and consent.
->>>>>>> endpoint-v2-standardization
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -22,11 +17,7 @@ ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 
 # Permissions and consent in the Microsoft identity platform
 
-<<<<<<< HEAD
-Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform endpoint. It changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
-=======
 Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform, and it changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
->>>>>>> endpoint-v2-standardization
 
 ## Scopes and permissions
 
@@ -58,11 +49,7 @@ An app most commonly requests these permissions by specifying the scopes in requ
 
 ## Permission types
 
-<<<<<<< HEAD
-Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
-=======
 The Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
->>>>>>> endpoint-v2-standardization
 
 * **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests. The app is delegated permission to act as the signed-in user when it makes calls to the target resource. 
 
@@ -137,11 +124,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 The `scope` parameter is a space-separated list of delegated permissions that the app is requesting. Each permission is indicated by appending the permission value to the resource's identifier (the application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
-<<<<<<< HEAD
-After the user enters their credentials, the Microsoft identity platform endpoint checks for a matching record of *user consent*. If the user hasn't consented to any of the requested permissions in the past, and if the administrator hasn't consented to these permissions on behalf of the entire organization, the Microsoft identity platform endpoint asks the user to grant the requested permissions.
-=======
 After the user enters their credentials, the Microsoft identity platform checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the Microsoft identity platform asks the user to grant the requested permissions.
->>>>>>> endpoint-v2-standardization
 
 At this time, the `offline_access` ("Maintain access to data you have given it access to") permission and `user.read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality. The `offline_access` permission gives the app access to refresh tokens that are critical for native apps and web apps. The `user.read` permission gives access to the `sub` claim. It allows the client or app to correctly identify the user over time and access rudimentary user information.
 
@@ -177,11 +160,7 @@ If the application requests application permissions and an administrator grants 
 
 After you use the admin consent endpoint to grant admin consent, you're finished. Users don't need to take any further action. After admin consent is granted, users can get an access token through a typical auth flow. The resulting access token has the consented permissions.
 
-<<<<<<< HEAD
-When a company administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform detects the user's role. It asks if the company administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
-=======
 When a Company Administrator uses your application and is directed to the authorize endpoint, the Microsoft identity platform will detect the user's role and ask them if they would like to consent on behalf of the entire tenant for the permissions you have requested. However, there is also a dedicated admin consent endpoint you can use if you would like to proactively request that an administrator grants permission on behalf of the entire tenant. Using this endpoint is also necessary for requesting Application Permissions (which can't be requested using the authorize endpoint).
->>>>>>> endpoint-v2-standardization
 
 If you follow these steps, your app can request permissions for all users in a tenant, including admin-restricted scopes. This operation is high privilege. Use the operation only if necessary for your scenario.
 
@@ -214,13 +193,7 @@ Typically, when you build an application that uses the admin consent endpoint, t
 
 In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work Microsoft account or school Microsoft account.
 
-<<<<<<< HEAD
-When you sign the user in to your app, you can identify the organization to which the admin belongs before you ask them to approve the necessary permissions. Although this step isn't strictly necessary, it can help you create a more intuitive experience for your organizational users. 
-
-To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
-=======
 When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
->>>>>>> endpoint-v2-standardization
 
 ### Request the permissions from a directory admin
 
@@ -303,11 +276,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 ## The /.default scope
 
-<<<<<<< HEAD
-You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. The `/.default` scope is built in for every application that refers to the static list of permissions configured on the application registration. 
-=======
 You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It is constructed using the resource URI + `/.default` (e.g. if the resource URI is `https://contosoApp.com`, then the scope requested would be `https://contosoApp.com/.default`).  See the [section on trailing slashes](#trailing-slash-and-default) for cases where you must include a second slash to correctly request the token.
->>>>>>> endpoint-v2-standardization
 
 A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as `resource=https://graph.microsoft.com` on the v1.0 endpoint. By specifying the `https://graph.microsoft.com/.default` scope in its request, your application is requesting an access token that includes scopes for every Microsoft Graph permission you've selected for the app in the app registration portal. The scope is constructed by using the resource URI and `/.default`. So if the resource URI is `https://contosoApp.com`, the scope requested is `https://contosoApp.com/.default`.  For cases where you must include a second slash to correctly request the token, see the [section about trailing slashes](#trailing-slash-and-default).
 
@@ -358,11 +327,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 &state=1234
 ```
 
-<<<<<<< HEAD
-This code example produces a consent page for all registered permissions if the preceding descriptions of consent and `/.default` apply to the scenario. Then the code returns an `id_token`, rather than an access token.  
-=======
 This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and **should not** be used by new clients targeting the Microsoft identity platform.
->>>>>>> endpoint-v2-standardization
 
 This behavior accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform endpoint.
 
