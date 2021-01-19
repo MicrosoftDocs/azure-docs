@@ -18,7 +18,7 @@ ms.date: 06/16/2020
 
 In this article, you learn the different options for configuring training/validation data splits and cross-validation for your automated machine learning, automated ML, experiments.
 
-In Azure Machine Learning, when you use automated ML to build multiple ML models, each child run needs to validate the related model by calculating the quality metrics for that model, such as accuracy or AUC weighted. These metrics are calculated by comparing the predictions made with each model with real labels from past observations in the validation data. [Learn more about how metrics are calculated based on validation type](#metric-calculation-for-cross-validation-in-machine learning). 
+In Azure Machine Learning, when you use automated ML to build multiple ML models, each child run needs to validate the related model by calculating the quality metrics for that model, such as accuracy or AUC weighted. These metrics are calculated by comparing the predictions made with each model with real labels from past observations in the validation data. [Learn more about how metrics are calculated based on validation type](#metric-calculation-for-cross-validation-in-machine-learning). 
 
 Automated ML experiments perform model validation automatically. The following sections describe how you can further customize validation settings with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
@@ -155,7 +155,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## Metric calculation for cross validation in machine learning
 
-When either k-fold or Monte Carlo cross validation is used, metrics are computed on each validation fold and then aggregated. The aggregation operation is an average for scalar metrics and a sum for charts. Metrics computed during cross validation are based on all folds and therefore all samples from the training set. [Learn more about metrics in automated machine learning.](how-to-understand-automated-ml.md).
+When either k-fold or Monte Carlo cross validation is used, metrics are computed on each validation fold and then aggregated. The aggregation operation is an average for scalar metrics and a sum for charts. Metrics computed during cross validation are based on all folds and therefore all samples from the training set. [Learn more about metrics in automated machine learning](how-to-understand-automated-ml.md).
 
 When either a custom validation set or an automatically selected validation set is used, model evaluation metrics are computed from only that validation set, not the  training data.
 
