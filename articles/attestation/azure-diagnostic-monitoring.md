@@ -1,6 +1,6 @@
 ---
-title: Azure Attestation Basic Concepts
-description: Basic concepts of Azure Attestation.
+title: Azure Diagnostic Monitoring
+description: Azure Diagnostic Monitoring for Azure Attestation
 services: attestation
 author: msmbaldwin
 ms.service: attestation
