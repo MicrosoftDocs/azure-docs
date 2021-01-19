@@ -128,4 +128,4 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 
 ## Next steps
 
-Learn how to [create a data wrangling Powery Query in ADF](wrangling-tutorial.md).
+Learn how to [create a data wrangling Power Query in ADF](wrangling-tutorial.md).
