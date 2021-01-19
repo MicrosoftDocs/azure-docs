@@ -34,6 +34,7 @@ The Java Message Service API programming model is as shown below -
 
 :::image type="content" source="./media/jms-developer-guide/JMS11_programmingmodel.png"alt-text="JMS 1.1 Programming model":::
 
+---
 
 ## JMS - Building blocks
 
@@ -52,8 +53,70 @@ Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionF
 
 To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively.
 
-### Destination
+To connect with Azure Service Bus, the connection string is needed as below.
+
+```java
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, null);
+```
+
+### JMS Destination
 
 A destination is the object a client uses to specify the target of the messages it produces and the source of the messages it consumes.
 
-Destinations map to entities in Azure Service Bus - queues, topics and subscriptions.
+Destinations map to entities in Azure Service Bus - queues (in point to point scenarios) and topics (in pub-sub scenarios).
+
+### Connections
+
+A connection encapsulates a virtual connection with a JMS provider. With Azure Service Bus,this represents a stateful connection between the application and Azure Service Bus over AMQP.
+
+A connection is created from the connection factory as shown below.
+
+```java
+Connection connection = factory.createConnection();
+```
+
+### Sessions
+
+A session is a single-threaded context for producing and consuming messages. It can be utilized to create messages, message producers and consumers, but it also provides a transactional context to allow grouping of sends and receives into an atomic unit of work.
+
+A session can be created from the connection object as shown below.
+
+```java
+Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+```
+
+#### Session modes
+
+A session can be created with any of the below modes.
+
+| Session modes | Behavior |
+| ----------------- | -------- |
+|**Session.AUTO_ACKNOWLEDGE** | The session automatically acknowledges a client's receipt of a message either when the session has successfully returned from a call to receive or when the message listener the session has called to process the message successfully returns.|
+|**Session.CLIENT_ACKNOWLEDGE** |The client acknowledges a consumed message by calling the message's acknowledge method.|
+|**Session.DUPS_OK_ACKNOWLEDGE**|This acknowledgment mode instructs the session to lazily acknowledge the delivery of messages.| 
+|**Session.SESSION_TRANSACTED**|This value may be passed as the argument to the method createSession(int sessionMode) on the Connection object to specify that the session should use a local transaction.| 
+
+
+### JMSContext
+
+> [!NOTE]
+> JMSContext is defined as part of the JMS 2.0 specification.
+>
+
+JMSContext combines the functionality provided by the connection and session object. It can be created from the connection factory object.
+
+```java
+JMSContext context = connectionFactory.createContext();
+```
+
+#### JMSContext modes
+
+Just like the **Session** object, the JMSContext can be created with the same acknowledge modes as mentioned in [Session modes](#session-modes)
+
+### JMS Message Producers
+
+### JMS Message Consumers
+
+
+### JMS Message Listeners
+
