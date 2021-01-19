@@ -49,34 +49,33 @@ ms.author: aahi
 #### [Named Entity Recognition (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 currently only supports English and Spanish languages. If you call NER v3 with a different language, the API will return v2.1 results, provided the language is supported in version 2.1.
-> * v2.1 only returns the full set of available entities for the English, Chinese-Simplified, French, German, and Spanish languages.  The "Person", "Location" and "Organization" entities are returned for the other supported languages.
+> * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
 
-| Language               | Language code | v2.1 support | v3 support | Starting with v3 model version: |       Notes        |
-|:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
-| Arabic                |     `ar`      |     ✓      |            |                                 |                    |
-| Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` also accepted |
-| Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
-| Czech                 |     `cs`      |     ✓      |            |                                 |                    |
-| Danish                |     `da`      |     ✓      |            |                                 |                    |
-| Dutch                 |     `nl`      |     ✓      |            |                                 |                    |
-| English                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
-| Finnish               |     `fi`      |     ✓      |            |                                 |                    |
-| French                 |     `fr`      |     ✓      |            |                                 |                    |
-| German                 |     `de`      |     ✓      |            |                                 |                    |
-| Hebrew                |     `he`      |     ✓      |            |                                 |                    |
-| Hungarian             |     `hu`      |     ✓      |            |                                 |                    |
-| Italian               |     `it`      |     ✓      |            |                                 |                    |
-| Japanese              |     `ja`      |     ✓      |            |                                 |                    |
-| Korean                |     `ko`      |     ✓      |            |                                 |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` also accepted |
-| Polish                |     `pl`      |     ✓      |            |                                 |                    |
-| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` also accepted |
-| Russian              |     `ru`      |     ✓      |            |                                 |                    |
-| Spanish               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
-| Swedish               |     `sv`      |     ✓      |            |                                 |                    |
-| Turkish               |     `tr`      |     ✓      |            |                                 |                    |
+| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+|:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
+| Arabic                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
+| Chinese-Traditional   |   `zh-hant`   |     ✓*      |               2019-10-01        |                    |
+| Czech                 |     `cs`      |     ✓*      |               2019-10-01        |                    |
+| Danish                |     `da`      |     ✓*      |               2019-10-01        |                    |
+| Dutch                 |     `nl`      |     ✓*      |               2019-10-01        |                    |
+| English                |     `en`      |     ✓      |               2019-10-01        |                    |
+| Finnish               |     `fi`      |     ✓*      |               2019-10-01        |                    |
+| French                 |     `fr`      |     ✓      |               2021-01-15        |                    |
+| German                 |     `de`      |     ✓      |               2021-01-15        |                    |
+| Hebrew                |     `he`      |     ✓*      |               2019-10-01        |                    |
+| Hungarian             |     `hu`      |     ✓*      |               2019-10-01        |                    |
+| Italian               |     `it`      |     ✓       |               2021-01-15        |                    |
+| Japanese              |     `ja`      |     ✓       |               2021-01-15        |                    |
+| Korean                |     `ko`      |     ✓       |               2021-01-15        |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓*      |               2019-10-01        | `nb` also accepted |
+| Polish                |     `pl`      |     ✓*      |               2019-10-01        |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` also accepted |
+| Russian              |     `ru`      |     ✓*       |               2019-10-01        |                    |
+| Spanish               |     `es`      |     ✓       |               2020-04-01        |                    |
+| Swedish               |     `sv`      |     ✓*      |               2019-10-01        |                    |
+| Turkish               |     `tr`      |     ✓*      |               2019-10-01        |                    |
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
