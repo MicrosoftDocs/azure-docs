@@ -69,7 +69,7 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 1. Click **Apply** to return to the **Edit feature flag** screen. Then click **Apply** again to save the feature flag settings.
 
-1. On the **Feature manager** page, the feature flag now has a **Feature filter** value of **custom**. 
+1. On the **Feature manager** page, the feature flag now has a **Feature filter** value of *Custom*. 
 
     > [!div class="mx-imgBorder"]
     > ![Feature flag listed with a Feature filter value of "Custom"](./media/feature-flag-filter-custom.png)
