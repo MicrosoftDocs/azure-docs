@@ -28,7 +28,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Handle errors and exceptions in MSAL for Java](msal-error-handling-java.md)
 - [Handle errors and exceptions in MSAL.js](msal-error-handling-js.md)
 - [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
-- [The Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
+- [Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
 
 ### Updated articles
 

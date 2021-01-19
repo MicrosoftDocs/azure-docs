@@ -272,7 +272,7 @@ Content-Type: application/json
 
 You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to do a specific task.
 
-For more information about the OAuth 2.0 protocol and how to get access tokens, see the [The Microsoft identity platform protocol reference](active-directory-v2-protocols.md).
+For more information about the OAuth 2.0 protocol and how to get access tokens, see the [Microsoft identity platform protocol reference](active-directory-v2-protocols.md).
 
 ## The /.default scope
 
