@@ -40,9 +40,6 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 1. Select **Next: Management** to continue creating your hub.
 
-    [!Note]
-    The monthly cost information in the following screen shot is for example purposes only.
-
     ![Set the size and scale for a new hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
 
     You can accept the default settings here. If desired, you can modify any of the following fields:
