@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Facebook application
 
-To use a Facebook account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a Facebook account, you can sign up at [https://www.facebook.com/](https://www.facebook.com/).
+To enable sign-in for users with a Facebook account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Facebook App Dashboard](https://developers.facebook.com/). For more information, see [App Development](https://developers.facebook.com/docs/development). If you don't already have a Facebook account, you can sign up at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 1. If you have not already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
@@ -89,7 +89,7 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 ## Add Facebook identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Facebook identity provider.
+1. Click the user flow that you want to add the Facebook identity provider.
 1. Under the **Social identity providers**, select **Facebook**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
