@@ -33,7 +33,11 @@ The reporting architecture in Azure Active Directory (Azure AD) consists of the 
     - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
     - **Users flagged for risk** - A [risky user](../identity-protection/overview-identity-protection.md) is an indicator for a user account that might have been compromised.
 
-This topic gives you an overview of the provisioning report.
+This topic gives you an overview of the provisioning logs. They provide answers to questions such as: 
+
+* What groups were successfully created in ServiceNow?
+* What users were successfully removed from Adobe?
+* What users from Workday were successfully created in Active Directory? 
 
 ## Prerequisites
 
@@ -48,20 +52,14 @@ This topic gives you an overview of the provisioning report.
 
 Your tenant must have an Azure AD Premium license associated with it to see the all up provisioning activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. 
 
-## Provisioning logs
-
-The provisioning logs provide answers to the following questions:
-
-* What groups were successfully created in ServiceNow?
-* What users were successfully removed from Adobe?
-* What users were unsuccessfully created in DropBox?
 
 ## Ways of interacting with the provisioning logs 
-Customers have four ways of interacting with the provisioning logs
-1. Access the logs from the Azure Portal as described below.
+Customers have four ways of interacting with the provisioning logs:
+
+1. Accessing the logs from the Azure Portal as described below.
 1. Streaming the provisioning logs into [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), allowing for extended data retention, building custom dashboard, alerts, and queries.
-1. Query the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
-1. Download the provisioning logs as a CSV file or json.
+1. Querying the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
+1. Downloading the provisioning logs as a CSV file or json.
 
 ## Accessing the provisioning logs through the Azure Portal
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
