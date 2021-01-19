@@ -56,14 +56,16 @@ Sensitivity labels are supported in Azure Purview for the following data types:
 |Data type  |Sources  |
 |---------|---------|
 |Automatic labeling for files     |     - Azure Blob Storage  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
-|Automatic labeling for database columns     |  - SQL server[*](#labeling-for-sql-database-columns) </br>- Azure SQL database[*](#labeling-for-sql-database-columns) </br>- Azure SQL Database Managed Instance[*](#labeling-for-sql-database-columns)   <br> - Azure Synapse  <br>- Azure Cosmos DB   |
+|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB <br><br>For more information, see [Labeling for SQL database columns](#labeling-for-sql-database-columns), below.  |
 | | |
 
 #### Labeling for SQL database columns
 
-In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in SQL Server Management Studio (SSMS). While Purview uses the unified labeling MIP sensitivity labels, SSMS only uses labels defined locally.
+In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the unified labeling MIP sensitivity labels, SSMS only uses labels defined locally.
 
-Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with eachother. Therefore, labels applied in SSMS are not shown in Purview, and vice versa. SSMS uses local labels and Purview uses the unified labeling MIP sensitivity labels. 
+Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with eachother. Therefore, labels applied in SSMS are not shown in Purview, and vice versa. 
+
+For more information, see the [SQL data discovery and classification documentation](/sql/relational-databases/security/sql-data-discovery-and-classification?view=sql-server-ver15&tabs=t-sql).
 
 ## How to create sensitivity labels in Microsoft 365
 
