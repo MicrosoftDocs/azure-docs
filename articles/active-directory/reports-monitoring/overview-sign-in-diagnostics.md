@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 # What is the sign-in diagnostic in Azure AD?
 
-Azure Active Directory (Azure AD) provides you with a flexible security model to control what users can do with  managed resources. Access to these resources is controlled not only by **who** they are, but also by **how** they access them. Typically, a flexible model comes with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
+Azure Active Directory (Azure AD) provides you with a flexible security model to control what users can do with  managed resources. Access to these resources is controlled not only by *who* they are, but also by *how* they access them. Typically, a flexible model comes with a certain degree of complexity because of the number of configuration options you have. Complexity has the potential to increase the risk for errors.
 
 As an IT admin, you need a solution that gives you insight into the activities in your system. This visibility can let you diagnose and solve problems when they occur. The sign-in diagnostic for Azure AD is an example of such a solution. You can use the diagnostic to analyze what happened during a sign-in attempt and get recommendations for resolving problems without needing to involve Microsoft support.
 
@@ -39,7 +39,7 @@ You must be a global administrator in Azure AD to use it.
 
 ## How it works
 
-In Azure AD, the response to a sign-in attempt is tied to **who** signs in and **how** they access the tenant. For example, an administrator can typically configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign in with the same account from an untrusted network.
+In Azure AD, the response to a sign-in attempt is tied to *who* signs in and *how* they access the tenant. For example, an administrator can typically configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign in with the same account from an untrusted network.
 
 Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that:
 
@@ -53,13 +53,13 @@ The sign-in diagnostic for Azure AD is designed to enable self-diagnosis of sign
 
 ![Diagram showing the sign-in diagnostic.](./media/overview-sign-in-diagnostics/process.png)
 
-1. **Define** the scope of the sign-in events you care about.
+1. Define the scope of the sign-in events you care about.
 
-2. **Select** the sign-in you want to review.
+2. Select the sign-in you want to review.
 
-3. **Review** the diagnostic results.
+3. Review the diagnostic results.
 
-4. **Take** action.
+4. Take action.
 
 ### Define scope
 
@@ -95,7 +95,7 @@ The following scenarios are covered by the sign-in diagnostic:
 
 - Failed conditional access
 
-- MFA from conditional access
+- Multifactor authentication (MFA) from conditional access
 
 - MFA from other requirements
 
@@ -129,46 +129,46 @@ The diagnostic section for this scenario shows details about the user sign-in at
 
 ### MFA from conditional access
 
-In this scenario, a conditional access policy has the requirement to sign in using multi-factor authentication set.
+In this scenario, a conditional access policy has the requirement to sign in using multifactor authentication set.
 
-![Screenshot showing access configuration with Require multi-factor authentication selected.](./media/overview-sign-in-diagnostics/require-mfa.png)
+![Screenshot showing access configuration with Require multifactor authentication selected.](./media/overview-sign-in-diagnostics/require-mfa.png)
 
 The diagnostic section for this scenario shows details about the user sign-in attempt and the applied policies.
 
 ### MFA from other requirements
 
-In this scenario, a multi-factor authentication requirement wasn't enforced by a conditional access policy. For example, multi-factor authentication on a per-user basis.
+In this scenario, a multifactor authentication requirement wasn't enforced by a conditional access policy. For example, multifactor authentication on a per-user basis.
 
-![Screenshot showing multi-factor authentication per user configuration.](./media/overview-sign-in-diagnostics/mfa-per-user.png)
+![Screenshot showing multifactor authentication per user configuration.](./media/overview-sign-in-diagnostics/mfa-per-user.png)
 
 The intent of this diagnostic scenario is to provide more details about:
 
-- The source of the multi-factor authentication interrupt
+- The source of the multifactor authentication interrupt
 - The result of the client interaction
 
 You can also view all details of the user sign-in attempt.
 
 ### MFA proof up required
 
-In this scenario, sign-in attempts were interrupted by requests to set up multi-factor authentication. This setup is also known as proof up.
+In this scenario, sign-in attempts were interrupted by requests to set up multifactor authentication. This setup is also known as proof up.
 
-Multi-factor authentication proof up occurs when a user is required to use multi-factor authentication but hasn't configured it yet, or an administrator has required the user to configure it.
+Multifactor authentication proof up occurs when a user is required to use multifactor authentication but hasn't configured it yet, or an administrator has required the user to configure it.
 
-The intent of this diagnostic scenario is to reveal that the multi-factor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up.
+The intent of this diagnostic scenario is to reveal that the multifactor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up.
 
 ### MFA proof up required (risky sign-in location)
 
-In this scenario, sign-in attempts were interrupted by a request to set up multi-factor authentication from a risky sign-in location.
+In this scenario, sign-in attempts were interrupted by a request to set up multifactor authentication from a risky sign-in location.
 
-The intent of this diagnostic scenario is to reveal that the multi-factor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up, specifically from a network location that doesn't appear risky.
+The intent of this diagnostic scenario is to reveal that the multifactor authentication interruption was due to lack of user configuration. The recommended solution is for the user to complete the proof up, specifically from a network location that doesn't appear risky.
 
-   For example, if a corporate network is defined as a named location, the user should attempt to do the proof up from the corporate network instead.
+For example, if a corporate network is defined as a named location, the user should attempt to do the proof up from the corporate network instead.
 
 ### Successful sign-in
 
-In this scenario, sign-in events weren't interrupted by conditional access or multi-factor authentication.
+In this scenario, sign-in events weren't interrupted by conditional access or multifactor authentication.
 
-This diagnostic scenario provides details about user sign-in events that were expected to be interrupted due to conditional access policies or multi-factor authentication.
+This diagnostic scenario provides details about user sign-in events that were expected to be interrupted due to conditional access policies or multifactor authentication.
 
 ## Next steps
 
