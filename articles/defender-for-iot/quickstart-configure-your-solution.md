@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Configure your solution"
+title: Add Azure resources to your IoT solution
 description: In this quickstart, learn how to configure your end-to-end IoT solution using Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot

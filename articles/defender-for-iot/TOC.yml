@@ -10,70 +10,40 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Agent-based solution for device builders
-    items: 
-    - name: Standalone agent binary installation
-      href: quickstart-standalone-agent-binary-installation.md
-    - name: Building the Defender for IoT Micro Agent from source
-      href: quickstart-building-the-defender-micro-agent-from-source.md
-    - name: Classic
-      items:
-      - name: Security agents
-        href: 
-      - name: Configure your Azure Defender for IoT solution
-        href:
   - name: Agentless Solution for Organizations
     items:
     - name: System prerequisites
       href: quickstart-system-prerequisites.md
     - name: Get started with Azure Defender for IoT
       href: getting-started.md
-  - name: Agent-based solution for Device Builders
-    items: 
-    - name: Configure Security Module for Azure RTOS
-      href: quickstart-azure-rtos-security-module.md
-    - name: IoT Hub
-      href: quickstart-iot-hub-integration.md
-    - name: Onboard Azure Defender for IoT in IoT Hub
-      href: quickstart-onboard-iot-hub.md
-    - name: Security agents
-      href: security-agent-architecture.md
-    - name: Configure your solution
-      href: quickstart-configure-your-solution.md
     - name: Create an Azure Defender for IoT module twin
       href: quickstart-create-security-twin.md   
-- name: Concepts
-  items:
   - name: Agent-based solution for device builders
     items: 
-    - name: Managed – Agent portfolio overview
-      items: 
-      - name: Description of Azure RTOS, standalone
-        href: 
-    - name: Standalone micro agent overview
+    - name: Configure security module for Azure RTOS
+      href: quickstart-azure-rtos-security-module.md
+    - name: Onboard Azure Defender for IoT service in IoT Hub               Question for Idan
       href:
-    - name: Security agent authentication
+    - name: Agent-based solution                                          Question for Idan
       href:
-    - name: Security posture – CIS benchmark
-      href:
-    - name: Security module
-      href: concept-security-module.md
-    - name: Event aggregation
-      href: event-aggregation.md
-    - name: Security alerts
-      href: concept-security-alerts.md
-    - name: Customizable security alerts
-      href: concept-customizable-security-alerts.md
-    - name: Security recommendations
-      href: concept-recommendations.md
+    - name: Onboard Azure Defender for IoT in IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Create a Defender Iot Micro Agent module twin              Question to Idan - similar article to security module twin -> quickstart-create-security-twin.md
+      href: 
+    - name: Standalone agent binary installation                       Article Created needs review
+      href: quickstart-standalone-agent-binary-installation.md
+    - name: Building the Defender for IoT Micro Agent from source      Article Created needs review
+      href: quickstart-building-the-defender-micro-agent-from-source.md
+    - name: Add Azure resources to your IoT solution
+      href: quickstart-configure-your-solution.md
     - name: Classic
       items:
-      - name: Edge security module
-        href: security-edge-architecture.md
       - name: Security agents
-        href: overview-security-agents.md
-      - name: Security agent authentication
-        href: concept-security-agent-authentication-methods.md
+        href: security-agent-architecture.md
+      - name: Create an azureiotsecurity module twin                  Use the exisiting topic here
+        href: 
+- name: Concepts
+  items:  
   - name: Agentless Solution for Organizations
     items:
     - name: Key concepts
@@ -87,58 +57,42 @@
         href: concept-rtos-security-module.md
       - name: Security Module for Azure RTOS alerts and recommendations 
         href: concept-rtos-security-alerts-recommendations.md
-      - name: Security baseline
-        href: security-baseline.md
+  - name: Agent-based solution for Device Builders
+    items:
+    - name: Managed – Agent portfolio overview
+      items: 
+      - name: Description of Azure RTOS, standalone                      Need to copy
+        href:
+    - name: Standalone micro agent overview                              Needs review         
+      href: concept-standalone-micro-agent-overview.md
+    - name: Security agent authentication                                Need to copy
+      href:
+    - name: Security posture - CIS benchmark                             Need to copy
+      href:
+    - name: Security module
+      href: concept-security-module.md
+    - name: Event aggregation                                            Needs update
+      href: event-aggregation.md
+    - name: Security alerts
+      href: concept-security-alerts.md
+    - name: Custom security alerts
+      href: concept-customizable-security-alerts.md
+    - name: Security recommendations
+      href: concept-recommendations.md 
+    - name: Classic
+      items:
+      - name: Edge security module
+        href: security-edge-architecture.md
+      - name: Security agents
+        href: overview-security-agents.md
+      - name: Security agent authentication
+        href: concept-security-agent-authentication-methods.md
       - name: Baseline
         href: concept-baseline.md
+      - name: Event aggregation                                          Is this a repeat of the article above?
+        href:
 - name: How-to guides
   items:
-  - name: Agent-based solution for device builders 
-    items:
-    - name: Connect Defender for IoT to log analytics workspace
-      href:
-    - name: Configuration
-      items:
-      - name: Configuration types description
-        href: 
-    - name: Investigate a device
-      href: how-to-investigate-device.md
-    - name: Investigate CIS benchmark recommendation
-      href: 
-    - name: Investigate security recommendations
-      href: quickstart-investigate-security-recommendations.md
-    - name: Investigate security alerts
-      href: quickstart-investigate-security-alerts.md
-    - name: Create custom security alerts
-      href: quickstart-create-custom-alerts.md
-    - name: Connect to Azure Sentinel
-      href: how-to-configure-with-sentinel.md
-    - name: Customize your agent
-      href: how-to-customize-solution.md
-    - name: Classic
-      items: 
-      - name: Which agent should I deploy?
-        items:
-        - name: Select an agent to deploy
-          href: how-to-deploy-agent.md
-        - name: Deploy a C#-based security agent on a Windows device
-          href: how-to-deploy-windows-cs.md
-        - name: Deploy a C#-based security agent on a Linux device
-          href: how-to-deploy-linux-cs.md
-        - name: Deploy a C-based security agent on a Linux device
-          href: how-to-deploy-linux-c.md
-      - name: Troubleshoot a security agent
-        items:
-        - name: Troubleshoot Azure Defender for IoT Linux security agent
-          href: troubleshoot-agent.md 
-      - name: Deploy Edge security module
-        href: how-to-deploy-edge.md
-      - name: Configure security agents
-        href: how-to-agent-configuration.md
-      - name: Send your own security messages
-        href: how-to-send-security-messages.md
-      - name: Access raw security data
-        href: how-to-security-data-access.md
   - name: Agentless Solution for Organizations
     items:
     - name: Prepare your network
@@ -221,18 +175,64 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
-  - name: Agent-based Solution for Device Builders
-    items: 
-    - name: Work with Security Module for Azure RTOS
-      href: how-to-azure-rtos-security-module.md
+  - name: Agent-based solution for device builders
+    items:
+    - name: Configure security module for Azure RTOS                     Repeat article from start of quickstart
+      href:
+    - name: Connect to Azure Sentinel
+      href: how-to-configure-with-sentinel.md
+    - name: Configure Azure Defender for IoT agent-based solution        Need to Copy
+      href: 
+    - name: Configuration                                                Why is single article nested
+      items:
+      - name: Configuration types description
+        href: 
+    - name: Investigate a device
+      href: how-to-investigate-device.md
+    - name: Investigate CIS benchmark recommendation                     Need to copy
+      href: 
+    - name: Investigate security recommendations
+      href: quickstart-investigate-security-recommendations.md
+    - name: Investigate security alerts
+      href: quickstart-investigate-security-alerts.md
+    - name: Create custom alerts
+      href: quickstart-create-custom-alerts.md
+    - name: Classic
+      items: 
+      - name: Which agent should I deploy?
+        items:
+        - name: Select an agent to deploy
+          href: how-to-deploy-agent.md
+        - name: Deploy a C#-based security agent on a Windows device
+          href: how-to-deploy-windows-cs.md
+        - name: Deploy a C#-based security agent on a Linux device
+          href: how-to-deploy-linux-cs.md
+        - name: Deploy a C-based security agent on a Linux device
+          href: how-to-deploy-linux-c.md
+      - name: Troubleshoot a security agent
+        items:
+        - name: Troubleshoot Azure Defender for IoT Linux security agent
+          href: troubleshoot-agent.md 
+      - name: Deploy Edge security module
+        href: how-to-deploy-edge.md
+      - name: Configure security agents
+        href: how-to-agent-configuration.md
+      - name: Send your own security messages
+        href: how-to-send-security-messages.md
+      - name: Access raw security data
+        href: how-to-security-data-access.md
 - name: Troubleshooting
   items:
   - name: Managed
     items:
-    - name: Logs level
-      href:
-    - name: Events in the cloud
+    - name: Logs level                                                 Need to copy
       href: 
+    - name: Events in the cloud                                                 Need to copy
+      href:
+  - name: Feature retirement
+    items:
+    - name: Defender for IoT C/C#/ Edge security module deprecation                                                  Need to copy
+      href:
 - name: References
   items:
   - name: Agentless Solution for Organizations
@@ -280,12 +280,26 @@
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
 
+     
+
+    
 
   
-    
+  - name: Agent-based Solution for Device Builders
+    items: 
+    - name: Work with Security Module for Azure RTOS
+      href: how-to-azure-rtos-security-module.md
+ 
       - name: Local configuration C
         href: azure-iot-security-local-configuration-c.md
       - name: Local configuration C#
         href: azure-iot-security-local-configuration-csharp.md
 
 
+To Remove
+    - name: IoT Hub
+      href: quickstart-iot-hub-integration.md
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Customize your agent
+      href: how-to-customize-solution.md
