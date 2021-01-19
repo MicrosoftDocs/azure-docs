@@ -51,13 +51,24 @@ The connection factory object is used by the client to connect with the JMS prov
 
 Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory` or `TopicConnectionFactory` interface.
 
-To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively.
+To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory` and `ServiceBusJmsTopicConnectionFactory` respectively. The Connection factory can be instantiated with the below parameters - 
+   * Connection string - the connection string for the Azure Service Bus Premium tier namespace.
+   * ServiceBusJmsConnectionFactorySettings property bag which contains
+      * connectionIdleTimeoutMS - idle connection timeout in milliseconds.
+      * traceFrames - boolean flag to collect AMQP trace frames for debugging.
+      * *other configuration parameters*
 
-To connect with Azure Service Bus, the connection string is needed as below.
+The factory can be created as below. The connection string is a required parameter, but the additional properties are optional.
 
 ```java
 ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, null);
 ```
+
+> [!IMPORTANT]
+> Java applications leveraging JMS 2.0 API must connect to Azure Service Bus using the connection string only. Currently, authentication for JMS clients is only supported using the Connection string.
+>
+> Azure active directory (AAD) backed authentication is not currently supported.
+>
 
 ### JMS Destination
 
