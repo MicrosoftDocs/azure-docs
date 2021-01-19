@@ -5,7 +5,7 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ---
