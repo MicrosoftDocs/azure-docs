@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 01/19/2021
 ---
 
 # Azure Cosmos DB service quotas
