@@ -12,6 +12,8 @@ ms.date: 01/19/2021
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+Data wrangling in data factory allows you to build interactive Power Query mash-ups natively in ADF and then execute those at scale inside of an ADF pipeline.
+
 > [!NOTE]
 > Power Query acitivty in ADF is currently avilable in public preview
 
@@ -38,7 +40,7 @@ Click **Create** to open the Power Query Online mashup editor.
 
 ![Screenshot that shows the Create button that opens the Power Query Online mashup editor.](media/wrangling-data-flow/tutorial5.png)
 
-Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md).
+Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md). ADF translates the ```M``` script into a data flow script so that you can execute your Power Query at scale using the ADF data flow Spark environment.
 
 ![Screenshot that shows the process for authoring your wrangling data flow.](media/wrangling-data-flow/tutorial6.png)
 
