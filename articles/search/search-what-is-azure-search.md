@@ -29,9 +29,9 @@ Architecturally, a search service sits in between the external data stores that 
 
 Outwardly, search can integrate with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and text analysis, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
 
-Within the search service itself, the two primary workloads are *indexing* and *querying*. 
+On the search service itself, the two primary workloads are *indexing* and *querying*. 
 
-+ Indexing brings text into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload any content that is in the form of JSON documents.
++ Indexing ingests text into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload any content that is in the form of JSON documents.
 
   Within indexing, you have the option of adding *AI enrichment* through [cognitive skills](cognitive-search-working-with-skillsets.md), either predefined ones from Microsoft or custom skills that you create. The subsequent analysis and transformations can result in new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
 
