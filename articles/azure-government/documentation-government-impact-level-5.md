@@ -166,6 +166,10 @@ Azure HDInsight supports Impact Level 5 workloads in Azure Government with these
 
 Power Automate (formerly Microsoft Flow) supports Impact Level 5 workloads in Azure Government with no additional configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government regions.
 
+### [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
+
+Power BI Embedded supports Impact Level 5 workloads in Azure Government with no additional configuration required.
+
 ## Compute
 
 For Compute services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware,cloud-services,batch,app-service,service-fabric,functions,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
