@@ -15,7 +15,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 **Possible cause**: The script is unable to access the recovery point.
 
-**Recommended action**: Check whether the machine fulfills all the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+**Recommended action**: Check whether the machine fulfills all the [access requirements](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 
 ### The target has already been logged in via an iSCSI session
 
@@ -37,7 +37,7 @@ This section provides steps to troubleshoot issues you may come across while dow
 
 Recommended action:
 
-1. Ensure you have all the [required permissions to download the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
+1. Ensure you have all the [required permissions to download the script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Ensure there's connectivity to the Azure target IPs
 
 To verify the connection, run one of the following commands from an elevated command prompt.
@@ -64,7 +64,7 @@ The ILR module uses **iscsi_tcp** to establish a TCP connection to the backup se
 
 **Error**: Exception caught while connecting to target
 
-1. Ensure the machine where the script is run meets all the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+1. Ensure the machine where the script is run meets all the [access requirements](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Check for connectivity to Azure target IPs.
 To verify the connection, run one of the following commands from an elevated command prompt.
 
@@ -79,7 +79,7 @@ To verify the connection, run one of the following commands from an elevated com
 
 ### Connected to recovery point but disks didn't get attached
 
-Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)
+Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)
 
 #### On a Windows VM
 
@@ -109,7 +109,7 @@ To resolve this issue, we need to manually set the Read-Write Access to the stor
 
 While performing file recovery, the backup service detects volumes and automounts. However, if the backed-up disks have raw partitions, then those disks aren't automounted and you can't see the data disk for recovery.
 
-To solve this issue, follow the steps documented in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+To solve this issue, follow the steps documented in this [article](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ##### The OS couldn't identify the filesystem causing Linux File recovery to fail while mountings disks
 
@@ -126,11 +126,11 @@ To resolve this issue, check if the volume is encrypted with a third-party appli
    ![Disk without volume](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
 2. Verify the filesystem and encryption.
-3. If the volume is encrypted, then file recovery isn't supported. [Learn more](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+3. If the volume is encrypted, then file recovery isn't supported. [Learn more](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### Disks are attached, but unable to mount volumes
 
-- Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+- Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 #### On Windows VMs
 
@@ -157,8 +157,8 @@ To identify and resolve this issue, perform the following steps:
 
 #### On Linux VMs
 
-- Ensure you have the [right machine to run the script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
-- If the protected Linux VM uses LVM or RAID Arrays, then follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+- Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+- If the protected Linux VM uses LVM or RAID Arrays, then follow the steps listed in this [article](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### Can't copy the files from mounted volumes
 
