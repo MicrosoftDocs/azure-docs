@@ -53,6 +53,9 @@ NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
+> [!NOTE]
+Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
+
 ## Replicated machines
 
 Site Recovery supports replication of any workload running on a supported machine.
@@ -226,6 +229,7 @@ Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - No
 Guest/server - Storage Spaces | No
+Guest/server - NVMe interface | No
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No

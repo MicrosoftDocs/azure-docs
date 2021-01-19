@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -31,16 +31,21 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an application
 
-To use Twitter as an identity provider in Azure AD B2C, you need to create a Twitter application. If you don't already have a Twitter account, you can sign up at [https://twitter.com/signup](https://twitter.com/signup).
+To enable sign-in for users with a Twitter account in Azure Active Directory B2C (Azure AD B2C) you need to create a Twitter application. If you don't already have a Twitter account, you can sign up at [https://twitter.com/signup](https://twitter.com/signup). You also need to [Apply for a developer account](https://developer.twitter.com/en/apply/user.html). For more information, see [Apply for access](https://developer.twitter.com/en/apply-for-access).
 
-1. Sign in to the [Twitter Developers](https://developer.twitter.com/en/apps) website with your Twitter account credentials.
-1. Select  **Create an app**.
-1. Enter an **App name** and an **Application description**.
-1. In **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`.
-1. For the **Callback URL**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1A_signup_signin_twitter`. You need to use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
-1. At the bottom of the page, read and accept the terms, and then select **Create**.
-1. On the **App details** page, select **Edit > Edit details**, check the box for **Enable Sign in with Twitter**, and then select **Save**.
-1. Select **Keys and tokens** and record the **Consumer API Key** and the **Consumer API secret key** values to be used later.
+1. Sign in to the [Twitter Developer Portal](https://developer.twitter.com/portal/projects-and-apps) with your Twitter account credentials.
+1. Under **Standalone Apps**, select **+Create App**.
+1. Enter an **App name**, and then select **Complete**.
+1. Copy the value of the **App key**, and **API key secret**.  You use both of them to configure Twitter as an identity provider in your tenant. 
+1. Under **Setup your App**, select **App settings**.
+1. Under **Authentication settings**, select **Edit**
+    1. Select **Enable 3-legged OAuth** checkbox.
+    1. Select **Request email address from users** checkbox.
+    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1A_signup_signin_twitter`. You need to use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
+    1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`.
+    1. Enter a URL for the **Terms of service**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
+    1. Enter a URL for the **Privacy policy**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
+    1. Select **Save**.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -51,9 +56,19 @@ To use Twitter as an identity provider in Azure AD B2C, you need to create a Twi
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Twitter**.
 1. Enter a **Name**. For example, *Twitter*.
-1. For the **Client ID**, enter the Consumer API Key of the Twitter application that you created earlier.
-1. For the **Client secret**, enter the Consumer API secret key that you recorded.
+1. For the **Client ID**, enter the *API Key* of the Twitter application that you created earlier.
+1. For the **Client secret**, enter the *API key secret* that you recorded.
 1. Select **Save**.
+
+## Add Twitter identity provider to a user flow 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Select the user flow that you want to add the Twitter identity provider.
+1. Under the **Social identity providers**, select **Twitter**.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Click **Run user flow**
 
 ::: zone-end
 
@@ -99,7 +114,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
             <Item Key="request_token_endpoint">https://api.twitter.com/oauth/request_token</Item>
             <Item Key="ClaimsEndpoint">https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true</Item>
             <Item Key="ClaimsResponseFormat">json</Item>
-            <Item Key="client_id">Your Twitter application consumer key</Item>
+            <Item Key="client_id">Your Twitter application API key</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_TwitterSecret" />
@@ -123,7 +138,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
     </ClaimsProvider>
     ```
 
-4. Replace the value of **client_id** with the consumer key that you previously recorded.
+4. Replace the value of **client_id** with the *API key secret* that you previously recorded.
 5. Save the file.
 
 ### Upload the extension file for verification
@@ -169,24 +184,6 @@ Now that you have a button in place, you need to link it to an action. The actio
     Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Twitter-OAUTH1`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## Add Twitter identity provider to a user flow 
-
-1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Twitter identity provider.
-1. Under the **Social identity providers**, select **Twitter**.
-1. Select **Save**.
-1. To test your policy, select **Run user flow**.
-1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## Update and test the relying party file
 
