@@ -19,7 +19,7 @@ ms.reviewer: celested
 
 Learn the basics of modern authentication, the Microsoft identity platform, and the Microsoft Authentication Libraries (MSAL).
 
-## Microsoft identity platform
+## Microsoft identity platform for developers
 
 Learn the key components and capabilities of the Microsoft identity platform.
 
