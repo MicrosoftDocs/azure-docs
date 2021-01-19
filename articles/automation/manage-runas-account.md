@@ -3,7 +3,7 @@ title: Manage an Azure Automation Run As account
 description: This article tells how to manage your Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice:
-ms.date: 01/06/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ---
 
@@ -27,15 +27,15 @@ When you renew the self-signed certificate, the current valid certificate is ret
 
 Use the following steps to renew the self-signed certificate.
 
-1. In the Azure portal, open the Automation account.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Run As Accounts** in the account settings section.
+1. Go to your Automation account and select **Run As Accounts** in the account settings section.
 
     :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Automation account properties pane.":::
 
-1. On the Run As Accounts properties page, select either the Run As account or the Classic Run As account for which to renew the certificate.
+1. On the **Run As Accounts** properties page, select either **Run As Account** or **Classic Run As Account** depending on which account you need to renew the certificate for.
 
-1. On the properties pane for the selected account, click **Renew certificate**.
+1. On the **Properties** page for the selected account, select **Renew certificate**.
 
     :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renew certificate for Run As account.":::
 
@@ -48,7 +48,7 @@ To control the targeting of Automation against resources in Azure, you can run t
 >[!IMPORTANT]
 >After you run the **Update-AutomationRunAsAccountRoleAssignments.ps1** script, runbooks that access Key Vault through the use of Run As accounts no longer work. Before running the script, you should review runbooks in your account for calls to Azure Key Vault. To enable access to Key Vault from Azure Automation runbooks, you must [add the Run As account to Key Vault's permissions](#add-permissions-to-key-vault).
 
-If you need to restrict,  further what the Run As service principal can do, you can add other resource types to the `NotActions` element of the custom role definition. The following example restricts access to `Microsoft.Compute/*`. If you add this resource type to `NotActions` for the role definition, the role will not be able to access any Compute resource. To learn more about role definitions, see [Understand role definitions for Azure resources](../role-based-access-control/role-definitions.md).
+If you need to further restrict what the Run As service principal can do, you can add other resource types to the `NotActions` element of the custom role definition. The following example restricts access to `Microsoft.Compute/*`. If you add this resource type to `NotActions` for the role definition, the role will not be able to access any Compute resource. To learn more about role definitions, see [Understand role definitions for Azure resources](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzRoleDefinition -Name 'Automation RunAs Contributor'
@@ -56,11 +56,12 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-You can determine if the service principal used by your Run As account is in the Contributor role definition or a custom one.
+You can determine if the service principal used by your Run As account assigned the **Contributor** role or a custom one.
 
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account and select **Run As Accounts** in the account settings section.
-2. Select **Azure Run As Account**.
-3. Select **Role** to locate the role definition that is being used.
+1. Select **Azure Run As Account**.
+1. Select **Role** to locate the role definition that is being used.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verify the Run As Account role." lightbox="media/manage-runas-account/verify-role-expanded.png":::
 
@@ -73,7 +74,30 @@ You can allow Azure Automation to verify if Key Vault and your Run As account se
 * Grant permissions to Key Vault.
 * Set the access policy.
 
-You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to give your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-powershell.md) for more details on setting permissions on Key Vault.
+You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to grant your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-powershell.md) for more details on setting permissions on Key Vault.
+
+## Grant Run As account permissions in other subscriptions
+
+Azure Automation supports using a single Automation account from one subscription, and executing runbooks against Azure Resource Manager resources across multiple subscriptions. This configuration does not support the Azure Classic deployment model.
+
+You assign the Run As account service principal the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the other subscription, or more restrictive permissions. For more information, see [Role-based access control](automation-role-based-access-control.md) in Azure Automation. To assign the Run As account to the role in the other subscription, the user account performing this task needs to be a member of the **Owner** role in that subscription.
+
+Before granting the Run As account permissions, you need to first note the display name of the service principal to assign.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From your Automation account, select **Run As Accounts** under **Account Settings**.
+1. Select **Azure Run As Account**.
+1. Copy or note the value for **Display Name** on the **Azure Run As Account** page.
+
+For detailed steps for how to add role assignments, check out the following articles depending on the method you want to use.
+
+* [Add Azure role assignment from the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Add Azure role assignment using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Add Azure role assignment using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
+* [Add Azure role assignment using the REST API](..//role-based-access-control/role-assignments-rest.md)
+
+
+After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ## Resolve misconfiguration issues for Run As accounts
 
