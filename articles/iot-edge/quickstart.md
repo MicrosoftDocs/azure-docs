@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: rsameser
 manager: kgremban
 ms.author: riameser
-ms.date: 1/11/2021
+ms.date: 1/19/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -54,7 +54,10 @@ IoT Edge device:
 * In this quickstart, you will be using your own device to set up the IoT Edge device.
 
 > [!NOTE]
-> Your device needs to be a Windows PC or server, version 1809 or later.
+> Minimum system requirements on target device:  
+> * Your device needs to be a Windows PC or server, version 1809 or later
+> * At least 4 GB of memory, recommended 8 GB of memory
+> * 10 GB of free disk space
 
 
 ## Create an IoT hub
@@ -98,6 +101,8 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    ```
 
 3. Copy the value of the `connectionString` key from the JSON output and save it. This value is the device connection string. You'll use this connection string to configure the IoT Edge runtime in the next section.
+> [!NOTE]
+> You'll need to use this connection string to configure the IoT Edge runtime in step 17 of the next section.
 
    ![Retrieve connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
 
@@ -145,6 +150,8 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 16. Click **Next: Connect** to continue to the final step to connect your Azure IoT Edge device for deployment to your Azure IoT Hub device instance.
 
 17. Copy the connection string from your device in Azure IoT Hub and paste it into the device connection string field. Then choose **Provisioning with the selected method**​.
+> [!NOTE]
+> Refer to step 3 in the previous section, [Register an IoT Edge device](#Register-an-IoT-Edge-device), to retrieve your connection string.
 
       :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="Screenshot - Wizard Provisioning":::
 
@@ -229,11 +236,11 @@ az group list
 ```
 
 ### Clean Removal of Azure IoT Edge for Linux on Windows
-You can uninstall Azure IoT Edge for Linux on Windows on your device through the dashboard extension in Windows Admin Center.
+You can uninstall Azure IoT Edge for Linux on Windows on your IoT Edge device through the dashboard extension in Windows Admin Center.
 1. Connect to the Azure IoT Edge for Linux on Windows device connection in Windows Admin Center. The Azure dashboard tool extension will load.
 2. Select **Uninstall**. Once Azure IoT Edge for Linux on Windows is removed, Windows Admin Center will navigate to the start page and remove the Azure IoT Edge device connection entry from the list.
 
-Another way to remove Azure IoT Edge from your Windows system is to go to **Start** > **Settings** > **Apps** > **Azure IoT Edge** > **Uninstall**. This will remove Azure IoT Edge from your system, but leave the connection behind in Windows Admin Center, which can be uninstalled from there as well.
+Another way to remove Azure IoT Edge from your Windows system is to go to **Start** > **Settings** > **Apps** > **Azure IoT Edge** > **Uninstall** on your IoT Edge device. This will remove Azure IoT Edge from your IoT Edge  device, but leave the connection behind in Windows Admin Center. Windows Admin Center can be uninstalled from the Settings menu as well.
 
 ## Next steps
 
