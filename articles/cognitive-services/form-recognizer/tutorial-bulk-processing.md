@@ -454,7 +454,7 @@ The only remaining step is to set up the Azure Data Factory (ADF) service to aut
 
 The first activity in the training pipeline is a Lookup to read and return the values in the parameterization table in the Azure SQL database. As all the training datasets will be in the same storage account and container, but potentially different folders, we'll keep the default value **First row only** attribute in the lookup activity settings. For each type of form to train the model against, we'll train the model using all the files in **training_blob_root_folder**.
 
-:::image type="content" source="./media/tutorial-batch-processing/training-pipeline.png" alt-text="training pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/training-pipeline.png" alt-text="training pipeline in data factory":::
 
 The stored procedure takes two parameters: **model_id** and the **form_batch_group_id**. The code to return the model ID from the Databricks notebook is `dbutils.notebook.exit(model_id)`, and the code to read the code in stored procedure activity in data factory is `@activity('GetParametersFromMetadaTable').output.firstRow.form_batch_group_id`.
 
@@ -462,11 +462,11 @@ The stored procedure takes two parameters: **model_id** and the **form_batch_gro
 
 To extract the key-value pairs, we'll scan all the folders in the parameterization table and, for each folder, we'll extract the key-value pairs of all the files in it. As of today, ADF does not support nested ForEach loops. So instead, we'll create two pipelines. The first pipeline will do the lookup from the parameterization table and pass the folders list as a parameter to the second pipeline.
 
-:::image type="content" source="./media/tutorial-batch-processing/scoring-pipeline.png" alt-text="scoring pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline.png" alt-text="scoring pipeline in data factory":::
 
 The second pipeline will use a GetMeta activity to get the list of the files in the folder and pass it as a parameter to the scoring Databricks notebook.
 
-:::image type="content" source="./media/tutorial-batch-processing/scoring-pipeline-2.png" alt-text="second scoring pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2.png" alt-text="second scoring pipeline in data factory":::
 
 ### Specify a degree of parallelism
 
@@ -478,7 +478,7 @@ To set the degree of parallelism in the ADF pipeline:
 * Uncheck the **Sequential** box.
 * Set the degree of parallelism in the **Batch count** text box. We recommend a maximum batch count of 15 for the scoring.
 
-:::image type="content" source="./media/tutorial-batch-processing/parallelism.png" alt-text="parallelism configuration for scoring activity in ADF":::
+:::image type="content" source="./media/tutorial-bulk-processing/parallelism.png" alt-text="parallelism configuration for scoring activity in ADF":::
 
 
 You now have an automated pipeline to digitize your backlog of forms and run some analytics on top of it.
