@@ -58,6 +58,17 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
    ![Managed instance form](./media/instance-create-quickstart/mi-create-tab-configure-performance.png)
 
+| Setting| Suggested value | Description |
+| ------ | --------------- | ----------- |
+| **Service Tier** | Select one of the options. | Based on your scenario, select one of the following options: </br> <ul><li>**General Purpose**: for most production workloads, and the default option.</li><li>**Business Critical**: designed for low-latency workloads with high resiliency to failures and fast failovers.</li></ul><BR>For more information, see [Azure SQL Database and Azure SQL Managed Instance service tiers](../../azure-sql/database/service-tiers-general-purpose-business-critical.md) and review [Overview of Azure SQL Managed Instance resource limits](../../azure-sql/managed-instance/resource-limits.md).|
+| **Hardware Generation** | Select one of the options. | The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload. **Gen5** is the default.|
+| **vCore compute model** | Select an option. | vCores represent exact amount of compute resources that are always provisioned for your workload. **Eight vCores** is the default.|
+| **Storage in GB** | Select an option. | Storage size in GB, select based on expected data size. If migrating existing data from on-premises or on various cloud platforms, see [Migration overview: SQL Server to SQL Managed Instance](../../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).|
+| **Azure Hybrid Benefit** | Check option if applicable. | For leveraging an existing license for Azure. For more information, see [Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance](../../azure-sql/azure-hybrid-benefit.md). |
+| **Backup storage redundancy** | Select **Geo-redundant storage**. | Storage redundancy inside Azure for storage and backups. Note that this value cannot be changed later. Geo-redundant storage is default and recommended, though Zone and Local redundancy allow for more cost flexibility. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).|
+
+
+
 - To review your choices before you create a SQL Managed Instance, you can select **Review + create**. Or, configure networking options by selecting **Next: Networking**.
 
 ### Networking tab
@@ -72,8 +83,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | ------ | --------------- | ----------- |
    | **Virtual network** | Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](vnet-existing-add-subnet.md) before you select it as a target for the new managed instance. For information about the requirements for configuring the network environment for SQL Managed Instance, see [Configure a virtual network for SQL Managed Instance](connectivity-architecture-overview.md). |
    | **Connection type** | Choose between a proxy and a redirect connection type.|For more information about connection types, see [Azure SQL Managed Instance connection type](../database/connectivity-architecture.md#connection-policy).|
-   | **Public endpoint**  | Select **Enable**. | For a managed instance to be accessible through the public data endpoint, you need to enable this option. | 
-   | **Allow access from** (if **Public endpoint** is enabled) | Select one of the options.   |The portal experience enables configuring a security group with a public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>**Azure services**: We recommend this option when you're connecting from Power BI or another multitenant service. </li> <li> **Internet**: Use for test purposes when you want to quickly spin up a managed instance. We don't recommend it for production environments. </li> <li> **No access**: This option creates a **Deny** security rule. Modify this rule to make a managed instance accessible through a public endpoint. </li> </ul> </br> For more information on public endpoint security, see [Using Azure SQL Managed Instance securely with a public endpoint](public-endpoint-overview.md).|
+   | **Public endpoint**  | Select **Disable**. | For a managed instance to be accessible through the public data endpoint, you need to enable this option. | 
+   | **Allow access from** (if **Public endpoint** is enabled) | Select **No Access**  |The portal experience enables configuring a security group with a public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>**Azure services**: We recommend this option when you're connecting from Power BI or another multitenant service. </li> <li> **Internet**: Use for test purposes when you want to quickly spin up a managed instance. We don't recommend it for production environments. </li> <li> **No access**: This option creates a **Deny** security rule. Modify this rule to make a managed instance accessible through a public endpoint. </li> </ul> </br> For more information on public endpoint security, see [Using Azure SQL Managed Instance securely with a public endpoint](public-endpoint-overview.md).|
 
 - Select **Review + create** to review your choices before you create a managed instance. Or, configure more custom settings by selecting **Next: Additional settings**.
 
