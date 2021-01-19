@@ -54,7 +54,7 @@ For more information about authentication and authorization for connected regist
 
 ## Next steps
 
-In this overview, you learned the about the connected registry and some basic concepts. Continue to the one of the following articles to learn about specific scenarios where connected registry can be utilized.
+In this overview, you learned about the connected registry and some basic concepts. Continue to the one of the following articles to learn about specific scenarios where connected registry can be utilized.
 
 > [!div class="nextstepaction"]
 > [Overview: Connected registry access][overview-connected-registry-access]
