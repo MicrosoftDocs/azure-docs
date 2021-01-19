@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/09/2020
+ms.date: 01/18/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -463,7 +463,7 @@ Azure Security Center is deployed on Azure Government regions but not DoD region
 ### [Azure Sentinel](../sentinel/overview.md)
 The following **features have known limitations** in Azure Government:
 - Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
+    - The Office 365 data connector can be used only for [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc), [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod), and [Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
 - AWS CloudTrail data connector
     - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
 
