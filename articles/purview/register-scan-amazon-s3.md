@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/17/2021
+ms.date: 01/19/2021
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets. 
 ---
 
@@ -26,20 +26,56 @@ In this how-to guide, you'll learn about:
 - [Explore Purview scanning results](#explore-purview-scanning-results)
 
 
-## Purview scope for Amazon S3 
+## Purview scope for Amazon S3
 
-The scope detailed below is specific and limited to **Purview connector for Amazon S3** part of the Purview service. 
+The following scope is specific for the registering and scanning Amazon S3 buckets as Purview data sources. 
 
-- The Purview connector for Amazon S3 scanner service is currently deployed in the AWS US East (Ohio) region. 
 
-    Amazon S3 data from all regions will be scanned in the AWS US East (Ohio) region.
+|Scope  |Description  |
+|---------|---------|
+|**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
+|**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
+|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed only in the **AWS US East (Ohio)** and **Europe (Frankfurt)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
+|     |         |
 
-- The Purview scanner service currently supports scanning up to 100 GB of data per tenant.
+For more information, see the documented Purview limits at:
 
-- The Purview scanner service currently supports the following file types:
+- [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
+- [Supported data sources and file types in Azure Purview](sources-and-scans.md)
+### Storage and scanning regions
 
-    .avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml
+The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
 
+> [!IMPORTANT]
+> Customers will be charged for all related data transfer charges according to the region of their bucket. 
+>
+
+| Storage region | Scanning region |
+| ------------------------------- | ------------------------------------- |
+| US East (Ohio)                  | US East (Ohio)                        |
+| US East (N. Virginia)           | US East (Ohio)                        |
+| US West (N. California)         | US East (Ohio)                        |
+| US West (Oregon)                | US East (Ohio)                        |
+| Africa (Cape Town)              | Europe (Frankfurt)                    |
+| Asia Pacific (Hong Kong)        | Europe (Frankfurt)                    |
+| Asia Pacific (Mumbai)           | Europe (Frankfurt)                    |
+| Asia Pacific (Osaka-Local)      | Europe (Frankfurt)                    |
+| Asia Pacific (Seoul)            | Europe (Frankfurt)                    |
+| Asia Pacific (Singapore)        | Europe (Frankfurt)                    |
+| Asia Pacific (Sydney)           | Europe (Frankfurt)                    |
+| Asia Pacific (Tokyo)            | Europe (Frankfurt)                    |
+| Canada (Central)                | US East (Ohio)                        |
+| China (Beijing)                 | Europe (Frankfurt)                    |
+| China (Ningxia)                 | Europe (Frankfurt)                    |
+| Europe (Frankfurt)              | Europe (Frankfurt)                    |
+| Europe (Ireland)                | Europe (Frankfurt)                    |
+| Europe (London)                 | Europe (Frankfurt)                    |
+| Europe (Milan)                  | Europe (Frankfurt)                    |
+| Europe (Paris)                  | Europe (Frankfurt)                    |
+| Europe (Stockholm)              | Europe (Frankfurt)                    |
+| Middle East (Bahrain)           | Europe (Frankfurt)                    |
+| South America (São Paulo)       | US East (Ohio)                        |
+| | |
 ## Prerequisites
 
 Before using Purview to scan your Amazon AWS buckets, ensure that you've performed the following prerequisites:
@@ -369,21 +405,6 @@ Use the other areas of Purview to find out details about the content in your dat
     All Purview Insight reports include the Amazon S3 scanning results, along with the rest of the results from your Azure data sources. When relevant, an additional **Amazon S3** asset type was added to the report filtering options.
 
     For more information, see the [Understand Insights in Azure Purview](concept-insights.md).
-
-## Limitations
-
-The limitations described here are specific and limited to **Purview connector for Amazon S3** part of the Purview service. 
-
-The Purview connector for Amazon S3 service is currently deployed in the **AWS US Ohio** region. Any of your scanned data that is stored in Amazon S3 buckets will be scanned from this region. 
-
-> [!IMPORTANT]
-> Customers will be charged for all related data transfer charges according to the region of their bucket.  
-> 
-
-For more information, see the documented Purview limits at:
-
-- [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
-- [Supported data sources and file types in Azure Purview](sources-and-scans.md)
 
 ## Next steps
 
