@@ -208,6 +208,36 @@ Learn about the specific definitions of these metrics in [Understand automated m
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
+### Metric usecases
+
+#### Classification
+
+| Metric | Task(s) |
+| ------ | ------- |
+| accuracy | ... |
+| AUC_weighted | ... |
+| average_precision_score_weighted | ... |
+| norm_macro_recall | ... |
+| precision_score_weighted | ... |
+
+#### Regression
+
+| Metric | Task(s) |
+| ------ | ------- |
+| spearman_correlation | ... |
+| normalized_root_mean_squared_error | ... |
+| r2_score | ... |
+| normalized_mean_absolute_error | ... |
+
+#### Time series forecasting
+
+| Metric | Task(s) |
+| ------ | ------- |
+| spearman_correlation | ... |
+| normalized_root_mean_squared_error | ... |
+| r2_score | ... |
+| normalized_mean_absolute_error | ... |
+
 ### Data featurization
 
 In every automated machine learning experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
