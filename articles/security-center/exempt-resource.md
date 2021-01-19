@@ -10,17 +10,18 @@ manager: rkarlin
 
 ---
 
-# Exempt a resource from recommendations and secure score
+# Exempting resources from recommendations or recommendations from subscriptions and management groups 
 
-A core priority of every security team is trying to ensure the analysts can focus on the tasks and incidents that matter to the organization. Security Center has many features for customizing the information you prioritize the most and making sure your secure score is a valid reflection of your organization's security decisions. Exempting resources is one such feature.
+A core priority of every security team is trying to ensure the analysts can focus on the tasks and incidents that matter to the organization. Security Center has many features for customizing the information you prioritize the most and making sure your secure score is a valid reflection of your organization's security decisions. The **exempt** option is one such feature.
 
-When you investigate a security recommendation in Azure Security Center, one of the first pieces of information you review is the list of affected resources.
+When you investigate your security recommendations in Azure Security Center, one of the first pieces of information you review is the list of affected resources.
 
-Occasionally, a resource will be listed that you feel shouldn't be included. It might have been remediated by a process not tracked by Security Center. Or perhaps your organization has decided to accept the risk for that specific resource. 
+Occasionally, a resource will be listed that you feel shouldn't be included. Or a recommendation will show in a scope where you feel it doesn't belong. The resource might have been remediated by a process not tracked by Security Center. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has simply decided to accept the risks related to the specific resource or recommendation.
 
-In such cases, you can create an exemption rule and ensure that resource isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. 
+In such cases, you can create an exemption rules to ensure:
 
-The resource will be listed as not applicable and the reason will be shown as "exempted" with the justification you select.
+- **The resource** isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
+- **The recommendation** isn't shown for your subscription or management group in the future, and doesn't impact your secure score. The recommendation will be marked with the specific justification you select.
 
 ## Availability
 
@@ -32,8 +33,7 @@ The resource will be listed as not applicable and the reason will be shown as "e
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
-
-## Create an exemption rule
+## Exempt a recommendation
 
 1. On the list of unhealthy resources, select the ellipsis menu ("...") for the resource you want to exempt.
 
