@@ -17,7 +17,7 @@ This section provides steps to troubleshoot error messages that you might see.
 
 **Possible cause**: The script is unable to access the recovery point.
 
-**Recommended action**: Make sure the VM fulfills the [access requirements](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+**Recommended action**: To resolve this issue, follow the steps listed in [The script runs but the connection failed](#the-script-runs-but-the-connection-to-the-iSCSI-target-failed).
 
 ### "The target has already been logged in via an iSCSI session"
 
@@ -30,6 +30,10 @@ This section provides steps to troubleshoot error messages that you might see.
 **Possible cause**: The disks have been dismounted from the portal or the 12-hour time limit was exceeded.
 
 **Recommended action**: 12 hours after you download the script, it becomes invalid and can't be run. Go to the portal, and then download a new script to continue with file recovery.
+
+### iscsi_tcp module can’t be loaded (or) iscsi_tcp_module not found
+
+**Recommended action**: To resolve this issue, follow the steps in [The script downloads successfully but fails to run](#the-script-downloads-successfully-but-fails-to-run).
 
 ## Common problems
 
@@ -46,7 +50,7 @@ This section provides steps to troubleshoot common issues you might experience w
 
     `ping download.microsoft.com`
 
-### The script downloads successfully, but fails to run in SLES 12 SP4
+### The script downloads successfully, but fails to run
 
 When you run the Python script for Item Level Recovery (ILR) on SUSE Linux Enterprise Server 12 SP4, it fails with the error "iscsi_tcp module can’t be loaded" or "iscsi_tcp_module not found".
 
@@ -70,7 +74,11 @@ You might see an "Exception caught while connecting to target" error message.
 1. Check for a firewall or NSG blocking traffic to Azure target IPs or recovery service URLs.
 1. Make sure your antivirus software isn't blocking the execution of the script.
 
-### You're connected to the recovery point, but the disks weren't attached (Windows)
+### You're connected to the recovery point, but the disks weren't attached
+
+Resolve this issue by following the steps for your operating system.
+
+#### Windows File recovery fails on server with storage pools
 
 When you run the script for the first time on Windows Server 2012 R2 and Windows Server 2016 (with storage pools), the storage pool might be attached to the VM in read-only.
 
@@ -91,13 +99,13 @@ To resolve this issue, manually assign read-write access to the storage pool and
 
    ![Screenshot showing right-click options for a virtual disk.](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
 
-### File recovery fails to auto-mount because the disk doesn't contain volumes (Linux)
+#### Linux File recovery fails to auto-mount because the disk doesn't contain volumes
 
 While performing file recovery, the backup service detects volumes and auto-mounts. However, if the backed-up disks have raw partitions, those disks aren't auto-mounted and you can't see the data disk for recovery.
 
 To resolve this issue, go to [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-### Linux file recovery fails because the OS couldn't identify the file system
+#### Linux file recovery fails because the OS couldn't identify the file system
 
 When you run the file recovery script, the data disk fails to attach. You see a "The following partitions failed to mount since the OS couldn't identify the filesystem" error.
 
