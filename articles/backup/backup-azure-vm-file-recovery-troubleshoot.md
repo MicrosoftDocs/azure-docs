@@ -17,7 +17,7 @@ This section provides steps to troubleshoot error messages that you might see.
 
 **Possible cause**: The script is unable to access the recovery point.
 
-**Recommended action**: To resolve this issue, follow the steps listed in [The script runs but the connection failed](#the-script-runs-but-the-connection-to-the-iSCSI-target-failed).
+**Recommended action**: To resolve this issue, follow the steps listed in [The script runs but the connection failed](#the-script-runs-but-the-connection-to-the-iscsi-target-failed).
 
 ### "The target has already been logged in via an iSCSI session"
 
