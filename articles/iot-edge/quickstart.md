@@ -151,7 +151,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 
 17. Copy the connection string from your device in Azure IoT Hub and paste it into the device connection string field. Then choose **Provisioning with the selected method**​.
 > [!NOTE]
-> Refer to step 3 in the previous section, [Register an IoT Edge device](#Register-an-IoT-Edge-device), to retrieve your connection string.
+> Refer to step 3 in the previous section, [Register an IoT Edge device](#register-an-iot-edge-device), to retrieve your connection string.
 
       :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="Screenshot - Wizard Provisioning":::
 
