@@ -48,7 +48,7 @@ Visually scan your data in a code-free manner to remove any outliers, anomalies,
 
 ## The mashup editor
 
-When you create a Power Query acitivty, all source datasets become dataset queries and are placed in the **ADFResource** folder. By default, the UserQuery will point to the first dataset query. All transformations should be done on the UserQuery as changes to dataset queries are not supported nor will they be persisted. Renaming, adding and deleting queries is currently not supported.
+When you create a Power Query activity, all source datasets become dataset queries and are placed in the **ADFResource** folder. By default, the UserQuery will point to the first dataset query. All transformations should be done on the UserQuery as changes to dataset queries are not supported nor will they be persisted. Renaming, adding and deleting queries is currently not supported.
 
 ![Wrangling](media/wrangling-data-flow/editor.png)
 
