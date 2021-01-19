@@ -155,7 +155,7 @@ The network design supporting this architecture is derived from the traditional 
 | IPY-04 | Interoperability & Portability Standardized Network Protocols |
 | IVS-06 | Infrastructure & Virtualization SecurityNetwork Security |
 
-The network implementation is further secured by defining controls from the MAFB. The controls address restricting SSH from the Internet (6.2), restricting SQL database ingress from any 0.0.0.0/0 IP (6.3), ensuring that Network Watcher is enabled (6.5), and restricting UDP services from the Internet (6.6). The network egress rules implemented in this reference architecture are defined in the [Appendix](#Appendix).
+The network implementation is further secured by defining controls from the MAFB. The controls address restricting SSH from the Internet (6.2), restricting SQL database ingress from any 0.0.0.0/0 IP (6.3), ensuring that Network Watcher is enabled (6.5), and restricting UDP services from the Internet (6.6). The network egress rules implemented in this reference architecture are defined in the [Appendix](#appendix).
 
 | CIS Control ID | CIS Control Description |
 | :------------- | :---------------------- |
