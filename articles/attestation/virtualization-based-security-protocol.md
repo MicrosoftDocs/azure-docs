@@ -205,13 +205,13 @@ TPM + VBS enclave sample:
 
 **tpm_att_data**: TPM-related attestation data
 
-- **srtm_boot_log (BASE64URL(OCTETS))**: SRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
+- **srtm_boot_log (BASE64URL(OCTETS))**: SRTM boot logs as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_BOOT
 
-- **srtm_resume_log (BASE64URL(OCTETS))**: SRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
+- **srtm_resume_log (BASE64URL(OCTETS))**: SRTM resumes log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_SRTM_RESUME
 
-- **drtm_boot_log (BASE64URL(OCTETS))**: DRTM boot log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
+- **drtm_boot_log (BASE64URL(OCTETS))**: DRTM boot logs as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_BOOT
 
-- **drtm_resume_log (BASE64URL(OCTETS))**: DRTM resume log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
+- **drtm_resume_log (BASE64URL(OCTETS))**: DRTM resumes log as retrieved by function Tbsi_Get_TCG_Log_Ex with log type = TBS_TCGLOG_DRTM_RESUME
 
 - **aik_cert (BASE64URL(OCTETS))**: The X.509 certificate for the AIK as returned by function NCryptGetProperty with property = NCRYPT_CERTIFICATE_PROPERTY
 
