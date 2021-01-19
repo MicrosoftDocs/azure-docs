@@ -24,9 +24,11 @@
   - name: DTDL models
     href: concepts-models.md
   - name: Industry-standard ontologies
-    href: concepts-ontologies.md
-  - name: Extending industry ontologies
-    href: concepts-extending-ontologies.md
+    items:
+    - name: What are ontologies?
+      href: concepts-ontologies.md
+    - name: Extending industry ontologies
+      href: concepts-extending-ontologies.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
