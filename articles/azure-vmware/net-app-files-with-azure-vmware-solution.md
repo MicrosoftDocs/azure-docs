@@ -2,7 +2,7 @@
 title: Azure NetApp Files with Azure VMware Solution
 description: Use Azure NetApp Files with Azure VMware Solution VMs to migrate and sync data across on-premises servers, Azure VMware Solution VMs, and cloud infrastructures. 
 ms.topic: how-to
-ms.date: 01/16/2021
+ms.date: 01/20/2021
 ---
 
 # Azure NetApp Files with Azure VMware Solution
@@ -11,7 +11,7 @@ In this article, we'll walk through the steps of integrating Azure NetApp Files 
 
 ## Azure NetApp Files overview
 
-[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure first-party service for migration and running the most demanding enterprise file-workloads in the cloud, including databases, SAP, and high-performance computing applications with no code changes.
+[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure first-party service for migration and running the most demanding enterprise file-workloads in the cloud, including databases, SAP, and high-performance computing applications, with no code changes.
 
 ### Features
 (Services where Azure NetApp Files are used.)
@@ -78,7 +78,7 @@ The following steps include verification of the pre-configured Azure NetApp File
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
 
-    In this case, you can see that the volume pool (anfpool), with 200 GiB, was created as an NFS file share. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. For information on Azure NetApp Files volume performance relative to size ("Quota"), see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    In this case, you can see that the volume pool (anfvolume), with 200 GiB, was created as an NFS file share. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. For information on Azure NetApp Files volume performance relative to size ("Quota"), see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## Verify pre-configured Azure VMware Solution VM share mapping
 
