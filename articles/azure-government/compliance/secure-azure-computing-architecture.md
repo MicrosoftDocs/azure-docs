@@ -14,7 +14,7 @@ ms.service: azure-government
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
+ ms.reviewer: khoyer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 # Secure Azure Computing Architecture
