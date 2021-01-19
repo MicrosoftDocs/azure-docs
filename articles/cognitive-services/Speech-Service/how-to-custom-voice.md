@@ -65,7 +65,7 @@ To create your first project, select the **Text-to-Speech/Custom Voice** tab, th
 
 ## How to migrate to Custom Neural Voice
 
-Since the neural tier empowers users to build higher quality voice models while requiring less data, and provides measures to help you deploy AI responsibly, we are retiring the standard tier. Moving to Custom Neural Voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
+Since the neural tier empowers users to build higher quality voice models while requiring less data, and provides measures to help you deploy AI responsibly, we recommend you move your existing voice models created with the non-neural training methods to Custom Neural Voice. Moving to Custom Neural Voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
 
 If you are using the non-neural (or standard) Custom Voice, consider migrate to Custom Neural Voice immediately following the steps below. 
 
