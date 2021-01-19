@@ -574,12 +574,12 @@
         items:
         - name: Overview
           href: platform/itsmc-troubleshoot-overview.md
-        - name: Sync ITSM Connector
-          href: platform/itsmc-resync-servicenow.md
         - name: Dashboard Investigation
           href: platform/itsmc-dashboard.md
         - name: Common Errors
           href: platform/itsmc-dashboard-errors.md
+        - name: Sync ITSM Connector
+          href: platform/itsmc-resync-servicenow.md
       - name: Integrate with Secure Export
         items:
            - name: Overview

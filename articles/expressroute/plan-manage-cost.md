@@ -72,9 +72,9 @@ When you create an ExpressRoute circuit, you might choose to create an ExpressRo
 
 If you have an ExpressRoute gateway after deleting the ExpressRoute circuit, you'll still be charged for the cost until you delete it.
 
-### Using Monetary Credit
+### Using Azure Prepayment credit
 
-You can pay for ExpressRoute charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+You can pay for ExpressRoute charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
 
 ## Monitor costs
 

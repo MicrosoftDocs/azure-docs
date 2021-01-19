@@ -5122,6 +5122,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/partner-solutions/index.md",
+      "redirect_url": "/azure/partner-solutions/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
@@ -5869,6 +5874,11 @@
     {
       "source_path_from_root": "/articles/functions/functions-scale.md",
       "redirect_url": "/azure/azure-functions/functions-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
+      "redirect_url": "/azure/api-management/export-api-power-platform",
       "redirect_document_id": false
     },
     {
@@ -30633,11 +30643,6 @@
     },
     {
       "source_path_from_root": "/articles/notebooks/azure-notebooks-user-profile.md",
-      "redirect_url": "https://notebooks.azure.com",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },

@@ -382,18 +382,28 @@
       href: virtual-machine-network-throughput.md
   - name: Move across regions
     items:
-    - name: Network security groups - Portal
-      href: move-across-regions-nsg-portal.md
-    - name: Network security groups - PowerShell
-      href: move-across-regions-nsg-powershell.md
-    - name: Virtual networks - Portal
-      href: move-across-regions-vnet-portal.md
-    - name: Virtual networks - PowerShell
-      href: move-across-regions-vnet-powershell.md
-    - name: Public IPs - Portal
-      href: move-across-regions-publicip-portal.md
-    - name: Public IPs - PowerShell
-      href: move-across-regions-publicip-powershell.md
+    - name: Network security groups (NSG)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Virtual networks
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Network interfaces (NICs)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Public IPs
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Manual move
+      items:
+      - name: Network security groups - Portal
+        href: move-across-regions-nsg-portal.md
+      - name: Network security groups - PowerShell
+        href: move-across-regions-nsg-powershell.md
+      - name: Virtual networks - Portal
+        href: move-across-regions-vnet-portal.md
+      - name: Virtual networks - PowerShell
+        href: move-across-regions-vnet-powershell.md
+      - name: Public IPs - Portal
+        href: move-across-regions-publicip-portal.md
+      - name: Public IPs - PowerShell
+        href: move-across-regions-publicip-powershell.md
   - name: NAT
     items:
     - name: Create NAT gateway - PowerShell
