@@ -11,6 +11,7 @@ ms.author: mbaldwin
 
 
 ---
+
 # Setting up diagnostics with Trusted Platform Module (TPM) endpoint
 
 Platform logs in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. Platform metrics are collected by default and typically stored in the Azure Monitor metrics database. This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations. 
