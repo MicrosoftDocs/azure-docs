@@ -15,21 +15,21 @@ ms.custom: contperf-fy21q1
 
 Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers APIs and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
 
-When you create a Cognitive Search service, you get:
+A search service has the following components:
 
-+ A search engine that performs indexing and query execution
-+ Persistent storage of search indexes that you create and manage
-+ A query language for composing simple to complex queries
-+ [AI-driven enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
++ Search engine for indexing and query execution
++ Persistent storage of user-owned search indexes
++ Query language for composing simple to complex queries
++ [AI-based enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
 + Integration with other Azure services for data, machine learning/AI, and security
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.
 
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
 
-Outwardly, a search service integrates with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and text analysis, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
+Outwardly, search integrates with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and text analysis, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
 
-On the search service itself, the two primary workloads are *indexing* and *querying*. 
+Within the search service itself, the two primary workloads are *indexing* and *querying*. 
 
 + Indexing brings text into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. 
 
@@ -43,13 +43,13 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 
 Azure Cognitive Search is well-suited for the following application scenarios:
 
-+ Consolidate heterogeneous content into a private, user-defined search index. You can populate a search index with streams of JSON documents from any source. For supported sources on Azure, use an *indexer* to automate indexing. Control over the index schema and refresh schedule is a key reason for using Cognitive Search.
++ Consolidate heterogeneous content into a private, user-defined search index.
 
-+ Easy implementation of search-related features. Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, autocomplete, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
++ Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.
 
-+ Raw content is large undifferentiated text or image files or application files stored in Azure Blob storage or Cosmos DB. You can apply [cognitive skills](cognitive-search-concept-intro.md) during indexing to identify and extract text, create structure, or create new information such as translated text or entities.
++ Transform large undifferentiated text or image files, or application files stored in Azure Blob storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
 
-+ Content needs linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
++ Add linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 
 For more information about specific functionality, see [Features of Azure Cognitive Search](search-features-list.md)
 
