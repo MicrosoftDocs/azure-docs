@@ -1,6 +1,6 @@
 ---
-title: 'Install the Azure AD Connect cloud provisioning agent'
-description: Learn how to install the Azure AD Connect cloud provisioning agent and how to configure it in the Azure portal.
+title: 'Install the Azure AD Connect provisioning agent'
+description: Learn how to install the Azure AD Connect provisioning agent and how to configure it in the Azure portal.
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,13 +13,13 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Install the Azure AD Connect cloud provisioning agent
+# Install the Azure AD Connect provisioning agent
 This document walks you through the installation process for the Azure Active Directory (Azure AD) Connect provisioning agent and how to initially configure it in the Azure portal.
 
 >[!IMPORTANT]
 >The following installation instructions assume that all of the [Prerequisites](how-to-prerequisites.md) have been met.
 
-Installing and configuring Azure AD Connect provisioning is accomplished in the following steps:
+Installing and configuring the Azure AD Connect cloud sync is accomplished in the following steps:
 
 - [Group Managed Service Accounts](#group-managed-service-accounts)	
 - [Install the agent](#install-the-agent)
@@ -41,7 +41,7 @@ To install the agent, follow these steps.
  1. Sign in to the server you'll use with enterprise admin permissions.
  2. Sign in to the Azure portal, and then go to **Azure Active Directory**.
  3. In the left menu, select **Azure AD Connect**.
- 4. Select **Manage sync** > **Review all agents**.
+ 4. Select **Manage cloud sync** > **Review all agents**.
  5. Download the Azure AD Connect provisioning agent from the Azure portal.
    ![Download on-premises agent](media/how-to-install/install-9.png)</br>
  6. Accept the terms and click download.
@@ -70,7 +70,7 @@ Agent verification occurs in the Azure portal and on the local server that's run
 To verify the agent is being seen by Azure, follow these steps.
 
  1. Sign in to the Azure portal.
- 2. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage sync**.
+ 2. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage cloud sync**.
 
    ![Azure portal](media/how-to-install/install-6.png)</br>
 
@@ -94,7 +94,7 @@ To verify that the agent is running, follow these steps.
     ![Services screen](media/how-to-install/troubleshoot-1.png)
 
 >[!IMPORTANT]
->The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
+>The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
 
 
 
@@ -103,3 +103,5 @@ To verify that the agent is running, follow these steps.
 
 - [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
+

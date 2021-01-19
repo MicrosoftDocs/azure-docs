@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Create a new configuration for Azure AD Connect cloud sync
 
-After you've installed the agent, you need to sign in to the Azure portal and configure Azure Active Directory (Azure AD) Connect cloud sync. Follow these steps to enable the agent.
+After you've installed the Azure AD Connect provisioning agent, you need to sign in to the Azure portal and configure it. Follow these steps to enable the agent.
 
 ## Configure provisioning
 To configure provisioning, follow these steps.
@@ -44,7 +44,7 @@ You can scope the agent to synchronize specific users and groups by using on-pre
 
  1.  In the Azure portal, select **Azure Active Directory**.
  2. Select **Azure AD Connect**.
- 3. Select **Manage provisioning (Preview)**.
+ 3. Select **Manage cloud sync**.
  4. Under **Configuration**, select your configuration.
 
  ![Configuration section](media/how-to-configure/scope-1.png)
