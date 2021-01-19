@@ -407,6 +407,10 @@ ChangeFeedProcessor.Builder()
                             .subscribeOn(Schedulers.elastic())
                             .subscribe();
 ```
+
+# [Java SDK 2.x.x Sync API](#tab/java-v2-sync)
+
+* This feature is not supported as of Java SDK v2 sync. 
 ---
 
 ### Container level Time-To-Live(TTL)
