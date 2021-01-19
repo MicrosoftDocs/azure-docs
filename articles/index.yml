@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/25/2020
+  ms.date: 01/19/2021
   featureFlags:
   - clicktale
 
@@ -1561,3 +1561,9 @@ additionalContent:
         - title: Azure China 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
+    - title: Partner solutions
+      items:
+        # Card
+        - title: Azure partner solutions
+          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
+          url: ./partner-solutions/overview.md
