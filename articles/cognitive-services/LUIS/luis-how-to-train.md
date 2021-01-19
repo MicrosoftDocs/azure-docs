@@ -38,7 +38,8 @@ Training date and time are GMT + 2.
 ## Train with all data
 
 Training uses a small percentage of negative sampling. If you want to use all data instead of the small negative sampling, use the [API](#version-settings-api-use-of-usealltrainingdata). Or you can do so from the portal by going to **Manage** --> **Settings**  where you can enable or disable the deterministic training option.
-  ![In Azure portal, enable.diable non deterministic training.](./media//non-determinstic-training.png)
+
+    ![In Azure portal, enable.diable non deterministic training.](./media//non-determinstic-training.png)
 
 ### Version settings API use of UseAllTrainingData
 
