@@ -16,7 +16,7 @@ ms.custom: subject-security-benchmark
 
 This security baseline applies guidance from the [Azure Security Benchmark version 2.0](overview.md) to Windows Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Desktop. **Controls** not applicable to Windows Virtual Desktop have been excluded.
 
-Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the security baseline for storage - ../../storage/common/security-baseline.md. The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow security recommendations for compute - ../../virtual-machines/windows/security-baseline.md
+Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the [security baseline for storage](../../storage/common/security-baseline.md). The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow [security recommendations for compute](../../virtual-machines/windows/security-baseline.md)
 
 To see how Windows Virtual Desktop completely maps to the Azure Security Benchmark, see the [full Windows Virtual Desktop security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
