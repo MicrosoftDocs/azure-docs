@@ -71,7 +71,7 @@ Use the following steps to complete this task.
 
 After a machine has been renamed, the Connected Machine agent needs to be re-registered with Arc enabled servers. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
 
-Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers in order to re-associate them with the resource in Azure. If you deployed the Azure Monitor for VMs (insights) agent or the Log Anaytics agent using an Azure Policy Guest Configuration policy, the agents are re-deployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data#evaluation-triggers.md).
+Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers in order to re-associate them with the resource in Azure. If you deployed the Azure Monitor for VMs (insights) agent or the Log Anaytics agent using an Azure Policy Guest Configuration policy, the agents are re-deployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Upgrading agent
 
