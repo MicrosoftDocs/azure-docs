@@ -111,7 +111,7 @@ The Cognitive Services Translator service supports Impact Level 5 workloads in A
 
 Cognitive Services Speech Services supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](../cognitive-services/speech-service/speech-encryption-of-data-at-rest).
+- Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](../cognitive-services/speech-service/speech-encryption-of-data-at-rest.md).
 
 ## Analytics
 
@@ -125,7 +125,7 @@ Azure Analysis Services supports Impact Level 5 workloads in Azure Government wi
 
 Azure Data Explorer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](../data-explorer/security.md#data-encryption) at the storage level with your own keys.
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](https://docs.microsoft.com/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
 
 ### [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
