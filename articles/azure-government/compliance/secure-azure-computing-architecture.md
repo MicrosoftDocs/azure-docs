@@ -32,7 +32,7 @@ The SCCA has four components:
 
 Microsoft has developed a solution that meets the SCCA requirements for both IL4 and IL5 workloads that run in Azure. This Azure-specific solution is called the Secure Azure Computing Architecture (SACA). Customers who deploy SACA are in compliance with the SCCA FRD. They can enable DoD customers to move workloads into Azure after they're connected.
 
-SCCA guidance and architectures are specific to DoD customers, but also enable civilian customers to comply with trusted internet connection (TIC) guidance, as well as commercial customers that want to implement a secure DMZ to protect their Azure environments.
+SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with trusted internet connection (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
 
 
 ## Secure Cloud Computing Architecture components
@@ -88,7 +88,7 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
 
 #### Which BCAP will your organization use?
 - DISA BCAP:
-     - DISA has 2 Gen 2 BCAPs that they currently operate and maintain, with 3 new Gen 3 BCAPs coming online soon. 
+     - DISA has two Gen 2 BCAPs that they currently operate and maintain, with three new Gen 3 BCAPs coming online soon. 
      - DISA’s BCAPs all have Azure ExpressRoute circuits to Azure, which can be used by Government and DoD customers for connectivity. 
      - DISA has an enterprise-level Microsoft peering session for customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Microsoft 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
      - We recommend that you use the DISA BCAP. This option is readily available, has built-in redundancy, and has customers that operate on it today in production.
@@ -171,7 +171,7 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 
 ### Palo Alto SACA deployment
 
-The Palo Alto deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one tier VDSS compliant architecture. This architecture meets the requirements of SCCA. 
+The Palo Alto deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one-tier, VDSS-compliant architecture. This architecture meets the requirements of SCCA. 
 
 ![Palo Alto SACA diagram](media/pansaca.png)
 
