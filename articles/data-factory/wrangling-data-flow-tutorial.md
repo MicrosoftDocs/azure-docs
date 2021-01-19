@@ -1,24 +1,23 @@
 ---
 title: Getting started with wrangling data flow in Azure Data Factory 
 description: A tutorial on how to prepare data in Azure Data Factory using wrangling data flow 
-author: dcstwh
-ms.author: weetok
-ms.reviewer: gamal
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 01/19/2021
 ---
 
-# Prepare data with wrangling data flow
+# Prepare data with data wrangling
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Wrangling data flow is currently avilable in public preview
+> Power Query acitivty in ADF is currently avilable in public preview
 
-## Create a wrangling data flow
+## Create a Power Query activity
 
-There are two ways to create a wrangling data flow in Azure Data Factory. One way is to click the plus icon and select **Data Flow** in the factory resources pane.
+There are two ways to create a Power Query in Azure Data Factory. One way is to click the plus icon and select **Data Flow** in the factory resources pane.
 
 ![Screenshot that shows Data Flow in the factory resources pane.](media/wrangling-data-flow/tutorial7.png)
 
