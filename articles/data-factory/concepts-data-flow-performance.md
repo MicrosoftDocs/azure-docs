@@ -308,7 +308,11 @@ If you put all of your logic inside of a single data flow, ADF will execute the 
 
 ### Execute sinks in parallel
 
-On the pipeline execute data flow activity under the "Sink Properties" section is an option to turn on parallel sink loading. When you enable "run in parallel", you are instructing data flows write to connected sinks at the same time rather than in a sequential manner. The default behavior is that sinks write data one by one. In order to utilize the parallel option, the sinks must be group together and connected to the same stream via a New Branch or Conditional Split.
+The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
+
+Data flows allow you to group sinks together into groups from the data flow properties tab in the UI designer. You can both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinks in the same group, to run in parallel.
+
+On the pipeline execute data flow activity under the "Sink Properties" section is an option to turn on parallel sink loading. When you enable "run in parallel", you are instructing data flows write to connected sinks at the same time rather than in a sequential manner. In order to utilize the parallel option, the sinks must be group together and connected to the same stream via a New Branch or Conditional Split.
 
 ## Next steps
 

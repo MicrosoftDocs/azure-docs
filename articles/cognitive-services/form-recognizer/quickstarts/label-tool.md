@@ -102,7 +102,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
-> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
+> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Set up input data
 
@@ -274,7 +274,7 @@ Click the Train icon on the left pane to open the Training page. Then click the 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
 > [!TIP]
-> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
+> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Compose trained models
 
@@ -298,7 +298,7 @@ Click on the "Compose" button. In the pop up, name your new composed model and c
 Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 > [!TIP]
-> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
+> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Improve results
 
@@ -325,7 +325,7 @@ Finally, go to the main page (house icon) and click Open Cloud Project. Then sel
 In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
-> [Train with labels using Python](./python-labeled-data.md)
+> [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](../overview.md)
-* [Form Recognizer client library quickstarts](client-library.md)
+* [Form Recognizer quickstart](client-library.md)

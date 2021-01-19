@@ -165,17 +165,17 @@ The two sections of the chart in green did match the expected prediction.
 
 LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](luis-tutorial-batch-testing.md). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
 
-Remember to add your LUIS key to `Apim-Subscription-Id` in the header, and set `Content-Type` to `application/json`.
+Remember to add your LUIS key to `Ocp-Apim-Subscription-Key` in the header, and set `Content-Type` to `application/json`.
 
 ### Start a batch test
 
 Start a batch test using either an app version ID or a publishing slot. Send a **POST** request to one of the following endpoint formats. Include your batch file in the body of the request.
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 App version ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
 These endpoints will return an operation ID that you will use to check the status, and get results. 
 
@@ -185,20 +185,20 @@ These endpoints will return an operation ID that you will use to check the statu
 Use the operation ID from the batch test you started to get its status from the following endpoint formats: 
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 App version ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### Get the results from a batch test
 
 Use the operation ID from the batch test you started to get its results from the following endpoint formats: 
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 App version ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### Batch file of utterances

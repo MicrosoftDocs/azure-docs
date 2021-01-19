@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -50,7 +50,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 | ![Screenshot of a nevis logo](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) enables passwordless authentication and provides a mobile-first, fully branded end-user experience with Nevis Access app for strong customer authentication and to comply with PSD2 transaction requirements. |
 | ![Screenshot of a trusona logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, MFA, and digital license scanning. |
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
-| ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
+| ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
 
 ## Role-based access control 

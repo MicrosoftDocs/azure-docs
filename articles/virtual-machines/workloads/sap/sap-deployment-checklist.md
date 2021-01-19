@@ -62,7 +62,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- High availability and disaster recovery architecture.
 		- Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
 		- For high availability within a zone, check what the desired DBMS has to offer in Azure. Most DBMS packages offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP-related documentation for different databases, starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md) and related documents.
-		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), isn't supported. Instead, use solutions like:
+		   Using Windows Server Failover Clustering with a shared disk configuration for the DBMS layer as, for example, [described for SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true), isn't supported. Instead, use solutions like:
 		   - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
 		   - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
 		   - [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)

@@ -49,7 +49,7 @@ Determine the object ID of the application, group, or user to which you want to 
     Get-AzADServicePrincipal -SearchString <search-string>
     ```
 
-- Groups: use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) cmdlet with the `-SearchString` parameter to filter results to the name of the desired group:
+- Groups: use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) cmdlet with the `-SearchString` parameter to filter results to the name of the desired group:
 
     ```azurepowershell-interactive
     Get-AzADGroup -SearchString <search-string>
@@ -77,7 +77,6 @@ You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-Permi
 
 ## Next steps
 
-- [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management)
+- [Azure Key Vault security: Identity and access management](security-overview.md#identity-management)
 - [Secure your key vault](secure-your-key-vault.md).
 - [Azure Key Vault developer's guide](developers-guide.md)
-- [Azure Key Vault best practices](best-practices.md)

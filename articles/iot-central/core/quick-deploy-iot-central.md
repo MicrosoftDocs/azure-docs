@@ -15,7 +15,7 @@ manager: corywink
 This quickstart shows you how to create an Azure IoT Central application.
 
 
-[!INCLUDE [Warning About Access Required](../../../includes/warning-contribitorrequireaccess.md)]
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 ## Create an application
 

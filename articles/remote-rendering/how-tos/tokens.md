@@ -20,7 +20,7 @@ This article describes how to create such access token.
 
 ## Token service REST API
 
-To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the STS service depends on the account domain of the remote rendering account. It is in the form https://sts.[account domain], e.g. *https://sts.southcentralus.mixedreality.azure.com*
+To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the STS service depends on the account domain of the remote rendering account. It is in the form https://sts.[account domain], e.g. `https://sts.southcentralus.mixedreality.azure.com`
 
 ### 'Get token' request
 

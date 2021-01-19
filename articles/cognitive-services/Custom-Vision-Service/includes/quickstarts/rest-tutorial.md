@@ -9,7 +9,7 @@ ms.topic: include
 Get started with the Custom Vision REST API. Follow these steps to call the API and build an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
 
 > [!NOTE]
-> If you want to build and train a classification model _without_ writing code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
+> Custom Vision is most easily used through a client library SDK or through the [browser-based guidance](../../get-started-build-detector.md).
 
 Use the Custom Vision client library for .NET to:
 
@@ -97,6 +97,9 @@ You'll get a JSON response like the following. Save the `"id"` value of each tag
 ## Upload and tag images
 
 Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
+
+> [!NOTE]
+> Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) to learn more.
 
 Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) API for more options.
 

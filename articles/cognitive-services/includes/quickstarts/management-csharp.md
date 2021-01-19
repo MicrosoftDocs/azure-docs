@@ -79,7 +79,7 @@ Add the following code to your **Main** method to list available resources, crea
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_calls)]
 
-## Create a Cognitive Services resource
+## Create a Cognitive Services resource (C#)
 
 To create and subscribe to a new Cognitive Services resource, use the **Create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
 

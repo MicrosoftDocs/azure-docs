@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/19/2020
+  ms.date: 01/15/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -80,12 +80,14 @@ landingContent:
             url: about-virtual-hub-routing.md
           - text: Scenario - Route traffic through an NVA
             url: scenario-route-through-nva.md
-          - text: Scenario - Any-to-any
+          - text: Scenario - Any spoke to any spoke
             url: scenario-any-to-any.md
-          - text: Scenario -  Isolate VNets
+          - text: Scenario - Isolate a VNet
             url: scenario-isolate-vnets.md
-          - text: Scenario - Shared Services VNets
+          - text: Scenario - Route to a shared services VNet
             url: scenario-shared-services-vnet.md
+          - text: Scenario - Custom routing via Azure Firewall
+            url: scenario-route-between-vnets-firewall.md
       - linkListType: how-to-guide
         links:
           - text: Configure virtual hub routing

@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -86,6 +86,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Central US     |    S8v2, S9v2     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|South Central US     |    S8v2, S9v2     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |West US     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |West US     |    S8v2, S9v2   |    2  |
@@ -110,6 +111,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Australia East     |    S8v2, S9v2    |    1     |
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japan East     |    S8v2, S9v2    |    1     |
 |Southeast Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Southeast Asia     |     S8v2, S9v2     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -155,7 +157,7 @@ Compatibility level refers to release-specific behaviors in the Analysis Service
 
 ## Your data is secure
 
-Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides **Basic** level of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md). 
+Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides the **Basic** level protection of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md). 
 
 At the server level, Analysis Services provides firewall, Azure authentication, server administrator roles, and Server-Side Encryption. At the data model level, user roles, row-level, and object-level security ensure your data is safe and gets seen by only those users who are meant to see it.
 
@@ -206,7 +208,7 @@ Develop and deploy models with Visual Studio with Analysis Services projects. Th
 
 Microsoft Analysis Services Projects is available as a free installable VSIX package. [Download from Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). The extension works with any version of Visual Studio 2017 and later, including the free Community edition.
 
-### Sql Server Management Studio
+### SQL Server Management Studio
 
 Manage your servers and model databases by using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). Connect to your servers in the cloud. Run TMSL scripts right from the XMLA query window, and automate tasks by using TMSL scripts and PowerShell. New features and functionality happen fast - SSMS is updated monthly.
 
