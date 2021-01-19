@@ -1,15 +1,12 @@
-
 ---
-title: Azure Diagnostic Monitoring
-description: Azure Diagnostic Monitoring fir Azure Attestation
+title: Azure Attestation Basic Concepts
+description: Basic concepts of Azure Attestation.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-
-
 ---
 
 # Setting up diagnostics with Trusted Platform Module (TPM) endpoint
