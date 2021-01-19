@@ -56,7 +56,7 @@ Sensitivity labels are supported in Azure Purview for the following data types:
 |Data type  |Sources  |
 |---------|---------|
 |Automatic labeling for files     |     - Azure Blob Storage  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
-|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB <br><br>For more information, see [Labeling for SQL database columns](#labeling-for-sql-database-columns), below.  |
+|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB <br><br>For more information, see [Labeling for SQL database columns](#labeling-for-sql-database-columns) below.  |
 | | |
 
 #### Labeling for SQL database columns
