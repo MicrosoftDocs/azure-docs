@@ -64,7 +64,7 @@ The following is a list of open-source projects that extend the capabilities of 
 
 | Project Name | Description |
 |-|-|
-| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leafletjs](https://leafletjs.com/) plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
  
 **Tools and resources**
 
