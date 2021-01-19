@@ -74,7 +74,8 @@ Only one transfer request is active at a time. A transfer request is valid for 1
 
 To cancel a transfer request:
 
-1. Open the transfer request.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for > select **Transfer billing ownership**.
 1. At the bottom of the page, select **Cancel the transfer request**.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Example showing the Transfer billing ownership window with the Cancel the transfer request option" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
