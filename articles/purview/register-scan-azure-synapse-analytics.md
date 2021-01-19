@@ -28,7 +28,7 @@ Azure Purview doesn't support scanning of [views](/sql/relational-databases/view
  
 ## Setting up authentication for a scan
 
-There are three ways to set up authentication for Azure blob storage:
+There are three ways to set up authentication for Azure Synapse Analytics:
 
 - Managed Identity
 - SQL Authentication
