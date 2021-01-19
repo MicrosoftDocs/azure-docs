@@ -203,6 +203,18 @@
     href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: Digital Twins Azure PowerShell module
     href: https://www.powershellgallery.com/packages/Az.DigitalTwins/
+  - name: Terraform modules
+    items:
+      - name: Digital Twins instance resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
+      - name: Digital Twins instance data source
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
+      - name: Event Hub endpoint resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
+      - name: Event Grid endpoint resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid
+      - name: Service Bus endpoint resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
       - name: Device simulator service
