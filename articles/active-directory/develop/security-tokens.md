@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 # Security tokens
 
-A centralized identity provider is especially useful for apps that have users located around the globe who don't necessarily sign in from the enterprise's network. The Microsoft identity platform authenticates users and provides security tokens, such as [access tokens](developer-glossary.md#access-token), [refresh tokens](developer-glossary.md#refresh-token), and [ID tokens](developer-glossary.md#id-token), that allow a [client application](developer-glossary.md#client-application) to access protected resources on a [resource server](developer-glossary.md#resource-server).
+A centralized identity provider is especially useful for apps that have users located around the globe who don't necessarily sign in from the enterprise's network. The Microsoft identity platform authenticates users and provides security tokens, such as [access tokens](developer-glossary.md#access-token), [refresh tokens](developer-glossary.md#refresh-token), and [ID tokens](developer-glossary.md#id-token). Security tokens allow a [client application](developer-glossary.md#client-application) to access protected resources on a [resource server](developer-glossary.md#resource-server).
 
 **Access token**: An access token is a security token that's issued by an [authorization server](developer-glossary.md#authorization-server) as part of an [OAuth 2.0](active-directory-v2-protocols.md) flow. It contains information about the user and the app for which the token is intended. The information can be used to access web APIs and other protected resources. To learn more about how the Microsoft identity platform issues access tokens, see [Access tokens](access-tokens.md).
 
