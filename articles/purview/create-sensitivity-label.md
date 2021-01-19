@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/19/2021
 ---
 
 # Automatically label your data in Azure Purview
@@ -27,18 +27,18 @@ In Purview, classifications are similar to subject tags, and are used to mark an
 
 Purview uses the same classifications, also known as sensitive information types, as Microsoft 365.  MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
-> [!NOTE]
-> Classifications are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
->
-> In contrast, sensitivity labels are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
+- **Classifications** are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
 
-Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
+- In contrast, **sensitivity labels** are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as *proximity to another classification*, and *% confidence*. 
+
+    Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
 
 For more information, see:
 
 - [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels) in the Microsoft 365 documentation
 - [What are autolabeling rules?](#what-are-autolabeling-rules)
 - [Supported data types for sensitivity labels in Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [Labeling for SQL database columns](#labeling-for-sql-database-columns)
 
 #### What are autolabeling rules?
 
@@ -49,7 +49,6 @@ Autolabeling rules are conditions that you specify, stating when a particular la
 When you create your labels, make sure to define autolabeling rules for both [files](#define-autolabeling-rules-for-files) and [database columns](#define-autolabeling-rules-for-database-columns) to apply your labels automatically with each data scan. 
 
 After scanning your data in Purview, you can view the labels automatically applied in the Purview Catalog and Insight reports.
-
 #### Supported data types for sensitivity labels in Azure Purview
 
 Sensitivity labels are supported in Azure Purview for the following data types:
@@ -57,8 +56,14 @@ Sensitivity labels are supported in Azure Purview for the following data types:
 |Data type  |Sources  |
 |---------|---------|
 |Automatic labeling for files     |     - Azure Blob Storage  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
-|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB   |
+|Automatic labeling for database columns     |  - SQL server[*](#labeling-for-sql-database-columns) </br>- Azure SQL database[*](#labeling-for-sql-database-columns) </br>- Azure SQL Database Managed Instance[*](#labeling-for-sql-database-columns)   <br> - Azure Synapse  <br>- Azure Cosmos DB   |
 | | |
+
+#### Labeling for SQL database columns
+
+In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in SQL Server Management Studio (SSMS). While Purview uses the unified labeling MIP sensitivity labels, SSMS only uses labels defined locally.
+
+Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with eachother. Therefore, labels applied in SSMS are not shown in Purview, and vice versa. SSMS uses local labels and Purview uses the unified labeling MIP sensitivity labels. 
 
 ## How to create sensitivity labels in Microsoft 365
 
