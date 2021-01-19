@@ -223,4 +223,4 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+> [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
