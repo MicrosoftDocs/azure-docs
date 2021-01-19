@@ -1,5 +1,6 @@
 ---
-title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
+title: Configure desktop apps that call web APIs | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
 author: jmprieur

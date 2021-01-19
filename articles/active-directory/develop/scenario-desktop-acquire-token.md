@@ -436,7 +436,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 
 - This flow is enabled for .NET desktop, .NET Core, and UWP apps.
 
-For more information on consent, see [The Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
+For more information on consent, see the [Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
 
 ### Learn how to use it
 
