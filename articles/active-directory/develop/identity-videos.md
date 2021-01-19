@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform videos | Azure
+title: Microsoft identity platform videos | Azure
 description: A list of videos about modern authentication and the Microsoft identity platform
 services: active-directory
 author: mmacy
@@ -15,11 +15,11 @@ ms.custom: aaddev
 ms.reviewer: celested
 ---
 
-# The Microsoft identity platform videos
+# Microsoft identity platform videos
 
 Learn the basics of modern authentication, the Microsoft identity platform, and the Microsoft Authentication Libraries (MSAL).
 
-## The Microsoft identity platform for developers
+## Microsoft identity platform
 
 Learn the key components and capabilities of the Microsoft identity platform.
 
@@ -189,7 +189,7 @@ ___
 [auth-fund-05-vid]: https://www.youtube.com/watch?v=OGMDnuDrAcQ&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=5
 [auth-fund-06-vid]: https://www.youtube.com/watch?v=2RE6IhXfmHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=6
 
-## The Microsoft identity platform basics
+## Microsoft identity platform basics
 
 Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Azure Active Directory. The One Dev Question videos are 1-2 minutes in length.
 ___
@@ -284,7 +284,7 @@ ___
         <a href="https://www.youtube.com/watch?v=6R3W9T01gdE" target="_blank"> <img src="./media/identity-videos/aad-basics-12.jpg" alt="Video thumbnail for a video about the differences between application permissions and delegated permissions."> </a>
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">What is the Microsoft identity platform OpenID Connect certified? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank">What is Microsoft identity platform OpenID Connect certified? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=Gm6sALdXtpg" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail for a video about the Microsoft identity platform OpenID Connect certified."> </a>

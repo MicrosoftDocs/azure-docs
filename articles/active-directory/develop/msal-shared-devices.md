@@ -1,6 +1,6 @@
 ---
 title: Shared device mode overview
-titleSuffix: The Microsoft identity platform | Azure
+titleSuffix: Microsoft identity platform | Azure
 description: Learn about shared device mode to enable device sharing for your Firstline Workers.
 services: active-directory
 author: brandwe
