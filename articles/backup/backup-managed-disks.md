@@ -125,6 +125,8 @@ The following prerequisites are required to configure backup of managed disks:
 
    ![Add disk snapshot contributor role](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
 
+1. If the disk to be backed-up is encrypted with [customer-managed keys (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or using [double encryption using platform-managed keys and customer-managed keys](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
+
 1. Verify that the backup vault's managed identity has the right set of role assignments on the source disk and resource group that serves as the snapshot datastore.
 
    1. Go to **Backup vault - > Identity** and select **Azure role assignments**.
