@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -26,6 +26,6 @@ The following are example URLs for copy log files for an import job with two dri
 ## Next steps
 
  * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
- * [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+ * [Preparing hard drives for an import job](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
  * [Repairing an import job](./storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [Repairing an export job](./storage-import-export-tool-repairing-an-export-job-v1.md)
