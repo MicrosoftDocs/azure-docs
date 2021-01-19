@@ -250,21 +250,20 @@ In your **Program** class, save a reference to the URL of the image you want to 
 
 ### Call the Read API
 
-Define the new method for reading text. Add the code below, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+Add the following method, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image. Next, get the operation ID returned from the **ReadAsync** call, and use it to poll the service for the results of the operation. Finally, print the extracted text to the console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
 
-### Get Read results
+---
 
-Next, get the operation ID returned from the **ReadAsync** call, and use it to query the service for operation results. The following code checks the operation until the results are returned. It then prints the extracted text data to the console.
+## Clean up resources
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_response)]
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-### Display Read results
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-Add the following code to parse and display the retrieved text data, and finish the method definition.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
+## Next steps
 
 > [!div class="nextstepaction"]
 > [I read text](?success=read-printed-handwritten-text#run-the-application) [I ran into an issue](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
