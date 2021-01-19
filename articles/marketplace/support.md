@@ -33,7 +33,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
     - **Option 1**: Enter keywords such as: Marketplace, Azure app, SaaS offer, account management, lead management, deployment issue, payout, or co-sell offer migration. Then select a problem type from the recommended list that appears.
 
-   - **Option 2**: Select **Browse topics** from the **Category** list and then select **Commercial Marketplace**. Then select the appropriate **Topic** and **Subtopic**.
+    - **Option 2**: Select **Browse topics** from the **Category** list and then select **Commercial Marketplace**. Then select the appropriate **Topic** and **Subtopic**.
 
 1. After you have found the topic of your choice, select **Review Solutions**.
 
@@ -53,7 +53,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 
 ## Track your existing support requests
 
-To review all of your open and closed tickets, in the left-navigation menu, select **Commercial Marketplace** > **support**.
+To review your open and closed tickets, in the left-navigation menu, select **Commercial Marketplace** > **Support**.
 
 ## Record issue details with a HAR file
 
