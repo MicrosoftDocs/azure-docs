@@ -45,25 +45,22 @@ Azure Digital Twins instances can emit [twin update events](how-to-interpret-eve
 
 The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) walks through a scenario where a thermometer is used to update a temperature attribute on a digital twin representing a room. This pattern relies on the twin updates, rather than forwarding telemetry from an IoT device, which gives you the flexibility to change the underlying data source without needing to update your Time Series Insights logic.
 
-1. First, create an event hub namespace, which will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md).
+1. First, create an event hub namespace, that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support Event Hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
     ```azurecli-interactive
-    # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
-    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
+    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
     ```
 
-2. Create an event hub within the namespace.
+2. Create an event hub within the namespace to receive twin change events. Specify a name for the event hub.
 
     ```azurecli-interactive
-    # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions.
+3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for the rule.
 
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
 4. Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance.
@@ -87,7 +84,7 @@ Before moving on, take note of your *Event Hubs namespace* and *resource group*,
 
 ## Create a function in Azure
 
-Next, you'll use Azure Functions to create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own. 
+Next, you'll use Azure Functions to create an **Event Hubs-triggered function** inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own. 
 
 This function will convert those twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
 
@@ -111,15 +108,15 @@ To create the second event hub, you can either use the Azure CLI instructions be
 
 1. Prepare your *Event Hubs namespace* and *resource group* name from earlier in this article
 
-2. Create a new event hub
+2. Create a new event hub. Specify a name for the event hub.
+
     ```azurecli-interactive
-    # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions
+3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for the rule.
+
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
 ## Configure your function

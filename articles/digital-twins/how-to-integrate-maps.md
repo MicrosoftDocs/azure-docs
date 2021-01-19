@@ -72,7 +72,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
 
 ## Create a function to update maps
 
-You're going to create an *Event Grid-triggered function* inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an **Event Grid-triggered function** inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
 See the following document for reference info: [*Azure Event Grid trigger for Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
