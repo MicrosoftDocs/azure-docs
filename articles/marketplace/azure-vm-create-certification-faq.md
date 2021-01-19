@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 01/15/2021
+ms.date: 01/18/2021
 ---
 
 # Troubleshoot virtual machine certification
@@ -65,7 +65,7 @@ Provisioning issues can include the following failure scenarios:
 
 ### Conectix cookie and other VHD specifications
 
-The 'conectix' string is part of the VHD specification. It's defined as the 8-byte cookie in the VHD footer that identifies the file creator. All VHD files created by Microsoft have this cookie. 
+The 'conectix' string is part of the VHD specification. It's defined as the 8-byte cookie in the VHD footer that identifies the file creator. All VHD files created by Microsoft have this cookie.
 
 A VHD formatted blob should have a 512-byte footer in this format:
 
@@ -306,14 +306,14 @@ To submit your request with SSH disabled image for certification process:
 
 Refer to the following table for any issues that arise when you download the VM image with a shared access signature (SAS) URL.
 
-|Scenario|Error|Reason|Solution|
-|---|---|---|---|
-|1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
-|2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it with an SAS URL.|
-|3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
-|4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
-|6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
-|7|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
+|Error|Reason|Solution|
+|---|---|---|
+|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
+|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it with an SAS URL.|
+|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
+|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
+|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
+|Invalid VHD name|Check to see whether any special characters, such as a percent sign `%` or quotation marks `"`, exist in the VHD name.|Rename the VHD file by removing the special characters.|
 |
 
 ## First 1 MB (2048 sectors, each sector of 512 bytes) partition
@@ -371,7 +371,7 @@ These steps apply to Linux only.
    1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
 
       >[!IMPORTANT]
-      >Any existing data will be erased till 2048 sectors(each sector of 512 bytes). Backup of the VHD before you create a new partition.
+      >Any existing data will be erased till 2048 sectors (each sector of 512 bytes). Backup of the VHD before you create a new partition.
 
       ![Putty client command line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -553,7 +553,7 @@ To provide a fixed VM image to replace a VM image that has a vulnerability or ex
 
 #### Provide a new VM image to address the security vulnerability or exploit
 
-To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md)or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
+To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left pane, select **Commercial Marketplace** > **Overview**.
