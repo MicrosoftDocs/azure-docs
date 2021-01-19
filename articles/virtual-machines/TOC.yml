@@ -821,14 +821,6 @@
         href: ./extensions/stackify-retrace-linux.md
       - name: Symantec
         href: ./extensions/symantec.md
-    - name: Deprecated extensions
-      items:
-      - name: Log collector
-        href: ./extensions/log-collector.md
-      - name: Trend Micro Deep Security
-        href: ./extensions/trend.md
-      - name: Linux - version 1 (OSTC)
-        href: ./extensions/custom-script-linuxOstc.md
     - name: Restrict extension installation
       items:
       - name: Linux
