@@ -98,7 +98,7 @@ Next, expose the API by adding a scope:
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
-1. Under **Redirect URI**, use the drop-down to select **Public client/native (mobile & desktop)**.
+1. Under **Redirect URI**, use the drop-down to select **Allow public client flows**.
 1. For **Redirect URI**, enter `myapp://auth`.
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
