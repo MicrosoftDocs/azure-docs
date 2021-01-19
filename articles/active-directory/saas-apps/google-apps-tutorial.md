@@ -127,7 +127,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
 
     ```http
-    https://www.google.com
+    https://www.google.com/acs
     https://www.google.com/a/<yourdomain.com>/acs
     ```
 
