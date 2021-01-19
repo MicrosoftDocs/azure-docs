@@ -115,7 +115,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
     From the top command bar, select **Device updates**. Verify that update has successfully installed and the device software version reflects that.
 
-    ![Software version after update 14](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)<!--Update for 2101-->
+    ![Software version after update 14](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)
 
 <!--9. You will again see a notification that updates are available. These are the Kubernetes updates. Select the notification or select **Update device** from the top command bar.
 
@@ -204,7 +204,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
    <!--![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)-->
 
-8. Select **Apply**.
+8. Select **Apply Update**.
 
    ![update device 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
 
