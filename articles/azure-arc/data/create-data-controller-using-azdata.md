@@ -54,7 +54,7 @@ kubectl config current-context
 
 ### Connectivity modes
 
-As described in [Connectivity modes and requirements](https://docs.microsoft.com/azure/azure-arc/data/connectivity), Azure Arc data controller can be deployed either with either `direct` or `indirect` connectivity mode. With `direct` connectivity mode, usage data is automatically and continuously sent to Azure. In this articles, the examples specify `direct` connectivity mode as follows:
+As described in [Connectivity modes and requirements](./connectivity.md), Azure Arc data controller can be deployed either with either `direct` or `indirect` connectivity mode. With `direct` connectivity mode, usage data is automatically and continuously sent to Azure. In this articles, the examples specify `direct` connectivity mode as follows:
 
    ```console
    --connectivity-mode direct

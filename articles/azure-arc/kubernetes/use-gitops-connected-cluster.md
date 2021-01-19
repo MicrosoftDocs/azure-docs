@@ -134,7 +134,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version >= 1.2.0.  Version 1.2.0 is used by default.
 > HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services managed clusters.
-> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### Additional Parameters
 
