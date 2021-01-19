@@ -32,7 +32,7 @@ For full details on the soft-delete functionality, see [Azure Key Vault soft-del
 > [!Important] 
 > Review the following information carefully before turning on soft-delete for your key vaults.
 
-Key Vault names are globally unique. The names of secrets stored in a key vault are also unique. You won't be able to reuse the name of a key vault or key vault object that exists in the soft-deleted state. 
+Key vault names are globally unique. The names of secrets stored in a key vault are also unique. You won't be able to reuse the name of a key vault or key vault object that exists in the soft-deleted state. 
 
 For example, if your application programmatically creates a key vault named "Vault A" and later deletes "Vault A," the key vault will be moved to the soft-deleted state. Your application won't be able to re-create another key vault named "Vault A" until the key vault is purged from the soft-deleted state. 
 
