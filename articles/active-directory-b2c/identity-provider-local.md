@@ -48,11 +48,11 @@ Passwordless authentication is a type of authentication where a user doesn't nee
 
 - **Sign-in**: If the user has an existing account with phone number as their identifier, the user enters their phone number and selects *Sign in*. They confirm the country and phone number by selecting *Continue*, and a one-time verification code is sent to their phone. The user enters the verification code and selects *Continue* to sign in.
 - **Sign-up**: If the user doesn't already have an account for your application, they can create one by clicking on the *Sign up now* link. 
-    - A sign-up page appears, where the user selects their *Country*, enters their phone number, and selects *Send Code*. 
-    - A one-time verification code is sent to the user's phone number. The user enters the *Verification Code* on the sign-up page, and then selects *Verify Code*. (If the user can't retrieve the code, they can select *Send New Code*). 
-    - The user enters any other information requested on the sign-up page, for example, Display Name, Given Name, and Surname. Then select Continue.
-    - Next, the user is asked to provide a **recovery email**. The user enters their email address, and then selects *Send verification code*. A code is sent to the user's email inbox, which they can retrieve and enter in the Verification code box. Then the user selects Verify code.
-    - Once the code is verified, the user selects *Create* to create their account. 
+    1. A sign-up page appears, where the user selects their *Country*, enters their phone number, and selects *Send Code*. 
+    1. A one-time verification code is sent to the user's phone number. The user enters the *Verification Code* on the sign-up page, and then selects *Verify Code*. (If the user can't retrieve the code, they can select *Send New Code*). 
+    1. The user enters any other information requested on the sign-up page, for example, Display Name, Given Name, and Surname. Then select Continue.
+    1. Next, the user is asked to provide a **recovery email**. The user enters their email address, and then selects *Send verification code*. A code is sent to the user's email inbox, which they can retrieve and enter in the Verification code box. Then the user selects Verify code.
+    1. Once the code is verified, the user selects *Create* to create their account. 
 
 ![Phone sign-up or sign-in experience](./media/identity-provider-local/local-account-phone-experience.png)
 
