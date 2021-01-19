@@ -39,13 +39,13 @@ You can replicate and recover VMs between any two regions within the same geogra
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North
+Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North, Germany West Central
 Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
-Restricted Regions reserved for in-country disaster recovery |Germany North reserved for Germany West Central, Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers
+Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers
 
 >[!NOTE]
 >
@@ -208,7 +208,7 @@ Offline changes to protected disks | Disconnecting disks and making offline modi
 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk.
 
-- It's important to observe the VM disk limits and targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) and [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs to avoid any performance issues.
+- It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
 - If you deploy with the default settings, Site Recovery automatically creates disks and storage accounts based on the source settings.
 - If you customize, ensure you follow the guidelines.
 
@@ -256,7 +256,7 @@ Write accelerator enabled disks | Not supported
 Tags  | User generated tags are replicated every 24 hours.
 
 >[!IMPORTANT]
-> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
+> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](../virtual-machines/disks-scalability-targets.md). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
 
 ## Limits and data change rates
 
