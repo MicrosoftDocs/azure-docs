@@ -46,7 +46,7 @@ You can create custom analytics rules to help you discover threats and anomalous
 
 1. In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics, and then copy and paste it there. Queries are written in Kusto Query Language (KQL). Learn more about KQL [concepts](/azure/data-explorer/kusto/concepts/) and [queries](/azure/data-explorer/kusto/query/), and see this handy [quick reference guide](/azure/data-explorer/kql-quick-reference).
 
-   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1.png":::
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1.png":::
 
    - In the **Results simulation** area to the right, select **Test with current data** and Azure Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
   
@@ -70,9 +70,17 @@ You can create custom analytics rules to help you discover threats and anomalous
         >
         > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
 
-1. Use the **Map entities** section to link parameters from your query results to Azure Sentinel-recognized entities. These entities form the basis for further analysis, including the grouping of alerts into incidents in the **Incident settings** tab. 
+### Alert enrichment
 
-    Learn more about [entities](identify-threats-with-entity-behavior-analytics.md#entities-in-azure-sentinel) in Azure Sentinel.
+1. Use the **Entity mapping** configuration section to map parameters from your query results to Azure Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts into incidents in the **Incident settings** tab.
+
+    Learn more about [Entities in Azure Sentinel](entities-in-azure-sentinel.md).
+
+    See [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions.
+
+1. Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
+
+    See [Surface custom details in alerts]
   
 1. In the **Query scheduling** section, set the following parameters:
 
