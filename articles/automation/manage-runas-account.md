@@ -41,6 +41,29 @@ Use the following steps to renew the self-signed certificate.
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
+## Grant Run As account permissions in other subscriptions
+
+Azure Automation supports using a single Automation account from one subscription, and executing runbooks against Azure Resource Manager resources across multiple subscriptions. This configuration does not support the Azure Classic deployment model.
+
+You assign the Run As account service principal the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the other subscription, or more restrictive permissions. For more information, see [Role-based access control](automation-role-based-access-control.md) in Azure Automation. To assign the Run As account to the role in the other subscription, the user account performing this task needs to be a member of the **Owner** role in that subscription.
+
+Before granting the Run As account permissions, you need to first note the display name of the service principal to assign.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From your Automation account, select **Run As Accounts** under **Account Settings**.
+1. Select **Azure Run As Account**.
+1. Copy or note the value for **Display Name** on the **Azure Run As Account** page.
+
+For detailed steps for how to add role assignments, check out the following articles depending on the method you want to use.
+
+* [Add Azure role assignment from the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Add Azure role assignment using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Add Azure role assignment using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
+* [Add Azure role assignment using the REST API](..//role-based-access-control/role-assignments-rest.md)
+
+
+After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+
 ## Limit Run As account permissions
 
 To control the targeting of Automation against resources in Azure, you can run the [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script. This script changes your existing Run As account service principal to create and use a custom role definition. The role has permissions for all resources except [Key Vault](../key-vault/index.yml).
@@ -75,29 +98,6 @@ You can allow Azure Automation to verify if Key Vault and your Run As account se
 * Set the access policy.
 
 You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to grant your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-powershell.md) for more details on setting permissions on Key Vault.
-
-## Grant Run As account permissions in other subscriptions
-
-Azure Automation supports using a single Automation account from one subscription, and executing runbooks against Azure Resource Manager resources across multiple subscriptions. This configuration does not support the Azure Classic deployment model.
-
-You assign the Run As account service principal the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the other subscription, or more restrictive permissions. For more information, see [Role-based access control](automation-role-based-access-control.md) in Azure Automation. To assign the Run As account to the role in the other subscription, the user account performing this task needs to be a member of the **Owner** role in that subscription.
-
-Before granting the Run As account permissions, you need to first note the display name of the service principal to assign.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. From your Automation account, select **Run As Accounts** under **Account Settings**.
-1. Select **Azure Run As Account**.
-1. Copy or note the value for **Display Name** on the **Azure Run As Account** page.
-
-For detailed steps for how to add role assignments, check out the following articles depending on the method you want to use.
-
-* [Add Azure role assignment from the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add Azure role assignment using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Add Azure role assignment using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
-* [Add Azure role assignment using the REST API](..//role-based-access-control/role-assignments-rest.md)
-
-
-After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ## Resolve misconfiguration issues for Run As accounts
 
