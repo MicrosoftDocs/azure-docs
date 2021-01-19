@@ -92,7 +92,7 @@ Before you start the migration process, take the opportunity to clean up your di
 
 ### Password policy
 
-If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](manage-user-accounts-graph-api.md#password-policy-property).
+If the accounts you're migrating have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. For more information, see [Password policy property](user-profile-attributes.md#password-policy-attribute).
 
 ## Next steps
 

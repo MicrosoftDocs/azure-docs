@@ -19,10 +19,6 @@ ms.author: vinigam
 You can migrate tests from Network Performance Monitor (NPM) to new, improved Connection Monitor with a single click and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 
 
->[!NOTE]
-> Only tests from Service Connectivity Monitor can be migrated to Connection Monitor.
->
-
 ## Key points to note
 
 The migration helps produce the following results:
@@ -47,7 +43,7 @@ To migrate the tests from Network Performance Monitor to Connection Monitor, do 
 
 	:::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migrate tests from Network Performance Monitor to Connection Monitor" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
 	
-1. In the drop-down lists, select your subscription and workspace, and then select the NPM feature you want to migrate. Currently, you can migrate tests only from Service Connectivity Monitor.  
+1. In the drop-down lists, select your subscription and workspace, and then select the NPM feature you want to migrate. 
 1. Select **Import** to migrate the tests.
 
 After the migration begins, the following changes take place: 
@@ -69,5 +65,5 @@ After the migration, be sure to:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Connection Monitor to Connection Monitor](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
+* [Migrate from Connection Monitor (classic) to Connection Monitor](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)

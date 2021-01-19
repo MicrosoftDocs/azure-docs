@@ -16,7 +16,7 @@ After completing the setup steps, you'll be able to run a simulated live video s
 
 You can view the following video with detailed steps on how to get started with Live Video Analytics on IoT Edge:
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
 
 ## Prerequisites
 
@@ -50,9 +50,13 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-If the script finishes successfully, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type `Microsoft.Devices/IotHubs`, and note down the name. You'll need this name in the next step. 
+Upon successful completion of the script, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  
 
-The script also generates a few configuration files in the *~/clouddrive/lva-sample/* directory. You'll need these files later in the quickstart.
+> [!NOTE]
+> The script also generates a few configuration files in the ***~/clouddrive/lva-sample/*** directory. You'll need these files later in the quickstart.
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
 
 ## Deploy modules on your edge device
 
@@ -412,8 +416,8 @@ Invoke the direct method `GraphInstanceSet` by using the following payload.
 Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
-* Contains a parameter value for `rtspUrl`, which didn't have a default value in the graph topology payload.
-
+* Contains a parameter value for `rtspUrl`, which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 Within few seconds, you see the following response in the **OUTPUT** window:
 
 ```
