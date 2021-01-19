@@ -20,9 +20,9 @@ Occasionally, a resource will be listed that you feel shouldn't be included. Or 
 
 In such cases, you can create an exemption rules to ensure:
 
-- **The resource** isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select. See [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation).
+- **The resource** isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
 
-- **The recommendation** isn't shown for your subscription or management group in the future, and doesn't impact your secure score. The recommendation will be marked with the specific justification you select. See [Exempt a recommendation from a subscription or management group](#exempt-a-recommendation-from-a-subscription-or-management-group).
+- **The recommendation** isn't shown for your subscription or management group in the future, and doesn't impact your secure score. The recommendation will be marked with the specific justification you select.
 
 ## Availability
 
