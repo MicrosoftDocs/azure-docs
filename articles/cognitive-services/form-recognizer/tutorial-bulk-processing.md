@@ -55,7 +55,7 @@ For type of form to be analyzed, data engineers or data scientists will populate
 
 The Azure Databricks notebook then uses the trained models to extract form data, and it exports that date to an Azure SQL database.
 
-:::image type="content" source="./media/tutorial-bulk-processing/archutecture.png" alt-text="project architecture":::
+:::image type="content" source="./media/tutorial-bulk-processing/architecture.png" alt-text="project architecture":::
 
 
 ## Set up Azure Data Lake
