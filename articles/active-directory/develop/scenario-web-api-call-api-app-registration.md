@@ -1,5 +1,6 @@
 ---
-title: Register a web API that calls web APIs - The Microsoft identity platform | Azure
+title: Register a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls downstream web APIs (app registration).
 services: active-directory
 author: jmprieur

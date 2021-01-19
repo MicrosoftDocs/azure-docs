@@ -1,5 +1,6 @@
 ---
-title: Sign in users from a Web app - The Microsoft identity platform | Azure
+title: Sign in users from a Web app | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that signs in users (overview)
 services: active-directory
 author: jmprieur

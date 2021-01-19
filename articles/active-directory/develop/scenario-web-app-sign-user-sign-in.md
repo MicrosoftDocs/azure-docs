@@ -1,5 +1,6 @@
 ---
-title: Write a web app that signs in/out users - The Microsoft identity platform | Azure
+title: Write a web app that signs in/out users | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that signs in/out users
 services: active-directory
 author: jmprieur

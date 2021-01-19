@@ -1,6 +1,6 @@
 ---
 title: Call a web api from a web app | Azure
-titleSuffix: The Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that calls web APIs (calling a protected web API)
 services: active-directory
 author: jmprieur

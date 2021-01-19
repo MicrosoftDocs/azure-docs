@@ -1,5 +1,6 @@
 ---
-title: Move to production a web app that calls web APIs - The Microsoft identity platform | Azure
+title: Move to production a web app that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to move to production a web app that calls web APIs.
 services: active-directory
 author: jmprieur

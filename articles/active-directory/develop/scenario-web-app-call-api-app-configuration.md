@@ -1,6 +1,6 @@
 ---
 title: Configure a web app that calls web APIs | Azure
-titleSuffix: The Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
 author: jmprieur

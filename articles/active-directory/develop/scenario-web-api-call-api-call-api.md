@@ -1,5 +1,6 @@
 ---
-title: Web API that calls web APIs - The Microsoft identity platform | Azure
+title: Web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs.
 services: active-directory
 author: jmprieur

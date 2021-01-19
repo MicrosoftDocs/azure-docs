@@ -1,6 +1,6 @@
 ---
 title: Get a token in a web app that calls web APIs | Azure
-titleSuffix: The Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Learn how to acquire a token for a web app that calls web APIs
 services: active-directory
 author: jmprieur

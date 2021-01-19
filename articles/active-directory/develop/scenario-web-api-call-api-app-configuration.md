@@ -1,6 +1,6 @@
 ---
 title: Configure a web API that calls web APIs | Azure
-titleSuffix: The Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 author: jmprieur
@@ -249,7 +249,7 @@ You can also see an example of OBO flow implementation in [Node.js and Azure Fun
 
 ## Protocol
 
-For more information about the OBO protocol, see [The Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](./v2-oauth2-on-behalf-of-flow.md).
+For more information about the OBO protocol, see the [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](./v2-oauth2-on-behalf-of-flow.md).
 
 ## Next steps
 
