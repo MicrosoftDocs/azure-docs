@@ -13,9 +13,7 @@ ms.date: 01/13/2021
 This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the words _master_ and _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes these as exclusionary words. The words are used in this article for consistency because they are currently the words that appears in the software. When the software is updated to remove the words, this article will be updated to be in alignment.
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 To create a replica in the Azure Database for MySQL service, [Data-in Replication](concepts-data-in-replication.md)  synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in Replication is based on the binary log (binlog) file position-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).

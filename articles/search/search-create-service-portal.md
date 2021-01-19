@@ -26,7 +26,7 @@ Prefer PowerShell? Use the Azure Resource Manager [service template](https://azu
 The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
 * Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
-* Service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity. Some features are not available on the free tier.
+* [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
 * Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to place Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
 
 ## Subscribe (free or paid)

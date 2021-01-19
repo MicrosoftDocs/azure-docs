@@ -70,7 +70,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     > [!NOTE]
     > - Replace &lt;your source schema name&gt; with the schema of your Azure SQL MI that has the customers table.
-    > - Change data capture doesn't do anything as part of the transactions that change the table being tracked. Instead, the insert, update, and delete operations are written to the transaction log. Data that is deposited in change tables will grow unmanageably if you do not periodically and systematically prune the data. For more information, see [Enable Change Data Capture for a database](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)
+    > - Change data capture doesn't do anything as part of the transactions that change the table being tracked. Instead, the insert, update, and delete operations are written to the transaction log. Data that is deposited in change tables will grow unmanageably if you do not periodically and systematically prune the data. For more information, see [Enable Change Data Capture for a database](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server#enable-change-data-capture-for-a-database)
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -188,7 +188,7 @@ In this step, you create a dataset to represent the source data.
 3. In the **Set properties** tab, set the dataset name and connection information:
  
    1. Select **AzureSqlMI1** for **Linked service**.
-   2. Select **[dbo].[dbo_customers_CT]** for **Table name**.  Note: this table was automatically created when CDC was enabled on the customers table. Changed data is never queried from this table directly but is instead extracted through the [CDC functions](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
+   2. Select **[dbo].[dbo_customers_CT]** for **Table name**.  Note: this table was automatically created when CDC was enabled on the customers table. Changed data is never queried from this table directly but is instead extracted through the [CDC functions](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql).
 
    ![Source connection](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 

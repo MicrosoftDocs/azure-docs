@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Microsoft account application
 
-To use a Microsoft account as an [identity provider](openid-connect.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the Azure AD tenant. The Azure AD tenant is not the same as your Azure AD B2C tenant. If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
+To enable sign-in for users with a Microsoft account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
@@ -206,7 +206,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add Microsoft identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Microsoft identity provider.
+1. Click the user flow that you want to add the Microsoft identity provider.
 1. Under the **Social identity providers**, select **Microsoft Account**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.

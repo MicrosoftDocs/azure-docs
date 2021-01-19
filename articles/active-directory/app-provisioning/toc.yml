@@ -80,6 +80,8 @@
         href: sap-successfactors-integration-reference.md
       - name: SuccessFactors attribute reference
         href: sap-successfactors-attribute-reference.md
+      - name: Workday integration 
+        href: workday-integration-reference.md
       - name: Workday attribute reference
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history

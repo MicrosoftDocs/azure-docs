@@ -218,7 +218,7 @@ In a star network, every host is connected to a central hub. In its simplest for
 
 Here are some recommendations for deploying multiple sensors:
 
-| **Number **| **Meters** | **Dependency** | **Number of sensors** |
+| **Number** | **Meters** | **Dependency** | **Number of sensors** |
 |--|--|--|--|
 | The maximum distance between switches | 80 meters | Prepared Ethernet cable | More than 1 |
 | Number of OT networks | More than 1 | No physical connectivity | More than 1 |
