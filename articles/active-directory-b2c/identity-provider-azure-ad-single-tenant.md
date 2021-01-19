@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -34,7 +34,7 @@ This article shows you how to enable sign-in for users from a specific Azure AD 
 
 ## Register an Azure AD app
 
-To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
+To enable sign-in for users with an Azure AD account from a specific Azure AD organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD tenant.
@@ -234,7 +234,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add Azure AD identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the Azure AD identity provider.
+1. Click the user flow that you want to add the Azure AD identity provider.
 1. Under the **Social identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.

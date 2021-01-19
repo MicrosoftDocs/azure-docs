@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/18/2021
 ---
 
 # Understanding the changes in the Root CA change for Azure Database for MariaDB
@@ -14,6 +14,9 @@ Azure Database for MariaDB will be changing the root certificate for the client 
 
 >[!NOTE]
 > Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA from October 26th, 2020 till February 15, 2021. We hope this extension provide sufficient lead time for our users to implement the client changes if they are impacted.
+
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## What update is going to happen?
 
@@ -64,7 +67,7 @@ To avoid your application's availability being interrupted due to certificates
 
   - For .NET (MariaDB Connector/NET, MariaDBConnector) users, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 
-    ![Azure Database for MariaDB .net cert](media/overview/netconnecter-cert.png)
+    [![Azure Database for MariaDB .net cert](media/overview/netconnecter-cert.png)](media/overview/netconnecter-cert.png#lightbox)
 
   - For .NET users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates don't exist, create the missing certificate file.
 
@@ -75,10 +78,10 @@ To avoid your application's availability being interrupted due to certificates
    (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
    -----END CERTIFICATE-----
    -----BEGIN CERTIFICATE-----
-    (Root CA2: DigiCertGlobalRootG2.crt.pem)
+   (Root CA2: DigiCertGlobalRootG2.crt.pem)
    -----END CERTIFICATE-----
    ```
-   
+
 - Replace the original root CA pem file with the combined root CA file and restart your application/client.
 - In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
@@ -145,11 +148,7 @@ Since this update is a client-side change, if the client used to read data from 
 
 ### 12. If I'm using Data-in replication, do I need to perform any action?
 
-> [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
->
-
-*   If the data-replication is from a virtual machine (on-prem or Azure virtual machine) to Azure Database for MySQL, you need to check if SSL is being used to create the replica. Run **SHOW SLAVE STATUS** and check the following setting.
+- If the data-replication is from a virtual machine (on-prem or Azure virtual machine) to Azure Database for MySQL, you need to check if SSL is being used to create the replica. Run **SHOW SLAVE STATUS** and check the following setting.
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes
@@ -172,10 +171,10 @@ If you're using [Data-in replication](concepts-data-in-replication.md) to connec
   Master_SSL_Cipher             :
   Master_SSL_Key                : ~\azure_mysqlclient_key.pem
   ```
+
   If you do see the certificate is provided for the CA_file, SSL_Cert and SSL_Key, you will need to update the file by adding the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
-- If the data-replication is between two Azure Database for MySQL, then you'll need to reset the replica by executing
-**CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication).
+- If the data-replication is between two Azure Database for MySQL, then you'll need to reset the replica by executing **CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication).
 
 ### 13. Do we have server-side query to verify if SSL is being used?
 
