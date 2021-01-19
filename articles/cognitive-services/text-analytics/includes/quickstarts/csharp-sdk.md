@@ -263,7 +263,7 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 
     AnalyzeSentimentResultCollection reviews = client.AnalyzeSentimentBatch(documents, options: new AnalyzeSentimentOptions()
     {
-        AdditionalSentimentAnalyses = AdditionalSentimentAnalyses.OpinionMining
+        IncludeOpinionMining = true
     });
 
     foreach (AnalyzeSentimentResult review in reviews)

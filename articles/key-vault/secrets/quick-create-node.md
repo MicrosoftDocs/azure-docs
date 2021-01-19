@@ -87,7 +87,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
@@ -283,4 +283,4 @@ In this quickstart, you created a key vault, stored a secret, and retrieved that
 - Read an [Overview of Azure Key Vault Secrets](about-secrets.md)
 - How to [Secure access to a key vault](../general/secure-your-key-vault.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)

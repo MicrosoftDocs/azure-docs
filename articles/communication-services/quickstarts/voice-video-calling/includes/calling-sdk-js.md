@@ -73,7 +73,7 @@ and a Phone Number for both callees.
 Your Communication Services resource must be configured to allow PSTN calling.
 ```js
 
-const userCallee = { communicationUserId: <ACS_USER_ID> }
+const userCallee = { communicationUserId: <ACS_USER_ID> };
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
 const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
@@ -345,7 +345,7 @@ This will synchronously return the remote participant instance.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
-const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
+const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>};
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
 ```
@@ -359,7 +359,7 @@ The participant will also be removed from the `remoteParticipants` collection.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
-const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
+const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>};
 await call.removeParticipant(userIdentifier);
 await call.removeParticipant(pstnIdentifier);
 ```

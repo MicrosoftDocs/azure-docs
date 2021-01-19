@@ -135,8 +135,6 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 1. In the connected organization's overview pane, select **Delete** to delete it.
 
-    Currently, you can delete a connected organization only if there are no connected users.
-
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 
 ## Managing a connected organization programmatically

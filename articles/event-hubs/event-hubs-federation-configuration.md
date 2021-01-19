@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 12/12/2020
 ---
 
-# Configured replication tasks 
+# Configured replication tasks - Azure Event Hubs
 
 [!INCLUDE [messaging-configured-functions](../../includes/messaging-configured-functions.md)]
 

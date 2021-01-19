@@ -20,7 +20,7 @@ ms.custom: aaddev, devx-track-js
 
 # Initialize client applications using MSAL.js
 
-This article describes initializing Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application.
+This article describes initializing the Microsoft Authentication Library for JavaScript (MSAL.js) with an instance of a user-agent application.
 
 The user-agent application is a form of public client application in which the client code is executed in a user-agent such as a web browser. Such clients do not store secrets because the browser context is openly accessible.
 

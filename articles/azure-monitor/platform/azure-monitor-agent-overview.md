@@ -50,7 +50,7 @@ The following limitations apply during public preview of the Azure Monitor Agent
 
 - The Azure Monitor agent does not support solutions and insights such as Azure Monitor for VMs and Azure Security Center. The only scenario currently supported is collecting data using the data collection rules that you configure. 
 - Data collection rules must be created in the same region as any Log Analytics workspace used as a destination.
-- Azure virtual machines and Azure Arc enabled servers are currently supported.Virtual machine scale sets, Azure Kubernetes Service, and other compute resource types are not currently supported.
+- Azure virtual machines, virtual machine scale sets, and Azure Arc enabled servers are currently supported. Azure Kubernetes Service and other compute resource types are not currently supported.
 - The virtual machine must have access to the following HTTPS endpoints:
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com

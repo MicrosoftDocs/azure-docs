@@ -20,13 +20,13 @@ In this article, you will learn how to install and configure PostgreSQL on an Az
 ## Install PostgreSQL
 > [!NOTE]
 > You must already have an Azure virtual machine running Linux in order to complete this tutorial. To create and set up a Linux VM before proceeding, see the
-> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Azure Linux VM tutorial](quick-create-cli.md).
 > 
 > 
 
 In this case, use port 1999 as the PostgreSQL port.  
 
-Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to learn how to use PuTTY to connect to a Linux VM.
+Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md) to learn how to use PuTTY to connect to a Linux VM.
 
 1. Run the following command to switch to the root (admin):
 

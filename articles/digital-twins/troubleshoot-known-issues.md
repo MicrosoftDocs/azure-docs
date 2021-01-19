@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q2
 ---
 
 # Known issues in Azure Digital Twins
@@ -42,11 +42,11 @@ This article provides information about known issues associated with Azure Digit
 
 ## Issue with default Azure credential authentication on Azure.Identity 1.3.0
 
-**Issue description:** When writing authentication code in your Azure Digital Twins applications using version **1.3.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) method used in many samples throughout these docs. This presents as an error response of "Azure.Identity.AuthenticationFailedException: SharedTokenCacheCredential authentication failed" when the code tries to authenticate.
+**Issue description:** When writing authentication code using version **1.3.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, some users have experienced issues with the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) method used in many samples throughout these Azure Digital Twins docs. This presents as an error response of "Azure.Identity.AuthenticationFailedException: SharedTokenCacheCredential authentication failed" when the code tries to authenticate.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
-| DefaultAzureCredential is used in most of the documentation examples that include authentication. If you are writing authentication code using DefaultAzureCredential and using version 1.3.0 of the `Azure.Identity` library, this is likely to affect you. | This issue presents when using DefaultAzureCredential with version **1.3.0** of the `Azure.Identity` library. | To resolve, switch your application to use [version 1.2.2](https://www.nuget.org/packages/Azure.Identity/1.2.2) of `Azure.Identity`. After changing the library version, authentication should succeed as expected. |
+| `DefaultAzureCredential` is used in most of the documentation examples for this service that include authentication. If you are writing authentication code using `DefaultAzureCredential` with version 1.3.0 of the `Azure.Identity` library and seeing this error message, this affects you. | This is likely a result of some configuration issue with `Azure.Identity`. | One strategy to resolve this is to exclude `SharedTokenCacheCredential` from your credential, as described in this [DefaultAzureCredential issue](https://github.com/Azure/azure-sdk/issues/1970) that is currently open against `Azure.Identity`.<br>Another option is to change your application to use an earlier version of `Azure.Identity`, such as [version 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). This has no functional impact to Azure Digital Twins and thus is also an accepted solution. |
 
 ## Next steps
 

@@ -27,7 +27,7 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000
+        "requestedServiceObjectiveName": "DW1000c"
     }
 }
 ```
@@ -77,14 +77,14 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
     "properties": {
         "timeRanges": [
                 {
-                                "dayOfWeek": Saturday,
-                                "startTime": 00:00,
-                                "duration": 08:00,
+                                "dayOfWeek": "Saturday",
+                                "startTime": "00:00",
+                                "duration": "08:00",
                 },
                 {
-                                "dayOfWeek": Wednesday
-                                "startTime": 00:00,
-                                "duration": 08:00,
+                                "dayOfWeek": "Wednesday",
+                                "startTime": "00:00",
+                                "duration": "08:00",
                 }
                 ]
     }

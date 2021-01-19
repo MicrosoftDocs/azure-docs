@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: memildin
 
 ---
@@ -27,8 +27,37 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
+- [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
+- [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
 - ["Not applicable" resources to be reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
+
+
+### Two recommendations from "Apply system updates" security control being deprecated 
+
+**Estimated date for change:** February 2021
+
+The following two recommendations are scheduled to be deprecated in February 2021:
+
+- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
+- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transfered to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
+
+We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
+
+Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
+
+
+### Enhancements to SQL data classification recommendation
+
+**Estimated date for change:** Q2 2021
+
+The current version of the recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be deprecated and replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result:
+
+- The recommendation will no longer affect your secure score
+- The security control ("Apply data classification") will no longer affect your secure score
+- The recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59)
+
+
 
 ### "Not applicable" resources to be reported as "Compliant" in Azure Policy assessments
 
@@ -40,7 +69,7 @@ The only impact will be seen in Azure Policy where the number of compliant resou
 
 ### 35 preview recommendations being added to increase coverage of Azure Security Benchmark
 
-**Estimated date for change:** December 2020
+**Estimated date for change:** January 2021
 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 

@@ -8,7 +8,6 @@ manager: erikre
 editor: ''
 
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
@@ -144,6 +143,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   > The change of clusters above with dns zone **.nsatc.net** to **.microsoftmetrics.com** is mostly a DNS Change. IP Address of cluster will not change.
 
 + **Regional Service Tags**: NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service tags may use the regional versions of those tags corresponding to the region containing the API Management instance (for example, Storage.WestUS for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region and the primary region.
+
+    > [!IMPORTANT]
+    > To enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a virtual network, ensure that you also allow outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Connectivity to blob storage in the West US region is currently required to publish the developer portal for any API Management instance.
 
 + **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
 

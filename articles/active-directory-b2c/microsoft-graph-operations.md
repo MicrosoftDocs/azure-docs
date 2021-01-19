@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 # Microsoft Graph operations available for Azure AD B2C
 
@@ -52,10 +53,10 @@ Manage the identity providers available to your user flows in your Azure AD B2C 
 
 Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 
-- [List user flows](/graph/api/identityuserflow-list)
-- [Create a user flow](/graph/api/identityuserflow-post-userflows)
-- [Get a user flow](/graph/api/identityuserflow-get)
-- [Delete a user flow](/graph/api/identityuserflow-delete)
+- [List user flows](/graph/api/identitycontainer-list-b2cuserflows)
+- [Create a user flow](/graph/api/identitycontainer-post-b2cuserflows)
+- [Get a user flow](/graph/api/b2cidentityuserflow-get)
+- [Delete a user flow](/graph/api/b2cidentityuserflow-delete)
 
 ## Custom policies
 
