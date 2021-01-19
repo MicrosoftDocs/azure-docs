@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform ID tokens | Azure
+title: Microsoft identity platform ID tokens | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and the Microsoft identity platform. 
 services: active-directory
@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ---
 
-# The Microsoft identity platform ID tokens
+# Microsoft identity platform ID tokens
 
 `id_tokens` are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) (OIDC) flow. They can be sent alongside or instead of an access token, and are used by the client to authenticate the user.
 

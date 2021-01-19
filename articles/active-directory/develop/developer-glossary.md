@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform developer glossary | Azure
+title: Microsoft identity platform developer glossary | Azure
 description: A list of terms for commonly used Microsoft identity platform developer concepts and features.
 services: active-directory
 author: rwike77
@@ -15,7 +15,7 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ---
 
-# The Microsoft identity platform developer glossary
+# Microsoft identity platform developer glossary
 
 This article contains definitions for some of the core developer concepts and terminology, which are helpful when learning about application development using Microsoft identity platform.
 
@@ -30,7 +30,7 @@ Access tokens are sometimes referred to as "User+App" or "App-Only", depending o
 * ["Authorization code" authorization grant](#authorization-grant), the end user authenticates first as the resource owner, delegating authorization to the client to access the resource. The client authenticates afterward when obtaining the access token. The token can sometimes be referred to more specifically as a "User+App" token, as it represents both the user that authorized the client application, and the application.
 * ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
-See [The Microsoft identity platform Token Reference][AAD-Tokens-Claims] for more details.
+See the [Microsoft identity platform Token Reference][AAD-Tokens-Claims] for more details.
 
 ## application ID (client ID)
 
@@ -91,7 +91,7 @@ In the case of the Microsoft identity platform application integration, the Micr
 
 A [security token](#security-token) contains claims, which provide assertions about one entity (such as a [client application](#client-application) or [resource owner](#resource-owner)) to another entity (such as the [resource server](#resource-server)). Claims are name/value pairs that relay facts about the token subject (for example, the security principal that was authenticated by the [authorization server](#authorization-server)). The claims present in a given token are dependent upon several variables, including the type of token, the type of credential used to authenticate the subject, the application configuration, etc.
 
-See [The Microsoft identity platform token reference][AAD-Tokens-Claims] for more details.
+See the [Microsoft identity platform token reference][AAD-Tokens-Claims] for more details.
 
 ## client application
 
@@ -109,7 +109,7 @@ See [consent framework](consent-framework.md) for more information.
 
 An [OpenID Connect][OpenIDConnect-ID-Token] [security token](#security-token) provided by an [authorization server's](#authorization-server) [authorization endpoint](#authorization-endpoint), which contains [claims](#claim) pertaining to the authentication of an end user [resource owner](#resource-owner). Like an access token, ID tokens are also represented as a digitally signed [JSON Web Token (JWT)][JWT]. Unlike an access token though, an ID token's claims are not used for purposes related to resource access and specifically access control.
 
-See [The Microsoft identity platform token reference][AAD-Tokens-Claims] for more details.
+See the [Microsoft identity platform token reference][AAD-Tokens-Claims] for more details.
 
 ## Microsoft identity platform
 
@@ -218,7 +218,7 @@ A type of [client application](#client-application) that executes all code on a 
 
 ## Next steps
 
-The [Microsoft identity platform Developer's Guide][AAD-Dev-Guide] is the landing page to use for all the Microsoft identity platform development-related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [The Microsoft identity platform authentication and supported authentication scenarios][AAD-Auth-Scenarios]. You can also find code samples & tutorials on how to get up and running quickly on [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+The [Microsoft identity platform Developer's Guide][AAD-Dev-Guide] is the landing page to use for all the Microsoft identity platform development-related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of the [Microsoft identity platform authentication and supported authentication scenarios][AAD-Auth-Scenarios]. You can also find code samples & tutorials on how to get up and running quickly on [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use the following comments section to provide feedback and help to refine and shape this content, including requests for new definitions or updating existing ones!
 

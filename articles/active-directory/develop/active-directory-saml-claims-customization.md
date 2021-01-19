@@ -51,10 +51,10 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 
 | NameID format | Description |
 |---------------|-------------|
-| **Default** | The Microsoft identity platform will use the default source format. |
-| **Persistent** | The Microsoft identity platform will use Persistent as the NameID format. |
-| **EmailAddress** | The Microsoft identity platform will use EmailAddress as the NameID format. |
-| **Unspecified** | The Microsoft identity platform will use Unspecified as the NameID format. |
+| **Default** | Microsoft identity platform will use the default source format. |
+| **Persistent** | Microsoft identity platform will use Persistent as the NameID format. |
+| **EmailAddress** | Microsoft identity platform will use EmailAddress as the NameID format. |
+| **Unspecified** | Microsoft identity platform will use Unspecified as the NameID format. |
 
 Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 

@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform access tokens | Azure
+title: Microsoft identity platform access tokens | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform.
 services: active-directory
@@ -16,7 +16,7 @@ ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
-# The Microsoft identity platform access tokens
+# Microsoft identity platform access tokens
 
 Access tokens enable clients to securely call protected web APIs, and are used by web APIs to perform authentication and authorization. Per the OAuth specification, access tokens are opaque strings without a set format - some identity providers (IDPs) use GUIDs, others use encrypted blobs. The Microsoft identity platform uses a variety of access token formats depending on the configuration of the API that accepts the token. [Custom APIs registered by developers](quickstart-configure-app-expose-web-apis.md) on the Microsoft identity platform can choose from two different formats of JSON Web Tokens (JWTs), called "v1" and "v2", and Microsoft-developed APIs like Microsoft Graph or APIs in Azure have additional proprietary token formats. These proprietary formats might be encrypted tokens, JWTs, or special JWT-like tokens that will not validate.
 

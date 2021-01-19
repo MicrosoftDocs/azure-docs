@@ -1,7 +1,7 @@
 ---
 title: Configurable token lifetimes
 titleSuffix: Microsoft identity platform
-description: Learn how to set lifetimes for access, SAML, and ID tokens issued by Microsoft identity platform.
+description: Learn how to set lifetimes for access, SAML, and ID tokens issued by the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -103,7 +103,7 @@ Public clients cannot securely store a client password (secret). For example, an
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with the Microsoft identity platform (either silently or interactively).
 
 ### Single sign-on session tokens
-When a user authenticates with Microsoft identity platform, a single sign-on session (SSO) is established with the user’s browser and Microsoft identity platform. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
+When a user authenticates with the Microsoft identity platform, a single sign-on session (SSO) is established with the user’s browser and the Microsoft identity platform. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
 
 The Microsoft identity platform uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
 Usually, a nonpersistent session token is stored. But, when the user selects the **Keep me signed in** check box during authentication, a persistent session token is stored.

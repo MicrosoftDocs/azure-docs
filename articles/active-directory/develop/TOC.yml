@@ -1,4 +1,4 @@
-- name: The Microsoft identity platform documentation
+- name: Microsoft identity platform documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -642,7 +642,7 @@
   items:
   - name: Videos
     href: identity-videos.md
-  - name: The Microsoft identity platform developer blog
+  - name: Microsoft identity platform developer blog
     href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: Azure AD blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory

@@ -1,6 +1,6 @@
 ---
 title: Application model | Azure
-titleSuffix: The Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Learn about the process of registering your application so it can integrate with Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -38,7 +38,7 @@ The Microsoft identity platform represents applications using a model that fulfi
 * Identify the app by the authentication protocols it supports
 * Provide all the identifiers, URLs, secrets, and related information that are needed to authenticate
 
-Microsoft identity platform:
+The Microsoft identity platform:
 
 * Holds all the data required to support authentication at runtime
 * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled
@@ -52,7 +52,7 @@ Microsoft identity platform:
 
 ## Multi-tenant apps
 
-In Microsoft identity platform, an [application object](developer-glossary.md#application-object) describes an application. At deployment time, the Microsoft identity platform uses the application object as a blueprint to create a [service principal](developer-glossary.md#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through [consent](developer-glossary.md#consent).
+In the Microsoft identity platform, an [application object](developer-glossary.md#application-object) describes an application. At deployment time, the Microsoft identity platform uses the application object as a blueprint to create a [service principal](developer-glossary.md#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through [consent](developer-glossary.md#consent).
 
 The following diagram shows a simplified Microsoft identity platform provisioning flow driven by consent. It shows two tenants: *A* and *B*.
 

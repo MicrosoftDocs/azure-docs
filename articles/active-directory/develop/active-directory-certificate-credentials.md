@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform certificate credentials
+title: Microsoft identity platform certificate credentials
 titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication.
 services: active-directory
@@ -16,7 +16,7 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ---
 
-# The Microsoft identity platform application authentication certificate credentials
+# Microsoft identity platform application authentication certificate credentials
 
 The Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 

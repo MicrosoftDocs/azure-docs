@@ -1,6 +1,6 @@
 ---
-title: The Microsoft identity platform authentication protocols
-description: An overview of the authentication protocols supported by Microsoft identity platform
+title: Microsoft identity platform authentication protocols
+description: An overview of the authentication protocols supported by the Microsoft identity platform
 author: rwike77
 services: active-directory
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.reviewer: hirsin
 ROBOTS: NOINDEX
 ---
 
-# The Microsoft identity platform authentication protocols
+# Microsoft identity platform authentication protocols
 
 The Microsoft identity platform supports several of the most widely used authentication and authorization protocols. The topics in this section describe the supported protocols and their implementation in Microsoft identity platform. The topics included a review of supported claim types, an introduction to the use of federation metadata, detailed OAuth 2.0. and SAML 2.0 protocol reference documentation, and a troubleshooting section.
 
@@ -32,5 +32,5 @@ The Microsoft identity platform supports several of the most widely used authent
 
 ## See also
 
-* [The Microsoft identity platform overview](v2-overview.md)
+* [Microsoft identity platform overview](v2-overview.md)
 * [Active Directory Code Samples](sample-v2-code.md)
