@@ -27,7 +27,7 @@ The following is a list of resource requirements for Azure Spring Cloud services
 
 ## Azure Spring Cloud network requirements
 
-  | Destination Endpoint | Port | Use |
+  | Destination Endpoint | Port | Use | Note |
   |------|------|------|
   | *:1194 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:1194 | UDP:1194 | Underlying Kubernetes Cluster management. | |
   | *:443 *Or* [ServiceTag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud service management. | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section. |
@@ -42,7 +42,7 @@ The following is a list of resource requirements for Azure Spring Cloud services
 
 Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernetesService** to simplify the following configurations.
 
-  | Destination FQDN | Port | Use | Note |
+  | Destination FQDN | Port | Use |
   |------|------|------|
   | *.azmk8s.io | HTTPS:443 | Underlying Kubernetes Cluster management. |
   | <i>mcr.microsoft.com</i> | HTTPS:443 | Microsoft Container Registry (MCR). |
