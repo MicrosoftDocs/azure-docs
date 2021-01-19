@@ -96,15 +96,11 @@ Confidential clients are applications that can securely store a client password 
 
 Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. To do this, use the [Refresh Token Max Inactive Time property](#refresh-token-max-inactive-time) (`MaxInactiveTime`). You also can use policies to set a period beyond which the refresh tokens are no longer accepted. To do this, use the [Single-Factor Refresh Token Max Age](#single-factor-session-token-max-age) or [Multi-Factor Session Token Max Age](#multi-factor-refresh-token-max-age) property. You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
 
-<<<<<<< HEAD
-The Max Age property is the length of time a single token can be used. 
-=======
 > [!NOTE]
 > The Max Age property is the length of time a single token can be used. 
 
 ### ID tokens
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with the Microsoft identity platform (either silently or interactively).
->>>>>>> endpoint-v2-standardization
 
 ### Single sign-on session tokens
 When a user authenticates with Microsoft identity platform, a single sign-on session (SSO) is established with the user’s browser and Microsoft identity platform. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
@@ -141,9 +137,6 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 
 ### Configurable policy property details
 
-<<<<<<< HEAD
-#### Refresh Token Max Inactive Time
-=======
 All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 
 > [!NOTE]
@@ -178,7 +171,6 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
 
 ### Refresh Token Max Inactive Time
->>>>>>> endpoint-v2-standardization
 **String:** MaxInactiveTime
 
 **Affects:** Refresh tokens
