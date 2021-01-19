@@ -68,7 +68,7 @@ The following types of files for your LUIS application should be maintained unde
 
 - [Unit Test definition files](luis-concept-devops-testing.md#writing-tests) (utterances and expected results)
 
-- [Batch test files](./luis-concept-batch-test.md#batch-file-format) (utterances and expected results) used for performance testing
+- [Batch test files](./luis-how-to-batch-test.md#batch-file-format) (utterances and expected results) used for performance testing
 
 ### Credentials and keys are not checked in
 
