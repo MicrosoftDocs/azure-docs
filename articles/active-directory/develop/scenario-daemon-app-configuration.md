@@ -1,5 +1,5 @@
 ---
-title: Configure daemon apps that call web APIs - The Microsoft identity platform | Azure
+title: Configure daemon apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to configure the code for your daemon application that calls web APIs (app configuration)
 services: active-directory
 author: jmprieur

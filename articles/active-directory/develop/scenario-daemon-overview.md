@@ -1,5 +1,5 @@
 ---
-title: Build a daemon app that calls web APIs - The Microsoft identity platform | Azure
+title: Build a daemon app that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 author: jmprieur

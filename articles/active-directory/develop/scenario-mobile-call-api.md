@@ -1,6 +1,6 @@
 ---
 title: Call a web API from a mobile app | Azure
-titleSuffix: The Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs. (Call a web API.)
 services: active-directory
 author: jmprieur

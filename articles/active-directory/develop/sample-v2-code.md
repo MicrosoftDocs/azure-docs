@@ -15,7 +15,7 @@ ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# The Microsoft identity platform code samples (v2.0 endpoint)
+# Microsoft identity platform code samples (v2.0 endpoint)
 
 You can use the Microsoft identity platform to:
 

@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform authentication libraries
+title: Microsoft identity platform authentication libraries
 description: Compatible client libraries and server middleware libraries, along with related library, source, and sample links, for the Microsoft identity platform.
 services: active-directory
 author: negoe
@@ -15,7 +15,7 @@ ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ---
 
-# The Microsoft identity platform authentication libraries
+# Microsoft identity platform authentication libraries
 
 The [Microsoft identity platform ](../azuread-dev/azure-ad-endpoint-comparison.md) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Microsoft identity platform. You can also use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
 
