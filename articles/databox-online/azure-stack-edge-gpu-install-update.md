@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -61,11 +61,11 @@ We recommend that you install updates through the Azure portal. The device autom
 
     You can choose to **Download and install** the updates or just **Download** the updates. You can then choose to install these updates later.
 
-    ![Software version after update 2](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)    
+    ![Software version after update 2](./media/azure-stack-edge-gpu-install-update/portal-update-2-a.png)    
 
     If you want to download and install the updates, check the option that updates install automatically after the download completes.
 
-    ![Software version after update 3](./media/azure-stack-edge-gpu-install-update/portal-update-2b.png)
+    ![Software version after update 3](./media/azure-stack-edge-gpu-install-update/portal-update-2-b.png)
 
 3. The download of updates starts. You see a notification that the download is in progress.
 
@@ -163,7 +163,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
    
     The update listing appears as **Azure Stack Edge Update 2101**.
    
-    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
+    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
 4. Select **Download**. There are two files to download with *SoftwareUpdatePackage.exe* and *Kubernetes_Package.exe* suffixes that correspond to device software updates and Kubernetes updates respectively. Download the files to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 
@@ -184,7 +184,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 2. Provide the path to the update file. You can also browse to the update installation file if placed on a network share. Select the software update file with *SoftwareUpdatePackage.exe* suffix.
 
-   ![update device 3](./media/azure-stack-edge-gpu-install-update/local-ui-update-3a.png)
+   ![update device 3](./media/azure-stack-edge-gpu-install-update/local-ui-update-3-a.png)
 
 3. Select **Apply**.
 
