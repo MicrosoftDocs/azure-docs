@@ -97,15 +97,15 @@ appInsights.loadAppInsights();
 
 ### ICustomDataTags
 
-| Name                      | Type    | Default   | Description                                                                                       |
-|---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | false     | When a particular element is not tagged with default customDataPrefix or customDataPrefix is not provided by user, this flag is used to collect standard HTML attribute for contentName. |
-| customDataPrefix          | string  | `data-`   | Automatic capture content name and value of elements that are tagged with provided prefix.       |
-| aiBlobAttributeTag        | string  | `data-ai-blob-` | Plugin supports a JSON blob attribute instead of individual `data-*` attributes. |
-| metaDataPrefix            | string  | null      | Automatic capture HTML Head's meta element name and content with provided prefix. |
-| captureAllMetaDataContent | string  | null      | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled this will override provided metaDataPrefix. |
-| parentDataTag             | string  | null      | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag.|
-| dntDataTag                | string  | `data-ai-dnt-`  | HTML elements with this attribute will be ignored by the plugin for capturing telemetry data.|
+| Name                      | Type    | Default   | Default Tag to Use in HTML |   Description                                                                                |
+|---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
+| useDefaultContentNameOrId | boolean | false     | N/A         |When a particular element is not tagged with default customDataPrefix or customDataPrefix is not provided by user, this flag is used to collect standard HTML attribute for contentName. |
+| customDataPrefix          | string  | `data-`   | `data-*`| Automatic capture content name and value of elements that are tagged with provided prefix. For example, `data-*-id`, `data-<yourcustomattribute>` can be used in the HTML tags.   |
+| aiBlobAttributeTag        | string  | `ai-blob` |  `data-ai-blob`| Plugin supports a JSON blob attribute instead of individual `data-*` attributes. |
+| metaDataPrefix            | string  | null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when capture. For example, `custom-` can be used in the HTML meta tag. |
+| captureAllMetaDataContent | boolean | false     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled this will override provided metaDataPrefix. |
+| parentDataTag             | string  | null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
+| dntDataTag                | string  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute will be ignored by the plugin for capturing telemetry data.|
 
 ### behaviorValidator
 
