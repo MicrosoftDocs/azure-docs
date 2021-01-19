@@ -142,7 +142,7 @@ If you are not receiving Notifications on your *primary email*, then you can try
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function
-Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md#create-a-function-app).
 
 You may have a limited number of Function actions in an Action Group.
 
