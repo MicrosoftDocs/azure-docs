@@ -879,8 +879,6 @@
         href: ./windows/time-sync.md
     - name: Run scripts on a VM
       items:
-      - name: Overview
-        href: ./linux/run-scripts-in-vm.md
       - name: Custom Script Extension
         items:
         - name: Linux

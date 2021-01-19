@@ -35,7 +35,7 @@ You will also need to [create a Log Analytics workspace](../../azure-monitor/lea
 
 ## Set up the environment
 
-You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called myCollectorVM, in the same availability set. 
+You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called `myCollectorVM`, in the same availability set. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -146,7 +146,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](.
 	| project-away RenderedDescription,ReqJson
 	```
 
-1. Select **Save**, and then type ogQuery` for the name, leave **Query** as the type, type `VMLogs` as the **Category**, and then select **Save**. 
+1. Select **Save**, and then type `ogQuery` for the name, leave **Query** as the type, type `VMLogs` as the **Category**, and then select **Save**. 
 
 	![Save the query](./media/notifications/save-query.png)
 
@@ -156,7 +156,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](.
 1. Under **Threshold value**, enter *0* and then select **Done**.
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.
-1. In **Short name**, type **myActionGroup**.
+1. In **Short name**, type *myActionGroup*.
 1. In **Resource group**, select **myResourceGroupAvailability**.
 1. Under Actions, in **ACTION NAME** type **Email**, and then select **Email/SMS/Push/Voice**. The **Email/SMS/Push/Voice** page will open.
 1. Select **Email**, type in your e-mail address, then select **OK**.
