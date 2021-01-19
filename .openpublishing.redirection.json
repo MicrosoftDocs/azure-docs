@@ -5872,6 +5872,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
+      "redirect_url": "/azure/api-management/export-api-power-platform",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/functions/functions-scenario-database-table-cleanup.md",
       "redirect_url": "/azure/azure-functions/functions-scenario-database-table-cleanup",
       "redirect_document_id": false
