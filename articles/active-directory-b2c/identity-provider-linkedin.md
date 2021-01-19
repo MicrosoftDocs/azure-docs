@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a LinkedIn application
 
-To use a LinkedIn account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
+To enable sign-in for users with a LinkedIn account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [LinkedIn Developers website](https://www.developer.linkedin.com/). For more information, see [Authorization Code Flow](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow). If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Sign in to the [LinkedIn Developers website](https://www.developer.linkedin.com/) with your LinkedIn account credentials.
 1. Select **My Apps**, and then click **Create app**.
@@ -228,7 +228,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Add LinkedIn identity provider to a user flow 
 
 1. In your Azure AD B2C tenant, select **User flows**.
-1. Click the user flow that you want to the LinkedIn identity provider.
+1. Click the user flow that you want to add the LinkedIn identity provider.
 1. Under the **Social identity providers**, select **LinkedIn**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.

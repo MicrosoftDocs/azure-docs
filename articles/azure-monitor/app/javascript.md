@@ -261,7 +261,8 @@ Currently, we offer a separate [React plugin](javascript-react-plugin.md), which
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md) |
+| [Angular](javascript-angular-plugin.md)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
 
 ## Explore browser/client-side data
 

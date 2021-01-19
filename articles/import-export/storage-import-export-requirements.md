@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ---

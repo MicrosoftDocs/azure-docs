@@ -202,6 +202,8 @@ For more information about the SQL types that should be used for Azure Cosmos DB
 
 ## Create view
 
+Creating views in the master or default databases is not recommended or supported. So you need to create an user database for your views.
+
 Once you identify the schema, you can prepare a view on top of your Azure Cosmos DB data. You should place your Azure Cosmos DB account key in a separate credential and reference this credential from `OPENROWSET` function. Do not keep your account key in the view definition.
 
 ```sql

@@ -13,7 +13,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -65,10 +65,10 @@ The maximum throughput for a LIF and a single Linux session is between 1.2 and 1
 | 1 TB | 16 MB/sec | 64 MB/sec | 128 MB/sec |
 | 2 TB | 32 MB/sec | 128 MB/sec | 256 MB/sec |
 | 4 TB | 64 MB/sec | 256 MB/sec | 512 MB/sec |
-| 10 TB | 160 MB/sec | 640 MB/sec | 1.280 MB/sec |
-| 15 TB | 240 MB/sec | 960 MB/sec | 1.400 MB/sec |
-| 20 TB | 320 MB/sec | 1.280 MB/sec | 1.400 MB/sec |
-| 40 TB | 640 MB/sec | 1.400 MB/sec | 1.400 MB/sec |
+| 10 TB | 160 MB/sec | 640 MB/sec | 1,280 MB/sec |
+| 15 TB | 240 MB/sec | 960 MB/sec | 1,400 MB/sec |
+| 20 TB | 320 MB/sec | 1,280 MB/sec | 1,400 MB/sec |
+| 40 TB | 640 MB/sec | 1,400 MB/sec | 1,400 MB/sec |
 
 It is important to understand that the data is written to the same SSDs in the storage backend. The performance quota from the capacity pool was created to be able to manage the environment.
 The Storage KPIs are equal for all HANA database sizes. In almost all cases, this assumption does not reflect the reality and the customer expectation. The size of  HANA Systems does not necessarily mean that a small system requires low storage throughput – and a large system requires high storage throughput. But generally we can expect higher throughput requirements for larger HANA database instances. As a result of SAP's sizing rules for the underlying hardware such larger HANA instances also provide more CPU resources and higher parallelism in tasks like loading data after an instances restart. As a result the volume sizes should be adopted to the customer expectations and requirements. And not only driven by pure capacity requirements.

@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/18/2021
 ---
 
 # Understanding the changes in the Root CA change for Azure Database for MySQL
@@ -16,9 +16,7 @@ Azure Database for MySQL will be changing the root certificate for the client ap
 > Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA from October 26th, 2020 till February 15, 2021. We hope this extension provide sufficient lead time for our users to implement the client changes if they are impacted.
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the words _master_ and _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes these as exclusionary words. The words are used in this article for consistency because they are currently the words that appears in the software. When the software is updated to remove the words, this article will be updated to be in alignment.
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## What update is going to happen?
@@ -71,18 +69,20 @@ To avoid your application's availability being interrupted due to certificates
 
   * For .NET (MySQL Connector/NET, MySQLConnector) users, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 
-        ![Azure Database for MySQL .net cert](media/overview/netconnecter-cert.png)
+    :::image type="content" source="media/overview/netconnecter-cert.png" alt-text="Azure Database for MySQL .net cert diagram":::
 
   * For .NET users on Linux using SSL_CERT_DIR, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in the directory indicated by SSL_CERT_DIR. If any certificates don't exist, create the missing certificate file.
 
-  * For other (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) users, you can merge two CA certificate files into the following format:</b>
+  * For other (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift) users, you can merge two CA certificate files into the following format:
 
-     </br>-----BEGIN CERTIFICATE-----
-     </br>(Root CA1: BaltimoreCyberTrustRoot.crt.pem)
-     </br>-----END CERTIFICATE-----
-     </br>-----BEGIN CERTIFICATE-----
-     </br>(Root CA2: DigiCertGlobalRootG2.crt.pem)
-     </br>-----END CERTIFICATE-----
+      ```
+      -----BEGIN CERTIFICATE-----
+      (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      (Root CA2: DigiCertGlobalRootG2.crt.pem)
+      -----END CERTIFICATE-----
+      ```
 
 * Replace the original root CA pem file with the combined root CA file and restart your application/client.
 * In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.

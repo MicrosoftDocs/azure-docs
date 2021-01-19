@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 1/13/2021
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -201,7 +201,7 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
     - If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](./storage-sync-files-firewall-and-proxy.md#firewall) are accessible.
     - If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](./storage-sync-files-firewall-and-proxy.md#proxy).
     - Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
-    - To add cipher suites on the server, use group policy or TLS cmdlets:
+    - If the TLS cipher suite order is configured on the server, you can use group policy or TLS cmdlets to add cipher suites:
         - To use group policy, see [Configuring TLS Cipher Suite Order by using Group Policy](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
         - To use TLS cmdlets, see [Configuring TLS Cipher Suite Order by using TLS PowerShell Cmdlets](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
@@ -912,6 +912,22 @@ This error occurs because Azure File Sync does not support HTTP redirection (3xx
 | **Remediation required** | No |
 
 This error occurs when a data ingestion operation exceeds the timeout. This error can be ignored if sync is making progress (AppliedItemCount is greater than 0). See [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+<a id="-2134375814"></a>**Sync failed because the server endpoint path cannot be found on the server.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (decimal)** | -2134375814 |
+| **Error string** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Remediation required** | Yes |
+
+This error occurs if the directory used as the server endpoint path was renamed or deleted. If the directory was renamed, rename the directory back to the original name and restart the Storage Sync Agent service (FileSyncSvc).
+
+If the directory was deleted, perform the following steps to remove the existing server endpoint and create a new server endpoint using a new path:
+
+1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
