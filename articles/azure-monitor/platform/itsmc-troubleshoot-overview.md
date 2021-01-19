@@ -74,10 +74,10 @@ The list below contain common symptoms and how should it be resolved:
     * Refresh token is expired
     * ITSM Connector was deleted
 
-    **Resolution**: You can check the [dashboard](./platform/itsmc-dashboard.md) and review the errors in the connector status section. Review the [common errors](./platform/itsmc-dashboard-errors.md) and find out how to resolve the error.
+    **Resolution**: You can check the [dashboard](itsmc-dashboard.md) and review the errors in the connector status section. Review the [common errors](itsmc-dashboard-errors.md) and find out how to resolve the error.
 
 * **Symptom**: Unable to create ITSM Action for Action Group
 
     **Cause**:Newly created ITSM Connector has yet to finish the initial Sync.
 
-    **Resolution**: you can review the [common UI errors](./platform/itsmc-dashboard-errors#ui-common-errors.md) and find out how to resolve the error.
+    **Resolution**: you can review the [common UI errors](itsmc-dashboard-errors#ui-common-errors.md) and find out how to resolve the error.
