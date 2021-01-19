@@ -71,7 +71,7 @@ For users who have access to their company's [Azure portal](https://portal.azure
 |I need to enable a Service Principal or other programmatic identity to set up and monitor scans in Azure Purview without allowing the programmatic identity to access the catalog's information |Purview Data Source Administrator Role|
 |I need to put users into roles in Azure Purview | Owner or User Access Administrator |
 
-For more information on how to add a security principal to a role, refer [Quickstart: Create an Azure Purview account](create-catalog-portal.md) .
+For more information on how to add a security principal to a role, refer to [Quickstart: Create an Azure Purview account](create-catalog-portal.md) .
 
 ## Next steps
 
