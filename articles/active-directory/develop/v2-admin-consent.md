@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform admin consent protocols
+title: Microsoft identity platform admin consent protocols
 description: A description of authorization in the Microsoft identity platform, including scopes, permissions, and consent.
 services: active-directory
 author: rwike77

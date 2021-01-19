@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform and OpenID Connect protocol | Azure
+title: Microsoft identity platform and OpenID Connect protocol | Azure
 titleSuffix: Microsoft identity platform
 description: Build web applications by using the Microsoft identity platform implementation of the OpenID Connect authentication protocol.
 services: active-directory
@@ -16,7 +16,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# The Microsoft identity platform and OpenID Connect protocol
+# Microsoft identity platform and OpenID Connect protocol
 
 OpenID Connect (OIDC) is an authentication protocol built on OAuth 2.0 that you can use to securely sign in a user to an application. When you use the Microsoft identity platform's implementation of OpenID Connect, you can add sign-in and API access to your apps. This article shows how to do this independent of language and describes how to send and receive HTTP messages without using any [Microsoft open-source libraries](reference-v2-libraries.md).
 

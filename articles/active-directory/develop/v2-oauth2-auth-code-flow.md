@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform and OAuth 2.0 authorization code flow | Azure
+title: Microsoft identity platform and OAuth 2.0 authorization code flow | Azure
 titleSuffix: Microsoft identity platform
 description: Build web applications using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
@@ -16,7 +16,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# The Microsoft identity platform and OAuth 2.0 authorization code flow
+# Microsoft identity platform and OAuth 2.0 authorization code flow
 
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. Using the Microsoft identity platform implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.
 

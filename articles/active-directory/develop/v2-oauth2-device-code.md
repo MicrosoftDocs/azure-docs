@@ -16,7 +16,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# The Microsoft identity platform and the OAuth 2.0 device authorization grant flow
+# Microsoft identity platform and the OAuth 2.0 device authorization grant flow
 
 The Microsoft identity platform supports the [device authorization grant](https://tools.ietf.org/html/rfc8628), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.
 

@@ -1,5 +1,5 @@
 ---
-title: The Microsoft identity platform UserInfo endpoint | Azure
+title: Microsoft identity platform UserInfo endpoint | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about the UserInfo endpoint on the Microsoft identity platform.
 services: active-directory
@@ -16,7 +16,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# The Microsoft identity platform UserInfo endpoint
+# Microsoft identity platform UserInfo endpoint
 
 The UserInfo endpoint is part of the [OpenID Connect standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) (OIDC), designed to return claims about the user that authenticated.  For the Microsoft identity platform, the UserInfo endpoint is hosted on Microsoft Graph (https://graph.microsoft.com/oidc/userinfo). 
 

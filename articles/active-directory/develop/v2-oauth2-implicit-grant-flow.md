@@ -15,7 +15,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# The Microsoft identity platform and implicit grant flow
+# Microsoft identity platform and implicit grant flow
 
 The Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow as described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). The defining characteristic of the implicit grant is that tokens (ID tokens or access tokens) are returned directly from the /authorize endpoint instead of the /token endpoint. This is often used as part of the [authorization code flow](v2-oauth2-auth-code-flow.md), in what is called the "hybrid flow" - retrieving the ID token on the /authorize request along with an authorization code.
 

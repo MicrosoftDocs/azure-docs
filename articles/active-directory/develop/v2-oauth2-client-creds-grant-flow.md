@@ -15,7 +15,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# The Microsoft identity platform and the OAuth 2.0 client credentials flow
+# Microsoft identity platform and the OAuth 2.0 client credentials flow
 
 You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
 
