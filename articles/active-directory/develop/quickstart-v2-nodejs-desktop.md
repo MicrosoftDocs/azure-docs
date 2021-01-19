@@ -1,0 +1,221 @@
+---
+title: "Quickstart: Call Microsoft Graph from a Node.js desktop app"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how a Node.js Electron desktop application can sign-in users and get an access token to call an API protected by a Microsoft identity platform endpoint
+services: active-directory
+author: derisen
+manager: CelesteDG
+
+ms.service: active-directory
+ms.subservice: develop
+ms.topic: quickstart
+ms.workload: identity
+ms.date: 01/19/2019
+ms.author: derisen
+ms.custom: aaddev, identityplatformtop40
+#Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
+---
+
+# Quickstart: Acquire a token and call Microsoft Graph API from an Electron desktop app
+
+In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and get an access token to call the Microsoft Graph API.
+
+See [How the sample works](#how-the-sample-works) for an illustration.
+
+This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow (w/ PKCE).
+
+> [!IMPORTANT]
+> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+
+## Prerequisites
+
+* [Node.js](https://nodejs.org/en/download/)
+* [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node)
+* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
+* Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+
+> [!div renderon="docs"]
+> ## Register and download your quickstart application
+
+> [!div renderon="docs" class="sxs-lookup"]
+>
+> You have two options to start your quickstart application: Express (Option 1 below), and Manual (Option 2)
+>
+> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### Option 1: Register and auto configure your app and then download your code sample
+>
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/ElectronDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+> 1. Enter a name for your application and select **Register**.
+> 1. Follow the instructions to download and automatically configure your new application with just one click.
+>
+> ### Option 2: Register and manually configure your application and code sample
+>
+> #### Step 1: Register your application
+> To register your application and add the app's registration information to your solution manually, follow these steps:
+>
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `msal-node-desktop`. Users of your app might see this name, and you can change it later.
+> 1. Select **Register** to create the application.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Select **Add a platform** > **Mobile and desktop applications**.
+> 1. In the **Redirect URIs** section, enter `msal://redirect`.
+> 1. Select **Configure**.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure your application in Azure portal
+> For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make this change for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+
+#### Step 2: Download your Electron project
+
+> [!div renderon="docs"]
+> [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
+
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
+> [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
+
+> [!div renderon="docs"]
+> #### Step 3: Configure your Visual Studio project
+>
+> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
+> 1. Edit **.env** and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
+>
+>    ```json
+>    "TENANT_ID": "Enter_the_Tenant_Id_Here",
+>    "CLIENT_ID": "Enter_the_Application_Id_Here"
+>    ```
+>    Where:
+>    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+>    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>
+> > [!TIP]
+> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 4: Run the application
+
+> [!div renderon="docs"]
+> #### Step 5: Run the application
+
+You'll need to install the dependencies of this sample once:
+
+```console
+    npm install
+```
+
+Then, run the application via command prompt or console:
+
+```console
+    npm start
+```
+
+You should see application's UI with a **Sign in** button.
+
+## More information
+
+### How the sample works
+![Shows how the sample app generated by this quickstart works](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
+
+### MSAL Node
+
+[MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. For more information on how to use MSAL Node with desktop apps, see [this article](scenario-desktop-overview.md).
+
+ You can install MSAL Node by running the following npm command.
+
+```console
+npm install @azure/msal-node
+```
+
+### MSAL initialization
+
+You can add the reference for MSAL by adding the following code:
+
+```javascript
+const { PublicClientApplication } = require('@azure/msal-node');
+```
+
+Then, initialize MSAL using the following code:
+
+```javascript
+const MSAL_CONFIG = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
+    },
+};
+
+const pca = new PublicClientApplication(MSAL_CONFIG);
+```
+
+> | Where: |Description |
+> |---------|---------|
+> | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+> | `authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
+
+### Requesting tokens
+
+```javascript
+    async function getTokenInteractive(authWindow, tokenRequest) {
+        
+        const authCodeUrlParams = { 
+            redirectUri: "msal://redirect", 
+            scopes: tokenRequest.scopes 
+        };
+
+        const authCodeUrl = await pca.getAuthCodeUrl(authCodeUrlParams);
+ 
+        const authCode = await this.listenForAuthCode(authCodeUrl, authWindow);
+
+        const authCodeUrlRequest = { 
+            redirectUri: "msal://redirect", 
+            scopes: tokenRequest.scopes,
+            code: authCode 
+        };
+
+        const authResponse = await pca.acquireTokenByCode(authCodeUrlRequest);
+        
+        return authResponse;
+    }
+
+    async function listenForAuthCode(navigateUrl, authWindow) {
+        
+        authWindow.loadURL(navigateUrl);
+
+        return new Promise((resolve, reject) => {
+            authWindow.webContents.on('will-redirect', (event, responseUrl) => {
+                try {
+                    const parsedUrl = new URL(responseUrl);
+                    const authCode = parsedUrl.searchParams.get('code');
+                    resolve(authCode);
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        });
+    }
+```
+
+> |Where:| Description |
+> |---------|---------|
+> | `authWindow` | Current Electron window in process. |
+> | `tokenRequest` | Contains the scopes being requested, such as `{ "User.Read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+
+## Next steps
+
+To learn more about desktop applications, see the scenario landing page
+
+> [!div class="nextstepaction"]
+> [Daemon application that calls web APIs](scenario-desktop-overview.md)
