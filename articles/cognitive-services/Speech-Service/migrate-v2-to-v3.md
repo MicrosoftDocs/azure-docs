@@ -29,15 +29,15 @@ General changes:
 
 1. [Change the host name](#host-name-changes)
 
-2. [Rename the property id to self in your client code](#identity-of-an-entity) 
+1. [Rename the property id to self in your client code](#identity-of-an-entity) 
 
-3. [Change code to iterate over collections of entities](#working-with-collections-of-entities)
+1. [Change code to iterate over collections of entities](#working-with-collections-of-entities)
 
-4. [Rename the property name to displayName in your client code](#name-of-an-entity)
+1. [Rename the property name to displayName in your client code](#name-of-an-entity)
 
-5. [Adjust the retrieval of the metadata of referenced entities](#accessing-referenced-entities)
+1. [Adjust the retrieval of the metadata of referenced entities](#accessing-referenced-entities)
 
-6. If you use Batch transcription: 
+1. If you use Batch transcription: 
 
     * [Adjust code for creating batch transcriptions](#creating-transcriptions) 
 
@@ -45,7 +45,7 @@ General changes:
 
     * [Adjust code for how results are retrieved](#getting-the-content-of-entities-and-the-results)
 
-7. If you use Custom model training/testing APIs: 
+1. If you use Custom model training/testing APIs: 
 
     * [Apply modifications to custom model training](#customizing-models)
 
@@ -53,11 +53,11 @@ General changes:
 
     * [Rename the path segment accuracytests to evaluations in your client code](#accuracy-tests)
 
-8. If you use endpoints APIs:
+1. If you use endpoints APIs:
 
     * [Change how endpoint logs are retrieved](#retrieving-endpoint-logs)
 
-9. Other minor changes: 
+1. Other minor changes: 
 
     * [Pass all custom properties as customProperties instead of properties in your POST requests](#using-custom-properties)
 
