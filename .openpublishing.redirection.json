@@ -37017,6 +37017,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/linux/disk-scalability-targets.md",
+      "redirect_url": "/azure/virtual-machines/disks-scalability-targets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/disk-scalability-targets.md",
+      "redirect_url": "/azure/virtual-machines/disks-scalability-targets",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/disks-benchmarks.md",
       "redirect_url": "/azure/virtual-machines/disks-benchmarks",
       "redirect_document_id": false
