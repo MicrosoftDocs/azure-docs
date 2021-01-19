@@ -19,8 +19,8 @@ ms.author: jeedes
 In this tutorial, you'll learn how to integrate Splan Visitor with Azure Active Directory (Azure AD). When you integrate Splan Visitor with Azure AD, you can:
 
 * Use Azure AD to control who has access to Splan Visitor.
-* Enable users to be automatically signed-in to Splan Visitor with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Enable users to be automatically signed in to Splan Visitor with their Azure AD accounts.
+* Manage your accounts in one central location, the Azure portal.
 
 ## Prerequisites
 
@@ -33,14 +33,14 @@ To get started, you need:
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-Splan Visitor supports IdP initiated SSO.
+Splan Visitor supports IdP-initiated SSO.
 
 ## Add Splan Visitor from the gallery
 
 To configure the integration of Splan Visitor into Azure AD, add Splan Visitor from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal by using a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
+1. On the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, enter **Splan Visitor** in the search box.
@@ -61,21 +61,21 @@ To configure and test Azure AD SSO with Splan Visitor, perform the following ste
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. In the Azure portal, on the **Splan Visitor** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the **edit/pen** icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, select the **edit/pen** icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot highlighting the edit/pen icon for Basic SAML Configuration.](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are pre-populated with Azure. Click the **Save** button to save the configuration.
+1. In the **Basic SAML Configuration** section, the application is preconfigured and the necessary URLs are prepopulated with Azure. Select the **Save** button to save the configuration.
 
-1. On the **Set up Single Sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it to your computer.
+1. On the **Set up Single Sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML**. Select **Download** to download the certificate and save it to your computer.
 
 	![Screenshot highlighting the Federation Metadata XML download link.](common/metadataxml.png)
 
-1. On the **Set up Splan Visitor** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Splan Visitor** section, copy the appropriate URL or URLs based on your requirement.
 
 	![Screenshot highlighting the configuration URLs section.](common/copy-configuration-urls.png)
 
@@ -87,9 +87,9 @@ In this section, you'll create a test user named B.Simon in the Azure portal.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter **B.Simon**.  
-   1. In the **User name** field, enter your username in _username@companydomain.extension_ format. For example, **B.Simon@contoso.com**.
+   1. In the **User name** field, enter your username in _username@companydomain.extension_ format. For example, enter **B.Simon@contoso.com**.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -99,9 +99,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Splan Visitor** to open the app overview.
 1. Find the **Manage** section, and then select **Users and groups**.
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-1. In the **Users and groups** dialog, select **B.Simon** from the **Users** list, and then select **Select** at the bottom of the screen.
+1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list, and then click **Select** at the bottom of the screen.
 1. If the user will be assigned a role, select it from the **Select a role** drop-down menu. If no role has been set up for this app, leave the **Default Access** role selected.
-1. In the **Add Assignment** dialog, select **Assign**.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure Splan Visitor SSO
 
@@ -111,13 +111,13 @@ To configure single sign-on with Splan Visitor, send the **Federation Metadata X
 
 Create a test user named **Britta Simon** in Splan Visitor. Work with the [Splan Visitor support team](mailto:support@splan.com) to add the user to Splan Visitor. You must create and activate the user before you use single sign-on.
 
-## Test SSO 
+## Test SSO
 
 Test your Azure AD single sign-on configuration with one of the following options:
 
-* **Azure portal**: Click **Test this application** to automatically sign in to the Splan Visitor for which you set up SSO.
-* **Microsoft My Apps portal**: Click the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Azure portal**: Select **Test this application** to automatically sign in to the Splan Visitor for which you set up SSO.
+* **Microsoft My Apps portal**: Select the **Splan Visitor** tile to automatically sign in to the Splan Visitor for which you set up SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
-Enforce session controls, which protect against exfiltration and infiltration of your organization’s sensitive data in real time. Configure session controls in [Microsoft Cloud App Security Conditional Access App Control](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Enforce session controls, which protect against exfiltration and infiltration of your organization's sensitive data in real time. Configure session controls in [Microsoft Cloud App Security Conditional Access App Control](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
