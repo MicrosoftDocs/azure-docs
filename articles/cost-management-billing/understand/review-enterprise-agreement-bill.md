@@ -150,7 +150,7 @@ Some reasons for differences in pricing:
 
 ## Request detailed usage information
 
-Enterprise administrators can view a summary of their usage data, Azrue Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, Azure Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
 To view detailed usage in specific accounts, download the usage detail report by going to **Reports** > **Download Usage**.
 

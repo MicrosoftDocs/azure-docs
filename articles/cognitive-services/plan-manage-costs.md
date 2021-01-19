@@ -58,7 +58,7 @@ After you delete QnA Maker resources, the following resources might continue to 
 
 ### Using Azure Prepayment credit with Cognitive Services
 
-You can pay for Cognitive Services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azrue Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Cognitive Services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Create budgets
 
