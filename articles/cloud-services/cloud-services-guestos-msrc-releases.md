@@ -10,12 +10,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/15/2021
+ms.date: 1/18/2021
 ms.author: yohaddad
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## January 2021 Guest OS
+">[!NOTE]
+>The January Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change."
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-01 |  [4598230]  |  Latest Cumulative Update (LCU) | 6.27 | Jan 12, 2021 |
+|  Rel 21-01 |  [4580325]  |  Flash update | 3.93, 4.86, 5.51, 6.27 | Oct 13, 2020 |
+|  Rel 21-01 |  [4586768]  |  IE Cumulative Updates | 2.106, 3.93, 4.86 | Nov 10, 2020 |
+|  Rel 21-01 |  [4598243]  |  Latest Cumulative Update (LCU) | 5.51 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | 2.106 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.106 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | 4.86 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.86 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | 3.93 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2 Security and Quality Rollup | 3.93 | Jan 12, 2021 |
+|  Rel 21-01 |  [4578966]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | 6.27 | Oct 13, 2020 |
+|  Rel 21-01 |  [4598279]  |  Monthly Rollup | 2.106 | Jan 12, 2020 |
+|  Rel 21-01 |  [4598278]  |  Monthly Rollup | 3.93 | Jan 12, 2020 |
+|  Rel 21-01 |  [4598285]  |  Monthly Rollup | 4.86 | Jan 12, 2020 |
+|  Rel 21-01 |  [4566426]  |  Servicing Stack update | 3.93 | Jul 14, 2020 |
+|  Rel 21-01 |  [4566425]  |  Servicing Stack update | 4.86 | Jul 14, 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Standalone Security Update | 4.86 | Aug 19, 2020 |
+|  Rel 21-01 |  [4576750]  |  Servicing Stack update | 5.51 | Sep 8, 2020 |
+|  Rel 21-01 |  [4592510]  |  Servicing Stack update | 2.106 | Dec 8, 2020 |
+|  Rel 21-01 |  [4598480]  |  Servicing Stack update | 6.27 | Jan 12, 2021 |
+|  Rel 21-01 |  [4494175]  |  Microcode | 5.51 | Sep 1, 2020 |
+|  Rel 21-01 |  [4494174]  |  Microcode | 6.27 | Sep 3, 2020 |
+
+[4598230]: https://support.microsoft.com/kb/4598230
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4598243]: https://support.microsoft.com/kb/4598243
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4598279]: https://support.microsoft.com/kb/4598279
+[4598278]: https://support.microsoft.com/kb/4598278
+[4598285]: https://support.microsoft.com/kb/4598285
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4598480]: https://support.microsoft.com/kb/4598480
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## December 2020 Guest OS
 
