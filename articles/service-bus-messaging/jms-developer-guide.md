@@ -96,6 +96,7 @@ A session can be created with any of the below modes.
 |**Session.DUPS_OK_ACKNOWLEDGE**|This acknowledgment mode instructs the session to lazily acknowledge the delivery of messages.| 
 |**Session.SESSION_TRANSACTED**|This value may be passed as the argument to the method createSession(int sessionMode) on the Connection object to specify that the session should use a local transaction.| 
 
+When the session mode is not specified, the **Session.AUTO_ACKNOWLEDGE** is picked by default.
 
 ### JMSContext
 
@@ -111,12 +112,79 @@ JMSContext context = connectionFactory.createContext();
 
 #### JMSContext modes
 
-Just like the **Session** object, the JMSContext can be created with the same acknowledge modes as mentioned in [Session modes](#session-modes)
+Just like the **Session** object, the JMSContext can be created with the same acknowledge modes as mentioned in [Session modes](#session-modes).
 
-### JMS Message Producers
+```java
+JMSContext context = connectionFactory.createContext(JMSContext.AUTO_ACKNOWLEDGE);
+```
+
+When the mode is not specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
+
+### Message Producers
+
+A message producer is an object that is created using a JMSContext or a Session and used for sending messages to a destination.
+
+It can be created either as a stand alone object as below - 
+
+```java
+JMSProducer producer = context.createProducer();
+```
+
+or created at runtime when a message is needed to be sent.
+
+```java
+context.createProducer().send(destination, message);
+```
 
 ### JMS Message Consumers
 
+A message consumer is an object that is created by a JMSContext or a Session and used for receiving messages sent to a destination. It can be created as shown below -
 
-### JMS Message Listeners
+```java
+JMSConsumer consumer = context.createConsumer(dest);
+```
 
+#### Synchronous receives via receive() method
+
+The message consumer provides a synchronous way to receive messages from the destination through the `receive()` method.
+
+If no arguments/timeout is specified or a timeout of '0' is specified, then the consumer blocks indefinitely unless the message arrives, or the connection is broken (whichever is earlier).
+
+```java
+Message m = consumer.receive();
+Message m = consumer.receive(0);
+```
+
+When a non-zero positive argument is provided, the consumer blocks until that timer expires.
+
+```java
+Message m = consumer.receive(1000); // time out after one second.
+```
+
+#### Asynchronous receives with JMS Message Listeners
+
+A message listener is an object that is used for asynchronous handling of messages on a destination. It implements the `MessageListener` interface which contains the `onMessage` method where the specific business logic must live.
+
+A message listener object must be instantiated and registered against a specific message consumer using the `setMessageListener` method.
+
+```java
+Listener myListener = new Listener();
+consumer.setMessageListener(myListener);
+```
+
+
+
+## Summary
+
+This developer guide showcased how Java client applications using Java Message Service (JMS) can connect with Azure Service Bus.
+
+## Next steps
+
+For more information on Azure Service Bus and details about Java Message Service (JMS) entities, check out the links below - 
+* [Service Bus - Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md)
+* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
+* [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
+* [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
+* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [Java Message Service API(external Oracle doc)](https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html)
+* [Learn how to migrate from ActiveMQ to Service Bus](migrate-jms-activemq-to-servicebus.md)
