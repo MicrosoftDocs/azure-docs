@@ -91,10 +91,10 @@ Verify that your organizational security policy allows access to the following:
 
 | **Purpose** | **Protocol** | **Transport** | **In or out** | **Port** | **Category** |
 | ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Access to the web console** | HTTPS | TCP | In or out | 443 | On-premises management console for the Defender for IoT platform |
+| **Access to the web console** | HTTPS | TCP | In or out | 443 | On-premises management console |
 | **Access to the CLI** | SSH | TCP | In or out | 22 | CLI |
 | **Connection between the Defender for IoT platform and the on-premises management console** | SSL | TCP | In or out | 443 | Sensor and on-premises management console|
-| **On-premises management console used as NTP to the sensor** | NTP | UDP| In to CM | 123 | Time sync | 
+| **On-premises management console used as NTP to the sensor** | NTP | UDP| In to on-premises management console | 123 | Time sync | 
 | **Sensor connected to external NTP server (if relevant)** | NTP | UDP | In or out| 123 | Time sync |
 | **Connection between the Defender for IoT platform and management platform and the mail server (if relevant)** | SMTP | TCP | Out of sensor management | 25 | Email |
 | **Logs that send from the on-premises management console to the Syslog server (if relevant)** | Syslog | UDP | Out of sensor management| 514 | LEEF |
@@ -103,7 +103,7 @@ Verify that your organizational security policy allows access to the following:
 | **Remote SNMP collectors (if relevant)** | SNMP | UDP | Out of sensor management| 161 | Monitoring |
 | **Windows endpoint monitoring (if relevant)** | WMI | UDP | Out of sensor management| 135 | Monitoring |
 | **Windows endpoint monitoring (if relevant)** | WMI | TCP | Out of sensor management| 1024 and above | Monitoring |
-| **Tunneling (if relevant)** | Tunneling | TCP | IN to CM | 9000<br />in addition to port 443<br />From the end user to the on-premises management console <br />Port 22 from the sensor to the on-premises management console | Monitoring |
+| **Tunneling (if relevant)** | Tunneling | TCP | IN to on-premises management console | 9000<br />in addition to port 443<br />From the end user to the on-premises management console <br />Port 22 from the sensor to the on-premises management console | Monitoring |
 | **Outbound to the Defender for IoT hub** | HTTPS | TCP | Out of sensor management| **URL**<br />*.azure-devices.net:443<br />or if wildcards are not supported<br />{your IoT hub name}.azure-devices.net:443 |
 
 ### Planning rack installation
@@ -685,7 +685,7 @@ Provide address details for the sensor NIC that will be connected in the corpora
 | Secret key | |
 | SNMP v2 community string |
 
-### CM SSL certificate
+### On-premises management console SSL certificate
 
 Are you planning to use an SSL certificate? Yes or No
 
