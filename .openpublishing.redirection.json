@@ -34577,6 +34577,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-monitor-storage-account.md",
+      "redirect_url": "/azure/storage/common/manage-storage-analytics-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage",
       "redirect_document_id": true
