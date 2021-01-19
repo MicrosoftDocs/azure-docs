@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 01/19/2021
 ---
 
 # Event Hubs frequently asked questions
@@ -51,7 +51,10 @@ You can configure the retention period for the captured data on your storage acc
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store customer data?
-Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+In all regions (except Brazil South and Southeast Asia), Azure Event Hubs data is stored and replicated in the paired region to protect against metadata loss. During regional datacenter failures, Microsoft may initiate a regional failover of your Azure Even Hubs namespace. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you will be able to access your Azure Event Hubs namespaces in the failover region.
+
+Due to data residency requirements in Brazil South, and Southeast Asia, Azure Event Hubs data is stored on local region only. For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft will not be able to recover your Azure Event Hubs data.
+
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 

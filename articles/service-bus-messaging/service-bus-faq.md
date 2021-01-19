@@ -2,7 +2,7 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 01/10/2021
 ---
 
 # Azure Service Bus - Frequently asked questions (FAQ)
@@ -31,7 +31,10 @@ Ordering isn't ensured when using partitioned entities. In the event that a part
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
 ### <a name="in-region-data-residency"></a>Where does Azure Service Bus store customer data?
-Azure Service Bus stores customer data. This data is automatically stored by Service Bus in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+In all regions (except Brazil South and Southeast Asia), Azure Service Bus data is stored and replicated in the paired region to protect against metadata loss. During regional datacenter failures, Microsoft may initiate a regional failover of your Azure Service Bus namespace. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you will be able to access your Azure Service Bus namespaces in the failover region.
+
+Due to data residency requirements in Brazil South, and Southeast Asia, Azure Service Bus data is stored on local region only. For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft will not be able to recover your Azure Service Bus data.
+
 
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
