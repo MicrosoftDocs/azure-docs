@@ -17487,6 +17487,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/azure-defender/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
