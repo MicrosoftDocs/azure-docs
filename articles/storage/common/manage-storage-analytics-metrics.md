@@ -24,9 +24,9 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
-<a id="Enable-metrics-test"></a>
+<a id="Enable-metrics"></a>
 
-## Enable metrics test
+## Enable metrics
 
 The [Azure portal](https://portal.azure.com) doesn't currently enable you to configure minute metrics in your storage account. You must enable minute metrics by using PowerShell or programmatically.
 
@@ -56,10 +56,6 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
 > Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](storage-analytics-metrics.md#how-metrics-are-stored).
-
-### [Azure CLI](#tab/azure-cli)
-
-Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -119,13 +115,9 @@ For general information about configuring storage metrics by using the REST API,
 
 ---
 
-<a id="view-metrics-test"></a>
+<a id="view-metrics"></a>
 
-## View metrics in a chart test
-
-Put something here.
-
-### View metrics in a chart test
+## View metrics in a chart
 
 After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure portal](https://portal.azure.com).
 
@@ -149,20 +141,20 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
 Your chart settings do not affect the collection, aggregation, or storage of monitoring data in the storage account.
 
-##### Metrics availability in charts test
+#### Metrics availability in charts
 
 The list of available metrics changes based on which service you've chosen in the drop-down, and the unit type of the chart you're editing. For example, you can select percentage metrics like *PercentNetworkError* and *PercentThrottlingError* only if you're editing a chart that displays units in percentage:
 
 ![Request error percentage chart in the Azure portal](./media/manage-storage-analytics-metrics/stg-customize-chart-04.png)
 
-##### Metrics resolution test
+#### Metrics resolution
 
 The metrics you selected in **Diagnostics** determines the resolution of the metrics that are available for your account:
 
 * **Aggregate** monitoring provides metrics such as ingress/egress, availability, latency, and success percentages. These metrics are aggregated from the blob, table, file, and queue services.
 * **Per API** provides finer resolution, with metrics available for individual storage operations, in addition to the service-level aggregates.
 
-### Download metrics to archive or analyze locally test
+## Download metrics to archive or analyze locally
 
 If you want to download the metrics for long-term storage or to analyze them locally, you must use a tool or write some code to read the tables. You must download the minute metrics for analysis. The tables don't appear if you list all the tables in your storage account, but you can access them directly by name. Many storage-browsing tools are aware of these tables and enable you to view them directly. For a list of available tools, see [Azure Storage client tools](./storage-explorers.md).
 
@@ -188,7 +180,7 @@ In this example of minute metrics data, the partition key uses the time at minut
 
 This sample data shows all the records for a single minute (starting at 11:00AM), so the number of **QueryEntities** requests plus the number of **QueryEntity** requests plus the number of **UpdateEntity** requests adds up to seven. This total is shown in the **user:All** row. Similarly, you can derive the average end-to-end latency 104.4286 on the **user:All** row by calculating ((143.8 * 5) + 3 + 9)/7.  
 
-### View metrics data programmatically test 
+## View metrics data programmatically
 
 The following listing shows sample C# code that accesses the minute metrics for a range of minutes and displays the results in a console window. The code sample uses the Azure Storage client library version 4.x or later, which includes the **CloudAnalyticsClient** class that simplifies accessing the metrics tables in storage. 
 
@@ -236,11 +228,9 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
  return entityString;  
 }  
 ```  
-<a id="create-metric-alerts-test"></a>
+<a id="create-metric-alerts"></a>
 
-## Create metrics alerts test
-
-### [Portal](#tab/azure-portal)
+## Create metrics alerts
 
 You can create alerts to notify you when thresholds have been reached for storage resource metrics.
 
@@ -253,23 +243,9 @@ You can create alerts to notify you when thresholds have been reached for storag
 
 !['Add an alert rule' blade in the Azure portal](./media/manage-storage-analytics-metrics/add-alert-rule.png)
 
-### [Azure CLI](#tab/azure-cli)
+<a id="add-metrics-to-dashboard"></a>
 
-Put something here.
-
-### [PowerShell](#tab/azure-powershell)
-
-Put something here.
-
-### [.NET](#tab/dotnet)
-
-Put something here.
-
----
-
-<a id="add-metrics-to-dashboard-test"></a>
-
-## Add metrics charts to the portal dashboard test
+## Add metrics charts to the portal dashboard
 
 You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
 

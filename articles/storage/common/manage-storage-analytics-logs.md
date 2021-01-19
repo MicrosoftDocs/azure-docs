@@ -35,20 +35,16 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 1. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
 
-    ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
+    ![Diagnostics menu item under MONITORING in the Azure portal.](./media/manage-storage-analytics-logs/storage-enable-metrics-00.png)
 
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
-    ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
+    ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 1. Click **Save**.
 
 The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
 For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
-
-### [Azure CLI](#tab/azure-cli)
-
-Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
