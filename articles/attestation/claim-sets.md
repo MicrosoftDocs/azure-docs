@@ -123,7 +123,7 @@ maa-attestationcollateral | x-ms-sgx-collateral
 - **enclaveAuthorId**:  String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave.
 - **enclaveImageId**:  String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave.
 - **enclaveOwnerId**:  String value containing the Base64Url encoded value of the enclave Owner id-The identifier of the owner for the enclave.
-- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the enclave Family id. The family identifier of the primary module for the enclave.
+- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the enclave Family ID. The family identifier of the primary module for the enclave.
 - **enclaveSvn**:  Integer value containing the security version number of the primary module for the enclave.
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave.
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave.
