@@ -154,155 +154,153 @@ A cluster is a collection of Databricks computation resources. To create a clust
 
 Now you're ready to add Python notebooks. First, create a notebook called **Settings**; this notebook will assign the values in your parameterization table to variables in the script. The values will later be passed in as parameters by Azure Data Factory. We'll also assign values from the secrets in the Key Vault to variables. 
 
-To create the **Settings** notebook, click on the **workspace** button, in the new tab, click on the dropdown list and select **create** and then **notebook**.
+1. To create the **Settings** notebook, click on the **workspace** button, in the new tab, click on the dropdown list and select **create** and then **notebook**.
+1. In the pop-up window, enter the name you want to give to the notebook and select **Python** as default language. Select your Databricks cluster, and select **Create**.
+1. In the first notebook cell, we retrieve the parameters passed by Azure Data Factory.
 
-In the pop-up window, enter the name you want to give to the notebook and select **Python** as default language. Select your Databricks cluster, and select **Create**.
+    ```python 
+    dbutils.widgets.text("form_batch_group_id", "","")
+    dbutils.widgets.get("form_batch_group_id")
+    form_batch_group_id = getArgument("form_batch_group_id")
+    
+    dbutils.widgets.text("model_id", "","")
+    dbutils.widgets.get("model_id")
+    model_id = getArgument("model_id")
+    
+    dbutils.widgets.text("training_container_name", "","")
+    dbutils.widgets.get("training_container_name")
+    training_container_name = getArgument("training_container_name")
+    
+    dbutils.widgets.text("training_blob_root_folder", "","")
+    dbutils.widgets.get("training_blob_root_folder")
+    training_blob_root_folder=  getArgument("training_blob_root_folder")
+    
+    dbutils.widgets.text("scoring_container_name", "","")
+    dbutils.widgets.get("scoring_container_name")
+    scoring_container_name=  getArgument("scoring_container_name")
+    
+    dbutils.widgets.text("scoring_input_blob_folder", "","")
+    dbutils.widgets.get("scoring_input_blob_folder")
+    scoring_input_blob_folder=  getArgument("scoring_input_blob_folder")
+    
+    
+    dbutils.widgets.text("file_type", "","")
+    dbutils.widgets.get("file_type")
+    file_type = getArgument("file_type")
+    
+    dbutils.widgets.text("file_to_score_name", "","")
+    dbutils.widgets.get("file_to_score_name")
+    file_to_score_name=  getArgument("file_to_score_name")
+    ```
 
-In the first notebook cell, we retrieve the parameters passed by Azure Data Factory.
+1. In the second cell, we retrieve secrets from Key Vault and assign them to variables.
 
-```python 
-dbutils.widgets.text("form_batch_group_id", "","")
-dbutils.widgets.get("form_batch_group_id")
-form_batch_group_id = getArgument("form_batch_group_id")
-
-dbutils.widgets.text("model_id", "","")
-dbutils.widgets.get("model_id")
-model_id = getArgument("model_id")
-
-dbutils.widgets.text("training_container_name", "","")
-dbutils.widgets.get("training_container_name")
-training_container_name = getArgument("training_container_name")
-
-dbutils.widgets.text("training_blob_root_folder", "","")
-dbutils.widgets.get("training_blob_root_folder")
-training_blob_root_folder=  getArgument("training_blob_root_folder")
-
-dbutils.widgets.text("scoring_container_name", "","")
-dbutils.widgets.get("scoring_container_name")
-scoring_container_name=  getArgument("scoring_container_name")
-
-dbutils.widgets.text("scoring_input_blob_folder", "","")
-dbutils.widgets.get("scoring_input_blob_folder")
-scoring_input_blob_folder=  getArgument("scoring_input_blob_folder")
-
-
-dbutils.widgets.text("file_type", "","")
-dbutils.widgets.get("file_type")
-file_type = getArgument("file_type")
-
-dbutils.widgets.text("file_to_score_name", "","")
-dbutils.widgets.get("file_to_score_name")
-file_to_score_name=  getArgument("file_to_score_name")
-```
-
-In the second cell, we retrieve secrets from Key Vault and assign them to variables.
-
-```python 
-cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
-cognitive_service_endpoint = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveServiceEndpoint")
-
-training_storage_account_name = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountName")
-storage_account_sas_key= dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountSasKey")  
-
-ScoredFile = file_to_score_name+ "_output.json"
-training_storage_account_url="https://"+training_storage_account_name+".blob.core.windows.net/"+training_container_name+storage_account_sas_key 
-```
-
-Now that we've completed the **Settings** notebook, we can create a notebook to train the model. As mentioned above, we will use files stored in a folder in an Azure Data Lake Gen 2 storage account (**training_blob_root_folder**). The folder name has been passed in as a variable. Each set of form types will be in the same folder and, as we loop over the parameter table, we'll train the model using all of the form types. 
+    ```python 
+    cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
+    cognitive_service_endpoint = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveServiceEndpoint")
+    
+    training_storage_account_name = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountName")
+    storage_account_sas_key= dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountSasKey")  
+    
+    ScoredFile = file_to_score_name+ "_output.json"
+    training_storage_account_url="https://"+training_storage_account_name+".blob.core.windows.net/"+training_container_name+storage_account_sas_key 
+    ```
 
 ### Write a training notebook
 
-Next, create a new notebook called **TrainFormRecognizer**. The first step is to execute the Settings notebook:
+Now that we've completed the **Settings** notebook, we can create a notebook to train the model. As mentioned above, we will use files stored in a folder in an Azure Data Lake Gen 2 storage account (**training_blob_root_folder**). The folder name has been passed in as a variable. Each set of form types will be in the same folder and, as we loop over the parameter table, we'll train the model using all of the form types. 
 
-```python
-%run "./Settings"
-```
+1. Create a new notebook called **TrainFormRecognizer**. 
+1. In the first cell, execute the Settings notebook:
 
-In the next cell, assign variables from the **Settings** file, and dynamically train the model for each form type, applying the code in the [REST quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md#get-training-results%20).
+    ```python
+    %run "./Settings"
+    ```
 
-```python
-import json
-import time
-from requests import get, post
+1. In the next cell, assign variables from the **Settings** file, and dynamically train the model for each form type, applying the code in the [REST quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md#get-training-results%20).
 
-post_url = cognitive_service_endpoint + r"/formrecognizer/v2.0/custom/models"
-source = training_storage_account_url
-prefix= training_blob_root_folder
-
-includeSubFolders=True
-useLabelFile=False
-headers = {
-    # Request headers
-    'Content-Type': file_type,
-    'Ocp-Apim-Subscription-Key': cognitive_service_subscription_key,
-}
-body =     {
-    "source": source
-    ,"sourceFilter": {
-        "prefix": prefix,
-        "includeSubFolders": includeSubFolders
-   },
-}
-if model_id=="-1": # if you don't already have a model you want to retrain. In this case, we create a model and use it to extract the key-value pairs
-  try:
-      resp = post(url = post_url, json = body, headers = headers)
-      if resp.status_code != 201:
-          print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
+    ```python
+    import json
+    import time
+    from requests import get, post
+    
+    post_url = cognitive_service_endpoint + r"/formrecognizer/v2.0/custom/models"
+    source = training_storage_account_url
+    prefix= training_blob_root_folder
+    
+    includeSubFolders=True
+    useLabelFile=False
+    headers = {
+        # Request headers
+        'Content-Type': file_type,
+        'Ocp-Apim-Subscription-Key': cognitive_service_subscription_key,
+    }
+    body =     {
+        "source": source
+        ,"sourceFilter": {
+            "prefix": prefix,
+            "includeSubFolders": includeSubFolders
+       },
+    }
+    if model_id=="-1": # if you don't already have a model you want to retrain. In this case, we create a model and use it to extract the key-value pairs
+      try:
+          resp = post(url = post_url, json = body, headers = headers)
+          if resp.status_code != 201:
+              print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
+              quit()
+          print("POST model succeeded:\n%s" % resp.headers)
+          get_url = resp.headers["location"]
+          model_id=get_url[get_url.index('models/')+len('models/'):]     
+          
+      except Exception as e:
+          print("POST model failed:\n%s" % str(e))
           quit()
-      print("POST model succeeded:\n%s" % resp.headers)
-      get_url = resp.headers["location"]
-      model_id=get_url[get_url.index('models/')+len('models/'):]     
-      
-  except Exception as e:
-      print("POST model failed:\n%s" % str(e))
-      quit()
-else :# if you already have a model you want to retrain, we reuse it and (re)train with the new form types.  
-  try:
-    get_url =post_url+r"/"+model_id
-      
-  except Exception as e:
-      print("POST model failed:\n%s" % str(e))
-      quit()
-```
+    else :# if you already have a model you want to retrain, we reuse it and (re)train with the new form types.  
+      try:
+        get_url =post_url+r"/"+model_id
+          
+      except Exception as e:
+          print("POST model failed:\n%s" % str(e))
+          quit()
+    ```
 
-The final step in the training process is to get the training result in a json format.
+1. The final step in the training process is to get the training result in a json format.
 
-```python
-n_tries = 10
-n_try = 0
-wait_sec = 5
-max_wait_sec = 5
-while n_try < n_tries:
-    try:
-        resp = get(url = get_url, headers = headers)
-        resp_json = resp.json()
-        print (resp.status_code)
-        if resp.status_code != 200:
-            print("GET model failed (%s):\n%s" % (resp.status_code, json.dumps(resp_json)))
+    ```python
+    n_tries = 10
+    n_try = 0
+    wait_sec = 5
+    max_wait_sec = 5
+    while n_try < n_tries:
+        try:
+            resp = get(url = get_url, headers = headers)
+            resp_json = resp.json()
+            print (resp.status_code)
+            if resp.status_code != 200:
+                print("GET model failed (%s):\n%s" % (resp.status_code, json.dumps(resp_json)))
+                n_try += 1
+                quit()
+            model_status = resp_json["modelInfo"]["status"]
+            print (model_status)
+            if model_status == "ready":
+                print("Training succeeded:\n%s" % json.dumps(resp_json))
+                n_try += 1
+                quit()
+            if model_status == "invalid":
+                print("Training failed. Model is invalid:\n%s" % json.dumps(resp_json))
+                n_try += 1
+                quit()
+            # Training still running. Wait and retry.
+            time.sleep(wait_sec)
             n_try += 1
+            wait_sec = min(2*wait_sec, max_wait_sec)     
+            print (n_try)
+        except Exception as e:
+            msg = "GET model failed:\n%s" % str(e)
+            print(msg)
             quit()
-        model_status = resp_json["modelInfo"]["status"]
-        print (model_status)
-        if model_status == "ready":
-            print("Training succeeded:\n%s" % json.dumps(resp_json))
-            n_try += 1
-            quit()
-        if model_status == "invalid":
-            print("Training failed. Model is invalid:\n%s" % json.dumps(resp_json))
-            n_try += 1
-            quit()
-        # Training still running. Wait and retry.
-        time.sleep(wait_sec)
-        n_try += 1
-        wait_sec = min(2*wait_sec, max_wait_sec)     
-        print (n_try)
-    except Exception as e:
-        msg = "GET model failed:\n%s" % str(e)
-        print(msg)
-        quit()
-print("Train operation did not complete within the allocated time.")
-
-```
+    print("Train operation did not complete within the allocated time.")
+    ```
 
 ## Extract form data using a notebook
 
@@ -312,149 +310,151 @@ The next step is to score the different forms we have using the trained model. W
 
 Just like in the training stage, we'll use Azure Data Factory to invoke the extraction of the key-value pairs from the forms. We'll loop over the forms in the folders specified in the parameter table.
 
-Let's create the notebook to mount the storage account in Databricks. We'll call it **MountDataLake**. You'll need to call the **Settings** notebook first:
+1. Let's create the notebook to mount the storage account in Databricks. We'll call it **MountDataLake**. 
+1. You'll need to call the **Settings** notebook first:
 
-```
-%run "./Settings"
-```
+    ```python
+    %run "./Settings"
+    ```
 
-In the second cell, we'll define variables for the sensitive parameters, which we'll retrieve from our Key Vault secrets.
+1. In the second cell, we'll define variables for the sensitive parameters, which we'll retrieve from our Key Vault secrets.
 
-```python
-cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
-cognitive_service_endpoint = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveServiceEndpoint")
+    ```python
+    cognitive_service_subscription_key = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveserviceSubscriptionKey")
+    cognitive_service_endpoint = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "CognitiveServiceEndpoint")
+    
+    scoring_storage_account_name = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountName")
+    scoring_storage_account_sas_key= dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountSasKey")  
+    
+    scoring_mount_point = "/mnt/"+scoring_container_name 
+    scoring_source_str = "wasbs://{container}@{storage_acct}.blob.core.windows.net/".format(container=scoring_container_name, storage_acct=scoring_storage_account_name) 
+    scoring_conf_key = "fs.azure.sas.{container}.{storage_acct}.blob.core.windows.net".format(container=scoring_container_name, storage_acct=scoring_storage_account_name)
+    
+    ```
 
-scoring_storage_account_name = dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountName")
-scoring_storage_account_sas_key= dbutils.secrets.get(scope = "FormRecognizer_SecretScope", key = "StorageAccountSasKey")  
+1. Next, we'll try to unmount the storage account in case it was previously mounted.
 
-scoring_mount_point = "/mnt/"+scoring_container_name 
-scoring_source_str = "wasbs://{container}@{storage_acct}.blob.core.windows.net/".format(container=scoring_container_name, storage_acct=scoring_storage_account_name) 
-scoring_conf_key = "fs.azure.sas.{container}.{storage_acct}.blob.core.windows.net".format(container=scoring_container_name, storage_acct=scoring_storage_account_name)
+    ```python
+    try:
+      dbutils.fs.unmount(scoring_mount_point) # Use this to unmount as needed
+    except:
+      print("{} already unmounted".format(scoring_mount_point))
+    
+    ```
 
-```
-
-Next, we'll try to unmount the storage account in case it was previously mounted.
-
-
-```python
-try:
-  dbutils.fs.unmount(scoring_mount_point) # Use this to unmount as needed
-except:
-  print("{} already unmounted".format(scoring_mount_point))
-
-```
-
-Finally, we'll mount the storage account.
+1. Finally, we'll mount the storage account.
 
 
-```python
-try: 
-  dbutils.fs.mount( 
-    source = scoring_source_str, 
-    mount_point = scoring_mount_point, 
-    extra_configs = {scoring_conf_key: scoring_storage_account_sas_key} 
-  ) 
-except Exception as e: 
-  print("ERROR: {} already mounted. Run previous cells to unmount first".format(scoring_mount_point))
+    ```python
+    try: 
+      dbutils.fs.mount( 
+        source = scoring_source_str, 
+        mount_point = scoring_mount_point, 
+        extra_configs = {scoring_conf_key: scoring_storage_account_sas_key} 
+      ) 
+    except Exception as e: 
+      print("ERROR: {} already mounted. Run previous cells to unmount first".format(scoring_mount_point))
+    
+    ```
 
-```
-
-> [!NOTE]
-> We only mounted the training storage account&mdash;in this case, the training files and the files we want to extract key-value pairs from are in the same storage account. If your scoring and training storage accounts are different, you will need to mount both storage accounts here. 
+    > [!NOTE]
+    > We only mounted the training storage account&mdash;in this case, the training files and the files we want to extract key-value pairs from are in the same storage account. If your scoring and training storage accounts are different, you will need to mount both storage accounts here. 
 
 ### Write the scoring notebook
 
-Now we can create a scoring notebook. Similarly to the training notebook, we'll use files stored in folders in the Azure Data Lake storage account we just mounted. The folder name is passed as a variable. We'll loop over all the forms in the specified folder and extract the key-value pairs from them. Create a new notebook and call it **ScoreFormRecognizer**. The first step is to execute the **Settings** and the **MountDataLake** notebooks.
+Now we can create a scoring notebook. Similarly to the training notebook, we'll use files stored in folders in the Azure Data Lake storage account we just mounted. The folder name is passed as a variable. We'll loop over all the forms in the specified folder and extract the key-value pairs from them. 
 
-```python
-%run "./Settings"
-%run "./MountDataLake"
-```
+1. Create a new notebook and call it **ScoreFormRecognizer**. 
+1. Execute the **Settings** and the **MountDataLake** notebooks.
 
-Then add the following code, which calls the [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) API.
+    ```python
+    %run "./Settings"
+    %run "./MountDataLake"
+    ```
 
-```python
-########### Python Form Recognizer Async Analyze #############
-import json
-import time
-from requests import get, post 
+1. Then add the following code, which calls the [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) API.
 
+    ```python
+    ########### Python Form Recognizer Async Analyze #############
+    import json
+    import time
+    from requests import get, post 
+    
+    
+    #prefix= TrainingBlobFolder
+    post_url = cognitive_service_endpoint + "/formrecognizer/v2.0/custom/models/%s/analyze" % model_id
+    source = r"/dbfs/mnt/"+scoring_container_name+"/"+scoring_input_blob_folder+"/"+file_to_score_name
+    output = r"/dbfs/mnt/"+scoring_container_name+"/scoringforms/ExtractionResult/"+os.path.splitext(os.path.basename(source))[0]+"_output.json"
+    
+    params = {
+        "includeTextDetails": True
+    }
+    
+    headers = {
+        # Request headers
+        'Content-Type': file_type,
+        'Ocp-Apim-Subscription-Key': cognitive_service_subscription_key,
+    }
+    
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % json.dumps(resp.json()))
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit() 
+    ```
 
-#prefix= TrainingBlobFolder
-post_url = cognitive_service_endpoint + "/formrecognizer/v2.0/custom/models/%s/analyze" % model_id
-source = r"/dbfs/mnt/"+scoring_container_name+"/"+scoring_input_blob_folder+"/"+file_to_score_name
-output = r"/dbfs/mnt/"+scoring_container_name+"/scoringforms/ExtractionResult/"+os.path.splitext(os.path.basename(source))[0]+"_output.json"
+1. In the next cell, we'll get the results of the key-value pair extraction. This cell will output the result. Because we want the result in JSON format to process further into our Azure SQL Database or Cosmos DB, we'll write the result to a .json file. The output file name will be the name of the scored file, concatenated with "_output.json". The file will be stored in the same folder as the source file.
 
-params = {
-    "includeTextDetails": True
-}
-
-headers = {
-    # Request headers
-    'Content-Type': file_type,
-    'Ocp-Apim-Subscription-Key': cognitive_service_subscription_key,
-}
-
-with open(source, "rb") as f:
-    data_bytes = f.read()
-
-try:
-    resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
-    if resp.status_code != 202:
-        print("POST analyze failed:\n%s" % json.dumps(resp.json()))
-        quit()
-    print("POST analyze succeeded:\n%s" % resp.headers)
-    get_url = resp.headers["operation-location"]
-except Exception as e:
-    print("POST analyze failed:\n%s" % str(e))
-    quit() 
-```
-
-In the next cell, we'll get the results of the key-value pair extraction. This cell will output the result. Because we want the result in JSON format to process further into our Azure SQL Database or Cosmos DB, we'll write the result to a .json file. The output file name will be the name of the scored file, concatenated with "_output.json". The file will be stored in the same folder as the source file.
-
-
-```python
-n_tries = 10
-n_try = 0
-wait_sec = 5
-max_wait_sec = 5
-while n_try < n_tries:
-   try:
-       resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": cognitive_service_subscription_key})
-       resp_json = resp.json()
-       if resp.status_code != 200:
-           print("GET analyze results failed:\n%s" % json.dumps(resp_json))
+    ```python
+    n_tries = 10
+    n_try = 0
+    wait_sec = 5
+    max_wait_sec = 5
+    while n_try < n_tries:
+       try:
+           resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": cognitive_service_subscription_key})
+           resp_json = resp.json()
+           if resp.status_code != 200:
+               print("GET analyze results failed:\n%s" % json.dumps(resp_json))
+               n_try += 1
+               quit()
+           status = resp_json["status"]
+           if status == "succeeded":
+               print("Analysis succeeded:\n%s" % json.dumps(resp_json))
+               n_try += 1
+               quit()
+           if status == "failed":
+               print("Analysis failed:\n%s" % json.dumps(resp_json))
+               n_try += 1
+               quit()
+           # Analysis still running. Wait and retry.
+           time.sleep(wait_sec)
            n_try += 1
-           quit()
-       status = resp_json["status"]
-       if status == "succeeded":
-           print("Analysis succeeded:\n%s" % json.dumps(resp_json))
+           wait_sec = min(2*wait_sec, max_wait_sec)     
+       except Exception as e:
+           msg = "GET analyze results failed:\n%s" % str(e)
+           print(msg)
            n_try += 1
+           print("Analyze operation did not complete within the allocated time.")
            quit()
-       if status == "failed":
-           print("Analysis failed:\n%s" % json.dumps(resp_json))
-           n_try += 1
-           quit()
-       # Analysis still running. Wait and retry.
-       time.sleep(wait_sec)
-       n_try += 1
-       wait_sec = min(2*wait_sec, max_wait_sec)     
-   except Exception as e:
-       msg = "GET analyze results failed:\n%s" % str(e)
-       print(msg)
-       n_try += 1
-       print("Analyze operation did not complete within the allocated time.")
-       quit()
+    
+    ```
+1. Do the file writing procedure in a new cell:
 
-```
-Do the file writing procedure in a new cell:
-
-```python
-import requests
-file = open(output, "w")
-file.write(str(resp_json))
-file.close()
-```
+    ```python
+    import requests
+    file = open(output, "w")
+    file.write(str(resp_json))
+    file.close()
+    ```
 
 ## Automate training and scoring with Azure Data Factory
 
