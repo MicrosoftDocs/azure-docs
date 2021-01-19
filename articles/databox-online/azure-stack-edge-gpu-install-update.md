@@ -22,8 +22,8 @@ The procedure described in this article was performed using a different version 
 >   - Kubernetes server version - **v1.17.3**
 >   - IoT Edge version: **0.1.0-beta10**
 >    
->    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2102-release-notes.md).
-> - To apply 2102 update, your device must be running 2010.
+>    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2101-release-notes.md).
+> - To apply 2101 update, your device must be running 2010.
 > - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
 To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
@@ -32,7 +32,7 @@ Each of these steps is described in the following sections.
 
 ## Configure update server
 
-1. In the local web UI, go to **Configuration** > **Update server**. 
+1. In the local web UI, go to **Configuration** > **Update server**.
    
     ![Configure updates 1](./media/azure-stack-edge-gpu-install-update/configure-update-server-1.png)
 
@@ -161,7 +161,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge Pro**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2102**.
+    The update listing appears as **Azure Stack Edge Update 2101**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -174,7 +174,7 @@ Prior to the update or hotfix installation, make sure that:
  - You have the update or the hotfix downloaded either locally on your host or accessible via a network share.
  - Your device status is healthy as shown in the **Overview** page of the local web UI.
 
-   ![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-1.png) 
+   ![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-1.png)
 
 This procedure takes around 20 minutes to complete. Perform the following steps to install the update or hotfix.
 
@@ -186,7 +186,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
    ![update device 3](./media/azure-stack-edge-gpu-install-update/local-ui-update-3a.png)
 
-3. Select **Apply**. 
+3. Select **Apply**.
 
    ![update device 4](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)
 
@@ -196,7 +196,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2102**.
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2101**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)-->
 
@@ -206,11 +206,11 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 8. Select **Apply**.
 
-   ![update device 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)<!--Update to 2101-->
+   ![update device 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
 
-9. When prompted for confirmation, select **Yes** to proceed. 
+9. When prompted for confirmation, select **Yes** to proceed.
 
-10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**. 
+10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**.
 
 
 ## Next steps

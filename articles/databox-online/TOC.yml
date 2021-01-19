@@ -295,8 +295,8 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2021 - Current 
-      href: azure-stack-edge-gpu-2021-release-notes.md
+    - name: 2101 - Current 
+      href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
       href: azure-stack-edge-gpu-2009-release-notes.md 
     - name: 2008 
