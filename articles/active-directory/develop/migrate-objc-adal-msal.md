@@ -35,7 +35,7 @@ The Microsoft identity platform has a few key differences with Azure Active Dire
 
 ### Standards compliance
 
-* The Microsoft identity Platform follows OAuth 2.0 and OpenId Connect standards.
+* The Microsoft identity platform follows OAuth 2.0 and OpenId Connect standards.
 
 ### Incremental and dynamic consent
 
