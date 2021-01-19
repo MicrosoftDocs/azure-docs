@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/19/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -96,6 +96,9 @@ In the following tables, the term alphanumeric refers to:
 > | automationAccounts / variables | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
 > | automationAccounts / watchers | automation account | 1-63 |  Alphanumerics, underscores, and hyphens.<br><br>Start with letter. |
 > | automationAccounts / webhooks | automation account | 1-128 | Can't use:<br> `<>*%&:\?.+/` <br><br>Can't end with space. |
+
+> [!NOTE]
+> Automation account names are unique per region and resource group. Names for deleted Automation accounts might not be immediately available.
 
 ## Microsoft.Batch
 
