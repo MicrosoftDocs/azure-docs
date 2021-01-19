@@ -433,12 +433,10 @@ Once the Workday provisioning app configurations have been completed and you hav
 * **Solution capability questions**
   * [When processing a new hire from Workday, how does the solution set the password for the new user account in Active Directory?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
   * [Does the solution support sending email notifications after provisioning operations complete?](#does-the-solution-support-sending-email-notifications-after-provisioning-operations-complete)
-  * [How do I manage delivery of passwords for new hires and securely provide a mechanism to reset their password?](#how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password)
   * [Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
   * [Does the solution support assigning on-premises AD groups to the user?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [Which Workday APIs does the solution use to query and update Workday worker profiles?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
   * [Can I configure my Workday HCM tenant with two Azure AD tenants?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
-  * [Why "Workday to Azure AD" user provisioning app is not supported if we have deployed Azure AD Connect?](#why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect)
   * [How do I suggest improvements or request new features related to Workday and Azure AD integration?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
 
 * **Provisioning Agent questions**
@@ -470,19 +468,13 @@ When the on-premises provisioning agent gets a request to create a new AD accoun
 
 No, sending email notifications after completing provisioning operations is not supported in the current release.
 
-#### How do I manage delivery of passwords for new hires and securely provide a mechanism to reset their password?
-
-One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user's AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user's manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
-
-As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the "Mobile Number" attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the "Mobile Number" is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user's account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
-
 #### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
 
 No, the solution does not maintain a cache of user profiles. The Azure AD provisioning service simply acts as a data processor, reading data from Workday and writing to the target Active Directory or Azure AD. See the section [Managing personal data](#managing-personal-data) for details related to user privacy and data retention.
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
-This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
+This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Microsoft Graph API endpoint for [audit log data](/graph/api/resources/azure-ad-auditlog-overview) and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
 
 #### Which Workday APIs does the solution use to query and update Workday worker profiles?
 
@@ -504,10 +496,6 @@ Yes, this configuration is supported. Here are the high level steps to configure
 * Deploy provisioning agent #2 and register it with Azure AD tenant #2.
 * Based on the "Child Domains" that each Provisioning Agent will manage, configure each agent with the domain(s). One agent can handle multiple domains.
 * In Azure portal, setup the Workday to AD User Provisioning App in each tenant and configure it with the respective domains.
-
-#### Why "Workday to Azure AD" user provisioning app is not supported if we have deployed Azure AD Connect?
-
-When Azure AD is used in hybrid mode (where it contains a mix of cloud + on-premises users), it's important to have a clear definition of "source of authority". Typically hybrid scenarios require deployment of Azure AD Connect. When Azure AD Connect is deployed, on-premises AD is the source of authority. Introducing the Workday to Azure AD connector into the mix can lead to a situation where Workday attribute values could potentially overwrite the values set by Azure AD Connect. Hence use of "Workday to Azure AD" provisioning app is not supported when Azure AD Connect is enabled. In such situations, we recommend using "Workday to AD User" provisioning app for getting users into on-premises AD and then syncing them into Azure AD using Azure AD Connect.
 
 #### How do I suggest improvements or request new features related to Workday and Azure AD integration?
 
@@ -741,35 +729,69 @@ This section provides specific guidance on how to troubleshoot provisioning issu
 
 This section covers the following aspects of troubleshooting:
 
+* [Configure provisioning agent to emit Event Viewer logs](#configure-provisioning-agent-to-emit-event-viewer-logs)
 * [Setting up Windows Event Viewer for agent troubleshooting](#setting-up-windows-event-viewer-for-agent-troubleshooting)
 * [Setting up Azure portal Audit Logs for service troubleshooting](#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 * [Understanding logs for AD User Account create operations](#understanding-logs-for-ad-user-account-create-operations)
 * [Understanding logs for Manager update operations](#understanding-logs-for-manager-update-operations)
 * [Resolving commonly encountered errors](#resolving-commonly-encountered-errors)
 
+### Configure provisioning agent to emit Event Viewer logs
+1. Sign in to the Windows Server machine where the provisioning agent is deployed
+1. Stop the service **Microsoft Azure AD Connect Provisioning Agent**.
+1. Create a copy of the original config file: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
+1. Replace the existing `<system.diagnostics>` section with the following. 
+   * The listener config **etw** emits messages to the EventViewer logs
+   * The listener config **textWriterListener** sends trace messages to the file *ProvAgentTrace.log*. Uncomment the lines related to textWriterListener only for advanced troubleshooting. 
+
+   ```xml
+     <system.diagnostics>
+         <sources>
+         <source name="AAD Connect Provisioning Agent">
+             <listeners>
+             <add name="console"/>
+             <add name="etw"/>
+             <!-- <add name="textWriterListener"/> -->
+             </listeners>
+         </source>
+         </sources>
+         <sharedListeners>
+         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
+         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
+             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
+         </add>
+         <!-- <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/> -->
+         </sharedListeners>
+     </system.diagnostics>
+
+   ```
+1. Start the service **Microsoft Azure AD Connect Provisioning Agent**.
+
 ### Setting up Windows Event Viewer for agent troubleshooting
 
-* Sign in to the Windows Server machine where the Provisioning Agent is deployed
-* Open **Windows Server Event Viewer** desktop app.
-* Select **Windows Logs > Application**.
-* Use the **Filter Current Log…** option to view all events logged under the source **AAD.Connect.ProvisioningAgent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
+1. Sign in to the Windows Server machine where the Provisioning Agent is deployed
+1. Open **Windows Server Event Viewer** desktop app.
+1. Select **Windows Logs > Application**.
+1. Use the **Filter Current Log…** option to view all events logged under the source **Azure AD Connect Provisioning Agent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
+   > [!NOTE]
+   > Event ID 5 captures agent bootstrap messages to the Azure AD cloud service and hence we filter it while analyzing the log files. 
 
-  ![Windows Event Viewer](media/workday-inbound-tutorial/wd_event_viewer_01.png))
+   ![Windows Event Viewer](media/workday-inbound-tutorial/wd_event_viewer_01.png)
 
-* Click **OK** and sort the result view by **Date and Time** column.
+1. Click **OK** and sort the result view by **Date and Time** column.
 
 ### Setting up Azure portal Audit Logs for service troubleshooting
 
-* Launch the [Azure portal](https://portal.azure.com), and navigate to the **Audit logs** section of your Workday provisioning application.
-* Use the **Columns** button on the Audit Logs page to display only the following columns in the view (Date, Activity, Status, Status Reason). This configuration ensures that you focus only on data that is relevant for troubleshooting.
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the **Audit logs** section of your Workday provisioning application.
+1. Use the **Columns** button on the Audit Logs page to display only the following columns in the view (Date, Activity, Status, Status Reason). This configuration ensures that you focus only on data that is relevant for troubleshooting.
 
-  ![Audit log columns](media/workday-inbound-tutorial/wd_audit_logs_00.png)
+   ![Audit log columns](media/workday-inbound-tutorial/wd_audit_logs_00.png)
 
-* Use the **Target** and **Date Range** query parameters to filter the view. 
-  * Set the **Target** query parameter to the "Worker ID" or "Employee ID" of the Workday worker object.
-  * Set the **Date Range** to an appropriate time period over which you want to investigate for errors or issues with the provisioning.
+1. Use the **Target** and **Date Range** query parameters to filter the view. 
+   * Set the **Target** query parameter to the "Worker ID" or "Employee ID" of the Workday worker object.
+   * Set the **Date Range** to an appropriate time period over which you want to investigate for errors or issues with the provisioning.
 
-  ![Audit log filters](media/workday-inbound-tutorial/wd_audit_logs_01.png)
+   ![Audit log filters](media/workday-inbound-tutorial/wd_audit_logs_01.png)
 
 ### Understanding logs for AD User Account create operations
 
