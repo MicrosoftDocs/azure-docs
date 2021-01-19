@@ -47,7 +47,7 @@ Most common codes returned for `x-ms-status-code` status attribute by the server
 | **1004** | This status code indicates malformed graph request. Request can be malformed when it fails deserialization, non-value type is being deserialized as value type or unsupported gremlin operation requested. Application should not retry the request because it will not be successful. | 
 | **1007** | Usually this status code is returned with error message `"Could not process request. Underlying connection has been closed."`. This situation can happen if client driver attempts to use a connection that is being closed by the server. Application should retry the traversal on a different connection.
 | **1008** | Cosmos DB Gremlin server can terminate connections to rebalance traffic in the cluster. Client drivers should handle this situation and use only live connections to send requests to the server. Occasionally client drivers may not detect that connection was closed. When application encounters an error, `"Connection is too busy. Please retry after sometime or open more connections."` it should retry traversal on a different connection.
-| **1009** | The operation did not complete in the allotted time and was canceled by the server. Optimize your traversals to run quickly by filtering vertices or edges on every hop of traversal to narrow down search scope. Request timeout default is **60 seconds** |
+| **1009** | The operation did not complete in the allotted time and was canceled by the server. Optimize your traversals to run quickly by filtering vertices or edges on every hop of traversal to narrow search scope. Request timeout default is **60 seconds**. |
 
 ## Samples
 
