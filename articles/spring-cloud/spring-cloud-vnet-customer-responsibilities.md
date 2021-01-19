@@ -42,7 +42,7 @@ The following is a list of resource requirements for Azure Spring Cloud services
 
 Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernetesService** to simplify the following configurations.
 
-  | Destination FQDN | Port | Use |
+  | Destination FQDN | Port | Use | Note |
   |------|------|------|
   | *.azmk8s.io | HTTPS:443 | Underlying Kubernetes Cluster management. |
   | <i>mcr.microsoft.com</i> | HTTPS:443 | Microsoft Container Registry (MCR). |
