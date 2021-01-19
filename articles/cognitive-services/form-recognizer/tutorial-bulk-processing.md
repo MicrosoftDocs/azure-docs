@@ -472,15 +472,15 @@ The stored procedure takes two parameters: **model_id** and the **form_batch_gro
 
 To extract the key-value pairs, we'll scan all the folders in the parameterization table and, for each folder, we'll extract the key-value pairs of all the files in it. As of today, ADF does not support nested ForEach loops. So instead, we'll create two pipelines. The first pipeline will do the lookup from the parameterization table and pass the folders list as a parameter to the second pipeline.
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1a.png" alt-text="scoring pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1a.png" alt-text="first scoring pipeline in data factory":::
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1b.png" alt-text="scoring pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-1b.png" alt-text="first scoring pipeline in data factory, details":::
 
 The second pipeline will use a GetMeta activity to get the list of the files in the folder and pass it as a parameter to the scoring Databricks notebook.
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2a.png" alt-text="scoring pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2a.png" alt-text="second scoring pipeline in data factory":::
 
-:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2b.png" alt-text="second scoring pipeline in data factory":::
+:::image type="content" source="./media/tutorial-bulk-processing/scoring-pipeline-2b.png" alt-text="second scoring pipeline in data factory, details":::
 
 ### Specify a degree of parallelism
 
