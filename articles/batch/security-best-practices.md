@@ -132,8 +132,8 @@ Batch compute nodes have two disks by default: an OS disk and the local temporar
 
 For extra security, encrypt these disks using one of these Azure disk encryption capabilities:
 
-- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Encryption at host using a platform-managed key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Encryption at host using a platform-managed key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](disk-encryption.md)
 
 ## Securely access services from compute nodes

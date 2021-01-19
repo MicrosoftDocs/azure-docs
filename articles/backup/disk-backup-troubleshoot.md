@@ -110,7 +110,7 @@ Recommended Action: Grant the Backup vault's managed identity the appropriate pe
 
 Error Message: Operation has failed as the Disk quota maximum limit has been reached on the subscription.
 
-Recommended Action: Refer to the [Azure subscription and service limits and quota documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) or contact Microsoft Support for further guidance.
+Recommended Action: Refer to the [Azure subscription and service limits and quota documentation](../azure-resource-manager/management/azure-subscription-service-limits.md) or contact Microsoft Support for further guidance.
 
 ### Error Code: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 
