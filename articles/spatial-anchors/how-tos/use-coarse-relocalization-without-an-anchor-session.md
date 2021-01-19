@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Use coarse relocalization without an anchor session
 
-The sensor fingerprint provider object that is part of the [coarse relocalization](../concepts/coarse-reloc.md) feature can be used without being attached to any Azure Spatial Anchors session.
+The sensor fingerprint provider object that is part of the [coarse relocalization](../concepts/coarse-reloc.md) feature can be used without being attached to an Azure Spatial Anchors session.
 The following code snippet shows how the sensor provider can be accessed to acquire an estimate of the device position:
 
 # [C#](#tab/csharp)

@@ -15,13 +15,13 @@ ms.custom: devx-track-csharp
 
 Coarse relocalization is a feature that enables large-scale localization by providing an approximate but fast answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors; try locating one of them*.
 
-Coarse relocalization works by tagging anchors with various on-device sensor readings that are later used for fast querying. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS isn't available or unreliable (such as indoors), the sensor data consists of the WiFi access points and Bluetooth beacons in range. The collected sensor data contributes to maintaining a spatial index used by Azure Spatial Anchors to quickly determine which anchors are in proximity of your device.
+Coarse relocalization works by tagging anchors with various on-device sensor readings that are later used for fast querying. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists of the WiFi access points and Bluetooth beacons in range. The collected sensor data contributes to maintaining a spatial index used by Azure Spatial Anchors to quickly determine which anchors are in proximity of your device.
 
 ## When to use coarse relocalization
 
-If you're planning to handle more than 50 spatial anchors in a space larger than a tennis court, you'll likely benefit from coarse relocalization spatial indexing.
+If you are planning to handle more than 50 spatial anchors in a space larger than a tennis court, you will likely benefit from coarse relocalization spatial indexing.
 
-The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of anchor spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
+The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of  spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
 
 ## Using coarse relocalization
 
@@ -42,7 +42,7 @@ You can refer to the corresponding following tutorial to set up coarse relocaliz
 
 ### Platform availability
 
-The sensor data you can send to the anchor service are:
+The types of sensor data that you can send to the anchor service are:
 
 * GPS position: latitude, longitude, altitude.
 * Signal strength of WiFi access points in range.
@@ -66,7 +66,7 @@ The table below summarizes the availability of the sensor data on supported plat
 
 ### Which sensor to enable
 
-The choice of sensor is specific to the application you're developing and the platform.
+The choice of sensor is specific to the application you are developing and the platform.
 The following diagram provides a starting point on which combination of sensors can be enabled depending on the localization scenario:
 
 ![Diagram of enabled sensors selection](media/coarse-reloc-enabling-sensors.png)
@@ -99,7 +99,7 @@ On HoloLens and Android, WiFi signal strength can be a good option to enable ind
 Its advantage is the potential immediate availability of WiFi access points (common in, e.g.,  office spaces or shopping malls) with no extra set-up needed.
 
 > [!NOTE]
-> iOS doesn't provide any API to read WiFi signal strengh, and as such cannot be used for WiFi-enabled coarse relocalization.
+> iOS does not provide any API to read WiFi signal strength, and as such cannot be used for WiFi-enabled coarse relocalization.
 
 When using WiFi in your application, keep in mind that the readings provided by the hardware are typically:
 
@@ -116,7 +116,7 @@ Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map 
 <a name="beaconsDetails"></a>
 
 Carefully deploying bluetooth beacons is the only solution for cross-platform, large scale, indoor coarse relocalization.
-The downside being the initial deployment cost of beacons.
+The downside of a beacon-based system is the initial deployment cost of beacons.
 
 Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. This flexibility can be problematic for Azure Spatial Anchors as it considers beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause incorrect results. For best results you should:
 
@@ -124,12 +124,12 @@ Beacons are typically versatile devices, where everything - including UUIDs and 
 * deploy them in a way that covers your space uniformly, and so that at least 3 beacons are reachable from any point in space.
 * pass the list of unique beacon UUIDs to the sensor fingerprint provider
 
-Radio signals such as bluetooth are affected by obstacles and can interfere with other radio signals. For these reasons it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend to manually test your beacons coverage with candidate devices walking around your space. While testing the coverage, make sure that you can reach at least 3 beacons from any position of your space. Setting up too many beacons can result in more interference between them and won't necessarily improve coarse relocalization accuracy.
+Radio signals such as bluetooth are affected by obstacles and can interfere with other radio signals. For these reasons it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons by walking around your space with candidate devices. While testing the coverage, make sure that you can reach at least 3 beacons from any position of your space. Setting up too many beacons can result in more interference between them and will not necessarily improve coarse relocalization accuracy.
 
 Bluetooth beacons typically have a coverage of 80 meters if no obstacles are present in the space.
 This means that for a space that has no big obstacles, one could deploy beacons on a grid pattern every 40 meters.
 
-A beacon running out of battery will affect the results negatively, so make sure you monitor periodically your deployment for low or dead batteries.
+A beacon running out of battery will affect the results negatively, so make sure you monitor your deployment periodically for low or dead batteries.
 
 Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
 
