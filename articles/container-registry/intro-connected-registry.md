@@ -10,7 +10,7 @@ ms.date: 01/11/2021
 
 # What is connected registry? 
 
-In this article, you learn about the connected registry feature of Azure container registry. A connected registry is an on-premises replica that synchronizes container images and other OCI artifacts with your cloud-based Azure container registry. Use a connected registry to help speed up access to registry artifacts on-premises and build advanced scenarios using [nested IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge), [Azure Stack](https://docs.microsoft.com/azure-stack), or [Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+In this article, you learn about the connected registry feature of Azure container registry. A connected registry is an on-premise replica that synchronizes container images and other OCI artifacts with your cloud-based Azure container registry. Use a connected registry to help speed up access to registry artifacts on-premise and build advanced scenarios using [nested IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge), [Azure Stack](https://docs.microsoft.com/azure-stack), or [Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## Scenarios
 A cloud-based Azure container registry provides features including geo-replication, integrated security, Azure-managed storage, and integration with Azure development and deployment pipelines. At the same time, customers are extending their cloud investments to their on-premises and field solutions.
@@ -39,10 +39,10 @@ The following picture shows some of the deployment models for the connected regi
 
 * **Modes** - The connected registry can work in one of two modes:
 
-    - The default *registry* mode allows clients to pull as well as push artifacts to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. This configuration is installed on an on-premises server such as Azure Arc enabled Kubernetes, Azure Stack Hub, or an IoT Edge device. The *registry* mode is useful when a local development is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
+    - The default *registry* mode allows clients to pull as well as push artifacts to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. The *registry* mode is useful when a local development is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
     - When the connected registry is in _mirror_ mode, clients may only pull artifacts. This configuration is used for nested IoT Edge scenarios or when the client has limited capabilities such as an ARM device. The *mirror* mode is useful for all other scenarios where clients need to pull a container image to operate.
 
-* **Registry hierarchy** - Each connected registry must be connected to a parent. The top parent is the cloud registry. For nested networking scenarios, you can nest connected registries in *mirror* mode. The parent connected to the cloud registry can operate in both *registry* or *mirror* mode. All children registries can only operate in *mirror* mode.
+* **Registry hierarchy** - Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios, you can nest connected registries in *registry* or *mirror* mode. The parent connected to the cloud registry can operate in both *registry* or *mirror* mode. Children registries must be compatible with their parent capabilities: thus, both *registry* and *mirror* can be children of a connected registry operating in *registry* mode, but only *mirror* can be a child of a connected registry operating in *mirror* mode.  
 
 ## Client access
 
