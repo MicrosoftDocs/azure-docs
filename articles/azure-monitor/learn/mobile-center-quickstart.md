@@ -3,8 +3,8 @@ title: Monitor mobile apps with Azure Monitor Application Insights
 description: Provides instructions to quickly set up a mobile app for monitoring with Azure Monitor Application Insights and App Center
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/26/2019
 
 ms.reviewer: daviste

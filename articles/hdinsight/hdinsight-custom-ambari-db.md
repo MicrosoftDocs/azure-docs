@@ -6,7 +6,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 01/12/2021
 ms.author: hrasheed
 ---
 # Set up HDInsight clusters with a custom Ambari DB
@@ -58,6 +58,20 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json
 ```
+
+## Database sizing
+
+The following table provides guidelines on which Azure SQL DB tier to select based on the size of your HDInsight cluster.
+
+| Number of worker nodes | Required DB tier |
+|---|---|
+| <=4 | S0 |
+| >4 && <=8 | S1 |
+| >8 && <=16 | S2 |
+| >16 && <=32 | S3 |
+| >32 && <=64 | S4 |
+| >64 && <=128 | P2 |
+| >128 | Contact Support |
 
 ## Next steps
 

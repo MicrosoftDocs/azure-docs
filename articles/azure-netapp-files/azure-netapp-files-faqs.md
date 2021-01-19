@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/05/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -132,6 +132,16 @@ You can specify whether the root account can access the volume or not by using t
 Yes, you can. However, the file path must be used in either a different subscription or a different region.   
 
 For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
+
+### When I try to access NFS volumes through a Windows client, why does the client take a long time to search folders and subfolders?
+
+Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed up the look-up of folders and subfolders:
+
+1. Use the following PowerShell command to enable CaseSensitiveLookup:   
+	`Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Mount the volume on the Windows server.   
+	Example:   
+	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## SMB FAQs
 

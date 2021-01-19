@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -42,7 +42,7 @@ The Custom Script Extension for Linux will run on the following OSs. Other versi
 | Distribution | Version |
 |---|---|
 | Linux: Ubuntu | 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.4 |
+| Linux: Red Hat Enterprise Linux | 7.4, 7.5, 7.7 |
 
 <!--### Script location
 

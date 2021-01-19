@@ -161,7 +161,7 @@ If you want to forward events to a Service Bus Queue, add configuration informat
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "queueName": "queue-b",
             "name": "output" 
         }
     ...
@@ -185,7 +185,7 @@ If you want to forward events to a Service Bus Topic, add configuration informat
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "topicName": "topic-b",
             "name": "output" 
         }
     ...

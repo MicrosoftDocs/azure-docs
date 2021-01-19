@@ -3,6 +3,8 @@
 - name: Overview
   href: overview.md
   items:
+  - name: What's new?
+    href: release-notes.md
   - name: Solution architecture
     href: architecture.md
 - name: Quickstarts
@@ -157,6 +159,20 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
+    - name: Integrate with partners
+      items:
+      - name: Cisco ISE pxGrid integration
+        href: integration-cisco-ise-pxgrid.md
+      - name: Forescout integration
+        href: integration-forescout.md
+      - name: Fortinet integration
+        href: integration-fortinet.md
+      - name: Palo Alto integration
+        href: integration-palo-alto.md
+      - name: ServiceNow integration
+        href: integration-servicenow.md
+      - name: Splunk integration
+        href: integration-splunk.md
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Work with Security Module for Azure RTOS
@@ -199,6 +215,10 @@
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
+    - name: Horizon API
+      href: references-horizon-api.md
+    - name: Horizon SDK
+      href: references-horizon-sdk.md
     - name: Work with Defender for IoT CLI commands
       href: references-work-with-defender-for-iot-cli-commands.md
     - name: Manage proprietary protocols (Horizon)
@@ -217,14 +237,14 @@
       href: https://azure.microsoft.com/roadmap/?category=security-identity
 - name: Resources
   items:
-  - name: Agent-based solution for device builders
+  - name: Agent-based solution for Device Builders
     items: 
     - name: Build your security skills with Microsoft Learn
       href: /learn/browse/?term=securityS&terms=securityS
     - name: Azure Security Center documentation
       href: ../security-center/
     - name: Azure security documentation 
-      href: https://docs.microsoft.com/azure/security/
+      href: ../security/index.yml
     - name: Azure RTOS security module on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
     - name: Azure IoT Security, Privacy, & Compliance blog

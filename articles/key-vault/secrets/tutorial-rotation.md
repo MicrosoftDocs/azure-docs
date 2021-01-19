@@ -241,7 +241,7 @@ The web app requires these components:
 
 Go to the deployed application URL:
  
-https://akvrotation-app.azurewebsites.net/
+'https://akvrotation-app.azurewebsites.net/'
 
 When the application opens in the browser, you will see the **Generated Secret Value** and a **Database Connected** value of *true*.
 
