@@ -120,7 +120,7 @@ JMSContext context = connectionFactory.createContext(JMSContext.AUTO_ACKNOWLEDGE
 
 When the mode is not specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
 
-### Message Producers
+### JMS Message Producers
 
 A message producer is an object that is created using a JMSContext or a Session and used for sending messages to a destination.
 
@@ -172,6 +172,48 @@ Listener myListener = new Listener();
 consumer.setMessageListener(myListener);
 ```
 
+### Consuming from topics
+
+[JMS Message Consumers](#jms-message-consumers) are created against a [destination](#jms-destination) which may be a queue or a topic.
+
+Consumers on queues are simply client side objects that live in the context of the Session (and Connection) between the client application and Azure Service Bus.
+
+Consumers on topics, however, have 2 parts - 
+   * A **client side object** that lives in the context of the Session(or JMSContext), and,
+   * A **subscription** that is an entity on Azure Service Bus.
+
+The subscriptions are documented [here](java-message-service-20-entities.md#java-message-service-JMS-subscriptions) and can be one of the below - 
+   * Shared durable subscriptions
+   * Shared non-durable subscriptions
+   * Unshared durable subscriptions
+   * Unshared non-durable subscriptions
+
+### JMS Queue Browsers
+
+The JMS API provides a `QueueBrowser` object that allows the application to browse the messages in the queue and display the header values for each message.
+
+A Queue Browser can be created using the JMSContext as below.
+
+```java
+QueueBrowser browser = context.createBrowser(queue);
+```
+
+> [!NOTE]
+> JMS API doesn't provide an API to browse a topic.
+>
+> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it is forwarded to the appropriate subscriptions.
+>
+
+### JMS Message selectors
+
+Message selectors can be used by receiving applications to filter the messages that are received. With message selectors, the receiving application offloads the work of filtering messages to the JMS provider (in this case, Azure Service Bus) instead of taking that responsibility itself.
+
+Selectors can be utilized when creating any of the below consumers - 
+   * Shared durable subscription
+   * Unshared durable subscription
+   * Shared non-durable subscription
+   * Unshared non-durable subscription
+   * Queue browser
 
 
 ## Summary

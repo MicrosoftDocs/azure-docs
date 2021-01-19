@@ -7,13 +7,13 @@ ms.date: 07/20/2020
 
 # Java message service (JMS) 2.0 entities
 
-Client applications connecting to Azure Service Bus Premium and utilizing the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can leverage the below entities.
+Client applications connecting to Azure Service Bus Premium and using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can use the below entities.
 
 ## Queues
 
 Queues in JMS are semantically comparable with the traditional [Service Bus queues](service-bus-queues-topics-subscriptions.md#queues).
 
-To create a Queue, utilize the below methods in the `JMSContext` class -
+To create a Queue, use the below methods in the `JMSContext` class -
 
 ```java
 Queue createQueue(String queueName)
@@ -23,7 +23,7 @@ Queue createQueue(String queueName)
 
 Topics in JMS are semantically comparable with the traditional [Service Bus topics](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions).
 
-To create a Topic, utilize the below methods in the `JMSContext` class -
+To create a Topic, use the below methods in the `JMSContext` class -
 
 ```java
 Topic createTopic(String topicName)
@@ -31,9 +31,9 @@ Topic createTopic(String topicName)
 
 ## Temporary queues
 
-When a client application requires a temporary entity that exists for the lifetime of the application, it can use Temporary queues. These are utilized in the [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) pattern.
+If a client application requires a temporary entity that exists for the lifetime of the application, it can use Temporary queues. These entities are used in the [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) pattern.
 
-To create a temporary queue, utilize the below methods in the `JMSContext` class -
+To create a temporary queue, use the below methods in the `JMSContext` class -
 
 ```java
 TemporaryQueue createTemporaryQueue()
@@ -43,7 +43,7 @@ TemporaryQueue createTemporaryQueue()
 
 Just like Temporary Queues, Temporary Topics exist to enable publish/subscribe through a temporary entity that exists for the lifetime of the application.
 
-To create a temporary topic, utilize the below methods in the `JMSContext` class -
+To create a temporary topic, use the below methods in the `JMSContext` class -
 
 ```java
 TemporaryTopic createTemporaryTopic()
@@ -51,7 +51,7 @@ TemporaryTopic createTemporaryTopic()
 
 ## Java message service (JMS) subscriptions
 
-While, these are semantically similar to the [Subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (i.e. exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable** and **Non-durable** attributes for a given subscription.
+While these are semantically similar to the [Subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (that is, exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable, and **Non-durable** attributes for a given subscription.
 
 > [!NOTE]
 > The below subscriptions are available in Azure Service Bus Premium tier for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
@@ -63,7 +63,7 @@ While, these are semantically similar to the [Subscriptions](service-bus-queues-
 
 A shared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription at all times.
 
-Since this is a shared subscription, any application that is authenticated to receive from Service Bus can receive from the subscription.
+Any application that is authenticated to receive from Service Bus can receive from the shared durable subscription.
 
 To create a shared durable subscription, use the below methods on the `JMSContext` class -
 
@@ -81,7 +81,7 @@ void unsubscribe(String name)
 
 ### Unshared durable subscriptions
 
-Just like a shared durable subscription, an unshared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively  consuming from the subscription at all times.
+Like a shared durable subscription, an unshared durable subscription is used when all the messages published on a topic are to be received and processed by an application, regardless of whether the application is actively consuming from the subscription.
 
 However, since this is an unshared subscription, only the application that created the subscription can receive from it.
 
@@ -121,7 +121,7 @@ The shared non-durable subscription continues to exist until there are active co
 
 ### Unshared non-durable subscriptions
 
-An unshared non-durable subscription is used when the client application needs to receive and process message from a subscription, only until it is actively consuming from it. Only one consumer can exist on this subscription, i.e. the client that created the subscription.
+An unshared non-durable subscription is used when the client application needs to receive and process message from a subscription, only until it is actively consuming from it. Only one consumer can exist on this subscription, that is, the client that created the subscription.
 
 Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there is no active consumer on it.
 
@@ -159,14 +159,14 @@ Any attempts to access a subscription scoped to a specific client id (say client
 
 ### Shareability
 
-**Shared** subscriptions permit multiple client/consumer (i.e. JMSConsumer objects) to receive messages from them.
+**Shared** subscriptions permit multiple client/consumer (that is, JMSConsumer objects) to receive messages from them.
 
 >[!NOTE]
 > Shared subscriptions scoped to a specific client id can still be accessed by multiple client/consumers (i.e. JMSConsumer objects), but each of the client applications must have the same client id.
 >
  
 
-**Unshared** subscriptions permit only a single client/consumer (i.e. JMSConsumer object) to receive messages from them. If a `JMSConsumer` is created on an unshared subscription while it already has an active `JMSConsumer` listening to messages on it, a `JMSException` is thrown.
+**Unshared** subscriptions permit only a single client/consumer (that is, JMSConsumer object) to receive messages from them. If a `JMSConsumer` is created on an unshared subscription while it already has an active `JMSConsumer` listening to messages on it, a `JMSException` is thrown.
 
 
 ### Durability
