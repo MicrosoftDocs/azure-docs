@@ -72,7 +72,7 @@ You can configure these settings for feature flags defined in Azure App Configur
 1. On the **Feature manager** page, the feature flag now has a **Feature filter** value of **custom**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Feature flag listed with a Feature filter value of "custom"](./media/feature-flag-filter-custom.png)
+    > ![Feature flag listed with a Feature filter value of "Custom"](./media/feature-flag-filter-custom.png)
 
 ## Feature filters in action
 
