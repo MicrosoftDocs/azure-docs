@@ -219,35 +219,32 @@ You can download the provisioning logs for use later by navigating to the logs i
 * ProvisioningLogs_ProvisioningSteps: Contains the provisioning steps and the change ID. The change ID can be used to join the event with the other two files.
 * ProvisioningLogs_ModifiedProperties: Contains the attributes that were changed and the change ID. The change ID can be used to join the event with the other two files.
 
-### Viewing the Json logs
+### Viewing the JSON file
 
-#### Opening the Json File
-To open the Json file, a text editor [Microsoft Visual Studio Code](https://aka.ms/vscode) can be used. Visual Studio Code provides syntax highlighting which makes it easier to read. **Note:** Opening the file in an editor allows user to edit the file, which may not be desirable. The json file can also be opened using browsers in a non editable format e.g. [Microsoft Edge](https://aka.ms/msedge) 
+#### Opening the JSON file
+To open the Json file, use a text editor such as [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code makes it easier to read by providing syntax highlighting. Opening the file in an editor allows user to edit the file, which may not be desirable. The json file can also be opened using browsers in a non editable format e.g. [Microsoft Edge](https://aka.ms/msedge) 
 
-#### Prettifying the Json Logs
-*Note: This Json file will be edited when logs are prettified. This step is not necessary for working with the Json file.*
-To save space for storage the json logs are downloaded in a minifed format. This however results in the data being very hard to read. To prettify the logs i.e. add spacing and line breaks to make it legible there are various methods. Two of them are listed (but the list is not exhaustive):
+#### Prettifying the JSON file
+The JSON file is downloaded in minified format to reduce the size of the download. This, in turn, can make the payload difficult to read. There are many methods to make the JSON easy to read. Check out two of the options below:
 
 
-**1. Using online formatters**
-A popular way to format json files is copying and pasting the json to third-party online formatters e.g. [Jsonlint](https://jsonlint.com). After formatting it can be pasted back to the file.
+**1. Use Visual Studio Code to format the JSON**
+Follow the instructions defined [here](https://code.visualstudio.com/docs/languages/json#_formatting) to format the JSON file using Visual Studio Code.
 
-**2. Using powershell scripts**
+**2. Use powershell to format the JSON**
 There are many ways of using powershell script to prettify the data. A simple way is to just read and write it back.
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
 `$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
 
-This script will output the json in a prettified format with tabs and spaces. It can be further improved with customization.
+This script will output the json in a prettified format with tabs and spaces. 
 
 ### Working with the Json logs
-The Json Logs can be parsed using scripting and programming languages like powershell, python, C# etc. 
 
-#### Powershell
-Here are some sample commands to work with the Json file. 
+Here are some sample commands to work with the Json file using powershell. You can use any programming language that you are comfortable with.  
 
-Before all steps read the Json File by running:
+First, read the JSON file by running:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
