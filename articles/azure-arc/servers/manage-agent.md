@@ -33,13 +33,13 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
 ## Renaming a machine
 
-When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name. For Arc enabled servers, this is accomplished by disconnecting the machine, connect it after the machines computer name is renamed, and then re-deploy the VM extensions previously installed to re-associate them with the resource in Azure.
+When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name. For Arc enabled servers, disconnect the machine, connect it after the machines computer name is renamed, and then redeploy the VM extensions previously installed to re-associate them with the resource in Azure.
 
 Before you begin, audit VM extensions deployed to the machine and their configuration to ensure after you complete the procedure, you deploy those extensions using the same configuration settings.  
 
 Use the following steps to complete this task.
 
-1. Use one of the following methods to disconnect the machine from Azure Arc. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of ths process. Any VM extensions that are deployed to the machine continue to work during this process.
+1. Use one of the following methods to disconnect the machine from Azure Arc. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. Any VM extensions that are deployed to the machine continue to work during this process.
 
     # [Azure portal](#tab/azure-portal)
 
@@ -71,7 +71,7 @@ Use the following steps to complete this task.
 
 After a machine has been renamed, the Connected Machine agent needs to be re-registered with Arc enabled servers. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
 
-Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers in order to re-associate them with the resource in Azure. If you deployed the Azure Monitor for VMs (insights) agent or the Log Anaytics agent using an Azure Policy Guest Configuration policy, the agents are re-deployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers in order to reassociate them with the resource in Azure. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Upgrading agent
 
