@@ -3,14 +3,14 @@ title: Exempt a resource from Azure Security Center security recommendations and
 description: Learn how to exempt a resource from security recommendations and the secure score
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/21/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 
 ---
 
-# Exempting resources from recommendations or recommendations from subscriptions and management groups 
+# Exempting resources and recommendations from your secure score 
 
 A core priority of every security team is trying to ensure the analysts can focus on the tasks and incidents that matter to the organization. Security Center has many features for customizing the information you prioritize the most and making sure your secure score is a valid reflection of your organization's security decisions. The **exempt** option is one such feature.
 
@@ -20,8 +20,9 @@ Occasionally, a resource will be listed that you feel shouldn't be included. Or 
 
 In such cases, you can create an exemption rules to ensure:
 
-- **The resource** isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
-- **The recommendation** isn't shown for your subscription or management group in the future, and doesn't impact your secure score. The recommendation will be marked with the specific justification you select.
+- **The resource** isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select. See [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation).
+
+- **The recommendation** isn't shown for your subscription or management group in the future, and doesn't impact your secure score. The recommendation will be marked with the specific justification you select. See [Exempt a recommendation from a subscription or management group](#exempt-a-recommendation-from-a-subscription-or-management-group).
 
 ## Availability
 
@@ -33,28 +34,44 @@ In such cases, you can create an exemption rules to ensure:
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
-## Exempt a recommendation
+## Define an exemption
 
-1. On the list of unhealthy resources, select the ellipsis menu ("...") for the resource you want to exempt.
+To fine-tune the security recommendations that Security Center makes for your subscriptions, management group, or resources, you can create an exemption rule to:
 
-    :::image type="content" source="./media/exempt-resource/create-exemption.png" alt-text="Create exemption option from context menu":::
+- Mark a specific **recommendation** or as "mitigated" or "risk accepted". You can create recommendation exemptions for a subscription, multiple subscriptions, or an entire management group.
+- Mark **one or more resources** as "mitigated" or "risk accepted" for a specific recommendation.
 
-    The create exemption pane opens.
+To create an exemption rule:
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Create exemption pane":::
+1. Open the recommendations details page for the specific recommendation.
 
-1. Enter your criteria and select a criteria for why this resource should be exempted:
-    - **Mitigated** - This issue isn't relevant to the resource because it's been handled by a different tool or process than the one being suggested
-    - **Waiver** - Accepting the risk for this resource
-1. Select **Save**.
-1. After a while (it might take up to 24 hours):
-    - The resource doesn't impact your secure score.
-    - The resource is listed in the **Not applicable** tab of the recommendation details page
-    - The information strip at the top of the recommendation details page lists the number of exempted resources:
+1. From the toolbar at the top of the page, select **Exempt**.
+
+    :::image type="content" source="media/exempt-resource/exempting-recommendation.png" alt-text="Create an exemption rule for a recommendation to be exempted from a subscription or management group.":::
+
+1. In the **Exempt** pane:
+    1. Select the scope for this exemption rule:
+        - If you select a management group, the recommendation will be exempted from all subscriptions within that group
+        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources"" and select the relevant ones from the list. 
+
+    1. Enter a name for this exemption rule.
+    1. Optionally, set an expiration date.
+    1. Select the category for the exemption:
+        - **Resolved through 3rd party (mitigated)** – if you're using a third-party service that Security Center hasn't identified
+        - **Risk accepted (waiver)** – if you’ve decided to accept the risk of not mitigating this recommendation
+    1. Optionally, enter a description.
+    1. Select **Create**.
+
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group":::
+
+    After a while (it might take up to 30 minutes):
+    - The recommendation or resources won't impact your secure score.
+    - If you've exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.
+    - The information strip at the top of the recommendation details page updates the number of exempted resources:
         
         :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources":::
 
-1. To review your exempted resources, open the **Not applicable** tab.
+1. To review your exempted resources, open the **Not applicable** tab:
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption":::
 
@@ -62,16 +79,23 @@ In such cases, you can create an exemption rules to ensure:
 
     To modify or delete an exemption, select the ellipsis menu ("...") as shown (2).
 
+1. To review all of the exemption rules on your subscription, select **View exemptions** from the information strip:
 
-## Review all of the exemption rules on your subscription
+    :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy's exemption page":::
 
-Exemption rules use Azure policy to create an exemption for the resource on the policy assignment.
-
-You can use Azure Policy to track all your exemption in the **Exemption** page:
-
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy's exemption page":::
+    > [!TIP]
+    > You can also use this page to manage the exemptions.
 
 
+## Monitor exemptions created in your subscriptions
+
+As explained earlier on this page, exemption rules are a powerful tool providing granular control over the recommendations affecting resources in your subscriptions and management groups. 
+
+To keep track of how your users are exercising this capability, we've created an ARM template that deploys a Logic App Playbook and all necessary API connections to notify you when an exemption has been created.
+
+- To learn more about the playbook, see this post in the [tech community blogs](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- You'll find the ARM template in the [Azure Security Center GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
+- You can click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) to deploy all the necessary components 
 
 ## Next steps
 
