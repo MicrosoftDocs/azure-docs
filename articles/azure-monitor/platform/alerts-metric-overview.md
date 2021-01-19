@@ -22,7 +22,7 @@ Let's say you have created a simple static threshold metric alert rule as follow
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Static
-- Aggregation type (a statistic that is run over raw metric values. [Supported time aggregations](metrics-aggregation-explained#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
+- Aggregation type (a statistic that is run over raw metric values. [Supported time aggregations](./metrics-aggregation-explained#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
 - Period (the look back window over which metric values are checked): Over the last 5 mins
 - Frequency (the frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -39,7 +39,7 @@ Let's say you have created a simple Dynamic Thresholds metric alert rule as foll
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Dynamic
-- Aggregation Type (a statistic that is run over raw metric values. [Supported time aggregations](metrics-aggregation-explained#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
+- Aggregation Type (a statistic that is run over raw metric values. [Supported time aggregations](./metrics-aggregation-explained#aggregation-types) are Minimum, Maximum, Average, Total, Count): Average
 - Period (the look back window over which metric values are checked): Over the last 5 mins
 - Frequency (the frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
