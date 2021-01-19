@@ -27,11 +27,11 @@ In Purview, classifications are similar to subject tags, and are used to mark an
 
 Purview uses the same classifications, also known as sensitive information types, as Microsoft 365.  MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
-- **Classifications** are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
+**Classifications** are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
 
-- In contrast, **sensitivity labels** are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as *proximity to another classification*, and *% confidence*. 
+In contrast, **sensitivity labels** are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as *proximity to another classification*, and *% confidence*. 
 
-    Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
+Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
 
 For more information, see:
 
