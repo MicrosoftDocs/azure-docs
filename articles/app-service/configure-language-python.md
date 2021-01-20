@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
@@ -62,10 +62,10 @@ You can run an unsupported version of Python by building your own container imag
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
 
-1. Run a custom pre-build script if specified by the `PRE_BUILD_COMMAND` setting.
+1. Run a custom pre-build script if specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like yarn, for example, `yarn install` and `yarn build`.)
 1. Run `pip install -r requirements.txt`. The *requirements.txt* file must be present in the project's root folder. Otherwise, the build process reports the error: "Could not find setup.py or requirements.txt; Not running pip install."
 1. If *manage.py* is found in the root of the repository (indicating a Django app), run *manage.py collectstatic*. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
-1. Run custom post-build script if specified by the `POST_BUILD_COMMAND` setting.
+1. Run custom post-build script if specified by the `POST_BUILD_COMMAND` setting. (Again, tThe script can run other Python and Node.js scripts, pip and npm commands, and Node-based tools.)
 
 By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty. 
 
@@ -126,6 +126,61 @@ The following table describes the production settings that are relevant to Azure
 | `ALLOWED_HOSTS` | In production, Django requires that you include app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code, `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
 | `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternately store the values (especially the username and password) as [Azure Key Vault secrets](../key-vault/secrets/quick-create-python.md). |
 
+## Serve static files for Django apps
+
+If your Django web app includes static front-end files, first follow the instructions on [Managing static files](https://docs.djangoproject.com/en/3.1/howto/static-files/) in the Django documentation.
+
+For App Service, you then make the following modifications:
+
+1. Consider using environment variables (for local development) and App Settings (when deploying to the cloud) to dynamically set the various Django variables for static files. For example:    
+
+    ```python
+    STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")
+    STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
+    ```
+
+    `DJANGO_STATIC_URL` and `DJANGO_STATIC_ROOT` can be changed as necessary for your local and cloud environments. For example, if your backend build process places static files in a folder named `django-static`, then you can set `DJANGO_STATIC_URL` to `/django-static/` to avoid using the default.
+
+    Similarly, the `STATICFILES_DIRS` variable shown in this uses another variable, `FRONTEND_DIR`, to build a path to where the app's build script places static files. The `FRONTEND_DIR` variable could be set as followed:
+
+    ```python
+    import os
+    
+    BACKEND_DIR = os.path.dirname(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    )
+    FRONTEND_DIR = os.path.abspath(os.path.join(BACKEND_DIR, '..', 'frontend'))
+    ```
+    
+    In this case, the app's frontend files are in the `frontend` folder. 
+
+1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a Django app to serve it's own static files.
+
+1. In your *settings.py* file, add the following lines for Whitenoise:
+
+    ```python
+    # FRONTEND_DIR, 'build', and 'root' are apps-specific values
+    WHITENOISE_ROOT = os.path.join(FRONTEND_DIR, 'build', 'root')
+    STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+    ```
+
+1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include Whitenoise:
+
+    ```python
+    MIDDLEWARE = [
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+        # Other values follow
+    ]
+
+    INSTALLED_APPS = [
+        "whitenoise.runserver_nostatic",
+        # Other values follow
+    ]
+    ```
+
+1. In a [post-build script](#customize-build-automation), add the command, `python manage.py collectstatic --no-input`. 
+
 ## Container characteristics
 
 When deployed to App Service, Python apps run within a Linux Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations inside the version-specific directories.
@@ -145,6 +200,8 @@ This container has the following characteristics:
 
 - App Service automatically defines an environment variable named `WEBSITE_HOSTNAME` with the web app's URL, such as `msdocs-hello-world.azurewebsites.net`. It also defines `WEBSITE_SITE_NAME` with the name of your app, such as `msdocs-hello-world`. 
    
+- npm and Node.js are installed in the container so you can run Node-based build tools, such as yarn.
+
 ## Container startup process
 
 During startup, the App Service on Linux container runs the following steps:
@@ -265,7 +322,7 @@ For example, if you've created app setting called `DATABASE_SERVER`, the followi
 ```python
 db_server = os.environ['DATABASE_SERVER']
 ```
-    
+
 ## Detect HTTPS session
 
 In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
