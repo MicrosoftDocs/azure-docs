@@ -1,6 +1,6 @@
 ---
 title: "Oracle to SQL Managed Instance: Migration guide"
-description: Follow this guide to migrate your DB2 databases to Azure SQL Managed Instance. 
+description: Follow this guide to migrate your Oracle databases to Azure SQL Managed Instance. 
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 

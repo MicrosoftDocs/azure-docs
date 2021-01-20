@@ -176,7 +176,7 @@ To publish the schema and migrate the data, follow these steps:
 
     ![Data Migration Report](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
 
-1. Connect to your SQL Server on Azure VM using [SQL Server Management Studio](sql/ssms/download-sql-server-management-studio-ssms) to review data and schema on your SQL Server instance. 
+1. Connect to your SQL Server on Azure VM using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to review data and schema on your SQL Server instance. 
 
    ![Validate in SSMA](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
