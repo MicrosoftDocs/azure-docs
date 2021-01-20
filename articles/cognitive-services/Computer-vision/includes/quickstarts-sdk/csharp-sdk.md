@@ -270,6 +270,8 @@ Run the application from your application directory with the `dotnet run` comman
 dotnet run
 ```
 
+---
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
