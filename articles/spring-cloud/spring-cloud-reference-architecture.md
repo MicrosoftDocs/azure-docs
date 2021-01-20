@@ -64,7 +64,7 @@ The architecture for public web-applications builds on the traditional hub and s
 * Ingress traffic must be managed by at least Application Gateway or Azure Front Door
 * Azure DDoS Protection standard must be enabled
 * No direct egress to the public Internet except for control plane traffic
-* Egress traffic must traverse a central Network Virtual Appliance (NVA) (e.g., Azure Firewall)
+* Egress traffic must traverse a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
 * Azure DevOps self-hosted build agents must be used
@@ -103,7 +103,7 @@ The Azure services that are used in this reference architecture are in the follo
 
 * [Azure Pipelines][5]: a fully featured Continuous Integration/Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud
 
-* [Azure Application Gateway][6]: a web traffic load balancer with TLS offloading, which operates at layer 7 for managing traffic to backend service hosts
+* [Azure Application Gateway][6]: a load balancer responsible for web traffic with TLS offload operating at layer 7
 
 * [Azure web-application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of a web-applications from common exploits and vulnerabilities
 
@@ -112,22 +112,22 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
-By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that cannot be controlled. To temper this result, Azure Spring Cloud is built using components that can be scaled to ensure that the system is properly sized at any time to meet demand. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
+By the nature of distributed system design, infrastructure sprawl is a reality. The result is unexpected costs that cannot be controlled. Azure Spring Cloud is built using components that can be scaled to ensure that the system can meet demand and to optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
 
-Another aspect to address operational cost of the architecture is in the implementation of Application Insights and Azure Monitor by design. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real-time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
+Application Insights and Azure Monitor can also be used to lower operational cost. With the visibility provided by the comprehensive logging solution, automation can be implemented to scale the components of the system in real time. Also, analysis of the log data can reveal inefficiencies in the application code that can be addressed to improve the overall cost and performance of the system.
 
 ### Operational Excellence
 ### Performance Efficiency
 ### Reliability
 Azure Spring Cloud is designed with Azure Kubernetes as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application because of a component failure.
 
-By building on top of a well-defined hub and spoke design, the foundation of this architecture ensures it can be deployed to multiple regions. For the private application use case, Azure Private DNS is used to ensure continued availability during a geographic failure. Similarly, for the public application use case, a combination of Azure Front Door and Azure Application Gateway provides protection from the same ensuring increased availability.
+By building on top of a well-defined hub and spoke design, the foundation of this architecture ensures it can be deployed to multiple regions. For the private application use case, Azure Private DNS is used to ensure continued availability during a geographic failure. For the public application use case, Azure Front Door and Azure Application Gateway ensure availability.
 
 ### Security
-As one of the guiding tenants of the Azure Well-Architected Framework, security of this architecture was addressed by adhering to industry defined controls and benchmarks. The controls used in this architecture are from the Cloud Control Matrix (CCM) by the Cloud Security Alliance and the Microsoft Azure Foundations Benchmark (MAFB) by the Center for Internet Security. The primary security design principles of governance, networking, and application security were the focus of the applied controls. The design principles of Identity and Access Management and Storage are the responsibility of the reader as it relates to their target infrastructure.
+Security of this architecture was addressed by adhering to industry defined controls and benchmarks. The controls used in this architecture are from the Cloud Control Matrix (CCM) by the Cloud Security Alliance and the Microsoft Azure Foundations Benchmark (MAFB) by the Center for Internet Security. The primary security design principles of governance, networking, and application security were the focus of the applied controls. The design principles of Identity and Access Management and Storage are the responsibility of the reader as it relates to their target infrastructure.
 
 #### Governance
-The primary aspect of governance that this architecture addresses is segregation through isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources, and traffic between central services in the hub and resources in the spoke. In addition, north-south traffic, particularly the flow between the Internet and the resources within the architecture, is managed through an instance of Azure Firewall.
+The primary aspect of governance that this architecture addresses is segregation through isolation of network resources. In the CCM, DCS-08 recommends ingress and egress control for the datacenter. To satisfy the control, the architecture uses a hub and spoke design using Network Security Groups (NSGs) to filter east-west traffic between resources. Traffic between central services in the hub and resources in the spoke are also filtered. Also, north-south traffic, particularly the flow between the Internet and the resources within the architecture, is managed through an instance of Azure Firewall.
 
 | CSA CCM Control ID | CSA CCM Control Domain |
 | :----------------- | :----------------------|
@@ -142,7 +142,7 @@ The network design supporting this architecture is derived from the traditional 
 | IPY-04 | Interoperability & Portability Standardized Network Protocols |
 | IVS-06 | Infrastructure & Virtualization SecurityNetwork Security |
 
-The network implementation is further secured by defining controls from the MAFB. The controls address restricting SSH from the Internet (6.2), restricting SQL database ingress from any 0.0.0.0/0 IP (6.3), ensuring that Network Watcher is enabled (6.5), and restricting ingress using UDP from the Internet (6.6). The network egress rules implemented in this reference architecture are defined in the [Appendix](#appendix).
+The network implementation is further secured by defining controls from the MAFB. The controls ensure that traffic into the environment is restricted from the public Internet. The network egress rules implemented in this reference architecture are defined in the [Appendix](#appendix).
 
 | CIS Control ID | CIS Control Description |
 | :------------- | :---------------------- |
@@ -152,7 +152,7 @@ The network implementation is further secured by defining controls from the MAFB
 | 6.6 | Ensure that ingress using UDP is restricted from the Internet |
 
 #### Application Security
-This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. For this reference architecture, the focus is on key management where identity, data protection, and application configuration are the responsibility of the reader as it relates to their target infrastructure, and application.
+This design principal is composed of fundamental components, which are identity, data protection, key management, and application configuration. Key management is the focus in this reference architecture. Identity, data protection, and application configuration are the responsibility of the reader.
 
 The controls that address key management in this reference from the CCM are in the following list:
 
