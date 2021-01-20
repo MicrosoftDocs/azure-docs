@@ -46,6 +46,7 @@ This release is the public preview refresh release of Live Video Analytics on Io
 * Added support for Disk space management for sink nodes.
 * `MediaGraphGrpcExtension` node now supports [extensionConfiguration](grpc-extension-protocol.md) property for using multiple AI models within a single gRPC server.
 * Added support of collecting Live Video Analytics module metrics in the [Prometheus format](https://prometheus.io/docs/practices/naming/). Learn more on how to [collect metrics and view in Azure Monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* Added the ability to filter output selection. You can pass **audio-only** or **video-only** or **audio and video** both with the help of `outputSelectors` to any graph node. 
 * Frame Rate Filter processor is **deprecated**.  
     * Frame rate management is now available within the graph extension processor nodes itself.
 
