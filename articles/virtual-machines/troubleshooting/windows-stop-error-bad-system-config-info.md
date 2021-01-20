@@ -73,7 +73,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
    1. If the hive fails to open, or if it is empty, then the hive is corrupted. If the hive has been corrupted, [open a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![An error occurs stating that Registry Editor cannot load the hive.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
+      ![An error occurs stating that Registry Editor cannot load the hive.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. If the hive opens normally, then the hive wasn’t closed properly. Continue to step 5.
 
