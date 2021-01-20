@@ -250,3 +250,7 @@ Azure Attestation -> Client
 ```
 
 **report** (JWT): The attestation report in JSON Web Token (JWT) format (RFC 7519).
+
+## Next steps
+
+- [Azure Attestation workflow](workflow.md)
