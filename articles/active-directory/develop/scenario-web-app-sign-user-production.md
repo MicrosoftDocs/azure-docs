@@ -22,13 +22,9 @@ Now that you know how to get a token to call web APIs, here are some things to c
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Troubleshooting
-
-> [!NOTE]
-> When users sign-in to the web application for the first time, they will need to consent. However, in some organizations, users can see a message like the following:
->
-> *AppName needs permissions to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.*
->
-> This is because your tenant administrator has **disabled** the ability for users to consent. In that case, you need to contact your tenant administrators so that they do an admin-consent for the scopes required by the application.
+When users sign-in to the web application for the first time, they will need to consent. However, in some organizations, users can see a message like the following:
+*AppName needs permissions to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.*
+This is because your tenant administrator has **disabled** the ability for users to consent. In that case, you need to contact your tenant administrators so that they do an admin-consent for the scopes required by the application.
 
 ## Same site
 

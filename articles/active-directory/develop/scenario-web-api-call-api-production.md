@@ -21,7 +21,7 @@ After you've acquired a token to call web APIs, here are some things to consider
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## Learn more
+## Next steps
 
 Now that you know the basics of how to call web APIs from your own web API, you might be interested in the following tutorial, which describes the code that's used to build a protected web API that calls web APIs.
 

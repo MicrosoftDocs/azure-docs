@@ -19,6 +19,8 @@ ms.custom: include file
 
 ## Enable logging
 
+To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
+
 :::row:::
     :::column:::
         - [Logging in MSAL.NET](../articles/active-directory/develop/msal-logging-dotnet.md)
@@ -32,6 +34,13 @@ ms.custom: include file
     :::column-end:::
 :::row-end:::
 
-## Test your integration
+Here are some suggestions for data collection:
+
+- Users might ask for help when they have problems. A best practice is to capture and temporarily store logs. Provide a location where users can upload the logs. MSAL provides logging extensions to capture detailed information about authentication.
+
+- If telemetry is available, enable it through MSAL to gather data about how users sign in to your app.
+
+
+## Validate your integration
 
 Test your integration by following the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).

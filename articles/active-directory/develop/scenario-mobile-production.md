@@ -33,28 +33,8 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 
 ## Mitigate and investigate issues
 
-To help in debugging and authentication failure troubleshooting scenarios, the Microsoft Authentication Library provides built-in logging support. Logging is each library is covered in the following articles:
-
-:::row:::
-    :::column:::
-        - [Logging in MSAL.NET](msal-logging-dotnet.md)
-        - [Logging in MSAL for Android](msal-logging-android.md)
-        - [Logging in MSAL.js](msal-logging-js.md)
-    :::column-end:::
-    :::column:::
-        - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
-        - [Logging in MSAL for Java](msal-logging-java.md)
-        - [Logging in MSAL for Python](msal-logging-python.md)
-    :::column-end:::
-:::row-end:::
-
-Here are some suggestions for data collection:
-
-- Users might ask for help when they have problems. A best practice is to capture and temporarily store logs. Provide a location where users can upload the logs. MSAL provides logging extensions to capture detailed information about authentication.
-
-- If telemetry is available, enable it through MSAL to gather data about how users sign in to your app.
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Next steps
 
-1. Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
-1. To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
