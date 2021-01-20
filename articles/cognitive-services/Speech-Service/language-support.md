@@ -124,8 +124,6 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices/list API](rest-text-to-speech.md#get-a-list-of-voices). 
 
-To learn how you can configure and adjust speaking styles, including neural voices, see the [how-to](speech-synthesis-markup.md#adjust-speaking-styles) on Speech Synthesis Markup Language.
-
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
 
@@ -283,6 +281,8 @@ Below neural voices are in public preview.
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
 
 For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+
+To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
