@@ -24,7 +24,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 ## Prerequisites
 
-- You must have an [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) subscription to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
+- Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 
@@ -38,11 +38,30 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 1. From the data connectors gallery, select **Azure Active Directory** and then select **Open connector page**.
 
-1. Mark the check boxes next to the logs you want to stream into Azure Sentinel, and click **Connect**.
+1. Mark the check boxes next to the log types you want to stream into Azure Sentinel, and click **Connect**. These are the log types you can choose from:
 
-1. You can select whether you want the alerts from Azure AD to automatically generate incidents in Azure Sentinel. Under **Create incidents** select **Enable** to enable the default analytics rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
+    | Log Type | Description |
+    |-|-|
+    | Sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor |
+    | Audit logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
+    | Non-interactive user sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
+    | Service principal sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
+    | Managed Identity sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
+    | Provisioning logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
+    |
 
-1. To use the relevant schema in Log Analytics for querying Azure AD alerts, type `SigninLogs` or `AuditLogs` in the query window.
+## Find your data
+
+After a successful connection is established, the data appears in **Logs**, under the **LogManagement** section, in the following tables:
+
+- `SigninLogs`
+- `AuditLogs`
+- `AADNonInteractiveUserSignInLogs`
+- `AADServicePrincipalSignInLogs`
+- `AADManagedIdentitySignInLogs`
+- `AADProvisioningLogs`
+
+To query the Azure AD logs, enter the relevant table name at the top of the query window.
 
 ## Next steps
 In this document, you learned how to connect Azure Active Directory to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
