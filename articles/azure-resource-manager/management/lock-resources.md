@@ -23,7 +23,7 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 ## Considerations before applying locks
 
-Applying locks can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. Some common examples of the operations that are blocked by locks are:
+Applying locks can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. Locks will prevent any operations that require a POST request to the Azure Resource Manager API. Some common examples of the operations that are blocked by locks are:
 
 * A read-only lock on a **storage account** prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations.
 
