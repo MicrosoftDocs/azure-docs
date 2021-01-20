@@ -19,7 +19,7 @@ ms.custom: how-to, devx-track-python, data4ml
 
 # Data ingestion with Azure Data Factory
 
-In this article, you learn about the available options for building a data ingestion pipeline with Azure Data Factory (ADF). This pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models.
+In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory (ADF)](../data-factory/introduction.md). This pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models.
 
 Simple data transformation can be handled with native ADF activities and instruments such as [data flow](../data-factory/control-flow-execute-data-flow-activity.md). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
 
@@ -84,7 +84,7 @@ In this technique, the data transformation is performed by a [Python notebook](.
 
 The transformed data from the ADF pipeline is saved to data storage (such as Azure Blob). Azure Machine Learning can access this data using [datastores](./how-to-access-data.md#create-and-register-datastores) and [datasets](./how-to-create-register-datasets.md).
 
-Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an Azure Machine Learning pipeline. When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create a datastore/dataset using the data location. 
+Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create a datastore and dataset using the data location. 
 
 > [!TIP]
 > Datasets [support versioning](./how-to-version-track-datasets.md), so the ML pipeline can register a new version of the dataset that points to the most recent data from the ADF pipeline.
