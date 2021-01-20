@@ -20,6 +20,8 @@
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
 - name: Concepts
   items:
   - name: Layout extraction

@@ -91,7 +91,7 @@ N/A
 
 # [REST](#tab/rest)
 
-When using REST, the response initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
+When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with *Azure-AsyncOperation* property:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -197,7 +197,7 @@ It takes the propagation of the key a few minutes to complete. You can check the
 2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
 A response to GET request should look like this when the key update is complete:
-200 OK and header
+202 (Accepted) and header
 ```json
 {
   "identity": {
@@ -383,15 +383,11 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 ## Limitations and constraints
 
-- Customer-managed key is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
-
 - The max number of cluster per region and subscription is 2
 
-- The maximum of linked workspaces to cluster is 1000
+- The maximum number of workspaces that can be linked to a cluster is 1000
 
 - You can link a workspace to your cluster and then unlink it. The number of workspace link operations on particular workspace is limited to 2 in a period of 30 days.
-
-- Workspace link to cluster should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
 
 - Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 
@@ -401,14 +397,12 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 - Cluster move to another resource group or subscription isn't supported currently.
 
-- Your Azure Key Vault, cluster and linked workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
-
-- Workspace link to cluster will fail if it is linked to another cluster.
+- Your Azure Key Vault, cluster and workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
 - Lockbox isn't available in China currently. 
 
-- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for Double encryption by a GET request on the cluster and observing the `"isDoubleEncryptionEnabled"` property value - it's `true` for clusters with Double encryption enabled. 
-  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` property in the REST request body.
+- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
+  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
   - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
@@ -426,14 +420,16 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
   - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
 
+- If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
+
+- If you get conflict error when creating a cluster – It may be that you have deleted your cluster in the last 14 days and it’s in a soft-delete period. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+
+- Workspace link to cluster will fail if it is linked to another cluster.
+
 - If you create a cluster and specify the KeyVaultProperties immediately, the operation may fail since the
     access policy can't be defined until system identity is assigned to the cluster.
 
 - If you update existing cluster with KeyVaultProperties and 'Get' key Access Policy is missing in Key Vault, the operation will fail.
-
-- If you get conflict error when creating a cluster – It may be that you have deleted your cluster in the last 14 days and it’s in a soft-delete period. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
-
-- If you update your cluster while an operation is in progress, the operation will fail.
 
 - If you fail to deploy your cluster, verify that your Azure Key Vault, cluster and linked Log Analytics workspaces are in the same region. The can be in different subscriptions.
 

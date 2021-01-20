@@ -257,7 +257,7 @@
       href: https://azure.microsoft.com/roadmap/?category=security-identity
 - name: Resources
   items:
-  - name: Agent-based solution for device builders
+  - name: Agent-based solution for Device Builders
     items: 
     - name: Build your security skills with Microsoft Learn
       href: /learn/browse/?term=securityS&terms=securityS
