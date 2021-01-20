@@ -243,6 +243,9 @@ The output from the previous code snippet shows the payload with the **StartTime
 Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
 Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-name","value":"GenerateDiagnostics"}]}
 ```
+> [!NOTE]
+> Default TTL for Offline commands (cloud-to-device messages) is 24 hours
+
 
 ## Next steps
 
