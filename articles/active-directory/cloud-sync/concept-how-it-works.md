@@ -44,7 +44,7 @@ The following is a walk-through of what occurs when the cloud provisioning agent
 - The wizard now asks for domain configuration along with the Enterprise Admin (EA)/Domain Admin(DA) Account for each domain you want the agent to service.
 - The GMSA account is then updated with permissions that enable it access to each domain entered above.
 - Next, the wizard triggers agent registration
-- The agent creates a certificate and using the Azure AD token, registers itself and the certificate with the Hybird Identity Service(HIS) Registration Service
+- The agent creates a certificate and using the Azure AD token, registers itself and the certificate with the Hybrid Identity Service(HIS) Registration Service
 - The Wizard triggers an AgentResourceGrouping call. This call to HIS Admin Service is to assign the agent to one or more AD Domains in the HIS configuration.
 - The wizard now restarts the agent service.
 - The agent calls a Bootstrap Service on restart (and every 10 mins afterwards) to check for configuration updates.  The bootstrap service validates the agent identity.  It also updates the last bootstrap time.  This is important because if agents don't bootstrap, they are not getting updated Service Bus endpoints and may not be able to receive requests. 
@@ -61,7 +61,7 @@ The Azure AD Connect cloud provisioning agent uses SCIM with Azure AD to provisi
 Once you have installed the agent and enabled provisioning, the following flow occurs.
 
 1.  Once configured, the Azure AD Provisioning service calls the Azure AD hybrid service to add a request to the Service bus. The agent constantly maintains an outbound connection to the Service Bus listening for requests and picks up the System for Cross-domain Identity Management (SCIM) request immediately. 
-2.  The agent breaks up the request into seperate queries based on object type. 
+2.  The agent breaks up the request into separate queries based on object type. 
 3.  AD returns the result to the agent and the agent filters this data before sending it to Azure AD.  
 4.  Agent returns the SCIM response to Azure AD.  These responses are based on the filtering that happened within the agent.  The agent uses scoping to filter the results. 
 5.  The provisioning service writes the changes to Azure AD.
