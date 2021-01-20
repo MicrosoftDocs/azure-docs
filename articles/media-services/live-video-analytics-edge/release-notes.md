@@ -50,6 +50,8 @@ This release is the public preview refresh release of Live Video Analytics on Io
 * Frame Rate Filter processor is **deprecated**.  
     * Frame rate management is now available within the graph extension processor nodes itself.
 
+### Visual Studio Code extension
+* Released [Live Video Analytics on IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) - A Visual Studio Code extension to help you manage LVA media graphs. This extension works with **LVA 2.0 module** and offers editing and managing media graphs with a very sleek and an easy-to-use graphical interface.
 ## September 22, 2020
 
 This release tag is for the September 2020 refresh of the module is:
