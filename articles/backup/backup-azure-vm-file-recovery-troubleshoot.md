@@ -113,9 +113,9 @@ To resolve this issue, check if the volume is encrypted with a third-party appli
 
 1. Sign in to the backed-up VM and run this command:
 
-   `*lsblk -f*`
+   `lsblk -f`
 
-   ![Screenshot showing the results of the `*lsblk -f*` command.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
+   ![Screenshot showing the results of the command to list block devices.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
 1. Verify the file system and encryption. If the volume is encrypted, file recovery isn't supported. Learn more at [Support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
 
@@ -160,7 +160,7 @@ If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover 
 
 ### You can't copy the files from mounted volumes
 
-The copy might fail with the error "0x80070780: The file cannot be accessed by the system". 
+The copy might fail with the error "0x80070780: The file cannot be accessed by the system." 
 
 Check if the source server has disk deduplication enabled. If it does, ensure the restore server also has deduplication enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
 
