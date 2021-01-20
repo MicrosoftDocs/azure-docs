@@ -40,15 +40,12 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 1. Mark the check boxes next to the log types you want to stream into Azure Sentinel, and click **Connect**. These are the log types you can choose from:
 
-    | Log Type | Description |
-    |-|-|
-    | Sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor |
-    | Audit logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
-    | Non-interactive user sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
-    | Service principal sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
-    | Managed Identity sign-in logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
-    | Provisioning logs | Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor  |
-    |
+    - Sign-in logs
+    - Audit logs
+    - Non-interactive user sign-in logs
+    - Service principal sign-in logs
+    - Managed Identity sign-in logs
+    - Provisioning logs
 
 ## Find your data
 
