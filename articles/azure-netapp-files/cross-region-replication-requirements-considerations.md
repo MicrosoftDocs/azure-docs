@@ -34,12 +34,14 @@ Note the following requirements and considerations about [using the volume cross
 * Configuring volume replication for source volumes created from snapshot is not supported at this time.
 * After you set up cross-region replication, the replication process creates *snapmirror snapshots* to provide references between the source volume and the destination volume. Snapmirror snapshots are cycled automatically when a new one is created for every incremental transfer. You cannot delete snapmirror snapshots until replication relationship and volume is deleted. 
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
+* You cannot revert to a snapshot that was taken before the replication destination volume was created.
 
 ## Next steps
-* [Create replication peering](cross-region-replication-create-peering.md)
+* [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 
 

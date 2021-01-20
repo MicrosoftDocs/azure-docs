@@ -107,7 +107,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
@@ -137,7 +137,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
@@ -161,7 +161,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
@@ -516,5 +516,4 @@ def _build_msal_app(cache=None):
 
 At this point, when the user signs in, a token is stored in the token cache. Let's see how it's then used in other parts of the web app.
 
-> [!div class="nextstepaction"]
-> [A web app that calls web APIs: Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)
+[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)

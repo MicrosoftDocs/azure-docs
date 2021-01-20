@@ -7,7 +7,7 @@ ms.date: 10/16/2019
 ms.author: mimart
 # Used by the ROPC configuration articles for both user flows and custom policies
 ---
-To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](../articles/active-directory-b2c/app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 

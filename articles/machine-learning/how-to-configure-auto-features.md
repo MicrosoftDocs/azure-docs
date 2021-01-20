@@ -1,7 +1,7 @@
 ---
-title: Featurization in AutoML experiments
+title: Featurization with automated machine learning
 titleSuffix: Azure Machine Learning
-description: Learn what featurization settings Azure Machine Learning offers and how feature engineering is supported in automated ML experiments.
+description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,31 +9,32 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
-ms.date: 05/28/2020
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
 ---
 
-# Featurization in automated machine learning
+# Data featurization in automated machine learning
 
+Learn about the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](concept-automated-ml.md).
 
+## Feature engineering and featurization
 
-In this guide, you learn:
+Training data consists of rows and columns. Each row is an observation or record, and the columns of each row are the features that describe each record. Typically, the features that best characterize the patterns in the data are selected to create predictive models.
 
-- What featurization settings Azure Machine Learning offers.
-- How to customize those features for your [automated machine learning experiments](concept-automated-ml.md).
+Although many of the raw data fields can be used directly to train a model, it's often necessary to create additional (engineered) features that provide information that  better differentiates patterns in the data. This process is called **feature engineering**, where the use of domain knowledge of the data is leveraged to create features that, in turn, help machine learning algorithms to learn better. 
 
-*Feature engineering* is the process of using domain knowledge of the data to create features that help machine learning (ML) algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine learning, or *AutoML*, experiments.
+In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called **featurization** in automated ML experiments.
 
 ## Prerequisites
 
-This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
+This article assumes that you already know how to configure an automated ML experiment. For information about configuration, see the following articles:
 
 - For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
 - For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Configure featurization
 
-In every automated machine learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. However, you can also enable additional featurization, such as *missing-values imputation*, *encoding*, and *transforms*.
+In every automated machine learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. You can enable more featurization, such as *missing-values imputation*, *encoding*, and *transforms*.
 
 > [!NOTE]
 > Steps for automated machine learning featurization (such as feature normalization, handling missing data,
@@ -47,7 +48,7 @@ The following table shows the accepted settings for `featurization` in the [Auto
 
 |Featurization configuration | Description|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Specifies that, as part of preprocessing, [data guardrails and featurization steps](#featurization) are to be done automatically. This setting is the default.|
+|`"featurization": 'auto'`| Specifies that, as part of preprocessing, [data guardrails](#data-guardrails) and [featurization steps](#featurization) are to be done automatically. This setting is the default.|
 |`"featurization": 'off'`| Specifies that featurization steps are not to be done automatically.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Specifies that customized featurization steps are to be used. [Learn how to customize featurization](#customize-featurization).|
 
@@ -58,18 +59,15 @@ The following table shows the accepted settings for `featurization` in the [Auto
 The following table summarizes techniques that are automatically applied to your data. These techniques are applied for experiments that are configured by using the SDK or the studio. To disable this behavior, set `"featurization": 'off'` in your `AutoMLConfig` object.
 
 > [!NOTE]
-> If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx).
+> If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Featurization&nbsp;steps| Description |
 | ------------- | ------------- |
 |**Drop high cardinality or no variance features*** |Drop these features from training and validation sets. Applies to features with all values missing, with the same value across all rows, or with high cardinality (for example, hashes, IDs, or GUIDs).|
 |**Impute missing values*** |For numeric features, impute with the average of values in the column.<br/><br/>For categorical features, impute with the most frequent value.|
-|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br><br> *For forecasting tasks,* these additional DateTime features are created: ISO year, Half - half-year, Calendar month as string, Week, Day of week as string, Day of quarter, Day of year, AM/PM (0 if hour is before noon (12 pm), 1 otherwise), AM/PM as string, Hour of day (12 hr basis)<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams. Learn more about [how this is done with BERT.](#bert-integration)|
+|**Generate more features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br><br> *For forecasting tasks,* these additional DateTime features are created: ISO year, Half - half-year, Calendar month as string, Week, Day of week as string, Day of quarter, Day of year, AM/PM (0 if hour is before noon (12 pm), 1 otherwise), AM/PM as string, Hour of day (12-hr basis)<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams. Learn more about [how this is done with BERT.](#bert-integration)|
 |**Transform and encode***|Transform numeric features that have few unique values into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical features. One-hot-hash encoding is used for high-cardinality categorical features.|
 |**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pre-trained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
-|**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross-validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
-|**Text target encoding**|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
-|**Weight of Evidence (WoE)**|Calculates WoE as a measure of correlation of categorical columns to the target column. WoE is calculated as the log of the ratio of in-class vs. out-of-class probabilities. This step produces one numeric feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
 |**Cluster Distance**|Trains a k-means clustering model on all numeric columns. Produces *k* new features (one new numeric feature per cluster) that contain the distance of each sample to the centroid of each cluster.|
 
 ## Data guardrails
@@ -103,12 +101,12 @@ The following table describes the data guardrails that are currently supported a
 
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
-**Missing feature values imputation** |Passed <br><br><br> Done| No missing feature values were detected in your training data. Learn more about [missing-value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and were imputed.
+**Missing feature values imputation** |Passed <br><br><br> Done| No missing feature values were detected in your training data. Learn more about [missing-value imputation.](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> Missing feature values were detected in your training data and were imputed.
 **High cardinality feature handling** |Passed <br><br><br> Done| Your inputs were analyzed, and no high-cardinality features were detected. <br><br> High-cardinality features were detected in your inputs and were handled.
-**Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
-**Class balancing detection** |Passed <br><br><br><br>Alerted <br><br><br>Done | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered to be balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Imbalanced classes were detected in your inputs and the sweeping logic has determined to apply balancing.
-**Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
-**Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](./how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
+**Class balancing detection** |Passed <br><br><br><br>Alerted <br><br><br>Done | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered to be balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> Imbalanced classes were detected in your inputs and the sweeping logic has determined to apply balancing.
+**Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](./how-to-auto-train-forecast.md#configuration-settings). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
+**Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](./how-to-auto-train-forecast.md#preparing-data).
 
 ## Customize featurization
 
@@ -124,6 +122,9 @@ Supported customizations include:
 |**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (mean, most frequent, and median) and *HashOneHotEncoder*.|
 |**Drop columns** |Specifies columns to drop from being featurized.|
 |**Block transformers**| Specifies block transformers to be used in the featurization process.|
+
+>[!NOTE]
+> The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
 
 Create the `FeaturizationConfig` object by using API calls:
 
@@ -301,20 +302,22 @@ class_prob = fitted_model.predict_proba(X_test)
 
 If the underlying model does not support the `predict_proba()` function or the format is incorrect, a model class-specific exception will be thrown. See the [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) and [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) reference docs for examples of how this function is implemented for different model types.
 
-## BERT integration
+<a name="bert-integration"></a>
+
+## BERT integration in automated ML
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of AutoML. In this layer, if a column contains free text or other types of data like timestamps or simple numbers, then featurization is applied accordingly.
 
-For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output  as features alongside others, like timestamp-based features, day of week. 
+For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output as features alongside others, like timestamp-based features, day of week. 
 
 
-### BERT steps
+### Steps to invoke BERT
 
-In order to invoke BERT, you have to set  `enable_dnn: True` in your automl_settings and use a GPU compute (e.g. `vm_size = "STANDARD_NC6"`, or a higher GPU). If a CPU compute is used, then instead of BERT, AutoML enables the BiLSTM DNN featurizer.
+In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use a GPU compute (`vm_size = "STANDARD_NC6"` or a higher GPU). If a CPU compute is used, then instead of BERT, AutoML enables the BiLSTM DNN featurizer.
 
 AutoML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 
@@ -325,9 +328,10 @@ AutoML takes the following steps for BERT.
 BERT generally runs longer than other featurizers. For better performance, we recommend using "STANDARD_NC24r" or "STANDARD_NC24rs_V3" for their RDMA capabilities. 
 
 AutoML will distribute BERT training across multiple nodes if they are available (upto a max of eight nodes). This can be done in your `AutoMLConfig` object by setting the `max_concurrent_iterations` parameter to higher than 1. 
-### Supported languages
 
-AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
+## Supported languages for BERT in autoML 
+
+AutoML currently supports around 100 languages and depending on the dataset's language, autoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
 
 In the following code, the German BERT model is triggered, since the dataset language is specified to `deu`, the three letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/deu):
 

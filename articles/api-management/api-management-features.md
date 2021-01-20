@@ -33,7 +33,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Built-in analytics                                                                           | No          | Yes       | Yes   | Yes      | Yes     |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | Yes     |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes     |
-| [External cache](https://aka.ms/apimbyoc)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |

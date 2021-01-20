@@ -4,10 +4,10 @@ description: Learn how to create an Azure Red Hat OpenShift private cluster runn
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: ms-jasondel
-ms.author: jasondel
+author: georgewallace
+ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a private Azure Red Hat OpenShift cluster
 ---
 
@@ -225,7 +225,7 @@ You can find the cluster console URL by running the following command, which wil
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-![Azure Red Hat OpenShift login screen](media/aro4-login.png)
+![Screenshot that shows the Azure Red Hat OpenShift login screen.](media/aro4-login.png)
 
 ## Install the OpenShift CLI
 

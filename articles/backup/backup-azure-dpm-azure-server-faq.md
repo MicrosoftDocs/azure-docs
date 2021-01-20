@@ -34,7 +34,7 @@ For the DPM servers with data sources that are protected to the cloud (by using 
 
 ### Are there recommendations for configuring exclusions for antivirus software?
 
-Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## VMware and Hyper-V backup
 
@@ -51,6 +51,10 @@ You don't need separate licensing for VMware/Hyper-V protection.
 
 - If you're a System Center customer, use System Center Data Protection Manager (DPM) to protect VMware VMs.
 - If you aren't a System Center customer, you can use Azure Backup Server (pay-as-you-go) to protect VMware VMs.
+
+### Can I restore a backup of a Hyper-V or VMware VM, stored in Azure, to Azure as an Azure VM?
+
+No, this is not currently possible. You can only restore to an on-premises host.
 
 ## SharePoint
 

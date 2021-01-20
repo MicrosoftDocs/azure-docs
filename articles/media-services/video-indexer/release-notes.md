@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 01/06/2021
 ms.author: juliako
 ---
 
@@ -25,6 +25,30 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+##  December 2020
+
+### Video Indexer deployed in the Switzerland West and Switzerland North
+
+You can now create a Video Indexer paid account in the Switzerland West and Switzerland North regions.
+
+## October 2020
+
+### Animated character identification improvements  
+
+Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
+
+### Planned Video Indexer website authenticatication changes
+
+Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer website](https://www.videoindexer.ai/) [developer portal](video-indexer-use-apis.md) using Facebook or LinkedIn.
+
+You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
+
+> [!NOTE]
+> The Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021. 
+> 
+> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Indexer account so you will still have access.<br/>
+> Alternatively, you can create a paid account and migrate the data.
 
 ## August 2020
 

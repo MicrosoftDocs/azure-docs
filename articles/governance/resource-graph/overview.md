@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?

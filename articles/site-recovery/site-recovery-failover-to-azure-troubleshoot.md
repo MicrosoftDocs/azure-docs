@@ -164,7 +164,7 @@ To resolve the issue:
 
 2. If the output of the previous commands shows that either the http_proxy or https_proxy settings are defined, use one of the following methods to unblock the Master Target communications with configuration server:
    
-   - Download the [PsExec tool](https://aka.ms/PsExec).
+   - Download the [PsExec tool](/sysinternals/downloads/psexec).
    - Use the tool to access the System user context and determine whether the proxy address is configured. 
    - If the proxy is configured, open IE in a system user context using the PsExec tool.
   

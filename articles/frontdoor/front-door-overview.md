@@ -19,18 +19,20 @@ ms.author: duau
 
 Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications with contents that reach a global audience through Azure.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Front Door architecture":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Azure Front Door">
+</p>
 
 Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Front Door will route your client requests to the fastest and most available application backend. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door provides a range of [traffic-routing methods](front-door-routing-methods.md) and [backend health monitoring options](front-door-health-probes.md) to suit different application needs and automatic failover scenarios. Similar to [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door is resilient to failures, including failures to an entire Azure region.
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
 > * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/application-gateway-introduction.md)
+> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md)
 > * To do network layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Why use Azure Front Door?
 
@@ -52,7 +54,7 @@ Key features included with Front Door:
 
 * Define your own **[custom domain](front-door-custom-domain.md)**. 
 
-* Application security with custom **[Web Application Firewall (WAF)](../web-application-firewall/overview.md)** rules and **[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)**.
+* Application security with integrated  **[Web Application Firewall (WAF)](../web-application-firewall/overview.md)**.
 
 * Redirect HTTP traffic to HTTPS with **[URL redirect](front-door-url-redirect.md)**.
 

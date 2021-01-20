@@ -24,7 +24,7 @@ Azure Stack Edge Pro with FPGA is a Hardware-as-a-service solution. Microsoft sh
 Here are the various scenarios where Azure Stack Edge Pro can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 
@@ -75,7 +75,7 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
 Azure Stack Edge Pro physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge Pro can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge Pro can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 

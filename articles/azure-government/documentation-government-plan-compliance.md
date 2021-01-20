@@ -18,11 +18,11 @@ ms.date: 01/20/2020
 
 ## Azure Blueprints
 
-[Azure Blueprints](https://azure.microsoft.com/services/blueprints/) can help you automate the process of achieving compliance on Azure Government. FedRAMP and other [standards-based blueprint samples](https://docs.microsoft.com/azure/governance/blueprints/samples/) are available in Azure Blueprints.
+[Azure Blueprints](https://azure.microsoft.com/services/blueprints/) can help you automate the process of achieving compliance on Azure Government. FedRAMP and other [standards-based blueprint samples](../governance/blueprints/samples/index.md) are available in Azure Blueprints.
 
 ## General Data Protection Regulation (GDPR) Data Subject Requests (DSRs) on Azure Government
 
-Azure tenant administrators can use the [User Privacy blade](https://portal.azure.us/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) in the Azure portal to export and/or delete personal data generated during a customer's use of Azure Government services. For more information about Data Subject Requests, see [Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure).
+Azure tenant administrators can use the [User Privacy blade](https://portal.azure.us/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) in the Azure portal to export and/or delete personal data generated during a customer's use of Azure Government services. For more information about Data Subject Requests, see [Data Subject Requests for the GDPR](/microsoft-365/compliance/gdpr-dsr-azure).
 
 ## Next steps
 

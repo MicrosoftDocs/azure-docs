@@ -24,7 +24,7 @@ This article provides steps to resolve issues where the Default Domain Controlle
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays the OS becoming unresponsive while booting with the message **Default Domain Controllers Policy**.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you will see that the screenshot displays the OS becoming unresponsive while booting with the message **Default Domain Controllers Policy**.
 
   ![Figure 1 displays the OS stuck with the message 'Default Domain Controllers Policy'](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -42,7 +42,7 @@ To resolve this issue, you should first gather the memory dump file for the cras
 
 ### Attach the OS disk to a new Repair VM
 
-1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Use steps 1-3 of the [VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 
 1. Using Remote Desktop Connection connect to the Repair VM.
 
@@ -52,4 +52,4 @@ To resolve this issue, you should first gather the memory dump file for the cras
 
 1. Locate the memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
 
-1. If you are having trouble locating the memory.dmp file, you may wish to use [non-maskable interrupt (NMI) calls in serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) instead. Follow the guide to [generate a crash dump file using NMI calls](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. If you are having trouble locating the memory.dmp file, you may wish to use [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) instead. Follow the guide to [generate a crash dump file using NMI calls](/windows/client-management/generate-kernel-or-complete-crash-dump).

@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Aha! with Azure Active Directory
 * Enable your users to be automatically signed-in to Aha! with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -58,10 +58,10 @@ Configure and test Azure AD SSO with Aha! using a test user called **B.Simon**. 
 To configure and test Azure AD SSO with Aha!, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure Aha! SSO](#configure-aha-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create Aha! test user](#create-aha-test-user)** - to have a counterpart of B.Simon in Aha! that is linked to the Azure AD representation of user.
+    1. **[Create Aha! test user](#create-aha-test-user)** - to have a counterpart of B.Simon in Aha! that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -82,16 +82,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.aha.io`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Aha! Client support team](https://www.aha.io/company/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Aha! Client support team](https://www.aha.io/company/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up Aha!** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -100,10 +100,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-	1. In the **Name** field, enter `B.Simon`.  
-	1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-	1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-	1. Click **Create**.
+    1. In the **Name** field, enter `B.Simon`.  
+    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -113,11 +113,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **Aha!**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   	![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -127,37 +127,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To automate the configuration within Aha!, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+    ![My apps extension](common/install-myappssecure-extension.png)
 
 2. After adding extension to the browser, click on **Setup Aha!** will direct you to the Aha! application. From there, provide the admin credentials to sign into Aha!. The browser extension will automatically configure the application for you and automate steps 3-8.
 
-	![Setup configuration](common/setup-sso.png)
+    ![Setup configuration](common/setup-sso.png)
 
 3. If you want to setup Aha! manually, open a new web browser window and sign into your Aha! company site as an administrator and perform the following steps:
 
 4. In the menu on the top, click **Settings**.
 
-	![Settings](./media/aha-tutorial/IC798950.png "Settings")
+    ![Settings](./media/aha-tutorial/IC798950.png "Settings")
 
 5. Click **Account**.
-  
-	![Profile](./media/aha-tutorial/IC798951.png "Profile")
+
+    ![Profile](./media/aha-tutorial/IC798951.png "Profile")
 
 6. Click **Security and single sign-on**.
 
-	![Security and single sign-on](./media/aha-tutorial/IC798952.png "Security and single sign-on")
+    ![Screenshot that highlights the Security and single sign-on menu option.](./media/aha-tutorial/IC798952.png "Security and single sign-on")
 
 7. In **Single Sign-On** section, as **Identity Provider**, select **SAML2.0**.
 
-	![Security and single sign-on](./media/aha-tutorial/IC798953.png "Security and single sign-on")
+    ![Security and single sign-on](./media/aha-tutorial/IC798953.png "Security and single sign-on")
 
 8. On the **Single Sign-On** configuration page, perform the following steps:
 
-	![Single Sign-On](./media/aha-tutorial/IC798954.png "Single Sign-On")
+    ![Single Sign-On](./media/aha-tutorial/IC798954.png "Single Sign-On")
 
-	a. In the **Name** textbox, type a name for your configuration.
+    a. In the **Name** textbox, type a name for your configuration.
 
-	b. For **Configure using**, select **Metadata File**.
+    b. For **Configure using**, select **Metadata File**.
 
     c. To upload your downloaded metadata file, click **Browse**.
 
@@ -171,13 +171,12 @@ In this section, a user called B.Simon is created in Aha!. Aha! supports just-in
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Aha! tile in the Access Panel, you should be automatically signed in to the Aha! for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Aha! tile in the Access Panel, you should be automatically signed in to the Aha! for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

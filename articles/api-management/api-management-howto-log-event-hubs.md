@@ -28,7 +28,7 @@ For detailed steps on how to create an event hub and get connection strings that
 ## Create an API Management logger
 Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/2019-12-01/logger) in your API Management service so that it can log events to the Event Hub.
 
-API Management loggers are configured using the [API Management REST API](https://aka.ms/apimapi). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## Configure log-to-eventhub policies
 

@@ -38,6 +38,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   Security definitions are ignored.
 -   Inline schema definitions for API operations aren't supported. Schema definitions are defined in the API scope and can be referenced in API operations request or response scopes.
 -   A defined URL parameter needs to be part of the URL template.
+-   `server` object isn't supported on the API operation level.
 -   `Produces` keyword, which describes MIME types returned by an API, isn't supported. 
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2

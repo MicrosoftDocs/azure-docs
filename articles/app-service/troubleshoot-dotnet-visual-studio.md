@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, seodec18"
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 ## Overview
-This tutorial shows how to use Visual Studio tools to help debug an app in [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](/visualstudio/debugger/) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools to help debug an app in [App Service](./overview.md), by running in [debug mode](/visualstudio/debugger/) remotely or by viewing application logs and web server logs.
 
 You'll learn:
 
@@ -44,7 +44,7 @@ Visual Studio provides access to a subset of the app management functions and co
    >
    >
 
-    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](../role-based-access-control/role-assignments-portal.md).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
 3. Expand the resource group that includes the app that you created in [Create an ASP.NET app in Azure App Service](quickstart-dotnet-framework.md), and then right-click the app node and click **View Settings**.
 
@@ -120,7 +120,7 @@ This section shows how to debug remotely using the project you create in [Create
     }
     ```
 
-1. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the `ViewBag.Message` line.
+1. [Set a breakpoint](/visualstudio/debugger/) on the `ViewBag.Message` line.
 
 1. In **Solution Explorer**, right-click the project, and click **Publish**.
 
@@ -171,7 +171,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-3. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the first statement in the `GnerateThumbnail` method.
+3. [Set a breakpoint](/visualstudio/debugger/) on the first statement in the `GnerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -236,7 +236,7 @@ If your function [wrote logs](https://github.com/Azure/azure-webjobs-sdk/wiki), 
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* If you find that the debugger doesn't step into the code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
+* If you find that the debugger doesn't step into the code that you want to debug, you might have to change the Just My Code setting.  For more information, see [Specify whether to debug only user code using Just My Code in Visual Studio](/visualstudio/debugger/just-my-code).
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48-hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
 * You can manually attach the debugger to any process, not only the app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
@@ -325,7 +325,7 @@ For information about how to create application logs in WebJobs, see [How to wor
     ```
 
 The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
-1. Add a <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
+1. Add a <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -500,7 +500,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -619,7 +619,7 @@ For more information about troubleshooting apps in Azure App Service, see the fo
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
 * [The Azure forum on the ASP.NET site](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [The Azure forum on Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [The Azure forum on Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### Debugging in Visual Studio

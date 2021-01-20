@@ -26,7 +26,7 @@ ms.custom: devx-track-csharp
 
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the Azure Marketplace. 
 
-This article shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoders presets described [here](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+This article shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoders presets described [here](./media-services-mes-presets-overview.md).
 
 It is recommended to always encode your source files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
 
@@ -41,7 +41,7 @@ If your output asset is storage encrypted, you must configure asset delivery pol
 [Formats and codecs](media-services-media-encoder-standard-formats.md)
 
 ### MES Presets
-Media Encoder Standard is configured using one of the encoders presets described [here](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is configured using one of the encoders presets described [here](./media-services-mes-presets-overview.md).
 
 ### Input and output metadata
 When you encode an input asset (or assets) using MES, you get an output asset at the successful completion of that encode task. The output asset contains video, audio, thumbnails, manifest, etc. based on the encoding preset you use.
@@ -212,4 +212,3 @@ namespace MediaEncoderStandardSample
 ## Next steps
 [How to generate thumbnail using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services Encoding Overview](media-services-encode-asset.md)
-

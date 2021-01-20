@@ -1,62 +1,69 @@
 ---
-title: "Cognitive Services docs: What's new for August 1, 2020 - August 31, 2020"
-description: "What's new in the Cognitive Services docs for August 1, 2020 - August 31, 2020."
+title: "Cognitive Services: What's new in docs"
+description: "What's new in the Cognitive Services docs for December 1, 2020 - December 31, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 09/08/2020
+ms.date: 01/05/2021
 ---
 
-# Cognitive Services docs: What's new for August 1, 2020 - August 31, 2020
+# Cognitive Services docs: What's new for December 1, 2020 - December 31, 2020
 
-Welcome to what's new in the Cognitive Services docs from August 1, 2020 through August 31, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from December 1, 2020 through December 31, 2020. This article lists some of the major changes to docs during this period.
 
-## Computer Vision
+## Cognitive Services
 
 ### New articles
 
-- [Upgrade to v3.0 of Computer Vision API from v2.0 and v2.1](/azure/cognitive-services/computer-vision/upgrade-api-versions)
+- [Plan and manage costs for Azure Cognitive Services](plan-manage-costs.md)
+
+### Updated articles
+
+- [Configure Azure Cognitive Services virtual networks](cognitive-services-virtual-networks.md)
+
+## Anomaly Detector
+
+### Updated articles
+
+- [Anomaly Detector REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+
+## Bing Visual Search
+
+### Updated articles
+
+- [Use an insights token to get insights for an image](/azure/cognitive-services/bing-visual-search/use-insights-token)
 
 ## Containers
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags](/azure/cognitive-services/containers/container-image-tags)
+- [Deploy and run container on Azure Container Instance](/azure/cognitive-services/containers/azure-container-instance-recipe)
 
 ## Form Recognizer
 
-### New articles
+### Updated articles
 
-- [Business card concepts](/azure/cognitive-services/form-recognizer/concept-business-cards)
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/)
+- [Quickstart: Use the Form Recognizer client library](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+
+## Text Analytics
 
 ### Updated articles
 
-- [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract)
-- [Quickstart: Train a Form Recognizer model with labels using REST API and Python](/azure/cognitive-services/form-recognizer/quickstarts/python-labeled-data)
-- [Quickstart: Extract text and layout information using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-layout)
-- [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-train-extract)
-
-## Speech Service
-
-### New articles
-
-- [Speech Services quotas and limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits)
-
-### Updated articles
-
-- [Long Audio API (Preview)](/azure/cognitive-services/speech-service/long-audio-api)
+- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Example: How to extract key phrases using Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction)
+- [Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs](/azure/cognitive-services/text-analytics/)
+- [Quickstart: Use the Text Analytics client library and REST API](/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api)
 
 ## Community contributors
 
-The following people contributed to the Cognitive Services docs during this period. Thank you! 
+The following people contributed to the Cognitive Services docs during this period. Thank you!
 
-- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
-- [anwesh-b](https://github.com/anwesh-b) - Anwesh Budhathoki (1)
-- [jangelfdez](https://github.com/jangelfdez) - José Ángel Fernández (1)
-- [xhan742](https://github.com/xhan742) (1)
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (1)
+- [pymia](https://github.com/pymia) - Mia // Huai-Wen Chang (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

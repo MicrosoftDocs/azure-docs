@@ -8,13 +8,12 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -31,7 +30,7 @@ To give you a possibility to optimize network latency, Azure offers [proximity p
 
 - You cannot assume that all Azure VM types are available in every and all Azure datacenters. As a result, the combination of different VM types within one proximity placement group can be restricted. These restrictions occur because the host hardware that’s needed to run a certain VM type might not be present in the datacenter to which the placement group was deployed
 - As you resize parts of the VMs that are within one proximity placement group, you cannot automatically assume that in all cases the new VM type is available in the same datacenter as the other VMs that are part of the proximity placement group
-- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > As a result of the potential restrictions, proximity placement groups should be used:
@@ -39,6 +38,8 @@ To give you a possibility to optimize network latency, Azure offers [proximity p
 > - Only when necessary
 > - Only on granularity of a single SAP system and not for a whole system landscape or a complete SAP landscape
 > - In a way to keep the different VM types and the number of VMs within a proximity placement group to a minimum
+
+Assume that if you deploy VMs by specifying Availability Zones and select the same Availability Zones, the network latency between these VMs should be sufficient to operate SAP NetWeaver and S/4HANA systems with satisfying performance and throughput. This assumption is independent of the fact whether a particular zone is built up out of one datacenter or multiple datacenters. The only reason for using proximity placement groups in zonal deployments is the case where you want to allocate Azure availability set deployed VMs together with zonal deployed VMs.
 
 
 ## What are proximity placement groups? 

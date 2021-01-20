@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Monitor and tune - Azure Database for PostgreSQL - Single Server'
 description: This tutorial walks through monitoring and tuning in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
@@ -18,7 +18,7 @@ Azure Database for PostgreSQL has features that help you understand and improve 
 > * Analyze a database to get performance recommendations
 > * Apply performance recommendations
 
-## Before you begin
+## Prerequisites
 You need an Azure Database for PostgreSQL server with PostgreSQL version 9.6 or 10. You can follow the steps in the [Create tutorial](tutorial-design-database-using-azure-portal.md) to create a server.
 
 > [!IMPORTANT]
@@ -87,5 +87,11 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 ### Permissions
 **Owner** or **Contributor** permissions required to run analysis using the Performance Recommendations feature.
 
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 ## Next steps
-- Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
+
+> [!div class="nextstepaction"]
+> Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.

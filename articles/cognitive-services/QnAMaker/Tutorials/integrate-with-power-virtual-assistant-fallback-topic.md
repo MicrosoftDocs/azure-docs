@@ -1,8 +1,10 @@
 ---
 title: "Tutorial: Integrate with Power Virtual Agents - QnA Maker"
 description: In this tutorial, improve the quality of your knowledge base with active learning. Review, accept or reject, or add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Tutorial: Add your knowledge base to Power Virtual Agents
@@ -47,7 +49,7 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
 * In the [Power Automate](https://us.flow.microsoft.com/) portal:
     * Search for _Generate answer using QnA Maker_ template
     * Use template to configure flow to use [QnA
-    Maker's GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
+    Maker's GenerateAnswer](/connectors/cognitiveservicesqnamaker/).
         * QnA Maker published knowledge base information:
             * Knowledge base ID
             * QnA Maker resource endpoint host
@@ -132,6 +134,9 @@ This section creates the fallback topic conversation flow.
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="Partial Screenshot of Power Automate with new flow template.":::
 
 ## Create a Power Automate flow to connect to your knowledge base
+
+> [!NOTE]
+> Currently the Power Automate template does not support QnA Maker managed (Preview) endpoints. To add a QnA Maker managed (Preview) knowledge base to Power Automate skip this step and manually add the endpoints to it. 
 
 The following procedure creates a Power Automate flow that:
 * Takes the incoming user text, and sends it to QnA Maker.
@@ -249,6 +254,6 @@ When you are done with the knowledge base, remove the QnA Maker resources in the
 [Get analytics on your knowledge base](../How-To/get-analytics-knowledge-base.md)
 
 Learn more about:
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](/connectors/cognitiveservicesqnamaker/)

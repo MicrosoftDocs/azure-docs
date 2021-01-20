@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics feature comparison
 description: This article compares the features supported for Azure Stream Analytics cloud and IoT Edge jobs in the Azure portal, Visual Studio, and Visual Studio Code.
-author: mamccrea
-ms.author: mamccrea
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
@@ -39,7 +39,7 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |C# custom code function and Deserializer|Read-only mode|Yes|No|
 |JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
 |Machine Learning Service     |Yes        |Yes         |No         |
-|Machine Learning Studio     |Yes, but the query cannot be tested        |Yes |No         |
+|Azure Machine Learning Studio (classic)|Yes, but the query cannot be tested        |Yes |No         |
 |Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |

@@ -1,6 +1,6 @@
 ---
-title: Use Azure Multi-Factor Authentication with NPS - Azure Active Directory
-description: Learn how to use Azure Multi-Factor Authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
+title: Use Azure AD Multi-Factor Authentication with NPS - Azure Active Directory
+description: Learn how to use Azure AD Multi-Factor Authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,32 +8,32 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 08/31/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Integrate your existing Network Policy Server (NPS) infrastructure with Azure Multi-Factor Authentication
+# Integrate your existing Network Policy Server (NPS) infrastructure with Azure AD Multi-Factor Authentication
 
-The Network Policy Server (NPS) extension for Azure Multi-Factor Authentication adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers.
+The Network Policy Server (NPS) extension for Azure AD Multi-Factor Authentication adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers.
 
-The NPS extension acts as an adapter between RADIUS and cloud-based Azure Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
+The NPS extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
 
 ## How the NPS extension works
 
-When you use the NPS extension for Azure Multi-Factor Authentication, the authentication flow includes the following components:
+When you use the NPS extension for Azure AD Multi-Factor Authentication, the authentication flow includes the following components:
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers.
 2. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
-3. **NPS Extension** triggers a request to Azure Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
-4. **Azure MFA** communicates with Azure Active Directory (Azure AD) to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
+3. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
+4. **Azure AD MFA** communicates with Azure Active Directory (Azure AD) to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
 
 The following diagram illustrates this high-level authentication request flow:
 
-![Diagram of the authentication flow for user authenticating through a VPN server to NPS server and the Azure Multi-Factor Authentication NPS extension](./media/howto-mfa-nps-extension/auth-flow.png)
+![Diagram of the authentication flow for user authenticating through a VPN server to NPS server and the Azure AD Multi-Factor Authentication NPS extension](./media/howto-mfa-nps-extension/auth-flow.png)
 
 ### RADIUS protocol behavior and the NPS extension
 
@@ -41,27 +41,27 @@ As RADIUS is a UDP protocol, the sender assumes packet loss and awaits a respons
 
 ![Diagram of RADIUS UDP packet flow and requests after timeout on response from NPS server](./media/howto-mfa-nps-extension/radius-flow.png)
 
-The NPS server may not respond to the VPN server's original request before the connection times out as the MFA request may still be being processed. The user may not have successfully responded to the MFA prompt, so the Azure Multi-Factor Authentication NPS extension is waiting for that event to complete. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
+The NPS server may not respond to the VPN server's original request before the connection times out as the MFA request may still be being processed. The user may not have successfully responded to the MFA prompt, so the Azure AD Multi-Factor Authentication NPS extension is waiting for that event to complete. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
 
 ![Diagram of NPS server discarding duplicate requests from RADIUS server](./media/howto-mfa-nps-extension/discard-duplicate-requests.png)
 
-If you look at the NPS server logs, you may see these additional requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication attempt. Discarded requests in the NPS server event log don't indicate there's a problem with the NPS server or the Azure Multi-Factor Authentication NPS extension.
+If you look at the NPS server logs, you may see these additional requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication attempt. Discarded requests in the NPS server event log don't indicate there's a problem with the NPS server or the Azure AD Multi-Factor Authentication NPS extension.
 
 To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
-Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send another MFA prompt, even after the user has already responded to the initial request. To avoid this timing condition, the Azure Multi-Factor Authentication NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response has been sent to the VPN server.
+Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send another MFA prompt, even after the user has already responded to the initial request. To avoid this timing condition, the Azure AD Multi-Factor Authentication NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response has been sent to the VPN server.
 
 ![Diagram of NPS server continuing to discard duplicate requests from VPN server for ten seconds after a successful response is returned](./media/howto-mfa-nps-extension/delay-after-successful-authentication.png)
 
-Again, you may see discarded requests in the NPS server event logs, even when the Azure Multi-Factor Authentication prompt was successful. This is expected behavior, and doesn't indicate a problem with the NPS server or Azure Multi-Factor Authentication NPS extension.
+Again, you may see discarded requests in the NPS server event logs, even when the Azure AD Multi-Factor Authentication prompt was successful. This is expected behavior, and doesn't indicate a problem with the NPS server or Azure AD Multi-Factor Authentication NPS extension.
 
 ## Plan your deployment
 
 The NPS extension automatically handles redundancy, so you don't need a special configuration.
 
-You can create as many Azure Multi-Factor Authentication-enabled NPS servers as you need. If you do install multiple servers, you should use a difference client certificate for each one of them. Creating a certificate for each server means that you can update each cert individually, and not worry about downtime across all your servers.
+You can create as many Azure AD Multi-Factor Authentication-enabled NPS servers as you need. If you do install multiple servers, you should use a difference client certificate for each one of them. Creating a certificate for each server means that you can update each cert individually, and not worry about downtime across all your servers.
 
-VPN servers route authentication requests, so they need to be aware of the new Azure Multi-Factor Authentication-enabled NPS servers.
+VPN servers route authentication requests, so they need to be aware of the new Azure AD Multi-Factor Authentication-enabled NPS servers.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure Multi-Factor Authentication is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md). Consumption-based licenses for Azure Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
+The NPS Extension for Azure AD Multi-Factor Authentication is available to customers with [licenses for Azure AD Multi-Factor Authentication](./concept-mfa-howitworks.md). Consumption-based licenses for Azure AD Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
 
 ### Software
 
@@ -113,6 +113,8 @@ Additionally, connectivity to the following URLs is required to complete the [se
 * *https:\//login.microsoftonline.com*
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
+* *https:\//www.powershellgallery.com*
+* *https:\//aadcdn.msftauthimages.net*
 
 ## Prepare your environment
 
@@ -147,22 +149,22 @@ If you need to kick off a new round of synchronization, see [Azure AD Connect sy
 
 There are two factors that affect which authentication methods are available with an NPS extension deployment:
 
-1. The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
-   - **PAP** supports all the authentication methods of Azure Multi-Factor Authentication in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
+* The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
+   - **PAP** supports all the authentication methods of Azure AD Multi-Factor Authentication in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** and **EAP** support phone call and mobile app notification.
 
-      > [!NOTE]
-      > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
-      >
-      > In addition, if your VPN client UX supports input fields and you have configured Network Access Policy, the authentication might succeed. However, none of the RADIUS attributes configured in the Network Policy will be applied to neither the Network Access Device, like the RRAS server, nor the VPN client. As a result, the VPN client might have more access than desired, or less to no access.
+    > [!NOTE]
+    > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
+    >
+    > Also, regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS cient (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
 
-2. The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
+* The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
 You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#verification-methods) in Azure.
 
 ### Register users for MFA
 
-Before you deploy and use the NPS extension, users that are required to perform Azure Multi-Factor Authentication need to be registered for MFA. To test the extension as you deploy it, you also need at least one test account that is fully registered for Azure Multi-Factor Authentication.
+Before you deploy and use the NPS extension, users that are required to perform Azure AD Multi-Factor Authentication need to be registered for MFA. To test the extension as you deploy it, you also need at least one test account that is fully registered for Azure AD Multi-Factor Authentication.
 
 If you need to create and configure a test account, use the following steps:
 
@@ -172,9 +174,9 @@ If you need to create and configure a test account, use the following steps:
 
 > [!IMPORTANT]
 >
-> Make sure that users have successfully registered for Azure Multi-Factor Authentication. If users have previously only registered for self-service password reset (SSPR), *StrongAuthenticationMethods* is enabled for their account. Azure Multi-Factor Authentication is enforced when *StrongAuthenticationMethods* is configured, even if the user only registered for SSPR.
+> Make sure that users have successfully registered for Azure AD Multi-Factor Authentication. If users have previously only registered for self-service password reset (SSPR), *StrongAuthenticationMethods* is enabled for their account. Azure AD Multi-Factor Authentication is enforced when *StrongAuthenticationMethods* is configured, even if the user only registered for SSPR.
 >
-> Combined security registration can be enabled that configures SSPR and Azure Multi-Factor Authentication at the same time. For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+> Combined security registration can be enabled that configures SSPR and Azure AD Multi-Factor Authentication at the same time. For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
 >
 > You can also [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options) if they previously only enabled SSPR.
 
@@ -183,7 +185,7 @@ If you need to create and configure a test account, use the following steps:
 > [!IMPORTANT]
 > Install the NPS extension on a different server than the VPN access point.
 
-### Download and install the NPS extension for Azure MFA
+### Download and install the NPS extension for Azure AD MFA
 
 To download and install the NPS extension, complete the following steps:
 
@@ -221,6 +223,10 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    ```
 
 1. Run the PowerShell script created by the installer.
+
+   You might be required to first enable TLS 1.2 for PowerShell to be able to connect and download packages properly:
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
    > For customers that use the Azure Government or Azure China 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
@@ -284,8 +290,8 @@ This section includes design considerations and suggestions for successful NPS e
 
 ### Configuration limitations
 
-- The NPS extension for Azure Multi-Factor Authentication doesn't include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises AD DS environment to identify the user on Azure Multi-Factor Authentication for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom AD DS field other than UPN. For more information, see the article, [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
+- The NPS extension for Azure AD Multi-Factor Authentication doesn't include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
+- The NPS extension uses the UPN from the on-premises AD DS environment to identify the user on Azure AD Multi-Factor Authentication for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom AD DS field other than UPN. For more information, see the article, [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification
@@ -308,7 +314,7 @@ This setting determines what to do when a user isn't enrolled for MFA. When the 
 
 When the key is set to *FALSE* and the user isn't enrolled, authentication proceeds without performing MFA. If a user is enrolled in MFA, they must authenticate with MFA even if *REQUIRE_USER_MATCH* is set to *FALSE*.
 
-You can choose to create this key and set it to *FALSE* while your users are onboarding, and may not all be enrolled for Azure Multi-Factor Authentication yet. However, since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
+You can choose to create this key and set it to *FALSE* while your users are onboarding, and may not all be enrolled for Azure AD Multi-Factor Authentication yet. However, since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
 
 ## Troubleshooting
 
@@ -377,7 +383,7 @@ To check if you have a valid certificate, check the local *Computer Account's Ce
 
 ### Why do I see discarded requests in the NPS server logs?
 
-A VPN server may send repeated requests to the NPS server if the timeout value is too low. The NPS server detects these duplicate requests and discards them. This behavior is by design, and doesn't indicate a problem with the NPS server or the Azure Multi-Factor Authentication NPS extension.
+A VPN server may send repeated requests to the NPS server if the timeout value is too low. The NPS server detects these duplicate requests and discards them. This behavior is by design, and doesn't indicate a problem with the NPS server or the Azure AD Multi-Factor Authentication NPS extension.
 
 For more information on why you see discarded packets in the NPS server logs, see [RADIUS protocol behavior and the NPS extension](#radius-protocol-behavior-and-the-nps-extension) at the start of this article.
 
@@ -387,7 +393,7 @@ It's recommended that older and weaker cipher suites be disabled or removed unle
 
 ### Additional troubleshooting
 
-Additional troubleshooting guidance and possible solutions can be found in the article, [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Additional troubleshooting guidance and possible solutions can be found in the article, [Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## Next steps
 
@@ -397,4 +403,4 @@ Additional troubleshooting guidance and possible solutions can be found in the a
 
 - Learn how to integrate [Remote Desktop Gateway](howto-mfa-nps-extension-rdg.md) and [VPN servers](howto-mfa-nps-extension-vpn.md) using the NPS extension
 
-- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+- [Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)

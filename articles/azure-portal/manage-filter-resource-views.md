@@ -1,12 +1,8 @@
 ---
 title: View and filter Azure resource information
 description: Filter information and use different views to better understand your Azure resources.
-author: mgblythe
-ms.service: azure-portal
-ms.topic: quickstart
-ms.author: mblythe
+ms.topic: how-to
 ms.date: 09/11/2020
-
 ---
 
 # View and filter Azure resource information
@@ -51,7 +47,7 @@ To delete a view:
 
 ## Summarize resources with visuals
 
-The views we've looked at so far have been _list views_, but there are also _summary views_ that include visuals. You can save and use these views just like you can list views. Filters persist between the two types of views. There are standard views, like the **Location** view shown below, as well as views that are relevant to specific services, such as the **Status** view for virtual machines.
+The views we've looked at so far have been _list views_, but there are also _summary views_ that include visuals. You can save and use these views just like you can list views. Filters persist between the two types of views. There are standard views, like the **Location** view shown below, as well as views that are relevant to specific services, such as the **Status** view for Azure Storage.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Summary of resources in a map view":::
 

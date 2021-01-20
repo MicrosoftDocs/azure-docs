@@ -13,6 +13,7 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB .NET Core SDK v2 for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -35,7 +36,7 @@ ms.custom: devx-track-dotnet
 | |  |
 |---|---|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|

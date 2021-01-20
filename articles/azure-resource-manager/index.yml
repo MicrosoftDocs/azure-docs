@@ -102,7 +102,7 @@ conceptualContent:
         - url: managed-applications/create-uidefinition-overview.md
           itemType: how-to-guide
           text: Define portal pane for creating app
-        - url: managed-applications/publish-marketplace-app.md
+        - url: ../marketplace/create-new-azure-apps-offer.md
           itemType: tutorial
           text: Add app to Marketplace
       # footerLink (optional)

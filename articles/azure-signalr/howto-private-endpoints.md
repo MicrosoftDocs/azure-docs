@@ -78,8 +78,8 @@ The recommended DNS zone name for private endpoints for Azure SignalR Service is
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for private endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## Create a private endpoint
 
@@ -194,7 +194,7 @@ This constraint is a result of the DNS changes made when Azure SignalR Service S
 
 ### Network Security Group rules for subnets with private endpoints
 
-Currently, you can't configure [Network Security Group](../virtual-network/security-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are applied to the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
+Currently, you can't configure [Network Security Group](../virtual-network/network-security-groups-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are applied to the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
 
 ## Next steps
 

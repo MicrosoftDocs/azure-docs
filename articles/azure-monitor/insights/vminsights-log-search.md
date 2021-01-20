@@ -88,7 +88,7 @@ Here are some important points to consider:
 
 #### Naming and Classification
 
-For convenience, the IP address of the remote end of a connection is included in the RemoteIp property. For inbound connections, RemoteIp is the same as SourceIp, while for outbound connections, it is the same as DestinationIp. The RemoteDnsCanonicalNames property represents the DNS canonical names reported by the machine for RemoteIp. The RemoteDnsQuestions and RemoteClassification properties are reserved for future use. 
+For convenience, the IP address of the remote end of a connection is included in the RemoteIp property. For inbound connections, RemoteIp is the same as SourceIp, while for outbound connections, it is the same as DestinationIp. The RemoteDnsCanonicalNames property represents the DNS canonical names reported by the machine for RemoteIp. The RemoteDnsQuestions property represents the DNS questions reported by the machine for RemoteIp. The RemoveClassification property is reserved for future use. 
 
 #### Geolocation
 
@@ -469,7 +469,6 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 
 ## Next steps
 
-* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write log queries.
+* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../log-query/log-analytics-tutorial.md) in the Azure portal to write log queries.
 
-* Learn about [writing search queries](../log-query/search-queries.md).
-
+* Learn about [writing search queries](../log-query/get-started-queries.md).

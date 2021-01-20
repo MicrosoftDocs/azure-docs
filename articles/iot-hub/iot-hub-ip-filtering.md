@@ -83,7 +83,7 @@ For example, if you want to accept addresses in the range `192.168.100.0/22` and
 
 ## Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/).
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](/cli/azure/).
 
 To retrieve current IP filters of your IoT Hub, run:
 
@@ -158,6 +158,7 @@ $iothubResource | Set-AzResource -Force
 
 ## Update IP filter rules using REST
 
+
 You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
 
 ## IP filter (classic) retirement
@@ -171,3 +172,4 @@ To further explore the capabilities of IoT Hub, see:
 * [IoT Hub metrics](iot-hub-metrics.md)
 * [IoT Hub support for virtual networks with Private Link and Managed Identity](virtual-network-support.md)
 * [Managing public network access for your IoT hub](iot-hub-public-network-access.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)

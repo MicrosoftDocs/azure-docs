@@ -8,6 +8,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 ---
 # Azure Dev Spaces troubleshooting
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
 If you have a problem when using Azure Dev Spaces, create an [issue in the Azure Dev Spaces GitHub repository](https://github.com/Azure/dev-spaces/issues).
@@ -270,7 +272,7 @@ When running a service with Azure Dev Spaces on an AKS cluster with a [managed i
 
 The services Azure Dev Spaces runs on your cluster utilize the cluster's managed identity to talk to the Azure Dev Spaces backend services outside the cluster. When the pod managed identity is installed, networking rules are configured on your cluster's nodes to redirect all calls for managed identity credentials to a [Node Managed Identity (NMI) DaemonSet installed on the cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). This NMI DaemonSet identifies the calling pod and ensures that pod has been labeled appropriately to access the requested managed identity. Azure Dev Spaces can't detect if a cluster has pod managed identity installed and can't perform the necessary configuration to allow Azure Dev Spaces services to access the cluster's managed identity. Since the Azure Dev Spaces services haven't been configured to access the cluster's managed identity, the NMI DaemonSet will not allow them to obtain an Azure AD token for the managed identity and fail to communicate with Azure Dev Spaces backend services.
 
-To fix this issue, apply an [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
+To fix this issue, apply an [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) for the *azds-injector-webhook* and update pods instrumented by Azure Dev Spaces to access the managed identity.
 
 Create a file named *webhookException.yaml* and copy the following YAML definition:
 
@@ -371,6 +373,17 @@ spec:
       [...]
 ```
 
+### Error "Cannot get connection details for Azure Dev Spaces Controller 'ABC' because it is in the 'Failed' state. Something wrong might have happened with your controller."
+
+To resolve this issue, try deleting the Azure Dev Spaces controller from the cluster and reinstalling it:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Also, as Azure Dev Spaces is being retired, please consider [migrating to Bridge to Kubernetes](migrate-to-bridge-to-kubernetes.md) which provides a better experience.
+
 ## Common issues using Visual Studio and Visual Studio Code with Azure Dev Spaces
 
 ### Error "Required tools and configurations are missing"
@@ -451,7 +464,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### New pods aren't starting
 
-The Kubernetes initializer can't apply the PodSpec for new pods due to RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
+The Kubernetes initializer can't apply the PodSpec for new pods due to Kubernetes RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -480,7 +493,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 After your controller is reinstalled, redeploy your pods.
 
-### Incorrect RBAC permissions for calling Dev Spaces controller and APIs
+### Incorrect Azure RBAC permissions for calling Dev Spaces controller and APIs
 
 The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* Azure role for the controller. More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 

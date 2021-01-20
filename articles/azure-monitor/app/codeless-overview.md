@@ -19,17 +19,17 @@ Application Insights is integrated with various resource providers and works on 
 
 As we're adding more and more integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
 
-|Environment/Resource Provider | .NET            | .NET Core       | Java            | Node.js         |
-|------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows  | GA, OnBD*       | GA, opt-in      | Private Preview | Private Preview |
-|Azure App Service on Linux    | N/A             | Not supported   | Public Preview  | Public Preview  |
-|Azure App Service on AKS      | N/A             | In design       | In design       | In design       |
-|Azure Functions - basic       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions - dependencies| Not supported   | Not supported   | Public Preview  | Not supported   |
-|Azure Kubernetes Service      | N/A             | In design       | Through agent   | In design       |
-|Azure VMs Windows             | Public Preview  | Not supported   | Not supported   | Not supported   |
-|On-Premises VMs Windows       | GA, opt-in      | Not supported   | Through agent   | Not supported   |
-|Standalone agent - any env.   | Not supported   | Not supported   | Public Preview  | Not supported   |
+|Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
+|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Private Preview | Private Preview |
+|Azure App Service on Linux             | N/A             | Not supported   | Private Preview | Public Preview  |
+|Azure App Service on AKS               | N/A             | In design       | In design       | In design       |
+|Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
+|Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   |
+|Azure Kubernetes Service               | N/A             | In design       | Through agent   | In design       |
+|Azure VMs Windows                      | Public Preview  | Not supported   | Not supported   | Not supported   |
+|On-Premises VMs Windows                | GA, opt-in      | Not supported   | Through agent   | Not supported   |
+|Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   |
 
 *OnBD is short for On by Default - the Application Insights will be enabled automatically once you deploy your app in supported environments. 
 

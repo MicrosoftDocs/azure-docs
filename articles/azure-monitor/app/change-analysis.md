@@ -120,13 +120,13 @@ Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troublesh
 ![Change analyzer in troubleshooting tools](./media/change-analysis/analyze-recent-changes.png)
 
 ### Activity Log Change History
-The [View change history](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), resource properties from [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), and in-guest changes from PaaS services such as App Services web app. 
+The [View change history](../platform/activity-log.md#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](../../governance/resource-graph/overview.md) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md), resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md), and in-guest changes from PaaS services such as App Services web app. 
 In order for the Application Change Analysis service to be able to scan for changes in users' subscriptions, a resource provider needs to be registered. The first time entering **Change History** tab, the tool will automatically start to register **Microsoft.ChangeAnalysis** resource provider. After registered, changes from **Azure Resource Graph** will be available immediately and cover the past 14 days. Changes from other sources will be available after ~4 hours after subscription is onboard.
 
 ![Activity Log change history integration](./media/change-analysis/activity-log-change-history.png)
 
 ### VM Insights integration
-Users having [VM Insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) enabled can view what changed in their virtual machines that might caused any spikes in a metrics chart such as CPU or Memory and wonder what caused it. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and click **Investigate Changes** to view change details in Application Change Analysis standalone UI.
+Users having [VM Insights](../insights/vminsights-overview.md) enabled can view what changed in their virtual machines that might caused any spikes in a metrics chart such as CPU or Memory and wonder what caused it. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and click **Investigate Changes** to view change details in Application Change Analysis standalone UI.
 
 [![VM insights integration](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 
@@ -138,7 +138,7 @@ If your subscription includes numerous web apps, enabling the service at the lev
 
 Pre-requisites:
 
-- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.6.0)
+- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 Run the following script:
 
@@ -184,7 +184,37 @@ If it's the first time you view Change history after its integration with Applic
 - **This is taking longer than expected**. This message means the registration is taking longer than 2 minutes. This is unusual but does not necessarily mean something went wrong. You can go to **Subscriptions | Resource provider** to check for **Microsoft.ChangeAnalysis** resource provider registration status. You can try to use the UI to unregister, re-register or refresh to see if it helps. If issue persists, contact changeanalysishelp@microsoft.com for support.
     ![Troubleshoot RP registration taking too long](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![Screenshot of the Diagnose and Solve Problems tool for a Virtual Machine with Troubleshooting tools selected.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
+
+### Azure Lighthouse subscription is not supported
+
+- **Failed to query Microsoft.ChangeAnalysis resource provider** with message *Azure lighthouse subscription is not supported, the changes are only available in the subscription's home tenant*. There is a limitation right now for Change Analysis resource provider to be registered through Azure Lighthouse subscription for users not in home tenant. We expect this limitation to be addressed in the near future. If this is a blocking issue for you, there is a workaround that involves creating a service principal and explicitly assigning the role to allow the access.  Contact changeanalysishelp@microsoft.com to learn more about it.
+
+### An error occurred while getting changes. Please refresh this page or come back later to view changes
+
+This is the general error message presented by Application Change Analysis service when changes could not be loaded. A few known causes are:
+- Internet connectivity error from the client device
+- Change Analysis service being temporarily unavailable
+Refreshing the page after a few minutes usually fixes this issue. If the error persists, contact changeanalysishelp@micorosoft.com
+
+### You don't have enough permissions to view some changes. Contact your Azure subscription administrator
+
+This is the general unauthorized error message, explaining the current user does not have sufficient permissions to view the change. At least reader access is required on the resource to view infrastructure changes returned by Azure Resource Graph and Azure Resource Manager. For web app in-guest file changes and configuration changes, at least contributor role is required.
+
+### Failed to register Microsoft.ChangeAnalysis resource provider
+This message means something failed immediately as the UI sent request to register the resource provider, and it's not related to permission issue. Likely it might be a temporary internet connectivity issue. Try refreshing the page and checking your internet connection. If the error persists, contact changeanalysishelp@microsoft.com
+ 
+### You don't have enough permissions to register Microsoft.ChangeAnalysis resource provider. Contact your Azure subscription administrator.
+This error message means your role in the current subscription does not have the **Microsoft.Support/register/action** scope associated with it. This might happen if you are not the owner of a subscription and got shared access permissions through a coworker. i.e. view access to a resource group. To fix this, You can contact the owner of your subscription to register the **Microsoft.ChangeAnalysis** resource provider. This can be done in Azure portal through **Subscriptions | Resource providers** and search for ```Microsoft.ChangeAnalysis``` and register in the UI, or through Azure PowerShell or Azure CLI.
+
+Register resource provider through PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## Next steps
 

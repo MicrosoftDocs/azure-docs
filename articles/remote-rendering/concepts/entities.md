@@ -134,10 +134,10 @@ The query will succeed even if the object does not hold any metadata.
 
 ## API documentation
 
-* [C# Entity class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
-* [C# RemoteManager.CreateEntity()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
-* [C++ Entity class](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
-* [C++ RemoteManager::CreateEntity()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
+* [C# Entity class](/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RemoteManager.CreateEntity()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C++ Entity class](/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager::CreateEntity()](/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## Next steps
 

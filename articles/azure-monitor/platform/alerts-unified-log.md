@@ -12,17 +12,17 @@ ms.subservice: alerts
 
 ## Overview
 
-Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md).
+Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md).
 
 > [!NOTE]
-> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
+> Log data from a [Log Analytics workspace](../log-query/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
 
 ## Prerequisites
 
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](resource-logs.md) and query the log data for issues. You can use the [alert query examples topic](../log-query/saved-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md).
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](resource-logs.md) and query the log data for issues. You can use the [alert query examples topic](../log-query/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../log-query/log-analytics-tutorial.md).
 
 [Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
@@ -39,7 +39,7 @@ Log search rules condition definition starts from:
 The following sections describe the different parameters you can use to set the above logic.
 
 ### Log query
-The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
+The [Log Analytics](../log-query/log-analytics-tutorial.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
 
 - A specific resource, such as a virtual machine.
 - An at scale resource, such as a subscription or resource group.
@@ -85,7 +85,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Time period:** 15 minutes
+- **Time period / Aggregation granularity:** 15 minutes
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
@@ -116,6 +116,8 @@ In workspaces and Application Insights, it's supported only in **Metric measurem
 
 Split alerts by number or string columns into separate alerts by grouping into unique combinations. When creating resource-centric alerts at scale (subscription or resource group scope), you can split by Azure resource ID column. Splitting on Azure resource ID column will change the target of the alert to the specified resource.
 
+Splitting by Azure resource ID column is recommended when you want to monitor the same condition on multiple Azure resources. For example, monitoring all virtual machines for CPU usage over 80%. You may also decide not to split when you want a condition on multiple resources in the scope, such as monitoring that at least five machines in the resource group scope have CPU usage over 80%.
+
 In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The field is called **Aggregate On**. It's limited to three columns. Having more than three groups by columns in the query could lead to unexpected results. In all other resource types, it's configured in **Split by dimensions** section of the condition (limited to six splits).
 
 #### Example of splitting by alert dimensions
@@ -140,7 +142,7 @@ For example, you want to monitor errors for multiple virtual machines running yo
 - **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules is only available for subscriptions and resource groups currently)
 - **Dimensions / Aggregated on:**
   - Computer = VM1, VM2 (Filtering values in alert rules definition isn't available currently for workspaces and Application Insights. Filter in the query text.)
-- **Time period:** 15 minutes
+- **Time period / Aggregation granularity:** 15 minutes
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
@@ -204,4 +206,3 @@ Pricing information is located in the [Azure Monitor pricing page](https://azure
 * Understand [webhooks in log alerts in Azure](alerts-log-webhook.md).
 * Learn about [Azure Alerts](./alerts-overview.md).
 * Learn more about [Log Analytics](../log-query/log-query-overview.md).
-

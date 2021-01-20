@@ -388,7 +388,6 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
     ![Export certificate DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
-
 4. Select **Finish**.
 
     ![Export certificate DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)

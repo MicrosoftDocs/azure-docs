@@ -85,7 +85,7 @@ The **typeProperties** section is different for each type of dataset and provide
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot shows the Custom Object Definition Detail where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## Copy activity properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
@@ -101,7 +101,7 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot shows the Custom Fields & Relationships where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Query tips
 ### Retrieving data using where clause on DateTime column
@@ -196,7 +196,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot shows the Custom Object Definition Detail where you can see Singular Label, Plural Label, Object Name, and A P I Name.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Azure blob output dataset**
 
@@ -277,7 +277,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot shows the Custom Fields & Relationships with the A P I names called out.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 
 ### Type mapping for Salesforce

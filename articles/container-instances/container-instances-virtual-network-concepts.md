@@ -28,6 +28,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
 * **Global virtual network peering** - Global peering (connecting virtual networks across Azure regions) is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
+* **Virtual Network NAT** - Container groups deployed to a virtual network don't currently support using a NAT gateway resource for outbound internet connectivity.
 
 ## Other limitations
 
@@ -36,6 +37,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * You can't use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deployments to a virtual network are typically slower than deploying a standard container instance.
+* If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 

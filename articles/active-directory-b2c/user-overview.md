@@ -39,36 +39,36 @@ When you add a new work account, you need to consider the following configuratio
 
     - **User** - Users can access assigned resources but cannot manage most tenant resources.
     - **Global administrator** - Global administrators have full control over all tenant resources.
-    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### Create a work account
 
 You can use the following information to create a new work account:
 
 - [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users)
 
 ### Update a user profile
 
 You can use the following information to update the profile of a user:
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ### Reset a password for a user
 
 You can use the following information to reset the password of a user:
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ## Guest user
 
-You can invite external users to your tenant as a guest user. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities. For an example of using a guest account, see [Properties of an Azure Active Directory B2B collaboration user](../active-directory/b2b/user-properties.md).
+You can invite external users to your tenant as a guest user. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities. For an example of using a guest account, see [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md).
 
 When you invite a guest user to your tenant, you provide the email address of the recipient and a message describing the invitation. The invitation link takes the user to the consent page where the **Get Started** button is selected and the review of permissions is accepted. If an inbox isn't attached to the email address, the user can navigate to the consent page by going to a Microsoft page using the invited credentials. The user is then forced to redeem the invitation the same way as clicking on the link in the email. For example: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-You can also use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) to invite a guest user.
+You can also use the [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta) to invite a guest user.
 
 ## Consumer user
 

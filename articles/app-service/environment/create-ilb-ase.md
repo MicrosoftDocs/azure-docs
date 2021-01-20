@@ -100,22 +100,22 @@ When you use an External ASE, apps made in your ASE are registered with Azure DN
 
 To configure DNS in your own DNS server with your ILB ASE:
 
-1. create a zone for <ASE name>.appserviceenvironment.net
+1. create a zone for &lt;ASE name&gt;.appserviceenvironment.net
 2. create an A record in that zone that points * to the ILB IP address
 3. create an A record in that zone that points @ to the ILB IP address
-4. create a zone in <ASE name>.appserviceenvironment.net named scm
+4. create a zone in &lt;ASE name&gt;.appserviceenvironment.net named scm
 5. create an A record in the scm zone that points * to the ILB IP address
 
 To configure DNS in Azure DNS Private zones:
 
-1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an Azure DNS private zone named &lt;ASE name&gt;.appserviceenvironment.net
 2. create an A record in that zone that points * to the ILB IP address
 3. create an A record in that zone that points @ to the ILB IP address
 4. create an A record in that zone that points *.scm to the ILB IP address
 
-The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named contoso.net, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at <appname>.scm.<asename>.appserviceenvironment.net.
+The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named contoso.net, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net.
 
-The zone named .<asename>.appserviceenvironment.net is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use .contoso.com for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named .&lt;asename&gt;.appserviceenvironment.net is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use .contoso.com for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
 
 ## Publish with an ILB ASE
 
@@ -155,7 +155,7 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md

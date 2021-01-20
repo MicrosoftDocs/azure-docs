@@ -95,7 +95,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 In the following example, the output of Hive query is written into a file `hivequeryoutput.txt` in directory `C:\apps\temp`.
 
-![Output of Hive query](./media/move-hive-tables/output-hive-results-1.png)
+![Screenshot shows the output of the Hive query in a Hadoop Command Line window.](./media/move-hive-tables/output-hive-results-1.png)
 
 **Output Hive query results to an Azure blob**
 
@@ -107,7 +107,7 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you only need to provide the directory name, without the blob name. An error is thrown if you provide both directory and blob names, such as `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Output of Hive query](./media/move-hive-tables/output-hive-results-2.png)
+![Screenshot shows the previous command in the Hadoop Command Line window.](./media/move-hive-tables/output-hive-results-2.png)
 
 If you open the default container of the Hadoop cluster using Azure Storage Explorer, you can see the output of the Hive query as shown in the following figure. You can apply the filter (highlighted by red box) to only retrieve the blob with specified letters in names.
 

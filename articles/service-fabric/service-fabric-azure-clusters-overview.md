@@ -3,11 +3,8 @@ title: Create clusters on Windows Server and Linux
 description: Service Fabric clusters run on Windows Server and Linux. You can deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
 ---
 
 # Overview of Service Fabric clusters on Azure
@@ -66,17 +63,17 @@ In addition to client certificates, Azure Active Directory can also be configure
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 
-### Role-Based Access Control
-Role-Based Access Control (RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your AAD with RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
+### Role-based access control
+Azure role-based access control (Azure RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  Azure RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your AAD with Azure RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
 
 Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
 
-For more information, read [Service Fabric Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+For more information, read [Service Fabric role-based access control](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### Network security groups 
 Network security groups (NSGs) control inbound and outbound traffic of a subnet, VM, or specific NIC.  By default, when multiple VMs are put on the same virtual network they can communicate with each other through any port.  If you want to constrain communications among the machines you can define NSGs to segment the network or isolate VMs from each other.  If you have multiple node types in a cluster, you can apply NSGs to subnets to prevent machines belonging to different node types from communicating with each other.  
 
-For more information, read about [security groups](../virtual-network/security-overview.md)
+For more information, read about [security groups](../virtual-network/network-security-groups-overview.md)
 
 ## Scaling
 
@@ -92,16 +89,17 @@ For more information, read [Upgrading clusters](service-fabric-cluster-upgrade.m
 ## Supported operating systems
 You are able to create clusters on virtual machines running these operating systems:
 
-| Operating system | Earliest supported Service Fabric version |
-| --- | --- |
-| Windows Server 2012 R2 | All versions |
-| Windows Server 2016 | All versions |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18.04 | 7.1 |
+| Operating system | Earliest supported Service Fabric version | Last supported Service Fabric version |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | N/A |
+| Windows Server 2016 | All versions | N/A |
+| Windows Server 20H2 | 7.2.445.9590 | N/A |
+| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| Windows Server 1803 | 6.4 | 7.2.445.9590 |
+| Windows Server 1709 | 6.0 | 7.2.445.9590 |
+| Windows Server 2012 | All versions | N/A | 
+| Linux Ubuntu 16.04 | 6.0 | N/A |
+| Linux Ubuntu 18.04 | 7.1 | N/A |
 
 For additional information see [Supported Cluster Versions in Azure](./service-fabric-versions.md#supported-operating-systems)
 

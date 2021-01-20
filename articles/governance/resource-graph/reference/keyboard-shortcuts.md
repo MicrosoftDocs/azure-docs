@@ -1,7 +1,7 @@
 ---
 title: Keyboard shortcuts in the Azure portal for Azure Resource Graph Explorer
 description: Azure Resource Graph Explorer in the Azure portal supports keyboard shortcuts to help you perform actions and navigate.
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
 ---
@@ -21,7 +21,7 @@ other pages, visit
 |Increase indent |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd>+<kbd>]</kbd> |
 |Move the line down |<kbd>ALT</kbd>+<kbd>↓</kbd> |<kbd>Option</kbd>+<kbd>↓</kbd> |
 |Move the line up |<kbd>ALT</kbd>+<kbd>↑</kbd> |<kbd>Option</kbd>+<kbd>↑</kbd> |
-|Replace |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd> |
+|Replace |<kbd>CTRL</kbd>+<kbd>H</kbd> |<kbd>Cmd</kbd>+<kbd>H</kbd> |
 |Select all |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd>+<kbd>A</kbd> |
 |Select downward |<kbd>SHIFT</kbd>+<kbd>↓</kbd> |<kbd>SHIFT</kbd>+<kbd>↓</kbd> |
 |Select right |<kbd>SHIFT</kbd>+<kbd>→</kbd> |<kbd>SHIFT</kbd>+<kbd>→</kbd> |

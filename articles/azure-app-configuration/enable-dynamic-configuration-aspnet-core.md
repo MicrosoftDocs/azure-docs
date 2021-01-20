@@ -4,8 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -13,8 +12,8 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/24/2019
-ms.author: lcozzens
+ms.date: 09/1/2020
+ms.author: alkemper
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -158,7 +157,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     ```
     ---
     > [!Tip]
-    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Update the `Configure` method, adding the `UseAzureAppConfiguration` middleware to allow the configuration settings registered for refresh to be updated while the ASP.NET Core web app continues to receive requests.
 
@@ -218,6 +217,9 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     ---
     
     The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired. If it's expired, it's refreshed.
+
+    > [!NOTE]
+    > To ensure the configuration is refreshed, add the middleware as early as appropriate to your request pipeline so it will not be short-circuited by another middleware in your application.
 
 ## Use the latest configuration data
 

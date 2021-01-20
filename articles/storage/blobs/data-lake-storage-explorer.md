@@ -18,7 +18,7 @@ This article shows you how to use [Azure Storage Explorer](https://azure.microso
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
 > * Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Sign in to Storage Explorer
@@ -33,7 +33,7 @@ When you first start Storage Explorer, the **Microsoft Azure Storage Explorer - 
 
 Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
-![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Add an Azure Account option and the Sign in button.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
@@ -106,4 +106,4 @@ You can manage permissions on individual directories, as well as individual file
 Learn access control lists in Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)

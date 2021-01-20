@@ -300,7 +300,7 @@ Have the basic search page solution open.
     }
     ```
 
-1. The **RunQueryAsync** method, introduced in the previous lesson, needs modification to resolve the syntax error. We use the **Skip**, **Size**, and **IncludeTotalCount** fields of the [**SearchOptions**](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) class to request only one page worth of results, starting at the **Skip** setting. We also need to calculate the paging variables for our view. Replace the entire method with the following code.
+1. The **RunQueryAsync** method, introduced in the previous lesson, needs modification to resolve the syntax error. We use the **Skip**, **Size**, and **IncludeTotalCount** fields of the [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) class to request only one page worth of results, starting at the **Skip** setting. We also need to calculate the paging variables for our view. Replace the entire method with the following code.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)

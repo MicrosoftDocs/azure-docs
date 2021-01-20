@@ -13,7 +13,8 @@ ms.service: azure-communication-services
 ---
 # SMS client library overview
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services SMS client libraries can be used to add SMS messaging to your applications.
 
@@ -32,7 +33,7 @@ The following list presents the set of features which are currently available in
 | Phone Number      | Toll-Free numbers                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
 | Regulatory        | Opt-Out Handling                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | Monitoring        | Monitor usage for messages sent and received                                          | ✔️   | ✔️    | ✔️    | ✔️      |
-| PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number (private preview)                    | ✔️   | ✔️    | ✔️    | ✔️      |
+| PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## Next steps
 

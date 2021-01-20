@@ -21,7 +21,7 @@ Integrating SAML SSO for Bamboo by resolution GmbH with Azure AD provides you wi
 * You can enable your users to be automatically signed-in to SAML SSO for Bamboo by resolution GmbH (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with SAML SSO for Bamboo by resolution GmbH
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![SAML SSO for Bamboo by resolution GmbH Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![SAML S S O for Bamboo by resolution GmbH Domain and URLs single sign-on information.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`
@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with SAML SSO for Bamboo by resolution GmbH
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![SAML SSO for Bamboo by resolution GmbH Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`
@@ -226,12 +226,12 @@ The objective of this section is to create a user called Britta Simon in SAML SS
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SAML SSO for Bamboo by resolution GmbH tile in the Access Panel, you should be automatically signed in to the SAML SSO for Bamboo by resolution GmbH for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SAML SSO for Bamboo by resolution GmbH tile in the Access Panel, you should be automatically signed in to the SAML SSO for Bamboo by resolution GmbH for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

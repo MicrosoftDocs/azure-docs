@@ -66,4 +66,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](../../billing/index.md)
+- [Azure Billing documentation](../index.yml)

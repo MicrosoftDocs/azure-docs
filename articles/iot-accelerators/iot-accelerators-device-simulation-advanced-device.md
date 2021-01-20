@@ -23,15 +23,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To follow the steps in this how-to guide, you need a deployed instance of Device Simulation in your Azure subscription.
 
-If you haven't deployed Device Simulation yet, you should complete the [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md) quickstart.
+If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
 
 ### Open Device Simulation
 
-To run Device Simulation in your browser, first navigate to [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com).
-
-You may be asked to sign in using your Azure subscription credentials.
-
-Then click **Launch** on the tile for Device Simulation you deployed in the [Deploy and run an IoT device simulation in Azure](quickstart-device-simulation-deploy.md) quickstart.
+If you haven't deployed Device Simulation yet, see [Device Simulation deployment](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) on GitHub.
 
 ## Device models
 
@@ -513,4 +509,4 @@ If your files pass validation, click **Save** and your device model is ready to 
 
 ## Next steps
 
-In this how-to guide, you learned about the device model files used in Device Simulation and how to create an advanced device model. Next, you may want to explore how to [Use Time Series Insights to visualize telemetry sent from the Device Simulation solution accelerator](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+In this how-to guide, you learned about the device model files used in Device Simulation and how to create an advanced device model. Next, you may want to explore how to [Use Time Series Insights to visualize telemetry sent from the Device Simulation solution accelerator](./iot-accelerators-device-simulation-time-series-insights.md).

@@ -23,6 +23,8 @@ Today, Azure Backup provides a built-in policy (using Azure Policy) that can be 
 
 * The built-in policy is currently not available in national clouds.
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 ## Using the built-in policy
 
 To assign the policy to the required scope, follow the steps below:

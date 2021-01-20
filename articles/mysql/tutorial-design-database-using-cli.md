@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design a server - Azure CLI - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI from the command line.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -23,13 +23,11 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > * Update data
 > * Restore data
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-You may use the Azure Cloud Shell in the browser, or [Install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the Azure CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#az-account-set) command.
 ```azurecli-interactive
@@ -37,7 +35,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## Create a resource group
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) with [az group create](/cli/azure/group#az-group-create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `myresourcegroup` in the `westus` location.
 
@@ -191,12 +189,25 @@ Restoring a server to a point-in-time creates a new server, copied as the origin
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
+## Clean up resources
+If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## Next steps
 In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL server
 > * Configure the server firewall
-> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use the mysql command-line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data

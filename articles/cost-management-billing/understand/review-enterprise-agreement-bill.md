@@ -15,7 +15,7 @@ ms.author: banders
 
 Azure customers with an Enterprise Agreement receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit.
 
-Your organization's credit includes your monetary commitment. The monetary commitment is the amount your organization paid upfront for usage of Azure services. You can add monetary commitment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.
+Your organization's credit includes your Azure Prepayment (previously called monetary commitment). Azure Prepayment is the amount your organization paid upfront for usage of Azure services. You can add Azure Prepayment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.
 
 This tutorial applies only to Azure customers with an Azure Enterprise Agreement.
 
@@ -150,7 +150,7 @@ Some reasons for differences in pricing:
 
 ## Request detailed usage information
 
-Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, Azure Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
 To view detailed usage in specific accounts, download the usage detail report by going to **Reports** > **Download Usage**.
 
@@ -161,7 +161,7 @@ For indirect enrollments, your partner needs to enable the markup function befor
 
 ## Reports
 
-Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, Azure Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
 ### Azure Enterprise reports
 
@@ -431,7 +431,7 @@ For issues with Power BI, log a ticket with the [Power BI support team](https://
 
 ### Why don't my resource tags show on my reports
 
-Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) article.
+Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) article.
 
 ### Why does my resource rate change every day?
 

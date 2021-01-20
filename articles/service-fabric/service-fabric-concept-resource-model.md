@@ -3,7 +3,6 @@ title: Azure Service Fabric application resource model
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
 ms.date: 10/21/2019
-ms.custom: sfrev
 ---
 
 # Service Fabric application resource model
@@ -50,7 +49,7 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.
@@ -85,6 +84,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 > The *UserApp.Parameters.json* file must be updated with the name of your cluster.
 >
 >
+
 
 | Parameter              | Description                                 | Example                                                      | Comments                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -132,6 +132,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## Upgrade the Service Fabric application by using Resource Manager
+
+
+> [!IMPORTANT]
+> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+
 
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 

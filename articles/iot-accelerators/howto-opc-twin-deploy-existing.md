@@ -28,7 +28,7 @@ The core of the module is the Supervisor identity. The supervisor manages endpoi
 
 ## Prerequisites
 
-Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
+Make sure you have PowerShell and [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

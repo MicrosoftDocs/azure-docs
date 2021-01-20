@@ -4,7 +4,7 @@ description: Learn about Defender  for agent local configurations for C.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
+ms.date: 10/08/2020
+ms.author: v-ekrieg
 ---
 
 # Understanding the LocalConfiguration.json file - C agent
@@ -36,9 +36,9 @@ Changes to the configuration file take place when the agent is restarted.
 | ConnectionTimeout | ISO8601 string | Time period before the connection to IoThub gets timed out |
 | Authentication | JsonObject | Authentication configuration. This object contains all the information needed for authentication against IoTHub |
 | Identity | "DPS", "SecurityModule", "Device" | Authentication identity - DPS if authentication is made through DPS, SecurityModule if authentication is made via security module credentials or device if authentication is made with Device credentials |
-| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | the user secret for authentication - Choose SasToken if the use secret is a Symmetric key, choose self signed certificate if the secret is a self signed certificate  |
+| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | the user secret for authentication - Choose SasToken if the use secret is a Symmetric key, choose self-signed certificate if the secret is a self-signed certificate  |
 | FilePath | Path to file (string) | Path to the file that contains the authentication secret |
-| HostName | string | The host name of the azure iot hub. usually <my-hub>.azure-devices.net |
+| HostName | string | The host name of the Azure IoT hub. usually <my-hub>.azure-devices.net |
 | DeviceId | string | The ID of the device (as registered in Azure IoT Hub) |
 | DPS | JsonObject | DPS related configurations |
 | IDScope | string | ID scope of DPS |

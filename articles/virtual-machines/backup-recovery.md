@@ -28,7 +28,7 @@ Azure Site Recovery protects your VMs from a major disaster scenario, when a who
 
 You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
 
-You can get started by [replicating your virtual machines](https://aka.ms/a2a-getting-started). 
+You can get started by [replicating your virtual machines](../site-recovery/azure-to-azure-quickstart.md). 
 
 ## Managed snapshots 
 

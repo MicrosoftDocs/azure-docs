@@ -1,6 +1,6 @@
 ---
-title: Weather forecast using Azure Machine Learning with IoT Hub data
-description: Use Azure Machine Learning to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
+title: Weather forecast using Azure Machine Learning Studio (classic) with IoT Hub data
+description: Use Azure Machine Learning Studio (classic) to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
 author: robinsh
 manager: philmea
 keywords: weather forecast machine learning
@@ -12,17 +12,17 @@ ms.date: 09/16/2020
 ms.author: robinsh
 ---
 
-# Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
+# Weather forecast using the sensor data from your IoT hub in Azure Machine Learning Studio (classic)
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. Azure Machine Learning is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
+Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. Azure Machine Learning Studio (classic) is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
 ## What you learn
 
-You learn how to use Azure Machine Learning to do weather forecast (chance of rain) using the temperature and humidity data from your Azure IoT hub. The chance of rain is the output of a prepared weather prediction model. The model is built upon historic data to forecast chance of rain based on temperature and humidity.
+You learn how to use Azure Machine Learning Studio (classic) to do weather forecast (chance of rain) using the temperature and humidity data from your Azure IoT hub. The chance of rain is the output of a prepared weather prediction model. The model is built upon historic data to forecast chance of rain based on temperature and humidity.
 
 ## What you do
 
@@ -41,10 +41,10 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 - An [Azure Machine Learning Studio (classic)](https://studio.azureml.net/) account.
-- An [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
+- An [Azure Storage account](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
 
 > [!Note]
-> This article uses Azure Stream Analytics and several other paid services. Extra charges are incurred in Azure Stream Analytics when data must be transferred across Azure regions. For this reason, it would be good to ensure that your Resource Group, IoT Hub, and Azure Storage account -- as well as the Machine Learning Studio (classic) workspace and Azure Stream Analytics Job added later in this tutorial -- are all located in the same Azure region. You can check regional support for Azure Machine Learning Studio and other Azure services on the [Azure product availability by region page](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
+> This article uses Azure Stream Analytics and several other paid services. Extra charges are incurred in Azure Stream Analytics when data must be transferred across Azure regions. For this reason, it would be good to ensure that your Resource Group, IoT Hub, and Azure Storage account -- as well as the Machine Learning Studio (classic) workspace and Azure Stream Analytics Job added later in this tutorial -- are all located in the same Azure region. You can check regional support for Azure Machine Learning Studio (classic) and other Azure services on the [Azure product availability by region page](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
 
 ## Deploy the weather prediction model as a web service
 
@@ -66,7 +66,7 @@ In this section you get the weather prediction model from the Azure AI Gallery a
 
 For the model to behave correctly, the temperature and humidity data must be convertible to numeric data. In this section, you add an R-script module to the weather prediction model that removes any rows that have data values for temperature or humidity that cannot be converted to numeric values.
 
-1. On the left-side of the Azure Machine Learning Studio window, select the arrow to expand the tools panel. Enter "Execute" into the search box. Select the **Execute R Script** module.
+1. On the left-side of the Azure Machine Learning Studio (classic) window, select the arrow to expand the tools panel. Enter "Execute" into the search box. Select the **Execute R Script** module.
 
    ![Select Execute R Script module](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -241,10 +241,10 @@ Run the client application to start collecting and sending temperature and humid
 1. Select your subscription > **Storage Accounts** > your storage account > **Blob Containers** > your container.
 1. Download a .csv file to see the result. The last column records the chance of rain.
 
-   ![Get weather forecast result with Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
+   ![Get weather forecast result with Azure Machine Learning Studio (classic)](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## Summary
 
-You’ve successfully used Azure Machine Learning to produce the chance of rain based on the temperature and humidity data that your IoT hub receives.
+You’ve successfully used Azure Machine Learning Studio (classic) to produce the chance of rain based on the temperature and humidity data that your IoT hub receives.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

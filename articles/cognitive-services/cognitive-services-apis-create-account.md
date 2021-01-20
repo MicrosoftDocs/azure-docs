@@ -16,7 +16,7 @@ ms.author: aahi
 
 Use this quickstart to start using Azure Cognitive Services. After creating a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
 
-Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+Azure Cognitive Services are cloud-based services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -118,7 +118,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## See also
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](Welcome.md)
+* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Create a new resource using the Azure Management client library](.\cognitive-services-apis-create-account-client-library.md)
 * [Natural language support](language-support.md)
 * [Docker container support](cognitive-services-container-support.md)

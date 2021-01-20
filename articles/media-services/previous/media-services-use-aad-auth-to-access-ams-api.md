@@ -25,7 +25,7 @@ ms.author: juliako
 
 The Azure Media Services API is a RESTful API. You can use it to perform operations on media resources by using a REST API or by using available client SDKs. Azure Media Services offers a Media Services client SDK for Microsoft .NET. To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. 
 
-Media Services supports [Azure Active Directory (Azure AD)-based authentication](../../active-directory/fundamentals/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).  
+Media Services supports [Azure Active Directory (Azure AD)-based authentication](../../active-directory/fundamentals/active-directory-whatis.md). The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. For more information, see [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).  
 
 This document gives an overview of how to access the Media Services API by using REST or .NET APIs.
 
@@ -149,7 +149,7 @@ The following articles are overviews of Azure AD authentication concepts:
 
 - [Authentication scenarios addressed by Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
 - [Add, update, or remove an application in Azure AD](../../active-directory/develop/quickstart-register-app.md)
-- [Configure and manage Role-Based Access Control by using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## Next steps
 

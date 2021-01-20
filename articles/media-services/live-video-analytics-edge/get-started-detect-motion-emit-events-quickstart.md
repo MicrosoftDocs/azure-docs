@@ -14,6 +14,10 @@ After completing the setup steps, you'll be able to run a simulated live video s
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics based on motion detection":::
 
+You can view the following video with detailed steps on how to get started with Live Video Analytics on IoT Edge:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
+
 ## Prerequisites
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
@@ -30,25 +34,29 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
+* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
-1. Go to [Azure Cloud Shell](https://shell.azure.com).
+1. Go to [Azure Portal](https://portal.azure.com) and select the cloud shell icon.
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
-    ![Environment selector](./media/quickstarts/env-selector.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Environment selector":::
 1. Run the following command.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-If the script finishes successfully, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type `Microsoft.Devices/IotHubs`, and note down the name. You'll need this name in the next step. 
+Upon successful completion of the script, you should see all of the required resources in your subscription. In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  
 
-The script also generates a few configuration files in the *~/clouddrive/lva-sample/* directory. You'll need these files later in the quickstart.
+> [!NOTE]
+> The script also generates a few configuration files in the ***~/clouddrive/lva-sample/*** directory. You'll need these files later in the quickstart.
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.
 
 ## Deploy modules on your edge device
 
@@ -71,7 +79,16 @@ Now the modules are deployed, but no media graphs are active.
 
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
-1. In Visual Studio Code, select **View** > **Explorer**. Or select Ctrl+Shift+E.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
 1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
 1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from *~/clouddrive/lva-sample/appsettings.json*.
@@ -97,7 +114,7 @@ To enumerate all of the [graph topologies](media-graph-concept.md#media-graph-to
 
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 
@@ -123,7 +140,7 @@ By using the steps for invoking `GraphTopologyList`, you can invoke `GraphTopolo
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",
@@ -286,7 +303,7 @@ Invoke `GraphTopologyGet` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```
@@ -384,7 +401,7 @@ Invoke the direct method `GraphInstanceSet` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1",
     "properties" : {
         "topologyName" : "MotionDetection",
@@ -399,8 +416,8 @@ Invoke the direct method `GraphInstanceSet` by using the following payload.
 Notice that this payload:
 
 * Specifies the topology name (`MotionDetection`) for which the instance needs to be created.
-* Contains a parameter value for `rtspUrl`, which didn't have a default value in the graph topology payload.
-
+* Contains a parameter value for `rtspUrl`, which didn't have a default value in the graph topology payload. This value is a link to the below sample video:
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 Within few seconds, you see the following response in the **OUTPUT** window:
 
 ```
@@ -444,7 +461,7 @@ Now activate the graph instance to start the flow of live video through the modu
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -468,7 +485,7 @@ Now invoke the direct method `GraphInstanceGet` by using the following payload.
 
 ```
  {
-     "@apiVersion" : "1.0",
+     "@apiVersion" : "2.0",
      "name" : "Sample-Graph-1"
  }
  ```
@@ -601,7 +618,7 @@ Invoke the direct method `GraphInstanceDeactivate` by using the following payloa
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -627,7 +644,7 @@ Invoke the direct method `GraphInstanceDelete` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -651,7 +668,7 @@ Invoke the direct method `GraphTopologyDelete` by using the following payload.
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```

@@ -24,10 +24,10 @@ In Azure SQL Edge, after you deploy a container, you can connect to the database
 
 You can connect to an instance of Azure SQL Edge instance from any of these common tools:
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): sqlcmd client tools are already included in the container image of Azure SQL Edge. If you attach to a running container with an interactive bash shell, you can run the tools locally. SQL client tools are NOT available on the ARM64 platform, as such they are not included in the ARM64 version of the SQL Edge containers. 
-* [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
-* [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
+* [sqlcmd](/sql/linux/sql-server-linux-setup-tools): sqlcmd client tools are already included in the container image of Azure SQL Edge. If you attach to a running container with an interactive bash shell, you can run the tools locally. SQL client tools are NOT available on the ARM64 platform, as such they are not included in the ARM64 version of the SQL Edge containers. 
+* [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)
+* [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+* [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 To connect to an Azure SQL Edge database engine from a network machine, you need the following:
 
@@ -50,7 +50,7 @@ To connect to an Azure SQL Edge database engine from a network machine, you need
 
 ## Connect to the database engine from within the container
 
-The [SQL Server command-line tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) are included in the container image of Azure SQL Edge. If you attach to the container with an interactive command prompt, you can run the tools locally. SQL client tools are NOT available on the ARM64 platform, as such they are not included in the ARM64 version of the SQL Edge containers. 
+The [SQL Server command-line tools](/sql/linux/sql-server-linux-setup-tools) are included in the container image of Azure SQL Edge. If you attach to the container with an interactive command prompt, you can run the tools locally. SQL client tools are NOT available on the ARM64 platform, as such they are not included in the ARM64 version of the SQL Edge containers. 
 
 1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example, `e69e056c702d` is the container ID.
 
@@ -103,14 +103,14 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-To connect to an instance of Azure SQL Edge by using SQL Server Management Studio running on a Windows machine, see [SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
+To connect to an instance of Azure SQL Edge by using SQL Server Management Studio running on a Windows machine, see [SQL Server Management Studio](/sql/linux/sql-server-linux-manage-ssms).
 
-To connect to an instance of Azure SQL Edge by using Visual Studio Code on a Windows, Mac or Linux machine, see [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
+To connect to an instance of Azure SQL Edge by using Visual Studio Code on a Windows, Mac or Linux machine, see [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode).
 
-To connect to an instance of Azure SQL Edge by using Azure Data Studio on a Windows, Mac or Linux machine, see [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
+To connect to an instance of Azure SQL Edge by using Azure Data Studio on a Windows, Mac or Linux machine, see [Azure Data Studio](/sql/azure-data-studio/quickstart-sql-server).
 
 ## Next steps
 
-[Connect and query](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
+[Connect and query](/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 
-[Install SQL Server tools on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)
+[Install SQL Server tools on Linux](/sql/linux/sql-server-linux-setup-tools)

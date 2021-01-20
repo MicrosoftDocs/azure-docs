@@ -54,6 +54,7 @@ New-AzVM `
    -Location $location `
    -Name $vmName `
    -Image $imageDefinition.Id
+   -Credential $cred
 ```
 
 
