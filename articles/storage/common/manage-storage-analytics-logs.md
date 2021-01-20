@@ -121,7 +121,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## Update log settings
 
-You can update log settings. For example, the retention period that you hold on to logs.
+You can update log settings. For example, you can change the number of days that logs are retained in storage. This is called the retention period. 
 
 ### [Portal](#tab/azure-portal)
 
@@ -180,20 +180,27 @@ For information about accessing the $logs container, see [Storage analytics logg
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
 ### [.NET v12](#tab/dotnet)
+The following example changes the retention period for logs for the blob and queue storage services to 4 days. 
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
 ### [.NET v11](#tab/dotnet11)
+The following example changes the retention period for logs for the blob and queue storage services to 4 days. 
 
 ```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
+var storageAccount = CloudStorageAccount.Parse(connectionString);
 
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
+var blobClient = storageAccount.CreateCloudBlobClient();
+var queueClient = storageAccount.CreateCloudQueueClient();
 
-queueClient.SetServiceProperties(serviceProperties);  
+var blobserviceProperties = blobClient.GetServiceProperties();
+var queueserviceProperties = queueClient.GetServiceProperties();
+
+blobserviceProperties.Logging.RetentionDays = 4;
+queueserviceProperties.Logging.RetentionDays = 4;
+
+blobClient.SetServiceProperties(blobserviceProperties);
+queueClient.SetServiceProperties(queueserviceProperties);  
 ``` 
 
 ---
