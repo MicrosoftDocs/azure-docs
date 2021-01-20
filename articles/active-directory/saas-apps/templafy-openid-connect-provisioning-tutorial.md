@@ -45,7 +45,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Important tips for assigning users to Templafy OpenID Connect
 
-* It is recommended that a single Azure AD user is assigned to Templafy OpenID Connect to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Templafy OpenID Connect to test the automatic user provisioning configuration. More users and/or groups may be assigned later.
 
 * When assigning a user to Templafy OpenID Connect, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -55,15 +55,15 @@ Before configuring Templafy OpenID Connect for automatic user provisioning with 
 
 1. Sign in to your Templafy Admin Console. Click on **Administration**.
 
-	![Templafy Admin Console](media/templafy-openid-connect-provisioning-tutorial/templafyadmin.png)
+	![Templafy Admin Console](media/templafy-openid-connect-provisioning-tutorial/templafy-admin.png)
 
 2. Click on **Authentication Method**.
 
-	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-openid-connect-provisioning-tutorial/templafyauth.png)
+	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-openid-connect-provisioning-tutorial/templafy-auth.png)
 
-3. Copy the **SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy OpenID Connect application in the Azure portal.
+3. Copy the **SCIM Api-key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy OpenID Connect application in the Azure portal.
 
-	![A screenshot of the S C I M A P I key.](media/templafy-openid-connect-provisioning-tutorial/templafytoken.png)
+	![A screenshot of the S C I M A P I key.](media/templafy-openid-connect-provisioning-tutorial/templafy-token.png)
 
 ## Step 3. Add Templafy OpenID Connect from the gallery
 
@@ -112,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API Key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API-key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -124,19 +124,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Templafy OpenID Connect**.
 
-	![Templafy OpenID Connect User Mappings](media/templafy-openid-connect-provisioning-tutorial/usermapping.png)
+	![Templafy OpenID Connect User Mappings](media/templafy-openid-connect-provisioning-tutorial/user-mapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Templafy OpenID Connect in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy OpenID Connect for update operations. Select the **Save** button to commit any changes.
 
-	![Templafy OpenID Connect User Attributes](media/templafy-openid-connect-provisioning-tutorial/userattribute.png)
+	![Templafy OpenID Connect User Attributes](media/templafy-openid-connect-provisioning-tutorial/user-attribute.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
 
-	![Templafy OpenID Connect Group Mappings](media/templafy-openid-connect-provisioning-tutorial/groupmapping.png)
+	![Templafy OpenID Connect Group Mappings](media/templafy-openid-connect-provisioning-tutorial/group-mapping.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Templafy OpenID Connect in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Templafy OpenID Connect for update operations. Select the **Save** button to commit any changes.
 
-	![Templafy OpenID Connect Group Attributes](media/templafy-openid-connect-provisioning-tutorial/groupattribute.png)
+	![Templafy OpenID Connect Group Attributes](media/templafy-openid-connect-provisioning-tutorial/group-attribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

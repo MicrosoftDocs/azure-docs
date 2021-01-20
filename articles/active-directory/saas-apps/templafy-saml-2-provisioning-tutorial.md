@@ -45,7 +45,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Important tips for assigning users to Templafy SAML2
 
-* It is recommended that a single Azure AD user is assigned to Templafy SAML2 to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Templafy SAML2 to test the automatic user provisioning configuration. More users and/or groups may be assigned later.
 
 * When assigning a user to Templafy SAML2, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -55,15 +55,15 @@ Before configuring Templafy SAML2 for automatic user provisioning with Azure AD,
 
 1. Sign in to your Templafy Admin Console. Click on **Administration**.
 
-	![Templafy Admin Console](media/templafy-saml-2-provisioning-tutorial/templafyadmin.png)
+	![Templafy Admin Console](media/templafy-saml-2-provisioning-tutorial/templafy-admin.png)
 
 2. Click on **Authentication Method**.
 
-	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-saml-2-provisioning-tutorial/templafyauth.png)
+	![Screenshot of the Templafy administration section with the Authentication method option called out.](media/templafy-saml-2-provisioning-tutorial/templafy-auth.png)
 
-3. Copy the **SCIM Api Key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy SAML2 application in the Azure portal.
+3. Copy the **SCIM Api-key** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Templafy SAML2 application in the Azure portal.
 
-	![A screenshot of the S C I M A P I key.](media/templafy-saml-2-provisioning-tutorial/templafytoken.png)
+	![A screenshot of the S C I M A P I key.](media/templafy-saml-2-provisioning-tutorial/templafy-token.png)
 
 ## Step 3. Add Templafy SAML2 from the gallery
 
@@ -112,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API Key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://scim.templafy.com/scim` in **Tenant URL**. Input the **SCIM API-key** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Templafy. If the connection fails, ensure your Templafy account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -124,19 +124,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Templafy SAML2**.
 
-	![Templafy SAML2 User Mappings](media/templafy-saml-2-provisioning-tutorial/usermapping.png)
+	![Templafy SAML2 User Mappings](media/templafy-saml-2-provisioning-tutorial/user-mapping.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
 
-	![Templafy SAML2 User Attributes](media/templafy-saml-2-provisioning-tutorial/userattribute.png)
+	![Templafy SAML2 User Attributes](media/templafy-saml-2-provisioning-tutorial/user-attribute.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
 
-	![Templafy SAML2 Group Mappings](media/templafy-saml-2-provisioning-tutorial/groupmapping.png)
+	![Templafy SAML2 Group Mappings](media/templafy-saml-2-provisioning-tutorial/group-mapping.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
 
-	![Templafy SAML2 Group Attributes](media/templafy-saml-2-provisioning-tutorial/groupattribute.png)
+	![Templafy SAML2 Group Attributes](media/templafy-saml-2-provisioning-tutorial/group-attribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
