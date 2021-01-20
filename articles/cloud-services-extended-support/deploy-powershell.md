@@ -20,35 +20,36 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## 1) Register the feature for your subscription
-Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
+To begin using Cloud Services (extended support) login and select a subscription and register the preview feature. 
 
 ```powershell
+Connect-AzAccount
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
-## 2) Prepare your deployment artifacts 
-(.csdef and .cscfg) and associate resources.
- Skip this step if you have completed the pre-requisites. 
 
-## 3) Install Az.CloudService powershell package  
+## 2) Prepare your deployment artifacts 
+Prepare the deployment artifacts. For more information see [Deployment Prerequisites](deploy-prerequisite.md) 
+
+## 3) Install Az.CloudService PowerShell package  
+Install the Azure Resource Managed based Cloud Service PowerShell module. 
 
 ```powershell
 Install-Module -Name Az.CloudService 
 ```
 
-## 4) Create Resource Group. (Optional if using existing Resource Group) 
+## 4) Create a resource group 
 
-Create an Azure resource group with New-AzResourceGroup command. A resource group is a logical container into which Azure resources are deployed and managed. 
+Create a new resource group> This step is optional if using an existing resource group.   
 
 ```powershell
 New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
 ```
- 
 
 ## 5) Create storage account and upload Service Definition and Service configuration files 
 
 ### Service Package 
 
-Regenerate your package in case you changed your service definition file. Otherwise, you can use the same package from cloud service (classic) 
+Regenerate your package in case you changed your service definition file. Otherwise, you can use the same package from cloud service (classic) deployment. 
 
 Package needs to be passed in Powershell cmdlet as PackageUrl that refers to the location of the service package in the Blob service. The package URL can be Shared Access Signature (SAS) URI from any storage account 
 
