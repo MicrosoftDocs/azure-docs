@@ -34,8 +34,6 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 9 - Backup virtual machines
-    href: tutorial-backup-vms.md
   - name: 10 - Enable disaster recovery
     href: tutorial-disaster-recovery.md
   - name: 11 - Manage VMs
@@ -45,10 +43,6 @@
     href: tutorial-config-management.md
   - name: 13 - Monitor VMs
     href: tutorial-monitor.md
-  - name: 14 - Manage VM security
-    href: ../tutorial-azure-security.md
-  - name: 15 - Install a SQL\IIS\.NET stack
-    href: tutorial-iis-sql.md
   - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Concepts
@@ -758,8 +752,6 @@
       href: ../custom-data.md
     - name: Chef
       href: /azure/developer/chef/windows-vm-configure
-    - name: Publish Web App from Visual Studio
-      href: publish-web-app-from-visual-studio.md
   - name: Run applications
     items:
     - name: SQL Server
