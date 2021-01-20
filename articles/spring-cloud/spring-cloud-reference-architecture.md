@@ -167,6 +167,7 @@ The network implementation is further secured by defining controls from the MAFB
 This design principal is comprised of fundamental components which are identity, data protection, key management, and application configuration. For this reference architecture, the focus is on key management where identity, data protection, and application configuration are the responsibility of the reader as it relates to their target infrastructure, and application.
 
 The controls that address key management in this reference from the CCM are the following:
+
 | CSA CCM Control ID | CSA CCM Control Domain |
 | :----------------- | :--------------------- |
 | EKM-01 | Encryption and Key Management Entitlement |
