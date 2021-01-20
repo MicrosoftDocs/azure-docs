@@ -308,7 +308,7 @@ appInsights.loadAppInsights();
 
 ## Next steps
 
-- Check out the [Github Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
+- Check out the [Github Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
 - Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
 - Build a [Workbook](../platform/workbooks-overview.md) to create custom visualizations of click data.
