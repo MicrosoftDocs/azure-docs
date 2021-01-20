@@ -1,17 +1,17 @@
 ---
-title: Create a Translator Service
+title: Create a Translator resource
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to create the Azure Cognitive Services Translator and get a subscription key.
+description: This article will show you how to create the Azure Cognitive Services Translator resource and get a subscription key.
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/25/2021
 ms.author: lajanuar
 ---
-# Create a Translator Service
+# Create a Translator resource
 
 ## Prerequisites
 
