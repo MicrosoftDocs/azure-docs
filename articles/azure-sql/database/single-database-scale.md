@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 09/16/2020
 ---
 # Scale single database resources in Azure SQL Database

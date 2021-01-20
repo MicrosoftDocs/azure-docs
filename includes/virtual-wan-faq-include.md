@@ -250,7 +250,7 @@ When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge rou
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
 ### Can hubs be created in different resource group in Virtual WAN?
-Yes. This option is currently available via powershell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
+Yes. This option is currently available via PowerShell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
 
 ### Is there support for IPv6 in Virtual WAN?
 
@@ -269,3 +269,11 @@ See the [Virtual WAN limits](../articles/azure-resource-manager/management/azure
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
 See [Basic and Standard Virtual WANs](../articles/virtual-wan/virtual-wan-about.md#basicstandard). For pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+
+### Does Virtual WAN store customer data? 
+
+No. Virtual WAN does not store any customer data.
+
+### Are there any Managed Service Providers that can manage Virtual WAN for users as a service? 
+
+Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).

@@ -72,7 +72,7 @@ Security Center uses [Azure role-based access control (Azure RBAC)](../role-base
 
 The Security Center roles described above do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
 
-Using the personas explained in the previous diagram, the following RBAC would be needed:
+Using the personas explained in the previous diagram, the following Azure RBAC would be needed:
 
 **Jeff (Workload Owner)**
 
@@ -102,7 +102,7 @@ Some other important information to consider:
 * Only subscription Owners/Contributors and Security Admins can edit a security policy.
 * Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
 
-When planning access control using RBAC for Security Center, be sure to understand who in your organization will be using Security Center. Also, what types of tasks they will be performing and then configure RBAC accordingly.
+When planning access control using Azure RBAC for Security Center, be sure to understand who in your organization will be using Security Center. Also, what types of tasks they will be performing and then configure Azure RBAC accordingly.
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.

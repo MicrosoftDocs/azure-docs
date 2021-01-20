@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
 ---
@@ -66,4 +66,5 @@ These principles apply to all layers of the network: from the host Network Inter
 The exponential growth of Azure and its network has reached a point where we eventually realized that human intuition could no longer be relied on to manage the global network operations. To fulfill the need to validate long, medium, and short-term changes on the network, we developed a platform to mirror and emulate our production network synthetically. The ability to create mirrored environments and run millions of simulations, allows us to test software and hardware changes and their impact, before committing them to our production platform and network. 
 
 ## Next steps
+- [Learn about how Microsoft is advancing global network reliability through intelligent software](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [Learn more about the networking services provided in Azure](https://azure.microsoft.com/product-categories/networking/)

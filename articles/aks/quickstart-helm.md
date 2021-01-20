@@ -4,7 +4,7 @@ description: Use Helm with AKS and Azure Container Registry to package and run a
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 01/12/2021
 ms.author: zarhoads
 ---
 
@@ -17,7 +17,7 @@ This article shows you how to use Helm to package and run an application on AKS.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI installed](/cli/azure/install-azure-cli).
 * [Helm v3 installed][helm-install].
 
 ## Create an Azure Container Registry
@@ -139,7 +139,7 @@ For example:
 replicaCount: 1
 
 image:
-  repository: *myhelmacr.azurecr.io*/webfrontend
+  repository: myhelmacr.azurecr.io/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:

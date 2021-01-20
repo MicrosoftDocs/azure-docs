@@ -1,12 +1,14 @@
 ---
-title: Configuration options - Azure Monitor Application Insights Java
-description: Configuration options for Azure Monitor Application Insights Java
+title: Configuration options - Azure Monitor Application Insights for Java
+description: How to configure Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 11/04/2020
+author: MS-jgol
 ms.custom: devx-track-java
+ms.author: jgol
 ---
 
-# Configuration options for Azure Monitor Application Insights Java
+# Configuration options - Azure Monitor Application Insights for Java
 
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
@@ -34,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0.jar`.
+By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.2.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.2.jar` is located.
 
 ## Connection string
 
@@ -165,6 +167,10 @@ If you want to add custom dimensions to all of your telemetry:
 
 `${...}` can be used to read the value from specified environment variable at startup.
 
+> [!NOTE]
+> Starting from version 3.0.2, if you add a custom dimension named `service.version`, the value will be stored
+> in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
+
 ## Telemetry processors (preview)
 
 This feature is in preview.
@@ -181,9 +187,10 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
 is auto-collected.
 
-By default, logging is only collected when that logging is performed at the `INFO` level or above.
+Logging is only captured if it first meets the logging frameworks' configured threshold,
+and second also meets the Application Insights configured threshold.
 
-If you want to change this collection level:
+The default Application Insights threshold is `INFO`. If you want to change this level:
 
 ```json
 {
@@ -230,6 +237,35 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 {
   "instrumentation": {
     "micrometer": {
+      "enabled": false
+    }
+  }
+}
+```
+
+## Suppressing specific auto-collected telemetry
+
+Starting from version 3.0.2, specific auto-collected telemetry can be suppressed using these configuration options:
+
+```json
+{
+  "instrumentation": {
+    "cassandra": {
+      "enabled": false
+    },
+    "jdbc": {
+      "enabled": false
+    },
+    "kafka": {
+      "enabled": false
+    },
+    "micrometer": {
+      "enabled": false
+    },
+    "mongo": {
+      "enabled": false
+    },
+    "redis": {
       "enabled": false
     }
   }
@@ -308,7 +344,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.0.0.jar` is located.
+`applicationinsights-agent-3.0.2.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

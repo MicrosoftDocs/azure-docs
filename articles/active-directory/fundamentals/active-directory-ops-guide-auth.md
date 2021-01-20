@@ -90,7 +90,7 @@ Passwords by themselves aren't secure enough to prevent bad actors from gaining 
 
 ### On-premises outage authentication resiliency
 
-In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Microsoft 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
+In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure AD MFA allow users to access SaaS applications and Microsoft 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
 
 If your on-premises organization is lacking an outage resiliency strategy or has one that isn't integrated with Azure AD, you should deploy Azure AD PHS and define a disaster recovery plan that includes PHS. Enabling Azure AD PHS will allow users to authenticate against Azure AD should your on-premises Active Directory be unavailable.
 
@@ -155,7 +155,7 @@ Providing a standardized single sign-on mechanism to the entire enterprise is cr
 > [!NOTE]
 > If you don't have a mechanism to discover unmanaged applications in your organization, we recommend implementing a discovery process using a cloud access security broker solution (CASB) such as [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../azuread-dev/howto-app-gallery-listing.md).
+Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../develop/v2-howto-app-gallery-listing.md).
 
 #### Single sign-on recommended reading
 
@@ -250,7 +250,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 
 #### Conditional Access recommended reading
 
-- [Best practices for Conditional Access in Azure Active Directory](../conditional-access/best-practices.md)
+- [Best practices for Conditional Access in Azure Active Directory](../conditional-access/overview.md)
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory Conditional Access settings reference](../conditional-access/concept-conditional-access-conditions.md)
 - [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
@@ -283,7 +283,7 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 #### Legacy authentication recommended reading
 
-- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### Consent grants
 

@@ -4,6 +4,8 @@
   items:
     - name: About Azure Functions
       href: functions-overview.md
+    - name: Getting started
+      href: functions-get-started.md
     - name: Durable Functions
       href: durable/durable-functions-overview.md
     - name: Serverless comparison
@@ -31,6 +33,8 @@
             href: create-first-function-vs-code-python.md
           - name: TypeScript
             href: create-first-function-vs-code-typescript.md
+          - name: Other (Go/Rust)
+            href: create-first-function-vs-code-other.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Command line
@@ -137,8 +141,16 @@
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
-    - name: Premium plan
-      href: functions-premium-plan.md
+    - name: Hosting and scale
+      items:
+        - name: Consumption plan
+          href: consumption-plan.md
+        - name: Premium plan
+          href: functions-premium-plan.md
+        - name: Dedicated plan
+          href: dedicated-plan.md
+        - name: Event-driven scaling
+          href: event-driven-scaling.md  
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
@@ -236,7 +248,7 @@
             - name: HTTP trigger
               items:
                 - name: Azure portal
-                  href: functions-create-first-azure-function.md
+                  href: functions-create-function-app-portal.md
                 - name: Command line
                   href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
@@ -257,6 +269,8 @@
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux Consumption plan
                   href: create-first-function-cli-python.md
+                - name: Premium plan
+                  href: create-premium-plan-function-app-portal.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
@@ -367,6 +381,8 @@
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with an OpenID Connect provider (Preview)
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Authenticate using Sign in with Apple (Preview)
+              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Advanced auth
           href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Restrict IPs
@@ -397,8 +413,6 @@
           href: ./functions-create-vnet.md
         - name: Create an Open API 2.0 definition
           href: ./functions-openapi-definition.md
-        - name: Export to PowerApps and Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint
@@ -411,6 +425,8 @@
           href: functions-recover-storage-account.md
         - name: Troubleshoot Python functions
           href: recover-python-functions.md
+        - name: Scale and performance for Python functions
+          href: python-scale-performance-reference.md
 - name: Reference
   items:
     - name: API references
@@ -527,7 +543,16 @@
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
         - name: RabbitMQ
-          href: https://github.com/azure/azure-functions-rabbitmq-extension
+          items:
+            - name: Overview
+              href: functions-bindings-rabbitmq.md
+              displayName: RabbitMQ
+            - name: Trigger
+              href: functions-bindings-rabbitmq-trigger.md
+              displayName: RabbitMQ
+            - name: Output
+              href: functions-bindings-rabbitmq-output.md
+              displayName: RabbitMQ
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
@@ -589,7 +614,7 @@
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/functions/
+      href: pricing.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Quota information

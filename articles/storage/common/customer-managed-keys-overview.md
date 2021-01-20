@@ -74,7 +74,7 @@ When you configure encryption with customer-managed keys, you have two options f
 
     When the key version is explicitly specified, then you must manually update the storage account to use the new key version URI when a new version is created. To learn how to update the storage account to use a new version of the key, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md) or [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM (preview)](customer-managed-keys-configure-key-vault-hsm.md).
 
-Updating the key version for a customer-managed key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
+When you update the key version, the protection of the root encryption key changes, but the data in your Azure Storage account is not re-encrypted. There is no further action required from the user.
 
 > [!NOTE]
 > To rotate a key, create a new version of the key in the key vault or managed HSM, according to your compliance policies. You can rotate your key manually or create a function to rotate it on a schedule.
@@ -109,7 +109,7 @@ To revoke access to customer-managed keys, use [PowerShell](./customer-managed-k
 
 ## Customer-managed keys for Azure managed disks
 
-Customer-managed keys are also available for managing encryption of Azure managed disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows or [Server side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux.
+Customer-managed keys are also available for managing encryption of Azure managed disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Windows or [Server side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Linux.
 
 ## Next steps
 

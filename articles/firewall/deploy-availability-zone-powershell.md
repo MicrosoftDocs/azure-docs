@@ -55,4 +55,4 @@ New-AzFirewall `
 
 ## Next steps
 
-- [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+- [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

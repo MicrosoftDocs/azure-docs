@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
+ms.date: 12/17/2020
 ---
 
 # Execute R Script module
@@ -45,7 +45,13 @@ azureml_main <- function(dataframe1, dataframe2){
 To install additional R packages, use the `install.packages()` method. Packages are installed for each Execute R Script module. They aren't shared across other Execute R Script modules.
 
 > [!NOTE]
+> It's **NOT** recommended to install R package from the script bundle. It's recommended to install packages directly in the script editor.
 > Specify the CRAN repository when you're installing packages, such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+
+> [!WARNING]
+> Excute R Script module does not support installing packages that require native compilation, like `qdap` package which requires JAVA and `drc` package which requires C++. This is because this module is executed in a pre-installed environment with non-admin permission.
+> Do not install packages which are pre-built on/for Windows, since the designer modules are running on Ubuntu. To check whether a package is pre-built on windows, you could go to [CRAN](https://cran.r-project.org/) and search your package, download one binary file according to your OS, and check **Built:** part in the **DESCRIPTION** file. Following is an example:
+> :::image type="content" source="media/module/r-package-description.png" alt-text="R package description" lightbox="media/module/r-package-page.png":::
 
 This sample shows how to install Zoo:
 ```R
@@ -74,25 +80,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > Before you install a package, check if it already exists so you don't repeat an installation. Repeat installations might cause web service requests to time out.     
 
+## Access to registered dataset
+
+You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## Uploading files
 The Execute R Script module supports uploading files by using the Azure Machine Learning R SDK.
 
 The following sample shows how to upload an image file in Execute R Script:
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -114,22 +122,6 @@ After the pipeline run is finished, you can preview the image in the right panel
 
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-r-script.png)
-
-## Access to registered dataset
-
-You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
-
-```R
-	azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
 
 ## How to configure Execute R Script
 

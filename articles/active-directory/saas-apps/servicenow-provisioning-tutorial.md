@@ -31,7 +31,7 @@ This tutorial describes the steps you need to perform in both ServiceNow and Azu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
 * A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
 * A user account in ServiceNow with the admin role
@@ -45,19 +45,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
-   ![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Obtain credentials for an admin in ServiceNow. Navigate to the user profile in ServiceNow and verify that the user has the admin role. 
 
    ![ServiceNow admin role](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Check to make sure that the following settings are **disabled** in ServiceNow:
-
-   1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
-   2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
-     
-   > [!IMPORTANT]
-   > If these setting are *enabled*, the provisioning engine will fail to communicate with ServiceNow.
 
 ## Step 3. Add ServiceNow from the Azure AD application gallery
 
@@ -96,7 +89,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your ServiceNow admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
 
- 	![Screenshot shows the Service Provisioning page, where you can enter Admin Credentials.](./media/servicenow-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows the Service Provisioning page, where you can enter Admin Credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -139,15 +132,25 @@ Once you've configured provisioning, use the following resources to monitor your
 * **InvalidLookupReference:** When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have two locations (Seattle, Los Angeles) and three departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user where his department is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Review your [attribute mappings](../app-provisioning/customize-application-attributes.md) to identify the matching attribute. This value must be present on the user or group you're attempting to provision. 
 * Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (for example, format to specify country code for a user)
-* Provisioning requests are sent by default to https://{your-instance-name}.service-now.com/{table-name} . If you require a custom tenant URL, you can provide the entire URL in the instance name field.
+* Provisioning requests are sent by default to https://{your-instance-name}.service-now.com/{table-name}. If you require a custom tenant URL, you can provide the entire URL in the instance name field.
 * **ServiceNowInstanceInvalid** 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   This error indicates an issue communicating with the ServiceNow instance. Double-check to make sure that the following settings are *disabled* in ServiceNow:
+   This error indicates an issue communicating with the ServiceNow instance. 
+   
+   If you are having test connection issues try making the following settings as **disabled** in ServiceNow:
    
    1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
    2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
+
+   ![Authorizing SOAP request](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   If it resolves your issues then contact ServiceNow support and ask them to turn on SOAP debugging to help troubleshoot. 
+
+* **IP Ranges** 
+
+   The Azure AD provisioning service currently operates under a particular IP ranges.So if required you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application to allow traffic flow from Azure AD provisioning service to your application .Refer the documentation at [IP Ranges](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## Additional resources
 

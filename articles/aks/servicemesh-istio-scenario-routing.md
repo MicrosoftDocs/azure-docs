@@ -28,7 +28,7 @@ In this article, you learn how to:
 > [!NOTE]
 > This scenario has been tested against Istio version `1.3.2`.
 
-The steps detailed in this article assume you've created an AKS cluster (Kubernetes `1.13` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. You'll also need Istio installed in your cluster.
+The steps detailed in this article assume you've created an AKS cluster (Kubernetes `1.13` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. You'll also need Istio installed in your cluster.
 
 If you need help with any of these items, then see the [AKS quickstart][aks-quickstart] and [Install Istio in AKS][istio-install] guidance.
 

@@ -167,12 +167,10 @@ In this section, you'll enable B.Simon to use Azure SSO by granting access to Ro
 
 In this section, you test your Azure AD SSO configuration by using the access panel.
 
-In the My Apps portal, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+In the My Apps portal, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
 After you configure Roadmunk, you can enforce session control. Session control protects the exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. 
 
-Learn how to [enforce session control by using Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Learn how to [enforce session control by using Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

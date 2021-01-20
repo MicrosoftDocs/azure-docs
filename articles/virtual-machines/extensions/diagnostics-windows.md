@@ -6,9 +6,9 @@ description: Learn how to use PowerShell to enable Azure Diagnostics in a virtua
 author: mimckitt
 manager: gwallace
 editor: ''
-
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article

@@ -40,7 +40,7 @@ An Azure subscription is required. If you don't have an Azure subscription, crea
    Server name | **mydemoserver** | Enter a unique name. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
    Data source |**None** | Select **None** to create a new server from scratch. Select **Backup** only if you're restoring from a geo-backup of an existing server.
    Location |Your desired location | Select a location from the list.
-   Version | The latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+   Version | The latest major version| Use the latest major version. See [all supported versions](concepts-supported-versions.md).
    Compute + storage | Use the defaults| The default pricing tier is **General Purpose** with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days**, with the **Geographically Redundant** backup option.<br/>Review the [pricing](https://azure.microsoft.com/pricing/details/mysql/) page, and update the defaults if you need to.
    Admin username | **mydemoadmin** | Enter your server admin user name. You can't use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** for the admin user name.
    Password | A password | A new password for the server admin user. The password must be 8 to 128 characters long and contain a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
@@ -62,7 +62,7 @@ An Azure subscription is required. If you don't have an Azure subscription, crea
 
 By default, the new server is protected with a firewall. To connect, you must provide access to your IP by completing these steps:
 
-1. Go to **Connection security** from the left pane for your server resource. If you don't know how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+1. Go to **Connection security** from the left pane for your server resource. If you don't know how to find your resource, see [How to open a resource](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Screenshot that shows the Connection security > Firewall rules page.":::
@@ -146,9 +146,9 @@ To delete the server, you can select **Delete** on the **Overview** page for you
 
 ## Next steps
 > [!div class="nextstepaction"]
->[Build a PHP app on Windows with MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Build a PHP app on Windows with MySQL](../app-service/tutorial-php-mysql-app.md) <br/>
 
 > [!div class="nextstepaction"]
->[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Build PHP app on Linux with MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%3fpivots%3dplatform-linux)<br/><br/>
 
 [Can't find what you're looking for? Let us know.](https://aka.ms/mysql-doc-feedback)

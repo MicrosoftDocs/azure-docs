@@ -72,9 +72,9 @@ Here are some best practices for using management groups:
 Good candidates include:
 
 - Regulatory requirements that have a clear business impact (for example, restrictions related to data sovereignty)
-- Requirements with near-zero potential negative affect on operations, like policy with audit effect or RBAC permission assignments that have been carefully reviewed
+- Requirements with near-zero potential negative affect on operations, like policy with audit effect or Azure RBAC permission assignments that have been carefully reviewed
 
-**Best practice**: Carefully plan and test all enterprise-wide changes on the root management group before applying them (policy, RBAC model, and so on).   
+**Best practice**: Carefully plan and test all enterprise-wide changes on the root management group before applying them (policy, Azure RBAC model, and so on).   
 **Detail**: Changes in the root management group can affect every resource on Azure. While they provide a powerful way to ensure consistency across the enterprise, errors or incorrect usage can negatively affect production operations. Test all changes to the root management group in a test lab or production pilot.
 
 ## Streamline environment creation with blueprints
@@ -193,7 +193,7 @@ Using [service endpoints](../../virtual-network/virtual-network-service-endpoint
 
 We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, minimize exposure of on-premises resources to the public internet.
 
-Azure has two DDoS [service offerings](../../virtual-network/ddos-protection-overview.md) that provide protection from network attacks:
+Azure has two DDoS [service offerings](../../ddos-protection/ddos-protection-overview.md) that provide protection from network attacks:
 
 - Basic protection is integrated into Azure by default at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. Basic requires no user configuration or application changes and helps protect all Azure services, including PaaS services like Azure DNS.
 - Standard protection provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of virtual networks. It can also be done after creation and requires no application or resource changes.

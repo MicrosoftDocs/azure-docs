@@ -89,8 +89,10 @@
     maintainContext: true 
   - name: Upgrade a storage account
     href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Recover a deleted storage account
+    href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Use the storage emulator
-    href: ../common/storage-use-emulator.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json
+    href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     maintainContext: true
   - name: Secure table data
     items:

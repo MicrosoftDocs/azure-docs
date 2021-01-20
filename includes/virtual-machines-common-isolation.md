@@ -20,10 +20,13 @@ Additionally, as the Isolated size VMs are large, customers may choose to subdiv
 The current Isolated virtual machine offerings include:
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
 * Standard_F72s_v2
+
 
 > [!NOTE]
 > Isolated VM Sizes have a hardware limited lifespan. Please see below for details

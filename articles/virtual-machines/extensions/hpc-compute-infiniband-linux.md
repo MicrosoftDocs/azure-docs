@@ -5,9 +5,9 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
 editor: ''
-
 ms.assetid:
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

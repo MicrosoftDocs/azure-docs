@@ -24,7 +24,7 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge P
 
 The deployment workflow is illustrated in the following diagram.
 
-![VM deployment workflow](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 The high level summary of the deployment workflow are as follows:
 
@@ -40,7 +40,7 @@ The high level summary of the deployment workflow are as follows:
 10. Create a VNet
 11. Create a VNIC using the VNet subnet ID
 
-For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## Prerequisites
 
@@ -114,7 +114,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 ### Verify profile and install Azure CLI
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
 
 1. Install Azure CLI on your client. In this example, Azure CLI 2.0.80 was installed. To verify the version of Azure CLI, run the `az --version` command.
 
@@ -144,7 +144,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\windows\system32>
     ```
 
-    If you do not have Azure CLI, download and [Install Azure CLI on Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
+    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
 
 2. Make a note of the CLI's Python location. You need this to determine the location of trusted root certificate store for Azure CLI.
 
@@ -305,7 +305,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Sign in to your Azure Stack Edge Pro environment by using the `az login` command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Sign in to your Azure Stack Edge Pro environment by using the `az login` command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](../active-directory/develop/app-objects-and-service-principals.md).
 
    Follow these steps to sign in as a *user*:
 

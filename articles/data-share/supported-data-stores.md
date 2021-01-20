@@ -1,67 +1,76 @@
 ---
 title: Supported data stores in Azure Data Share
-description: Learn about the data stores that are supported for use Azure Data Share.
+description: Learn about the data stores that are supported for use in Azure Data Share.
 ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/16/2020
 ---
 # Supported data stores in Azure Data Share
 
-Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and their data consumers can choose which data store to receive data into. 
+Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and data consumers can choose a data store to receive the data. 
 
-In this article, you'll learn about the rich set of Azure data stores that are supported in Azure Data Share. You can also find information on the combinations of data stores that can be leveraged by data providers and data consumers. 
+In this article, you'll learn about the rich set of Azure data stores that Azure Data Share supports. You'll also learn about how data providers and data consumers can combine different data stores. 
 
-## What data stores are supported in Azure Data Share? 
+## Supported data stores 
 
-The below table details the supported data sources for Azure Data Share. 
+The following table explains the data stores that Azure Data Share supports. 
 
-| Data store | Snapshot-based sharing (full snapshot) | Snapshot-based sharing (incremental snapshot) | In-place sharing 
+| Data store | Sharing based on full snapshots | Sharing based on incremental snapshots | Sharing in place 
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob storage |✓ |✓ | |
+| Azure Blob Storage |✓ |✓ | |
 | Azure Data Lake Storage Gen1 |✓ |✓ | |
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
 | Azure SQL Database |✓ | | |
-| Azure Synapse Analytics (formerly Azure SQL DW) |✓ | | |
-| Azure Synapse Analytics (workspace) SQL pool | Public Preview | | |
+| Azure Synapse Analytics (formerly Azure SQL Data Warehouse) |✓ | | |
+| Azure Synapse Analytics (workspace) dedicated SQL pool |✓ | | |
 | Azure Data Explorer | | |✓ |
 
 ## Data store support matrix
 
-Azure Data Share offers data consumers flexibility when deciding on a data store to accept data in to. For example, data being shared from Azure SQL Database can be received into Azure Data Lake Store Gen2, Azure SQL Database or Azure Synapse Analytics. Customers can choose which format to receive data in when configuring a received data share. 
+Azure Data Share lets data consumers choose a data store to accept data. For example, data that's shared from Azure SQL Database can be received into Azure Data Lake Storage Gen2, Azure SQL Database, or Azure Synapse Analytics. When customers set up a receiving data share, they can choose the format to receive the data. 
 
-The below table details different combinations and choices that data consumers have when accepting and configuring their data share. For more information on how to configure dataset mappings, see [how to configure dataset mappings](how-to-configure-mapping.md).
+The following table explains the combinations and options that data consumers can choose when they accept and configure a data share. For more information, see [Configure a dataset mapping](how-to-configure-mapping.md).
 
-| Data store | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (formerly Azure SQL DW) | Azure Synapse Analytics (workspace) SQL pool | Azure Data Explorer
+| Data store | Blob Storage | Data Lake Storage Gen1 | Data Lake Storage Gen2 | SQL Database | Synapse Analytics (formerly SQL Data Warehouse) | Synapse Analytics (workspace) dedicated SQL pool | Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
-| Azure Blob storage | ✓ || ✓ |||
-| Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
-| Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
-| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (formerly Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (workspace) SQL pool | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Azure Data Explorer ||||||| ✓ |
+| Blob Storage | ✓ || ✓ |||
+| Data Lake Storage Gen1 | ✓ | | ✓ |||
+| Data Lake Storage Gen2 | ✓ | | ✓ |||
+| SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Synapse Analytics (formerly SQL Data Warehouse) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Synapse Analytics (workspace) dedicated SQL pool | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Data Explorer ||||||| ✓ |
 
 ## Share from a storage account
-Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten.
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. 
 
-Please refer to [Share and receive data from Azure Blob Storage and Azure Data Lake Storage](how-to-share-from-storage.md) for details.
+When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the shared data. Or they can use the incremental snapshot capability to copy only new files or updated files. 
+
+An incremental snapshot is based on the last-modified time of the files. Existing files that have the same name as files in the received data are overwritten in a snapshot. Files that are deleted from the source aren't deleted on the target. 
+
+For more information, see [Share and receive data from Azure Blob Storage and Azure Data Lake Storage](how-to-share-from-storage.md).
 
 ## Share from a SQL-based source
-Azure Data Share supports sharing of both tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), and sharing of tables from Azure Synapse Analytics (workspace) dedicated SQL pool. Sharing from Azure Synapse Analytics (workspace) serverless SQL pool is not currently supported. Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as csv or parquet file, as well as into Azure SQL Database and Azure Synapse Analytics as tables.
+Azure Data Share supports the sharing of both tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse). It supports the sharing of tables from Azure Synapse Analytics (workspace) dedicated SQL pool. Sharing from Azure Synapse Analytics (workspace) serverless SQL pool isn't currently supported. 
 
-When accepting data into Azure Data Lake Store Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if already exists.
-When data is received into table and if the target table does not already exist, Azure Data Share creates the SQL table with the source schema. If a target table already exists with the same name, it will be dropped and overwritten with the latest full snapshot. Incremental snapshots are not currently supported.
+Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as a CSV file or parquet file. They can also accept data as tables into Azure SQL Database and Azure Synapse Analytics.
 
-Please refer to [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md) for details.
+When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if the file already exists. When data is received into a table and the target table doesn't already exist, Azure Data Share creates an SQL table by using the source schema. If a target table already exists and it has the same name, it's dropped and overwritten with the latest full snapshot. Incremental snapshots aren't currently supported.
 
-## Share from Azure Data Explorer
-Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. Data provider can share at the database or cluster level. When shared at database level, data consumer will only be able to access the specific database(s) shared by the data provider. When shared at cluster level, data consumer can access all the databases from the provider's cluster, including any future databases created by the data provider.
+For more information, see [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md).
 
-To access shared databases, data consumer needs to have its own Azure Data Explorer cluster. Data consumer's Azure Data Explorer cluster needs to locate in the same Azure data center as the data provider's Azure Data Explorer cluster. When sharing relationship is established, Azure Data Share creates a symbolic link between the provider and consumer's Azure Data Explorer clusters. Data ingested using batch mode into the source Azure Data Explorer cluster will show up on the target cluster within a few seconds to a few minutes.
+## Share from Data Explorer
+Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. 
 
-Please refer to [Share and receive data from Azure Data Explorer](/azure/data-explorer/data-share) for details. 
+When data is shared at the database level, data consumers can access only the databases that the data provider shared. When a provider shares data at the cluster level, data consumers can access all of the databases from the provider's cluster, including any future databases that the data provider creates.
+
+To access shared databases, data consumers need their own Azure Data Explorer cluster. Their cluster must be in the same Azure datacenter as the data provider's Azure Data Explorer cluster. 
+
+When a sharing relationship is established, Azure Data Share creates a symbolic link between the provider's cluster and the consumer's cluster. Data that's ingested into the source cluster by using batch mode appears on the target cluster within a few minutes.
+
+For more information, see [Share and receive data from Azure Data Explorer](/azure/data-explorer/data-share). 
 
 ## Next steps
 

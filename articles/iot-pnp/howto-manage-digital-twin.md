@@ -21,7 +21,7 @@ An IoT Plug and Play device implements a model described by [Digital Twins Defin
 
 The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
-The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-json-format):
+The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {
@@ -125,7 +125,7 @@ The following JSON Patch sample shows how to add, replace, or remove a component
 
 An add or replace operation sets the desired value of a property. The device can synchronize state and report an update of the value along with an `ack` code, version, and description.
 
-Removing a property clears the desired value of property if it's set. The device can then stop reporting this property and it's removed from the the component. If this property is the last one in the component, then the component is removed as well.
+Removing a property clears the desired value of property if it's set. The device can then stop reporting this property and it's removed from the component. If this property is the last one in the component, then the component is removed as well.
 
 The following JSON Patch sample shows how to add, replace, or remove a property within a component:
 
@@ -188,6 +188,6 @@ Updates can fail if a device's reported values don't conform to the [IoT plug an
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [Interact with a device from your solution](quickstart-service-node.md)
+- [Interact with a device from your solution](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

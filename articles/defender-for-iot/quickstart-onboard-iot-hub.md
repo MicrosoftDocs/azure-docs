@@ -19,7 +19,7 @@ ms.author: mlottner
 
 # Quickstart: Onboard Azure Defender for IoT service in IoT Hub
 
-This article provides an explanation of how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) to get started.
+This article provides an explanation of how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) to get started.
 
 > [!NOTE]
 > Defender for IoT currently only supports standard tier IoT Hubs.
@@ -30,7 +30,7 @@ This article provides an explanation of how to enable the Defender for IoT servi
   - Two types of information are stored by default in your Log Analytics workspace by Defender for IoT; **security alerts** and **recommendations**.
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs.
 - IoT Hub (standard tier)
-- Meet all [service prerequisites](service-prerequisites.md)
+- Meet all [System prerequisites](quickstart-system-prerequisites.md).
 
 ## Enable Defender for IoT on your IoT Hub
 
