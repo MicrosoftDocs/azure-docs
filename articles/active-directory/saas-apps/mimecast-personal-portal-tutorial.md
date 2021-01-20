@@ -191,7 +191,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. In the **Email Address** textbox, enter the email address of the user like `B.Simon@yourdomainname.com`.
 
-	b. In the **GLobal Name** textbox, enter the **Full name** of the user.
+	b. In the **Global Name** textbox, enter the **Full name** of the user.
 
 	c. In the **Password** and **Confirm Password** textboxes, enter the password of the user.
 
