@@ -89,22 +89,21 @@ The following browsers are supported for the sensors and on-premises management 
 
 Verify that your organizational security policy allows access to the following:
 
-| **Purpose** | **Protocol** | **Transport** | **In or out** | **Port** | **Category** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Access to the web console** | HTTPS | TCP | In or out | 443 | On-premises management console |
-| **Access to the CLI** | SSH | TCP | In or out | 22 | CLI |
-| **Connection between the Defender for IoT platform and the on-premises management console** | SSL | TCP | In or out | 443 | Sensor and on-premises management console|
-| **On-premises management console used as NTP to the sensor** | NTP | UDP| In to on-premises management console | 123 | Time sync | 
-| **Sensor connected to external NTP server (if relevant)** | NTP | UDP | In or out| 123 | Time sync |
-| **Connection between the Defender for IoT platform and management platform and the mail server (if relevant)** | SMTP | TCP | Out of sensor management | 25 | Email |
-| **Logs that send from the on-premises management console to the Syslog server (if relevant)** | Syslog | UDP | Out of sensor management| 514 | LEEF |
-| **DNS server port (if relevant)** | DNS | N/A | In or out| 53 | DNS |
-| **Connection between the Defender for IoT platform and on-premises management console to Active Directory (if relevant)** | LDAPS | TCP | In or out | 636 <br />389 | Active Directory |
-| **Remote SNMP collectors (if relevant)** | SNMP | UDP | Out of sensor management| 161 | Monitoring |
-| **Windows endpoint monitoring (if relevant)** | WMI | UDP | Out of sensor management| 135 | Monitoring |
-| **Windows endpoint monitoring (if relevant)** | WMI | TCP | Out of sensor management| 1024 and above | Monitoring |
-| **Tunneling (if relevant)** | Tunneling | TCP | IN to on-premises management console | 9000<br />in addition to port 443<br />From the end user to the on-premises management console <br />Port 22 from the sensor to the on-premises management console | Monitoring |
-| **Outbound to the Defender for IoT hub** | HTTPS | TCP | Out of sensor management| **URL**<br />*.azure-devices.net:443<br />or if wildcards are not supported<br />{your IoT hub name}.azure-devices.net:443 |
+| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
+| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
+| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection Between CyberX platform and the Central Management platform | sensor | On-premises management console |
+| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | on-premises management console |
+| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server, when there is no on-premises management console installed | sensor | NTP |
+| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
+| Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
+| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
+| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
+| WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
+| Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
 
 ### Planning rack installation
 
@@ -120,22 +119,6 @@ To plan your rack installation:
 1. Configure, connect, and validate SPAN ports in the mirrored switches as described in the architecture review session.
 1. Connect the configured SPAN port to a computer running Wireshark and verify that the port is configured correctly.
 1. Open all the relevant firewall ports.
-
-| Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
-|--|--|--|--|--|--|--|--|
-| HTTPS | TCP | IN/OUT | 443 | Sensor and On-Premises Management Console Web Console | Access to Web console | Client | Sensor and on-premises management console |
-| SSH | TCP | IN/OUT | 22 | CLI | Access to the CLI | Client | Sensor and on-premises management console |
-| SSL | TCP | IN/OUT | 443 | Sensor and on-premises management console | Connection Between CyberX platform and the Central Management platform | sensor | On-premises management console |
-| NTP | UDP | IN | 123 | Time Sync | On-premises management console use as NTP to sensor | sensor | On-premises management console |
-| NTP | UDP | IN/OUT | 123 | Time Sync | Sensor connected to external NTP server | sensor | NTP |
-| SMTP | TCP | OUT | 25 | Email | The connection between CyberX platform and the Management platform and the mail server | Sensor and On-premises management console | Email server |
-| Syslog | UDP | OUT | 514 | LEEF | Logs that send from the on-premises management console to Syslog server | On-premises management console and Sensor | Syslog server |
-| DNS |  | IN/OUT | 53 | DNS | DNS Server Port | On-premises management console and Sensor | DNS server |
-| LDAP | TCP | IN/OUT | 389 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAP server |
-| LDAPS | TCP | IN/OUT | 636 | Active Directory | The connection between CyberX platform and the Management platform to the Active Directory | On-premises management console and Sensor | LDAPS server |
-| SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
-| WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
-| Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
 
 ## About passive network monitoring
 
