@@ -28,8 +28,9 @@ In Purview, classifications are similar to subject tags, and are used to mark an
 Purview uses the same classifications, also known as sensitive information types, as Microsoft 365.  MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
 > [!NOTE]
-> While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
-> 
+> Classifications are matched directly, such as a social security number, which has a classification of **Social Security Number**. 
+>
+> In contrast, sensitivity labels are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
 
 Sensitivity labels in Azure Purview can be used to automatically apply labels to files and database columns.
 
@@ -86,11 +87,6 @@ By extending MIP’s sensitivity labels with Azure Purview, organizations can no
 > Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer data, and are kept within the same GEO location by default to protect the sensitivity of your data and to avoid GDPR laws.
 >
 > For this reason, labels and custom sensitive information types are not shared to Azure Purview by default, and require your consent to use them in Azure Purview.
-
-> [!IMPORTANT]
-> Your consent enables Microsoft to share the label name and custom sensitive information type name to *both* Azure Purview and Azure Security Center (ASC). Microsoft uses the label information from Azure Purview to enrich your recommendations and alerts in ASC. 
->
-> Consenting in Microsoft 365 compliance center applies to sharing this data with both services. There is currently no choice to share labeling information with Azure Purview only.
 
 **To extend sensitivity labels to Purview:**
 

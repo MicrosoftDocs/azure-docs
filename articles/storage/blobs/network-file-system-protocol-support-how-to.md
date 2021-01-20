@@ -129,7 +129,7 @@ Create a directory on your Windows or Linux system, and then mount a container i
 
    ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
+2. Open a **Command Prompt** window (cmd.exe). Then, mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *

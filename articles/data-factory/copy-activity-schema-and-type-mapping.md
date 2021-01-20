@@ -62,7 +62,7 @@ The following properties are supported under `translator` in addition to `mappin
 
 For example, to copy data from Salesforce to Azure SQL Database and explicitly map three columns:
 
-1. On copy activity -> mapping tab, click **Import schema** button to import both source and sink schemas.
+1. On copy activity -> mapping tab, click **Import schemas** button to import both source and sink schemas.
 
 2. Map the needed fields and exclude/delete the rest.
 
@@ -176,7 +176,7 @@ And you want to copy it into a text file in the following format with header lin
 
 You can define such mapping on Data Factory authoring UI:
 
-1. On copy activity -> mapping tab, click **Import schema** button to import both source and sink schemas. As Data Factory samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
+1. On copy activity -> mapping tab, click **Import schemas** button to import both source and sink schemas. As Data Factory samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
 
 2. Select the array from which you want to iterate and extract data. It will be auto populated as **Collection reference**. Note only single array is supported for such operation.
 

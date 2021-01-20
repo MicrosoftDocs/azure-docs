@@ -12,7 +12,7 @@ The relay service supports the following scenarios between on-premises services 
 
 - Traditional one-way, request/response, and peer-to-peer communication 
 - Event distribution at internet-scope to enable publish/subscribe scenarios 
-- Bi-directional and unbuffered socket communication across network boundaries.
+- Bi-directional and unbuffered socket communication across network boundaries
 
 Azure Relay differs from network-level integration technologies such as VPN. An Azure relay can be scoped to a single application endpoint on a single machine. The VPN technology is far more intrusive, as it relies on altering the network environment. 
 
@@ -51,7 +51,7 @@ Hybrid Connections and WCF Relay both enable secure connection to assets that ex
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Java script/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Standards-Based open protocol** | |x |
 | **RPC programming models** | |x |
 

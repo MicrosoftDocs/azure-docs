@@ -102,7 +102,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create the firewall hub virtual network
 
 > [!NOTE]
-> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.

@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Prepare to deploy Azure Stack Edge Pro R
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro R. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource. The tutorial uses a 1-node Azure Stack Edge Pro R device shipped with an Uninterruptible Power Supply (UPS).
+This tutorial is the first in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro R. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource. The tutorial uses a 1-node Azure Stack Edge Pro R device shipped with an Uninterruptible Power Supply (UPS).
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -32,7 +32,7 @@ To deploy Azure Stack Edge Pro R, refer to the following tutorials in the prescr
 | --- | --- |
 | **Preparation** |These steps must be completed in preparation for the upcoming deployment. |
 | **[Deployment configuration checklist](#deployment-configuration-checklist)** |Use this checklist to gather and record information before and during the deployment. |
-| **[Deployment prerequisites](#prerequisites)** |These validate the environment is ready for deployment. |
+| **[Deployment prerequisites](#prerequisites)** |These prerequisites validate the environment is ready for deployment. |
 |  | |
 |**Deployment tutorials** |These tutorials are required to deploy your Azure Stack Edge Pro R device in production. |
 |**[1. Prepare the Azure portal for device](azure-stack-edge-pro-r-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install an Azure Stack Box Edge physical device. |
@@ -42,7 +42,7 @@ To deploy Azure Stack Edge Pro R, refer to the following tutorials in the prescr
 |**[5. Configure device settings](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)** |Configure certificates, VPN, encryption-at-rest for your device. Use device generated certificates or bring your own certificates.   |
 |**[7. Activate the device](azure-stack-edge-pro-r-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
-|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. This will also create a Kubernetes cluster. |
+|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
 
 You can now begin to set up the Azure portal.
 
@@ -104,7 +104,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     
     |Setting  |Value  |
     |---------|---------|
-    |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
+    |Subscription    |The subscription is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 7. Enter or select the following **Instance details**.
@@ -145,7 +145,7 @@ After the resource is successfully created and deployed, you're notified. Select
 
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -153,20 +153,17 @@ If you run into any issues during the order process, see [Troubleshoot order iss
 
 After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Pro device with the resource. You can get this key now while you are in the Azure portal.
 
-1. Select the resource that you created. Select **Overview** and then select **Device setup**.
+1. Select the resource that you created, and select **Overview**.
 
-    ![Select Device setup](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. In the right pane, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters.
 
-2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
+   A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault.
 
-    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
+   Once you've specified a key vault name, select **Generate activation key** to create an activation key.
 
-    Once you have specified a key vault name, select **Generate key** to create an activation key. 
+   ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
-
+   Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.

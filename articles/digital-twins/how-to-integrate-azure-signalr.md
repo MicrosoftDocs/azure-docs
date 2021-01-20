@@ -69,66 +69,8 @@ Next, start Visual Studio (or another code editor of your choice), and open the 
 1. Create a new C# sharp class called **SignalRFunctions.cs** in the *SampleFunctionsApp* project.
 
 1. Replace the contents of the class file with the following code:
-
-    ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Azure.EventGrid.Models;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
-    using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-    using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System.Collections.Generic;
     
-    namespace SampleFunctionsApp
-    {
-        public static class SignalRFunctions
-        {
-            public static double temperature;
-    
-            [FunctionName("negotiate")]
-            public static SignalRConnectionInfo GetSignalRInfo(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
-                [SignalRConnectionInfo(HubName = "dttelemetry")] SignalRConnectionInfo connectionInfo)
-            {
-                return connectionInfo;
-            }
-    
-            [FunctionName("broadcast")]
-            public static Task SendMessage(
-                [EventGridTrigger] EventGridEvent eventGridEvent,
-                [SignalR(HubName = "dttelemetry")] IAsyncCollector<SignalRMessage> signalRMessages,
-                ILogger log)
-            {
-                JObject eventGridData = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-    
-                log.LogInformation($"Event grid message: {eventGridData}");
-    
-                var patch = (JObject)eventGridData["data"]["patch"][0];
-                if (patch["path"].ToString().Contains("/Temperature"))
-                {
-                    temperature = Math.Round(patch["value"].ToObject<double>(), 2);
-                }
-    
-                var message = new Dictionary<object, object>
-                {
-                    { "temperatureInFahrenheit", temperature},
-                };
-        
-                return signalRMessages.AddAsync(
-                    new SignalRMessage
-                    {
-                        Target = "newMessage",
-                        Arguments = new[] { message }
-                    });
-            }
-        }
-    }
-    ```
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
 1. In Visual Studio's *Package Manager Console* window, or any command window on your machine in the *Azure_Digital_Twins_end_to_end_samples\AdtSampleApp\SampleFunctionsApp* folder, run the following command to install the `SignalRService` NuGet package to the project:
     ```cmd

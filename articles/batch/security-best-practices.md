@@ -144,7 +144,7 @@ Batch nodes can [securely access credentials and secrets](credential-access-key-
 
 ### Compliance
 
-To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](/overview/trusted-cloud/compliance/). 
+To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains a [large portfolio of compliance offerings](https://azure.microsoft.com/overview/trusted-cloud/compliance). 
 
 These  offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. Review the [comprehensive overview of compliance offerings](https://aka.ms/AzureCompliance) to determine which ones may be relevant to your Batch solutions.
 

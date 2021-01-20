@@ -63,9 +63,9 @@ For more information about index properties, see [Create Index &#40;Azure Cognit
 ## Language analyzer list 
  Below is the list of supported languages together with Lucene and Microsoft analyzer names.  
 
-| Language | Microsoft Analyzer Name | Lucene Analyzer Name |  |
-|--|--|--|--|
-| Arabic | ar.microsoft | ar.lucene |  |
+| Language | Microsoft Analyzer Name | Lucene Analyzer Name |
+|--|--|--|
+| Arabic | ar.microsoft | ar.lucene |
 | Armenian |  | hy.lucene |  |
 | Bangla | bn.microsoft |  |  |
 | Basque |  | eu.lucene |  |

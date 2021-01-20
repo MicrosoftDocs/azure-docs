@@ -15,7 +15,7 @@ In this tutorial, you create and deploy your code to Azure Functions as a custom
 Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or additional libraries as dependencies that require the use of a custom container.
 ::: zone-end
 
-Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md#features) or a [Dedicated (App Service) plan](functions-scale.md#app-service-plan) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -351,7 +351,7 @@ To deploy your function code to Azure, you need to create three resources:
 
 - A resource group, which is a logical container for related resources.
 - An Azure Storage account, which maintains state and other information about your projects.
-- An Azure functions app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+- A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 

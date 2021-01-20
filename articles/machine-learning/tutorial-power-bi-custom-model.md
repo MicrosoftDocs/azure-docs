@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Create the predictive model with a Notebook (part 1 of 2)"
+title: "Tutorial: Create the predictive model with a notebook (part 1 of 2)"
 titleSuffix: Azure Machine Learning
-description: Learn how to build and deploy a machine learning model using code in a Jupyter Notebook, so you can use it to predict outcomes in Microsoft Power BI.
+description: Learn how to build and deploy a machine learning model by using code in a Jupyter Notebook. Also create a scoring script that defines input and output for easy integration into Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,62 +12,64 @@ ms.reviewer: sdgilley
 ms.date: 12/11/2020
 ---
 
-# Tutorial: Power BI integration - create the predictive model with a Notebook (part 1 of 2)
+# Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
 
-In the first part of this tutorial, you train and deploy a predictive machine learning model using code in a Jupyter Notebook. In part 2, you'll then use the model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You will also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create a Jupyter Notebook
-> * Create an Azure Machine Learning compute instance
-> * Train a regression model using scikit-learn
-> * Deploy the model to a real-time scoring endpoint
+> * Create a Jupyter Notebook.
+> * Create an Azure Machine Learning compute instance.
+> * Train a regression model by using scikit-learn.
+> * Write a scoring script that defines the input and output for easy integration into Microsoft Power BI.
+> * Deploy the model to a real-time scoring endpoint.
 
-There are three different ways to create and deploy the model you'll use in Power BI.  This article covers Option A: Train and deploy models using Notebooks.  This option shows a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio. 
+There are three ways to create and deploy the model that you'll use in Power BI.  This article covers "Option A: Train and deploy models by using notebooks."  This option is a code-first authoring experience. It uses Jupyter notebooks that are hosted in Azure Machine Learning Studio. 
 
-You could instead use:
+But you could instead use one of the other options:
 
-* [Option B: Train and deploy models using designer](tutorial-power-bi-designer-model.md)- a low-code authoring experience using Designer (a drag-and-drop user interface).
-* [Option C: Train and deploy models using automated ML](tutorial-power-bi-automated-model.md) - a no-code authoring experience that fully automates the data preparation and model training.
+* [Option B: Train and deploy models by using the Azure Machine Learning designer](tutorial-power-bi-designer-model.md). This low-code authoring experience uses a drag-and-drop user interface.
+* [Option C: Train and deploy models by using automated machine learning](tutorial-power-bi-automated-model.md). This no-code authoring experience fully automates data preparation and model training.
 
 
 ## Prerequisites
 
-- An Azure subscription ([a free trial is available](https://aka.ms/AMLFree)). 
-- An Azure Machine Learning workspace. If you do not already have a workspace, follow [how to create an Azure Machine Learning Workspace](./how-to-manage-workspace.md#create-a-workspace).
+- An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://aka.ms/AMLFree). 
+- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
 - Introductory knowledge of the Python language and machine learning workflows.
 
 ## Create a notebook and compute
 
-In the [Azure Machine Learning Studio](https://ml.azure.com) homepage select **Create new** followed by **Notebook**:
+On the [**Azure Machine Learning Studio**](https://ml.azure.com) home page, select **Create new** > **Notebook**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook":::
+:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Screenshot showing how to create a notebook.":::
  
-You are shown a dialog box to **Create a new file** enter:
+On the **Create a new file** page:
 
-1. A filename for your notebook (for example `my_model_notebook`)
-1. Change the **File Type** to **Notebook**
+1. Name your notebook (for example, *my_model_notebook*).
+1. Change the **File Type** to **Notebook**.
+1. Select **Create**. 
+ 
+Next, to run code cells, create a compute instance and attach it to your notebook. Start by selecting the plus icon at the top of the notebook:
 
-Select **Create**. Next, you need to create some compute and attach it to your notebook in order to run code cells. To do this, select the plus icon at the top of the notebook:
+:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Screenshot showing how to create a compute instance.":::
 
-:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Screenshot showing how to create compute instance":::
+On the **Create compute instance** page:
 
-Next, on the **Create compute instance** page:
-
-1. Choose a CPU virtual machine size - for the purposes of this tutorial a **Standard_D11_v2** (two cores, 14-GB RAM) will be fine.
+1. Choose a CPU virtual machine size. For this tutorial, you can choose a **Standard_D11_v2**, with 2 cores and 14 GB of RAM.
 1. Select **Next**. 
-1. On the **Configure Settings** page provide a valid **Compute name** (valid characters are upper and lower case letters, digits, and the - character).
+1. On the **Configure Settings** page, provide a valid **Compute name**. Valid characters are uppercase and lowercase letters, digits, and hyphens (-).
 1. Select **Create**.
 
-You may notice on the notebook that the circle next to **Compute** has turned cyan, indicating the compute instance is being created:
+In the notebook, you might notice the circle next to **Compute** turned cyan. This color change indicates that the compute instance is being created:
 
-:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Screenshot showing compute being created":::
+:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Screenshot showing a compute being created.":::
 
 > [!NOTE]
-> It can take around 2-4 minutes for the compute to be provisioned.
+> The compute instance can take 2 to 4 minutes to be provisioned.
 
-Once the compute is provisioned, you can use the notebook to execute code cells. For example, type into the cell:
+After the compute is provisioned, you can use the notebook to run code cells. For example, in the cell you can type the following code:
 
 ```python
 import numpy as np
@@ -75,20 +77,20 @@ import numpy as np
 np.sin(3)
 ```
 
-Followed by **Shift-Enter** (or **Control-Enter** or select the play button next to the cell). You should see the following output:
+Then select Shift + Enter (or select Control + Enter or select the **Play** button next to the cell). You should see the following output:
 
-:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Screenshot showing cell execution":::
+:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Screenshot showing the output of a cell.":::
 
-You are now ready to build a Machine Learning model!
+Now you're ready to build a machine learning model.
 
-## Build a model using scikit-learn
+## Build a model by using scikit-learn
 
-In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), which is made available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/). 
+In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset is available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
 
 
 ### Import data
 
-To import your data, copy-and-paste the code below into a new **code cell** in your notebook:
+To import your data, copy the following code and paste it into a new *code cell* in your notebook.
 
 ```python
 from azureml.opendatasets import Diabetes
@@ -101,11 +103,11 @@ y_df = y.to_pandas_dataframe()
 X_df.info()
 ```
 
-The `X_df` pandas data frame contains 10 baseline input variables (such as age, sex, body mass index, average blood pressure, and six blood serum measurements). The `y_df` pandas data frame is the target variable containing a quantitative measure of disease progression one year after baseline. There are a total of 442 records.
+The `X_df` pandas data frame contains 10 baseline input variables. These variables include age, sex, body mass index, average blood pressure, and six blood serum measurements. The `y_df` pandas data frame is the target variable. It contains a quantitative measure of disease progression one year after the baseline. The data frame contains 442 records.
 
-### Train model
+### Train the model
 
-Create a new **code cell** in your notebook and copy-and-paste the code snippet below, which constructs a ridge regression model and serializes the model using Python's pickle format:
+Create a new *code cell* in your notebook. Then copy the following code and paste it into the cell. This code snippet constructs a ridge regression model and serializes the model by using the Python pickle format.
 
 ```python
 import joblib
@@ -117,9 +119,11 @@ joblib.dump(model, 'sklearn_regression_model.pkl')
 
 ### Register the model
 
-In addition to the content of the model file itself, your registered model will also store model metadata - model description, tags, and framework information - that will be useful when managing and deploying models in your workspace. Using tags, for instance, you can categorize your models and apply filters when listing models in your workspace. Also, marking this model with the scikit-learn framework will simplify deploying it as a web service, as we'll see later.
+In addition to the content of the model file itself, your registered model will store metadata. The metadata includes the model description, tags, and framework information. 
 
-Copy-and-paste the code below into a new **code cell** in your notebook:
+Metadata is useful when you're managing and deploying models in your workspace. By using tags, for instance, you can categorize your models and apply filters when you list models in your workspace. Also, if you mark this model with the scikit-learn framework, you'll simplify deploying it as a web service.
+
+Copy the following code and then paste it into a new *code cell* in your notebook.
 
 ```python
 import sklearn
@@ -145,21 +149,21 @@ print('Name:', model.name)
 print('Version:', model.version)
 ```
 
-You can also view the model in Azure Machine Learning Studio by navigating to **Endpoints** in the left hand-menu:
+You can also view the model in Azure Machine Learning Studio. In the menu on the left, select **Models**:
 
-:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing model":::
+:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot showing how to view a model.":::
 
-### Define the scoring script
+## Define the scoring script
 
-When deploying a model to be integrated into Microsoft Power BI, you need to define a Python *scoring script* and custom environment. The scoring script contains two functions:
+When you deploy a model that will be integrated into Power BI, you need to define a Python *scoring script* and custom environment. The scoring script contains two functions:
 
-- `init()` - this function is executed once the service starts. This function loads the model (note that the model is automatically downloaded from the model registry) and deserializes it.
-- `run(data)` - this function is executed when a call is made to the service with some input data that needs scoring. 
+- The `init()` function runs when the service starts. It loads the model (which is automatically downloaded from the model registry) and deserializes it.
+- The `run(data)` function runs when a call to the service includes input data that needs to be scored. 
 
 >[!NOTE]
-> We use Python decorators to define the schema of the input and output data, which is important for the Microsoft Power BI integration to work.
+> The Python decorators in the code below define the schema of the input and output data, which is important for integration into Power BI.
 
-Copy-and-paste the code below into a new **code cell** in your notebook. The code snippet below has a cell magic that will write the code to a filed named score.py.
+Copy the following code and paste it into a new *code cell* in your notebook. The following code snippet has cell magic that writes the code to a file named *score.py*.
 
 ```python
 %%writefile score.py
@@ -214,7 +218,7 @@ def run(data):
         result = model.predict(data)
         print("result.....")
         print(result)
-    # You can return any data type, as long as it is JSON serializable.
+    # You can return any data type, as long as it can be serialized by JSON.
         return result.tolist()
     except Exception as e:
         error = str(e)
@@ -223,9 +227,9 @@ def run(data):
 
 ### Define the custom environment
 
-Next we need to define the environment to score the model - we need to define in this environment the Python packages required by the scoring script (score.py) defined above such as pandas, scikit-learn, etc.
+Next, define the environment to score the model. In the environment, define the Python packages, such as pandas and scikit-learn, that the scoring script (*score.py*) requires.
 
-To define the environment, copy-and-paste the code below into a new **code cell** in your notebook:
+To define the environment, copy the following code and paste it into a new *code cell* in your notebook.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -247,7 +251,7 @@ inference_config = InferenceConfig(entry_script='./score.py',environment=environ
 
 ### Deploy the model
 
-To deploy the model, copy-and-paste the code below into a new **code cell** in your notebook:
+To deploy the model, copy the following code and paste it into a new *code cell* in your notebook:
 
 ```python
 service_name = 'my-diabetes-model'
@@ -257,9 +261,9 @@ service.wait_for_deployment(show_output=True)
 ```
 
 >[!NOTE]
-> It can take 2-4 minutes for the service to be deployed.
+> The service can take 2 to 4 minutes to deploy.
 
-You should see the following output of a successfully deployed service:
+If the service deploys successfully, you should see the following output:
 
 ```txt
 Tips: You can try get_logs(): https://aka.ms/debugimage#dockerlog or local deployment: https://aka.ms/debugimage#debug-locally to debug if deployment takes longer than 10 minutes.
@@ -268,11 +272,11 @@ Succeeded
 ACI service creation operation finished, operation "Succeeded"
 ```
 
-You can also view the service in Azure Machine Learning Studio by navigating to **Endpoints** in the left hand-menu:
+You can also view the service in Azure Machine Learning Studio. In the menu on the left, select **Endpoints**:
 
-:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Screenshot showing endpoint":::
+:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Screenshot showing how to view the service.":::
 
-It is recommended that you test the webservice to ensure that it works as expected. Navigate back to your notebook by selecting **Notebooks** in the left-hand menu in Azure Machine Learning Studio. Copy-and-paste the code below into a new **code cell** in your notebook to test the service:
+We recommend that you test the web service to ensure it works as expected. To return your notebook, in Azure Machine Learning Studio, in the menu on the left, select **Notebooks**. Then copy the following code and paste it into a new *code cell* in your notebook to test the service.
 
 ```python
 import json
@@ -288,11 +292,11 @@ output = service.run(input_payload)
 print(output)
 ```
 
-The output should look like the following json structure: `{'predict': [[205.59], [68.84]]}`.
+The output should look like this JSON structure: `{'predict': [[205.59], [68.84]]}`.
 
 ## Next steps
 
-In this tutorial, you saw how to build and deploy a model in such a way that they can be consumed by Microsoft Power BI. In the next part, you learn how to consume this model from a Power BI report.
+In this tutorial, you saw how to build and deploy a model so that it can be consumed by Power BI. In the next part, you'll learn how to consume this model in a Power BI report.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Tutorial: Consume a model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

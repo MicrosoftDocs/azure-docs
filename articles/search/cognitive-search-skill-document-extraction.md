@@ -95,11 +95,11 @@ This file reference object can be generated one of 3 ways:
     "outputs": [
       {
         "name": "content",
-        "targetName": "content"
+        "targetName": "extracted_content"
       },
       {
         "name": "normalized_images",
-        "targetName": "normalized_images"
+        "targetName": "extracted_normalized_images"
       }
     ]
   }

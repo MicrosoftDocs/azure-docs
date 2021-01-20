@@ -11,7 +11,7 @@ ms.date: 01/23/2018
 
 # Create Service Manager Web app using the automated script
 
-Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](./itsmc-connections-scsm.md)
 
 Run the script by providing the following required details:
 
@@ -25,9 +25,6 @@ Run the script by providing the following required details:
 The script will create the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID**, and **client secret**.
 
 Save these values, you will need these values when you create a connection with IT Service Management Connector.
-
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -316,6 +313,11 @@ if(!$err)
 }
 ```
 
-## Next steps
-[Configure the Hybrid connection](./itsmc-connections.md#configure-the-hybrid-connection).
+## Troubleshoot Service Manager web app deployment
 
+-	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
+-	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
+-	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection) in the Azure portal.
+
+## Next steps
+[Configure the Hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
