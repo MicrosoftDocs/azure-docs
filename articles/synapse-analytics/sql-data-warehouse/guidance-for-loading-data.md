@@ -42,7 +42,7 @@ This example creates a loading user classified to a specific workload group. The
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connect to the dedicated SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Then it classifies the user to the DataLoads workload group with maximum resources. 
+Connect to the dedicated SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). Then it classifies the user to the DataLoads workload group with maximum resources. 
 
 ```sql
    -- Connect to the dedicated SQL pool

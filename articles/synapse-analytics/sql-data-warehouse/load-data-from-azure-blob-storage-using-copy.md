@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Tutorial: Load the New York Taxicab dataset
 
-This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load New York Taxicab dataset from an Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to:
+This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load New York Taxicab dataset from an Azure blob storage account. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to:
 
 > [!div class="checklist"]
 >
@@ -246,7 +246,7 @@ Run the following SQL scripts and specify information about the data you wish to
 
 ## Load the data into your data warehouse
 
-This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) the sample data from Azure Storage Blob.  
+This section uses the [COPY statement to load](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) the sample data from Azure Storage Blob.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. You would typically load into a staging table for your production workloads. While data is in the staging table you can perform any necessary transformations. 

@@ -91,14 +91,14 @@ Classification allows you to route requests, based on a set of rules, to a workl
     ![Click Config](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## Verify and test classification
-Check the [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest)
+Check the [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 catalog view to verify existence of the `ELTLoginDataLoads` classifier.
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-Check the [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) catalog view to verify classifier details.
+Check the [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest&preserve-view=true) catalog view to verify classifier details.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value
