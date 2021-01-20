@@ -1,24 +1,23 @@
 ---
-title: Wrangling data flow transformation functions in Azure Data Factory 
-description: An overview of available wrangling data flow functions in Azure Data Factory
-author: dcstwh
-ms.author: weetok
-ms.reviewer: gamal
+title: Data Wrangling functions in Azure Data Factory 
+description: An overview of available Data Wrangling functions in Azure Data Factory
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 01/19/2021
 ---
 
-# Transformation functions in wrangling data flow
+# Transformation functions in Power Query for data wrangling
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Wrangling data flow in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale. Wrangling data flow integrates with [Power Query Online](/powerquery-m/power-query-m-reference) and makes Power Query M functions available for data wrangling via spark execution. 
+Data Wrangling in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale by translating Power Query ```M``` scripts into Data Flow script. ADF integrates with [Power Query Online](/powerquery-m/power-query-m-reference) and makes Power Query ```M``` functions available for data wrangling via Spark execution using the data flow Spark infrastructure. 
 
 > [!NOTE]
-> Wrangling data flow is currently avilable in public preview
+> Power Query in ADF is currently avilable in public preview
 
-Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your wrangling data flows, you'll be prompted with the following error message if a function isn't supported:
+Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your mash-ups, you'll be prompted with the following error message if a function isn't supported:
 
 `The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
@@ -129,4 +128,4 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 
 ## Next steps
 
-Learn how to [create a wrangling data flow](wrangling-data-flow-tutorial.md).
+Learn how to [create a data wrangling Power Query in ADF](wrangling-tutorial.md).
