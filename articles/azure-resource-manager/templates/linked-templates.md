@@ -304,7 +304,7 @@ The following excerpt shows which values are secure and which aren't secure.
         "osProfile": {
           "computerName": "mainTemplate",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPasswordOrKey')]" // yes, secure because resource is in parent template
+          "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in parent template
         }
       }
     },
@@ -330,7 +330,7 @@ The following excerpt shows which values are secure and which aren't secure.
                 "osProfile": {
                   "computerName": "outer",
                   "adminUsername": "[parameters('adminUsername')]",
-                  "adminPassword": "[parameters('adminPasswordOrKey')]" // no, not secure because resource in nested template with outer scope
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // No, not secure because resource is in nested template with outer scope
                 }
               }
             }
@@ -349,7 +349,7 @@ The following excerpt shows which values are secure and which aren't secure.
         "mode": "Incremental",
         "parameters": {
           "adminPasswordOrKey": {
-              "value": "[parameters('adminPasswordOrKey')]" // yes, secure because scope is inner
+              "value": "[parameters('adminPasswordOrKey')]"
           },
           "adminUsername": {
               "value": "[parameters('adminUsername')]"
@@ -382,7 +382,7 @@ The following excerpt shows which values are secure and which aren't secure.
                 "osProfile": {
                   "computerName": "inner",
                   "adminUsername": "[parameters('adminUsername')]",
-                  "adminPassword": "[parameters('adminPasswordOrKey')]" // yes, secure because resource is in nested template and scope is inner
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in nested template and scope is inner
                 }
               }
             }
