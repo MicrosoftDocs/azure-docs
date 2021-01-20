@@ -44,40 +44,19 @@ Once the RD Gateway role is installed, you'll need to configure it.
 
 To configure the RD Gateway role:
 
-1. In **Server Manager**, select **Remote Desktop Services**.
-    
+1. Open the **Server Manager**, then select **Remote Desktop Services**.
 
-    ![](media/64a5dbfe23103303d281e48457ef3878.png)
+2. Go to **Servers**, right-click the name of your server, then select **RD Gateway Manager**.
 
-2. Open **RD Gateway Manager**.
-    
+3 In the RD Gateway Manager, right-click the name of your gateway, then select **Properties**.
 
-    ![](media/5bc5f1221610e9870ebabf85c945ae93.png)
+4. Open the **SSL Certificate** tab, select the **Import a certificate into the RD Gateway** bubble, then select **Browse and Import Certificate…**.
 
-3 Open **Properties**. 
-    
-
-    ![](media/75989304f690e7ea0a1e36844eefc3b7.png)
-
-4. For the **SSL Certificate**, select **Browse and Import Certificate…**.  
-    
-
-    ![](media/29c2f9348f4c30c5e389a2154e42722d.png)
-
-5. Select the PFX file, then select **Open**.
-    
-
-    ![](media/ee1f24393085af311ad8b0ba01faa23e.png)
+5. Select the name of your PFX file, then select **Open**.
 
 6. Enter the password for the PFX file when prompted.
-    
 
-    ![](media/e4dfa1ca563277458cb038fd7fcd2aac.png)
-
-7. After you've imported the certificate and its private key, the display should show the certificate’s key attributes. 
-    
-
-    ![](media/1a0840e114ee8a287925f1fc152d2470.png)
+7. After you've imported the certificate and its private key, the display should show the certificate’s key attributes.
 
 >[!NOTE]
 >Because the RD Gateway role is supposed to be public, we recommend you use a publicly issued certificate. If you use a privately issued certificate, you'll need to make sure to configure all clients with the certificate's trust chain beforehand.

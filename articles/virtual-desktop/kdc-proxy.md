@@ -17,17 +17,17 @@ To configure the KDC proxy:
 
 2. Go to the Windows Virtual Desktop page.
 
-![](media/0a9e773e2fea63b807f63a8791e3cf02.png)
-
 3. Select the host pool you want to enable the KDC Proxy for, then select **RDP Properties**.
 
-![](media/016cfc9383002f95be05cc90375f3fc2.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Azure portal page showing a user selecting Host pools, then the name of the example host pool, then RDP properties.](media/rdp-properties.png)
 
 4. Select the **Advanced** tab, then enter a value in the following format without spaces:
 
-    kdcproxyname:s:\<fqdn\>
+    > kdcproxyname:s:\<fqdn\>
 
-![](media/5c8990de3df54b6ad40d2e90ac8bcb00.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot showing the Advanced tab selected, with the value entered as described in step 4.](media/advanced-tab-selected.png)
 
 5. Select **Save**.
 
