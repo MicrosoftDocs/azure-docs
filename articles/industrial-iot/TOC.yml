@@ -31,10 +31,10 @@
       href: tutorial-iiot-visualize-data-tsi.md
 - name: Reference
   items:
-    - name: OPC Publisher Telemetry Configuration File Format
-      href: reference-opc-publisher-telemetry-format.md
     - name: Command-line Arguments
       href: reference-command-line-arguments.md
+    - name: OPC Publisher Telemetry Configuration File Format
+      href: reference-opc-publisher-telemetry-format.md
 - name: Resources 
   items:
   - name: OPC Publisher GitHub repository
