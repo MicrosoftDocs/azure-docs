@@ -17,22 +17,18 @@
     - name: Get started with Azure Defender for IoT
       href: getting-started.md
     - name: Create an Azure Defender for IoT module twin
-      href: quickstart-create-security-twin.md   
+      href:  
   - name: Agent-based solution for device builders
     items: 
     - name: Configure security module for Azure RTOS
       href: quickstart-azure-rtos-security-module.md
-    - name: Onboard Azure Defender for IoT service in IoT Hub               Question for Idan
-      href:
-    - name: Agent-based solution                                          Question for Idan
-      href:
-    - name: Onboard Azure Defender for IoT in IoT Hub
+    - name: Onboard to Defender for IoT agent-based solution
       href: quickstart-onboard-iot-hub.md
-    - name: Create a Defender Iot Micro Agent module twin              Question to Idan - similar article to security module twin -> quickstart-create-security-twin.md
-      href: 
-    - name: Standalone agent binary installation                       Article Created needs review
+    - name: Create a Defender Iot Micro Agent module twin              Article Created needs review, Need to add the images
+      href: quickstart-create-micro-agent-module-twin.md
+    - name: Standalone agent binary installation                       Article Created needs review, Needs next step article
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Building the Defender for IoT Micro Agent from source      Article Created needs review
+    - name: Building the Defender for IoT Micro Agent from source      Article Created needs review, Needs next step article
       href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Add Azure resources to your IoT solution
       href: quickstart-configure-your-solution.md
@@ -40,8 +36,8 @@
       items:
       - name: Security agents
         href: security-agent-architecture.md
-      - name: Create an azureiotsecurity module twin                  Use the exisiting topic here
-        href: 
+      - name: Create an azureiotsecurity module twin
+        href: quickstart-create-security-twin.md  
 - name: Concepts
   items:  
   - name: Agentless Solution for Organizations
@@ -59,20 +55,20 @@
         href: concept-rtos-security-alerts-recommendations.md
   - name: Agent-based solution for Device Builders
     items:
-    - name: Managed – Agent portfolio overview
-      items: 
-      - name: Description of Azure RTOS, standalone                      Need to copy
-        href:
+    - name: Agent portfolio overview and OS support                      
+      items:
+      - name: Description of Azure RTOS, standalone                      Needs review
+        href: concept-agent-portfolio-overview-os-support.md
     - name: Standalone micro agent overview                              Needs review         
       href: concept-standalone-micro-agent-overview.md
-    - name: Security agent authentication                                Need to copy
-      href:
-    - name: Security posture - CIS benchmark                             Need to copy
-      href:
+    - name: Security agent authentication                                Needs review
+      href: concept-security-agent-authentication.md
+    - name: Security posture - CIS benchmark                             Needs review
+      href: concept-security-posture.md
     - name: Security module
       href: concept-security-module.md
-    - name: Event aggregation                                            Needs update
-      href: event-aggregation.md
+    - name: Event aggregation                                            Copied file from Doc Needs Review
+      href: concept-event-aggregation.md
     - name: Security alerts
       href: concept-security-alerts.md
     - name: Custom security alerts
@@ -89,8 +85,8 @@
         href: concept-security-agent-authentication-methods.md
       - name: Baseline
         href: concept-baseline.md
-      - name: Event aggregation                                          Is this a repeat of the article above?
-        href:
+      - name: Event aggregation                                          
+        href: event-aggregation.md
 - name: How-to guides
   items:
   - name: Agentless Solution for Organizations

@@ -1,6 +1,6 @@
 ---
 title: Standalone agent binary installation
-description: 
+description: Micro Agent includes an infrastructure which can be used to customize your distribution.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -91,4 +91,5 @@ If you require a different configuration for production scenarios, please contac
     ```azurecli
     cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -Ddist_target=UBUNTU1804 ..
     ```
-    
+
+## Next Steps
