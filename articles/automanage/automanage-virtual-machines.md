@@ -105,8 +105,12 @@ The Automanage Account will be granted both **Contributor** and **Resource Polic
 
 If your VM is connected to a Log Analytics workspace in another subscription, the Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** in that other subscription as well.
 
+If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
+
+If you are enabling Automanage with an existing Automanage Account, you need to have the **Contributor** role on the resource group containing your VMs.
+
 > [!NOTE]
-> You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
+> When you disable Automanage Best Practices, the Automanage Account's permissions on any associated subscriptions will remain. Manually remove the permissions or delete the Automanage Account.
 
 
 ## Status of VMs
