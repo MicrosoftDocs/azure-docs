@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q3
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
