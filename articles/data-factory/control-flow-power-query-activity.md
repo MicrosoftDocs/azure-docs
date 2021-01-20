@@ -1,5 +1,5 @@
 ---
-title: Power query activity in azure data factory 
+title: Power Query Activity in Azure Data Factory 
 description: Learn how to use the Power Query activity for data wrangling features in a Data Factory pipeline
 services: data-factory
 author: kromerm
@@ -20,6 +20,6 @@ Previously, data wrangling in ADF was authored from the Data Flow menu option. T
 
 To achieve scale with your Power Query activity, ADF translates your ```M``` script into a data flow script so that you can execute your Power Query at scale using the ADF data flow Spark environment. Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md).
 
-## Next steps
+# Next steps
 
 Learn more about data wrangling concepts using [Power Query in ADF](wrangling-data-flow-tutorial.md)
