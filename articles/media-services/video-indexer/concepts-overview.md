@@ -23,7 +23,7 @@ When you upload your videos to Video Indexer, it analyses both visuals and audio
 
 ## Confidence scores
 
-The confidence score indicates the confidence in an insight. It is a number between 0 and 100. The higher the score- the greater the confidence in the answer. For example, 
+The confidence score indicates the confidence in an insight. It is a number between 0.0 and 1.0. The higher the score- the greater the confidence in the answer. For example, 
 
 ```json
 "transcript":[
@@ -54,7 +54,7 @@ Blocks are meant to make it easier to go through the data. For example, block mi
 
 ## Project and editor
 
-The [Video Indexer](https://www.videoindexer.ai/) website enables you to use your videos' deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Video Indexer and be used in your own editing applications or downstream workflows.
+The [Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Video Indexer and be used in your own editing applications or downstream workflows.
 
 Some scenarios where you may find this feature useful are: 
 
