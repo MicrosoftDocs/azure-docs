@@ -12,9 +12,20 @@ ms.custom:
   
 # Azure Cloud Services (extended support) overview
 
-Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md).
 
-Cloud Services (extended support) provides a path for customers to migrate away from the [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) deployment model.
+Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). 
+
+ You will retain the ability to build and rapidly deploy your web and cloud applications and services. You will be able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.  
+
+Cloud Services (extended support) provides two paths for you to migrate from ASM to ARM. One path is to ‘re-deploy’, where customers deploy cloud services directly in ARM and then delete the old cloud service in ASM after thorough validation. The second path is to execute an ‘in-place migration’ that gives you the ability to migrate cloud services (classic) to ARM with minimal to no downtime. 
+
+The ‘re-deploy’ path of Cloud Services (extended support) is currently in preview, while the ‘in-place migration’ path will be announced soon. 
+
+## Additional Azure services to consider for migration to ARM
+
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support) you may want to investigate the opportunity of taking advantage of additional Azure services such as: Virtual Machine Scale Sets, App Service, Azure Kubernetes Service, and Azure Service Fabric. These services will continue to feature additional capabilities, while Cloud Services (extended support) will primarily maintain feature parity with Cloud Services (classic.) 
+
+Depending on the application, Cloud Services (extended support) may require substantially less effort to move to ARM compared to other options. If your application is not evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements. 
 
 ## Changes in deployment model
 
@@ -31,87 +42,12 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 - [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are required to deploy Cloud Services (extended support).
 - The Network Configuration File (netcfg) does not exist in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
 
+## What does not change 
+- You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.  (change)
+- Cloud Services (extended support) also supports two types of roles, web and worker. 
+- The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their formats. 
+•	No changes are required to runtime code as data plane is the same and control plane is only changing. 
 
-## Prerequisites for deployment
-
-### 1) Register the feature for your subscription
-Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-### 2) Update the Service Definition file
-
-Update previous virtual machine size names to use the Azure Resource Manager naming conventions.
-
-| Previous size name | Updated size name | 
-|---|---|
-| ExtraSmall | Standard_A0 | 
-| Small | Standard_A1 |
-| Medium | Standard_A2 | 
-| Large | Standard_A3 | 
-| ExtraLarge | Standard_A4 | 
-| A5 | Standard_A5 | 
-| A6 | Standard_A6 | 
-| A7 | Standard_A7 |  
-| A8 | Standard_A8 | 
-| A9 | Standard_A9 |
-| A10 | Standard_A10 | 
-| A11 | Standard_A11 | 
-| MSODSG5 | Standard_MSODSG5 | 
-
- For example, `<WorkerRole name="WorkerRole1" vmsize="Medium"` would become `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
- 
-> [!NOTE]
-> To retrieve a list of available sizes see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters: <br>
-`ResourceType = virtualMachines ` <br>
-`VMDeploymentTypes = PaaS `
-
-Deployments that utilized the previous remote desktop plugins need to have the modules removed from the Service Definition file and any previously associated certificates. 
-
-```xml
-<Imports> 
-<Import moduleName="RemoteAccess" /> 
-<Import moduleName="RemoteForwarder" /> 
-</Imports> 
-```
- 
-
-### 3) Update the Service Configuration file
-
-All Cloud Service (extended support) deployments must be in a virtual network and referenced in the cscfg file. You can use an existing virtual network or create a new one using the [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM template](https://docs.microsoft.com/azure/virtual-network/quick-create-template).
-    
-```xml
-<NetworkConfiguration> 
-  <!-- Name of the target Virtual Network --> 
-    <VirtualNetworkSite name="myVnet    "/> 
-      <!-- Associating a Role to a Specific Subnet by name --> 
-      <AddressAssignments> 
-          <InstanceAddress roleName="WebRole1"> 
-            <Subnets> 
-              <Subnet name="WebTier"/> 
-            </Subnets> 
-          </InstanceAddress> 
-      </AddressAssignments> 
-</NetworkConfiguration> 
-```
- 
-Remove the following settings from the cscfg file.
-
-```xml
-<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" /> 
-    
-<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" /> 
-    
-<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="gachandw" /> 
-    
-<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="XXXX" /> 
-
-<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
-    
-<Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
-```
 
 ## Next steps
 Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md)

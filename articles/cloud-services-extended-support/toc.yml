@@ -1,7 +1,13 @@
 - name: Cloud Services (extended support) documentation
   href: index.yml
 - name: Overview
-  href: overview.md
+  items:
+  - name: About Cloud Services (extended support)
+    href: overview.md
+  - name: Prerequisites for deployment
+    href: deploy-prerequisite.md
+  - name: Config files and packaging
+    - cloud-services-model-and-package.md
 - name: Tutorials
   items: 
   - name: Deploy a Cloud Service - Portal
