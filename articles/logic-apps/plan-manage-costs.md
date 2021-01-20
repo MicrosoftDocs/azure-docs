@@ -174,29 +174,31 @@ Using Azure Monitor, you can view these metrics for a specific logic app:
 
 ### Run cost analysis by using Azure Cost Management and Billing
 
-To review costs for the Logic Apps service based on a specific scope, such as for an Azure subscription, you can use the [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) capabilities in [Azure Cost Management and Billing](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+To review costs for the Logic Apps service based on a specific scope, for example, an Azure subscription, you can use the [cost analysis](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) capabilities in [Azure Cost Management and Billing](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-1. In the Azure portal, open the scope that you want, such as your Azure subscription, and select **Cost analysis** in the menu.
+1. In the Azure portal, open the scope that you want, such as your Azure subscription. From the left menu, under **Cost Management**, select **Cost analysis**.
 
-   For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. To switch scopes in cost analysis, select **Scope**.
+   When you first open the cost analysis pane, the top graph shows the actual and forecasted usage costs across all the services in the subscription for the current month.
 
-1. By default, costs for services are shown in the first donut chart. Select the area in the chart labeled **Logic Apps**.
+   ![Screenshot that shows Azure portal and cost analysis pane with example for actual and forecasted costs in a subscription.](./media/plan-manage-costs/cost-analysis-total-actual-forecasted-costs.png)
 
-Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
+   > [!TIP]
+   > To change scopes, in the **Cost analysis** pane, from the filters bar, select the **Scope** filter. 
+   > In the **Select scope** pane, switch to the scope that you want.
 
-![Example showing accumulated costs for a subscription](../../media/contribute-how-to-write-cost-management-conceptual-article/all-costs.png)
+   Underneath, the donut charts show the current costs by Azure services, by Azure region (location), and by resource group.
 
-<!-- Note to Azure service writer: This example shows costs for an example Azure subscription. You can see service costs for App Service, Storage, Backup, Virtual Networks, and Advanced Threat Protection. Replace this example image with one that shows costs for your service. Your screenshot should look like the one above. -->
+   ![Screenshot that shows Azure portal and cost analysis pane with example donut charts for services, regions, and resource groups.](./media/plan-manage-costs/cost-analysis-donut-charts.png)
 
-To narrow costs for a single service, such as Azure Logic Apps, select **Add filter** and then select **Service name**. Then, select **Logic Apps**.
+1. To filter the chart to a specific area, such as a service or resource, in the filters bar, select **Add filter**.
 
-Here's an example showing costs for just the Logic Apps service:
+1. From the left-side list, select the filter type, for example, **Service name**. From the right-side list, select the filter, for example, **logic apps**. When you're done, select the green check mark.
 
-![Example showing accumulated costs for ServiceName](../../media/contribute-how-to-write-cost-management-conceptual-article/service-specific-cost.png)
+   ![Screenshot that shows Azure portal and cost analysis pane with filter selections.](./media/plan-manage-costs/cost-analysis-add-service-name-filter.png)
 
-<!-- Note to Azure service writer: The image shows an example for Azure Storage. Replace the example image with one that shows costs for your service. -->
+   For example, here is the result for the Logic Apps service:
 
-In the preceding example, you see the current costs for the service. Costs by Azure regions (locations) and <ServiceName> costs by resource group are also shown. From here, you can explore costs on your own.
+   ![Screenshot that shows Azure portal and cost analysis pane with results filtered on "logic apps".](./media/plan-manage-costs/cost-analysis-total-actual-costs-service.png)
 
 ### Export cost data
 
