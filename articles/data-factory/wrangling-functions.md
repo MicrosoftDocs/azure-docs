@@ -1,5 +1,5 @@
 ---
-title: Data Wrangling functions in Azure Data Factory 
+title: Data wrangling functions in Azure Data Factory 
 description: An overview of available Data Wrangling functions in Azure Data Factory
 author: kromerm
 ms.author: makromer
