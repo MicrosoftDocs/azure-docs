@@ -98,6 +98,8 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 
 - Listing exports (For example: by using the command `showmount -e`)
 
+- Hard link
+
 - Exporting a container as read-only
 
 ## Pricing
