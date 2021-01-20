@@ -254,8 +254,6 @@ Add the following method, which calls the **ReadAsync** method for the given ima
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
 
----
-
 ## Run the application
 
 #### [Visual Studio IDE](#tab/visual-studio)
