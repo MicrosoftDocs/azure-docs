@@ -23,9 +23,12 @@ The following tutorials are included in the getting started guide:
 |Quickstart|Device|
 |---------------|-----|
 |[Getting started with the STMicroelectronics B-L475E-IOT01 Discovery kit](https://go.microsoft.com/fwlink/p/?linkid=2129536) |[STMicroelectronics B-L475E-IOT01](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/b-l475e-iot01a.html)|
+|[Getting started with the STMicroelectronics B-L4S5I-IOT01 Discovery kit](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+) |[STMicroelectronics B-L4S5I-IOT01](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)|
 |[Getting started with the NXP MIMXRT1060-EVK Evaluation kit](https://go.microsoft.com/fwlink/p/?linkid=2129821) |[NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)|
+|[Getting started with the NXP MIMXRT1050-EVKB Evaluation kit](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1050-EVKB) |[NXP MIMXRT1050-EVKB](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-rt1050-evaluation-kit:MIMXRT1050-EVK)|
 |[Getting started with the Microchip ATSAME54-XPRO Evaluation kit](https://go.microsoft.com/fwlink/p/?linkid=2129537) |[Microchip ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro)|
 |[Getting started with the MXChip AZ3166 IoT DevKit](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) |[MXChip AZ3166 IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)|
+|[Getting started with the Renesas Starter Kit+ for RX65N-2MB](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RSK_RX65N_2MB) |[Renesas Starter Kit+ for RX65N-2MB](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb)|
 
 ## Azure RTOS components
 Each quickstart in the guide includes a step to build an image. The build process installs a common set of Azure RTOS components, sample code, and device-specific information.
@@ -34,5 +37,5 @@ The build script adds the following Azure RTOS components to the image for each 
 
 |Component|Description|
 |---------------|-----|
-|[Azure ThreadX](threadx/overview-threadx.md) | Provides the core real-time operating system components for devices |
-|[Azure NetX Duo](netx-duo/overview-netx-duo.md) | Provides a full TCP/IP IPv4 and IPv6 network stack, and networking support integrated with ThreadX |
+|[Azure ThreadX](https://docs.microsoft.com/azure/rtos/threadx/overview-threadx) | Provides the core real-time operating system components for devices |
+|[Azure NetX Duo](https://docs.microsoft.com/azure/rtos/netx-duo/overview-netx-duo) | Provides a full TCP/IP IPv4 and IPv6 network stack, and networking support integrated with ThreadX |
