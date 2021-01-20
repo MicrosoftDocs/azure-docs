@@ -182,7 +182,7 @@ The new file share blade should appear on the screen. Complete the fields in the
 - **Quota**: the quota of the file share for standard file shares; the provisioned size of the file share for premium file shares.
 - **Tiers**: the selected tier for a file share. This field is only available in a **general purpose (GPv2) storage account**. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
 
-Select **Create** to finishing creating the new share. Note that if your storage account is in a virtual network, you will not be able to successfully create an Azure file share unless your client is also in the virtual network. You can also work around this point-in-time limitation by using the Azure PowerShell `New-AzRmStorageShare` cmdlet.
+Select **Create** to finishing creating the new share.
 
 # [PowerShell](#tab/azure-powershell)
 You can create an Azure file share with the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell commands assume you have set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure PowerShell section. 
@@ -193,16 +193,6 @@ The following example shows creating a file share with an explicit tier using th
 > For premium file shares, the `-QuotaGiB` parameter refers to the provisioned size of the file share. The provisioned size of the file share is the amount you will be billed for, regardless of usage. Standard file shares are billed based on usage rather than provisioned size.
 
 ```powershell
-# Update the Azure storage module to use the preview version. You may need to close and 
-# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
-# the following:
-# - Run the below cmdlets as an administrator.
-# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
-# Get-Module -ListAvailable -Name PowerShellGet
-Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
-Uninstall-Module -Name Az.Storage
-Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
-
 # Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
 # been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
 # storage accounts. Standard tiers are only available in standard storage accounts. 
@@ -217,13 +207,8 @@ New-AzRmStorageShare `
     Out-Null
 ```
 
-> [!Note]  
-> The ability to set and change tiers via PowerShell is provided in the preview Az.Storage PowerShell module. These cmdlets or their output may change before being released in the generally available Az.Storage PowerShell module, so create scripts with this in mind.
-
 # [Azure CLI](#tab/azure-cli)
 You can create an Azure file share with the [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) command. The following Azure CLI commands assume you have set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure CLI section.
-
-The functionality to create or move a file share to a specific tier is available in the latest Azure CLI update. Updating Azure CLI is specific to the operating system/Linux distribution your are using. For instructions on how to update Azure CLI on your system, see [Install the Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > For premium file shares, the `--quota` parameter refers to the provisioned size of the file share. The provisioned size of the file share is the amount you will be billed for, regardless of usage. Standard file shares are billed based on usage rather than provisioned size.
@@ -239,9 +224,6 @@ az storage share-rm create \
     --quota 1024 \
     --output none
 ```
-
-> [!Note]  
-> The ability to set a tier with the `--access-tier` parameter is provided a preview in the latest Azure CLI package. This command or its output may change before being marked as generally available, so create scripts with this in mind.
 
 ---
 
@@ -268,8 +250,6 @@ On the resulting dialog, select the desired tier: transaction optimized, hot, or
 The following PowerShell cmdlet assumes that you have set the `$resourceGroupName`, `$storageAccountName`, `$shareName` variables as described in the earlier sections of this document.
 
 ```PowerShell
-# This cmdlet requires Az.Storage version 2.1.1-preview, which is installed
-# in the earlier example.
 Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
