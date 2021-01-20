@@ -10,7 +10,7 @@ ms.date: 12/06/2018
 
 # Introduction to Stream Analytics geospatial functions
 
-Geospatial functions in Azure Stream Analytics enable real-time analytics on streaming geospatial data. With just a few lines of code, you can develop a production grade solution for complex scenarios. These functions support all WKT types and GeoJSON Point, Polygon and LineString.
+Geospatial functions in Azure Stream Analytics enable real-time analytics on streaming geospatial data. With just a few lines of code, you can develop a production grade solution for complex scenarios. These functions support all WKT types and GeoJSON Point, Polygon, and LineString.
 
 Examples of scenarios that can benefit from geospatial functions include:
 
