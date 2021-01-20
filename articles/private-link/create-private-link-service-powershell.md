@@ -47,6 +47,7 @@ In this section, you create a virtual network and subnet to host the load balanc
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
+    PrivateLinkServiceNetworkPolicies 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -151,7 +152,7 @@ $ipsettings = @{
 $ipconfig = New-AzPrivateLinkServiceIpConfig @ipsettings
 
 ## Place the load balancer frontend configuration into a variable. ##
-$fe = Get-AzLoadBalancer -ResourceGroupName 'CreatePrivLinkService-rg' -Name 'myLoadBalancer' | Get-AzLoadBalancerFrontendIpConfig
+$fe = Get-AzLoadBalancer -Name 'myLoadBalancer' | Get-AzLoadBalancerFrontendIpConfig
 
 ## Create the private link service for the load balancer. ##
 $privlinksettings = @{
