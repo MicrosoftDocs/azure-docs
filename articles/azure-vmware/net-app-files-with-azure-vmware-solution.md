@@ -78,7 +78,7 @@ The following steps include verification of the pre-configured Azure NetApp File
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
 
-    In this case, you can see that the volume pool (anfvolume), with 200 GiB, was created as an NFS file share. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. For information on Azure NetApp Files volume performance relative to size ("Quota"), see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    You can see that the volume anfvolume, with a size of 200 GiB, was created in capacity pool anfpool1 and exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM. For information on Azure NetApp Files volume performance relative to size ("Quota"), see [Performance considerations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## Verify pre-configured Azure VMware Solution VM share mapping
 
