@@ -51862,6 +51862,127 @@
       "redirect_url": "/azure/active-directory/governance/review-your-access",
       "redirect_document_id": true
     },
+	{
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
+      "redirect_url": "/azure/articles/active-directory/cloud-sync/what-is-cloud-sync",
+      "redirect_document_id": false
+    },
+	{
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-sso.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-sso",
+      "redirect_document_id": false
+    },
+	
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/concept-attributes.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/concept-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-attribute-mapping.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-attribute-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-automatic-upgrade.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-automatic-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-configure.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-inbound-synch-ms-graph.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-inbound-synch-ms-graph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-install.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-manage-registry-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-on-demand-provision.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-on-demand-provision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-prerequisites.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-transformation.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-transformation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/how-to-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/index.yml",
+      "redirect_url": "/azure/active-directory/cloud-sync/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/plan-cloud-provisioning-topologies.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/plan-cloud-sync-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/reference-cloud-provisioning-faq.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/reference-cloud-sync-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/reference-expressions.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/reference-expressions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/reference-powershell.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/reference-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/reference-version-history.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/reference-version-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-basic-ad-azure.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/tutorial-basic-ad-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-existing-forest.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/tutorial-existing-forest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-pilot-aadc-aadccp.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/tutorial-pilot-aadc-aadccp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-single-forest.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/tutorial-single-forest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-provisioning.md",
+      "redirect_url": "/azure/active-directory/cloud-sync/what-is-provisioning",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/security/fundamentals/choose-ad-authn.md",
       "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",

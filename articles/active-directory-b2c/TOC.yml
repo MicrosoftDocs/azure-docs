@@ -238,8 +238,10 @@
       items:
       - name: Mailjet
         href: custom-email-mailjet.md
+        displayName: Custom email, Custom verification email, Verification email
       - name: SendGrid
         href: custom-email-sendgrid.md
+        displayName: Custom email, Custom verification email, Verification email
       displayName: verification
     - name: Add your own business logic
       items:
