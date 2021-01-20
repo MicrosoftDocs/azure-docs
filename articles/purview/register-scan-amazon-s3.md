@@ -30,7 +30,6 @@ In this how-to guide, you'll learn about:
 
 The following scope is specific for the registering and scanning Amazon S3 buckets as Purview data sources. 
 
-
 |Scope  |Description  |
 |---------|---------|
 |**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
