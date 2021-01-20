@@ -15,4 +15,4 @@ Use the IoT Edge agent runtime responses to troubleshoot compute-related errors.
 * 406 - The IoT Edge device is offline or not sending status reports.
 * 500 - An error occurred in the IoT Edge runtime.
 
-For more information, see [IoT Edge Agent](../articles/iot-edge/iot-edge-runtime?view=iotedge-2018-06.md&preserve-view=true#iot-edge-agent)
+For more information, see [IoT Edge Agent](../articles/iot-edge/iot-edge-runtime?view=iotedge-2018-06&preserve-view=true#iot-edge-agent)
