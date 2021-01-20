@@ -385,7 +385,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## Create and query external tables from a file in Azure Data Lake
 
-Using Data Lake exploration capabilities you can now create and query an external table using dedicated SQL pool or serverless SQL pool with a simple right-click on the file.
+Using Data Lake exploration capabilities you can now create and query an external table using dedicated SQL pool or serverless SQL pool with a simple right-click on the file. The one-click gesture to create external tables from the ADLS Gen2 storage account is only supported for Parquet files. 
 
 ### Prerequisites
 
