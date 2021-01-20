@@ -12,7 +12,8 @@ ms.date: 09/25/2020
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
 
 > [!IMPORTANT]
-> CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link at the bottom of the page. This tool is provided for users to self-install into clusters and gather feedback from our community.
+> CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link [here](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues). This tool is provided for users to self-install into clusters and gather feedback from our community.
+
 
 In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
 
@@ -31,6 +32,8 @@ In this tutorial, you learn how to:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+This tutorial assumes you runnig Azure Kubernetes Service on Linux nodes.
 
 ## Use managed identities
 
@@ -72,6 +75,8 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ![Screenshot of the Azure CLI with subscriptionId and nodeResourceGroup values highlighted](../media/kubernetes-key-vault-3.png)
     
 ## Install Helm and the Secrets Store CSI driver
+> [!NOTE]
+> Below installation works only on AKS on Linux. For more information about Secrets Store CSI driver installation, see [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 To install the Secrets Store CSI driver, you first need to install [Helm](https://helm.sh/docs/intro/install/).
 

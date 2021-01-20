@@ -22,8 +22,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
-  + **azureml-automl-runtime**
-    + In this update, we added holt winters exponential smoothing to forecasting toolbox of AutoML SDK. Given a time series, the best model is selected by [AICc (Corrected Akaike's Information Criterion)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) and returned.
   + **azureml-contrib-optimization**
     + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
   + **azureml-pipeline-steps**

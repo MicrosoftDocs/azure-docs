@@ -25,7 +25,7 @@ You can also create your own feature filter that implements the [Microsoft.Featu
 
 ## Registering a feature filter
 
-You register a feature filter by calling the `AddFeatureFilter` method, specifying the name of the feature filter. For example, the following code registers `PercentageFilter`:
+You register a feature filter by calling the `AddFeatureFilter` method, specifying the type name of the desired feature filter. For example, the following code registers `PercentageFilter`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -50,29 +50,29 @@ You can configure these settings for feature flags defined in Azure App Configur
     > [!div class="mx-imgBorder"]
     > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
 
-1. In the **Edit** screen, select the **On** radio button if it isn't already selected. Then click the **Add Filter** button. (The **On** radio button's label will change to read **Conditional**.)
+1. In the **Edit** screen, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Custom**. 
 
-1. In the **Key** field, enter *Microsoft.Percentage*.
+1. In the **Name** field, select *Microsoft.Percentage*.
 
     > [!div class="mx-imgBorder"]
     > ![Add feature filter](./media/feature-flag-add-filter.png)
 
-1. Click the context menu next to the feature filter key. Click **Edit Parameters**.
+1. Click the context menu next to the feature filter name. Click **Edit filter parameters**.
 
     > [!div class="mx-imgBorder"]
-    > ![Edit feature filter parameters](./media/feature-flag-edit-filter-parameters.png)
+    > ![Edit feature filter parameters](./media/feature-flags-edit-filter-parameters.png)
 
-1. Hover under the **Name** header so that text boxes appear in the grid. Enter a **Name** of *Value* and a **Value** of 50. The **Value** field indicates the percentage of requests for which to enable the feature filter.
+1. Enter a **Name** of *Value* and a **Value** of 50. The **Value** field indicates the percentage of requests for which to enable the feature filter.
 
     > [!div class="mx-imgBorder"]
     > ![Set feature filter parameters](./media/feature-flag-set-filter-parameters.png)
 
 1. Click **Apply** to return to the **Edit feature flag** screen. Then click **Apply** again to save the feature flag settings.
 
-1. The **State** of the feature flag now appears as *Conditional*. This state indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the feature filter.
+1. On the **Feature manager** page, the feature flag now has a **Feature filter** value of *Custom*. 
 
     > [!div class="mx-imgBorder"]
-    > ![Conditional feature flag](./media/feature-flag-filter-enabled.png)
+    > ![Feature flag listed with a Feature filter value of "Custom"](./media/feature-flag-filter-custom.png)
 
 ## Feature filters in action
 
