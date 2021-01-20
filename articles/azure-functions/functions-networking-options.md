@@ -80,7 +80,7 @@ To provide a higher level of security, you can restrict a number of Azure servic
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## Restrict your storage account to a virtual network
+## Restrict your storage account to a virtual network 
 
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This feature currently only works with Windows Premium plans.  To set up a function with a storage account restricted to a private network:
 
