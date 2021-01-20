@@ -350,7 +350,7 @@ and the console, corresponding to this configuration:
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
 
-You can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
+Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
 
 ## An example
 
