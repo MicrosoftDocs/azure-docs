@@ -53,6 +53,12 @@ Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM pa
 npm install @azure/cognitiveservices-computervision
 ```
 
+Also install the async module:
+
+```console
+npm install async
+```
+
 Your app's `package.json` file will be updated with the dependencies.
 
 Create a new file, *index.js*, and open it in a text editor. Add the following import statements.
