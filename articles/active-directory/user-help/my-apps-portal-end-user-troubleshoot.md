@@ -43,7 +43,7 @@ If you're having problems installing the My Apps Secure Sign-in Extension:
 
 If you're having trouble signing into the **My Apps** portal, you can try the following:
 
-- If you are signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+- If you see an error signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
 
    - https://myapplications.microsoft.com?tenantId=*your_domain_name*
    - https://myapplications.microsoft.com?tenant=*your_tenant_ID*

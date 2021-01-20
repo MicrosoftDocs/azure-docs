@@ -30,6 +30,12 @@ In this article, you’ll learn how to:
 - Show hidden collections
 - Delete collections
 
+>[!Note]
+>If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 ## Create a collection
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
@@ -98,10 +104,7 @@ To hide a collection:
 
 To make a hidden collection visible:
 
-1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account. If you are signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
-
-   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
-   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
 
 1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 

@@ -22,12 +22,15 @@ You can view all of your recent work or school account sign-in activity, from th
 - If an attacker successfully signed in to your account, and from what location.
 - What apps the attacker tried to access.
 
+>[!Note]
+> If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+
 ## View your recent sign-in activity
 
-1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page. If you are signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
-
-   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
-   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
 2. Select **My Sign-ins** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins** block.
 
