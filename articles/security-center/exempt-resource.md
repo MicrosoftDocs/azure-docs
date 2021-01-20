@@ -1,9 +1,9 @@
 ---
-title: Exempt a resource from Azure Security Center security recommendations and the secure score
-description: Learn how to exempt a resource from security recommendations and the secure score
+title: Exempt an Azure Security Center recommendation from a resource, subscription, management group, and secure score
+description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 author: memildin
 ms.author: memildin
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -40,6 +40,9 @@ To fine-tune the security recommendations that Security Center makes for your su
 
 - Mark a specific **recommendation** or as "mitigated" or "risk accepted". You can create recommendation exemptions for a subscription, multiple subscriptions, or an entire management group.
 - Mark **one or more resources** as "mitigated" or "risk accepted" for a specific recommendation.
+
+> [!TIP]
+> You can also create exemptions using the API. For an example JSON, and an explanation of the relevant structures see [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
 
 To create an exemption rule:
 
@@ -87,7 +90,7 @@ To create an exemption rule:
     :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy's exemption page":::
 
     > [!TIP]
-    > You can also use this page to manage the exemptions.
+    > Alternatively, [use Azure Resource Graph to find recommendations with exemptions](#find-recommendations-with-exemptions-using-azure-resource-graph).
 
 ## Monitor exemptions created in your subscriptions
 
@@ -98,6 +101,52 @@ To keep track of how your users are exercising this capability, we've created an
 - To learn more about the playbook, see this post in the [tech community blogs](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - You'll find the ARM template in the [Azure Security Center GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
 - You can click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) to deploy all the necessary components 
+
+
+## Find recommendations with exemptions using Azure Resource Graph
+
+Azure Resource Graph (ARG) provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
+
+To view all recommendations that have exemption rules:
+
+1. Open **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+
+1. Enter the following query and select **Run query**.
+
+    ```kusto
+    securityresources
+    | where type == "microsoft.security/assessments"
+    // Get recommendations in useful format
+    | project
+	['TenantID'] = tenantId,
+	['SubscriptionID'] = subscriptionId,
+	['AssessmentID'] = name,
+	['DisplayName'] = properties.displayName,
+	['ResourceType'] = tolower(split(properties.resourceDetails.Id,"/").[7]),
+	['ResourceName'] = tolower(split(properties.resourceDetails.Id,"/").[8]),
+	['ResourceGroup'] = resourceGroup,
+	['ContainsNestedRecom'] = tostring(properties.additionalData.subAssessmentsLink),
+	['StatusCode'] = properties.status.code,
+	['StatusDescription'] = properties.status.description,
+	['PolicyDefID'] = properties.metadata.policyDefinitionId,
+	['Description'] = properties.metadata.description,
+	['RecomType'] = properties.metadata.assessmentType,
+	['Remediation'] = properties.metadata.remediationDescription,
+	['Severity'] = properties.metadata.severity,
+	['Link'] = properties.links.azurePortal
+	| where StatusDescription contains "Exempt"    
+    ```
+
+
+Learn more in the following pages:
+- [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
+
+
+
 
 
 ## Exemption rule FAQ
@@ -117,7 +166,6 @@ If you try to create an exemption for this recommendation, you'll see one of the
 - If you don't have sufficient permissions on both initiatives, you'll see this message instead:
 
     *You have limited permissions to apply the exemption on all the policy initiatives, the exemptions will be created only on the initiatives with sufficient permissions.*
-
 
 
 ## Next steps
