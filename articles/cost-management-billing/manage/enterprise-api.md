@@ -15,7 +15,7 @@ ms.author: banders
 > [!Note]
 > Microsoft no longer updates the Azure Billing - Enterprise Reporting APIs. Instead, you should use [Azure Consumption](/rest/api/consumption) APIs.
 
-The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated monetary commitments and gain access to custom pricing for Azure resources.
+The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated Azure Prepayment (previously called monetary commitment) and gain access to custom pricing for Azure resources.
 
 All date and time parameters required for APIs must be represented as combined Coordinated Universal Time (UTC) values. Values returned by APIs are shown in UTC format.
 

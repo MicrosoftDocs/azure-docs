@@ -45,9 +45,9 @@ After you delete Azure Synapse resources, the following resources might continue
 
 - Data Lake Storage Gen2
 
-### Using Monetary Credit with Azure Synapse 
+### Using Azure Prepayment credit with Azure Synapse 
 
-You can pay for Azure Synapse charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure Synapse charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Review estimated costs in the Azure portal
 

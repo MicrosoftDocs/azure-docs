@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2021
+ms.date: 01/20/2021
 ms.author: bagol
 
 ---
@@ -103,9 +103,15 @@ For more information, see:
 
 ## Using Azure Active Directory to secure your network after a systemic-identity compromise
 
-In Azure Active Directory, use the **Sensitive Operations Report** to learn more about suspicious activity detected in your tenant. 
+Use Azure Active Directory services to protect and defend your network by performing the following steps in your system:
 
-Under **Monitoring** on the left, select **Workbooks**. Then, under **Troubleshoot**, select the **Sensitive Operations Report**.
+1. [Enable multi-factor authentication (MFA)](/azure/active-directory/authentication/concept-mfa-howitworks) to reduce the probability of account compromise in your system.
+
+1. Configure your system for Zero Trust. For more information, see the Microsoft [Zero Trust Deployment Guides](/security/zero-trust/).
+
+1. In Azure Active Directory, use the **Sensitive Operations Report** to learn more about suspicious activity detected in your tenant. 
+
+    Under **Monitoring** on the left, select **Workbooks**. Then, under **Troubleshoot**, select the **Sensitive Operations Report**.
 
 The **Sensitive Operations Report** indicates suspicious activity detected in your tenant, such as:
 
@@ -114,9 +120,6 @@ The **Sensitive Operations Report** indicates suspicious activity detected in yo
 - Changes made to existing domain federation trusts, which may help attackers gain a long-term foothold in the environment, by adding an attacker-controlled SAML IDP as a trusted authentication source.
 
 - Manual modifications made to refresh tokens, which are used to validate identification and obtain access tokens, and can be used to by an attacker to gain persistence in the network.
-
-
-
 ## Microsoft references for Solorigate
 
 For more information about securing your system after Solorigate, see any of the following Microsoft resources:
@@ -128,7 +131,7 @@ For more information about securing your system after Solorigate, see any of the
 |**Azure Active Directory Identity blog**     |  [Understanding "Solorigate"'s Identity IOCs - for Identity Vendors and their customers](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/understanding-quot-solorigate-quot-s-identity-iocs-for-identity/ba-p/2007610)       |
 |**TechCommunity**     |    [Azure AD workbook to help you assess Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718) <br><br> [SolarWinds: Post compromise hunting with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/solarwinds-post-compromise-hunting-with-azure-sentinel/ba-p/1995095)      |
 |**Microsoft Security Intelligence**     |  [Malware encyclopedia definition: Solorigate](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Trojan:MSIL/Solorigate.B!dha)       |
-|**Microsoft Security blog**     |   [Analyzing Solorigate: The compromised DLL file that started a sophisticated cyberattack and how Microsoft Defender helps protect](https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)<br><br> [Advice for incident responders on recovery from system identity compromises](https://www.microsoft.com/security/blog/2020/12/21/advice-for-incident-responders-on-recovery-from-systemic-identity-compromises/) from the Detection and Response Team (DART) <br><br>[Using Microsoft 365 Defender to coordinate protection against Solorigate](https://www.microsoft.com/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/)   <br><br>[Ensuring customers are protected from Solorigate](https://www.microsoft.com/security/blog/2020/12/15/ensuring-customers-are-protected-from-solorigate/)   |
+|**Microsoft Security blog**     |   [Analyzing Solorigate: The compromised DLL file that started a sophisticated cyberattack and how Microsoft Defender helps protect](https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)<br><br> [Advice for incident responders on recovery from system identity compromises](https://www.microsoft.com/security/blog/2020/12/21/advice-for-incident-responders-on-recovery-from-systemic-identity-compromises/) from the Detection and Response Team (DART) <br><br>[Using Microsoft 365 Defender to coordinate protection against Solorigate](https://www.microsoft.com/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/)   <br><br>[Ensuring customers are protected from Solorigate](https://www.microsoft.com/security/blog/2020/12/15/ensuring-customers-are-protected-from-solorigate/)  <br><br>[Using Zero Trust principles to protect against sophisticated attacks like Solorigate](https://www.microsoft.com/security/blog/2021/01/19/using-zero-trust-principles-to-protect-against-sophisticated-attacks-like-solorigate/) |
 | **GitHub resources**    |   [Azure Sentinel workbook for SolarWinds post-compromise hunting](https://github.com/Azure/Azure-Sentinel/blob/master/Workbooks/SolarWindsPostCompromiseHunting.json) <br><br>[Advanced Microsoft 365 Defender query reference](identity-compromise-defender.md#advanced-microsoft-365-defender-query-reference)      |
 |     |         |
 
