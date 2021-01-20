@@ -1,6 +1,6 @@
 ---
 title: Data Wrangling in Azure Data Factory 
-description: An overview of data wrangling in Azure Data Factory
+description: An overview of Data Wrangling in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
