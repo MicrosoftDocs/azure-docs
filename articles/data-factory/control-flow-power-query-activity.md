@@ -1,5 +1,5 @@
 ---
-title: Power query activity in Azure Data Factory 
+title: Power Query activity in Azure Data Factory 
 description: Learn how to use the Power Query activity for data wrangling features in a Data Factory pipeline
 services: data-factory
 author: kromerm
@@ -16,12 +16,12 @@ The Power Query activity allows you to build and execute Power Query mash-ups to
 
 ![Screenshot that shows Power Query in the factory resources pane.](media/data-flow/power-query-wrangling.png)
 
-Previously, data wrangling in ADF was authored from the Data Flow menu option. This has been changed to authoring from a new Power Query activity. You can work directly inside of the Power Query mash-up editor to perform interactive data exploration and then save your work. Once complete, you can take your Power Query activity and add it to a pipeline. ADF will automatically scale it out and operationalize your data wrangling using ADF's data flow Spark environment.
+Previously, data wrangling in Azure Data Factory was authored from the Data Flow menu option. This has been changed to authoring from a new Power Query activity. You can work directly inside of the Power Query mash-up editor to perform interactive data exploration and then save your work. Once complete, you can take your Power Query activity and add it to a pipeline. Azure Data Factory will automatically scale it out and operationalize your data wrangling using Azure Data Factory's data flow Spark environment.
 
 ## Translation to data flow script
 
-To achieve scale with your Power Query activity, ADF translates your ```M``` script into a data flow script so that you can execute your Power Query at scale using the ADF data flow Spark environment. Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md).
+To achieve scale with your Power Query activity, Azure Data Factory translates your ```M``` script into a data flow script so that you can execute your Power Query at scale using the Azure Data Factory data flow Spark environment. Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md).
 
 ## Next steps
 
-Learn more about data wrangling concepts using [Power Query in ADF](wrangling-tutorial.md)
+Learn more about data wrangling concepts using [Power Query in Azure Data Factory](wrangling-tutorial.md)
