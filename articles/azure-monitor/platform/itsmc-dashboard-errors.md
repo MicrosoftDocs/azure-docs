@@ -23,7 +23,7 @@ in this section you can find the common errors that presented in the connector s
   * A custom script deployed in ServiceNow instance causes incidents to be ignored.
   * "OMS Integrator App" code itself was modified on ServiceNow side, e.g. the onBefore script.
 
-    **Resolution**: Disable all custom scripts or code modifications of the data import path.
+  **Resolution**: Disable all custom scripts or code modifications of the data import path.
 
 * **Error**: "{"error":{"message":"Operation Failed","detail":"ACL Exception Update Failed due to security constraints"}"
 
