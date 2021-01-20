@@ -81,7 +81,7 @@ All search parameter types are supported.
 | `_id`                   | Yes       | Yes       | Yes       |         |
 | `_lastUpdated`          | Yes       | Yes       | Yes       |         |
 | `_tag`                  | Yes       | Yes       | Yes       |         |
-| `_profile`              | Yes       | Yes       | Yes       |         |
+| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
 | `_security`             | Yes       | Yes       | Yes       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
