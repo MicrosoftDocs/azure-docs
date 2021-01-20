@@ -229,9 +229,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [Built-in roles for Azure Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole) 
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
