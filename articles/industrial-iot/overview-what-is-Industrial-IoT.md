@@ -12,7 +12,7 @@ ms.date: 12/01/2020
 
 IIoT (Industrial Internet of Things) enhances industrial efficiencies through the application of IoT in the manufacturing industry.
 
-![Industrial Iot](media/overview-what-is-Industrial-IoT/icon-255px.png)
+![Industrial Iot](media/overview-what-is-Industrial-IoT/icon-255-px.png)
 
 ## Improve industrial efficiencies
 Enhance your operational productivity and profitability with Azure Industrial IoT. Reduce the time-consuming process of accessing the assets on-site. Connect and monitor your industrial equipment and devices in the cloud - including your machines already operating on the factory floor. Analyze your IoT data for insights that help you increase the performance of the entire site.

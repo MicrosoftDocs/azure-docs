@@ -1,5 +1,5 @@
 ---
-title: Visualize OPC UA data in TSI
+title: Visualize OPC UA data in Azure Time Series Insights
 description: In this tutorial, you learn how to visualize data with Time Series Insights.
 author: jehona-m
 ms.author: jemorina

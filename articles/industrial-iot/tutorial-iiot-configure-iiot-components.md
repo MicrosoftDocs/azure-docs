@@ -1,5 +1,5 @@
 ---
-title: Configure the IIoT components
+title: Configure the Azure Industrial IoT components
 description: In this tutorial, you learn how to change the default values of the configuration.
 author: jehona-m
 ms.author: jemorina
