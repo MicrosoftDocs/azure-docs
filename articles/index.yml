@@ -1564,6 +1564,10 @@ additionalContent:
     - title: Partner solutions
       items:
         # Card
+        - title: Apache Kafka for Confluent Cloud
+          summary: Fully managed event streaming platform powered by Apache Kafka.
+          url: ./partner-solutions/apache-kafka-confluent-cloud/overview.md
+        # Card
         - title: Azure partner solutions
           summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
           url: ./partner-solutions/overview.md
