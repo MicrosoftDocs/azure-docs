@@ -2077,16 +2077,18 @@
         href: envoy-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
-      - name: Figma
-        href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
-      - name: Fuze
-        href: fuze-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
       - name: Flock
         href: flock-provisioning-tutorial.md
       - name: Foodee
         href: foodee-provisioning-tutorial.md
+      - name: Fortes Change Cloud
+        href: fortes-change-cloud-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: g-suite-provisioning-tutorial.md
       - name: GitHub
