@@ -219,14 +219,11 @@ You can download the provisioning logs for use later by navigating to the logs i
 * ProvisioningLogs_ProvisioningSteps: Contains the provisioning steps and the change ID. The change ID can be used to join the event with the other two files.
 * ProvisioningLogs_ModifiedProperties: Contains the attributes that were changed and the change ID. The change ID can be used to join the event with the other two files.
 
-### Viewing the JSON file
-
 #### Opening the JSON file
 To open the Json file, use a text editor such as [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code makes it easier to read by providing syntax highlighting. The json file can also be opened using browsers in a non editable format e.g. [Microsoft Edge](https://aka.ms/msedge) 
 
 #### Prettifying the JSON file
-The JSON file is downloaded in minified format to reduce the size of the download. This, in turn, can make the payload difficult to read. There are many methods to make the JSON easy to read. Check out two of the options below:
-
+The JSON file is downloaded in minified format to reduce the size of the download. This, in turn, can make the payload difficult to read. Check out two options to prettify the file:
 
 **1. Use Visual Studio Code to format the JSON**
 
@@ -240,7 +237,7 @@ This script will output the json in a prettified format with tabs and spaces.
 
 `$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
 
-### Working with the JSON file
+#### Parsing the JSON file
 
 Here are some sample commands to work with the JSON file using PowerShell. You can use any programming language that you are comfortable with.  
 
