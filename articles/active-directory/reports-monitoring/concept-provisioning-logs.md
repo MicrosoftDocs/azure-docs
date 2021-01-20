@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
 
 - **Activity** 
-    - **Sign-ins** – Information about the usage of managed applications and user sign-in activities.
+    - **Sign-ins** – Information about the usage of managed applications, and user sign-in activities.
     - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications and directory activities.
     - **Provisioning logs** - Provide system activity about user, groups, and roles that are provisioned by the Azure AD provisioning service. 
 
@@ -56,12 +56,12 @@ Your tenant must have an Azure AD Premium license associated with it to see the 
 ## Ways of interacting with the provisioning logs 
 Customers have four ways of interacting with the provisioning logs:
 
-1. Accessing the logs from the Azure Portal as described below.
+1. Accessing the logs from the Azure portal as described below.
 1. Streaming the provisioning logs into [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), allowing for extended data retention, building custom dashboard, alerts, and queries.
 1. Querying the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
 1. Downloading the provisioning logs as a CSV file or json.
 
-## Accessing the provisioning logs through the Azure Portal
+## Accessing the provisioning logs through the Azure portal
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
 
 ![Provisioning logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
@@ -222,42 +222,39 @@ You can download the provisioning logs for use later by navigating to the logs i
 ### Viewing the JSON file
 
 #### Opening the JSON file
-To open the Json file, use a text editor such as [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code makes it easier to read by providing syntax highlighting. Opening the file in an editor allows user to edit the file, which may not be desirable. The json file can also be opened using browsers in a non editable format e.g. [Microsoft Edge](https://aka.ms/msedge) 
+To open the Json file, use a text editor such as [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code makes it easier to read by providing syntax highlighting. The json file can also be opened using browsers in a non editable format e.g. [Microsoft Edge](https://aka.ms/msedge) 
 
 #### Prettifying the JSON file
 The JSON file is downloaded in minified format to reduce the size of the download. This, in turn, can make the payload difficult to read. There are many methods to make the JSON easy to read. Check out two of the options below:
 
 
 **1. Use Visual Studio Code to format the JSON**
+
 Follow the instructions defined [here](https://code.visualstudio.com/docs/languages/json#_formatting) to format the JSON file using Visual Studio Code.
 
-**2. Use powershell to format the JSON**
-There are many ways of using powershell script to prettify the data. A simple way is to just read and write it back.
+**2. Use PowerShell to format the JSON**
+
+This script will output the json in a prettified format with tabs and spaces. 
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
 `$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
 
-This script will output the json in a prettified format with tabs and spaces. 
+### Working with the JSON file
 
-### Working with the Json logs
+Here are some sample commands to work with the JSON file using PowerShell. You can use any programming language that you are comfortable with.  
 
-Here are some sample commands to work with the Json file using powershell. You can use any programming language that you are comfortable with.  
-
-First, read the JSON file by running:
+First, [read the JSON file](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) by running:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
-This reads the Json content as Json to JSONContent variable as a hashtable. Refer to the [documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1).
+Now you can parse the data per your scenario. Here are a couple examples: 
 
 **1. Output all jobIDs in the JsonFile**
-This code iterates over all the provisioning items in the the Json read, and outputs the jobId. 
 
 `foreach ($provitem in $JSONContent) { $provitem.jobId }`
 
-
-**2. Output all changeId if the action is create**
-This code iterates over all the provisioning items in the the Json read, and outputs the changeId if the action is create. 
+**2. Output all changeIds for events where the action was "create"** 
 
 `foreach ($provitem in $JSONContent) { `
 `   if ($provItem.action -eq 'Create') {`
@@ -289,14 +286,14 @@ Use the table below to better understand how to resolve errors you may find in t
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD was able to authenticate with the target application, but was not authorized to perform the update. Please review any instructions provided by the target application as well as the respective application [tutorial](../saas-apps/tutorial-list.md).|
 |UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application may not be correct, or there may be a service issue with the target application that is preventing this from working.|
 |WebExceptionProtocolError |An HTTP protocol error occurred while connecting to the target application. There is nothing to do. This attempt will automatically be retired in 40 minutes.|
-|InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Check to ensure the user exists. To force a re-match of all users, use the MS Graph API to [restart job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Note that restarting provisioning will trigger an initial cycle, which can take time to complete. It also deletes the cache the provisioning service uses to operate, meaning that all users and groups in the tenant will have to be evaluated again and certain provisioning events could be dropped.|
-|NotImplemented | The target app returned an unexpected response. The configuration of the app may not be correct, or there may be a service issue with the target app that is preventing this from working. Please review any instructions provided by the target application as well as the respective application [tutorial](../saas-apps/tutorial-list.md). |
+|InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Check to ensure the user exists. To force a re-match of all users, use the MS Graph API to [restart job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Restarting provisioning will trigger an initial cycle, which can take time to complete. It also deletes the cache the provisioning service uses to operate, meaning that all users and groups in the tenant will have to be evaluated again and certain provisioning events could be dropped.|
+|NotImplemented | The target app returned an unexpected response. The configuration of the app may not be correct, or there may be a service issue with the target app that is preventing this from working. Please review any instructions provided by the target application and the respective application [tutorial](../saas-apps/tutorial-list.md). |
 |MandatoryFieldsMissing, MissingValues |The user could not be created because required values are missing. Correct the missing attribute values in the source record, or review your matching attribute configuration to ensure the required fields are not omitted. [Learn more](../app-provisioning/customize-application-attributes.md) about configuring matching attributes.|
 |SchemaAttributeNotFound |Could not perform the operation because an attribute was specified that does not exist in the target application. See the [documentation](../app-provisioning/customize-application-attributes.md) on attribute customization and ensure your configuration is correct.|
 |InternalError |An internal service error occurred within the Azure AD provisioning service. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
 |InvalidDomain |The operation could not be performed due to an attribute value containing an invalid domain name. Update the domain name on the user or add it to the permitted list in the target application. |
 |Timeout |The operation could not be completed because the target application took too long to respond. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
-|LicenseLimitExceeded|The user could not be created in the target application because there are no available licenses for this user. Either procure additional licenses for the target application, or review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
+|LicenseLimitExceeded|The user could not be created in the target application because there are no available licenses for this user. Either procure more licenses for the target application, or review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
 |DuplicateTargetEntries  |The operation could not be completed because more than one user in the target application was found with the configured matching attributes. Either remove the duplicate user from the target application, or reconfigure your attribute mappings as described [here](../app-provisioning/customize-application-attributes.md).|
 |DuplicateSourceEntries | The operation could not be completed because more than one user was found with the configured matching attributes. Either remove the duplicate user, or reconfigure your attribute mappings as described [here](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | When each user is evaluated, we attempt to import the user from the source system. This error commonly occurs when the user being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, we cannot evaluate scoping, matching, or export changes. Note, presence of this error does not indicate that the user is in scope as we have not yet evaluated scoping for the user.|
