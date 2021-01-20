@@ -52,7 +52,7 @@ If you're using Service Map, you can view the service desk items created in ITSM
    You can see details about the messages in the table - [here](itsmc-dashboard-errors.md).
    - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
 
-## Common Symptoms - how it should be resolved?
+## Common Symptoms - how should it be resolved?
 
 The list below contain common symptoms and how should it be resolved:
 
