@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: lajanuar
 ---
-# Create a Translator resource
+# Create a Translator resource 
 
 ## Prerequisites
 
