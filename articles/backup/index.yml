@@ -93,6 +93,21 @@ landingContent:
           - text: Manage Azure VM backups
             url: backup-azure-manage-vms.md
   # Card
+  - title: Back up Azure Managed Disks (in preview)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview of Azure Disk Backup
+            url: disk-backup-overview.md
+          - text: Support matrix for Azure Disk Backup
+            url: disk-backup-support-matrix.md
+          - text: Back up Azure Managed Disks
+            url: backup-managed-disks.md
+          - text: FAQ - Azure Managed Disks
+            url: disk-backup-faq.md
+          - text: Troubleshoot Azure Managed Disks backup
+            url: disk-backup-troubleshoot.md
+  # Card
   - title: Back up SQL Server on Azure VMs
     linkLists:
       - linkListType: concept
