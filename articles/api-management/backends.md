@@ -1,6 +1,6 @@
 ---
 title: Azure API Management backends | Microsoft Docs
-description: Learn about ... how to create backends in API Management.
+description: Learn about custom backends in API Management and how to create a Service Fabric service backend in API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -8,31 +8,34 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: apimpm
 ---
 
-# Set up a custom API Management backend
+# Set up an API Management backend using the Azure portal
 
-When importing an API, API Management can often configure an API backend automatically. For example, API Management sets up the backend when importing an [OpenAPI specification](import-api-from-oas.md), [Azure Function App](import-function-app-as-api.md), or [Azure Logic App](import-logic-app-as-api.md), among others.
+This article shows how to configure a Service Fabric service as a custom backend using the Azure portal. You can also configure other Azure resources or your own services as custom backends. 
 
-API Management also supports using an Azure resource such as a [Service Fabric cluster](../service-fabric/service-fabric-api-management-overview.md) as an API backend. This article shows how to configure a Service Fabric service as a custom backend using the Azure portal or Azure PowerShell. You can also configure other Azure resources or services as custom backends. 
+## About backends
 
-After creating a backend, you can reference the backend URL when [manually adding an API](add-api-manually.md) or from API Managment policies such as the he [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy.
+A *backend* (or *backend API*) in API Management is an HTTP service that implements your front-end API and its operations.
 
-https://github.com/Azure-Samples/service-fabric-api-management 
+When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing an [OpenAPI specification](import-api-from-oas.md), [SOAP API](import-soap-api.md), or certain Azure resources directly such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
+
+API Management also supports using other Azure resources such as a [Service Fabric cluster](../service-fabric/service-fabric-api-management-overview.md) or custom services as an API backend. Using these backends requires additional configuration to authorize credentials of requests to the backend service and to create API operations.
+
+After creating a backend, you can reference the backend URL when [manually adding a blank API](add-api-manually.md) and then add API operations. You can also reference the backend from the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy, to redirect an incoming request to a different backend than the one specified in the API settings for that operation.
 
 ## Prerequisites
 
-* **Tools** - Visual Studio 2019, install Service Fabric SDK, Service Fabric Explorer
+* **Windows development environment** - Install [Visual Studio 2019](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](../service-fabric/service-fabric-get-started.md).
 
 * **Service Fabric cluster** - See [Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network](../service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster.md). You can create a cluster with an existing X.509 certificate or use a new, self-signed certificate.
 
 he certificate is added to an Azure key vault.
 
-* **Sample Service Fabric app** -  Create a Web API app and deploy to the Service Fabric cluster as described in [Integrate API Management wth Service Fabric in Azure](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
+* **Sample Service Fabric app** -  Create a Web API app and deploy to the Service Fabric cluster as described in [Integrate API Management wth Service Fabric in Azure](../service-fabric/service-fabric-tutorial-deploy-api-management.md). These steps create a basic stateless ASP.NET Core Reliable Service using the default Web API project template. This creates an HTTP endpoint for your service, which you expose through Azure API Management.
 
-T
 * **API Management instance** - in at least Developer tier (for VNet) in same region as SF cluster and VNet.
 
 
@@ -96,19 +99,6 @@ Add this policy to the **Inbound processing** seciton. In `backend-id`, substitu
 ## Credentials
 
 API Management can use query parameters, client certificates, the Authorization header, or other headers to present authorization credentials to the backend service.
-
-
-
-## Use backend in policies
-
-After configuring a backend, you can use the backend in API Management policies:
-
-* Use the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. 
-* Refer to the backend ... in a [forward request policy](api-management-advanced-policies.md#ForwardRequest).
-
-The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
-
-
 
 
 ## Next steps
