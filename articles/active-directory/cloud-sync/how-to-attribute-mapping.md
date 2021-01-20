@@ -91,7 +91,7 @@ To test your attribute mapping, you can use [on-demand provisioning](how-to-on-d
 
     ![Success for provisioning](media/how-to-attribute-mapping/mapping-4.png)
 
-8. Under **Perform Action** click **View details**.  On the right, you should see the new attribute syncrhonized and the expression applied.
+8. Under **Perform Action** click **View details**.  On the right, you should see the new attribute synchronized and the expression applied.
 
   ![Perform action](media/how-to-attribute-mapping/mapping-5.png)
 
