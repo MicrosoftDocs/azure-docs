@@ -1,5 +1,5 @@
 ---
-title: Power Query Activity in Azure Data Factory 
+title: Power query activity in azure data factory 
 description: Learn how to use the Power Query activity for data wrangling features in a Data Factory pipeline
 services: data-factory
 author: kromerm
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 01/18/2021
 ---
 
-# Power Query Activity in Data Factory
+# Power query activity in data factory
 
 The Power Query activity allows you to build and execute Power Query mash-ups to execute data wrangling at scale in a Data Factory pipeline. You can create a new Power Query mash-up from the New resources menu option or by adding a Power Activity to your pipeline.
 
