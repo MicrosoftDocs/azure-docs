@@ -132,6 +132,8 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | ClientRequestId |String |The ID that uniquely identifies this request |
 | StartTime |String |The time at which the server received the request |
 | EndTime |String |The time at which the server sent a response |
+| StoreIngressSize  |Long |Size in bytes ingressed to Data Lake Store |
+| StoreEgressSize |Long |Size in bytes egressed from Data Lake Store |
 
 ### Audit logs
 Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
