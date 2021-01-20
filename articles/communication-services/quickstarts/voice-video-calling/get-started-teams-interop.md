@@ -23,9 +23,8 @@ Get started with Azure Communication Services by connecting your calling solutio
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
-
-For more information, see the following articles:
-
-- Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Learn about [calling client library capabilities](./calling-client-samples.md)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
+- Check out the [quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/chat/meeting-interop) on how to access meeting chat and send messages.
+- For more information on calling, see the following articles:
+  - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
+  - Learn about [calling client library capabilities](./calling-client-samples.md)
+  - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
