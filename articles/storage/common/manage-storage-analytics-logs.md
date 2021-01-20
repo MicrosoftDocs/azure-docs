@@ -51,23 +51,48 @@ For information about accessing the $logs container, see [Storage analytics logg
 
 ### [PowerShell](#tab/azure-powershell)
 
- You can use PowerShell on your local machine to configure Storage Logging in your storage account by using the Azure PowerShell cmdlet **Get-AzStorageServiceLoggingProperty** to retrieve the current settings, and the cmdlet **Set-AzStorageServiceLoggingProperty** to change the current settings.  
+1. Open a Windows PowerShell command window.
 
- The cmdlets that control Storage Logging use a **LoggingOperations** parameter that is a string containing a comma-separated list of request types to log. The three possible request types are **read**, **write**, and **delete**. To switch off logging, use the value **none** for the **LoggingOperations** parameter.  
+2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
- The following command switches on logging for read, write, and delete requests in the Queue service in your default storage account with retention set to five days:  
+   ```powershell
+   Connect-AzAccount
+   ```
 
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
-```  
+3. If your identity is associated with more than one subscription, then set your active subscription.
 
- The following command switches off logging for the table service in your default storage account:  
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
 
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
-```  
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
- For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
+5. Get the storage account context that defines the storage account you want to use.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account. 
+
+6. Use the **Set-AzStorageServiceLoggingProperty** to change the current log settings. The cmdlets that control Storage Logging use a **LoggingOperations** parameter that is a string containing a comma-separated list of request types to log. The three possible request types are **read**, **write**, and **delete**. To switch off logging, use the value **none** for the **LoggingOperations** parameter.  
+
+   The following command switches on logging for read, write, and delete requests in the Queue service in your default storage account with retention set to five days:  
+
+   ```powershell
+   Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context = $ctx
+   ```  
+   The following command switches off logging for the table service in your default storage account:  
+
+   ```powershell
+   Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none -Context = $ctx 
+   ```  
+
+   For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
 ### [.NET v12](#tab/dotnet)
 
@@ -118,23 +143,41 @@ For information about accessing the $logs container, see [Storage analytics logg
 
 ### [PowerShell](#tab/azure-powershell)
 
- You can use PowerShell on your local machine to configure Storage Logging in your storage account by using the Azure PowerShell cmdlet **Get-AzStorageServiceLoggingProperty** to retrieve the current settings, and the cmdlet **Set-AzStorageServiceLoggingProperty** to change the current settings.  
+1. Open a Windows PowerShell command window.
 
- The cmdlets that control Storage Logging use a **LoggingOperations** parameter that is a string containing a comma-separated list of request types to log. The three possible request types are **read**, **write**, and **delete**. To switch off logging, use the value **none** for the **LoggingOperations** parameter.  
+2. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
- The following command switches on logging for read, write, and delete requests in the Queue service in your default storage account with retention set to five days:  
+   ```powershell
+   Connect-AzAccount
+   ```
 
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
-```  
+3. If your identity is associated with more than one subscription, then set your active subscription.
 
- The following command switches off logging for the table service in your default storage account:  
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
 
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
-```  
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
- For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
+5. Get the storage account context that defines the storage account.
+
+   ```powershell
+   $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+   $ctx = $storageAccount.Context
+   ```
+
+   * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account. 
+
+6. Use the **Set-AzStorageServiceLoggingProperty** to change the current log settings. The following example changes the retention period for logs for the blob table and queue storage services to 4 days.  
+
+   ```powershell
+   Set-AzStorageServiceLoggingProperty -ServiceType Blob,Table,Queue -RetentionDays 4 -Context = $ctx
+   ```  
+
+   For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
 ### [.NET v12](#tab/dotnet)
 
