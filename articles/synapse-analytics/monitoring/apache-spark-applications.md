@@ -151,6 +151,26 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
+## Spark application comparison
+Click on **Compare applications** button and choose an application to compare performance, users can intuitively see the difference between the two applications.
+
+![compare applications](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+1. Use the mouse to hover on an application, and then the **Compare applications** icon is displayed.
+
+2. Click on the **Compare applications** icon, and the Compare applications page will pop-up.
+
+3. Click on **Choose application** button to open **Choose comparison application** page.
+
+4. In Choose comparison application page, users can choose an application from the current application list or enter the application URL. Then, click **OK** button. 
+
+   ![choose comparison application](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. The comparison result will be displayed on the compare applications page.
+
+   ![comparison result](./media/how-to-monitor-spark-applications/comparison-result.png)
+
+
 ## Next steps
 
 For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.
