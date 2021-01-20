@@ -54,7 +54,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
 $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePrivLinkService-rg'
-    Location = 'eastus'
+    Location = 'eastus2'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig
 }
