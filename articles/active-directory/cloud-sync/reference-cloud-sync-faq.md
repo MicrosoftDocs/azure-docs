@@ -92,7 +92,7 @@ Nothing.  The users will not be deleted if the OU is renamed or moved.
 
 **Q:  Does Azure AD Connect cloud sync support large groups?**
 
-Yes. Today we support up to 50K group members synchronized using the OU scope filtering. At the same time, when you use the group scope filtering, we recommend that you keep your group size to less than 1500 members. The reason for this is that even though you can sync a large group as part of group scoping filter, when you add members to that group by batches of greater than 1500, the delta synchrnonization will fail. 
+Yes. Today we support up to 50K group members synchronized using the OU scope filtering. At the same time, when you use the group scope filtering, we recommend that you keep your group size to less than 1500 members. The reason for this is that even though you can sync a large group as part of group scoping filter, when you add members to that group by batches of greater than 1500, the delta synchronization will fail. 
 
 ## Next steps 
 
