@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/19/2019
-ms.author: derisen
+ms.author: v-doeris
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
