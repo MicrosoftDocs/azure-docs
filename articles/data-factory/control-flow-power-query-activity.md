@@ -22,4 +22,4 @@ To achieve scale with your Power Query activity, ADF translates your ```M``` scr
 
 ## Next steps
 
-Learn more about data wrangling concepts using [Power Query in ADF](https://github.com/kromerm/azure-docs-pr/edit/adfdocsmark/articles/data-factory/wrangling-data-flow-tutorial.md)
+Learn more about data wrangling concepts using [Power Query in ADF](wrangling-data-flow-tutorial.md)
