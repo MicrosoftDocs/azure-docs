@@ -17,7 +17,7 @@ Microsoft Azure Attestation to provide a strong security guarantee relies on ver
 
 VBS enclaves require a TPM to provide the measurement to validate the security foundation. VBS enclaves are attested by the TPM endpoint with an addition to the request object in the protocol. 
 
-**Protocol messages**
+## Protocol messages
 
 ### Init message
 
