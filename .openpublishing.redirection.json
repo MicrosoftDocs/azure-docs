@@ -61320,7 +61320,7 @@
     },
     {
       "source_path": "articles/data-factory/wrangling-data-flow-tutorial.md.md",
-      "redirect_url": "/azure/data-factory/wrangling-tutorial.md",
+      "redirect_url": "/azure/data-factory/wrangling-tutorial",
       "redirect_document_id": true
     }
   ]
