@@ -224,6 +224,9 @@ Type `EXIT` to return to the Cloud Shell prompt.
 > [!NOTE]
 > The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
 
+> [!NOTE]
+> AAD is not supported for on-prem SQL Server, and this includes MSIs. 
+
 ### Modify connection string
 
 Remember that the same changes you made in *Web.config* or *appsettings.json* works with the managed identity, so the only thing to do is to remove the existing connection string in App Service, which Visual Studio created deploying your app the first time. Use the following command, but replace *\<app-name>* with the name of your app.

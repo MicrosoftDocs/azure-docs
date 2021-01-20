@@ -66,7 +66,7 @@ Temporary tables utilize local storage to offer fast performance.  For more info
 
 An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into dedicated SQL pool.
 
-As such, external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
+As such, external tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## Data types
 

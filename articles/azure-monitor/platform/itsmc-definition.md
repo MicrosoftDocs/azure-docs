@@ -152,7 +152,7 @@ Use the following procedure to create action groups:
     * In a case you select in the "Work Item" dropdown "Event":
     ![Screenshot that shows the ITSM Event window.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-        * If you select **"Create individual work items for each Log Entry (Configuration item field is not filled. Can result in large number of work items.)"** in the radio buttons selection, a work item will be created per each row in the search results of the log search alert query. In the payload of the work item the description property will have the row from the search results.
+        * If you select **"Create individual work items for each Log Entry (Configuration item field is not filled. Can result in large number of work items.)"** in the radio buttons selection, a work item will be created per each row in the search results of the log search alert query. The description property in the payload of the work item will contain the row from the search results.
         * If you select **"Create individual work items for each Configuration Item"** in the radio buttons selection, every configuration item in every alert will create a new work item. There can be more than one work item per configuration item in the ITSM system. This will be the same as the checking the checkbox in Incident/Alert section.
 
 10. Select **OK**.

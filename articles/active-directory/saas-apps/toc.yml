@@ -870,10 +870,10 @@
         href: instavr-viewer-tutorial.md
       - name: insuite
         href: insuite-tutorial.md
-      - name: Intacct
-        href: intacct-tutorial.md
       - name: IntelligenceBank
         href: intelligencebank-tutorial.md
+      - name: International SOS Assistance Products
+        href: international-sos-assistance-products-tutorial.md
       - name: InTime
         href: intime-tutorial.md
       - name: Intralinks
@@ -1168,6 +1168,8 @@
         href: namely-tutorial.md
       - name: Nature Research
         href: nature-research-tutorial.md
+      - name: NAVEX One
+        href: navex-one-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
@@ -1480,6 +1482,8 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
+      - name: Sage Intacct
+        href: intacct-tutorial.md
       - name: SailPoint IdentityNow
         href: sailpoint-identitynow-tutorial.md
       - name: Salesforce
@@ -2047,6 +2051,8 @@
         href: clarizen-one-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
+      - name: Cofense Recipient Sync
+        href: cofense-provision-tutorial.md
       - name: Contentful
         href: contentful-provisioning-tutorial.md
       - name: Comeet Recruiting Software
@@ -2071,16 +2077,18 @@
         href: envoy-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
-      - name: Figma
-        href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
-      - name: Fuze
-        href: fuze-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
       - name: Flock
         href: flock-provisioning-tutorial.md
       - name: Foodee
         href: foodee-provisioning-tutorial.md
+      - name: Fortes Change Cloud
+        href: fortes-change-cloud-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: g-suite-provisioning-tutorial.md
       - name: GitHub
@@ -2235,6 +2243,10 @@
         href: tic-tac-mobile-provisioning-tutorial.md
       - name: Templafy
         href: templafy-provisioning-tutorial.md
+      - name: Templafy SAML2
+        href: templafy-saml-2-provisioning-tutorial.md
+      - name: Templafy OpenID Connect
+        href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
