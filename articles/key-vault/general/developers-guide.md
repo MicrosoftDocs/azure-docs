@@ -79,19 +79,19 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or Azure RBAC (preview).
 
-**Keys API's and SDKs **
+**Keys API's and SDKs**
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|[Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Quickstart](../keys/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.keys)<br>[Quickstart](../keys/quick-create-net.md)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Quickstart](../keys/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-keys/)<br>[Quickstart](../keys/quick-create-node.md)|
 
-**Certificates API's and SDKs **
+**Certificates API's and SDKs**
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/certificate)<br>[Quickstart](../certificates/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](../certificates/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#certificate-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.certificates)<br>[Quickstart](../certificates/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-certificates-readme)<br>[Quickstart](../certificates/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[Quickstart](../certificates/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-certificates/)<br>[Quickstart](../certificates/quick-create-node.md)|
 
-**Secrets API's and SDKs **
+**Secrets API's and SDKs**
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
