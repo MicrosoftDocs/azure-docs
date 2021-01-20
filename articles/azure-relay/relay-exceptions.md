@@ -44,7 +44,7 @@ The following table lists messaging exception types and their causes. It also no
 
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indicates that a quota for a specific entity has been exceeded.
 
-For Relay, this exception wraps the [System.ServiceModel.QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception?view=dotnet-plat-ext-3.1), which indicates that the maximum number of listeners has been exceeded for this endpoint. This is indicated in the **MaximumListenersPerEndpoint** value of the exception message.
+For Relay, this exception wraps the [System.ServiceModel.QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception), which indicates that the maximum number of listeners has been exceeded for this endpoint. This is indicated in the **MaximumListenersPerEndpoint** value of the exception message.
 
 ## TimeoutException
 A [TimeoutException](/dotnet/api/system.timeoutexception) indicates that a user-initiated operation is taking longer than the operation timeout. 
