@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
@@ -602,8 +602,7 @@ veterinarian
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-> [!CAUTION]
-> To use Analyze operations, you must use a Text Analytics resource with the standard (S) pricing tier.  
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
 Create a new function called `analyzeOperationExample()`, which calls the `beginAnalyzeTasks()` function. The result will be a long running operation which will be polled for results.
 

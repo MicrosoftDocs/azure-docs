@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 01/20/2021
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -807,8 +807,7 @@ Key phrases:
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-> [!CAUTION]
-> To use the Analyze operation, make sure your Azure resource is using a standard pricing tier.
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
 Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeOperationBatch()` function. The returned `AnalyzeOperation` object will contain the `Operation` interface object for `AnalyzeOperationResult`. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
 
