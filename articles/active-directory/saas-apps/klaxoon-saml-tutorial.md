@@ -72,8 +72,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Sign-on URL** text box, type the URL:
-    `https://ms.klaxoon.com`
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.klaxoon.com`
+
+    > [!Note]
+    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Klaxoon SAML Client support team](mailto:help@klaxoon.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -82,6 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Klaxoon SAML** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
