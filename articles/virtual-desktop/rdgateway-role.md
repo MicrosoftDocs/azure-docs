@@ -3,7 +3,7 @@ title: Deploy RD Gateway role Windows Virtual Desktop - Azure
 description: How to deploy the RD Gateway role in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/21/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -63,4 +63,4 @@ To configure the RD Gateway role:
 
 ## Next steps
 
-If you want to add high availability to your RD Gateway role, follow the instructions for configuring the RD Gateway role in [Add high availability to the RD Web and Gateway web front](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).
+If you want to add high availability to your RD Gateway role, see [Add high availability to the RD Web and Gateway web front](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).
