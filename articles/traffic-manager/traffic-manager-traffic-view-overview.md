@@ -67,29 +67,29 @@ When you use Traffic View, you are billed based on the number of data points use
 
 ## FAQs
 
-* [What does Traffic View do?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+* [What does Traffic View do?](./traffic-manager-faqs.md#what-does-traffic-view-do)
 
-* [How can I benefit from using Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+* [How can I benefit from using Traffic View?](./traffic-manager-faqs.md#how-can-i-benefit-from-using-traffic-view)
 
-* [How is Traffic View different from the Traffic Manager metrics available through Azure monitor?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+* [How is Traffic View different from the Traffic Manager metrics available through Azure monitor?](./traffic-manager-faqs.md#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
 
-* [Does Traffic View use EDNS Client Subnet information?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+* [Does Traffic View use EDNS Client Subnet information?](./traffic-manager-faqs.md#does-traffic-view-use-edns-client-subnet-information)
 
-* [How many days of data does Traffic View use?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+* [How many days of data does Traffic View use?](./traffic-manager-faqs.md#how-many-days-of-data-does-traffic-view-use)
 
-* [How does Traffic View handle external endpoints?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+* [How does Traffic View handle external endpoints?](./traffic-manager-faqs.md#how-does-traffic-view-handle-external-endpoints)
 
-* [Do I need to enable Traffic View for each profile in my subscription?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+* [Do I need to enable Traffic View for each profile in my subscription?](./traffic-manager-faqs.md#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
 
-* [How can I turn off Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+* [How can I turn off Traffic View?](./traffic-manager-faqs.md#how-can-i-turn-off-traffic-view)
 
-* [How does Traffic View billing work?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
+* [How does Traffic View billing work?](./traffic-manager-faqs.md#how-does-traffic-view-billing-work)
 
 ## Next steps
 
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
+- Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

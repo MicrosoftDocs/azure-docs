@@ -155,7 +155,7 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 
 **Credit cards and monthly invoice** – Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
 
-**Free credits and monetary commitment** – Some customers elect to prepay Azure with a monetary commitment in the Enterprise Agreement or have been provided free credits for use with Azure. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
+**Free credits and Azure Prepayment** – Some customers elect to prepay Azure with Azure Prepayment (previously called monetary commitment) in the Enterprise Agreement or have been provided free credits for use with Azure. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
 
 **Billing and collections** – Publisher software license billing is presented using the customer-selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
 

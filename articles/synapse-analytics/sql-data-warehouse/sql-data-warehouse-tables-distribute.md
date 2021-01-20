@@ -63,7 +63,7 @@ Consider using the round-robin distribution for your table in the following scen
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
 
-The tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
+The tutorial [Load New York taxicab data](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
 
 ## Choosing a distribution column
 

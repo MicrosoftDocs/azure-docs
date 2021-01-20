@@ -10,7 +10,7 @@ author: likebupt
 ms.author: keli19
 ms.custom:  seodec18
 ms.date: 05/25/2018
-ms.reviewer: jmartens, mldocs
+ms.reviewer: mldocs
 ---
 
 # View and delete in-product user data from Azure AI Gallery

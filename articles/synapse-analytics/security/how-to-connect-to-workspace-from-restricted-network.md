@@ -35,7 +35,7 @@ The following screenshot shows details for the Azure Resource Manager outbound r
 
 When you're creating the other three rules, replace the value of **Destination service tag** with **AzureFrontDoor.Frontend**, **AzureActiveDirectory**, or **AzureMonitor** from the list.
 
-For more information, see [Service tags overview](/azure/virtual-network/service-tags-overview).
+For more information, see [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ## Step 2: Create private link hubs
 

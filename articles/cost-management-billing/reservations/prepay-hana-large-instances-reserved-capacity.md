@@ -223,7 +223,7 @@ The following information explains the meaning of various reservation fields.
    `SapHana`
 
   **Subscription**
-   The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement. The charges are deducted from the monetary commitment balance, if available, or charged as overage.
+   The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement. The charges are deducted from the Azure Prepayment (previously called monetary commitment) balance, if available, or charged as overage.
 
   **Scope**
    The reservation's scope should be single scope.
