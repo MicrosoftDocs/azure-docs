@@ -11,17 +11,17 @@ description: This architecture reference is a foundation using a typical enterpr
 
 # Azure Spring Cloud Reference Architecture
 
-This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework. There are two typical uses of this architecture are for internal web-applications deployed in hybrid cloud environments and externally facing web-applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
+This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework. There are two typical uses of this architecture are for internal applications deployed in hybrid cloud environments and externally facing applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
-### Private web-applications
-The architecture for private web-applications builds on the traditional hub and spoke design. This design ensures the application components are segregated from the shared services hub. The infrastructure requirements for a private web-application are in the following list:
+### Private applications
+The architecture for private applications builds on the traditional hub and spoke design. This design ensures the application components are segregated from the shared services hub. The infrastructure requirements for a private application are in the following list:
 
 * No direct egress to the public Internet except for control plane traffic
 * Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
 * Azure DevOps self-hosted build agents must be used
-* Secrets and Credentials must be stored in Azure Key Vault
+* Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
 * Adherence to at least one Security Benchmark must be enforced
@@ -56,10 +56,10 @@ The Azure services that are used in this reference architecture are in the follo
 * [Azure Pipelines][5]: a fully featured Continuous Integration/Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud
 
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
-![Reference architecture diagram for private web-applications](./media/spring-cloud-reference-architecture/architecture-private.png)
+![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private.png)
 
-### Public web-applications
-The architecture for public web-applications builds on the traditional hub and spoke design. This architecture ensures the application components are segregated from the shared services hub. The infrastructure requirements for a public web-application are in the following list:
+### Public applications
+The architecture for public applications builds on the traditional hub and spoke design. This architecture ensures the application components are segregated from the shared services hub. The infrastructure requirements for a public application are in the following list:
 
 * Ingress traffic must be managed by at least Application Gateway or Azure Front Door
 * Azure DDoS Protection standard must be enabled
@@ -103,12 +103,12 @@ The Azure services that are used in this reference architecture are in the follo
 
 * [Azure Pipelines][5]: a fully featured Continuous Integration/Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud
 
-* [Azure Application Gateway][6]: a load balancer responsible for web traffic with TLS offload operating at layer 7
+* [Azure Application Gateway][6]: a load balancer responsible for application traffic with TLS offload operating at layer 7
 
-* [Azure web-application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of a web-applications from common exploits and vulnerabilities
+* [Azure application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of a applications from common exploits and vulnerabilities
 
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
-![Reference architecture diagram for public web-applications](./media/spring-cloud-reference-architecture/architecture-public.png)
+![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
 
 ## Well-Architected Framework Considerations
 ### Cost Optimization
@@ -176,16 +176,23 @@ The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials 
 
 ## Appendix
 
-### Egress Rules
+### Azure Spring Cloud Infrastructure Rules
 
 | Service Tag/FQDN | Port | Use |
 | :--------------- | :--- | :-- |
-| AzureCloud | TCP: 443 | Azure Spring Cloud Service Management |
 | AzureCloud | UDP: 1194 | Azure Kubernetes Cluster Management |
+| AzureCloud | TCP: 443 | Azure Spring Cloud Service Management |
 | AzureCloud | TCP: 9000 | Azure Kubernetes Cluster Management |
-| Azure Container Registry (*.azure.io) | TCP: 443 | Azure Container Registry |
-| Azure Storage (*.file.core.windows.net) | TCP: 445 | Azure File Storage |
 | ntp.ubuntu.com | UDP: 123 | NTP synchronization for Linux nodes |
+| Azure Container Registry (*.azure.io) | TCP: 443 | Azure Container Registry |
+| Azure Storage (*.core.windows.net) | TCP: 443 | Azure File Storage |
+| Azure Storage (*.core.windows.net) | TCP: 445 | Azure File Storage |
+| Azure Event Hub (*.servicebus.windows.net) | TCP: 443 | Azure Event Hub |
+
+### Azure Spring Cloud Application Rules
+
+| Service Tag/FQDN | Port | Use |
+| :--------------- | :--- | :-- |
 | *.azmk8s.io | TCP: 443 | Azure Kubernetes Cluster Management |
 | mcr.microsoft.com | TCP: 443 | Microsoft Container Registry (MCR) |
 | *.cdn.mscr.io | TCP: 443 | MCR storage backed by Azure Content Delivery Network (CDN) |
@@ -194,6 +201,9 @@ The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials 
 | login.microsoftonline.com | TCP: 443 | Azure Active Directory authentication |
 | packages.microsoft.com | TCP: 443 | Microsoft Packages Repository |
 | acs-mirror.azureedge.net | TCP: 443 | Repository containing binaries for Kubenet and Azure Container Networking Interface (CNI) |
+| mscrl.microsoft.com | TCP: 443 | Microsoft Certificate Revocation List |
+| crl.microsoft.com | TCP: 443 | Microsoft Certificate Revocation List |
+| crl3.digicert.com | TCP: 443 | Microsoft Certificate Revocation List |
 
 <!-- Reference links in article -->
 [1]: /azure/spring-cloud/
