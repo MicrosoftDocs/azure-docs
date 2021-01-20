@@ -22,9 +22,9 @@ For other scenarios, see the [Database Migration Guide](https://datamigration.mi
 
 To migrate your Oracle database to SQL Server on Azure VM, you need:
 
-- to verify your source environment is supported.
-- to download [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
-- a target [SQL Server VM](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
+- To verify your source environment is supported.
+- To download [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- A target [SQL Server VM](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
 ## Pre-migration
 
@@ -42,18 +42,18 @@ Use the [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to identif
 
 To use the MAP Toolkit to perform an inventory scan, follow these steps: 
 
-1. Open the [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883)
-1. Select **Create/Select database**
+1. Open the [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883).
+1. Select **Create/Select database**.
 
    ![Select database](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
 1. Select **Create an inventory database**, enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**. 
 
-   ![Create inventory database](./media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png)
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Create an inventory database":::
 
 1. Select **Collect inventory data** to open the **Inventory and Assessment Wizard**. 
 
-   [Collect Inventory Data](./media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png)
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="Create an inventory database":::
 
 1. In the **Inventory and Assessment Wizard**, choose **Oracle** and then select **Next**. 
 
@@ -67,7 +67,7 @@ To use the MAP Toolkit to perform an inventory scan, follow these steps:
 
     ![Enter credentials](./media/oracle-to-sql-on-azure-vm-guide/choose-credentials.png)
 
-1. Set the order of the credentials. 
+1. Set the order of the credentials, and then select **Next**. 
 
    ![Set credential order](./media/oracle-to-sql-on-azure-vm-guide/set-credential-order.png)  
 
@@ -93,17 +93,17 @@ To use the MAP Toolkit to perform an inventory scan, follow these steps:
 
 ### Assess
 
-After identifying the data sources use the [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instance(s) migrating to the SQL Server VM so that you understand the gaps between the two. Using the migration assistant, you can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
+After identifying the data sources, use the [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instance(s) migrating to the SQL Server VM so that you understand the gaps between the two. Using the migration assistant, you can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
 
 To create an assessment, follow these steps: 
 
 1. Open the  [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
-1.  Select **File** and then choose **New Project**. 
-1.  Provide a project name, a location to save your project, and then select a SQL Server migration target from the drop-down. Select **OK**. 
+1. Select **File** and then choose **New Project**. 
+1. Provide a project name, a location to save your project, and then select a SQL Server migration target from the drop-down. Select **OK**. 
 
    ![New project](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
 
-1.  Select **Connect to Oracle**, provide the connection details, and then select **Connect**.
+1. Select **Connect to Oracle**, provide the connection details, and then select **Connect**.
 
    ![Connect to Oracle](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
 
@@ -141,7 +141,7 @@ Validate the default data type mappings and change them based on requirements if
 To convert the schema, follow these steps: 
 
 1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and choose **Add statement**.
-1. Choose **Connect to SQL Server** from the top-line navigation bar and provide connection details. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
+1. Choose **Connect to SQL Server** from the top-line navigation bar and provide connection details for your SQL Server on Azure VM. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
 
    ![Connect to SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql.png)
 
@@ -155,7 +155,7 @@ To convert the schema, follow these steps:
 
    You can save the project locally for an offline schema remediation exercise. You can do so by selecting **Save Project** from the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you can publish the schema to SQL Server.
 
-          
+
 ## Migrate
 
 After you have the necessary prerequisites in place and have completed the tasks associated with the **Pre-migration** stage, you are ready to perform the schema and data migration. Migration involves two steps – publishing the schema and migrating the data. SSMA for Oracle is the correct tool to use for this process.

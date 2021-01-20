@@ -48,13 +48,13 @@ To create an assessment, follow these steps:
 
    ![New Project](./media/oracle-to-sql-database-guide/new-project.png)
 
-1. Enter in values for the DB2 connection details on the Connect to **Connect to Oracle** dialog box.
+1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
 1. Right-click the Oracle database you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
-![Create Report](./media/oracle-to-sql-database-guide/create-report.png)
+   ![Create Report](./media/oracle-to-sql-database-guide/create-report.png)
 
 1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
@@ -109,7 +109,7 @@ To publish your schema and migrate your data, follow these steps:
 
 1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
 
-  ![Migrate Data](./media/oracle-to-sql-database-guide/migrate-data.png)
+   ![Migrate Data](./media/oracle-to-sql-database-guide/migrate-data.png)
 
 1. Provide connection details for both Oracle and Azure SQL Database.
 1. View the **Data Migration report**.

@@ -14,7 +14,7 @@ ms.date: 11/06/2020
 # Migration guide: Oracle to SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you to migrate your DB2 databases to Azure SQL Managed Instance using SQL Server Migration Assistant for DB2. 
+This guide teaches you to migrate your Oracle databases to Azure SQL Managed Instance using SQL Server Migration Assistant for Oracle. 
 
 For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
@@ -48,15 +48,15 @@ To create an assessment, follow these steps:
 
    ![New Project](./media/oracle-to-managed-instance-guide/new-project.png)
 
-1. Enter in values for the DB2 connection details on the Connect to **Connect to Oracle** dialog box.
+1. Enter in values for the Oracle connection details on the Connect to **Connect to Oracle** dialog box.
 
    ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
 
 1. Right-click the Oracle database you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
-![Create Report](./media/oracle-to-managed-instance-guide/create-report.png)
+   ![Create Report](./media/oracle-to-managed-instance-guide/create-report.png)
 
-1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
+1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of Oracle objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
 
@@ -82,7 +82,7 @@ To convert the schema, follow these steps:
 1. (Optional) Add dynamic or ad-hoc queries to statements. Right-click the node, and then choose **Add statements**.
 1. Select **Connect to Azure SQL Managed Instance**. 
     1. Enter connection details to connect your database in Azure SQL Managed Instance.
-    1. Choose your target SQL Managed Instance from the drop-down.
+    1. Choose your target database from the drop-down.
     1. Select **Connect**.
 
     ![Connect to SQL Managed Instance](./media/oracle-to-managed-instance-guide/connect-to-sql-database.png)
@@ -109,7 +109,7 @@ To publish your schema and migrate your data, follow these steps:
 
 1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
 
-  ![Migrate Data](./media/oracle-to-managed-instance-guide/migrate-data.png)
+   ![Migrate Data](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
 1. Provide connection details for both Oracle and Azure SQL Managed Instance.
 1. View the **Data Migration report**.

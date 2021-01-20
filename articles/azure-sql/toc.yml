@@ -1261,12 +1261,13 @@
     items: 
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
-      - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
       - name: From DB2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
       - name: From Oracle
         href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+
         
 - name: Reference
   items:
