@@ -58,7 +58,7 @@ If a user's device has been lost or stolen, you can block Azure AD Multi-Factor 
 
 ### Block a user
 
-To block a user, complete the following steps:
+To block a user, complete the following steps, or watch [this short video](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
