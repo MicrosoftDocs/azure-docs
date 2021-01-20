@@ -89,13 +89,13 @@ Before you create resources with Azure Logic Apps, estimate your costs by using 
 
 1. On the [Azure pricing calculator page](https://azure.microsoft.com/pricing/calculator/), from the left menu, select **Integration** > **Azure Logic Apps**.
 
-   ![Screenshot that shows the Azure pricing calculator with "Azure Logic Apps" selected.](./media/plan-manage-costs-logic-apps/add-azure-logic-apps-pricing-calculator.png)
+   ![Screenshot that shows the Azure pricing calculator with "Azure Logic Apps" selected.](./media/plan-manage-costs/add-azure-logic-apps-pricing-calculator.png)
 
 1. Scroll down the page until you can view the Azure Logic Apps pricing calculator. In the various sections for Azure resources that are directly related to Azure Logic Apps, enter the numbers of resources that you plan to use and the number of intervals over which you might use those resources.
 
    This screenshot shows an example cost estimate by using the calculator:
 
-   ![Example showing estimated cost in the Azure Pricing calculator](./media/plan-manage-costs-logic-apps/example-logic-apps-pricing-calculator.png)
+   ![Example showing estimated cost in the Azure Pricing calculator](./media/plan-manage-costs/example-logic-apps-pricing-calculator.png)
 
 1. To update your cost estimates as you create and use new related resources, return to this calculator, and update those resources here.
 
