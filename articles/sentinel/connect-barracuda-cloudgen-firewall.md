@@ -21,9 +21,6 @@ ms.author: yelevin
 
 The Barracuda CloudGen Firewall (CGFW) connector lets you easily connect your Barracuda CGFW logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's network and improves your security operation capabilities.
 
-
-
-
 ## Prerequisites
 
 - Read and write permissions to the Azure Sentinel workspace.
