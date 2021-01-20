@@ -61,7 +61,7 @@ Customers have four ways of interacting with the provisioning logs:
 1. Querying the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
 1. Downloading the provisioning logs as a CSV file or json.
 
-## Accessing the provisioning logs through the Azure portal
+## Access the logs from the Azure portal
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
 
 ![Provisioning logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
@@ -211,7 +211,7 @@ The **modified properties** shows the old value and new value. In cases where th
 
 The **summary** tab provides an overview of what happened and identifiers for the object in the source and target system. 
 
-## Download provisioning logs as a CSV or JSON file
+## Download logs as CSV or JSON
 
 You can download the provisioning logs for use later by navigating to the logs in the Azure portal and clicking download. The file will be filtered based on the filter criteria you have selected. You may want to make the filters as specific as possible to reduce the time it takes to download and the size of the download. The CSV download is broken up into three files:
 
@@ -225,11 +225,11 @@ To open the Json file, use a text editor such as [Microsoft Visual Studio Code](
 #### Prettifying the JSON file
 The JSON file is downloaded in minified format to reduce the size of the download. This, in turn, can make the payload difficult to read. Check out two options to prettify the file:
 
-**1. Use Visual Studio Code to format the JSON**
+1. Use Visual Studio Code to format the JSON
 
 Follow the instructions defined [here](https://code.visualstudio.com/docs/languages/json#_formatting) to format the JSON file using Visual Studio Code.
 
-**2. Use PowerShell to format the JSON**
+2. Use PowerShell to format the JSON
 
 This script will output the json in a prettified format with tabs and spaces. 
 
@@ -247,11 +247,11 @@ First, [read the JSON file](https://docs.microsoft.com/powershell/module/microso
 
 Now you can parse the data per your scenario. Here are a couple examples: 
 
-**1. Output all jobIDs in the JsonFile**
+1. Output all jobIDs in the JsonFile
 
 `foreach ($provitem in $JSONContent) { $provitem.jobId }`
 
-**2. Output all changeIds for events where the action was "create"** 
+2. Output all changeIds for events where the action was "create"
 
 `foreach ($provitem in $JSONContent) { `
 `   if ($provItem.action -eq 'Create') {`
