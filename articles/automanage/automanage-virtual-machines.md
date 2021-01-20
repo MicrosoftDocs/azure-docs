@@ -103,6 +103,8 @@ In the Azure portal experience, when you are enabling Automanage on your VMs, th
 
 The Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** roles to the subscription(s) containing the machine(s) you onboard to Automanage. You may use the same Automanage Account on machines across multiple subscriptions, which will grant that Automanage Account **Contributor** and **Resource Policy Contributor** permissions on all subscriptions.
 
+If your VM is connected to a Log Analytics workspace in another subscription, the Automanage Account will be granted both **Contributor** and **Resource Policy Contributor** in that other subscription as well.
+
 > [!NOTE]
 > You need to have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
