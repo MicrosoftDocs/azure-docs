@@ -28,7 +28,7 @@ ms.author: victorh
 | Redirect configurations |100<sup>1</sup>| |
 | Maximum number of rewrite rule sets |400| |
 | Header or URL configuration per rewrite rule set|40| |
-| Maximum numeber of conditions per rewrite rule set|40| |
+| Maximum number of conditions per rewrite rule set|40| |
 | Concurrent WebSocket connections |Medium gateways 20k<br> Large gateways 50k| |
 | Maximum URL length|32KB| |
 | Maximum header size for HTTP/2 |4KB| |
