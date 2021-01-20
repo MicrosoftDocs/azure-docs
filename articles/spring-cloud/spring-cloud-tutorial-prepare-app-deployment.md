@@ -279,6 +279,9 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
 ### Distributed Tracing
 
+You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-tutorial-distributed-tracing.md).
+
+#### Spring Boot 2.2/2.3
 Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` dependencies in the dependencies section of your pom.xml file:
 
 ```xml
@@ -292,7 +295,15 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
 </dependency>
 ```
 
- You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-tutorial-distributed-tracing.md).
+#### Spring Boot 2.4
+Include the following `spring-cloud-sleuth-zipkin` dependency in the dependencies section of your pom.xml file:
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+```
 
 ## See also
 * [Analyze application logs and metrics](./diagnostic-services.md)
