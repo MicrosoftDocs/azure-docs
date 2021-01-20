@@ -33,14 +33,17 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
-1. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
+
+2. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/manage-storage-analytics-logs/storage-enable-metrics-00.png)
 
-1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
+3. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
-    ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
-1. Click **Save**.
+   > [!div class="mx-imgBorder"]
+   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)    
+
+4. Click **Save**.
 
 The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
@@ -66,19 +69,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none
 
  For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET](#tab/dotnet)
-
-In addition to using the Azure portal or the Azure PowerShell cmdlets to control Storage Logging, you can also use one of the Azure Storage APIs. For example, if you are using a .NET language you can use the Storage Client Library.
-
- For more information about using a .NET language to configure Storage Logging, see [Storage Client Library Reference](/previous-versions/azure/dn261237(v=azure.100)).  
-
- For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).    
-
-##### .NET v12 SDK
+### [.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-##### .NET v11 SDK
+### [.NET v11](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -101,7 +96,69 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## Update log settings
 
-Put something here.
+You can update log settings. For example, the retention period that you hold on to logs.
+
+### [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
+2. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
+
+    ![Diagnostics menu item under MONITORING in the Azure portal](./media/manage-storage-analytics-logs/storage-enable-metrics-00.png)
+
+3. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control.
+
+   > [!div class="mx-imgBorder"]
+   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
+   
+4. Click **Save**.
+
+The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
+
+For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+
+### [PowerShell](#tab/azure-powershell)
+
+ You can use PowerShell on your local machine to configure Storage Logging in your storage account by using the Azure PowerShell cmdlet **Get-AzStorageServiceLoggingProperty** to retrieve the current settings, and the cmdlet **Set-AzStorageServiceLoggingProperty** to change the current settings.  
+
+ The cmdlets that control Storage Logging use a **LoggingOperations** parameter that is a string containing a comma-separated list of request types to log. The three possible request types are **read**, **write**, and **delete**. To switch off logging, use the value **none** for the **LoggingOperations** parameter.  
+
+ The following command switches on logging for read, write, and delete requests in the Queue service in your default storage account with retention set to five days:  
+
+```powershell
+Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
+```  
+
+ The following command switches off logging for the table service in your default storage account:  
+
+```powershell
+Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
+```  
+
+ For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
+
+### [.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
+
+### [.NET v11](#tab/dotnet11)
+
+```csharp
+var storageAccount = CloudStorageAccount.Parse(connStr);  
+var queueClient = storageAccount.CreateCloudQueueClient();  
+var serviceProperties = queueClient.GetServiceProperties();  
+
+serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
+serviceProperties.Logging.RetentionDays = 2;  
+
+queueClient.SetServiceProperties(serviceProperties);  
+``` 
+
+---
+
+> [!NOTE]
+> Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
+>
+
 
 <a id="download-storage-logging-log-data"></a>
 
@@ -134,3 +191,5 @@ When you have downloaded your log data, you can view the log entries in the file
 
 * Find more details about [metrics, logging, and billing](storage-analytics.md) for Storage Analytics.
 * [Configure Storage Analytics metrics](storage-monitor-storage-account.md).
+* For more information about using a .NET language to configure Storage Logging, see [Storage Client Library Reference](/previous-versions/azure/dn261237(v=azure.100)). 
+* For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).

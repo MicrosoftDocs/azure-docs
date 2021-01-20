@@ -35,12 +35,13 @@ The [Azure portal](https://portal.azure.com) doesn't currently enable you to con
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
 
 2. Select **Diagnostics** in the **MONITORING** section of the menu blade.
-
-    ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
+   
+   ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
 
 3. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
 
-    ![MonitoringOptions](./media/manage-storage-analytics-metrics/storage-enable-metrics-01.png)
+   > [!div class="mx-imgBorder"]
+   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png) 
 
    To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
@@ -92,11 +93,11 @@ Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context
 
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see [Install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET](#tab/dotnet)
+### [.NET v12](#tab/dotnet)
 
-In addition to using the Azure portal or the Azure PowerShell cmdlets to control storage metrics, you can also use one of the Azure Storage APIs. For example, if you use a .NET language you can use the Azure Storage client library.  
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-The classes **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**, and **CloudFileClient** all have methods such as **SetServiceProperties** and **SetServicePropertiesAsync** that take a **ServiceProperties** object as a parameter. You can use the **ServiceProperties** object to configure storage metrics. For example, the following C# snippet shows how to change the metrics level and retention days for the hourly queue metrics:  
+### [.NET v11](#tab/dotnet11)  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -108,6 +109,8 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
+
+---
 
 For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage).  
 
@@ -129,13 +132,13 @@ Use the following procedure to choose which storage metrics to view in a metrics
 
    ![Chart selection in Azure portal](./media/manage-storage-analytics-metrics/stg-customize-chart-00.png)
 
-1. Click anywhere within the chart to edit the chart.
+2. Click anywhere within the chart to edit the chart.
 
-1. Next, select the **Time Range** of the metrics to display in the chart, and the **service** (blob, queue, table, file) whose metrics you wish to display. Here, the past week's metrics are selected to display for the blob service:
+3. Next, select the **Time Range** of the metrics to display in the chart, and the **service** (blob, queue, table, file) whose metrics you wish to display. Here, the past week's metrics are selected to display for the blob service:
 
    ![Time range and service selection in the Edit Chart blade](./media/manage-storage-analytics-metrics/storage-edit-metric-time-range.png)
 
-1. Select the individual **metrics** you'd like displayed in the chart, then click **OK**.
+4. Select the individual **metrics** you'd like displayed in the chart, then click **OK**.
 
    ![Individual metric selection in Edit Chart blade](./media/manage-storage-analytics-metrics/storage-edit-metric-selections.png)
 
