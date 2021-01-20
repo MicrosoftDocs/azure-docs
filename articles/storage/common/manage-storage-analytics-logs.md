@@ -171,17 +171,17 @@ For information about accessing the $logs container, see [Storage analytics logg
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account. 
 
-6. Use the **Set-AzStorageServiceLoggingProperty** to change the current log settings. The following example changes the retention period for logs for the blob table and queue storage services to 4 days.  
+6. Use the **Set-AzStorageServiceLoggingProperty** to change the current log settings. The following example changes the retention period for logs for the blob and queue storage services to 4 days.  
 
    ```powershell
-   Set-AzStorageServiceLoggingProperty -ServiceType Blob,Table,Queue -RetentionDays 4 -Context = $ctx
+   Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context = $ctx
    ```  
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
 ### [.NET v12](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
 ### [.NET v11](#tab/dotnet11)
 
