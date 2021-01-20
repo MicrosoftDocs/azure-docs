@@ -6,7 +6,7 @@ author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
 ms.service: private-link
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 01/20/2021
 ms.author: allensu
 
 ---
