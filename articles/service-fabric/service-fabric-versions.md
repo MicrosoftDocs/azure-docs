@@ -16,8 +16,64 @@ Refer to the following documents for details on how to keep your cluster running
 - [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md)
 - [Upgrade the Service Fabric version that runs on your standalone Windows Server cluster](service-fabric-cluster-upgrade-windows-server.md)
 
-## Supported versions
 
+## Unsupported Versions
+
+### Upgrade Alert for versions between 5.7 and below 6.3.63.*
+To improve security and availability, Azure infrastructure will make a change that may affect Service Fabric customers. **All Service Fabric clusters on unsupported versions from 5.7 to 6.3. are impacted**. Addressing the change requires an update to the Service Fabric runtime, which is already available for all supported Service Fabric versions in all regions.
+
+We request and recommend taking action to upgrade to the latest supported versions by **Jan 19,2021** to avoid service disruptions 
+If you have a support plan and you need technical help, please reach out to us via Azure support channels by opening a support request for Azure Service Fabric and mention this context in the support ticket.
+
+#### Impact If NOT Upgraded to supported versions
+
+**Azure Service Fabric clusters which run on unsupported versions from 5.7 to 6.3.63.\* will not be able to come up and will be unavailable** if you have not upgraded to one of below supported versions by January 19,2021.
+
+#### Required Action
+Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment.
+
+  ###### Supported Service Fabric Runtime Versions
+   If you are on NOT on the below listed supported versions of Service Fabric, please upgrade to one of these versions which already contain the necessary changes to prevent downtime to cluster. **Note:** All release versions of 7.2 includes the necessary changes.
+  
+  | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.* |
+  | Ubuntu 16 | 7.0.* | 7.0.472.1  |
+  | Linux Ubuntu 16.04 | 7.1.* | 7.1.455.1  |
+  | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7.2.* | 7.2.* |
+  | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
+ 
+### Upgrade Alert for versions greater than 6.3 
+To improve security and availability, Azure infrastructure will make a change that may affect Service Fabric customers. **All Service Fabric clusters which use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), run on unsupported versions greater than 6.3 and below 7.0 and incompatible supported versions from 7.0 onwards are impacted**. Addressing the change requires an update to the Service Fabric runtime, which is already available for all supported Service Fabric versions in all regions.
+
+ #### Impact If NOT Upgraded to supported versions
+  Azure Service Fabric clusters which **use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) feature for Containers and runs on versions greater than 6.3** that do not include changes will experience loss of functionality  or service disruptions if NOT upgraded to one of below supported versions by **January 19,2021**.
+ 
+  - **For clusters running a version of Service Fabric greater than 6.3 NOT using Open Networking feature**, the cluster will remain up, however the Open Networking feature for Containers clusters, will cease functioning which could cause service interruptions for your workloads.
+
+ - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
+  
+#### Required Action
+Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment. 
+ 
+ ###### Supported Service Fabric Runtime Versions
+ If you are on NOT on the below listed supported versions of Service Fabric, please upgrade to one of these versions which already contain the necessary changes to prevent loss of functionality.  **Note:** All release versions of 7.2 includes the necessary changes.
+ 
+  | OS | Current Service Fabric runtime in the cluster | CU/Patch release  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.* |
+  | Linux Ubuntu 16.04 | 7.0.* | 7.0.472.1  |
+  | Linux Ubuntu 16.04 | 7.1.* | 7.1.455.1  |
+  | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7.2.* | 7.2.* |
+  | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
+
+## Supported versions
 The following table lists the versions of Service Fabric and their support end dates.
 
 | Service Fabric runtime in the cluster | Can upgrade directly from cluster version |Compatible SDK or NuGet package version | End of support |
@@ -49,6 +105,7 @@ The following table lists the versions of Service Fabric and their support end d
 | 7.2.413.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 | 7.2.432.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 | 7.2.433.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
+| 7.2.445.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -79,7 +136,7 @@ The following table lists the version names of Service Fabric and their correspo
 | 5.5 CU1 | 5.5.216.0    | NA |
 | 5.5 CU2 |	5.5.219.0	 | NA |
 | 5.5 CU3 | 5.5.227.0	 | NA |
-| 5.5 CU4 | 5.5.232.0 	 | NA |
+| 5.5 CU4 | 5.5.232.0 | NA |
 | 5.6 RTO |	5.6.204.9494 | NA |
 | 5.6 CU2 | 5.6.210.9494 | NA |
 | 5.6 CU3 |	5.6.220.9494 | NA |
@@ -124,8 +181,9 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
-| 7.1 CU8 | 7.1.503.9590 | NA |
+| 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
 | 7.2 RTO | 7.2.413.9590 | NA |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
 | 7.2 CU3 | 7.2.433.9590 | NA |
+| 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 

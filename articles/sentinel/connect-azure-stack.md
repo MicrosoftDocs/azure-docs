@@ -31,8 +31,8 @@ After you connect Azure Stack Hub machines, choose from a gallery of dashboards 
 
 Add the **Azure Monitor, Update, and Configuration Management** virtual machine extension to the virtual machines running on your Azure Stack Hub. 
 
-1. In a new browser tab, log into your [Azure Stack Hub portal](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Go to the **Virtual machines** page, select the virtual machine that you want to protect with Azure Sentinel. For information on how to create a virtual machine on Azure Stack Hub, see [Create a Windows server VM with the Azure Stack Hub portal](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [Create a Linux server VM by using the Azure Stack Hub portal](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+1. In a new browser tab, log into your [Azure Stack Hub portal](/azure-stack/user/azure-stack-use-portal#access-the-portal).
+2. Go to the **Virtual machines** page, select the virtual machine that you want to protect with Azure Sentinel. For information on how to create a virtual machine on Azure Stack Hub, see [Create a Windows server VM with the Azure Stack Hub portal](/azure-stack/user/azure-stack-quick-windows-portal) or [Create a Linux server VM by using the Azure Stack Hub portal](/azure-stack/user/azure-stack-quick-linux-portal).
 3. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 4. Click the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
 5. Select the **Azure Monitor, Update, and Configuration Management** extension and click **Create**. The **Install extension** configuration window opens.

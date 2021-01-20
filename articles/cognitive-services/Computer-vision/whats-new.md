@@ -8,13 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 01/13/2021
 ms.author: pafarley
 ---
 
 # What's new in Computer Vision
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
+
+## January 2021
+
+### Spatial analysis container update
+
+A new version of the [spatial analysis container](spatial-analysis-container.md) has been released with a new feature set. This Docker container lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. 
+
+* [Spatial analysis operations](spatial-analysis-operations.md) can be now configured to detect if a person is wearing a protective face covering such as a mask. 
+    * A mask classifier can be enabled for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations by configuring the `ENABLE_FACE_MASK_CLASSIFIER` parameter.
+    * The attributes `face_mask` and `face_noMask` will be returned as metadata with confidence score for each person detected in the video stream
+
 
 ## October 2020
 
@@ -75,7 +86,7 @@ You now have the option to use version 3.0 of the Read API to extract printed or
 * Confidence score for each extracted word
 * Support for both Spanish and English languages with the additional language parameter
 
-Follow an [Extract text quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) to get starting using the 3.0 API.
+Follow an [Extract text quickstart](./quickstarts/csharp-hand-text.md?tabs=version-3) to get starting using the 3.0 API.
 
 ## Cognitive Service updates
 

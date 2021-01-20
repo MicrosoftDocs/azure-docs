@@ -553,10 +553,10 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 This command creates the `myResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the `az group export` command. Edit your JSON template to specify the resource names, or [create a parameters.json file](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) that specifies the resource names.
 
-To create an environment from your template, use [az group deployment create](/cli/azure/group/deployment) as follows:
+To create an environment from your template, use [az deployment group create](/cli/azure/deployment/group) as follows:
 
 ```azurecli
-az group deployment create \
+az deployment group create \
     --resource-group myNewResourceGroup \
     --template-file myResourceGroup.json
 ```

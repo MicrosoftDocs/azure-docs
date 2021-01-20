@@ -41,6 +41,3 @@ The number of training images per project and tags per project are expected to i
 |Max regions per object detection training image|300|300|
 |Max tags per classification image|100|100|
 
-> [!NOTE]
-> Images smaller than than 256 pixels will be accepted but upscaled.
-> Image aspect ratio should not be larger than 25

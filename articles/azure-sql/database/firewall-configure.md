@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
@@ -16,7 +16,7 @@ ms.date: 06/17/2020
 # Azure SQL Database and Azure Synapse IP firewall rules
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-When you create a new server in Azure SQL Database or Azure Synapse Analytics named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
+When you create a new server in Azure SQL Database or Azure Synapse Analytics named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](../managed-instance/connect-application-instance.md).
@@ -37,6 +37,9 @@ You can configure server-level IP firewall rules by using the Azure portal, Powe
 
 - To use the portal or PowerShell, you must be the subscription owner or a subscription contributor.
 - To use Transact-SQL, you must connect to the *master* database as the server-level principal login or as the Azure Active Directory administrator. (A server-level IP firewall rule must first be created by a user who has Azure-level permissions.)
+
+> [!NOTE]
+> By default, during creation of a new logical SQL server from the Azure portal, the **Allow Azure Services and resources to access this server** setting is set to **No**.
 
 ### Database-level IP firewall rules
 
@@ -264,7 +267,7 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 ## Next steps
 
 - Confirm that your corporate network environment allows inbound communication from the compute IP address ranges (including SQL ranges) that are used by the Azure datacenters. You might have to add those IP addresses to the allow list. See [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).  
-- For a quickstart about creating a server-level IP firewall rule, see [Create a single database in Azure SQL Database](single-database-create-quickstart.md).
+- See our quickstart about [creating a single database in Azure SQL Database](single-database-create-quickstart.md).
 - For help with connecting to a database in Azure SQL Database from open-source or third-party applications, see [Client quickstart code samples to Azure SQL Database](connect-query-content-reference-guide.md#libraries).
 - For information about additional ports that you may need to open, see the "SQL Database: Outside vs inside" section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md)
 - For an overview of Azure SQL Database security, see [Securing your database](security-overview.md).

@@ -4,6 +4,7 @@ description: This article describes how to install and configure Trend Micro sec
 author: axayjo
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/20/2018

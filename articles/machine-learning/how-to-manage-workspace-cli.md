@@ -25,6 +25,10 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
 ## Connect the CLI to your Azure subscription
 
 > [!IMPORTANT]
@@ -70,6 +74,8 @@ The Azure Machine Learning workspace relies on the following Azure services or e
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
+
+Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
 
 ### Create a resource group
 

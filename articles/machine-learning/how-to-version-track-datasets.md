@@ -1,7 +1,7 @@
 ---
 title: Dataset versioning
 titleSuffix: Azure Machine Learning
-description: Learn how to best version your datasets and how versioning works with machine learning pipelines.
+description: Learn how to version machine learning datasets and how versioning works with machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, data4ml
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
 ---
 
-# Version and track datasets in experiments
+# Version and track Azure Machine Learning datasets
 
 In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 
@@ -150,7 +150,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## Track datas in your experiments
+## Track data in your experiments
 
 Azure Machine Learning tracks your data throughout your experiment as input and output datasets.  
 
@@ -163,9 +163,7 @@ The following are scenarios where your data is tracked as an **input dataset**.
 The following are scenarios where your data is tracked as an **output dataset**.  
 
 * Pass an `OutputFileDatasetConfig` object through either the `outputs` or `arguments` parameter when submitting an experiment run. `OutputFileDatasetConfig` objects can also be used to persist data between pipeline steps. See [Move data between ML pipeline steps.](how-to-move-data-in-out-of-pipelines.md)
-    > [!TIP]
-    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) is a public preview class containing [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) preview features that may change at any time.
-
+  
 * Register a dataset in your script. For this scenario, the name assigned to the dataset when you registered it to the workspace is the name displayed. In the following example, `training_ds` is the name that would be displayed.
 
     ```Python

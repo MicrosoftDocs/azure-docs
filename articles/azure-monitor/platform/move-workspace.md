@@ -26,7 +26,7 @@ The workspace source and destination subscriptions must exist within the same Az
 
 ## Workspace move considerations
 - Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. 
-- Workspace keys are re-generated with workspace move (primary and secondary). if you key your workspace key is a vault, Update them with the new generated keys. 
+- Workspace keys (both primary and secondary) are re-generated with workspace move operation. If you keep a copy of your workspace keys in key vault, update them with the new keys generated after the workspace move. 
 - Connected agents will remain connected and keep send data to the workspace after the move. 
 - Since the move operation requires that there are no Linked Services from the workspace, solutions that rely on that link must be removed to allow the workspace move. Solutions that must be removed before you can unlink your automation account:
   - Update Management

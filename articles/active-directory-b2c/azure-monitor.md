@@ -21,7 +21,7 @@ Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and
 You can route log events to:
 
 * An Azure [storage account](../storage/blobs/storage-blobs-introduction.md).
-* A [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) (to analyze data, create dashboards, and alert on specific events).
+* A [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (to analyze data, create dashboards, and alert on specific events).
 * An Azure [event hub](../event-hubs/event-hubs-about.md) (and integrate with your Splunk and Sumo Logic instances).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -136,9 +136,9 @@ After you've deployed the template and waited a few minutes for the resource pro
 
 Diagnostic settings define where logs and metrics for a resource should be sent. Possible destinations are:
 
-- [Azure storage account](../azure-monitor/platform/resource-logs-collect-storage.md)
-- [Event hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) solutions
-- [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Azure storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Event hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) solutions
+- [Log Analytics workspace](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 In this example, we use the Log Analytics workspace to create a dashboard.
 
@@ -176,7 +176,7 @@ Now you can configure your Log Analytics workspace to visualize your data and co
 Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. From **Log Analytics workspace**, select **Logs**
-1. In the query editor, paste the following [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query/) query. This query shows policy usage by operation over the past x days. The default duration is set to 90 days (90d). Notice that the query is focused only on the operation where a token/code is issued by policy.
+1. In the query editor, paste the following [Kusto Query Language](/azure/data-explorer/kusto/query/) query. This query shows policy usage by operation over the past x days. The default duration is set to 90 days (90d). Notice that the query is focused only on the operation where a token/code is issued by policy.
 
     ```kusto
     AuditLogs
@@ -201,7 +201,7 @@ Log queries help you to fully leverage the value of the data collected in Azure 
 
 1. Select **Save**.
 
-You can also change your query to visualize the data by using the [render](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) operator.
+You can also change your query to visualize the data by using the [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) operator.
 
 ```kusto
 AuditLogs

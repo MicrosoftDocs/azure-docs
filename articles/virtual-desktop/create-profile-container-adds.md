@@ -94,7 +94,7 @@ To get the Storage Account access key:
 7. Run the following command:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).

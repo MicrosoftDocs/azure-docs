@@ -2,7 +2,7 @@
 title: Enable security audits for Azure AD Domain Services | Microsoft Docs
 description: Learn how to enable security audits to centralize the logging of events for analysis and alerts in Azure AD Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 ---
 # Enable security audits for Azure Active Directory Domain Services
@@ -137,7 +137,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
 Log Analytic workspaces let you view and analyze the security audit events using Azure Monitor and the Kusto query language. This query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax. For more information to get started with Kusto query languages, see the following articles:
 
 * [Azure Monitor documentation](../azure-monitor/index.yml)
-* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Create and share dashboards of Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

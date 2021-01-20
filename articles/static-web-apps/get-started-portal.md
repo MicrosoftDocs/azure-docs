@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure portal"
-description: Learn to build an Azure Static Web Apps instance with the Azure portal.
+description: Learn to deploy a static site to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,7 +9,7 @@ ms.date: 09/03/2020
 ms.author: cshoe
 ---
 
-# Quickstart: Building your first static web app in the Azure portal
+# Quickstart: Building your first static site in the Azure portal
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 

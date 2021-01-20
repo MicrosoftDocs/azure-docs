@@ -3,7 +3,6 @@ title: Managed identities for Azure
 description: Learn about using Managed identities for Azure with Service Fabric.
 ms.topic: conceptual 
 ms.date: 12/09/2019
-ms.custom: sfrev
 ---
 
 # Using Managed identities for Azure with Service Fabric

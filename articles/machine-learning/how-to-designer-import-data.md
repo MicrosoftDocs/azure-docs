@@ -42,8 +42,7 @@ If the module output data is in a tabular format, you must choose to register th
  - **File dataset** registers the module's output folder as a file dataset. The output folder contains a data file and meta files that the designer uses internally. Select this option if you want to continue to use the registered dataset in the designer. 
 
  - **Tabular dataset** registers only the module's the output data file as a tabular dataset. This format is easily consumed by other tools, for example in Automated Machine Learning or the Python SDK. Select this option if you plan to use the registered dataset outside of the designer.  
-
-
+ 
 
 ### Use a dataset
 
@@ -57,6 +56,14 @@ If you register a file dataset, the output port type of the dataset is **AnyDire
 > [!NOTE]
 > The designer supports [dataset versioning](how-to-version-track-datasets.md). Specify the dataset version in the property panel of the dataset module.
 
+### Limitations 
+
+- Currently you can only visualize tabular dataset in the designer. If you register a file dataset outside designer, you cannot visualize it in the designer canvas.
+- Your dataset is stored in virtual network (VNet). If you want to visualize, you need to enable workspace managed identity of the datastore.
+    1. Go the the related datastore and click **Update Credentials**
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
+    1. Select **Yes** to enable workspace managed identity.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::
 
 ## Import data using the Import Data module
 

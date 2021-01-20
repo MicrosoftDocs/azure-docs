@@ -12,12 +12,12 @@ ms.custom: "include file"
 
 1. To create a cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Create a resource is highlighted in the left navigation pane.":::
 
    
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="On New, Databases is highlighted, and Azure Cache for Redis is highlighted.":::
    
 1. On the **New Redis Cache** page, configure the settings for your new cache.
    

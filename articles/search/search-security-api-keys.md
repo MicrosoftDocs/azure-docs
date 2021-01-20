@@ -15,7 +15,7 @@ ms.date: 10/22/2020
 
 All requests to a search service need a read-only `api-key` that was generated specifically for your service. The `api-key` is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. 
 
-+ In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header
++ In [REST solutions](search-get-started-rest.md), the api-key is typically specified in a request header
 
 + In [.NET solutions](search-howto-dotnet-sdk.md), a key is often specified as a configuration setting and then passed as an [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -23,7 +23,7 @@ Keys are created with your search service during service provisioning. You can v
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Portal page, retrieve settings, keys section" border="false":::
 
-## What is an api-key
+## What is an api-key?
 
 An api-key is a string composed of randomly generated numbers and letters. Through [role-based permissions](search-security-rbac.md), you can delete or read the keys, but you can't replace a key with a user-defined password or use Active Directory as the primary authentication methodology for accessing search operations. 
 
@@ -84,6 +84,7 @@ You can still access the service through the portal or the management layer ([RE
 After you create new keys via portal or management layer, access is restored to your content (indexes, indexers, data sources, synonym maps) once you have the new keys and provide those keys on requests.
 
 ## Secure api-keys
+
 Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
 + In the service dashboard, click **Access control (IAM)** and then the **Role assignments** tab to view role assignments for your service.

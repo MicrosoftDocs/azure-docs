@@ -11,7 +11,7 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Choose how to authorize access to blob data in the Azure portal

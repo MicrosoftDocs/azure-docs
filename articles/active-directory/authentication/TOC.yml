@@ -9,7 +9,7 @@
   items:
   - name: Enable self-service password reset
     href: tutorial-enable-sspr.md
-  - name: Enable Azure Multi-Factor Authentication
+  - name: Enable Azure AD Multi-Factor Authentication
     href: tutorial-enable-azure-mfa.md
   - name: Enable password writeback to on-premises
     href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
-  - name: Azure Multi-Factor Authentication
+  - name: Azure AD Multi-Factor Authentication
     items:
     - name: Deployment guide
       href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
         href: howto-mfa-nps-extension.md
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
-      - name: Azure VPN and Azure MFA
+      - name: Azure VPN and Azure AD MFA
         href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
@@ -244,7 +244,7 @@
   - name: Microsoft Graph REST API beta
     href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions
-    href: ../users-groups-roles/directory-service-limits-restrictions.md
+    href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: Resources
   items:
   - name: Azure feedback forum

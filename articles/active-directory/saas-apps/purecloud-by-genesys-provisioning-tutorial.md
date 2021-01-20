@@ -31,7 +31,7 @@ This tutorial describes the steps you need to perform in both PureCloud by Genes
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A PureCloud [organization](https://help.mypurecloud.com/?p=81984).
 * A User with [permissions](https://help.mypurecloud.com/?p=24360) to create an Oauth Client.
 

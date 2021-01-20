@@ -128,7 +128,7 @@ The tools that you will use to train and configure models are different than tho
 | Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
 | Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
 | Speech | Custom Commands | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-commands.md) |
-| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-speech.md) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-speech-overview.md) |
 | Speech | Custom Voice | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-voice.md) |  
 
 ### Continuous integration and delivery with DevOps and GitHub Actions

@@ -52,10 +52,10 @@ security_updates_last_day | where Title contains "SQL"
 ## Next steps
 See other lessons for writing Azure Monitor log queries:
 
-- [String operations](string-operations.md)
-- [Date and time operations](datetime-operations.md)
-- [Aggregation functions](aggregations.md)
-- [Advanced aggregations](advanced-aggregations.md)
-- [JSON and data structures](json-data-structures.md)
-- [Joins](joins.md)
-- [Charts](charts.md)
+- [String operations](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations)
+- [Date and time operations](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#date-and-time-operations)
+- [Aggregation functions](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)
+- [Advanced aggregations](/azure/data-explorer/write-queries#advanced-aggregations)
+- [JSON and data structures](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#json-and-data-structures)
+- [Joins](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)
+- [Charts](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#charts)

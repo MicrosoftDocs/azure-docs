@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: mrbullwinkle
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/05/2018
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: mbullwin
 ---
 
 ## Clean up resources

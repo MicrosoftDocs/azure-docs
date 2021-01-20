@@ -1,19 +1,19 @@
 ---
-title:  Tutorial - Provision an Azure Spring Cloud instance with terraform
+title: Provision an Azure Spring Cloud instance with terraform
 description: Provision an Azure Spring Cloud instance with Terraform.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Provision an Azure Spring Cloud instance with Terraform
+# Provision an Azure Spring Cloud instance with Terraform
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This tutorial creates an Azure Spring Cloud instance using Terraform. The procedures walk you through creation of the following resources:
+This example creates an Azure Spring Cloud instance using Terraform. The procedures walk you through creation of the following resources:
 
 > [!div class="checklist"]
 > * Resource Group
@@ -156,7 +156,7 @@ This section shows how to update the configuration to enable log and metrics for
 
 When no longer needed, delete the resources created in this article.
 
-Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command to remove the Azure resources created in this tutorial:
+Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command to remove the Azure resources created in this exercise:
 
 ```bash
 terraform destroy -auto-approve

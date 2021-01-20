@@ -12,16 +12,23 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/30/2020
 ms.author: memildin
 
 ---
 
-# Quickstart: Setting up Azure Security Center
+# Quickstart: Set up Azure Security Center
 
 Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the free features offer limited security for your Azure resources only, enabling Azure Defender extends these capabilities to on-premises and other clouds. Azure Defender helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-In this article, you upgrade to Azure Defender for added security and install the Log Analytics agent on your  machines to monitor for security vulnerabilities and threats.
+This quick start will walk you through enabling Azure Defender for added security and installing the Log Analytics agent on your machines to monitor for security vulnerabilities and threats.
+
+You'll take the following steps:
+
+> [!div class="checklist"]
+> * Enable Security Center on your Azure subscription
+> * Enable Azure Defender on your Azure subscription
+> * Enable automatic data collection
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -43,7 +50,7 @@ To enable Azure Defender on a subscription, you must be assigned the role of Sub
 
 You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. 
 
-Within minutes of launching Security Center the first time, you may see:
+Within minutes of launching Security Center the first time, you might see:
 
 - **Recommendations** for ways to improve the security of your connected resources.
 - An inventory of your resources that are now being assessed by Security Center, along with the security posture of each.

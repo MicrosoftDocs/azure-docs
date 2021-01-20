@@ -55,12 +55,12 @@ To provision CMK, follow these steps: 
 
 ### STEP 1: Create an Azure Key Vault and storing key
 
-1.  [Create Azure Key Vault resource](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal),
+1.  [Create Azure Key Vault resource](/azure-stack/user/azure-stack-key-vault-manage-portal),
     then generate or import a key to be used for data encryption.
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
-1.  [Turn on recovery options:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [Turn on recovery options:](../key-vault/general/key-vault-recovery.md)
 
     -   Make sure [Soft Delete](../key-vault/general/soft-delete-overview.md) is turned on.
 
@@ -135,6 +135,5 @@ Analytics with the new Azure Key Vault key version. For more information, see [A
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-

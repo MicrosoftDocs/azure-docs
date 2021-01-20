@@ -8,14 +8,14 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Export certificates from Azure Key Vault
 
-Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
+Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. 
 
 ## About Azure Key Vault certificates
 
@@ -80,7 +80,7 @@ Use this command in Azure PowerShell to get the certificate named **TestCert01**
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {
@@ -111,7 +111,7 @@ To download the certificate, select **Download in CER format** or **Download in 
 
 **Export Azure App Service certificates**
 
-Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. You can also export these certificates from the portal as PFX files to be used elsewhere. After you import them, the App Service certificates are located under **secrets**.
+Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. After you import them, the App Service certificates are located under **secrets**.
 
 For more information, see the steps to [export Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

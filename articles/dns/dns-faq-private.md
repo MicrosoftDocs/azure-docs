@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 10/05/2019
+ms.date: 01/15/2021
 ms.author: rohink
 ---
 # Azure Private DNS FAQ
@@ -28,7 +28,7 @@ No. Private zones work along with virtual networks. You use them to manage domai
 
 ## Can the same private zone be used for several virtual networks for resolution?
 
-Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## Can a virtual network that belongs to a different subscription be linked to a private zone?
 
@@ -69,11 +69,11 @@ Yes. Private Zones don't replace the default Azure-provided internal.cloudapp.ne
 ## Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone?
 
 No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone.
-For guidance on how to change this suffix refer to [Use dynamic DNS to register hostnames in your own DNS server](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
+For guidance on how to change this suffix refer to [Use dynamic DNS to register hostnames in your own DNS server](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)
 
 ## What are the usage limits for Azure DNS Private zones?
 
-Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
+Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
 
 ## Why don’t my existing private DNS zones show up in new portal experience?
 
@@ -82,6 +82,10 @@ If your existing private DNS zone were created using preview API, you must migra
 ## How do I migrate my existing private DNS zones to the new model?
 
 We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
+
+### Does Azure DNS private zones store any customer content?
+
+No, Azure DNS private zones doesn't store any customer content.
 
 ## Next steps
 

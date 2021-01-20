@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Kubernetes clusters
@@ -568,6 +568,21 @@ field of the failed constraint. For details on _Non-compliant_ resources, see
 > Each compliance report in Azure Policy for your Kubernetes clusters include all violations within
 > the last 45 minutes. The timestamp indicates when a violation occurred.
 
+Some other considerations:
+
+- If the cluster subscription is registered with Azure Security Center, then Azure Security Center
+  Kubernetes policies are applied on the cluster automatically.
+
+- When a deny policy is applied on cluster with existing Kubernetes resources, any preexisting
+  resource that is not compliant with the new policy continues to run. When the non-compliant
+  resource gets rescheduled on a different node the Gatekeeper blocks the resource creation.
+
+- When a cluster has a deny policy that validates resources, the user will not see a rejection
+  message when creating a deployment. For example, consider a Kubernetes deployment that contains
+  replicasets and pods. When a user executes `kubectl describe deployment $MY_DEPLOYMENT`, it does
+  not return a rejection message as part of events. However,
+  `kubectl describe replicasets.apps $MY_DEPLOYMENT` returns the events associated with rejection.
+
 ## Logging
 
 As a Kubernetes controller/container, both the the _azure-policy_ and _gatekeeper_ pods keep logs in
@@ -588,6 +603,12 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 For more information, see
 [Debugging Gatekeeper](https://github.com/open-policy-agent/gatekeeper#debugging) in the Gatekeeper
 documentation.
+
+## Troubleshooting the add-on
+
+For more information about troubleshooting the Add-on for Kubernetes, see the
+[Kubernetes section](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
+of the Azure Policy troubleshooting article.
 
 ## Remove the add-on
 

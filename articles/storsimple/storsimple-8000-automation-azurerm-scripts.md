@@ -52,7 +52,7 @@ Before you begin, ensure that you have:
     * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](/powershell/azure/install-az-ps). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
     * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](/powershell/azure/install-az-ps).
 
-For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### Run Azure PowerShell script
 

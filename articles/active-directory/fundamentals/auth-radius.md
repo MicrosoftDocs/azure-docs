@@ -22,7 +22,7 @@ Remote Authentication Dial-In User Service (RADIUS) is a network protocol that s
 
 Microsoft Windows Server has a role called the Network Policy Server (NPS), which can act as a RADIUS server and support RADIUS authentication.
 
-Azure Active Directory (Azure AD) enables Multi-factor authentication with RADIUS-based systems. If a customer wants to apply Azure Multi-Factor Authentication to any of the previously mentioned RADIUS workloads, they can install the Azure Multi-Factor Authentication NPS extension on their Windows NPS server. 
+Azure Active Directory (Azure AD) enables Multi-factor authentication with RADIUS-based systems. If a customer wants to apply Azure AD Multi-Factor Authentication to any of the previously mentioned RADIUS workloads, they can install the Azure AD Multi-Factor Authentication NPS extension on their Windows NPS server. 
 
 The Windows NPS server authenticates a user’s credentials against Active Directory, and then sends the Multi-Factor Authentication request to Azure. The user then receives a challenge on their mobile authenticator. Once successful, the client application is allowed to connect to the service. 
 
@@ -36,7 +36,7 @@ You need to add Multi-Factor Authentication to applications like
 * Any others that depend on the RADIUS protocol to authenticate users into the service. 
 
 > [!NOTE]
-> Rather than relying on RADIUS and the Azure Multi-Factor Authentication NPS extension to apply Azure Multi-Factor Authentication to VPN workloads, we recommend that you upgrade your VPN’s to SAML and directly federate your VPN with Azure AD. This gives your VPN the full breadth of Azure AD protection, including Conditional Access, Multi-Factor Authentication, device compliance, and Identity Protection.
+> Rather than relying on RADIUS and the Azure AD Multi-Factor Authentication NPS extension to apply Azure AD Multi-Factor Authentication to VPN workloads, we recommend that you upgrade your VPN’s to SAML and directly federate your VPN with Azure AD. This gives your VPN the full breadth of Azure AD protection, including Conditional Access, Multi-Factor Authentication, device compliance, and Identity Protection.
 
 ![architectural diagram](./media/authentication-patterns/radius-auth.png)
 
@@ -47,21 +47,20 @@ You need to add Multi-Factor Authentication to applications like
 
 * **RADIUS client**: Converts requests from client application and sends them to RADIUS server that has the NPS extension installed.
 
-* **RADIUS server**: Connects with Active Directory to perform the primary authentication for the RADIUS request. Upon success, passes the request to Azure Multi-Factor Authentication NPS extension.
+* **RADIUS server**: Connects with Active Directory to perform the primary authentication for the RADIUS request. Upon success, passes the request to Azure AD Multi-Factor Authentication NPS extension.
 
-* **NPS extension**: Triggers a request to Azure Multi-Factor Authentication for a secondary authentication. If successful, NPS extension completes the authentication request by providing the RADIUS server with security tokens that include Multi-Factor Authentication claim, issued by Azure’s Security Token Service.
+* **NPS extension**: Triggers a request to Azure AD Multi-Factor Authentication for a secondary authentication. If successful, NPS extension completes the authentication request by providing the RADIUS server with security tokens that include Multi-Factor Authentication claim, issued by Azure’s Security Token Service.
 
-* **Azure Multi-Factor Authentication**: Communicates with Azure AD to retrieve the user’s details and performs a secondary authentication using a verification method configured by the user.
+* **Azure AD Multi-Factor Authentication**: Communicates with Azure AD to retrieve the user’s details and performs a secondary authentication using a verification method configured by the user.
 
 ## Implement RADIUS with Azure AD 
 
-* [Provide Azure Multi-Factor Authentication capabilities using NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [Provide Azure AD Multi-Factor Authentication capabilities using NPS](../authentication/howto-mfa-nps-extension.md) 
 
-* [Configure the Azure Multi-Factor Authentication NPS extension](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Configure the Azure AD Multi-Factor Authentication NPS extension](../authentication/howto-mfa-nps-extension-advanced.md) 
 
-* [VPN with Azure Multi-Factor Authentication using the NPS extension](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [VPN with Azure AD Multi-Factor Authentication using the NPS extension](../authentication/howto-mfa-nps-extension-vpn.md) 
 
   
 ‎ 
 
- 

@@ -35,6 +35,10 @@
     href: https://azure.microsoft.com/resources/samples/?service=cdn
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
@@ -107,8 +111,8 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
-    - name: HTTP raw logs
-      href: enable-raw-logs.md
+    - name: Monitoring, metrics, and access Logs
+      href: monitoring-and-access-log.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
     - name: Analytics tools for Azure CDN from Verizon

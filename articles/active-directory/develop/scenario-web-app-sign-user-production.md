@@ -48,7 +48,7 @@ This progressive tutorial has production-ready code for a web app, including how
 - Your organization
 - Multiple organizations
 - Work or school accounts, or personal Microsoft accounts
-- [Azure AD B2C](https://aka.ms/aadb2c)
+- [Azure AD B2C](../../active-directory-b2c/overview.md)
 - National clouds
 
 ## Sample code: Java web app

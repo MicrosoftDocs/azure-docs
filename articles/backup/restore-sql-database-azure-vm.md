@@ -17,12 +17,13 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 - Restore to a specific date or time (to the second) by using transaction log backups. Azure Backup automatically determines the appropriate full differential backup and the chain of log backups that are required to restore based on the selected time.
 - Restore a specific full or differential backup to restore to a specific recovery point.
 
-## Prerequisites
+## Restore prerequisites
 
 Before you restore a database, note the following:
 
 - You can restore the database to an instance of a SQL Server in the same Azure region.
 - The destination server must be registered to the same vault as the source.
+- If you have multiple instances running on a server, all the instances should be up and running. Otherwise the server won't appear in the list of destination servers for you to restore the database to. For more information, refer to [the troubleshooting steps](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
 - Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
@@ -30,7 +31,6 @@ Before you restore a database, note the following:
   - Only the specified client name can open the connection.
 - For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
-- If you have multiple instances running on a server, all of the instances should be up and running otherwise the server won't appear in the list of destination servers for you to restore the database to.
 
 ## Restore a database
 
