@@ -25,7 +25,7 @@
     href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
-  - Overview
+  - name: Overview
     href: concepts-overview.md
   - name: Compare Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md   
