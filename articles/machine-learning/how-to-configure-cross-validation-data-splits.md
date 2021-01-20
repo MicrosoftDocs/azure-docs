@@ -16,7 +16,7 @@ ms.date: 06/16/2020
 
 # Configure data splits and cross-validation in automated machine learning
 
-In this article, you learn the different options for configuring training/validation data splits and cross-validation for your automated machine learning, automated ML, experiments.
+In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 
 In Azure Machine Learning, when you use automated ML to build multiple ML models, each child run needs to validate the related model by calculating the quality metrics for that model, such as accuracy or AUC weighted. These metrics are calculated by comparing the predictions made with each model with real labels from past observations in the validation data. [Learn more about how metrics are calculated based on validation type](#metric-calculation-for-cross-validation-in-machine-learning). 
 
@@ -25,7 +25,7 @@ Automated ML experiments perform model validation automatically. The following s
 For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> The studio currently supports training/validation data splits and cross-validation options, but it does not support specifying individual data files for your validation set. 
+> The studio currently supports training and validation data splits as well as cross-validation options, but it does not support specifying individual data files for your validation set. 
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ For this article you need,
 
 * An understanding of train/validation data splits and cross-validation as machine learning concepts. For a high-level explanation,
 
-    * [About Train, Validation and Test Sets in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+    * [About training, validation and test data in machine learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
@@ -58,7 +58,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-If you do not explicitly specify either a `validation_data` or `n_cross_validation` parameter, AutoML applies default techniques depending on the number of rows in the single dataset `training_data` provided:
+If you do not explicitly specify either a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`:
 
 |Training&nbsp;data&nbsp;size| Validation technique |
 |---|-----|
@@ -67,7 +67,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 ## Provide validation data
 
-In this case, you can either start with a single data file and split it into training and validation sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
+In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
 The following code example explicitly defines which portion of the provided data in `dataset` to use for training and validation.
 

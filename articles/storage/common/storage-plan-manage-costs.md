@@ -36,7 +36,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 4. Modify the remaining options to see their affect on your estimate.
 
    > [!NOTE]
-   > You can pay for Azure Blob storage charges with your Azure Enterprise Agreement monetary commitment credit. However, you can't use the monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+   > You can pay for Azure Blob storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Optimize costs
 
