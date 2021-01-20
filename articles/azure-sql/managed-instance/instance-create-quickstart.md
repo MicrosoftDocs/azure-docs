@@ -174,11 +174,9 @@ To optionally fine-tune networking settings, inspect the following:
 
 To connect to SQL Managed Instance, follow these steps to retrieve the host name and fully qualified domain name (FQDN):
 
-1. Return to the resource group and select your managed instance.
+1. Return to the resource group and select the SQL managed instance object that was created.
 
-   ![Managed instance in the resource group](./media/instance-create-quickstart/managed-instance.png)
-
-2. On the **Overview** tab, locate the **Host** property. Copy the host name for the managed instance for use in the next quickstart.
+2. On the **Overview** tab, locate the **Host** property. Copy the host name to your clipboard for the managed instance for use in the next quickstart by clicking the **Copy to clipboard** button.
 
    ![Host name](./media/instance-create-quickstart/host-name.png)
 
