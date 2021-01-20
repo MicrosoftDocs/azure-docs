@@ -44,10 +44,6 @@ landingContent:
             url: quick-backup-vm-cli.md
           - text: Back up a VM with Resource Manager template
             url: quick-backup-vm-template.md
-
-  # Card
-  - title: Try these step-by-step tutorials
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Back up Azure VMs
