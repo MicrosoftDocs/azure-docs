@@ -26,7 +26,7 @@ types and their properties. Some tables can be used with `join` or `union` opera
 properties from related resource types. Here is the list of tables available in Resource Graph:
 
 |Resource Graph table |Can `join`? |Description |
-|---|---|
+|---|---|---|
 |Resources |Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
 |ResourceContainers |Yes |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |No |Includes resources _related_ to `Microsoft.Advisor`. |
@@ -37,8 +37,7 @@ properties from related resource types. Here is the list of tables available in 
 |SecurityResources |No |Includes resources _related_ to `Microsoft.Security`. |
 |ServiceHealthResources |No |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 
-For a complete list including resource types, see
-[Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
+For a complete list, including resource types, see [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ is the default table. While querying the _Resources_ table, it isn't required to
@@ -168,8 +167,8 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[union](/azure/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limit of 3 `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
 |[where](/azure/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
 
-There is a default limit of 3 `join` and 3 `mv-expand` operators in a single Resource Graph SDK query.
-You can request an increase in these limits for your tenant through **Help + support**.
+There is a default limit of 3 `join` and 3 `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
+
 To support the "Open Query" portal experience, Azure Resource Graph Explorer has a higher global limit than Resource Graph SDK.
 
 ## Query scope
