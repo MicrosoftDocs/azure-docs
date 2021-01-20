@@ -160,7 +160,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
    If needed, change *~/.ssh/id_rsa* to location of your private SSH key:
 
     ```console
-    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
+    kubectl cp ~/.ssh/id_rsa aks-ssh:/id_rsa
     ```
 
 1. Return to the terminal session to your container, update the permissions on the copied `id_rsa` private SSH key so that it is user read-only:
