@@ -79,7 +79,7 @@ This category contains the following entity:
     :::column span="2":::
       **Supported document languages**
 
-      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
       
    :::column-end:::
 :::row-end:::
@@ -129,7 +129,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
       **Supported document languages**
 
-      `en`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
    :::column-end:::
 :::row-end:::

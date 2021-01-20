@@ -17,6 +17,10 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## January 2021
+
+* New languages are added to [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, starting with model version `2021-01-15`. It adds `fr`,`de`,`it`,`pt-PT`,`pt-BR`,`zh-hans`,`ja` and `ko` support with the full complement of v3 general entity categories.  This new model version is powered by our latest ZCode model which is based on the unification of Turing and Machine Translation technology.
+
 ## December 2020
 
 * [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
