@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Run your first Batch job with the Azure CLI
-description: Quickly learn to create a Batch account and run a Batch job with the Azure CLI.
+description: This quickstart shows how to create a Batch account and run a Batch job with the Azure CLI.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli

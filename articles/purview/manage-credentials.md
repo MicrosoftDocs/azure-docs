@@ -15,7 +15,7 @@ This article describes how you can create credentials in Azure Purview to quickl
 
 ## Prerequisites
 
-* Azure key vault. If you don't have one already here's how (insert link to KV creation article) to create one.
+* An Azure key vault. To learn how to create one, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
 ## Introduction
 A Credential is authentication information that Azure Purview can use to authenticate to your registered data sources. A Credential object can be created for various types of authentication scenarios (such as Basic Authentication requiring username/password) and will capture the specific information required based on the chosen type of authentication method. Credentials use your existing Azure Key Vaults secrets for retrieving sensitive authentication information during the Credential creation process.
@@ -68,7 +68,7 @@ Credential type supported in Purview today:
 * SQL authentication : You will add the **password** as a secret in key vault
 * Account Key : You will add the **account key** as a secret in key vault
 
-Here is more information on how to add secrets to a key vault: (Insert key vault article)
+For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 After storing your secrets in your key vault, Create your new Credential by selecting +New from the Credentials command bar. Provide the required information, including selecting the Authentication method and a Key Vault instance from which to select a secret from. Once all the details have been filled in, click on create.
 

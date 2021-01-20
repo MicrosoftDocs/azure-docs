@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In **Single Sign on settings** page, copy the value of **Assertion Consumer Service URL** and paste it in the **Reply URL** text box under **Basic SAML Configuration** section in Azure portal. 
 
-	  ![Screenshot shows the Assertion Consumer Service U R L link.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
+    ![Screenshot shows the Assertion Consumer Service U R L link.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
 
 ### Create TimeOffManager test user
 

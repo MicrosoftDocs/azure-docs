@@ -12,7 +12,7 @@ ms.topic: overview
 ms.date: 12/03/2020
 ms.author: justinha
 
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 #Customer intent: As an IT administrator or decision maker, I want to understand what Azure AD DS is and how it can benefit my organization.
 ---
@@ -40,7 +40,7 @@ In a hybrid environment with an on-premises AD DS environment, [Azure AD Connect
 
 ![Synchronization in Azure AD Domain Services with Azure AD and on-premises AD DS using AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-Azure AD DS replicates identity information from Azure AD, so it works with Azure AD tenants that are cloud-only, or synchronized with an on-premises (AD DS environment. The same set of Azure AD DS features exists for both environments.
+Azure AD DS replicates identity information from Azure AD, so it works with Azure AD tenants that are cloud-only, or synchronized with an on-premises AD DS environment. The same set of Azure AD DS features exists for both environments.
 
 * If you have an existing on-premises AD DS environment, you can synchronize user account information to provide a consistent identity for users. To learn more, see [How objects and credentials are synchronized in a managed domain][synchronization].
 * For cloud-only environments, you don't need a traditional on-premises AD DS environment to use the centralized identity services of Azure AD DS.

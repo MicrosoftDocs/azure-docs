@@ -123,7 +123,7 @@ Azure Log Analytics meets the following requirements:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
 * [Service Organization Controls (SOC) 1 Type 1 and SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) compliant
-* [HIPAA and HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) for companies that have a HIPAA Business Associate Agreement
+* [HIPAA and HITECH](/compliance/regulatory/offering-hipaa-hitech) for companies that have a HIPAA Business Associate Agreement
 * Windows Common Engineering Criteria
 * Microsoft Trustworthy Computing
 * As an Azure service, the components that Log Analytics uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).

@@ -13,7 +13,7 @@ This article contains the releases notes for the Microsoft.ApplicationInsights.S
 
 [Learn](./snapshot-debugger.md) more about the Application Insights Snapshot Debugger for .NET applications.
 
-For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-dotnet
+For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-SnapshotCollector
 
 ## Release notes
 

@@ -1,9 +1,8 @@
 ---
 title: Test an Azure Stream Analytics job with sample data
 description: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020

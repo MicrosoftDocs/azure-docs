@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 12/16/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -69,7 +69,8 @@ $PermissionName = "User.Read.All"
 Connect-AzureAD -TenantId $TenantID
 
 # Get the service principal for Microsoft Graph.
-$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph"
+# First result should be AppId 00000003-0000-0000-c000-000000000000
+$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph" | Select-Object -first 1
 
 # Assign permissions to the managed identity service principal.
 $AppRole = $GraphServicePrincipal.AppRoles | `

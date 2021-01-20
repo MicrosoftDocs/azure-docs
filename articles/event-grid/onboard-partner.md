@@ -107,7 +107,6 @@ To complete the remaining steps, make sure you have:
     1. In the **Channel details** section, do these steps:
         1. For **Event channel name**, enter a name for the event channel. 
         1. Enter the **source**. See [Cloud Events 1.0 specifications](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) to get an idea of a suitable value for the source. Also, see [this Cloud Events schema example](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Enter the source (WHAT IS IT?).
     1. In the **Destination details** section, enter details for the destination partner topic that will be created for this event channel. 
         1. Enter the **ID of the subscription** in which the partner topic will be created. 
         1. Enter the **name of the resource group** in which the partner topic resource will be created. 

@@ -23,7 +23,7 @@ The following example shows a variable definition. It creates a string value for
 },
 ```
 
-You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the variables section. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
+You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the `variables` section. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 ## Use variable
 
@@ -58,7 +58,7 @@ You can define variables that hold related values for configuring an environment
 },
 ```
 
-In parameters, you create a value that indicates which configuration values to use.
+In `parameters`, you create a value that indicates which configuration values to use.
 
 ```json
 "parameters": {

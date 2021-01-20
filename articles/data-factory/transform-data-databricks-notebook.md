@@ -78,8 +78,8 @@ In the above Databricks activity definition, you specify these library types: *j
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
         },
-	{
-      	    "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+	    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
         },
         {
             "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"

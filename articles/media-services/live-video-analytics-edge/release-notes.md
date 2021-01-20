@@ -18,9 +18,40 @@ This article provides you with information about:
 
 <hr width=100%>
 
+## January 12, 2021
+
+This release tag is for the January 2021 refresh of the module is:
+
+```
+mcr.microsoft.com/media/live-video-analytics:2.0.1
+```
+
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 2 (live-video-analytics:2). So simply redeploying such manifests should update the module on your edge > devices.
+### Bug fixes 
+
+* The fields `ActivationSignalOffset`, `MinimumActivationTime` and `MaximumActivationTime` in Signal Gate processors were incorrectly set as required properties. They are now **optional** properties.
+* Fixed a Usage bug that causes the Live Video Analytics on IoT Edge module to crash when deployed in certain regions.
+
+<hr width=100%>
+
+## December 14, 2020
+This release is the public preview refresh release of Live Video Analytics on IoT Edge. The release tag is
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### Module updates
+* Added support for using more than one HTTP extension processor and gRPC extension processor per graph topology.
+* Added support for Disk space management for sink nodes.
+* `MediaGraphGrpcExtension` node now supports [extensionConfiguration](grpc-extension-protocol.md) property for using multiple AI models within a single gRPC server.
+* Added support of collecting Live Video Analytics module metrics in the [Prometheus format](https://prometheus.io/docs/practices/naming/). Learn more on how to [collect metrics and view in Azure Monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* Frame Rate Filter processor is **deprecated**.  
+    * Frame rate management is now available within the graph extension processor nodes itself.
+
 ## September 22, 2020
 
-This release tag for the September 2020 refresh of the module is:
+This release tag is for the September 2020 refresh of the module is:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -43,7 +74,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## August 19, 2020
 
-This release tag for the August 2020 refresh of the module is:
+This release tag is for the August 2020 refresh of the module is:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -62,13 +93,13 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### Bug fixes 
 
-* Remove the use of a deprecated azure extension in the set up script
+* Remove the use of a deprecated Azure extension in the set up script
 
 <hr width=100%>
 
 ## July 13, 2020
 
-This release tag for the July 2020 refresh of the module is:
+This release tag is for the July 2020 refresh of the module is:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

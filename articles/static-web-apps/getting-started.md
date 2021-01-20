@@ -47,7 +47,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
-1. Select the **master** branch and press **Enter**.
+1. Select the **main** branch and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Branch name":::
 

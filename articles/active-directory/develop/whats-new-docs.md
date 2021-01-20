@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,27 @@ ms.author: marsma
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## December 2020
+
+### New articles
+
+- [Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf](quickstart-v2-aspnet-core-webapp-calls-graph.md)
+- [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md)
+- [Handle errors and exceptions in MSAL for iOS/macOS](msal-error-handling-ios.md)
+- [Handle errors and exceptions in MSAL for Java](msal-error-handling-java.md)
+- [Handle errors and exceptions in MSAL.js](msal-error-handling-js.md)
+- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
+- [Microsoft identity platform token exchange scenarios with SAML and OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
+
+### Updated articles
+
+- [Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform](tutorial-v2-aspnet-daemon-web-app.md)
+- [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
+- [Microsoft identity platform and implicit grant flow](v2-oauth2-implicit-grant-flow.md)
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
+
 
 ## November 2020
 

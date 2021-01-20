@@ -290,6 +290,8 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
+  - name: Microsoft Learn path about templates
+    href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Concepts
   items:
   - name: Template best practices
@@ -515,6 +517,8 @@
     href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

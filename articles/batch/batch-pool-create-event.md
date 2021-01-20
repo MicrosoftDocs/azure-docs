@@ -31,7 +31,7 @@ ms.date: 10/08/2020
             "sku": " ",
             "version": " "
           },
-      	  "nodeAgentId": " "
+          "nodeAgentId": " "
     	},
 	"resizeTimeout": "300000",
 	"targetDedicatedNodes": 2,
