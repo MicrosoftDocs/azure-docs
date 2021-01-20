@@ -135,7 +135,7 @@ Update the user-assigned identity:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
 
 ## Bring your own control plane MI
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.

@@ -49,15 +49,13 @@ Data transfer between endpoints requires creation of several flows in addition t
 
 ![Flow count for TCP conversation through a forwarding appliance](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## Flow Limits and Recommendations
+## Flow Limits and Active Connections Recommendations
 
-Today, the Azure networking stack supports 250K total network flows with good performance for VMs with greater than 8 CPU cores and 100k total flows with good performance for VMs with fewer than 8 CPU cores. Past this limit network performance degrades gracefully for additional flows up to a hard limit of 500K total flows, 250K inbound and 250K outbound, after which additional flows are dropped.
+Today, the Azure networking stack supports 1M total flows (500k inbound and 500k outbound) for a VM. Total active connections that can be handled by a VM in different scenarios are as follows.
+- VMs that belongs to VNET can handle 500k ***active connections*** for all VM sizes with 500k ***active flows in each direction***.  
+- VMs with network virtual appliances (NVAs) such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and additional new flow creation on new connection setup to the next hop as shown in the above diagram. 
 
-| Performance level | VMs with <8 CPU Cores | VMs with 8+ CPU Cores |
-| ----------------- | --------------------- | --------------------- |
-|<b>Good Performance</b>|100K Flows |250K Flows|
-|<b>Degraded Performance</b>|Above 100k Flows|Above 250K Flows|
-|<b>Flow Limit</b>|500K Flows|500K Flows|
+Once this limit is hit, additional connections are dropped. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs.
 
 Metrics are available in [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or VMSS instances.
 
