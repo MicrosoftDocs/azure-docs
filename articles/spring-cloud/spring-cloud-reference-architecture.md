@@ -105,7 +105,7 @@ The Azure services that are used in this reference architecture are in the follo
 
 * [Azure Application Gateway][6]: a load balancer responsible for application traffic with TLS offload operating at layer 7
 
-* [Azure application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of a applications from common exploits and vulnerabilities
+* [Azure application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of applications from common exploits and vulnerabilities
 
 The following diagram represents a well-architected hub and spoke design that addresses the above requirements.
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
