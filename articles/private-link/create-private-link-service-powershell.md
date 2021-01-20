@@ -47,7 +47,7 @@ In this section, you create a virtual network and subnet to host the load balanc
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
-    PrivateLinkServiceNetworkPolicies 'Disabled'
+    PrivateLinkServiceNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
