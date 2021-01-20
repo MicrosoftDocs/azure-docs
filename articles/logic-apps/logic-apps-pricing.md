@@ -72,14 +72,14 @@ A fixed pricing model applies to logic apps that run in an [*integration service
 | **Developer** | No capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing. |
 |||
 
-### Included at no additional cost
+### Included at no extra cost
 
 | Items | Description |
 |-------|-------------|
 | [Built-in](../connectors/apis-list.md#built-in) triggers and actions | Display the **Core** label and run in the same ISE as your logic apps. |
 | [Standard connectors](../connectors/apis-list.md#managed-connectors) <p><p>[Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) | - Managed connectors that display the **ISE** label are specially designed to work without the on-premises data gateway and run in the same ISE as your logic apps. ISE pricing includes as many Enterprise connections as you want. <p><p>- Connectors that don't display the ISE label run in the multi-tenant Logic Apps service. However, ISE pricing applies when you use these connectors with logic apps that run in an ISE. |
 | [Data retention and storage consumption](#data-retention) | Logic apps in an ISE don't incur retention and storage costs. |
-| [Integration accounts](#integration-accounts) | Includes usage for a single integration account tier, based on ISE SKU, at no additional cost. |
+| [Integration accounts](#integration-accounts) | Includes usage for a single integration account tier, based on ISE SKU, at no extra cost. |
 |||
 
 For limits information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
@@ -109,7 +109,7 @@ Integration accounts are billed using a fixed [integration account price](https:
 
 ### ISE-based logic apps
 
-At no additional cost, your ISE includes a single integration account, based on your ISE SKU. For an additional cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#fixed-pricing) earlier in this topic.
+At no extra cost, your ISE includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#fixed-pricing) earlier in this topic.
 
 | ISE SKU | Included integration account | Additional cost |
 |---------|------------------------------|-----------------|
