@@ -1274,16 +1274,16 @@
             href: ./linux/disk-encryption-linux-aad.md
           - name: Windows
             href: ./windows/disk-encryption-windows-aad.md
-  - name: Disk Storage reservations
-    href: ../cost-management-billing/reservations/understand-disk-reservations.md
-  - name: Reserve Disk Storage
-    href: disks-reserved-capacity.md
-  - name: Performance
+  - name: Performance and cost optimization
     items:
     - name: Ultra disks
       href: disks-enable-ultra-ssd.md
     - name: Virtual machine and disk performance
-      href: ./linux/disk-performance-linux.md
+      href: disk-performance.md
+    - name: Disk Storage reservations
+      href: ../cost-management-billing/reservations/understand-disk-reservations.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
     - name: Design for high performance
       href: premium-storage-performance.md
     - name: Disk bursting
@@ -1299,31 +1299,21 @@
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
     - name: Benchmark a disk
-      items: 
-      - name: Linux
-        href: ./linux/disks-benchmarks.md
-      - name: Windows 
-        href: ./windows/disks-benchmarks.md
+      href: disks-benchmarks.md
   - name: Scalability targets for disks
-    href: ./linux/disk-scalability-targets.md
+    href: disks-scalability-targets.md
   - name: Backup and data protection
     items:
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Incremental snapshots
-      href: ./linux/incremental-snapshots.md
-    - name: Enabling incremental snapshots
-      items:
-      - name: CLI
-        href: ./linux/disks-incremental-snapshots.md
-      - name: PowerShell
-        href: ./windows/disks-incremental-snapshots.md
-      - name: Portal
-        href: ./linux/disks-incremental-snapshots-portal.md
+    - name: Enable incremental snapshots
+      href: disks-incremental-snapshots.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
     - name:  Snapshot a disk - PowerShell
       href: ./windows/snapshot-copy-managed-disk.md
+    - name: Backup unmanaged disks
+      href: ./linux/incremental-snapshots.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Migration and conversion
@@ -1334,7 +1324,7 @@
         href: ./linux/convert-disk-storage.md
       - name: PowerShell
         href: ./windows/convert-disk-storage.md
-    - name: Migrate to Premium storage with Azure Site Recovery
+    - name: Migrate to premium SSDs with Azure Site Recovery
       items:
       - name: Linux
         href: ./linux/migrate-to-premium-storage-using-azure-site-recovery.md
@@ -1370,18 +1360,6 @@
       href: ./linux/detach-disk.md
     - name: Windows
       href: ./windows/detach-disk.md        
-  - name: Swap the OS disk
-    items:
-    - name: CLI
-      href: ./linux/os-disk-swap.md
-    - name: PowerShell
-      href: ./windows/os-disk-swap.md
-  - name: Upload a vhd to a disk
-    items: 
-    - name: PowerShell
-      href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
-    - name: CLI
-      href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
   - name: Expand OS disk
     items: 
     - name: Linux 
@@ -1394,13 +1372,21 @@
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
     - name: Securely import/export a disk
-      items: 
-      - name: CLI
+      items:
+      - name: Configure private links for disks - CLI
         href: ./linux/disks-export-import-private-links-cli.md
-      - name: Portal
+      - name: Configure private links for disks - Portal
         href: disks-enable-private-links-for-import-export-portal.md
+      - name: Upload a vhd to a disk - PowerShell
+        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+      - name: Upload a vhd to a disk - CLI
+        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
+    - name: Swap the OS disk - CLI
+      href: ./linux/os-disk-swap.md
+    - name: Swap the OS disk - PowerShell
+      href: ./windows/os-disk-swap.md
     - name: Map managed disk to guest disk - Linux
       href: ./linux/azure-to-guest-disk-mapping.md
     - name: Map managed disk to guest disk - Windows
