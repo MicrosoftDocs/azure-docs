@@ -21,7 +21,7 @@ Coarse relocalization works by tagging anchors with various on-device sensor rea
 
 If you are planning to handle more than 50 spatial anchors in a space larger than a tennis court, you will likely benefit from coarse relocalization spatial indexing.
 
-The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of  spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
+The fast look-up of anchors enabled by coarse relocalization is designed to simplify the development of applications backed by world-scale collections of (say, millions of geo-distributed) anchors. The complexity of spatial indexing is all hidden away, allowing you to focus on your application logic. All the anchor heavy-lifting is done for you behind the scenes by Azure Spatial Anchors.
 
 ## Using coarse relocalization
 
