@@ -79,7 +79,7 @@ This section details how you can create and configure the following components o
 
 ```azurepowershell-interactive
 ## Place virtual network created in previous step into a variable. ##
-$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'CreateIntLBQS-rg'
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'CreatePrivLinkService-rg'
 
 ## Create load balancer frontend configuration and place in variable. ##
 $lbip = @{
@@ -146,12 +146,12 @@ $vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'CreatePrivLinkSe
 $ipsettings = @{
     Name = 'myIPconfig'
     PrivateIpAddress = '10.1.0.5'
-    Subnet = '$vnet.subnets[0]'
+    Subnet = $vnet.subnets[0]
 }
 $ipconfig = New-AzPrivateLinkServiceIpConfig @ipsettings
 
 ## Place the load balancer frontend configuration into a variable. ##
-$fe = Get-AzLoadBalancer -Name 'myLoadBalancer' | Get-AzLoadBalancerFrontendIpConfig
+$fe = Get-AzLoadBalancer -ResourceGroupName 'CreatePrivLinkService-rg' -Name 'myLoadBalancer' | Get-AzLoadBalancerFrontendIpConfig
 
 ## Create the private link service for the load balancer. ##
 $privlinksettings = @{
