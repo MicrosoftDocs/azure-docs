@@ -65,7 +65,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 | **vCore compute model** | Select an option. | vCores represent exact amount of compute resources that are always provisioned for your workload. **Eight vCores** is the default.|
 | **Storage in GB** | Select an option. | Storage size in GB, select based on expected data size. If migrating existing data from on-premises or on various cloud platforms, see [Migration overview: SQL Server to SQL Managed Instance](../../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).|
 | **Azure Hybrid Benefit** | Check option if applicable. | For leveraging an existing license for Azure. For more information, see [Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance](../../azure-sql/azure-hybrid-benefit.md). |
-| **Backup storage redundancy** | Select **Geo-redundant storage**. | Storage redundancy inside Azure for storage and backups. Note that this value cannot be changed later. Geo-redundant storage is default and recommended, though Zone and Local redundancy allow for more cost flexibility. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).|
+| **Backup storage redundancy** | Select **Geo-redundant storage**. | Storage redundancy inside Azure for backups. Note that this value cannot be changed later. Geo-redundant storage is default and recommended, though Zone and Local redundancy allow for more cost flexibility. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).|
 
 
 
@@ -154,17 +154,13 @@ Upon successful deployment of a managed instance, to view resources created:
 
 To optionally fine-tune networking settings, inspect the following:
 
-1. Select the route table to review the user-defined route (UDR) that was created for you.
+1. In the list of resources, select the route table to review the user-defined route table (UDR) object that was created.
 
-   ![Route table](./media/instance-create-quickstart/route-table.png)
-
-2. In the route table, review the entries to route traffic from and within the SQL Managed Instance virtual network. If you create or configure your route table manually, ensure to create these entries in the SQL Managed Instance route table.
+2. In the route table, review the entries to route traffic from and within the SQL Managed Instance virtual network. If you create or configure your route table manually, create these entries in the SQL Managed Instance route table.
 
    ![Entry for a SQL Managed Instance subnet to local](./media/instance-create-quickstart/udr.png)
 
-3. Return to the resource group, and select the network security group.
-
-   ![Network security group](./media/instance-create-quickstart/network-security-group.png)
+3. Return to the resource group, and select the network security group (NSG) object that was created.
 
 4. Review the inbound and outbound security rules. 
 
