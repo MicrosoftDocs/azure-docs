@@ -13,4 +13,4 @@ ms.date: 01/08/2021
 
 
 > [!NOTE]
-> Starting January 18th, the regional portals (au.luis.ai and eu.luis.ai) will be consolidated into a single portal and URL. If you were using one of these portals, you will be automatically re-directed to [luis.ai](https://luis.ai/). You will continue using the same regional resources you created and your data will continue to be saved and processed in the same region as your resource.
+> Starting January 20th, the regional portals (au.luis.ai and eu.luis.ai) will be consolidated into a single portal and URL. If you were using one of these portals, you will be automatically re-directed to [luis.ai](https://luis.ai/). You will continue using the same regional resources you created and your data will continue to be saved and processed in the same region as your resource.
