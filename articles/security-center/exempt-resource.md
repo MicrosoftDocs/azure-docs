@@ -18,11 +18,11 @@ When you investigate your security recommendations in Azure Security Center, one
 
 Occasionally, a resource will be listed that you feel shouldn't be included. Or a recommendation will show in a scope where you feel it doesn't belong. The resource might have been remediated by a process not tracked by Security Center. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has simply decided to accept the risks related to the specific resource or recommendation.
 
-In such cases, you can create an exemption rules to ensure:
+In such cases, you can create an exemption for a recommendation to:
 
-- **The resource** isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
+- **Exempt a resource** to ensure it isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
 
-- **The recommendation** isn't shown for your subscription or management group in the future, and doesn't impact your secure score. The recommendation will be marked with the specific justification you select.
+- **Exempt a subscription or management group** to ensure that the recommendation doesn't impact your secure score and won't be shown for the subscription or management group in the future. This relates to existing resources and any you create in the future. The recommendation will be marked with the specific justification you select for the scope that you selected.
 
 ## Availability
 
@@ -81,11 +81,13 @@ To create an exemption rule:
 
 1. To review all of the exemption rules on your subscription, select **View exemptions** from the information strip:
 
+    > [!IMPORTANT]
+    > To see the specific exemptions relevant to one recommendation, filter the list according to the relevant scope and recommendation name.
+
     :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy's exemption page":::
 
     > [!TIP]
     > You can also use this page to manage the exemptions.
-
 
 ## Monitor exemptions created in your subscriptions
 
@@ -96,6 +98,27 @@ To keep track of how your users are exercising this capability, we've created an
 - To learn more about the playbook, see this post in the [tech community blogs](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - You'll find the ARM template in the [Azure Security Center GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
 - You can click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) to deploy all the necessary components 
+
+
+## Exemption rule FAQ
+
+### What happens when one recommendation is in multiple policy initiatives?
+
+Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit. 
+
+For example, the recommendation **** is part of the default policy initiative assigned to all Azure subscriptions by Azure Security Center. It also in XXXXX.
+
+If you try to create an exemption for this recommendation, you'll see one of the two following messages:
+
+- If you have the necessary permissions to edit both initiatives, you'll see:
+
+    *This recommendation is included in several policy initiatives: [initiative names separated by comma]. Exemptions will be created on all of them.*  
+
+- If you don't have sufficient permissions on both initiatives, you'll see this message instead:
+
+    *You have limited permissions to apply the exemption on all the policy initiatives, the exemptions will be created only on the initiatives with sufficient permissions.*
+
+
 
 ## Next steps
 
