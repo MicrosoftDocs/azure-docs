@@ -350,6 +350,8 @@ and the console, corresponding to this configuration:
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
 
+You can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
+
 ## An example
 
 This is just an example to show what a configuration file looks like with multiple components.
