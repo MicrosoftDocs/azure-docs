@@ -45,7 +45,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    **Enable Log Analytics**: This toggle should be turned off.
 
-   ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app-version-2.png)
+   ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
    Select **Create**. It may take a few minutes for the app to deploy.
 
@@ -75,7 +75,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
 7. Now set up the action to send an e-mail when a message is received in the queue. In the Logic Apps Designer, select **+ New step** to add a step, then select **All** to see all of the options available. In the **Choose an action** pane, find and select **Office 365 Outlook**. On the Actions screen, select **Send an e-mail / Office 365 Outlook**.  
 
-   ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook-version-2.png)
+   ![The Office365 options](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
 8. Sign in to your work or school account to set up the connection. If this times out, just try again. Specify the e-mail addresses for the recipient(s) of the e-mails. Also specify the subject, and type what message you'd like the recipient to see in the body. For testing, fill in your own e-mail address as the recipient.
 
@@ -103,7 +103,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Location**: Use the same location used in the setup script. This tutorial uses **West US**.
 
-   ![Create the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job-version-2.png)
+   ![Create the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
 3. Select **Create** to create the job. It may take a few minutes to deploy.
 
@@ -131,7 +131,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
    
    For the rest of the fields, accept the defaults. 
 
-   ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs-version-2.png)
+   ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
 3. Select **Save**.
 
@@ -153,7 +153,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
 
-   ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs-version-2.png)
+   ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
 4. Select **Save**.
 
