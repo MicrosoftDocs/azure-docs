@@ -18,58 +18,49 @@ Java 3.0 Agent for Application Insights now has the capabilities to process tele
 The following are some use cases of telemetry processors:
  * Mask sensitive data
  * Conditionally add custom dimensions
- * Update the telemetry name used for aggregation and display
- * Drop or filter span attributes to control ingestion cost
+ * Update the name that is used for aggregation and display in the Azure portal
+ * Drop span attributes to control ingestion cost
 
 ## Terminology
 
-Before we jump into telemetry processors, it is important to understand what are traces and spans.
+Before we jump into telemetry processors, it is important to understand what the term span refers to.
 
-### Traces
+A span is a general term for any of these three things:
 
-Traces track the progression of a single request, called a `trace`, as it is handled by services that make up an application. The request may be initiated by a user or an application. Each unit of work in a `trace` is called a `span`; a `trace` is a tree of spans. A `trace` is comprised of the single root span and any number of child spans.
+* An incoming request
+* An outgoing dependency (e.g. a remote call to another service)
+* An in-process dependency (e.g. work being done by sub-components of the service)
 
-### Span
+For the purpose of telemetry processors, the important components of a span are:
 
-Spans are objects that represent the work being done by individual services or components involved in a request as it flows through a system. A `span` contains a `span context`, which is a set of globally unique identifiers that represent the unique request that each span is a part of. 
+* Name
+* Attributes
 
-Spans encapsulate:
+The span name is the primary display used for requests and dependencies in the Azure portal.
 
-* The span name
-* An immutable `SpanContext` that uniquely identifies the Span
-* A parent span in the form of a `Span`, `SpanContext`, or null
-* A `SpanKind`
-* A start timestamp
-* An end timestamp
-* [`Attributes`](#attributes)
-* A list of timestamped Events
-* A `Status`.
+The span attributes represent both standard and custom properties of a given request or dependency.
 
-Generally, the lifecycle of a span resembles the following:
+## Telemetry processor types
 
-* A request is received by a service. The span context is extracted from the request headers, if it exists.
-* A new span is created as a child of the extracted span context; if none exists, a new root span is created.
-* The service handles the request. Additional attributes and events are added to the span that are useful for understanding the context of the request, such as the hostname of the machine handling the request, or customer identifiers.
-* New spans may be created to represent work being done by sub-components of the service.
-* When the service makes a remote call to another service, the current span context is serialized and forwarded to the next service by injecting the span context into the headers or message envelope.
-* The work being done by the service completes, successfully or not. The span status is appropriately set, and the span is marked finished.
+There are currently two types of telemetry processors.
 
-### Attributes
+#### Attribute processor
 
-`Attributes` are a list of zero or more key-value pairs which are encapsulated in a `span`. An Attribute MUST have the following properties:
+An attribute processor has the ability to insert, update, delete, or hash attributes.
+It can also extract (via a regular expression) one or more new attributes from an existing attribute.
 
-The attribute key, which MUST be a non-null and non-empty string.
-The attribute value, which is either:
-* A primitive type: string, boolean, double precision floating point (IEEE 754-1985) or signed 64 bit integer.
-* An array of primitive type values. The array MUST be homogeneous, i.e. it MUST NOT contain values of different types. For protocols that do not natively support array values such values SHOULD be represented as JSON strings.
+#### Span processor
 
-## Supported processors:
- * Attribute Processor
- * Span Processor
+A span processor has the ability to update the telemetry name.
+It can also extract (via a regular expression) one or more new attributes from the span name.
 
-## To get started
+> [!NOTE]
+> Note that currently telemetry processors only process attributes of type string,
+and do not process attributes of type boolean or number.
 
-Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-***.jar`, with the following template.
+## Getting started
+
+Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-*.jar`, with the following template.
 
 ```json
 {
@@ -93,9 +84,15 @@ Create a configuration file named `applicationinsights.json`, and place it in th
 }
 ```
 
-## Include/Exclude spans
+## Include/exclude criteria
 
-The attribute processor and the span processor expose the option to provide a set of properties of a span to match against, to determine if the span should be included or excluded from the telemetry processor. To configure this option, under `include` and/or `exclude` at least one `matchType` and one of `spanNames` or `attributes` is required. The include/exclude configuration  is supported to have more than one specified condition. All of the specified conditions must evaluate to true for a match to occur. 
+Both attribute processors and span processors support optional `include` and `exclude` criteria.
+A processor will only be applied to those spans that match its `include` criteria (if provided)
+_and_ do not match its `exclude` criteria (if provided).
+
+To configure this option, under `include` and/or `exclude` at least one `matchType` and one of `spanNames` or `attributes` is required.
+The include/exclude configuration is supported to have more than one specified condition.
+All of the specified conditions must evaluate to true for a match to occur. 
 
 **Required field**: 
 * `matchType` controls how items in `spanNames` and `attributes` arrays are interpreted. Possible values are `regexp` or `strict`. 
@@ -145,7 +142,7 @@ The attribute processor and the span processor expose the option to provide a se
 ```
 For more understanding, check out the [telemetry processor examples](./java-standalone-telemetry-processors-examples.md) documentation.
 
-## Attribute processor 
+## Attribute processor
 
 The attributes processor modifies attributes of a span. It optionally supports the ability to include/exclude spans. It takes a list of actions which are performed in order specified in the configuration file. The supported actions are:
 
@@ -162,7 +159,7 @@ Inserts a new attribute in spans where the key does not already exist.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -185,7 +182,7 @@ Updates an attribute in spans where the key does exist
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -208,7 +205,7 @@ Deletes an attribute from a span
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -229,7 +226,7 @@ Hashes (SHA1) an existing attribute value
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -254,7 +251,7 @@ Extracts values using a regular expression rule from the input key to target key
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -266,7 +263,7 @@ For the `extract` action, following are required
 
 For more understanding, check out the [telemetry processor examples](./java-standalone-telemetry-processors-examples.md) documentation.
 
-## Span processors
+## Span processor
 
 The span processor modifies either the span name or attributes of a span based on the span name. It optionally supports the ability to include/exclude spans.
 

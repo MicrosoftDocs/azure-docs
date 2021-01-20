@@ -62,7 +62,7 @@ Azure Private Link provides the following benefits:
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn how to create a private endpoint for Azure Event Grid.](../event-grid/network-security.md) |
 |Azure Web Apps | All public regions      | Supported with PremiumV2, PremiumV3, or Function Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure Web Apps.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
-| Azure Automation  | All public regions |  | Preview </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)| |
+| Azure Automation  | All public regions<br/> All Government regions |  | Preview </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn how to create a private endpoint for Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 

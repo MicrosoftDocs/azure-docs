@@ -340,7 +340,7 @@ To enable zones on a virtual machine scale set you must include the following th
 
 * The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
 * The second value is the "singlePlacementGroup" property, which must be set to true. **The scale set spanned across 3 AZ's can scale upto 300 VMs even with "singlePlacementGroup = true".**
-* The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* The third value is "zoneBalance", which ensures strict zone balancing if set to true. We recommend setting this to true, to avoid unbalanced distribution of VMs across zones. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * The FaultDomain and UpgradeDomain overrides are not required to be configured.
 
 ```json
@@ -352,7 +352,7 @@ To enable zones on a virtual machine scale set you must include the following th
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```

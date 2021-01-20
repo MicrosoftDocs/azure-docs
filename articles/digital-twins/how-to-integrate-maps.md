@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -31,7 +31,7 @@ This how-to will cover:
     * You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
 * Follow the Azure Maps [*Tutorial: Use Azure Maps Creator to create indoor maps*](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
     * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
-    * You will need your feature *stateset ID* and Azure Maps *subscription ID*.
+    * You will need your feature *stateset ID* and Azure Maps *subscription key*.
 
 ### Topology
 
@@ -72,7 +72,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
 
 ## Create a function to update maps
 
-You're going to create an Event Grid-triggered function inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an **Event Grid-triggered function** inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room.
 
 See the following document for reference info: [*Azure Event Grid trigger for Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -83,8 +83,8 @@ Replace the function code with the following code. It will filter out only updat
 You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), and one is your [Azure Maps stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
-az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### View live updates on your map
@@ -94,7 +94,7 @@ To see live-updating temperature, follow the steps below:
 1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). The instructions for this are in the [*Configure and run the simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
 2. Use [the **Azure Maps Indoor** module](../azure-maps/how-to-use-indoor-module.md) to render your indoor maps created in Azure Maps Creator.
     1. Copy the HTML from the [*Example: Use the Indoor Maps Module*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) section of the indoor maps [*Tutorial: Use the Azure Maps Indoor Maps module*](../azure-maps/how-to-use-indoor-module.md) to a local file.
-    1. Replace the *tilesetId* and *statesetID* in the local HTML file with your values.
+    1. Replace the *subscription key*, *tilesetId*, and *statesetID*  in the local HTML file with your values.
     1. Open that file in your browser.
 
 Both samples send temperature in a compatible range, so you should see the color of room 121 update on the map about every 30 seconds.
