@@ -208,9 +208,11 @@ If you do explicitly define your Consumption plan, you will need to set the `ser
 
 ### Create a function app
 
+The settings required by a function app running in Consumption plan defer between Windows and Linux. 
+
 #### Windows
 
-On Windows, a Consumption plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. These properties configure the storage account and file path where the function app code and configuration are stored.
+On Windows, a Consumption plan requires two additional settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). These properties configure the storage account and file path where the function app code and configuration are stored.
 
 ```json
 {
@@ -257,7 +259,7 @@ On Windows, a Consumption plan requires two additional settings in the site conf
 
 #### Linux
 
-On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`:
+On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`. The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux.
 
 ```json
 {
@@ -295,8 +297,9 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 }
 ```
 
-<a name="premium"></a>
+The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux.
 
+<a name="premium"></a>
 ## Deploy on Premium plan
 
 The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
