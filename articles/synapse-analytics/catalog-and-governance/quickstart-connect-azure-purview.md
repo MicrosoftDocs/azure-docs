@@ -29,7 +29,7 @@ You can perform the following tasks in Synapse:
 
 ## Sign in to a Synapse workspace 
 
-Go to https://web.azuresynapse.net and sign in to your workspace. 
+Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign in to your workspace. 
 
 ## Permissions for connecting an Azure Purview Account 
 
