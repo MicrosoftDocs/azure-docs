@@ -18,6 +18,10 @@ Azure Cosmos DB’s Point-in-time restore feature helps in multiple scenarios su
 * To restore an account to a previous point in time where a certain container or a database existed before the unintentional delete of the data.
 * To restore the account in a read region where account exists to allow extraction of data into different account.
 
+Azure Cosmos DB performs data backup in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where account exists. The following image shows how an Azure Cosmos container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant Storage (LRS) accounts. If the region has [Availability zones](high-availability.md#availability-zone-support) enabled  then the backup is stored in Zone-Redundant Storage (ZRS) accounts.
+
+:::image type="content" source="./media/continuous-backup-restore/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage" border="false":::
+
 The available window for restore (also known as retention period) is the lower value of the following two: “30 days back in past from now” or "up to the resource creation time". The point in time for restore can be any timestamp within the retention period.
 
 For example, assume a developer or an application either updates or deletes data accidentally in a container. With the point-in-time restore feature, restoring that container or database to any point in time in the last 30 days is possible. Or you can get another copy of account in one of the existing regions for the account from last 30 days. Or if you found a container was dropped and want to create a new account with that container from a specific time in last 30 days, you can do so with point-in-time restore.
@@ -27,20 +31,25 @@ For example, assume a developer or an application either updates or deletes data
 
 In public preview you can restore a SQL API or MongoDB API Azure Cosmos DB account contents to a point in time to another account using the Azure Portal, the Azure Command Line Interface (az cli) , Azure PowerShell, or the Azure ARM.  
 
-## What data is restored?
+## What is backed up and restored?
 
-In a steady state, all mutations performed on the source account are backed up asynchronously within ~100 seconds. If the backup media (that is Azure storage) is down or unavailable, the mutations are persisted locally until the media is available back and then they are flushed out to prevent any loss in fidelity of operations that can be restored. This process ensures that all the data and index restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified.
+In a steady state, all mutations performed on the source account (which includes databases, containers, and items) are backed up asynchronously within ~100 seconds. If the backup media (that is Azure storage) is down or unavailable, the mutations are persisted locally until the media is available back and then they are flushed out to prevent any loss in fidelity of operations that can be restored. 
 
-## What data is not restored?
+You can choose to restore any combination of provisioned throughput container/s, shared throughput database or the entire account. The restore action restores all data and index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified.
+
+> [!NOTE]
+> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has availability zone feature enabled for that region.
+
+## What is not restored?
 
 The following configurations aren’t restored after the point-in-time recovery:
 
-* Firewall, VNET, private endpoint settings
-* Consistency settings
-* RBAC rules
-* Regions
+* Firewall, VNET, private endpoint settings.
+* Consistency settings.
+* Regions.
+* Stored procedures, triggers, UDFs.
 
-Theses configurations should be added to the restored account after the restore is completed.
+You can add these configurations to the restored account after the restore is completed.
 
 ## Resource model
 
