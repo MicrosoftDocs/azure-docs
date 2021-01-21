@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 ![migration steps 2](./media/migration-guide/steps-4.svg)
 
-This article is gives you scenario based guidance for packaging and delivery that will assist you in migrating from Azure Media Services v2 to v3.
+This article gives you scenario-based guidance for packaging and delivery that will assist you in migrating from Azure Media Services v2 to v3.
 
 Major changes to the way content is published in v3 API. The new publishing model is simplified and uses fewer entities to create a Streaming Locator. The API reduced down to just two entities vs. the four entities previously required. Content Key Policies and Streaming Locators now replace the need for `ContentKeyAuthoriationPolicy`, `AssetDeliveyPolicy`, `ContentKey`, and `AccessPolicy`.
 
