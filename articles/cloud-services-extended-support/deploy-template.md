@@ -235,13 +235,11 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```    
  
 
-10.  Use the template & parameters file to create/update the Cloud Services (extended support) deployment.
-  
+10. Use the template & parameters file to create/update the Cloud Services (extended support) deployment.
 
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file”  
-```
-
+    ```powershell
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file”  
+    ```
  
 ### ARM Template Sample
 ```arm
