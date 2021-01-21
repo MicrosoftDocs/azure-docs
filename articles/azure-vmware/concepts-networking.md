@@ -55,7 +55,7 @@ For full interconnectivity to your private cloud, enable ExpressRoute Global Rea
 
 
 ## Next steps 
-Learn about [private cloud storage concepts](concepts-storage).
+Learn about [private cloud storage concepts](concepts-storage.md).
 
 
 <!-- LINKS - external -->
@@ -63,4 +63,4 @@ Learn about [private cloud storage concepts](concepts-storage).
 
 <!-- LINKS - internal -->
 [concepts-upgrades]: ./concepts-upgrades.md
-
+[concepts-storage]: ./concepts-storage.md

@@ -61,7 +61,7 @@ Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.
 
 ## Next steps
 
-The next step is to learn [networking and interconnectivity concepts](concepts-networking).
+The next step is to learn [networking and interconnectivity concepts](concepts-networking.md).
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md
