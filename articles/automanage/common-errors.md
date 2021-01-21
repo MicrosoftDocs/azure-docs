@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common Automanage onboarding errors
+title: Troubleshoot common Azure Automanage onboarding errors
 description: Common Automanage onboarding errors and how to troubleshoot them
 author: asinn826
 ms.service: virtual-machines
@@ -34,3 +34,5 @@ Error |  Mitigation
 Automanage account insufficient permissions error | This may happen if you have recently moved a subscription containing a new Automanage Account into a new tenant. Steps to resolve this are located [here](./repair-automanage-account.md).
 Workspace region not matching region mapping requirements | Automanage was unable to onboard your machine but the Log Analytics workspace that the machine is currently linked to is not mapped to a supported Automation region. Ensure that your existing Log Analytics workspace and Automation account are located in a [supported region mapping](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
 "The assignment has failed; there is no additional information available" | Please open a case with Microsoft Azure support.
+
+## Next steps
