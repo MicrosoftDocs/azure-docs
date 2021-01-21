@@ -52,8 +52,8 @@ landingContent:
             url: cassandra-mi-scale.md     
       - linkListType: concept
         links:       
-          - text: Getting started with SQL queries
-            url: sql-query-getting-started.md       
+          - text: Getting started with CQL queries
+            url: cql-query-getting-started.md       
       - linkListType: tutorial
         links:
           - text: Build a Grafana dashboard using hosted prometheus metrics
