@@ -9,6 +9,9 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ---
+# NOTE
+
+This document is applicable if you do not require to use a different storage account for your destination cluster. If you need to use a different storage account, please refer to this document instead: [Migrate an Apache HBase cluster to a new version and new storage account](../apache-hbase-migrate-new-version-new-storageaccount.md)
 
 # Migrate an Apache HBase cluster to a new version
 
@@ -49,7 +52,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
    ![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-1. Flush your source HBase cluster, which is the cluster you're upgrading. HBase writes incoming data to an in-memory store, called a _memstore_. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. When deleting the old cluster, the memstores are recycled, potentially losing data. To manually flush the memstore for each table to disk, run the following script. The latest version of this script is on Azure's [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
+1. Flush your source HBase cluster, which is the cluster you're upgrading. HBase writes incoming data to an in-memory store, called a _memstore_. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. When deleting the source cluster, the memstores are recycled, potentially losing data. To manually flush the memstore for each table to disk, run the following script. The latest version of this script is on Azure's [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
     ```bash
     #!/bin/bash
@@ -167,74 +170,98 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
     
     ```
 
-1. Stop ingestion to the old HBase cluster.
+1. Stop ingestion to the source HBase cluster.
 
 1. To ensure that any recent data in the memstore is flushed, run the previous script again.
 
-1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the old cluster (`https://OLDCLUSTERNAME.azurehdidnsight.net`) and stop the HBase services. When you prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
+1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster (`https://OLDCLUSTERNAME.azurehdinsight.net`) and stop the HBase services. When you prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
 	![In Ambari, click Services > HBase > Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
 
 	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
+1. If your source HBase cluster does not have Enhanced Writes feature, skip this step. 
 
-   Backup the WAL dir under HDFS by running below commands from an ssh session on any of the zookeeper nodes or worker nodes of the original cluster.
+   Backup the WAL dir under HDFS by running below commands from an ssh session on any of the zookeeper nodes or worker nodes of the source cluster.
    
    ```bash
    hdfs dfs -mkdir /hbase-wal-backup**
    hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
    ```
 	
-1. Sign in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
+1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the destination cluster (`https://NEWCLUSTERNAME.azurehdinsight.net`) and stop the HBase services. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
+
+	![In Ambari, click Services > HBase > Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services1.png)
+	
+1. On the Ambari on the destination HDInsight cluster, change the `fs.defaultFS` HDFS setting to point to the container name used by the source cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
    ![In Ambari, click Services > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
    ![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
-
-1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
-
-   Change the `hbase.rootdir` path to point to the container of the original cluster.
-
-   ![In Ambari, change the container name for HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 	
-1. Clean the zookeeper and WAL FS data for this new cluster. Issue the following commands in any of the zookeeper nodes or worker nodes:
+1. Clean the zookeeper data on the destination cluster by issuing the following commands in any of the zookeeper nodes or worker nodes:
 
    ```bash
    hbase zkcli
    rmr /hbase-unsecure
    quit
+   ```
+     
+1. If neither the source cluster nor the destination cluster is with the Enhanced Writes feature, skip this step. This is needed only if atleast one of the source or destination  clusters is with Enhanced Writes feature.
 
+		Sample <source-container-fullpath> for storage type WASB is wasb://sourcecontainername@hbaseupgrade.blob.core.windows.net
+		Sample <source-container-fullpath> for storage type ADLS Gen2 is abfs://sourcecontainername@hbaseupgrade.dfs.core.windows.net
+
+CASE 1: If source and destination clusters are with Enhanced Writes feature:
+
+Clean WAL FS data for this destination cluster and restore the WAL dir that we backed up from the source cluster in one of the earlier steps to the destination cluster's HDFS. This can be done by issuing the following commands in any of the zookeeper nodes or worker nodes:
+
+   ```bash   
    hdfs dfs -rm -r hdfs://mycluster/hbasewal**
-   ```
-
-1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
-   
-   Restore the WAL dir to the new cluster's HDFS from an ssh session on  any of the zookeeper nodes or worker nodes of the new cluster.
-   
-   ```bash
-   hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
+   hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. If you're upgrading HDInsight 3.6 to 4.0, follow the steps below, otherwise skip to step 13:
+CASE 2: If only the destination cluster is with Enhanced Writes feature:
 
-    1. Restart all required services in Ambari by selecting	**Services** > **Restart All Required**.
-    1. Stop the HBase service.
-    1. SSH to the Zookeeper node, and execute the [zkCli](https://github.com/go-zkcli/zkcli) command `rmr /hbase-unsecure` to remove the HBase root znode from Zookeeper.
-    1. Restart HBase.
+Clean WAL FS data for this destination cluster and copy the WAL directory from source cluster into the destination cluster's HDFS. This can be done by issuing the following commands in any of the zookeeper nodes or worker nodes:
 
-1. If you're upgrading to any other HDInsight version besides 4.0, follow these steps:
-    1. Save your changes.
-    1. Restart all required services as indicated by Ambari.
+   If source cluster is HDI 3.6:
+   ```bash   
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+   hdfs dfs -cp <source-container-fullpath>/hbase/MasterProcWALs hdfs://mycluster/hbasewal
+   hdfs dfs -cp <source-container-fullpath>/hbase/WALs hdfs://mycluster/hbasewal
+   ```
+   If source cluster is HDI 4.0:
+   ```bash   
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+   hdfs dfs -cp <source-container-fullpath>/hbase-wals/MasterProcWALs hdfs://mycluster/hbasewal
+   hdfs dfs -cp <source-container-fullpath>/hbase-wals/WALs hdfs://mycluster/hbasewal
+   ```
+   
+CASE 3: If only the source cluster is with Enhanced Writes feature:
+	On the destination cluster, restore the WAL dir that we backed up from the source cluster in one of the earlier steps. This can be done by issuing the following commands in any of the zookeeper nodes or worker nodes:
 
-1. Point your application to the new cluster.
+   If destination cluster is HDI 3.6:
+   ```bash   
+   hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/MasterProcWALs <source-container-fullpath>/hbase
+   hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/WALs <source-container-fullpath>/hbase
+   ```
+   If destination cluster is HDI 4.0:
+   ```bash   
+   hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/MasterProcWALs <source-container-fullpath>/hbase-wals
+   hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/WALs <source-container-fullpath>/hbase-wals
+   ```
+
+1. On the destination cluster, save your changes and restart all required services as indicated by Ambari.
+
+1. Point your application to the destination cluster.
 
     > [!NOTE]  
     > The static DNS for your application changes when upgrading. Rather than hard-coding this DNS, you can configure a CNAME in your domain name's DNS settings that points to the cluster's name. Another option is to use a configuration file for your application that you can update without redeploying.
 
 1. Start the ingestion to see if everything is functioning as expected.
 
-1. If the new cluster is satisfactory, delete the original cluster.
+1. If the destination cluster is satisfactory, delete the source cluster.
     
 ## Next steps
 
