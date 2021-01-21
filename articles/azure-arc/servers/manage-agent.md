@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 01/19/2021
+ms.date: 01/21/2021
 ms.topic: conceptual
 ---
 
@@ -33,9 +33,32 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
 ## Renaming a machine
 
-When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name. For Arc enabled servers, disconnect the machine, connect it after the machines computer name is renamed, and then redeploy the VM extensions previously installed to re-associate them with the resource in Azure.
+When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name.
 
-Before you begin, audit VM extensions deployed to the machine and their configuration to ensure after you complete the procedure, you deploy those extensions using the same configuration settings.  
+For Arc enabled servers, before you rename the machine, you need to audit which VM extensions are installed and note their configuration. It is necessary to remove the VM extensions before proceeding.
+
+> [!NOTE]
+> While installed extensions continue to run and perform their normal operation after this procedure is complete, you won't be able to manage them. If you attempt to redeploy the extensions on the machine, you may experience unpredictable behavior.
+
+> [!WARNING]
+> We recommend you avoid renaming the machine's computer name and only perform this procedure if absolutely necessary.
+
+To rename the computer, the following steps are performed:
+
+1. Audit the VM extensions installed on the machine.
+
+2. Remove the VM extensions using PowerShell, the Azure CLI, or from the portal.
+
+    > [!NOTE]
+    > If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) and after the renamed machine is registered with Arc enabled servers.
+
+3. Disconnect the machine from Arc enabled servers using PowerShell, the Azure CLI, or from the portal.
+
+4. Rename the computer.
+
+5. Connect the machine with Arc enabled servers using the `Azcmagent` tool to register and create a new resource in Azure.
+
+6. Deploy VM extensions previously installed on the target machine.
 
 Use the following steps to complete this task.
 
@@ -71,7 +94,7 @@ Use the following steps to complete this task.
 
 After a machine has been renamed, the Connected Machine agent needs to be re-registered with Arc enabled servers. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
 
-Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers in order to reassociate them with the resource in Azure. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Upgrading agent
 
