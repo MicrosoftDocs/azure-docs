@@ -4,7 +4,7 @@ description: Learn how to handle  transient connectivity errors for Azure Databa
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: azure-database-mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---
