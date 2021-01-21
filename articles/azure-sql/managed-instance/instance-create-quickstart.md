@@ -154,17 +154,21 @@ Upon successful deployment of a managed instance, to view resources created:
 
 To optionally fine-tune networking settings, inspect the following:
 
-1. In the list of resources, select the route table to review the user-defined route table (UDR) object that was created.
+1. In the list of resources, select the route table to review the user-defined Route table (UDR) object that was created.
 
 2. In the route table, review the entries to route traffic from and within the SQL Managed Instance virtual network. If you create or configure your route table manually, create these entries in the SQL Managed Instance route table.
 
    ![Entry for a SQL Managed Instance subnet to local](./media/instance-create-quickstart/udr.png)
+
+    To change or add routes, open the **Routes** in the Route table settings.
 
 3. Return to the resource group, and select the network security group (NSG) object that was created.
 
 4. Review the inbound and outbound security rules. 
 
    ![Security rules](./media/instance-create-quickstart/security-rules.png)
+
+    To change or add rules, open the **Inbound Security Rules** and **Outbound security rules** in the Network security group settings.
 
 > [!IMPORTANT]
 > If you have configured a public endpoint for SQL Managed Instance, you need to open ports to allow network traffic allowing connections to SQL Managed Instance from the public internet. See [Configure a public endpoint for SQL Managed Instance](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) for more information.
