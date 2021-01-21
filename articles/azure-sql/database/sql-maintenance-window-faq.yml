@@ -34,7 +34,7 @@ sections:
 
       - question: In which regions is SQL Maintenance Window Available?
         answer: | 
-          Available in limited regions, see [SQL Maintenance Window](sql-maintenance-window.md#Availability).
+          Available in limited regions, see [SQL Maintenance Window](sql-maintenance-window.md#availability).
       
       - question: I don’t see my region in the available regions list, what can I do? 
         answer: |
