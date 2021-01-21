@@ -14,19 +14,19 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - January 2021
-  - [Azure Disk Backup (in preview)](disk-backup-overview.md)
-  - [Encryption at rest using customer-managed keys (general availability)](encryption-at-rest-with-cmk.md)
+  - [Azure Disk Backup (in preview)](#azure-disk-backup-in-preview)
+  - [Encryption at rest using customer-managed keys (general availability)](#encryption-at-rest-using-customer-managed-keys)
 - November 2020
   - [Azure Resource Manager template for Azure file share (AFS) backup](#azure-resource-manager-template-for-afs-backup)
-  - [Incremental backups for SAP HANA databases on Azure VMs (in preview)](#incremental-backups-for-sap-hana-databases)
+  - [Incremental backups for SAP HANA databases on Azure VMs (in preview)](#incremental-backups-for-sap-hana-databases-in-preview)
 - September 2020
-  - [Backup Center (in preview)](#backup-center)
-  - [Backup Azure Database for PostgreSQL (in preview)](#backup-azure-database-for-postgresql)
+  - [Backup Center (in preview)](#backup-center-in-preview)
+  - [Backup Azure Database for PostgreSQL (in preview)](#backup-azure-database-for-postgresql-in-preview)
   - [Selective disk backup and restore](#selective-disk-backup-and-restore)
-  - [Cross Region Restore for SQL Server and SAP HANA databases on Azure VMs (in preview)](#cross-region-restore-for-sql-server-and-sap-hana)
+  - [Cross Region Restore for SQL Server and SAP HANA databases on Azure VMs (in preview)](#cross-region-restore-for-sql-server-and-sap-hana-in-preview)
   - [Support for backup of VMs with up to 32 disks (general availability)](#support-for-backup-of-vms-with-up-to-32-disks)
   - [Simplified backup configuration experience for SQL in Azure VMs](#simpler-backup-configuration-for-sql-in-azure-vms)
-  - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines)
+  - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Zone redundant storage (ZRS) for backup data](#zone-redundant-storage-zrs-for-backup-data)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
