@@ -113,98 +113,172 @@ If you have content expressed in a less frequently used language, you can try La
 
 | Language | Language Code | v3 support | Available starting with v3 model version: |
 |:-|:-:|:-:|:-:|
-| Afrikaans | `af` | ✓ |  |
-| Albanian | `sq` | ✓ |  |
-| Arabic | `ar` | ✓ |  |
-| Armenian | `hy` | ✓ |  |
-| Basque | `eu` | ✓ |  |
-| Belarusian | `be` | ✓ |  |
-| Bengali | `bn` | ✓ |  |
-| Bosnian | `bs` | ✓ | 2020-09-01 |
-| Bulgarian | `bg` | ✓ |  |
-| Burmese | `my` | ✓ |  |
-| Catalan, Valencian | `ca` | ✓ |  |
-| Central Khmer | `km` | ✓ |  |
-| Chinese | `zh` | ✓ |  |
-| Chinese Simplified | `zh_chs` | ✓ |  |
-| Chinese Traditional | `zh_cht` | ✓ |  |
-| Croatian | `hr` | ✓ |  |
-| Czech | `cs` | ✓ |  |
-| Danish | `da` | ✓ |  |
-| Dari | `prs` | ✓ | 2020-09-01 |
-| Divehi, Dhivehi, Maldivian | `dv` | ✓ |  |
-| Dutch, Flemish | `nl` | ✓ |  |
-| English | `en` | ✓ |  |
-| Esperanto | `eo` | ✓ |  |
-| Estonian | `et` | ✓ |  |
-| Fijian | `fj` | ✓ | 2020-09-01 |
-| Finnish | `fi` | ✓ |  |
-| French | `fr` | ✓ |  |
-| Galician | `gl` | ✓ |  |
-| Georgian | `ka` | ✓ |  |
-| German | `de` | ✓ |  |
-| Greek | `el` | ✓ |  |
-| Gujarati | `gu` | ✓ |  |
-| Haitian, Haitian Creole | `ht` | ✓ |  |
-| Hebrew | `he` | ✓ |  |
-| Hindi | `hi` | ✓ |  |
-| Hmong Daw | `mww` | ✓ | 2020-09-01 |
-| Hungarian | `hu` | ✓ |  |
-| Icelandic | `is` | ✓ |  |
-| Indonesian | `id` | ✓ |  |
-| Inuktitut | `iu` | ✓ |  |
-| Irish | `ga` | ✓ |  |
-| Italian | `it` | ✓ |  |
-| Japanese | `ja` | ✓ |  |
-| Kannada | `kn` | ✓ |  |
-| Kazakh | `kk` | ✓ | 2020-09-01 |
-| Korean | `ko` | ✓ |  |
-| Kurdish | `ku` | ✓ |  |
-| Lao | `lo` | ✓ |  |
-| Latin | `la` | ✓ |  |
-| Latvian | `lv` | ✓ |  |
-| Lithuanian | `lt` | ✓ |  |
-| Macedonian | `mk` | ✓ |  |
-| Malagasy | `mg` | ✓ | 2020-09-01 |
-| Malay | `ms` | ✓ |  |
-| Malayalam | `ml` | ✓ |  |
-| Maltese | `mt` | ✓ |  |
-| Maori | `mi` | ✓ | 2020-09-01 |
-| Marathi | `mr` | ✓ | 2020-09-01 |
-| Norwegian | `no` | ✓ |  |
-| Norwegian Nynorsk | `nn` | ✓ |  |
-| Oriya | `or` | ✓ |  |
-| Pashto, Pushto | `ps` | ✓ |  |
-| Persian | `fa` | ✓ |  |
-| Polish | `pl` | ✓ |  |
-| Portuguese | `pt` | ✓ |  |
-| Punjabi, Panjabi | `pa` | ✓ |  |
-| Queretaro Otomi | `otq` | ✓ | 2020-09-01 |
-| Romanian, Moldavian, Moldovan | `ro` | ✓ |  |
-| Russian | `ru` | ✓ |  |
-| Samoan | `sm` | ✓ | 2020-09-01 |
-| Serbian | `sr` | ✓ |  |
-| Sinhala, Sinhalese | `si` | ✓ |  |
-| Slovak | `sk` | ✓ |  |
-| Slovenian | `sl` | ✓ |  |
-| Somali | `so` | ✓ |  |
-| Spanish, Castilian | `es` | ✓ |  |
-| Swahili | `sw` | ✓ |  |
-| Swedish | `sv` | ✓ |  |
-| Tagalog | `tl` | ✓ |  |
-| Tahitian | `ty` | ✓ | 2020-09-01 |
-| Tamil | `ta` | ✓ |  |
-| Telugu | `te` | ✓ |  |
-| Thai | `th` | ✓ |  |
-| Tongan | `to` | ✓ | 2020-09-01 |
-| Turkish | `tr` | ✓ |  |
-| Ukrainian | `uk` | ✓ |  |
-| Urdu | `ur` | ✓ |  |
-| Uzbek | `uz` | ✓ |  |
-| Vietnamese | `vi` | ✓ |  |
-| Welsh | `cy` | ✓ |  |
-| Yiddish | `yi` | ✓ |  |
-| Yucatec Maya | `yua` | ✓ |  |
+|Abkhazian|`ab`|✓|2021-01-05|
+|Afrikaans|`af`|✓|    |
+|Akan|`ak`|✓|2021-01-05|
+|Albanian|`sq`|✓|    |
+|Amharic|`am`|✓|2021-01-05|
+|Arabic|`ar`|✓|    |
+|Aragonese|`an`|✓|2021-01-05|
+|Armenian|`hy`|✓|    |
+|Assamese|`as`|✓|2021-01-05|
+|Avaric|`av`|✓|2021-01-05|
+|Aymara|`ay`|✓|2021-01-05|
+|Azerbaijani|`az`|✓|2021-01-05|
+|Bambara|`bm`|✓|2021-01-05|
+|Bashkir|`ba`|✓|2021-01-05|
+|Basque|`eu`|✓|    |
+|Belarusian|`be`|✓|    |
+|Bengali|`bn`|✓|    |
+|Bihari languages|`bh`|✓|2021-01-05|
+|Bislama|`bi`|✓|2021-01-05|
+|Bosnian|`bs`|✓|2020-09-01|
+|Breton|`br`|✓|2021-01-05|
+|Bulgarian|`bg`|✓|    |
+|Burmese|`my`|✓|    |
+|Catalan|`ca`|✓|    |
+|Central Khmer|`km`|✓|    |
+|Chamorro|`ch`|✓|2021-01-05|
+|Chechen|`ce`|✓|2021-01-05|
+|Chichewa|`ny`|✓|2021-01-05|
+|Chinese|`zh`|✓|    |
+|Chinese Simplified|`zh_chs`|✓|    |
+|Chinese Traditional|`zh_cht`|✓|    |
+|Church Slavic|`cu`|✓|2021-01-05|
+|Chuvash|`cv`|✓|2021-01-05|
+|Cornish|`kw`|✓|2021-01-05|
+|Corsican|`co`|✓|2021-01-05|
+|Cree|`cr`|✓|2021-01-05|
+|Croatian|`hr`|✓|    |
+|Czech|`cs`|✓|    |
+|Danish|`da`|✓|    |
+|Dari|`prs`|✓|2020-09-01|
+|Divehi|`dv`|✓|    |
+|Dutch|`nl`|✓|    |
+|Dzongkha|`dz`|✓|2021-01-05|
+|English|`en`|✓|    |
+|Esperanto|`eo`|✓|    |
+|Estonian|`et`|✓|    |
+|Ewe|`ee`|✓|2021-01-05|
+|Faroese|`fo`|✓|2021-01-05|
+|Fijian|`fj`|✓|2020-09-01|
+|Finnish|`fi`|✓|    |
+|French|`fr`|✓|    |
+|Fulah|`ff`|✓|2021-01-05|
+|Gaelic|`gd`|✓|2021-01-05|
+|Galician|`gl`|✓|    |
+|Ganda|`lg`|✓|2021-01-05|
+|Georgian|`ka`|✓|    |
+|German|`de`|✓|    |
+|Greek|`el`|✓|    |
+|Guarani|`gn`|✓|2021-01-05|
+|Gujarati|`gu`|✓|    |
+|Haitian|`ht`|✓|    |
+|Hausa|`ha`|✓|2021-01-05|
+|Hebrew|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong Daw|`mww`|✓|2020-09-01|
+|Hungarian|`hu`|✓|    |
+|Icelandic|`is`|✓|    |
+|Igbo|`ig`|✓|2021-01-05|
+|Indonesian|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Inupiaq|`ik`|✓|2021-01-05|
+|Irish|`ga`|✓|    |
+|Italian|`it`|✓|    |
+|Japanese|`ja`|✓|    |
+|Javanese|`jv`|✓|2021-01-05|
+|Kalaallisut|`kl`|✓|2021-01-05|
+|Kannada|`kn`|✓|    |
+|Kashmiri|`ks`|✓|2021-01-05|
+|Kazakh|`kk`|✓|2020-09-01|
+|Kikuyu|`ki`|✓|2021-01-05|
+|	Kalaallisut|`kl`|✓|2021-01-05|
+|Kinyarwanda|`rw`|✓|2021-01-05|
+|Kirghiz|`ky`|✓|2021-01-05|
+|Komi|`kv`|✓|2021-01-05|
+|Kongo|`kg`|✓|2021-01-05|
+|Korean|`ko`|✓|    |
+|Kurdish|`ku`|✓|    |
+|Lao|`lo`|✓|    |
+|Latin|`la`|✓|    |
+|Latvian|`lv`|✓|    |
+|Limburgan|`li`|✓|2021-01-05|
+|Lingala|`ln`|✓|2021-01-05|
+|Lithuanian|`lt`|✓|    |
+|Luxembourgish|`lb`|✓|2021-01-05|
+|Macedonian|`mk`|✓|    |
+|Malagasy|`mg`|✓|2020-09-01|
+|Malay|`ms`|✓|    |
+|Malayalam|`ml`|✓|    |
+|Maltese|`mt`|✓|    |
+|Manx|`gv`|✓|2021-01-05|
+|Maori|`mi`|✓|2020-09-01|
+|Marathi|`mr`|✓|2020-09-01|
+|Mongolian|`mn`|✓|2021-01-05|
+|Nauru|`na`|✓|2021-01-05|
+|Navajo|`nv`|✓|2021-01-05|
+|Nepali|`ne`|✓|2021-01-05|
+|Northern Sami|`se`|✓|2021-01-05|
+|Norwegian|`no`|✓|    |
+|Norwegian Nynorsk|`nn`|✓|    |
+|Occitan|`oc`|✓|2021-01-05|
+|Oriya|`or`|✓|    |
+|Oromo|`om`|✓|2021-01-05|
+|Ossetian|`os`|✓|2021-01-05|
+|Pali|`pi`|✓|2021-01-05|
+|Pasht|`ps`|✓|    |
+|Persian|`fa`|✓|    |
+|Polish|`pl`|✓|    |
+|Portuguese|`pt`|✓|    |
+|Punjabi|`pa`|✓|    |
+|Quechua|`qu`|✓|2021-01-05|
+|Queretaro Otomi|`otq`|✓|2020-09-01|
+|Romanian|`ro`|✓|    |
+|Romansh|`rm`|✓|2021-01-05|
+|Rundi|`rn`|✓|2021-01-05|
+|Russian|`ru`|✓|    |
+|Samoan|`sm`|✓|2020-09-01|
+|Sango|`sg`|✓|2021-01-05|
+|Sanskrit|`sa`|✓|2021-01-05|
+|Sardinian|`sc`|✓|2021-01-05|
+|Serbian|`sr`|✓|    |
+|Serbo-Croatian|`sh`|✓|2021-01-05|
+|Shona|`sn`|✓|2021-01-05|
+|Sindhi|`sd`|✓|2021-01-05|
+|Sinhala|`si`|✓|    |
+|Slovak|`sk`|✓|    |
+|Slovenian|`sl`|✓|    |
+|Somali|`so`|✓|    |
+|Southern Sotho|`st`|✓|2021-01-05|
+|Spanish|`es`|✓|    |
+|Sundanese|`su`|✓|2021-01-05|
+|Swahili|`sw`|✓|    |
+|Swati|`ss`|✓|2021-01-05|
+|Swedish|`sv`|✓|    |
+|Tagalog|`tl`|✓|    |
+|Tahitian|`ty`|✓|2020-09-01|
+|Tajik|`tg`|✓|2021-01-05|
+|Tamil|`ta`|✓|    |
+|Tatar|`tt`|✓|2021-01-05|
+|Telugu|`te`|✓|    |
+|Thai|`th`|✓|    |
+|Tibetan|`bo`|✓|2021-01-05|
+|Tigrinya|`ti`|✓|2021-01-05|
+|Tongan|`to`|✓|2020-09-01|
+|Tsonga|`ts`|✓|2021-01-05|
+|Tswana|`tn`|✓|2021-01-05|
+|Turkmen|`tk`|✓|2021-01-05|
+|Twi|`tw`|✓|2021-01-05|
+|Uighur|`ug`|✓|2021-01-05|
+|Venda|`ve`|✓|2021-01-05|
+|Walloon|`wa`|✓|2021-01-05|
+|Western Frisian|`fy`|✓|2021-01-05|
+|Wolof|`wo`|✓|2021-01-05|
+|Xhosa|`xh`|✓|2021-01-05|
+|Yoruba|`yo`|✓|2021-01-05|
+|Zhuang|`za`|✓|2021-01-05|
+|Zulu|`zu`|✓|2021-01-05|
 
 ---
 
