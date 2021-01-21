@@ -31,13 +31,16 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Current limitations
 
-- Configuration can currently only be performed using CLI or REST requests. You cannot use the Azure portal or PowerShell.
+- Configuration can be performed using CLI or REST requests currently. Azure portal or PowerShell are not supported yet.
 - The ```--export-all-tables``` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace.```
+- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. 
+- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until table gets supported. 
+- If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace```.
 - Your Log Analytics workspace can be in any region except for the following:
   - Switzerland North
   - Switzerland West
   - Azure Government regions
+- You can create two export rules in a workspace -- in can be one rule to event hub and one rule to storage account.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
 
@@ -111,7 +114,7 @@ If you have configured your Storage Account to allow access from selected networ
 
 
 ### Create or update data export rule
-A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
+A data export rule defines data to be exported for a set of tables to a single destination. You can create a single rule for each destination.
 
 
 # [Azure portal](#tab/portal)

@@ -309,9 +309,9 @@ Azure role-based access control (Azure RBAC) allows you to manage access to Azur
 
 - [Authorizing access to Event Grid resources](security-authorization.md)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -717,7 +717,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization before deployments.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -759,9 +759,9 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 **Guidance**: If using custom Azure Policy definitions for your Event Grid or related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not Applicable
 

@@ -47,6 +47,9 @@ File system corruption could cause this. However, it is difficult to diagnose an
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md), and [attach the OS disk to a rescue VM](./troubleshoot-recovery-disks-portal-windows.md), and then follow the solution options accordingly, or try the solutions one by one.
 
 ### Solution for cause 1

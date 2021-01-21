@@ -3,7 +3,7 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 09/09/2020
+ms.date: 01/20/2021
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -28,7 +28,7 @@ If you're looking for information about an error code and that information isn't
 | DeploymentNameLengthLimitExceeded | The deployment names are limited to 64 characters.  | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
 | DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. | [Resolve error when deployment count exceeds 800](deployment-quota-exceeded.md) |
-| DeploymentSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
+| DeploymentJobSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
 | DnsRecordInUse | The DNS record name must be unique. Enter a different name. | |
 | ImageNotFound | Check VM image settings. |  |
 | InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |

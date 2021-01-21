@@ -700,6 +700,8 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GitHub AE
+        href: github-ae-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -2077,16 +2079,18 @@
         href: envoy-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
-      - name: Figma
-        href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
-      - name: Fuze
-        href: fuze-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
       - name: Flock
         href: flock-provisioning-tutorial.md
       - name: Foodee
         href: foodee-provisioning-tutorial.md
+      - name: Fortes Change Cloud
+        href: fortes-change-cloud-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: g-suite-provisioning-tutorial.md
       - name: GitHub
@@ -2241,6 +2245,10 @@
         href: tic-tac-mobile-provisioning-tutorial.md
       - name: Templafy
         href: templafy-provisioning-tutorial.md
+      - name: Templafy SAML2
+        href: templafy-saml-2-provisioning-tutorial.md
+      - name: Templafy OpenID Connect
+        href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
