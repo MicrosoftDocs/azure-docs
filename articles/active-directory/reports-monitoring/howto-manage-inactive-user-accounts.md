@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 20/01/2021
+ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -81,7 +81,7 @@ Each interactive sign-in that was successful results in an update of the underly
 
 To generate a lastSignInDateTime timestamp, you need a successful sign-in. Because the lastSignInDateTime property is a new feature, the value of the lastSignInDateTime property can be blank if:
 
-- The last successful sign-in of a user took place before April 2021.
+- The last successful sign-in of a user took place before April 2020.
 - The affected user account was never used for a successful sign-in.
 
 ## Next steps
