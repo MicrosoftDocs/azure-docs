@@ -110,7 +110,7 @@ If you are enabling Automanage with a new Automanage Account, you need the follo
 If you are enabling Automanage with an existing Automanage Account, you need to have the **Contributor** role on the resource group containing your VMs.
 
 > [!NOTE]
-> When you disable Automanage Best Practices, the Automanage Account's permissions on any associated subscriptions will remain. Manually remove the permissions by going to the subscription's IAM page or delete the Automanage Account.
+> When you disable Automanage Best Practices, the Automanage Account's permissions on any associated subscriptions will remain. Manually remove the permissions by going to the subscription's IAM page or delete the Automanage Account. The Automanage Account cannot be deleted if it is still managing any machines.
 
 
 ## Status of VMs
