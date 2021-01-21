@@ -24,11 +24,11 @@
       href: quickstart-azure-rtos-security-module.md
     - name: Onboard to Defender for IoT agent-based solution
       href: quickstart-onboard-iot-hub.md
-    - name: Create a Defender Iot Micro Agent module twin              Article Created needs review, Need to add the images
+    - name: Create a Defender Iot Micro Agent module twin
       href: quickstart-create-micro-agent-module-twin.md
-    - name: Standalone agent binary installation                       Article Created needs review, Needs next step article
+    - name: Standalone agent binary installation
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Building the Defender for IoT Micro Agent from source      Article Created needs review, Needs next step article
+    - name: Building the Defender for IoT Micro Agent from source
       href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Add Azure resources to your IoT solution
       href: quickstart-configure-your-solution.md
@@ -48,17 +48,17 @@
     items:
     - name: Agent portfolio overview and OS support                      
       items:
-      - name: Description of Azure RTOS, standalone                      Needs review
+      - name: Description of Azure RTOS, standalone
         href: concept-agent-portfolio-overview-os-support.md
-    - name: Standalone micro agent overview                              Needs review         
+    - name: Standalone micro agent overview  
       href: concept-standalone-micro-agent-overview.md
-    - name: Security agent authentication                                Needs review
+    - name: Security agent authentication
       href: concept-security-agent-authentication.md
-    - name: Security posture - CIS benchmark                             Needs review
+    - name: Security posture - CIS benchmark
       href: concept-security-posture.md
     - name: Security module
       href: concept-security-module.md
-    - name: Event aggregation                                            Copied file from Doc Needs Review
+    - name: Event aggregation
       href: concept-event-aggregation.md
     - name: Security alerts
       href: concept-security-alerts.md
@@ -162,6 +162,20 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
+    - name: Integrate with partners
+      items:
+      - name: Cisco ISE pxGrid integration
+        href: integration-cisco-ise-pxgrid.md
+      - name: Forescout integration
+        href: integration-forescout.md
+      - name: Fortinet integration
+        href: integration-fortinet.md
+      - name: Palo Alto integration
+        href: integration-palo-alto.md
+      - name: ServiceNow integration
+        href: integration-servicenow.md
+      - name: Splunk integration
+        href: integration-splunk.md
   - name: Agent-based solution for device builders
     items:
     - name: Security Module for Azure RTOS
@@ -175,9 +189,9 @@
         href: concept-rtos-security-alerts-recommendations.md
     - name: Connect to Azure Sentinel
       href: how-to-configure-with-sentinel.md
-    - name: Configure Azure Defender for IoT agent-based solution      Needs Review
+    - name: Configure Azure Defender for IoT agent-based solution
       href: how-to-configure-agent-based-solution.md
-    - name: Investigate CIS benchmark recommendation                   Needs review and Next Steps
+    - name: Investigate CIS benchmark recommendation
       href: how-to-investigate-cis-benchmark.md
     - name: Investigate security recommendations
       href: quickstart-investigate-security-recommendations.md
@@ -219,13 +233,13 @@
   items:
   - name: Managed
     items:
-    - name: Logs level                                                 Need to copy
+    - name: Logs level
       href: 
-    - name: Events in the cloud                                                 Need to copy
+    - name: Events in the cloud
       href:
 - name: Feature retirement
   items:
-  - name: Defender for IoT C, C#, and Edge security module deprecation                                                  Need to copy
+  - name: Defender for IoT C, C#, and Edge security module deprecation
     href: edge-security-module-deprecation.md
 - name: References
   items:
