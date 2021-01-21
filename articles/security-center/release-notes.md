@@ -1,16 +1,16 @@
 ---
 title: Release notes for Azure Security Center
-description: A description of what's new and changed in Azure Security Center.
+description: A description of what's new and changed in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: overview
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2021
+ms.date: 01/21/2021
 ms.author: memildin
 
 ---
@@ -29,11 +29,19 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 ## January 2021
 
-### Vulnerability assessment for on-premise and multi-cloud machines is generally available
+Updates in December include:
+
+- [Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
+- ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+
+
+### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
 
 In October, we announced a preview for scanning Azure Arc enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
-It's now generally available. 
+It's now released for General Availability (GA).
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
@@ -49,6 +57,36 @@ Main capabilities:
 [Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+
+
+### Secure score API is released for General Availability (GA)
+
+You can now access your score via the [secure score API](/rest/api/securitycenter/securescores/). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+
+For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+
+### CSV export of filtered list of recommendations 
+
+In November 2020, we added filters to the recommendations page ([Recommendations list now includes filters](#recommendations-list-now-includes-filters)). In December, we expanded those filters ([Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+With this announcement, we're changing the behavior of the **Download to CSV** button so that the CSV export only includes the recommendations currently displayed in the filtered list. 
+
+For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file":::
+
+Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
+
+
+### "Not applicable" resources now reported as "Compliant" in Azure Policy assessments
+
+Previously, resources that were evaluated for a recommendation and found to be **not applicable** appeared in Azure Policy as "Non-compliant". No user actions could change their state to "Compliant". With this change, they're reported as "Compliant" for improved clarity.
+
+The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
+
 
 
 ## December 2020

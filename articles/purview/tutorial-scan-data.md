@@ -185,6 +185,8 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 ### Scan your data sources
 
+1. Navigate to your Azure Purview resource in the [Azure portal](https://portal.azure.com) and select *Open Purview Studio*. You're automatically taken to your Purview Studio's home page.
+
 1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 
    :::image type="content" source="media/tutorial-scan-data/add-blob-storage.png" alt-text="Register blob storage resource":::

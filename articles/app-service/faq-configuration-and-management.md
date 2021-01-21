@@ -313,3 +313,8 @@ You also can specify the specific dynamic and static MIME types that you want to
 ## How do I migrate from an on-premises environment to App Service?
 
 To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).
+
+## Why is my certificate issued for 11 months and not for a full year?
+
+For all certificates issued after 9/1/2020, the maximum duration is now 397 days. Certificates issued before 9/1/2020 have a maximum validity of 825 days until they are renewed, rekeyed etc. Any certificate renewed after 9/1/2020 will be affected by this change and users may notice a shorter validity on their renewed certificates.
+GoDaddy has implemented a subscription service that both meets the new requirements while honoring existing customer certificates. Thirty days before the newly-issued certificate expires, the service automatically issues a second certificate that extends the duration to the original expiration date. App Service is working with GoDaddy to address this change and make sure that our customers receive the full duration of their certificates.
