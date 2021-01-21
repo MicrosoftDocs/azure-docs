@@ -1,7 +1,7 @@
 ---
 title: Microsoft identity platform access tokens | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform.
+description: Learn about access tokens emitted by the Azure AD v1.0 aand Microsoft identity platform (v2.0) endpoints.
 services: active-directory
 author: hpsin
 manager: CelesteDG
