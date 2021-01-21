@@ -57,24 +57,21 @@ Click on the image below to see a larger version.
 [ ![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Set up
-    1. Create an asset or use and existing asset.
-        1. If using a new asset, upload content to that asset.
-        1. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
+    1. Create an asset or use and existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*
     1. Create an output asset.  The output asset is where the encoded files and input and output metadata will be stored.
-    1. Get values
-        1. For the transform, get the values for the following items:
-            1. Standard Encoder preset
-            1. AMS resource group
-            1. AMS account name
+    1. Get values for the transform:
+        - Standard Encoder preset
+        - AMS resource group
+        - AMS account name
     1. Create the transform or use an existing transform.  Transforms are reusable. It isn't necessary to create a new transform each time you want to submit a job.
 1. Create a job
     1. For the job, get the values for the following items:
-        1. Transform name
-        1. Base-URI for the SAS URL for your asset, the HTTPs source path of your file share, or the local path of the files. The `JobInputAsset` can also use an asset name as an input.
-        1. File name(s)
-        1. Output asset(s)
-        1. A resource group
-        1. AMS account name  
+        - Transform name
+        - Base-URI for the SAS URL for your asset, the HTTPs source path of your file share, or the local path of the files. The `JobInputAsset` can also use an asset name as an input.
+        - File name(s)
+        - Output asset(s)
+        - A resource group
+        - AMS account name  
 1. Use [Event Grid](monitor-events-portal-how-to.md) for monitoring your job.
 1. Submit the job.
 

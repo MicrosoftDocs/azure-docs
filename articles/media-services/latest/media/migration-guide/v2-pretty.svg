@@ -480,12 +480,12 @@
 				<text x="80.13" y="487.6" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Encoder string</text>			</g>
 			<g id="shape49-69" v:mID="49" v:groupContext="shape" v:layerMember="2" transform="translate(394.594,-162)">
 				<title>Dynamic connector.49</title>
-				<desc>Asset id</desc>
+				<desc>Asset ID</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="76.2187" cy="477.75" width="40" height="17.6036"/>
 				<path d="M0 477.75 L105.92 477.75 L105.92 438.27" class="st10"/>
 				<rect v:rectContext="textBkgnd" x="61.9904" y="472.95" width="28.4568" height="9.59985" class="st15"/>
-				<text x="61.99" y="480.15" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Asset id</text>			</g>
+				<text x="61.99" y="480.15" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Asset ID</text>			</g>
 			<g id="shape51-76" v:mID="51" v:groupContext="shape" v:layerMember="2" transform="translate(705.6,-233.916)">
 				<title>Dynamic connector.51</title>
 				<path d="M9 476.15 L9 468.39" class="st10"/>
@@ -734,7 +734,7 @@
 				<text x="57.5" y="480.15" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Asset id</text>			</g>
 			<g id="shape74-126" v:mID="74" v:groupContext="shape" transform="translate(432,-429)">
 				<title>Sheet.74</title>
-				<desc>MES processor id or object</desc>
+				<desc>MES processor ID or object</desc>
 				<v:textBlock v:margins="rect(2,2,2,2)" v:verticalAlign="0"/>
 				<v:textRect cx="33.4164" cy="471.75" width="66.84" height="12"/>
 				<rect x="0" y="465.75" width="66.8328" height="12" class="st17"/>

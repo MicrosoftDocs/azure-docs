@@ -894,7 +894,7 @@
 					<text x="45.65" y="670.35" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Job name</text>				</g>
 				<g id="shape150-90" v:mID="150" v:groupContext="shape" v:layerMember="1" transform="translate(25.6781,-65.3875)">
 					<title>Process.31</title>
-					<desc>Output asset(s) id or name</desc>
+					<desc>Output asset(s) ID or name</desc>
 					<v:custProps>
 						<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false"
 								v:ask="false" v:langID="1033" v:cal="0"/>
@@ -1805,7 +1805,7 @@
 					<text x="61.49" y="517.86" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Output asset</text>				</g>
 				<g id="shape241-323" v:mID="241" v:groupContext="shape" v:layerMember="1" transform="translate(27,-126)">
 					<title>Process.32</title>
-					<desc>Output asset id or name</desc>
+					<desc>Output asset ID or name</desc>
 					<v:custProps>
 						<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false"
 								v:ask="false" v:langID="1033" v:cal="0"/>
@@ -1832,7 +1832,7 @@
 					<v:textBlock v:margins="rect(2,2,2,2)"/>
 					<v:textRect cx="72" cy="666.75" width="144" height="18"/>
 					<rect x="0" y="657.75" width="144" height="18" class="st4"/>
-					<text x="7.96" y="670.35" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Output asset id or name</text>				</g>
+					<text x="7.96" y="670.35" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Output asset ID or name</text>				</g>
 				<g id="shape272-326" v:mID="272" v:groupContext="shape" v:layerMember="1" transform="translate(27,-64.6875)">
 					<title>Process.172</title>
 					<desc>Resulting file(s)</desc>
@@ -1912,12 +1912,12 @@
 				<text x="79.5" y="660.15" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Transform name</text>			</g>
 			<g id="shape245-343" v:mID="245" v:groupContext="shape" v:layerMember="2" transform="translate(899.156,-576)">
 				<title>Dynamic connector.245</title>
-				<desc>Output asset id or name</desc>
+				<desc>Output asset ID or name</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="146.644" cy="710.428" width="95.61" height="17.6036"/>
 				<path d="M0 675.75 L0 657.75 L146.64 657.75 L146.64 920.71" class="st11"/>
 				<rect v:rectContext="textBkgnd" x="103.955" y="705.628" width="85.3781" height="9.59985" class="st13"/>
-				<text x="103.95" y="712.83" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Output asset id or name</text>			</g>
+				<text x="103.95" y="712.83" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Output asset ID or name</text>			</g>
 		</g>
 	</g>
 </svg>
