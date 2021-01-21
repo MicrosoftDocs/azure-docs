@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 01/18/2021
+ms.date: 01/21/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -260,6 +260,9 @@ Learn about the support options in the commercial marketplace at [Support for th
 View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
 
 You will be contacted by a Microsoft Partner Technical Consultant to set up a call to scope your needs.
+
+## Report
+Reporting for Azure usage tracked via customer usage attribution is not available today for ISV partners. Adding reporting to the Commercial Marketplace Program to cover customer usage attribution and other forms of Azure usage is targeted for the second half of 2021.
 
 ## FAQ
 
