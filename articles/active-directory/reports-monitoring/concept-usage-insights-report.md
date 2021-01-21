@@ -56,7 +56,7 @@ You can also set the focus on a specific application. Select **view sign-in acti
 
 When you select a day in the application usage graph, you get a detailed list of the sign-in activities for the application.  
 
-![Screenshot shows Usage & insights for a specific application where you can see a graph for the sign-in activitity.](./media/concept-usage-insights-report/usage-and-insights-application-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="Screenshot shows Usage & insights for a specific application where you can see a graph for the sign-in activitity.":::
 
 ## Next steps
 
