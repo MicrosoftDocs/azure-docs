@@ -119,7 +119,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 <a id="modify-retention-policy"></a>
 
-## Modify log data retention policy
+## Modify log data retention period
 
 Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
 
