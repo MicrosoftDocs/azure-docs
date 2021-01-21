@@ -1379,6 +1379,12 @@
         href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
       - name: Upload a vhd to a disk - CLI
         href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+      - name: Download a VHD
+        items:
+        - name: Linux
+          href: ./linux/download-vhd.md
+        - name: Windows
+          href: ./windows/download-vhd.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
     - name: Swap the OS disk - CLI
@@ -1573,7 +1579,11 @@
       - name: Portal
         href: maintenance-control-portal.md
     - name: Scheduled events
-      href: ./linux/scheduled-events.md
+      items:
+      - name: Linux
+        href: ./linux/scheduled-events.md
+      - name: Windows 
+        href: ./windows/scheduled-events.md
     - name: Track and update VMs
       items:
       - name: Linux
