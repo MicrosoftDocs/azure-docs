@@ -42,7 +42,7 @@ There are two required header parameters that must be set for $export jobs. The 
 The Azure API for FHIR supports the following query parameters. All of these parameters are optional:
 |Query parameter        | Defined by the FHIR Spec?    |  Description|
 |------------------------|---|------------|
-| \_outputFormat | Yes | Currently supports three values to align to the FHIR Spec: application/fhir+ndjson, application/ndjson, or just ndjson. All export jobs will return `ndjson` and the passedhas no effect on code behavior. |
+| \_outputFormat | Yes | Currently supports three values to align to the FHIR Spec: application/fhir+ndjson, application/ndjson, or just ndjson. All export jobs will return `ndjson` and the passed value has no effect on code behavior. |
 | \_since | Yes | Allows you to only export resources that have been modified since the time provided |
 | \_type | Yes | Allows you to specify which types of resources will be included. For example, \_type=Patient would return only patient resources|
 | \_typefilter | Yes | To request finer-grained filtering, you can use \_typefilter along with the \_type parameter. The value of the _typeFilter parameter is a comma-separated list of FHIR queries that further restrict the results |
