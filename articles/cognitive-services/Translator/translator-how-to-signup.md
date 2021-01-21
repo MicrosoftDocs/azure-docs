@@ -34,12 +34,14 @@ The Translator service can be accessed through two different resource types:
 
 You can navigate directly to the _Details_ page for your service:
 
-# [Create your Translator resource](#tab/translator details page)
-[Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource.
+# [Translator resource](#tab/translator details page)
 
-# [Create your Cognitive Services resource](#tab/cognitive services details page)
+Go to the [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource details page in the Azure portal.
 
-[Cognitive Services resource](https://ms.portal.azure.com/#create/MicrosoftCognitiveServicesAllInOne) (the multi-service resource is named **Cognitive Services** in the Azure portal).
+# [Cognitive Services resource](#tab/cognitive services details page)
+
+The multi-service resource is named **Cognitive Services**.  
+Go to the [Cognitive Services resource](https://ms.portal.azure.com/#create/MicrosoftCognitiveServicesAllInOne) details page in the Azure portal. 
 
 ---
 
