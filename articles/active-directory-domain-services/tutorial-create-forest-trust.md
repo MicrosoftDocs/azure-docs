@@ -97,7 +97,7 @@ If the forest trust is no longer needed for an environment, complete the followi
 1. Select **Start** > **Administrative Tools** > **Active Directory Domains and Trusts**.
 1. Right-click the domain, such as *onprem.contoso.com*, then select **Properties**.
 1. Choose **Trusts** tab, then **Domains that trust this domain (incoming trusts)**, click the trust to be removed, and then click **Remove**.
-1. On the Trusts tab, under either Domains trusted by this domain (outgoing trusts) or , click the trust to be removed, and then click Remove.
+1. On the Trusts tab, under **Domains trusted by this domain (outgoing trusts)**, click the trust to be removed, and then click Remove.
 1. Click **No, remove the trust from the local domain only**.
 
 ## Create outbound forest trust in Azure AD DS
