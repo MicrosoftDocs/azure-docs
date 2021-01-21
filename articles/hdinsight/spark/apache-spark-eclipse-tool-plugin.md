@@ -344,8 +344,8 @@ There are two modes to submit the jobs. If storage credential is provided, batch
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](./apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](./apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter Notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Managing resources

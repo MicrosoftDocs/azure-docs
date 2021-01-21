@@ -71,6 +71,9 @@ Select the compute target where your training script will run on. If no compute 
 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
 
+>[!Note]
+>Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks. 
+
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
@@ -172,6 +175,19 @@ See these notebooks for examples of configuring runs for various training scenar
 
 ## Troubleshooting
 
+* **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
+    
+    Consider upgrading to the latest version of azureml-core: `pip install -U azureml-core`.
+    
+    If you are running into this issue for local runs, check the version of PyJWT installed in your environment where you are starting runs. The supported versions of PyJWT are < 2.0.0. Uninstall PyJWT from the environment if the version is >= 2.0.0. You may check the version of PyJWT, uninstall and install the right version as follows:
+    1. Start a command shell, activate conda environment where azureml-core is installed.
+    2. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
+    3. If the listed version is not a supported version, `pip uninstall PyJWT` in the command shell and enter y for confirmation.
+    4. Install using `pip install 'PyJWT<2.0.0'`
+    
+    If you are submitting a user-created environment with your run, consider using the latest version of azureml-core in that environment. Versions >= 1.18.0 of azureml-core already pin PyJWT < 2.0.0. If you need to use a version of azureml-core < 1.18.0 in the environment you submit, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
+
+
  * **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure ML, the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML installs the package in the environment used for your training run.
 
     If you are using Estimators to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter. If you have your own Azure ML Environment object that you want to override the default image used by the estimator, you can specify that environment via the `environment` parameter of the estimator constructor.
@@ -202,6 +218,8 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     ```
 
     Internally, Azure ML concatenates the blocks with the same metric name into a contiguous list.
+
+* **Compute target takes a long time to start**: The Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
 
 ## Next steps
 

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: jmartens
-author: j-martens
+ms.author: larryfr
+author: BlackMist
 ms.date: 09/10/2020
 ---
 
@@ -15,8 +15,37 @@ ms.date: 09/10/2020
 
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
 
-See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+ ## 2021-01-11
+
+### Azure Machine Learning SDK for Python v1.20.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+  + **azureml-contrib-optimization**
+    + framework_version added in OptimizationConfig. It will be used when model is registered with framework MULTI.
+  + **azureml-pipeline-steps**
+    + Introducing CommandStep which would take command to process. Command can include executables, shell commands, scripts, etc.
+  + **azureml-core**
+    + Now workspace creation supports user assigned identity. Adding the uai support from SDK/CLI
+    + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
+    + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
+    + Edited Model.register method documentation to mention how to register model from run directly
+   
+
+## 2020-12-31
+### Azure Machine Learning Studio Notebooks Experience (December Update)
++ **New features**
+  + User Filename search. Users are now able to search all the files saved in a workspace.
+  + Markdown Side by Side support per Notebook Cell. In a notebook cell, users can now have the option to view rendered markdown and markdown syntax side-by-side.
+  + Cell Status Bar. The status bar indicates what state a code cell is in, whether a cell run was successful, and how long it took to run. 
+   
++ **Bug fixes and improvements**
+  + Improved page load times
+  + Improved performance 
+  + Improved speed and kernel reliability
+
+  
 ## 2020-12-07
 
 ### Azure Machine Learning SDK for Python v1.19.0
@@ -80,7 +109,19 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Deprecated the use of Nccl and Gloo as a valid type of input for Estimator classes in favor of using PyTorchConfiguration with ScriptRunConfig. 
     + Deprecated the use of Mpi as a valid type of input for Estimator classes in favor of using MpiConfiguration with ScriptRunConfig.
 
+## 2020-11-30
+### Azure Machine Learning Studio Notebooks Experience (November Update)
++ **New features**
+   + Native Terminal. Users will now have access to an integrated terminal as well as Git operation via the [integrated terminal.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+  + Duplicate Folder 
+  + Costing for Compute Drop Down 
+  + Offline Compute Pylance 
 
++ **Bug fixes and improvements**
+  + Improved page load times
+  + Improved performance 
+  + Improved speed and kernel reliability
+  + Large File Upload. You can now upload file >95mb
 
 ## 2020-11-09
 

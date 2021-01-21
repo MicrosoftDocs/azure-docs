@@ -60,7 +60,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**. [Learn more about datasets](how-to-create-register-datasets.md).
 
-Requirements for training data:
+Requirements for training data in machine learning:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
@@ -91,9 +91,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## Training, validation, and test data
 
-You can specify separate **training and validation sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure data splits and cross validation](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
+You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure data splits and cross validation](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
 
-If you do not explicitly specify a `validation_data` or `n_cross_validation` parameter, AutoML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
+If you do not explicitly specify a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
 
 |Training&nbsp;data&nbsp;size| Validation technique |
 |---|-----|
@@ -152,7 +152,6 @@ Some examples include:
     time_series_settings = {
         'time_column_name': time_column_name,
         'time_series_id_column_names': time_series_id_column_names,
-        'drop_column_names': ['logQuantity'],
         'forecast_horizon': n_test_periods
     }
     
@@ -320,7 +319,7 @@ from azureml.core.experiment import Experiment
 ws = Workspace.from_config()
 
 # Choose a name for the experiment and specify the project folder.
-experiment_name = 'automl-classification'
+experiment_name = 'Tutorial-automl'
 project_folder = './sample_projects/automl-classification'
 
 experiment = Experiment(ws, experiment_name)
@@ -462,10 +461,22 @@ For general information on how model explanations and feature importance can be 
 
 * **`import numpy` fails in Windows**: Some Windows environments see an error loading numpy with the latest Python version 3.6.8. If you see this issue, try with Python version 3.6.7.
 
-* **`import numpy` fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13 You may check the version of TensorFlow and uninstall as follows -
+* **`import numpy` fails**: Check the TensorFlow version in the automated ml conda environment. Supported versions are < 1.13. Uninstall TensorFlow from the environment if version is >= 1.13. You may check the version of TensorFlow and uninstall as follows:
   1. Start a command shell, activate conda environment where automated ml packages are installed.
   2. Enter `pip freeze` and look for `tensorflow`, if found, the version listed should be < 1.13
   3. If the listed version is not a supported version, `pip uninstall tensorflow` in the command shell and enter y for confirmation.
+  
+ * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`.
+
+    For versions <= 1.17.0 of the SDK, installation might result in an unsupported version of PyJWT. Check PyJWT version in the automated ml conda environment. Supported versions are < 2.0.0. You may check the version of PyJWT as follows:
+    1. Start a command shell, activate conda environment where automated ml packages are installed.
+    2. Enter `pip freeze` and look for `PyJWT`, if found, the version listed should be < 2.0.0
+
+    If the listed version is not a supported version:
+    1. Consider upgrading to the latest version of AutoML SDK: `pip install -U azureml-sdk[automl]`.
+    2. If that is not viable, uninstall PyJWT from the environment and install the right version as follows:
+        - `pip uninstall PyJWT` in the command shell and enter `y` for confirmation.
+        - Install using `pip install 'PyJWT<2.0.0'`.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Services in FedRAMP and DoD SRG Audit Scope
 description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, 5 or 6) audit scope a given service has reached.
 author: Jain-Garima  
 ms.author: gjain
-ms.date: 11/30/2020
+ms.date: 01/13/2021
 ms.topic: article
 ms.service: azure-government
 ms.reviewer: rochiou
@@ -23,12 +23,12 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 * 3PAO = Third Party Assessment Organization
 * JAB = Joint Authorization Board 
 * :heavy_check_mark: = indicates the service has achieved this audit scope.
-* Planned 2020 = indicates the service will be reviewed by 3PAO and JAB in 2020. Once the service is authorized, status will be updated 
+* Planned 2021 = indicates the service will be reviewed by 3PAO and JAB in 2021. Once the service is authorized, status will be updated 
 
 ## Azure public services by audit scope
 | _Last Updated: November 2020_ |
 
-| Azure Service| DoD CC SRG IL 2 | FedRAMP Moderate | FedRAMP High | Planned 2020 |
+| Azure Service| DoD CC SRG IL 2 | FedRAMP Moderate | FedRAMP High | Planned 2021 |
 | ------------ |:---------------:|:----------------:|:------------:|:------------:|
 | [API Management](https://azure.microsoft.com/services/api-management/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -125,7 +125,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Dynamics 365 Service Omni-Channel Engagement Hub](/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 Customer Engagement (Common Data Service)](/powerapps/maker/common-data-service/data-platform-intro) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Flow](/flow/getting-started) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -183,7 +183,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 **&ast;** FedRAMP high certification covers Datacenter Infrastructure Services & Databox Pod and Disk Service which are the online software components supporting Data Box hardware appliance. 
 
 ## Azure Government services by audit scope
-| _Last Updated: November 2020_ |
+| _Last Updated: January 2021_ |
 
 | Azure Service | DoD CC SRG IL 2 | DoD CC SRG IL 4 | DoD CC SRG IL 5 (Azure Gov)**&ast;** | DoD CC SRG IL 5 (Azure DoD) **&ast;&ast;** | FedRAMP High | DoD CC SRG IL 6 
 | ------------- |:---------------:|:---------------:|:---------------:|:------------:|:------------:|:------------:
@@ -289,7 +289,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Microsoft Azure Peering Service](../../peering-service/about.md) | :heavy_check_mark: |  |  |  | :heavy_check_mark: |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)| :heavy_check_mark: | :heavy_check_mark: |  |  | :heavy_check_mark: | 
-| [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
+| [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | [Microsoft Graph](/graph/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Microsoft PowerApps](/powerapps/powerapps-overview) | :heavy_check_mark: | :heavy_check_mark: |  |  | :heavy_check_mark: | 
 | [Microsoft Stream](/stream/overview) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |

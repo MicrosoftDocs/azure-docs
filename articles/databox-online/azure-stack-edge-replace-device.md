@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 01/07/2021
 ms.author: alkohli
 ---
 
@@ -39,7 +39,10 @@ If your existing device has a hardware failure, open a Support ticket by followi
 
 Follow these steps to order a new device by creating an Azure Stack Edge resource:
 
-1. Create a new order by following the steps in [Create a new resource](azure-stack-edge-deploy-prep.md#create-a-new-resource).<!--This appears to be the correct section, so I'm editing the step a bit.-->
+> [!NOTE]
+> Create a new resource for the activation of your replacement device. Activation of replacement device against an existing resource is not supported.
+
+Follow these steps to create a resource.
 
 <!--2. Make sure to select the check box against **I have an Azure Stack Edge Pro device**. 
 

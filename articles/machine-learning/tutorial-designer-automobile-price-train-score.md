@@ -268,7 +268,7 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
     > [!NOTE]
     > Experiments group similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs.
 
-    1. Enter a descriptive name for **New experiment Name**.
+    1. For **New experiment Name**, enter **Tutorial-CarPrices**.
 
     1. Select **Submit**.
     

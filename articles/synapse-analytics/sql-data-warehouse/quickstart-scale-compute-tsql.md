@@ -148,4 +148,4 @@ AND
 You've now learned how to scale compute for your dedicated SQL pool (formerly SQL DW). To learn more about Azure Synapse Analytics, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a dedicated SQL pool](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a dedicated SQL pool](./load-data-from-azure-blob-storage-using-copy.md)

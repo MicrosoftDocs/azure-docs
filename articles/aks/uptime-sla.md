@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) with Uptime SLA
 description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -21,7 +21,7 @@ Customers can still create unlimited free clusters with a service level objectiv
 ## Region availability
 
 * Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* Uptime SLA is available for [private AKS clusters][private-clusters] in all regions where AKS is supported.
+* Uptime SLA is available for [private AKS clusters][private-clusters] in all public regions where AKS is supported.
 
 ## SLA terms and conditions
 
@@ -85,7 +85,7 @@ Create a new cluster, and don't use Uptime SLA:
 az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```
 
-Use the [`az aks update`][az-aks-nodepool-update] command to update the existing cluster:
+Use the [`az aks update`][az-aks-update] command to update the existing cluster:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
@@ -130,6 +130,6 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
+[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [private-clusters]: private-clusters.md

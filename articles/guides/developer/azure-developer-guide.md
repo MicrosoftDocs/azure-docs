@@ -103,6 +103,21 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 >
 > **Get started:** [Create your first Azure Service Fabric application](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 
+#### Azure Spring Cloud
+
+Azure Spring Cloud is a serverless microservices platform that enables you to build, deploy, scale and monitor your applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java apps.
+
+- Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
+- Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
+- Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
+- Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
+- Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
+
+> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you’re minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
+>
+> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/spring-cloud-quickstart.md).
+
+
 ### Enhance your applications with Azure services
 
 Along with application hosting, Azure provides service offerings that can enhance the functionality. Azure can also improve the development and maintenance of your applications, both in the cloud and on-premises.
