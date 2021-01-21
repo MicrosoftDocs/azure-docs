@@ -212,7 +212,7 @@ The settings required by a function app running in Consumption plan defer betwee
 
 #### Windows
 
-On Windows, a Consumption plan requires two additional settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare). These properties configure the storage account and file path where the function app code and configuration are stored.
+On Windows, a Consumption plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
 
 ```json
 {
@@ -236,10 +236,6 @@ On Windows, a Consumption plan requires two additional settings in the site conf
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -256,6 +252,9 @@ On Windows, a Consumption plan requires two additional settings in the site conf
     }
 }
 ```
+
+> [!IMPORTANT]
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
 
 #### Linux
 
@@ -331,7 +330,7 @@ A Premium plan is a special type of "serverfarm" resource. You can specify it by
 
 ### Create a function app
 
-A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. These properties configure the storage account and file path where the function app code and configuration are stored.
+A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
 
 ```json
 {
@@ -357,10 +356,6 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -377,6 +372,8 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     }
 }
 ```
+> [!IMPORTANT]
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
 
 <a name="app-service-plan"></a>
 
