@@ -130,6 +130,8 @@
       href: expressroute-howto-macsec.md
   - name: Configure ExpressRoute Global Reach
     items:
+    - name: Azure portal
+      href: expressroute-howto-set-global-reach.md
     - name: Azure PowerShell
       href: expressroute-howto-set-global-reach.md
     - name: Azure CLI

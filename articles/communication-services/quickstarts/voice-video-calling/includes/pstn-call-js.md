@@ -85,9 +85,8 @@ callPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
   call = callAgent.call(
-    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: '+18336528005'}
+    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
   });
-
   // toggle button states
   hangUpPhoneButton.disabled = false;
   callPhoneButton.disabled = true;
@@ -99,15 +98,15 @@ callPhoneButton.addEventListener("click", () => {
 Add an event listener to end the current call when the `hangUpPhoneButton` is clicked:
 
 ```javascript
-callPhoneButton.addEventListener("click", () => {
-  // start a call to phone
-  const phoneToCall = calleePhoneInput.value;
-  call = callAgent.call(
-    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
+hangUpPhoneButton.addEventListener("click", () => {
+  // end the current call
+  call.hangUp({
+    forEveryone: true
   });
+
   // toggle button states
-  hangUpPhoneButton.disabled = false;
-  callPhoneButton.disabled = true;
+  hangUpPhoneButton.disabled = true;
+  callPhoneButton.disabled = false;
 });
 ```
 

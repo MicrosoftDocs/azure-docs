@@ -104,7 +104,7 @@ During a typical, simple database migration, you:
 ## Troubleshooting and optimization
 
 **Q. I’m setting up a migration project in DMS, and I’m having difficulty connecting to my source database. What should I do?**
-If you have trouble connecting to your source database system while working on migration, create a virtual machine in the virtual network with which you set up your DMS instance. In the virtual machine, you should be able to run a connect test, such as using a UDL file to test a connection to SQL Server or downloading Robo 3T to test MongoDB connections. If the connection test succeeds, you shouldn't have an issue with connecting to your source database. If the connection test doesn't succeed, contact your network administrator.
+If you have trouble connecting to your source database system while working on migration, create a virtual machine in the same subnet of the virtual network with which you set up your DMS instance. In the virtual machine, you should be able to run a connect test, such as using a UDL file to test a connection to SQL Server or downloading Robo 3T to test MongoDB connections. If the connection test succeeds, you shouldn't have an issue with connecting to your source database. If the connection test doesn't succeed, contact your network administrator.
 
 **Q. Why is my Azure Database Migration Service unavailable or stopped?**
 If the user explicitly stops Azure Database Migration Service (DMS) or if the service is inactive for a period of 24 hours, the service will be in a stopped or auto paused state. In each case, the service will be unavailable and in a stopped status.  To resume active migrations, restart the service.

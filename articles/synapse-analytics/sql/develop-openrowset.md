@@ -167,7 +167,7 @@ WITH (
 )
 ```
 
-json_path = [JSON path expression](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) to column or nested property. Default [path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) is lax.
+json_path = [JSON path expression](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) to column or nested property. Default [path mode](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) is lax.
 
 > [!NOTE]
 > In strict mode query will fail with error if provided path does not exist. In lax mode query will succeed and JSON path expression will evaluate to NULL.
@@ -367,7 +367,7 @@ WITH (
 
 ### Specify columns using JSON paths
 
-The following example shows how you can use [JSON path expressions](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) in WITH clause and demonstrates difference between strict and lax path modes: 
+The following example shows how you can use [JSON path expressions](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) in WITH clause and demonstrates difference between strict and lax path modes: 
 
 ```sql
 SELECT 

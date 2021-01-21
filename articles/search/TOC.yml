@@ -25,9 +25,8 @@
       href: knowledge-store-create-portal.md
     - name: Query with Search explorer
       href: search-explorer.md
-  - name: ARM template
-    displayName: Resource Manager 
-    href: search-get-started-arm.md
+  - name: Visual Studio Code 
+    href: search-get-started-vs-code.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -40,6 +39,9 @@
     href: search-get-started-powershell.md
   - name: Python
     href: search-get-started-python.md
+  - name: ARM template
+    displayName: Resource Manager 
+    href: search-get-started-arm.md
 - name: Tutorials
   items:
   - name: Create a C# app
@@ -306,10 +308,10 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Estimate capacity and cost
-      href: search-sku-manage-costs.md
-    - name: Adjust capacity
+    - name: Estimate and manage capacity
       href: search-capacity-planning.md
+    - name: Estimate costs
+      href: search-sku-manage-costs.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Scale for performance
