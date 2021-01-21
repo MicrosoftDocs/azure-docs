@@ -20,7 +20,7 @@ SQL Maintenance Windows allow for configuration of predictable maintenance windo
 
 ## Overview
 
-Azure performs planned maintenance updates on Azure SQL Database resources periodically which often include updates to underlying hardware, software including underlying operating system (OS) and SQL engine.  During a maintenance update, Azure SQL Database are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL DB instances offline for a short time to apply the maintenance updates (eight seconds in duration on average).  Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and SQL Managed Instance, and only during the maintenance window slots selected by the customer.   
+Azure performs planned maintenance updates on Azure SQL Database resources periodically that often include updates to underlying hardware, software including underlying operating system (OS) and the SQL engine. During a maintenance update, Azure SQL Databases are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL DB instances offline for a short time to apply the maintenance updates (eight seconds in duration on average).  Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database or SQL Managed Instance, and only during the maintenance window slots selected by the customer.   
 
 The SQL Maintenance Window is intended for business workloads that are sensitive to the potential connectivity interruptions that can result from planned maintenance events during the default window.  
 
@@ -43,7 +43,7 @@ Service tiers where SQL Maintenance Windows cannot be configured:
 * Legacy Gen4 vCore
 * DTU S0 and S1 
 
-In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability to Azure SQL databases. 
+In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability. 
 
 ### Cost
 
@@ -57,11 +57,18 @@ Maintenance Notifications can be configured to alert customers on upcoming plann
 
 The SQL Maintenance Window is available in the following regions:
 
-| |
-
+- Australia East
+- East US
+- East US 2
+- North Europe
+- South Central US
+- Southeast Asia
+- UK South
+- West Europe
+- West US 2
 
 ## Next steps
 
-* [SQL Maintenance Window FAQ](sql-maintenance-window-faq.yaml)
+* [SQL Maintenance Window FAQ](sql-maintenance-window-faq.yml)
 * [SQL Maintenance Window walkthrough](TBD)
 * [SQL Maintenance Window Notifications walkthrough](TBD)

@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: SQL Maintenance Window
+  title: SQL Maintenance Window FAQ
   description: Understand how Azure SQL Database and Managed Instance maintenance windows can be configured.
   services: sql-database
   ms.service: sql-database
@@ -12,22 +12,21 @@ metadata:
   ms.custom: 
   ms.date: 01/19/2021
 
-title: SQL Maintenance Window
+title: SQL Maintenance Window FAQ
 summary: This article answers frequently asked questions about SQL Maintenance Windows.
-
 sections:
-  - name: General 
-    questions:
-      - question: What is the SQL Maintenance Window feature?
-        answer: | 
-          The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled, off business hour time blocks 
-          - Default window, 5PM to 8AM local time Monday - Sunday
-          - Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in**
-          - Weekend window, 10PM to 6AM local time Friday - Sunday: Requires customer opt-in
-
+  - name: General
+    questions: 
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
           The default window remains 5PM to 8AM local time, Monday - Sunday.
+
+      - question: What is the SQL Maintenance Window feature?
+        answer: |
+         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours.
+         - Default window, 5PM to 8AM local time Monday thru Sunday
+         - Weekday window, 10PM to 6AM local time Monday thru Thursday: Requires customer opt-in
+         - Weekend window, 10PM to 6AM local time Friday thru Sunday: Requires customer opt-in
 
       - question: Can I choose a specific time/day in SQL Maintenance Windows?
         answer: |
@@ -35,16 +34,7 @@ sections:
 
       - question: In which regions is SQL Maintenance Window Available?
         answer: | 
-          Currently available in:
-          - Australia East
-          - East US
-          - East US 2
-          - North Europe
-          - South Central US
-          - Southeast Asia
-          - UK South
-          - West Europe
-          - West US 2
+          Available in limited regions, see [SQL Maintenance Window](sql-maintenance-window.md#Availability).
       
       - question: I don’t see my region in the available regions list, what can I do? 
         answer: |
@@ -103,8 +93,7 @@ sections:
 
 
 additionalContent: |
-  ## See Also
-
-* [SQL Maintenance Window](sql-maintenance-window.md)
-* [SQL Maintenance Window walkthrough](TBD)
-* [SQL Maintenance Window Notifications walkthrough](TBD)
+ ## See Also
+ - [SQL Maintenance Window](sql-maintenance-window.md)
+ - [SQL Maintenance Window walkthrough](TBD)
+ - [SQL Maintenance Window Notifications walkthrough](TBD)
