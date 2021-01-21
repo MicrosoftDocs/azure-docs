@@ -196,7 +196,7 @@ ___
 
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank"> Microsoft identity platform overview <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank">Microsoft identity platform overview <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=bNlcFuIo3r8" target="_blank"> <img src="./media/identity-videos/one-dev-question-jm.jpg" alt="Video thumbnail for an overview video about Microsoft identity platform."> </a>
@@ -208,7 +208,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank"> Microsoft Graph and the Microsoft Authentication Library (MSAL) <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank">Microsoft Graph and the Microsoft Authentication Library (MSAL) <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=apbbx2n4tnU" target="_blank"> <img src="./media/identity-videos/graph-and-msal.jpg" alt="Video thumbnail for a video about Microsoft Graph and the Microsoft Authentication Library (MSAL)."> </a>

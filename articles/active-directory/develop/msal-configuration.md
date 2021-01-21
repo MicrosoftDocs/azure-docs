@@ -85,7 +85,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 }
 ```
 
-#### Map AAD authority & audience to Microsoft identity platform
+#### Map AAD authority & audience to Microsoft identity platform endpoints
 
 | Type | Audience | Tenant ID | Authority_Url | Resulting Endpoint | Notes |
 |------|------------|------------|----------------|----------------------|---------|
