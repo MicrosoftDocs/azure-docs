@@ -219,7 +219,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 |Tatar| `tt` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
-|Ukrainian| `bg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Ukrainian| `uk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
 ### Dictionary
