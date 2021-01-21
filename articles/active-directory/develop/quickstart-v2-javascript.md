@@ -271,7 +271,7 @@ There are situations where you need to force users to interact with the Microsof
 
 The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform.) In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
+Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.
