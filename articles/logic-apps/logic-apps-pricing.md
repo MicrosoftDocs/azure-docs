@@ -1,16 +1,14 @@
 ---
-title: Pricing & billing model
-description: Overview about how the pricing and billing work for Azure Logic Apps
+title: Billing & pricing models
+description: Overview about how pricing and billing work for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: jonfancey
-ms.author: jonfan
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/31/2021
 ---
 
-# Pricing model for Azure Logic Apps
+# Pricing and billing models for Azure Logic Apps
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for the Logic Apps service and related resources. For specific pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps). To learn how you can plan, manage, and monitor costs, see [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md).
 
