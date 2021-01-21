@@ -37,7 +37,7 @@ Here is an overview of the steps it contains:
 
 ## Create a function app in Visual Studio
 
-In Visual Studio 2019, select _File > New > Project_ and search for the _Azure Functions_ template, select _Next_.
+In Visual Studio 2019, select _File > New > Project_ and search for the _Azure Functions_ template. Select _Next_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: new project dialog":::
 
@@ -49,7 +49,7 @@ Select the type of the function app *Event Grid trigger* and select _Create_.
 
 :::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Azure Functions project trigger dialog":::
 
-Once your function app is created, your visual studio will have auto populated code sample in **function.cs** file in your project folder. This short function is used to log events.
+Once your function app is created, your Visual Studio will have an auto-populated code sample in the **Function1.cs** file in your project folder. This short function is used to log events.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: Project window with sample code":::
 
@@ -107,10 +107,9 @@ After these changes, your function code will be similar to the following:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
-## Publish the function app to Azure
+Now that your app is created, you can publish it to Azure using the steps in the next section.
 
-> [!IMPORTANT] 
-> Publishing to a function app in Azure incurs additional charges on your subscription, independent of Azure Digital Twins.
+## Publish the function app to Azure
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 

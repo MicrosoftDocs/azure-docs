@@ -9,6 +9,9 @@ ms.author: baanders
 
 To publish the project to a function app in Azure, right-select the project in *Solution Explorer* and choose **Publish**.
 
+> [!IMPORTANT] 
+> Publishing to a function app in Azure incurs additional charges on your subscription, independent of Azure Digital Twins.
+
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publish project":::
 
 In the *Publish* page that follows, leave the default target selection of **Azure** and hit *Next*. 
