@@ -33,8 +33,11 @@ The migration wizard:
 
 - Creates a new V3 application.
 - Checks your device templates for compatibility with V3.
-- Copies all your device templates to the new V3 application
+- Copies all your device templates to the new V3 application.
 - Copies all users and role assignments to the new V3 application.
+
+> [!NOTE]
+> To ensure device compatibility with V3, primitive types in the device template become object properties. You don't need to make any changes to your device code.
 
 You must be an administrator to migrate an application to V3.
 
