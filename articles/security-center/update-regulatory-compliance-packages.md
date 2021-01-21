@@ -11,34 +11,31 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2020
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
 # Customizing the set of standards in your regulatory compliance dashboard
 
-Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
+Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 
-## Overview of compliance packages
+## How are regulatory compliance standards represented in Security Center?
 
-Industry standards, regulatory standards, and benchmarks are represented in Security Center as *compliance packages*.  Each package is an initiative defined in Azure Policy. To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the **Security policy** page. (Learn more about Azure Policy and initiatives in [Working with security policies](tutorial-security-policy.md).)
+Industry standards, regulatory standards, and benchmarks are represented in Security Center's regulatory compliance dashboard. Each standard is an initiative defined in Azure Policy.
 
-When you've onboarded a standard or benchmark to your selected scope, it assigns the initiative to the scope and the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
+To see compliance data mapped as assessments in your dashboard, add a compliance standard to your management group or subscription from within the **Security policy** page. To learn more about Azure Policy and initiatives, see [Working with security policies](tutorial-security-policy.md).
 
-Microsoft also tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
+When you've assigned a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been assigned.
 
-> [!TIP]
-> One standard which improves over time as Microsoft releases new content is **Azure CIS 1.1.0 (new)** (more formally, the [CIS Microsoft Azure Foundations Benchmark version 1.1.0](https://www.cisecurity.org/benchmark/azure/)). You'll need to add this to your dashboard alongside "Azure CIS 1.1.0", the representation of Azure CIS that is configured by default in every Security Center environment. That package relies on a static set of rules. The newer package includes more policies and will automatically update over time. Update to the new dynamic package as described below.
+Microsoft tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
 
 
-## Available packages
+## What regulatory compliance standards are available in Security Center?
 
-You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new) - a more complete representation of Azure CIS 1.1.0. 
+By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. ([Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).)
-
-Additional standards will be supported in the dashboard as they become available. 
+You can also add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0. Additional standards will be supported in the dashboard as they become available. 
 
 
 ## Add a regulatory standard to your dashboard
@@ -61,7 +58,6 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. From the **Add regulatory compliance standards** page, you can search for packages for any of the available standards. Some of the standards available are:
 
-    - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
@@ -73,8 +69,8 @@ The following steps explain how to add a package to monitor your compliance with
 1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
 1. From Security Center's sidebar, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
-    * Your new standard appears in your list of Industry & regulatory standards. 
-    * If you've added **Azure CIS 1.1.0 (New)**, the original *static* view of your Azure CIS 1.1.0 compliance will also remain alongside it. It may be automatically removed in the future.
+
+    Your new standard appears in your list of Industry & regulatory standards. 
 
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
