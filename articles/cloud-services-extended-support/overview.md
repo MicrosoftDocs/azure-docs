@@ -34,13 +34,13 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 - You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.  (change)
 - Cloud Services (extended support) also supports two types of roles, web and worker. 
 - The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their formats. 
-•	No changes are required to runtime code as data plane is the same and control plane is only changing. 
+- No changes are required to runtime code as data plane is the same and control plane is only changing. 
 
 ## Migration
 
 Cloud Services (extended support) provides two paths for you to migrate from Azure Service Manager to Azure Resource Manager. 
-1) Re-deploy. where customers deploy cloud services directly in ARM and then delete the old cloud service in ASM after thorough validation. 
-2) In place migration. second path is to execute an ‘in-place migration’ that gives you the ability to migrate cloud services (classic) with minimal to no downtime. 
+1) Re-deploy. Customers deploy cloud services directly in ARM and then delete the old cloud service in ASM after thorough validation. 
+2) In place migration. The ability to migrate Cloud Services (classic) with minimal to no downtime. 
 
 ### Additional migration options
 
