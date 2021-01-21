@@ -123,7 +123,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 Linux node pool.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 The above command creates a new node pool named **npwin** and adds it to the **myAKSCluster**. When

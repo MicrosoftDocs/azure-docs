@@ -227,6 +227,7 @@ The notebook will automatically find all Jupyter kernels installed on the connec
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. After you have installed the kernel, please refresh the page and open a notebook. You will now see the new kernel in the kernel list.
 
 > [!NOTE]
 > For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
@@ -339,7 +340,14 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
+## Troubleshooting
+
+* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
+
+* When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for <instance-name>.<region>.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) article.
+    
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
 * [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
+* [Working in secure environments](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)
