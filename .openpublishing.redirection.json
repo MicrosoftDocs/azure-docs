@@ -51921,7 +51921,7 @@
     },
 	{
       "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
-      "redirect_url": "/azure/articles/active-directory/cloud-sync/what-is-cloud-sync",
+      "redirect_url": "/azure/active-directory/cloud-sync/what-is-cloud-sync",
       "redirect_document_id": false
     },
 	{
