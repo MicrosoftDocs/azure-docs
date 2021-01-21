@@ -3,7 +3,7 @@ title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
 author: cachai2
 ms.topic: conceptual
-ms.date: 1/20/2021
+ms.date: 1/21/2021
 ms.author: cachai
 
 ---
