@@ -38,25 +38,27 @@ You can create custom analytics rules to help you discover threats and anomalous
 
     :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query-small.png" alt-text="Create scheduled query" lightbox="media/tutorial-detect-threats-custom/create-scheduled-query-full.png":::
 
-1. In the **General** tab, provide a unique **Name** and a **Description**. In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. Set the alert **Severity** as necessary. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+### Analytics rule wizard - General tab
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
+- Provide a unique **Name** and a **Description**. 
+
+- In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
+- Set the alert **Severity** as appropriate. 
+
+- When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/general-tab.png" alt-text="Start creating a custom analytics rule":::
 
 ## Define the rule query logic and configure settings
 
-1. In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics, and then copy and paste it there. Queries are written in Kusto Query Language (KQL). Learn more about KQL [concepts](/azure/data-explorer/kusto/concepts/) and [queries](/azure/data-explorer/kusto/query/), and see this handy [quick reference guide](/azure/data-explorer/kql-quick-reference).
+In the **Set rule logic** tab, you can either write a query directly in the **Rule query** field, or create the query in Log Analytics and then copy and paste it here. Queries are written in Kusto Query Language (KQL). Learn more about KQL [concepts](/azure/data-explorer/kusto/concepts/) and [queries](/azure/data-explorer/kusto/query/), and see this handy [quick reference guide](/azure/data-explorer/kql-quick-reference).
+
+The example shown in this screenshot queries the *SecurityEvent* table to display a type of [failed Windows logon events](/windows/security/threat-protection/auditing/event-4625).
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="Configure query rule logic and settings" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1.png":::
 
-   - In the **Results simulation** area to the right, select **Test with current data** and Azure Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
-  
-      Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
-
-     :::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Results simulation screenshots":::
-
-   - If you see that your query would trigger too many or too frequent alerts, you can set a baseline in the **Alert threshold** section (see below).
-
-      Here's a sample query that would alert you when an anomalous number of resources is created in Azure Activity.
+Here's another sample query, one that would alert you when an anomalous number of resources is created in Azure Activity.
 
       ```kusto
       AzureActivity
@@ -65,10 +67,21 @@ You can create custom analytics rules to help you discover threats and anomalous
       | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
       ```
 
-        > [!NOTE]
-        > - The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
-        >
-        > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
+### Results simulation
+
+In the **Results simulation** area to the right, select **Test with current data** and Azure Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
+  
+Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
+
+:::image type="content" source="media/tutorial-detect-threats-custom/results-simulation.png" alt-text="Results simulation screenshots":::
+
+If you see that your query would trigger too many or too frequent alerts, you can set a baseline in the **Alert threshold** section (see below).
+
+
+> [!NOTE]
+> - The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
+>
+> - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
 
 ### Alert enrichment
 
@@ -80,11 +93,13 @@ You can create custom analytics rules to help you discover threats and anomalous
 
 1. Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
 
-    See [Surface custom details in alerts]
+    Learn more about surfacing custom details in alerts, and see complete instructions, [here](surface-custom-details-in-alerts.md).
   
-1. In the **Query scheduling** section, set the following parameters:
+### Query scheduling and alert threshold
 
-    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2.png":::
+- In the **Query scheduling** section, set the following parameters:
+
+   :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-2.png" alt-text="Set query schedule and event grouping" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-2.png":::
 
     1. Set **Run query every** to control how often the query is run - as frequently as every 5 minutes or as infrequently as once a day.
 
@@ -99,15 +114,20 @@ You can create custom analytics rules to help you discover threats and anomalous
         > **Ingestion delay**
         > - To account for **latency** that may occur between an event's generation at the source and its ingestion into Azure Sentinel, and to ensure complete coverage without data duplication, Azure Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
 
-1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
+- Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
     
-1. Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**: 
+### Event grouping and rule suppression
+
+> [!IMPORTANT]
+> Event grouping is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    
+- Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**: 
 
     - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results. 
 
     - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
     
-    Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the twentieth alert will summarize the entire set of returned events. In other words, the twentieth alert is what would have been generated under the **Group all events into a single alert** option.
+        Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the twentieth alert will summarize the entire set of returned events. In other words, the twentieth alert is what would have been generated under the **Group all events into a single alert** option.
 
     > [!NOTE]
     > What's the difference between **events** and **alerts**?
@@ -120,10 +140,7 @@ You can create custom analytics rules to help you discover threats and anomalous
     > 
     > Azure Sentinel ingests raw events from some data sources, and already-processed alerts from others. It is important to note which one you're dealing with at any time.
 
-    > [!IMPORTANT]
-    > Event grouping is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-    
-1. In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
+- In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
 ## Configure the incident creation settings
 
@@ -134,25 +151,30 @@ In the **Incident Settings** tab, you can choose whether and how Azure Sentinel 
 
 :::image type="content" source="media/tutorial-detect-threats-custom/incident-settings-tab.png" alt-text="Define the incident creation and alert grouping settings":::
 
-1. In the **Incident Settings** section, **Create incidents from alerts triggered by this analytics rule** is set by default to **Enabled**, meaning that Azure Sentinel will create a single, separate incident from each and every alert triggered by the rule.
-       - If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
+### Incident settings
 
-1. In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
-
-    - **Limit the group to alerts created within the selected time frame**: Determine the time frame within which the similar or recurring alerts will be grouped together. All of the corresponding alerts within this time frame will collectively generate an incident or a set of incidents (depending on the grouping settings below). Alerts outside this time frame will generate a separate incident or set of incidents.
-
-    - **Group alerts triggered by this analytics rule into a single incident by**: Choose the basis on which alerts will be grouped together:
-
-        - **Group alerts into a single incident if all the entities match**: Alerts are grouped together if they share identical values for each of the mapped entities (defined in the Set rule logic tab above). This is the recommended setting.
-
-        - **Group all alerts triggered by this rule into a single incident**: All the alerts generated by this rule are grouped together even if they share no identical values.
-
-        - **Group alerts into a single incident if the selected entities match**: Alerts are grouped together if they share identical values for some of the mapped entities (that you can select from the drop-down list). You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses.
-
-    - **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
+In the **Incident settings** section, **Create incidents from alerts triggered by this analytics rule** is set by default to **Enabled**, meaning that Azure Sentinel will create a single, separate incident from each and every alert triggered by the rule.
     
-        > [!NOTE]
-        > **Up to 150 alerts** can be grouped into a single incident. If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
+- If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
+
+### Alert grouping
+
+In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
+
+- **Limit the group to alerts created within the selected time frame**: Determine the time frame within which the similar or recurring alerts will be grouped together. All of the corresponding alerts within this time frame will collectively generate an incident or a set of incidents (depending on the grouping settings below). Alerts outside this time frame will generate a separate incident or set of incidents.
+
+- **Group alerts triggered by this analytics rule into a single incident by**: Choose the basis on which alerts will be grouped together:
+
+    - **Group alerts into a single incident if all the entities match**: Alerts are grouped together if they share identical values for each of the mapped entities (defined in the Set rule logic tab above). This is the recommended setting.
+
+    - **Group all alerts triggered by this rule into a single incident**: All the alerts generated by this rule are grouped together even if they share no identical values.
+
+    - **Group alerts into a single incident if the selected entities match**: Alerts are grouped together if they share identical values for some of the mapped entities (that you can select from the drop-down list). You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses.
+
+- **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
+    
+    > [!NOTE]
+    > **Up to 150 alerts** can be grouped into a single incident. If more than 150 alerts are generated by a rule that groups them into a single incident, a new incident will be generated with the same incident details as the original, and the excess alerts will be grouped into the new incident.
 
 ## Set automated responses and create the rule
 
@@ -220,4 +242,6 @@ SOC managers should be sure to check the rule list regularly for the presence of
 
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel.
 
-To learn how to automate your responses to threats, [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
+- Learn how to [investigate incidents in Azure Sentinel](tutorial-investigate-cases.md).
+
+- Learn how to [set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
