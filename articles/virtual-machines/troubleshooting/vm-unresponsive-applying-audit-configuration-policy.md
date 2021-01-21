@@ -43,6 +43,9 @@ Here’s the problematic policy:
 
 ### Process overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and Access a Repair VM.
 1. Disable the policy.
 1. Enable serial console and memory dump collection.
