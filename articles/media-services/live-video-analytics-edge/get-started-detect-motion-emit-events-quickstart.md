@@ -42,9 +42,9 @@ This tutorial requires the following Azure resources:
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
-1. Go to [Azure portal](https://portal.azure.com) and select the Cloud shell icon.
-1. If you're using Cloud shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
-1. In the drop-down menu on the left side of the Cloud shell window, select **Bash** as your environment.
+1. Go to [Azure portal](https://portal.azure.com) and select the Cloud Shell icon.
+1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
+1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Environment selector":::
@@ -84,7 +84,7 @@ Now the modules are deployed, but no media graphs are active.
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
+1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
