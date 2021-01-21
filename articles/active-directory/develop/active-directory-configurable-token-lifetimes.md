@@ -77,7 +77,7 @@ You can set token lifetime policies for refresh tokens and session tokens.
 > [!IMPORTANT]
 > As of May 2020, new tenants can not configure refresh and session token lifetimes.  Tenants with existing configuration can modify refresh and session token policies until January 30, 2021.   Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
 >
-> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 >
 > If you do not want to use Conditional Access after the retirement date, your refresh and session tokens will be set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement) on that date and you will no longer be able to change their lifetimes.
 >
