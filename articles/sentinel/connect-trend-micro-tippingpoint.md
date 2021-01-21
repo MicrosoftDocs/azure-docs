@@ -63,8 +63,8 @@ After a successful connection is established, the data appears in **Logs**, unde
 To query TrendMicro TippingPoint data in Log Analytics, copy the following into the query window, applying other filters as you choose:
 
 ```kusto
-CommonSecurityLog 
-| where DeviceVendor == "TrendMicroTippingPoint"
+TrendMicroTippingPoint
+| sort by TimeGenerated
 ```
 
 See the **Next steps** tab in the connector page for more query samples.
@@ -72,6 +72,7 @@ See the **Next steps** tab in the connector page for more query samples.
 ## Next steps
 
 In this document, you learned how to connect Trend Micro TippingPoint to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
