@@ -17,7 +17,8 @@ Key vault is a secure place to store keys. Enterprise users need to store creden
 
 ## Generate Credential
 To generate a key to access the key vault, execute command below on your local machine:
-```console
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 The scope specified by the `--scopes` parameter limits the key access to the resource.  It can only access the strong box.
@@ -54,7 +55,7 @@ Copy the credential name, for example, `azure-cli-2020-01-19-04-39-02`. Open the
 ## Generate full-scope Azure Credential
 This is the master key to open all doors in the building. The procedure is similar to the previous step, but here we change the scope to generate the master key:
 
-```console
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
