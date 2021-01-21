@@ -68,7 +68,7 @@ availabilityResults
 
 1. Create an Azure Function App.(Application Insights _On_ is required only if you want to monitor your new Function App with Application Insights)
 
-   Visit the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-get-started.md#create-a-function-app)
+   Visit the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-get-started.md)
 
 2. Once your new Function App has completed deployment, select **Go to resource**.
 

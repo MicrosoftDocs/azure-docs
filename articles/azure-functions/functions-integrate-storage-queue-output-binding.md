@@ -94,7 +94,7 @@ In this section, you add code that writes a message to the output queue. The mes
 
     Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
     
-    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](./functions-get-started.md#test-the-function).
+    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](./functions-get-started.md).
 
 1. Check the logs to make sure that the function succeeded. 
 
