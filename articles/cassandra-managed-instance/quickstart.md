@@ -58,5 +58,4 @@ You can review cluster nodes from within your existing or newly created VNET:
 
 In this quickstart, you learned how to create an Azure Managed Instance for Apache Cassandra cluster using Azure Portal. You can now start working with the cluster. 
 
-> [!div class="nextstepaction"]
-> [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
+- [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)

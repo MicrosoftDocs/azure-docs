@@ -51,4 +51,4 @@ Our flexible, on-demand, instance-based pricing model (with no licensing fees) a
 
 Get started with with one of our quickstarts:
 
-- [Get started]()
+- [Get started](quickstart.md)
