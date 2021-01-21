@@ -47,7 +47,7 @@ Specify a name for the function app and select _Create_.
 
 Select the function app type of *Event Grid trigger* and select _Create_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Azure Functions project trigger dialog":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Visual Studio: Azure Functions project trigger dialog":::
 
 Once your function app is created, Visual Studio will generate a code sample in a **Function1.cs** file in your project folder. This short function is used to log events.
 
@@ -151,7 +151,7 @@ A system assigned managed identity enables Azure resources to authenticate to cl
 
 In the [Azure portal](https://portal.azure.com/), search for _function app_ in the search bar with the function app name that you created earlier. Select the *Function App* from the list. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure portal: Search function app":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Azure portal: Search function app":::
 
 On the function app window, select _Identity_ in the navigation bar on the left to enable managed identity.
 Under _System assigned_ tab, toggle the _Status_ to On and _save_ it. You will see a pop-up to _Enable system assigned managed identity_.
