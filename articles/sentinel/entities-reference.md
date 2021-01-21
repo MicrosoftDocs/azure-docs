@@ -183,7 +183,7 @@ Strong identifiers of a file entity:
 | ElevationToken | Enum? | The elevation token associated with the process.<br>Possible values:<li>TokenElevationTypeDefault<li>TokenElevationTypeFull<li>TokenElevationTypeLimited |
 | CreationTimeUtc | DateTime? | The time when the process started to run. |
 | ImageFile | Entity (File) | Can contain the File entity inline or as reference.<br>See the File entity for additional details on structure. |
-| Account | Entity | The account running the processes.<br>Can contain the [Account](#account) entity inline or as reference.<br>See the [Account](#account) entity for additional details on structure. |
+| Account | Entity | The account running the processes.<br>Can contain the [Account](#user-account) entity inline or as reference.<br>See the [Account](#user-account) entity for additional details on structure. |
 | ParentProcess | Entity (Process) | The parent process entity. <br>Can contain partial data, i.e. only the PID. |
 | Host | Entity | The host on which the process was running. |
 | LogonSession | Entity (HostLogonSession) | The session in which the process was running. |
