@@ -18,10 +18,10 @@ Migration tools validate your source SQL Server instance by running a number of 
 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Database. 
 
-## AnalysisCommand job
+## AnalysisCommand job <a id="AnalysisCommandJob"></a>
 
 **Title: AnalysisCommand job step is not supported in Azure SQL Managed Instance.**   
-Rule ID: AnalysisCommandJob (Warning)   <a id="">AnalysisCommandJob</a>
+Rule ID: AnalysisCommandJob (Warning)  
 
 **Description**   
 It is a job step that runs an Analysis Services command. AnalysisCommand job step is not supported in Azure SQL Managed Instance.
@@ -31,10 +31,10 @@ Review impacted objects section to see all jobs using Analysis Service Command j
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
-## AnalysisQuery job
+## AnalysisQuery job <a id="AnalysisQueryJob<">/a>
 
 **Title: AnalysisQuery job step is not supported in Azure SQL Managed Instance.**   
-Rule ID: AnalysisQueryJob (Warning)  <a id="">AnalysisQueryJob</a>
+Rule ID: AnalysisQueryJob (Warning) 
 
 **Description**   
 It is a job step that runs an Analysis Services query. AnalysisQuery job step is not supported in Azure SQL Managed Instance.
@@ -45,10 +45,10 @@ Review impacted objects section to see all jobs using Analysis Service Query job
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## Assembly from file
+## Assembly from file <a id="">AssemblyFromFile</a>
 
 **Title: 'CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.**   
-Rule ID: AssemblyFromFile (Issue)  <a id="">AssemblyFromFile</a>
+Rule ID: AssemblyFromFile (Issue) 
 
 **Description**   
 Azure SQL Managed Instance cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Managed Instance.
@@ -58,10 +58,10 @@ You will need to convert BULK INSERT statements that use local files or file sha
 
 More information: [CLR differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#clr)
 
-## Bulk insert
+## Bulk insert <a id="">BulkInsert</a>
 
 **Title: BULK INSERT with non-Azure blob data source is not supported in Azure SQL Managed Instance.**   
-Rule ID: BulkInsert (Issue)  <a id="">BulkInsert</a>
+Rule ID: BulkInsert (Issue) 
 
 **Description**   
 Azure SQL Managed Instance cannot access file shares or Windows folders. See the "Impacted Objects" section for the specific uses of BULK INSERT statements that do not reference an Azure blob. Objects with 'BULK INSERT' where the source is not Azure blob storage will not work after migrating to Azure SQL Managed Instance.
@@ -72,10 +72,10 @@ You will need to convert BULK INSERT statements that use local files or file sha
 More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 
 
-## CLR Security 
+## CLR Security  <a id="">ClrStrictSecurity</a>
 
 **Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE** 
-Rule ID: ClrStrictSecurity (Issue)  <a id="">ClrStrictSecurity</a>
+Rule ID: ClrStrictSecurity (Issue) 
 
 **Description**   
 CLR Strict Security mode is enforced in Azure SQL Managed Instance. This mode is enabled by default and introduces breaking changes for databases containing user-defined CLR assemblies marked either SAFE or EXTERNAL_ACCESS.
@@ -85,10 +85,10 @@ CLR uses Code Access Security (CAS) in the .NET Framework, which is no longer su
 
 More information: [CLR strict security](/sql/database-engine/configure-windows/clr-strict-security)
 
-## Compute clause
+## Compute clause <a id="">ComputeClause</a>
 
 **Title: COMPUTE clause is discontinued and has been removed.**   
-Rule ID: ComputeClause (Issue)  <a id="">ComputeClause</a>
+Rule ID: ComputeClause (Issue) 
 
 **Description**   
 The COMPUTE clause generates totals that appear as additional summary columns at the end of the result set. However, this clause is no longer supported in Azure SQL Managed Instance.
@@ -112,10 +112,10 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Cryptographic provider
+## Cryptographic provider <a id="">CryptographicProvider</a>
 
 **Title: A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Managed Instance.**   
-Rule ID: CryptographicProvider (Issue)  <a id="">CryptographicProvider</a>
+Rule ID: CryptographicProvider (Issue) 
 
 **Description**   
 Azure SQL Managed Instance does not support CRYPTOGRAPHIC PROVIDER statements because it cannot access files. See the Impacted Objects section for the specific uses of CRYPTOGRAPHIC PROVIDER statements. Objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROVIDER' will not work correctly after migrating to Azure SQL Managed Instance.
@@ -125,10 +125,10 @@ Review objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROV
 
 More information: [Cryptographic provider differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#cryptographic-providers)
 
-## Database compatibility
+## Database compatibility <a id="">DbCompatLevelLowerThan100</a>
 
 **Title: Database compatibility level below 100 is not supported** 
-Rule ID: DbCompatLevelLowerThan100 (Issue)  <a id="">DbCompatLevelLowerThan100</a>
+Rule ID: DbCompatLevelLowerThan100 (Issue) 
 
 **Description**   
 Database Compatibility Level is a valuable tool to assist in database modernization, by allowing the SQL Server Database Engine to be upgraded, while keeping connecting applications functional status by maintaining the same pre-upgrade Database Compatibility Level. Azure SQL Managed Instance doesn't support compatibility levels below 100. When the database with compatibility level below 100 is restored on Azure SQL Managed Instance, the compatibility level is upgraded to 100. 
@@ -138,10 +138,10 @@ Evaluate if the application functionality is intact when the database compatibil
 
 More information: [Supported compatibility levels in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#compatibility-levels)
 
-## Database principal alias
+## Database principal alias <a id="">DatabasePrincipalAlias</a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
-Rule ID: DatabasePrincipalAlias (Issue)  <a id="">DatabasePrincipalAlias</a>
+Rule ID: DatabasePrincipalAlias (Issue) 
 
 **Description**   
 SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed in Azure SQL Managed Instance.
@@ -151,20 +151,20 @@ Use roles instead of aliases.
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## DISABLE_DEF_CNST_CHK option
+## DISABLE_DEF_CNST_CHK option <a id="">DisableDefCNSTCHK</a>
 
 **Title: SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed.**   
-Rule ID: DisableDefCNSTCHK (Issue)  <a id="">DisableDefCNSTCHK</a>
+Rule ID: DisableDefCNSTCHK (Issue) 
 
 **Description**   
 SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure SQL Managed Instance.
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## FASTFIRSTROW hint
+## FASTFIRSTROW hint <a id="">FastFirstRowHint</a>
 
 **Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
-Rule ID: FastFirstRowHint (Issue)  <a id="">FastFirstRowHint</a>
+Rule ID: FastFirstRowHint (Issue) 
 
 **Description**   
 FASTFIRSTROW query hint is discontinued and has been removed in Azure SQL Managed Instance.
@@ -174,10 +174,10 @@ Instead of FASTFIRSTROW query hint use OPTION (FAST n).
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## FileStream
+## FileStream <a id="">FileStream</a>
 
 **Title: Filestream and Filetable are not supported in Azure SQL Managed Instance.**   
-Rule ID: FileStream (Issue)    <a id="">FileStream</a>
+Rule ID: FileStream (Issue)   
 
 **Description**   
 The Filestream feature, which allows you to store unstructured data such as text documents, images, and videos in NTFS file system, is not supported in Azure SQL Managed Instance. This database can't be migrated as the backup containing Filestream filegroups can't be restored on Azure SQL Managed Instance.
@@ -187,10 +187,10 @@ Upload the unstructured files to Azure Blob storage and store metadata related t
 
 More information: [Streaming Blobs To and From SQL Azure blog](https://azure.microsoft.com/en-in/blog/streaming-blobs-to-and-from-sql-azure/)
 
-## Heterogeneous MS DTC
+## Heterogeneous MS DTC <a id="">MIHeterogeneousMSDTCTransactSQL</a>
 
 **Title: BEGIN DISTRIBUTED TRANSACTION with non SQL Server remote server is not supported in Azure SQL Managed Instance.**   
-Rule ID: MIHeterogeneousMSDTCTransactSQL (Issue)  <a id="">MIHeterogeneousMSDTCTransactSQL</a>
+Rule ID: MIHeterogeneousMSDTCTransactSQL (Issue)  
 
 **Description**   
 Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION and managed by Microsoft Distributed Transaction Coordinator (MS DTC) is not supported in Azure SQL Managed Instance if the remote server is not SQL Server. 
@@ -200,10 +200,10 @@ Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANS
 
 More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
 
-## Homogenous MS DTC
+## Homogenous MS DTC <a id="">MIHomogeneousMSDTCTransactSQL</a>
 
 **Title: BEGIN DISTRIBUTED TRANSACTION is supported across multiple servers for Azure SQL Managed Instance.**   
-Rule ID: MIHomogeneousMSDTCTransactSQL (Issue)  <a id="">MIHomogeneousMSDTCTransactSQL</a>
+Rule ID: MIHomogeneousMSDTCTransactSQL (Issue) 
 
 **Description**   
 Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION and managed by Microsoft Distributed Transaction Coordinator (MS DTC) is supported across multiple servers for Azure SQL Managed Instance.
@@ -213,10 +213,10 @@ Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANS
 
 More information: [Transactions across multiple servers for Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed)
 
-## Linked server (non-SQL provider)
+## Linked server (non-SQL provider) <a id="">LinkedServerWithNonSQLProvider</a>
 
 **Title: Linked server non SQL Server Provider is not supported in Azure SQL Managed Instance.**   
-Rule ID: LinkedServerWithNonSQLProvider (Issue)  <a id="">LinkedServerWithNonSQLProvider</a>
+Rule ID: LinkedServerWithNonSQLProvider (Issue) 
 
 **Description**   
 Linked servers enable the SQL Server Database Engine to execute commands against OLE DB data sources outside of the instance of SQL Server. Linked server non SQL Server Provider is not supported in Azure SQL Managed Instance. 
@@ -233,10 +233,10 @@ Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [Linked Server differences in Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)
 
-## Merge job
+## Merge job <a id="">MergeJob</a>
 
 **Title: Merge job step is not supported in Azure SQL Managed Instance.**   
-Rule ID: MergeJob (Warning)  <a id="">MergeJob</a>
+Rule ID: MergeJob (Warning) 
 
 **Description**   
 It is a job step that activates the replication Merge Agent. The Replication Merge Agent is a utility executable that applies the initial snapshot held in the database tables to the Subscribers. It also merges incremental data changes that occurred at the Publisher after the initial snapshot was created, and reconciles conflicts either according to the rules you configure or using a custom resolver you create. Merge job step is not supported in Azure SQL Managed Instance.
@@ -247,10 +247,10 @@ Review impacted objects section to see all jobs using Merge job step and evaluat
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## MI database size
+## MI database size <a id="">MIDatabaseSize</a>
 
 **Title: Azure SQL Managed Instance does not support database size greater than 8 TB.**   
-Rule ID: MIDatabaseSize (Issue)  <a id="">MIDatabaseSize</a>
+Rule ID: MIDatabaseSize (Issue) 
 
 **Description**   
 The size of the database is greater than maximum instance reserved storage. This database can't be selected for migration as the size exceeded the allowed limit.
@@ -262,10 +262,10 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 
 
 
-## MI instance size 
+## MI instance size  <a id="">MIInstanceSize</a>
 
 **Title: Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.**   
-Rule ID: MIInstanceSize (Warning)   <a id="">MIInstanceSize</a>
+Rule ID: MIInstanceSize (Warning)  
 
 **Description**   
 The size of all databases is greater than maximum instance reserved storage.  
@@ -276,10 +276,10 @@ Consider migrating the databases to different Azure SQL Managed Instances or to 
 More information: [Hardware generation characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-generation-characteristics)
 
 
-## Multiple log files
+## Multiple log files <a id="">MultipleLogFiles</a>
 
 **Title: Azure SQL Managed Instance does not support multiple log files.**   
-Rule ID: MultipleLogFiles(Issue)  <a id="">MultipleLogFiles</a>
+Rule ID: MultipleLogFiles(Issue) 
 
 **Description**   
 SQL Server allows a database to log to multiple files. This database has multiple log files which is not supported in Azure SQL Managed Instance. This database can't be migrated as the backup can't be restored on Azure SQL Managed Instance. 
@@ -295,10 +295,10 @@ More information: [Unsupported database options in Azure SQL Managed Instance  ]
 
 
 
-## Next column
+## Next column <a id="">NextColumn</a>
 
 **Title: Tables and Columns named NEXT will lead to an error In Azure SQL Managed Instance.**   
-Rule ID: NextColumn (Issue)  <a id="">NextColumn</a>
+Rule ID: NextColumn (Issue) 
 
 **Description**   
 Tables or columns named NEXT were detected. Sequences, introduced in Microsoft SQL Server, use the ANSI standard NEXT VALUE FOR function. If a table or a column is named NEXT and the column is aliased as VALUE, and if the ANSI standard AS is omitted, the resulting statement can cause an error.
@@ -308,10 +308,10 @@ Rewrite statements to include the ANSI standard AS keyword when aliasing a table
 
 
 
-## Non ANSI style left outer join
+## Non ANSI style left outer join <a id="">NonANSILeftOuterJoinSyntax</a>
 
 **Title: Non ANSI style left outer join is discontinued and has been removed.**   
-Rule ID: NonANSILeftOuterJoinSyntax(Issue)  <a id="">NonANSILeftOuterJoinSyntax</a>
+Rule ID: NonANSILeftOuterJoinSyntax(Issue) 
 
 **Description**   
 Non ANSI style left outer join is discontinued and has been removed in Azure SQL Managed Instance. 
@@ -321,10 +321,10 @@ Use ANSI join syntax.
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Non ANSI style right outer join
+## Non ANSI style right outer join <a id="">NonANSIRightOuterJoinSyntax</a>
 
 **Title: Non ANSI style right outer join is discontinued and has been removed.**   
-Rule ID: NonANSIRightOuterJoinSyntax (Issue)  <a id="">NonANSIRightOuterJoinSyntax</a>
+Rule ID: NonANSIRightOuterJoinSyntax (Issue) 
 
 **Description**   
 Non ANSI style right outer join is discontinued and has been removed in Azure SQL Managed Instance. 
@@ -334,10 +334,10 @@ More information: [Discontinued Database Engine Functionality in SQL Server](/pr
 **Recommendation**   
 Use ANSI join syntax.
 
-## Num DB exceeds 100
+## Num DB exceeds 100 <a id="">NumDbExceeds100</a>
 
 **Title: Azure SQL Managed Instance supports a maximum of 100 databases per instance.**   
-Rule ID: NumDbExceeds100 (Warning)  <a id="">NumDbExceeds100</a>
+Rule ID: NumDbExceeds100 (Warning) 
 
 **Description**   
 Maximum number of databases supported in Azure SQL Managed Instance is 100, unless the instance storage size limit has been reached.
@@ -347,10 +347,10 @@ Consider migrating the databases to different Azure SQL Managed Instances or to 
 
 More information: [Azure SQL Managed Instance Resource Limits ](../../managed-instance/resource-limits.md#service-tier-characteristics)
 
-## OPENROWSET (non blob data source) 
+## OPENROWSET (non blob data source)  <a id="">OpenRowsetWithNonBlobDataSourceBulk</a>
 
 **Title: OpenRowSet used in bulk operation with non Azure blob storage data source is not supported in Azure SQL Managed Instance.**   
-Rule ID: OpenRowsetWithNonBlobDataSourceBulk (Issue)  <a id="">OpenRowsetWithNonBlobDataSourceBulk</a>
+Rule ID: OpenRowsetWithNonBlobDataSourceBulk (Issue) 
 
 **Description**   
 OPENROWSET supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset. OPENROWSET with non Azure blob storage data source is not supported in Azure SQL Managed Instance. 
@@ -360,10 +360,10 @@ OPENROWSET function can be used to execute queries only on SQL Server instances 
 
 More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 
-## PENROWSET (non-SQL provider)
+## PENROWSET (non-SQL provider) <a id="">OpenRowsetWithNonSQLProvider</a>
 
 **Title: OpenRowSet with non SQL provider is not supported in Azure SQL Managed Instance.**   
-Rule ID: OpenRowsetWithNonSQLProvider (Issue)  <a id="">OpenRowsetWithNonSQLProvider</a>
+Rule ID: OpenRowsetWithNonSQLProvider (Issue) 
 
 **Description**   
 This method is an alternative to accessing tables in a linked server and is a one-time, ad hoc method of connecting and accessing remote data by using OLE DB. OpenRowSet with non SQL provider is not supported in Azure SQL Managed Instance. 
@@ -374,10 +374,10 @@ OPENROWSET function can be used to execute queries only on SQL Server instances 
 More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 
 
-## PowerShell job
+## PowerShell job <a id="">PowerShellJob</a>
 
 **Title: PowerShell job step is not supported in Azure SQL Managed Instance.**   
-Rule ID: PowerShellJob (Warning)  <a id="">PowerShellJob</a>
+Rule ID: PowerShellJob (Warning) 
 
 **Description**   
 It is a job step that runs a PowerShell scripts. PowerShell job step is not supported in Azure SQL Managed Instance. 
@@ -387,10 +387,10 @@ Review impacted objects section to see all jobs using PowerShell job step and ev
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
-## Queue Reader job
+## Queue Reader job <a id="">QueueReaderJob</a>
 
 **Title: Queue Reader job step is not supported in Azure SQL Managed Instance.**   
-Rule ID: QueueReaderJob (Warning)  <a id="">QueueReaderJob</a>
+Rule ID: QueueReaderJob (Warning) 
 
 **Description**   
 It is a job step that activates the replication Queue Reader Agent. The Replication Queue Reader Agent is an executable that reads messages stored in a Microsoft SQL Server queue or a Microsoft Message Queue and then applies those messages to the Publisher. Queue Reader Agent is used with snapshot and transactional publications that allow queued updating. Queue Reader job step is not supported in Azure SQL Managed Instance. 
@@ -401,10 +401,10 @@ Review impacted objects section to see all jobs using Queue Reader job step and 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## RAISERROR
+## RAISERROR <a id="">RAISERROR</a>
 
 **Title: Legacy style RAISERROR calls should be replaced with modern equivalents.**   
-Rule ID: RAISERROR (Issue)  <a id="">RAISERROR</a>
+Rule ID: RAISERROR (Issue) 
 
 **Description**   
 RAISERROR calls like the below example are termed as legacy-style because they do not include the commas and the parenthesis. RAISERROR 50001 'this is a test'. This method of calling RAISERROR is discontinued and removed in Azure SQL Managed Instance.
@@ -414,10 +414,10 @@ Rewrite the statement using the current RAISERROR syntax, or evaluate if the mod
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Service broker
+## Service broker <a id="">ServiceBrokerWithNonLocalAddress</a>
 
 **Title: Service Broker feature is partially supported in Azure SQL Managed Instance.**   
-Rule ID: ServiceBrokerWithNonLocalAddress (Issue)  <a id="">ServiceBrokerWithNonLocalAddress</a>
+Rule ID: ServiceBrokerWithNonLocalAddress (Issue) 
 
 **Description**   
 SQL Server Service Broker provides native support for messaging and queuing applications in the SQL Server Database Engine. This database has cross-instance Service Broker enabled which is not supported in Azure SQL Managed Instance. 
@@ -427,10 +427,10 @@ Azure SQL Managed Instance does not support cross-instance service broker, i.e. 
 
 More information: [Service Broker differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker)
 
-## SQL Mail
+## SQL Mail <a id="">SqlMail</a>
 
 **Title: SQL Mail has been discontinued.**   
-Rule ID: SqlMail (Warning)  <a id="">SqlMail</a>
+Rule ID: SqlMail (Warning) 
 
 
 **Description**   
@@ -442,11 +442,11 @@ Use Database Mail.
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
-## SystemProcedures110
+## SystemProcedures110 <a id="">SystemProcedures110</a>
+
 
 **Title: Detected statements that reference removed system stored procedures that are not available in Azure SQL Managed Instance.**   
-Rule ID: SystemProcedures110 (Warning)  <a id="">SystemProcedures110</a>
-
+Rule ID: SystemProcedures110 (Warning)  
 
 **Description**   
 Following unsupported system and extended stored procedures cannot be used in Azure SQL Managed Instance - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, and `sp_activedirectory_start`. 
@@ -456,10 +456,10 @@ Remove references to unsupported system procedures that have been removed in Azu
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Transact-SQL job
+## Transact-SQL job <a id="">TransactSqlJob</a>
 
 **Title: TSQL job step includes unsupported commands in Azure SQL Managed Instance**   
-Rule ID: TransactSqlJob (Warning)  <a id="">TransactSqlJob</a>
+Rule ID: TransactSqlJob (Warning) 
 
 **Description**   
 It is a job step that runs TSQL scripts at scheduled time. TSQL job step includes unsupported commands which is not supported in Azure SQL Managed Instance.
@@ -470,10 +470,10 @@ Review impacted objects section to see all jobs that include unsupported command
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## Trace flags
+## Trace flags <a id="">TraceFlags</a>
 
 **Title: Trace flags not supported in Azure SQL Managed Instance were found**   
-Rule ID: TraceFlags (Warning)  <a id="">TraceFlags</a>
+Rule ID: TraceFlags (Warning) 
 
 **Description**   
 Azure SQL Managed Instance supports only limited number of global trace flags. Session trace flags aren't supported.
@@ -484,8 +484,8 @@ Review impacted objects section to see all trace flags that are not supported in
 More information: [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql#trace-flags)
 
 
-## Windows authentication
-Rule ID: WindowsAuthentication  (Warning)  <a id="">WindowsAuthentication </a>
+## Windows authentication <a id="">WindowsAuthentication </a>
+Rule ID: WindowsAuthentication  (Warning) 
 
 **Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Managed Instance**   
 
@@ -498,10 +498,10 @@ Federate the local Active Directory with Azure Active Directory. The Windows ide
 More information: [SQL Managed Instance security capabilities](../../database/security-overview.md#authentication)
 
 
-## XP_cmdshell
+## XP_cmdshell <a id="">XpCmdshell</a>
 
 **Title: xp_cmdshell is not supported in Azure SQL Managed Instance.**   
-Rule ID: XpCmdshell (Issue)  <a id="">XpCmdshell</a>
+Rule ID: XpCmdshell (Issue) 
 
 **Description**   
 Xp_cmdshell which spawns a Windows command shell and passes in a string for execution is not supported in Azure SQL Managed Instance. 
