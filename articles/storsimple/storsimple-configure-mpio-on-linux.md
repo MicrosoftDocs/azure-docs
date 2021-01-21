@@ -43,8 +43,8 @@ The configuration file `/etc/multipath.conf` makes many of the multipathing feat
 The multipath.conf has five sections:
 
 - **System level defaults** *(defaults)*: You can override system level defaults.
-- **Blacklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
-- **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blacklist.
+- **Blocklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
+- **Blocklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blocklist.
 - **Storage controller specific settings** *(devices)*: You can specify configuration settings that will be applied to devices that have Vendor and Product information.
 - **Device specific settings** *(multipaths)*: You can use this section to fine-tune the configuration settings for individual LUNs.
 
@@ -205,12 +205,12 @@ The multipath-supported devices can be automatically discovered and configured.
     ```
 
 ### Step 2: Configure multipathing for StorSimple volumes
-By default, all devices are black listed in the multipath.conf file and will be bypassed. You will need to create blacklist exceptions to allow multipathing for volumes from StorSimple devices.
+By default, all devices are blocklisted in the multipath.conf file and will be bypassed. You will need to create blocklist exceptions to allow multipathing for volumes from StorSimple devices.
 
 1. Edit the `/etc/mulitpath.conf` file. Type:
    
     `vi /etc/multipath.conf`
-1. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blacklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
+1. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blocklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
    
     ```config
     blacklist_exceptions {

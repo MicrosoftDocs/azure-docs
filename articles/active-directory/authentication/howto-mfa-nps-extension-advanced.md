@@ -48,7 +48,7 @@ To configure an IP allowed list, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and co
 > [!NOTE]
 > This registry key is not created by default by the installer and an error appears in the AuthZOptCh log when the service is restarted. This error in the log can be ignored, but if this registry key is created and left empty if not needed then the error message does not return.
 
-When a request comes in from an IP address that exists in the IP allowlist, two-step verification is skipped. The IP list is compared to the IP address that is provided in the *ratNASIPAddress* attribute of the RADIUS request. If a RADIUS request comes in without the ratNASIPAddress attribute, a warning is logged that the IP allowlist is being ignored as the source IP is missing in the RADIUS request NasIpAddress attribute.
+When a request comes in from an IP address that exists in the IP allowed list, two-step verification is skipped. The IP list is compared to the IP address that is provided in the *ratNASIPAddress* attribute of the RADIUS request. If a RADIUS request comes in without the ratNASIPAddress attribute, a warning is logged that the IP allowed list is being ignored as the source IP is missing in the RADIUS request NasIpAddress attribute.
 
 ## Next steps
 
