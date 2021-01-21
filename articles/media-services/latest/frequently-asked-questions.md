@@ -57,7 +57,7 @@ When you're using pagination, you should always use the next link to enumerate t
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [Feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [Feature gaps with respect to v2 APIs](migrate-v-2-v-3-migration-introduction.md#feature-gaps-with-respect-to-v2-apis).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
