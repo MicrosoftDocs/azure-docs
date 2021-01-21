@@ -227,6 +227,7 @@ The notebook will automatically find all Jupyter kernels installed on the connec
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. After you have installed the kernel, please refresh the page and open a notebook. You will now see the new kernel in the kernel list.
 
 > [!NOTE]
 > For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
