@@ -65,7 +65,7 @@ In addition to Purview labeling for database columns, Microsoft also supports la
 
 Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with eachother. Therefore, labels applied in SSMS are not shown in Purview, and vice versa. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
 
-For more information, see the [SQL data discovery and classification documentation](/sql/relational-databases/security/sql-data-discovery-and-classification?view=sql-server-ver15&tabs=t-sql).
+For more information, see the [SQL data discovery and classification documentation](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## How to create sensitivity labels in Microsoft 365
 
