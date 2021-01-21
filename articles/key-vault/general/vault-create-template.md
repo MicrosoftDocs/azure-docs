@@ -158,6 +158,7 @@ You can deploy access policies to an existing key vault without redeploying the 
 }
 
 ```
+
 For more information about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## More Key Vault Resource Manager templates
