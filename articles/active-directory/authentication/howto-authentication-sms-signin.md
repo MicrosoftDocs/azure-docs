@@ -52,7 +52,7 @@ There are three main steps to enable and use SMS-based authentication in your or
 * Enable the authentication method policy.
 * Select users or groups that can use the SMS-based authentication method.
 * Assign a phone number for each user account.
-    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Profile*.
+    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Account*.
 
 First, let's enable SMS-based authentication for your Azure AD tenant.
 
