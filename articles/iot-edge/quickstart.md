@@ -106,6 +106,9 @@ Install IoT Edge for Linux on Windows on your device, and configure it with a de
 2. Follow the installation wizard to set up Windows Admin Center on your device.
 3. Once you are in Windows Admin Center, on the top right of the screen, select the **Settings Gear Icon**  
 4. From the settings menu, under Gateway, select **Extensions**
+5. Select the **Feeds** tab and select **Add**. 
+6. Enter https://aka.ms/wac-insiders-feed into the text box and select **Add**.
+7. After the feed has been added, navigate to the **Available extensions** tab. It may take a moment to update the extensions list.
 5. From the list of **Available extensions** select **Azure IoT Edge**
 6. **Install** the extension
 
