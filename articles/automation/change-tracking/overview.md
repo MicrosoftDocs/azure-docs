@@ -27,7 +27,7 @@ Change Tracking and Inventory makes use of [Azure Security Center File Integrity
 - Microsoft services
 - Linux daemons
 
-Enabling all features included in Change Tracking and Inventory might cause additional charges. Before proceeding, review [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/) and [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/). 
+Enabling all features included in Change Tracking and Inventory might cause additional charges. Before proceeding, review [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/) and [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 Change Tracking and Inventory forwards data to Azure Monitor Logs, and this collected data is stored in a Log Analytics workspace. The File Integrity Monitoring (FIM) feature is available only when **Azure Defender for servers** is enabled. See Azure Security Center [Pricing](../../security-center/security-center-pricing.md) to learn more. FIM uploads data to the same Log Analytics workspace as the one created to store data from Change Tracking and Inventory. We recommend that you monitor your linked Log Analytics workspace to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
 
@@ -69,16 +69,7 @@ The python2 executable must be aliased to *python*.
 
 ## Network requirements
 
-The following addresses are required specifically for Change Tracking and Inventory. Communication to these addresses occurs over port 443.
-
-|Azure Public  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.azure-automation.us|
-
-When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tag](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+You'll need to set up a port and several URLs on the network for Change Tracking and Inventory to run correctly. These are documented in [Azure Automation Network Configuration](automation-network-configuration.md#network-planning-hrw-sc).
 
 ## Enable Change Tracking and Inventory
 
