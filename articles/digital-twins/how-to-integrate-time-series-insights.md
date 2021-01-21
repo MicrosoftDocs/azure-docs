@@ -90,7 +90,7 @@ This function will convert those twin update events from their original form as 
 
 For more information about using Event Hubs with Azure Functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Inside your published function app, add a new function called **UpdateTSI** with the following code.
+Inside your published function app, add a new function called **ProcessDTUpdatetoTSI** with the following code.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
