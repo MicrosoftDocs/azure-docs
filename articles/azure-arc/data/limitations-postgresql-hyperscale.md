@@ -13,12 +13,17 @@ ms.topic: how-to
 
 # Limitations of Azure Arc enabled PostgreSQL Hyperscale
 
+## Backup and restore
+- Point in time restore (like restoring to specific date and time) to the same server group is not supported. When doing a point in time restore, you must restore on a different server group that you have deployed before restoring. After restoring to the new server group you may delete the server group of origin. .
+- Doing a full restore (restoring the entire content of a backup) to the same server group is supported for PosrgreSQL version 12 but not for PostgreSQL version 11 due to a limitation of the PostgreSQL engine with timelines. To do a full restore of a PostgreSQL server group of version 11 you must restore it to a different server group.
+
+
 ## Databases
-Hosting more than one database in a server group is not yet supported.
+- Hosting more than one database in a server group is not yet supported.
 
 
 ## Security
-Managing users and roles is not yet supported. For now, continue to use the postgres standard user.
+- Managing users and roles is not yet supported. For now, continue to use the postgres standard user.
 
 
 ## Roles and responsibilities
@@ -34,6 +39,9 @@ The roles and responsibilities between Microsoft and its customers differ betwee
 _*Azure services_
 
 __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
+
+
+
 
 ## Next steps
 - **Create**
