@@ -44,7 +44,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 ### Added to the ARM template
 1. Create virtual network and subnet. The names of the virtual network and subnet much match the references in the Service Configuration uploaded in the previous step.  
 
-    ```arm
+    ```json
     "resources": [ 
         { 
           "apiVersion": "2019-08-01", 
@@ -72,7 +72,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     
      Add the following to the `dependsOn` section to ensure the platform creates the virtual network prior to creating the cloud service. 
 
-    ```arm
+    ```json
     "dependsOn": [ 
             "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]" 
      ] 
@@ -80,7 +80,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
   
 2. Create a public IP address and (optionally) set the DNS label property of the public IP address.  If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration file.  
  
-    ```arm
+    ```json
     "resources": [ 
         { 
           "apiVersion": "2019-08-01", 
@@ -104,7 +104,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
      
      Add the following to the `dependsOn` section to ensure the platform creates the IP address prior to creating the cloud service. 
     
-    ```arm
+    ```json
     "dependsOn": [ 
             "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPName'))]" 
           ] 
@@ -112,7 +112,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
  
 3. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer. A Load balancer is automatically created by the platform.  
 
-    ```arm
+    ```json
     "networkProfile": { 
         "loadBalancerConfigurations": [ 
           { 
@@ -138,7 +138,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 4. (Optional) If using certificates to enable secure communication to and from the service add a Key Vault reference to the OsProfile section.
      
-    ```arm
+    ```json
     "osProfile": { 
           "secrets": [ 
             { 
@@ -161,7 +161,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 5. Create a Role Profile. Ensure that the number of roles, role names, number of instances in each role and sizes are the same across the Service Configuration (cscfg), Service Definition (csdef) and role profile section in ARM template. 
     
-    ```arm
+    ```json
     "roleProfile": { 
           "roles": { 
           "value": [ 
@@ -184,7 +184,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 6. (Optional) Create an extension profile to add extensions to your cloud service. For this example, we are adding RDP extension.
     
-    ```arm
+    ```json
     "extensionProfile": { 
               "extensions": [ 
                  { 
@@ -204,7 +204,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 7. Review the full template. 
 
-    ```arm
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
