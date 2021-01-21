@@ -13,15 +13,15 @@ ms.subservice: spark
 
 # Manage libraries for Apache Spark in Azure Synapse Analytics
 
-Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your serverless Apache Spark pools. Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
+Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally built code available to your applications, you can install a library onto one of your serverless Apache Spark pools. Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
 
 ## Before you begin
 - To install and update libraries, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
   
 ## Default Installation
-Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md). 
+Apache Spark in Azure Synapse Analytics has a full Anacondas install plus extra libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md). 
 
-When a Spark instance starts up, these libraries will automatically be included. Additional Python and custom built packages can be added at the Spark pool level.
+When a Spark instance starts up, these libraries will automatically be included. Extra Python and custom-built packages can be added at the Spark pool level.
 
 
 ## Manage Python packages
@@ -65,7 +65,7 @@ To install libraries onto a Spark pool during pool creation:
  
 
 #### Install packages from the Synapse Workspace
-To update or add additional libraries to a Spark pool from the Azure Synapse Analytics portal:
+To update or add more libraries to a Spark pool from the Azure Synapse Analytics portal:
 
 1.  Navigate to your Azure Synapse Analytics workspace from the Azure portal.
    
@@ -100,7 +100,7 @@ for d in pkg_resources.working_set:
      print(d)
 ```
 ### Update Python packages
-Packages can be added or modified anytime between sessions. When a new package configuration file is uploaded, this will overwrite the existing packages and versions.  
+Packages can be added or modified anytime between sessions. A new package configuration file will overwrite the existing packages and versions.  
 
 To update or uninstall a library:
 1. Navigate to your Azure Synapse Analytics workspace. 
@@ -123,7 +123,7 @@ To update or uninstall a library:
 ## Manage a Python Wheel
 
 ### Install a custom Wheel file
-Custom built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
+Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
 
 The files should be uploaded to the following path in the storage account's default container: 
 
@@ -132,7 +132,7 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 ```
 
 >[!IMPORTANT]
->Custom packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
+>Custom-packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
