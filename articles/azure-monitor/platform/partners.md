@@ -61,7 +61,7 @@ Customers can deploy the BMC Helix platform with the cloud deployment of their c
 
 ![Circonus Logo](./media/partners/circonus.png)
 
-Circonus is the machine data intelligence expert, providing the only machine data intelligence platform capable of handling billions of metric streams in real time to drive unprecedented business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure’s resource utilization, application performance, and operational health.
+Circonus is the monitoring and analytics platform built for the modern-day enterprise. Circonus delivers crystal-clear, real-time visibility of the behavior, health, trends, and performance of traditional infrastructure and cloud-based technologies in one powerful, unified platform. Led by experts in large-scale distributed systems and data science, Circonus is pioneering the way that telemetry data at scale is leveraged throughout the enterprise to drive smarter operations, deploy faster, make better decisions, and deliver mission-critical services with confidence.
 
 [Circonus documentation](https://docs.circonus.com/circonus/agents/cloud-agent/azure/)
 
