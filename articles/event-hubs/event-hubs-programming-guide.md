@@ -92,7 +92,7 @@ A single batch must not exceed the 1 MB limit of an event. Additionally, each me
 
 ## Send asynchronously and send at scale
 
-You send events to an event hub asynchronously. Sending asynchronously increases the rate at which a client is able to send events. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) returns a [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) object. You can use the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) class on the client to control client retry options.
+You send events to an event hub asynchronously. Sending asynchronously increases the rate at which a client is able to send events. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) returns a [Task](/dotnet/api/system.threading.tasks.task) object. You can use the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) class on the client to control client retry options.
 
 ## Event consumers
 The [EventProcessorHost][] class processes data from Event Hubs. You should use this implementation when building event readers on the .NET platform. [EventProcessorHost][] provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.

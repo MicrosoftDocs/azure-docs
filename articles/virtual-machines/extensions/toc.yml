@@ -9,11 +9,11 @@
   - name: Windows VM Agent
     href: agent-windows.md
 - name: Quickstarts
-  expanded: true
   items:
-    - name: Use the Custom Script Extension
-      href: ../windows/tutorial-automate-vm-deployment.md
-      maintainContext: true
+  - name: Use the Custom Script Extension
+    href: ../windows/tutorial-automate-vm-deployment.md
+    maintainContext: true
+  expanded: true
 - name: Concepts
   items:
   - name: Linux
@@ -120,13 +120,6 @@
     - name: Symantec
       href: symantec.md
   - name: Deprecated extensions
-    items:
-    - name: Log collector
-      href: log-collector.md
-    - name: Trend Micro Deep Security
-      href: trend.md
-    - name: Linux - version 1 (OSTC)
-      href: custom-script-linuxOstc.md
   - name: Restrict extension installation
     items:
     - name: Linux
