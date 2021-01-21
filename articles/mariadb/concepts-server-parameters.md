@@ -3,7 +3,7 @@ title: Server parameters - Azure Database for MariaDB
 description: This topic provides guidelines for configuring server parameters in Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: azure-database-mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 6/25/2020
 ---

@@ -3,7 +3,7 @@ title: Audit logs - Azure Database for MariaDB
 description: Describes the audit logs available in Azure Database for MariaDB, and the available parameters for enabling logging levels.
 author: savjani
 ms.author: pariks
-ms.service: azure-database-mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 6/24/2020
 ---

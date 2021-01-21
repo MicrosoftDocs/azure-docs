@@ -3,7 +3,7 @@ title: Connect with redirection - Azure Database for MariaDB
 description: This article describes how you can configure you application to connect to Azure Database for MariaDB with redirection.
 author: savjani
 ms.author: pariks
-ms.service: azure-database-mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/8/2020
 ---

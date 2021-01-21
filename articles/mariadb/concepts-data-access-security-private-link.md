@@ -3,7 +3,7 @@ title: Private Link - Azure Database for MariaDB
 description: Learn how Private link works for Azure Database for MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: azure-database-mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 03/10/2020
 ---
