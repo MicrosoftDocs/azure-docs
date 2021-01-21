@@ -171,7 +171,7 @@ These are the prerequisites for the SAP client library that you're using with th
     * For logic apps running in multi-tenant Azure and using your on-premises data gateway, copy the assembly files to the data gateway installation folder. 
 
         
-        * If your SAP connection fails with the error message **Please check your account info and/or permissions and try again**, make sure you copied the assembly files to the data gateway installation folder.
+        * If your SAP connection fails with the error message, **Please check your account info and/or permissions and try again**, make sure you copied the assembly files to the data gateway installation folder.
         
         * Troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location. 
         
