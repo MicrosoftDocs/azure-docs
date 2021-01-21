@@ -6,6 +6,7 @@ ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2021
+ms.custom: references_regions metadata
 ---
 
 # What's new in Azure Automation?
