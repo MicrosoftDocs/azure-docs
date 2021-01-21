@@ -1,0 +1,10 @@
+- name: Azure Managed Instance for Apache Cassandra documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: Welcome to Azure Managed Instance for Apache Cassandra
+      href: introduction.md
+- name: Quickstarts
+  items:
+    - name: Create Azure Managed Instance for Apache Cassandra cluster
+      href: quickstart.md
