@@ -38,7 +38,7 @@ If you are using a new Automanage Account when enabling, you must have either th
 
 **What regions are supported?**
 
-VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US.
+VMs in the following regions are supported: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
 
 
 **Which capabilities does Azure Automanage automate?**

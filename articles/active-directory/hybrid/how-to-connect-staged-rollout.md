@@ -63,6 +63,8 @@ The following scenarios are supported for staged rollout. The feature works only
 
 The following scenarios are not supported for staged rollout:
 
+- Legacy authentication such as POP3 and SMTP are not supported.
+
 - Certain applications send the "domain_hint" query parameter to Azure AD during authentication. These flows will continue, and users who are enabled for staged rollout will continue to use federation for authentication.
 
 <!-- -->

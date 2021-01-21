@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 01/20/2021
 ms.author: jeedes
 ---
 
@@ -36,7 +36,6 @@ NetSuite supports:
 
 * IDP-initiated SSO.
 * JIT (just-in-time) user provisioning.
-* [Automated user provisioning](NetSuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.
@@ -248,7 +247,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 - Click on Test this application in Azure portal and you should be automatically signed in to the NetSuite for which you set up the SSO
 
-- You can use Microsoft My Apps. When you click the NetSuite tile in the My Apps, you should be automatically signed in to the NetSuite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+- You can use Microsoft My Apps. When you click the NetSuite tile in the My Apps, you should be automatically signed in to the NetSuite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

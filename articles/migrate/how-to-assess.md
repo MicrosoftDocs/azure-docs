@@ -1,6 +1,9 @@
 ---
 title: Add assessment tools in Azure Migrate 
 description: Learn how to add assessment tools in Azure Migrate. 
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ---

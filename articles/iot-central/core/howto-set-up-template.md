@@ -7,7 +7,7 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: [contperfq1, device-developer]
+ms.custom: [contperf-fy21q1, device-developer]
 ---
 
 # Define a new IoT device type in your Azure IoT Central application
@@ -35,8 +35,16 @@ In an IoT Central application, a device template uses a device model to describe
 
 - Design the device template in IoT Central, and then [implement its device model in your device code](concepts-telemetry-properties-commands.md).
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Customize the device template to your requirements in IoT Central.
+> [!NOTE]
+> IoT Central requires the full model with all the referenced interfaces in the same file, when you import a model from the model repository use the keyword “expanded” to get the full version.
+For example. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
+
 - Author a device model using the [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio code has an extension that supports authoring DTDL models. To learn more, see [Install and use the DTDL authoring tools](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Then publish the model to the public model repository. To learn more, see [Device model repository](../../iot-pnp/concepts-model-repository.md). Implement your device code from the model, and connect your real device to your IoT Central application. IoT Central finds and imports the device model from the public repository for you and generates a device template. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
 - Author a device model using the DTDL. Implement your device code from the model. Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+
+> [!TIP]
+> IoT Central requires the full model with all the referenced interfaces in the same file. When you import a model from the model repository use the keyword *expanded* to get the full version.
+> For example, [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json).
 
 You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 

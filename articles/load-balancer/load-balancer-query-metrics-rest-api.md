@@ -59,40 +59,40 @@ Status code 200 is returned when the list of metric values is returned successfu
 
 ```json
 {
-	"cost": 0,
-	"timespan": "2018-06-05T03:00:00Z/2018-06-07T03:00:00Z",
-	"interval": "PT1M",
-	"value": [
-		{
-			"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/Microsoft.Insights/metrics/ByteCount",
-			"type": "Microsoft.Insights/metrics",
-			"name": {
-				"value": "ByteCount",
-				"localizedValue": "Byte Count"
-			},
-			"unit": "Count",
-			"timeseries": [
-				{
-					"metadatavalues": [],
-					"data": [
-						{
-							"timeStamp": "2018-06-06T17:24:00Z",
-							"total": 1067921034.0
-						},
-						{
-							"timeStamp": "2018-06-06T17:25:00Z",
-							"total": 0.0
-						},
-						{
-							"timeStamp": "2018-06-06T17:26:00Z",
-							"total": 3781344.0
-						},
-					]
-				}
-			]
-		}
-	],
-	"namespace": "Microsoft.Network/loadBalancers",
-	"resourceregion": "eastus"
+    "cost": 0,
+    "timespan": "2018-06-05T03:00:00Z/2018-06-07T03:00:00Z",
+    "interval": "PT1M",
+    "value": [
+        {
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/Microsoft.Insights/metrics/ByteCount",
+            "type": "Microsoft.Insights/metrics",
+            "name": {
+                "value": "ByteCount",
+                "localizedValue": "Byte Count"
+            },
+            "unit": "Count",
+            "timeseries": [
+                {
+                    "metadatavalues": [],
+                    "data": [
+                        {
+                            "timeStamp": "2018-06-06T17:24:00Z",
+                            "total": 1067921034.0
+                        },
+                        {
+                            "timeStamp": "2018-06-06T17:25:00Z",
+                            "total": 0.0
+                        },
+                        {
+                            "timeStamp": "2018-06-06T17:26:00Z",
+                            "total": 3781344.0
+                        },
+                    ]
+                }
+            ]
+        }
+    ],
+    "namespace": "Microsoft.Network/loadBalancers",
+    "resourceregion": "eastus"
 }
 ```

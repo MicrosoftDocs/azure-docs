@@ -1,6 +1,6 @@
 ---
-title: Introduction of Microsoft Spark Utilities
-description: Tutorial of using MSSparkutils in Azure Synapse Analytics notebooks.
+title: Introduction to Microsoft Spark utilities
+description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
 author: ruxu 
 services: synapse-analytics 
 ms.service: synapse-analytics 
@@ -12,7 +12,7 @@ ms.reviewer:
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ---
 
-# Introduction of Microsoft Spark Utilities
+# Introduction to Microsoft Spark Utilities
 
 Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
 
@@ -702,12 +702,12 @@ Env.Help()
 
 Get result:
 ```
-getUserName(): returns user name
-getUserId(): returns unique user id
-getJobId(): returns job id
-getWorkspaceName(): returns workspace name
-getPoolName(): returns Spark pool name
-getClusterId(): returns cluster id
+GetUserName(): returns user name
+GetUserId(): returns unique user id
+GetJobId(): returns job id
+GetWorkspaceName(): returns workspace name
+GetPoolName(): returns Spark pool name
+GetClusterId(): returns cluster id
 ```
 
 ### Get user name
@@ -875,6 +875,6 @@ Env.GetClusterId()
 ## Next steps
 
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

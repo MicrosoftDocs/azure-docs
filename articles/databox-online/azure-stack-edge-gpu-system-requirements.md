@@ -78,7 +78,7 @@ Use the following table for port configuration for the servers hosting Azure IoT
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
 
-For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](../iot-edge/troubleshoot.md).
 
 ## URL patterns for firewall rules
 

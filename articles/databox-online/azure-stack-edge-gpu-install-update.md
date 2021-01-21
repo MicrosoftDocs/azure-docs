@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 12/11/2020
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -17,9 +17,14 @@ This article describes the steps required to install update on your Azure Stack 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2010** corresponds to **2.1.1377.2170** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2009-release-notes.md).
->
-> - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
+> - Update **2012** is the current update and corresponds to:
+>   - Device software version - **2.2.1438.2470**
+>   - Kubernetes server version - **v1.17.3**
+>   - IoT Edge version: **0.1.0-beta10**
+>    
+>    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2012-release-notes.md).
+> - To apply 2012 update, your device must be running 2010.
+> - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
 To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
 
@@ -39,7 +44,7 @@ Each of these steps is described in the following sections.
     
     The WSUS server is used to manage and distribute updates through a management console. A WSUS server can also be the update source for other WSUS servers within the organization. The WSUS server that acts as an update source is called an upstream server. In a WSUS implementation, at least one WSUS server on your network must be able to connect to Microsoft Update to get available update information. As an administrator, you can determine - based on network security and configuration - how many other WSUS servers connect directly to Microsoft Update.
     
-    For more information, go to [Windows Server Update Services (WSUS)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
+    For more information, go to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
 
 ## Use the Azure portal
 
@@ -83,15 +88,15 @@ We recommend that you install updates through the Azure portal. The device autom
   
     ![Software version after update 8](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 
-5. You see a notification that the install is in progress.
+5. You see a notification that the install is in progress. 
 
     ![Software version after update 9](./media/azure-stack-edge-gpu-install-update/portal-update-8.png)
-
+ 
     The portal also displays an informational alert to indicate that the install is in progress. The device goes offline and is in maintenance mode.
-    
+   
     ![Software version after update 10](./media/azure-stack-edge-gpu-install-update/portal-update-9.png)
 
-6. As this is a 1-node device, the device will restart after the updates are installed. The critical alert during the restart will indicate that the device heartbeat is lost.
+6. As this is a 1-node device, the device restarts after the updates are installed. The critical alert during the restart indicates     that the device heartbeat is lost.
 
     ![Software version after update 11](./media/azure-stack-edge-gpu-install-update/portal-update-10.png)
 
@@ -112,7 +117,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
     ![Software version after update 14](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)
 
-9. You will again see a notification that updates are available. These are the Kubernetes updates. Select the notification or select **Update device** from the top command bar.
+<!--9. You will again see a notification that updates are available. These are the Kubernetes updates. Select the notification or select **Update device** from the top command bar.
 
     ![Software version after update 15](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
 
@@ -128,11 +133,9 @@ We recommend that you install updates through the Azure portal. The device autom
 
     ![Software version after update 18](./media/azure-stack-edge-gpu-install-update/portal-update-19.png)
 
-    As the updates are installed, the device is put into maintenance mode. The device does not restart for the Kubernetes updates. 
+    As the updates are installed, the device is put into maintenance mode. The device does not restart for the Kubernetes updates. -->
 
-    Once the Kubernetes updates are successfully installed, the banner notification disappears as no further updates are needed. Your device has now the latest version of device software and Kubernetes.
-
-    ![Software version after update 19](./media/azure-stack-edge-gpu-install-update/portal-update-20.png)
+Once the device software and Kubernetes updates are successfully installed, the banner notification disappears. Your device has now the latest version of device software and Kubernetes.
 
 
 ## Use the local web UI
@@ -158,7 +161,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge Pro**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2010**.
+    The update listing appears as **Azure Stack Edge Update 2012**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -193,7 +196,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **2.1.1377.2170**.
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2012**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 

@@ -53,6 +53,9 @@ landingContent:
             url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
             url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+          - text: Using the REST API
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
+
             
 
   - title: Detect objects in images
@@ -73,6 +76,8 @@ landingContent:
             url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
             url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+          - text: Using the REST API
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 
   # Card 
   - title: Apply content tags to images
@@ -93,6 +98,8 @@ landingContent:
             url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
             url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+          - text: Using the REST API
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 
   - title: Use the Read container
     linkLists:

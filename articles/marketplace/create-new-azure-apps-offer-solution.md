@@ -91,4 +91,4 @@ The actions that are available in the **Action** column of the **Plan overview**
 ## Next steps
 
 - [How to test and publish your Azure Application offer](create-new-azure-apps-offer-test-publish.md).
-- Learn [How to market your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.
+- Learn [How to sell your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.

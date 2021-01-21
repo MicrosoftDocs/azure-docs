@@ -50,6 +50,9 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
+    - name: Migrate from EA reporting to Azure Resource Manager APIs
+      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
+
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -112,7 +115,7 @@
       href: manage/mca-understand-pricesheet.md
     - name: Microsoft Partner Agreement invoice terms
       href: understand/mpa-invoice-terms.md
-    - name: Changes to your updated individual billing account
+    - name: Changes to your updated pay-as-you-go billing account
       href: understand/mosp-new-customer-experience.md
     - name: Billing accounts for Microsoft Customer Agreement
       href: understand/mca-overview.md
@@ -186,16 +189,6 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create EA subscriptions programmatically with latest API
-        href: manage/programmatically-create-subscription-enterprise-agreement.md
-      - name: Create MCA subscriptions programmatically with latest API
-        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-      - name: Create MPA subscriptions programmatically with latest API
-        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions programmatically with an ARM template
-        href: manage/create-subscription-template.md
-      - name: Create subscriptions programmatically with old preview API
-        href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
@@ -212,6 +205,20 @@
         href: manage/transfer-subscriptions-subscribers-csp.md
       - name: Cancel subscription
         href: manage/cancel-azure-subscription.md
+    - name: Create subscriptions programmatically
+      items:
+      - name: Create subscriptions programmatically
+        href: manage/programmatically-create-subscription.md
+      - name: Create EA subscriptions programmatically
+        href: manage/programmatically-create-subscription-enterprise-agreement.md
+      - name: Create MCA subscriptions programmatically
+        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MPA subscriptions programmatically
+        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+      - name: Create subscriptions - ARM template
+        href: manage/create-subscription-template.md
+      - name: Create subscriptions programmatically - preview APIs
+        href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions
       items:
       - name: EA roles in Azure
@@ -327,7 +334,7 @@
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
+        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
     - name: View, Manage and Optimize after purchase
       items:
       - name: View reservations and utilization
@@ -382,6 +389,8 @@
     href: /azure/templates/microsoft.consumption/budgets
   - name: Cost Management REST API Samples
     href: https://github.com/Azure-Samples/Cost-Management-Samples
+  - name: Cost Management - Azure PowerShell
+    href: /powershell/module/Az.CostManagement
   - name: Billing Automation Scenarios
     href: manage/cost-management-automation-scenarios.md
   - name: Azure Billing API overview

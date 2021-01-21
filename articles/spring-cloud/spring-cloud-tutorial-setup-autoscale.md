@@ -1,15 +1,15 @@
 ---
-title:  "Tutorial - Set up autoscale for microservice applications"
+title:  "Set up autoscale for microservice applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Tutorial: Set up autoscale for microservice applications
+# Set up autoscale for microservice applications
 
 **This article applies to:** ✔️ Java ✔️ C#
 

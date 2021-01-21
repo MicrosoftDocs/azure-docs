@@ -19,6 +19,8 @@ ms.author: nichola
 
 Single sign-on (SSO) is a key offering of the Microsoft identity platform and Azure Active Directory, providing easy and secure logins for users of your app. In addition, app protection policies (APP) enable support of the key security policies that keep your user's data safe. Together, these features enable secure user logins and management of your app's data.
 
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
+
 This article explains why SSO and APP are important and provides the high-level guidance for building mobile applications that support these features. This applies for both phone and tablet apps. If you're an IT administrator that wants to deploy SSO across your organization's Azure Active Directory tenant, check out our [guidance for planning a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
 
 ## About single sign-on and app protection policies
@@ -33,9 +35,9 @@ In addition, enabling single sign-on in your app unlocks new authentication mech
 
 We recommend the following to enable your app to take advantage of single sign-on.
 
-### Use Microsoft Authentication Library (MSAL)
+### Use the Microsoft Authentication Library (MSAL)
 
-The best choice for implementing single sign-on in your application is to use [the Microsoft Authentication Library (MSAL)](msal-overview.md). By using MSAL you can add authentication to your app with minimal code and API calls, get the full features of the [Microsoft identity platform](/azure/active-directory/develop/), and let Microsoft handle the maintenance of a secure authentication solution. By default, MSAL adds SSO support for your application. In addition, using MSAL is a requirement if you also plan to implement app protection policies.
+The best choice for implementing single sign-on in your application is to use [the Microsoft Authentication Library (MSAL)](msal-overview.md). By using MSAL you can add authentication to your app with minimal code and API calls, get the full features of the [Microsoft identity platform](./index.yml), and let Microsoft handle the maintenance of a secure authentication solution. By default, MSAL adds SSO support for your application. In addition, using MSAL is a requirement if you also plan to implement app protection policies.
 
 > [!NOTE]
 > It is possible to configure MSAL to use an embedded web view. This will prevent single sign-on. Use the default behavior (that is, the system web browser) to ensure that SSO will work.
@@ -61,7 +63,7 @@ Apple has guidance for doing this in iOS applications: [Authenticating a User Th
 
 To enable app protection policies, use the [Microsoft Authentication Library (MSAL)](msal-overview.md). MSAL is the Microsoft identity platform's authentication and authorization library and the Intune SDK is developed to work in tandem with it.
 
-In addition, you must use a broker app for authentication. The broker requires the app to provide application and device information to ensure app compliance. iOS users will use the [Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md) and Android users will use either the Microsoft Authenticator app or the [Company Portal app](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) for [brokered authentication](brokered-auth.md). By default, MSAL uses a broker as its first choice for fulfilling an authentication request, so using the broker to authenticate will be enabled for your app automatically when using MSAL out-of-the-box.
+In addition, you must use a broker app for authentication. The broker requires the app to provide application and device information to ensure app compliance. iOS users will use the [Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md) and Android users will use either the Microsoft Authenticator app or the [Company Portal app](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) for [brokered authentication](./msal-android-single-sign-on.md). By default, MSAL uses a broker as its first choice for fulfilling an authentication request, so using the broker to authenticate will be enabled for your app automatically when using MSAL out-of-the-box.
 
 Finally, [add the Intune SDK](/mem/intune/developer/app-sdk-get-started) to your app to enable app protection policies. The SDK for the most part follows an intercept model and will automatically apply app protection policies to determine if actions the app is taking are allowed or not. There are also APIs you can call manually to tell the app if there are restrictions on certain actions.
 
@@ -70,8 +72,8 @@ Finally, [add the Intune SDK](/mem/intune/developer/app-sdk-get-started) to your
 - [Plan an Azure Active Directory single sign-on deployment](../manage-apps/plan-sso-deployment.md)
 - [How to: Configure SSO on macOS and iOS](single-sign-on-macos-ios.md)
 - [Microsoft Enterprise SSO plug-in for Apple devices (Preview)](apple-sso-plugin.md)
-- [Brokered authentication in Android](brokered-auth.md)
-- [Authorization agents and how to enable them](authorization-agents.md)
+- [Brokered authentication in Android](./msal-android-single-sign-on.md)
+- [Authorization agents and how to enable them](./msal-android-single-sign-on.md)
 - [Get started with the Microsoft Intune App SDK](/mem/intune/developer/app-sdk-get-started)
 - [Configure settings for the Intune App SDK](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Microsoft Intune protected apps](/mem/intune/apps/apps-supported-intune-apps)

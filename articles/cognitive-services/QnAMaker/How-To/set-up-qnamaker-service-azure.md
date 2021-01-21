@@ -75,7 +75,7 @@ To upgrade the QnA Maker management SKU:
 
  When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
 
-You can [scale up](https://docs.microsoft.com/azure/app-service/manage-scale-up) or scale out App Service.
+You can [scale up](../../../app-service/manage-scale-up.md) or scale out App Service.
 
 Go to the App Service resource in the Azure portal, and select the **Scale up** or **Scale out** option as required.
 
@@ -122,12 +122,18 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
 ### Configure App Service Environment to host QnA Maker App Service
-The App Service Environment can be used to host QnA Maker app service. If the App Service Environment is internal, then you need to follow these steps:
-1. Create an App service and an Azure search service.
-2. Expose the app service and allow QnA Maker availability as:
-    * Publicly available - default
-    * DNS service tag: `CognitiveServicesManagement`
-3. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
+The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
+
+1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) for instructions.
+2.  Create an App service inside the App Service Environment.
+    * Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
+    * Create an Azure search service.
+    * Ensure Azure Search and App Settings are appropriately configured. 
+      Please follow this [tutorial](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service).
+3.  Update the Network Security Group associated with the App Service Environment
+    * Update pre-created Inbound Security Rules as per your requirements.
+    * Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
+4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
 
 ### Network isolation for App Service
 
@@ -148,13 +154,13 @@ The primary objective of the business continuity plan is to create a resilient k
 
 The high-level idea as represented above is as follows:
 
-1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](../../../best-practices-availability-paired-regions.md).
 
 1. [Backup](../../../app-service/manage-backup.md) your primary QnA Maker App service and [restore](../../../app-service/web-sites-restore.md) it in the secondary setup. This will ensure that both setups work with the same hostname and keys.
 
 1. Keep the primary and secondary Azure search indexes in sync. Use the GitHub sample [here](https://github.com/pchoudhari/QnAMakerBackupRestore) to see how to backup-restore Azure indexes.
 
-1. Back up the Application Insights using [continuous export](../../../application-insights/app-insights-export-telemetry.md).
+1. Back up the Application Insights using [continuous export](../../../azure-monitor/app/export-telemetry.md).
 
 1. Once the primary and secondary stacks have been set up, use [traffic manager](../../../traffic-manager/traffic-manager-overview.md) to configure the two endpoints and set up a routing method.
 
@@ -380,4 +386,4 @@ If you delete any of the Azure resources used for your QnA Maker knowledge bases
 Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Learn how to author with others](../how-to/collaborate-knowledge-base.md)
+> [Learn how to author with others](../index.yml)
