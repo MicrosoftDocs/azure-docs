@@ -284,111 +284,111 @@ There are two versions of the management API for the Authentication / Authorizat
 
 ### Moving secrets to application settings
 
-1. Get your existing configuration using the V1 API.
+1. Get your existing configuration by using the V1 API:
 
-```azurecli
-# For Web Apps
-az webapp auth show -g <group_name> -n <site_name>
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
 
-# For Azure Functions
-az functionapp auth show -g <group_name> -n <site_name>
-```
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
 
-In the resulting JSON payload, make note of the secret value used for each provider you have configured:
+   In the resulting JSON payload, make note of the secret value used for each provider you have configured:
 
-* AAD: `clientSecret`
-* Google: `googleClientSecret`
-* Facebook: `facebookAppSecret`
-* Twitter: `twitterConsumerSecret`
-* Microsoft Account: `microsoftAccountClientSecret`
+   * AAD: `clientSecret`
+   * Google: `googleClientSecret`
+   * Facebook: `facebookAppSecret`
+   * Twitter: `twitterConsumerSecret`
+   * Microsoft Account: `microsoftAccountClientSecret`
 
-> [!IMPORTANT]
-> The secret values are important security credentials and should be handled carefully. Do not share these values or persist them on a local machine.
+   > [!IMPORTANT]
+   > The secret values are important security credentials and should be handled carefully. Do not share these values or persist them on a local machine.
 
-2. Create slot-sticky application settings for each secret value. You may choose the name of each application setting. It's value should match what you obtained in the previous step or [reference a Key Vault secret](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) that you have created with that value.
+1. Create slot-sticky application settings for each secret value. You may choose the name of each application setting. It's value should match what you obtained in the previous step or [reference a Key Vault secret](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) that you have created with that value.
 
-To create the setting, you can use the Azure portal or run a variation of the following for each provider:
+   To create the setting, you can use the Azure portal or run a variation of the following for each provider:
 
-```azurecli
-# For Web Apps, Google example    
-az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
 
-# For Azure Functions, Twitter example
-az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
-```
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
 
-> [!NOTE]
-> The application settings for this configuration should be marked as slot-sticky, meaning that they will not move between environments during a [slot swap operation](./deploy-staging-slots.md). This is because your authentication configuration itself is tied to the environment. 
+   > [!NOTE]
+   > The application settings for this configuration should be marked as slot-sticky, meaning that they will not move between environments during a [slot swap operation](./deploy-staging-slots.md). This is because your authentication configuration itself is tied to the environment. 
 
-3. Create a new JSON file named `authsettings.json`.Take the output that you received previously and remove each secret value from it. Write the remaining output to the file, making sure that no secret is included. In some cases, the configuration may have arrays containing empty strings. Make sure that `microsoftAccountOAuthScopes` does not, and if it does, switch that value to `null`.
+1. Create a new JSON file named `authsettings.json`.Take the output that you received previously and remove each secret value from it. Write the remaining output to the file, making sure that no secret is included. In some cases, the configuration may have arrays containing empty strings. Make sure that `microsoftAccountOAuthScopes` does not, and if it does, switch that value to `null`.
 
-4. Add a property to `authsettings.json` which points to the application setting name you created earlier for each provider:
+1. Add a property to `authsettings.json` which points to the application setting name you created earlier for each provider:
  
-* AAD: `clientSecretSettingName`
-* Google: `googleClientSecretSettingName`
-* Facebook: `facebookAppSecretSettingName`
-* Twitter: `twitterConsumerSecretSettingName`
-* Microsoft Account: `microsoftAccountClientSecretSettingName`
+   * AAD: `clientSecretSettingName`
+   * Google: `googleClientSecretSettingName`
+   * Facebook: `facebookAppSecretSettingName`
+   * Twitter: `twitterConsumerSecretSettingName`
+   * Microsoft Account: `microsoftAccountClientSecretSettingName`
 
-An example file after this operation might look similar to the following, in this case only configured for AAD:
+   An example file after this operation might look similar to the following, in this case only configured for AAD:
 
-```json
-{
-    "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
-    "name": "authsettings",
-    "type": "Microsoft.Web/sites/config",
-    "location": "Central US",
-    "properties": {
-        "enabled": true,
-        "runtimeVersion": "~1",
-        "unauthenticatedClientAction": "AllowAnonymous",
-        "tokenStoreEnabled": true,
-        "allowedExternalRedirectUrls": null,
-        "defaultProvider": "AzureActiveDirectory",
-        "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
-        "clientSecret": null,
-        "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
-        "clientSecretCertificateThumbprint": null,
-        "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
-        "allowedAudiences": [
-            "https://mywebapp.azurewebsites.net"
-        ],
-        "additionalLoginParams": null,
-        "isAadAutoProvisioned": true,
-        "aadClaimsAuthorization": null,
-        "googleClientId": null,
-        "googleClientSecret": null,
-        "googleClientSecretSettingName": null,
-        "googleOAuthScopes": null,
-        "facebookAppId": null,
-        "facebookAppSecret": null,
-        "facebookAppSecretSettingName": null,
-        "facebookOAuthScopes": null,
-        "gitHubClientId": null,
-        "gitHubClientSecret": null,
-        "gitHubClientSecretSettingName": null,
-        "gitHubOAuthScopes": null,
-        "twitterConsumerKey": null,
-        "twitterConsumerSecret": null,
-        "twitterConsumerSecretSettingName": null,
-        "microsoftAccountClientId": null,
-        "microsoftAccountClientSecret": null,
-        "microsoftAccountClientSecretSettingName": null,
-        "microsoftAccountOAuthScopes": null,
-        "isAuthFromFile": "false"
-    }
-}
-```
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
 
-5. Submit this file as the new Authentication/Authorization configuration for your app:
+1. Submit this file as the new Authentication/Authorization configuration for your app:
 
-```azurecli
-az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
-```
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
 
-6. Validate that your app is still operating as expected after this gesture.
+1. Validate that your app is still operating as expected after this gesture.
 
-7. Delete the file used in the previous steps.
+1. Delete the file used in the previous steps.
 
 You have now migrated the app to store identity provider secrets as application settings.
 
