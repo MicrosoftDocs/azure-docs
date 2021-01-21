@@ -1,5 +1,5 @@
 ---
-title: What is a Cloud Service (extended support) model and package
+title: What is the Azure Cloud Service model and package
 description: Describes the cloud service (extended support) model (.csdef, .cscfg) and package (.cspkg) in Azure
 ms.topic: article
 ms.service: cloud-services-extended-support
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# What is the Cloud Service (extended support) model and how do I package it?
+# What is the Azure Cloud Service model and how do I package it?
 
 A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
@@ -80,7 +80,7 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 </ServiceDefinition>
 ```
 
-You can refer to the [Service Definition Schema](/previous-versions/azure/reference/ee758711(v=azure.100)) for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
+You can refer to the [Service Definition Schema](schema-csdef-file.md)) for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
 
 **Sites**  
 Contains the definitions for websites or web applications that are hosted in IIS7.
@@ -109,7 +109,7 @@ Contains tasks that are run when the role starts. The tasks are defined in a .cm
 <a name="cscfg"></a>
 
 ## ServiceConfiguration.cscfg
-The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100)) provides the allowable format for a service configuration file.
+The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](schema-cscfg-file.md) provides the allowable format for a service configuration file.
 
 The service configuration file is not packaged with the application, but is uploaded to Azure as a separate file and is used to configure the cloud service. You can upload a new service configuration file without redeploying your cloud service. The configuration values for the cloud service can be changed while the cloud service is running. The following example shows the configuration settings that can be defined for the Web and Worker roles:
 
@@ -131,7 +131,7 @@ The service configuration file is not packaged with the application, but is uplo
 </ServiceConfiguration>
 ```
 
-You can refer to the [Service Configuration Schema](/previous-versions/azure/reference/ee758710(v=azure.100)) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
+You can refer to the [Service Configuration Schema](schema-cscfg-file.md) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
 
 **Instances**  
 Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommended that you deploy more than one instance of your web-facing roles. By deploying more than one instance, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
