@@ -112,7 +112,7 @@ If you have accidentally deleted or corrupted your data, you should contact [Azu
 If you provision throughput at the database level, the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, you can't select a subset of containers to restore.
 
 ## Required permissions to change retention or restore from the portal
-Principals who are part of the role [CosmosdbBackupOperator](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#cosmosbackupoperator) , owner or contributor are allowed to request restore or change the retention.
+Principals who are part of the role [CosmosdbBackupOperator](../role-based-access-control/built-in-roles#cosmosbackupoperator), owner or contributor are allowed to request a restore or change the retention period.
 
 ## Understanding Costs of extra backups
 2 backups are provided free and extra backups are charged according to the region based  pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). For example if Backup Retention is configured  to  240 hrs i.e., 10 days and Backup Interval to 24 hrs. This implies 10 copies of the backup data. Assuming  1 TB of data in West US 2, the would be 1000 * 0.12 ~ $ 120 for backup storage in given month. 
@@ -150,4 +150,3 @@ Next you can learn about how to restore data from an Azure Cosmos account or lea
 * To make a restore request, contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 * [Use Cosmos DB change feed](change-feed.md) to move data to Azure Cosmos DB.
 * [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data to Azure Cosmos DB.
-
