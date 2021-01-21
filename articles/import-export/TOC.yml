@@ -32,7 +32,7 @@
       href: storage-import-export-tool-reviewing-job-status-v1.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot
+    - name: Fix common errors
       href: storage-import-export-tool-troubleshooting-v1.md
     - name: Repair an import job
       href: storage-import-export-tool-repairing-an-import-job-v1.md
