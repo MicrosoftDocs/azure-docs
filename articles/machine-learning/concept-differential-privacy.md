@@ -24,7 +24,7 @@ As the amount of data that an organization collects and uses for analyses increa
 Differential privacy is a set of systems and practices that help keep the data of individuals safe and private.
 
 > [!div class="mx-imgBorder"]
-> ![Differential Privacy Process](./media/concept-differential-privacy/differential-privacy-process.jpg)
+> ![Differential privacy machine learning process](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
 
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points. At the least, such a system provides plausible deniability. Therefore, the privacy of individuals is preserved with limited impact on the accuracy of the data.
 
