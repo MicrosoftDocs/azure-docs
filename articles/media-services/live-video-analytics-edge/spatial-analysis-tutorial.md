@@ -133,10 +133,9 @@ There are a few things you need to pay attention to in the deployment template f
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds. For more information, see [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
     1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.  
-    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. See that the rtspsim module has the following configuration:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -156,6 +155,8 @@ There are a few things you need to pay attention to in the deployment template f
                             }
                           }
         ```
+        
+
 ## Generate and deploy the deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules.
