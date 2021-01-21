@@ -14,7 +14,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Manage Azure AD B2C with Microsoft Graph
+# Register a Microsoft Graph Application
 
 [Microsoft Graph][ms-graph] allows you to manage many of the resources within your Azure AD B2C tenant, including customer user accounts and custom policies. By writing scripts or applications that call the [Microsoft Graph API][ms-graph-api], you can automate tenant management tasks like:
 
@@ -79,6 +79,7 @@ If your application or script needs to delete users or update their passwords, a
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
 ## Next steps
+
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API. 
 
 * [Get an access token from Azure AD](/graph/auth-v2-service#4-get-an-access-token)

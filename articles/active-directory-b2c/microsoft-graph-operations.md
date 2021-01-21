@@ -1,5 +1,5 @@
 ---
-title: Supported Microsoft Graph operations
+title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage objects in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: B2C
@@ -14,7 +14,7 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
-# Microsoft Graph operations available for Azure AD B2C
+# Manage Azure AD B2C with Microsoft Graph
 
 Microsoft Graph allows you to manage objects in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
@@ -124,12 +124,14 @@ After you've obtained the code sample, configure it for your environment and the
 
 1. Open the project in [Visual Studio](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com).
 1. Open `src/appsettings.json`.
-1. In the `appSettings` section, replace `your-b2c-tenant` with the name of your tenant, and `Application (client) ID` and `Client secret` with the values for your management application registration (see the [Register a management application](#register-a-management-application) section of this article).
+1. In the `appSettings` section, replace `your-b2c-tenant` with the name of your tenant, and `Application (client) ID` and `Client secret` with the values for your management application registration. For more information, see [Register a Microsoft Graph Application](microsoft-graph-get-started.md).
 1. Open a console window within your local clone of the repo, switch into the `src` directory, then build the project:
+
     ```console
     cd src
     dotnet build
     ```
+    
 1. Run the application with the `dotnet` command:
 
     ```console
