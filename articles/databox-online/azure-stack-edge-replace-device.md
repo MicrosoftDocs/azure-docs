@@ -33,21 +33,21 @@ If your existing device has a hardware failure, open a Support ticket by followi
 
     ![Open Support ticket](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
-2. A Microsoft Support engineer will touch with you to determine if a Field Replacement Unit (FRU) can fix the problem and is available for this instance. If a FRU is not available or the device needs a hardware upgrade, Support will guide you to place a new order and return your old device.
+2. A Microsoft Support engineer get in will touch with you to determine if a Field Replacement Unit (FRU) can fix the problem and is available for this instance. If a FRU is not available or the device needs a hardware upgrade, Support will guide you to place a new order and return your old device.
 
 ## Create a new order
 
 > [!NOTE]
 > Create a new resource for the activation of your replacement device. Activation of a replacement device against an existing resource is not supported.
 
-Follow these steps to create a resource.
+1. Follow the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource) to create a resource.
 
 <!--2. Make sure to select the check box against **I have an Azure Stack Edge Pro device**. 
 
     ![Resource for replacement device](media/azure-stack-edge-replace-device/replace-resource-1.png)-->  
 
->[!NOTE]
-> This will be considered a new order. You will start getting billed 14 days after the device is shipped to you.
+   >[!NOTE]
+   > This will be considered a new order. You will start getting billed 14 days after the device is shipped to you.
 
 ## Install and activate the replacement device
 
