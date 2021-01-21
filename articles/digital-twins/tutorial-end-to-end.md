@@ -169,11 +169,13 @@ To enable the function app to access Azure Digital Twins, the next step is to co
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
+In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance. Fill in the placeholders with the details of your resources (remember that your Azure Digital Twins instance URL is its host name preceded by *https://*).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+The output is the list of settings for the Azure Function, which should now contain an entry called *ADT_SERVICE_URL*.
 
 Use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 

@@ -852,6 +852,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/manage-user-accounts-graph-api.md",
+      "redirect_url": "/azure/active-directory-b2c/microsoft-graph-operations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-reference-spa.md",
       "redirect_url": "/azure/active-directory-b2c/implicit-flow-single-page-application",
       "redirect_document_id": true
@@ -17494,6 +17499,11 @@
     {
       "source_path_from_root": "/articles/asc-for-iot/troubleshoot-agent.md",
       "redirect_url": "/azure/defender-for-iot/troubleshoot-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/azure-defender/",
       "redirect_document_id": false
     },
     {
@@ -61312,6 +61322,21 @@
       "source_path": "articles/storage/files/storage-files-deployment-guide.md",
       "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
       "redirect_document_id": false
-    }       
+    },
+    {
+      "source_path": "articles/data-factory/wrangling-data-flow-overview.md",
+      "redirect_url": "/azure/data-factory/wrangling-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/wrangling-data-flow-functions.md",
+      "redirect_url": "/azure/data-factory/wrangling-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/wrangling-data-flow-tutorial.md",
+      "redirect_url": "/azure/data-factory/wrangling-tutorial",
+      "redirect_document_id": false
+    }
   ]
 }
