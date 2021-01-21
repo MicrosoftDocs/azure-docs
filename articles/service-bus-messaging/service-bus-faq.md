@@ -31,7 +31,7 @@ Ordering isn't ensured when using partitioned entities. In the event that a part
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
 ### <a name="in-region-data-residency"></a>Where does Azure Service Bus store data?
-Azure Service Bus standard tier utilizes Azure SQL Database for its backend storage layer. For all regions except for Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate their data-residency requirements. 
+Azure Service Bus standard tier utilizes Azure SQL Database for its backend storage layer. For all regions except Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate data-residency requirements for these regions.
 
 Azure Service Bus premium tier stores metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Service Bus premium namespace, the metadata is copied over to the secondary region that you select.
 
