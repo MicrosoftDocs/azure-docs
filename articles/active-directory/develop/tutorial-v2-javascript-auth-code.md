@@ -302,7 +302,7 @@ const msalConfig = {
   }
 };
 
-// Add scopes here for ID token to be used at Microsoft identity platform.
+// Add scopes here for ID token to be used at Microsoft identity platform endpoints.
 const loginRequest = {
  scopes: ["openid", "profile", "User.Read"]
 };
@@ -541,7 +541,7 @@ function readMail() {
 
 ### How the code works
 
-When a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
+When a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. The `loginPopup` method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](v2-oauth2-auth-code-flow.md).
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
