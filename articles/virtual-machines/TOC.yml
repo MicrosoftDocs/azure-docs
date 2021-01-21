@@ -1279,7 +1279,7 @@
     - name: Ultra disks
       href: disks-enable-ultra-ssd.md
     - name: Virtual machine and disk performance
-      href: disk-performance.md
+      href: disks-performance.md
     - name: Disk Storage reservations
       href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
     - name: Reserve Disk Storage
