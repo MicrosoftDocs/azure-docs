@@ -73,7 +73,7 @@ To configure a High-availability cluster provider, two primary steps are involve
 
 
 ## Provider type OS (Linux)
-Customers can configure one or more providers of provider type OS (Linux) to enable data collection from BareMetal or VM Node. The OS (Linux) provider connects to BareMetal or VM Nodes, using Node_Exporter endpoint, pulls telemetry data from the Nodes and pushes it to Log Analytics workspace in the customer subscription. OS (Linux) provider collects data every 60 seconds for most of the metrics from Nodes. 
+Customers can configure one or more providers of provider type OS (Linux) to enable data collection from BareMetal or VM Node. The OS (Linux) provider connects to BareMetal or VM Nodes, using [Node_Exporter](https://github.com/prometheus/node_exporter) endpoint, pulls telemetry data from the Nodes and pushes it to Log Analytics workspace in the customer subscription. OS (Linux) provider collects data every 60 seconds for most of the metrics from Nodes. 
 
 In Private preview, customers can expect to see the following data with OS (Linux) provider: 
 -CPU Usage, CPU Usage by Process 
@@ -82,10 +82,10 @@ In Private preview, customers can expect to see the following data with OS (Linu
 -Network Usage, Network Inbound & outbound Traffic Details. 
 
 To configure an OS (Linux) provider, two primary steps are involved:
-1. Install Node_Exporter on each BareMetal Node 
-   You have two options for installing Node_exporter: 
-      - For Automation installation with Ansible use Node_Exporter on each BareMetal Node to install OS (Linux) Provider.  
-      - Do a manual installation.
+1. Install [Node_Exporter](https://github.com/prometheus/node_exporter) on each BareMetal or VM Nodes.
+   You have two options for installing [Node_exporter](https://github.com/prometheus/node_exporter): 
+      - For Automation installation with Ansible use [Node_Exporter](https://github.com/prometheus/node_exporter) on each BareMetal or VM Nodes to install OS (Linux) Provider.  
+      - Do a [manual installation](https://prometheus.io/docs/guides/node-exporter/).
 
 2. Configure a OS (Linux) Provider for each BareMetal or VM Node Instance in your environment. 
    To configure the OS (Linux) Provider, the following information is required: 
