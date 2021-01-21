@@ -64,24 +64,20 @@ In order to use the SDK, you'll need to include the following packages into your
 You can do this by right-selecting on your project and select _Manage NuGet Packages_ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
 
 * `Azure.DigitalTwins.Core`
-* `Azure.Identity` 
-
-For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need the following packages. Repeat the same process as above to install all the packages.
-
+* `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core.Pipeline`
+* `Azure.Core`
 
 **Option 2. Add packages using `dotnet` command-line tool:**
 
 Alternatively, you can use the following `dotnet add` commands in a command line tool:
-```cmd/sh
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
 
-Then, add two more dependencies to your project that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
- * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
- * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+dotnet add package System.Net.Http
+dotnet add package Azure.Core
+```
 
 Next, in your Visual Studio Solution Explorer, open _function.cs_ file where you have sample code and add the following _using_ statements to your function. 
 
