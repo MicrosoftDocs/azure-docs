@@ -35,7 +35,7 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
 When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name.
 
-For Arc enabled servers, before you rename the machine, you need to audit which VM extensions are installed and note their configuration. It is necessary to remove the VM extensions before proceeding.
+For Arc enabled servers, before you rename the machine, it is necessary to remove the VM extensions before proceeding.
 
 > [!NOTE]
 > While installed extensions continue to run and perform their normal operation after this procedure is complete, you won't be able to manage them. If you attempt to redeploy the extensions on the machine, you may experience unpredictable behavior.
@@ -43,11 +43,11 @@ For Arc enabled servers, before you rename the machine, you need to audit which 
 > [!WARNING]
 > We recommend you avoid renaming the machine's computer name and only perform this procedure if absolutely necessary.
 
-To rename the computer, the following steps are performed:
+The steps below summarize the computer rename procedure.
 
-1. Audit the VM extensions installed on the machine.
+1. Audit the VM extensions installed on the machine and note their configuration, using the [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) or using [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Remove the VM extensions using PowerShell, the Azure CLI, or from the portal.
+2. Remove the VM extensions using PowerShell, the Azure CLI, or from the Azure portal.
 
     > [!NOTE]
     > If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) and after the renamed machine is registered with Arc enabled servers.
@@ -62,7 +62,9 @@ To rename the computer, the following steps are performed:
 
 Use the following steps to complete this task.
 
-1. Use one of the following methods to disconnect the machine from Azure Arc. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. Any VM extensions that are deployed to the machine continue to work during this process.
+1. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extension), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+
+2. Use one of the following methods to disconnect the machine from Azure Arc. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. Any VM extensions that are deployed to the machine continue to work during this process.
 
     # [Azure portal](#tab/azure-portal)
 
@@ -88,7 +90,7 @@ Use the following steps to complete this task.
      -ResourceType Microsoft.HybridCompute/machines
     ```
 
-2. Rename the computer name of the machine.
+3. Rename the computer name of the machine.
 
 ### After renaming operation
 
