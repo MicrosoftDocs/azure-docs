@@ -27,7 +27,7 @@ Rule ID: AnalysisCommandJob (Warning)
 It is a job step that runs an Analysis Services command. AnalysisCommand job step is not supported in Azure SQL Managed Instance.
 
 **Recommendation**     
-Review impacted objects section to see all jobs using Analysis Service Command job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine
+Review impacted objects section to see all jobs using Analysis Service Command job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -40,7 +40,7 @@ Rule ID: AnalysisQueryJob (Warning)
 It is a job step that runs an Analysis Services query. AnalysisQuery job step is not supported in Azure SQL Managed Instance.
 
 **Recommendation**   
-Review impacted objects section to see all jobs using Analysis Service Query job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine
+Review impacted objects section to see all jobs using Analysis Service Query job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -81,7 +81,7 @@ Rule ID: ClrStrictSecurity (Issue)
 CLR Strict Security mode is enforced in Azure SQL Managed Instance. This mode is enabled by default and introduces breaking changes for databases containing user-defined CLR assemblies marked either SAFE or EXTERNAL_ACCESS.
 
 **Recommendation**   
-CLR uses Code Access Security (CAS) in the .NET Framework, which is no longer supported as a security boundary. Beginning with SQL Server 2017 (14.x)Database Engine, an sp_configure option called clr strict security is introduced to enhance the security of CLR assemblies. clr strict security is enabled by default, and treats SAFE and EXTERNAL_ACCESS CLR assemblies as if they were marked UNSAFE. When clr strict security is disabled, a CLR assembly created with PERMISSION_SET = SAFE may be able to access external system resources, call unmanaged code, and acquire sysadmin privileges. After enabling strict security, any assemblies that are not signed will fail to load. Also, if a database has SAFE or EXTERNAL_ACCESS assemblies, RESTORE or ATTACH DATABASE statements can complete, but the assemblies may fail to load.To load the assemblies, you must either alter or drop and recreate each assembly so that it is signed with a certificate or asymmetric key that has a corresponding login with the UNSAFE ASSEMBLY permission on the server.
+CLR uses Code Access Security (CAS) in the .NET Framework, which is no longer supported as a security boundary. Beginning with SQL Server 2017 (14.x) database engine, an `sp_configure` option called clr strict security is introduced to enhance the security of CLR assemblies. Clr strict security is enabled by default, and treats SAFE and EXTERNAL_ACCESS CLR assemblies as if they were marked UNSAFE. When clr strict security is disabled, a CLR assembly created with PERMISSION_SET = SAFE may be able to access external system resources, call unmanaged code, and acquire sysadmin privileges. After enabling strict security, any assemblies that are not signed will fail to load. Also, if a database has SAFE or EXTERNAL_ACCESS assemblies, RESTORE or ATTACH DATABASE statements can complete, but the assemblies may fail to load.To load the assemblies, you must either alter or drop and recreate each assembly so that it is signed with a certificate or asymmetric key that has a corresponding login with the UNSAFE ASSEMBLY permission on the server.
 
 More information: [CLR strict security](/sql/database-engine/configure-windows/clr-strict-security)
 
@@ -225,11 +225,10 @@ Linked servers enable the SQL Server Database Engine to execute commands against
 Azure SQL Managed Instance does not support linked server functionality if the remote server provider is non SQL Server like Oracle, Sybase etc. 
 
 The following actions are recommended to eliminate the need for linked servers: 
-1. Identify the dependent database(s) from remote non SQL servers and consider moving these into the database being migrated. 
-1. Migrate the dependent database(s) to supported targets like SQL Managed Instance, SQL Database, Azure Synapse SQL and SQL Server instances. 
-1. Consider creating linked server between Azure SQL Managed Instance and SQL Server on Azure Virtual Machine (SQL VM).  Then from SQL VM create linked server to Oracle, Sybase etc. This approach does involve two hops but can be used as temporary workaround.  
-
-Alternatively, migrate to SQL Server on Azure Virtual Machine.
+- Identify the dependent database(s) from remote non SQL servers and consider moving these into the database being migrated. 
+- Migrate the dependent database(s) to supported targets like SQL Managed Instance, SQL Database, Azure Synapse SQL and SQL Server instances. 
+- Consider creating linked server between Azure SQL Managed Instance and SQL Server on Azure Virtual Machine (SQL VM).  Then from SQL VM create linked server to Oracle, Sybase etc. This approach does involve two hops but can be used as temporary workaround.  
+- Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [Linked Server differences in Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)
 
@@ -396,7 +395,7 @@ Rule ID: QueueReaderJob (Warning)
 It is a job step that activates the replication Queue Reader Agent. The Replication Queue Reader Agent is an executable that reads messages stored in a Microsoft SQL Server queue or a Microsoft Message Queue and then applies those messages to the Publisher. Queue Reader Agent is used with snapshot and transactional publications that allow queued updating. Queue Reader job step is not supported in Azure SQL Managed Instance. 
 
 **Recommendation**   
-Review impacted objects section to see all jobs using Queue Reader job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine
+Review impacted objects section to see all jobs using Queue Reader job step and evaluate if the job step or the impacted object can be removed. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
@@ -490,7 +489,11 @@ Rule ID: WindowsAuthentication  (Warning)
 **Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Managed Instance**   
 
 **Description**   
-Azure SQL Managed Instance  supports two types of authentication 1) SQL Authentication, which uses a username and password 2) Azure Active Directory Authentication, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Managed Instance. 
+Azure SQL Managed Instance supports two types of authentication: 
+- SQL Authentication, which uses a username and password
+- Azure Active Directory Authentication, which uses identities managed by Azure Active Directory and is supported for managed and integrated domains. 
+
+Database users mapped with Windows authentication (integrated security) are not supported in Azure SQL Managed Instance. 
 
 **Recommendation**   
 Federate the local Active Directory with Azure Active Directory. The Windows identity can then be replaced with the equivalent Azure Active Directory identities. Alternatively, migrate to SQL Server on Azure Virtual Machine.
