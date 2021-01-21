@@ -195,6 +195,9 @@ When VPN Sites connect into a hub, they do so with connections. Virtual WAN supp
 
 The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale unit of the VPN gateway. Throughput is shared by all existing connections. Each tunnel in a connection can support up to 1 Gbps.
 
+### Can I use NAT-T on my VPN connections?
+Yes, NAT traversal (NAT-T) is supported. Virtual WAN VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
+
 ### I don't see the 20 Gbps setting for the virtual hub in portal. How do I configure that?
 
 Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
