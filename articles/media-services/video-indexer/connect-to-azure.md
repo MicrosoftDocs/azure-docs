@@ -228,9 +228,9 @@ To create a paid account in Azure government, follow the instructions in https:/
 1. Bing description - in Gov cloud we will not present a description of celebrities and named entities identified. This is a UI capability only. 
 1. Bing API is not available. Thus, the following is not present in Video Indexer on Azure Government:
 
- * Face descriptions
- * Brands/Named locations
- * Named persons descriptions
+     * Face descriptions
+     * Brands/Named locations
+     * Named persons descriptions
 
 ## Clean up resources
 
