@@ -1,12 +1,12 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 8/26/2020
-ms.author: matjazl
+ms.date: 1/21/2021
+ms.author: cavoeg
 ---
 # How to export FHIR data
 
