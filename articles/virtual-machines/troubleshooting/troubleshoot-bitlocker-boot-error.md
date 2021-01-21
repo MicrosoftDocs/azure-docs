@@ -38,7 +38,7 @@ This problem may occur if the VM cannot locate the BitLocker Recovery Key (BEK) 
 ## Solution
 
 > [!TIP]
-> If you have a recent backup of the VM, you may try restoring the VM from the backup. For more information, see [Restore VMs by using the Azure portal](../../backup/backup-azure-arm-restore-vms.md).
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
 
 To resolve this problem, stop and deallocate the VM, and then start it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
 
