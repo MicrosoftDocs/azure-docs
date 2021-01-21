@@ -289,7 +289,7 @@ The code related to authentication in an ASP.NET web app and web APIs is located
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
@@ -314,7 +314,7 @@ For details, see the `doFilter()` method in [AuthFilter.java](https://github.com
 > [!NOTE]
 > The code of the `doFilter()` is written in a slightly different order, but the flow is the one described.
 
-For details about the authorization code flow that this method triggers, see [The Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+For details about the authorization code flow that this method triggers, see the [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 # [Python](#tab/python)
 
