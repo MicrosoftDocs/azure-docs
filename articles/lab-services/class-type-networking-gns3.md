@@ -28,24 +28,25 @@ After the template machine is created, start the machine and connect to it to co
 3. Create GNS3 VM.
 4. Configure GNS3 to use Windows Hyper-V VM.
 5. Add appropriate appliances.
+6. Publish template.
 
 
 ### Prepare template machine for nested virtualization
-Follow instructions in [this article](how-to-enable-nested-virtualization-template-vm.md) to prepare your template virtual machine for nested virtualization. 
+- Follow instructions in [this article](how-to-enable-nested-virtualization-template-vm.md) to prepare your template virtual machine for nested virtualization. 
 
 ### Install GNS3
-Follow the instructions for [install GNS3 on Windows](https://docs.gns3.com/docs/getting-started/installation/windows)  Make sure to include the GNS3 VM in th component dialog.
+- Follow the instructions for [installing GNS3 on Windows](https://docs.gns3.com/docs/getting-started/installation/windows).  Make sure to include installing the **GNS3 VM** in the component dialog, see below.
 
 ![SelectGNS3vm](./media/class-type-networking-gns3/gns3-select-vm.png)
 
-In the VM dialog select the Hyper-V option.
+Eventually you will reach the GNS3 VM selection. Make sure to select the **Hyper-V** option.
 
 ![SelectHyperV](./media/class-type-networking-gns3/gns3-vm-hyperv.png)
 
-  This will download the PowerShell script to create the GNS3 VM in the Hyper-V manager. Once the setup is complete, don't start GNS3.
+  This will download the PowerShell script and VHD files to create the GNS3 VM in the Hyper-V manager. Continue installation using the default values. **Once the setup is complete, don't start GNS3**.
 
 ### Create GNS3 VM
-Once the setup has completed, a zip file "GNS3.VM.Hyper-V.2.2.17.zip" is downloaded to the machine containing the drives and the Powershell script to create the Hyper-V vm.
+Once the setup has completed, a zip file **"GNS3.VM.Hyper-V.2.2.17.zip"** is downloaded to the same folder as the installation file, containing the drives and the Powershell script to create the Hyper-V vm.
 - **Extract all** on the GNS3.VM.Hyper-V.2.2.17.zip.  This will extract out the drives and the Powershell script to create the VM.
 - **Run with Powershell** on the "create-vm.ps1" Powershell script.
 - An Execution Policy Change request may show up. Enter "Y" to execute the script.
@@ -56,7 +57,7 @@ Once the setup has completed, a zip file "GNS3.VM.Hyper-V.2.2.17.zip" is downloa
 
 ### Configure GNS3 to use Hyper-V Vm
 Now that GNS3 is installed and the GNS3 VM is added, start up GNS3 to link the two together.  The [GNS3 Setup wizard will start automatically.](https://docs.gns3.com/docs/getting-started/setup-wizard-gns3-vm#local-gns3-vm-setup-wizard).  
-- Use the **Run appliances from virtual machine.** option.  Use the defaults for the rest of the wizard until you hit the "VMware vmrun tool cannot be found." error.
+- Use the **Run appliances from virtual machine.** option.  Use the defaults for the rest of the wizard until you hit the **VMware vmrun tool cannot be found.** error.
 
 ![VMWareError](./media/class-type-networking-gns3/gns3-VMware-vmruntool-notfound.png)
 
@@ -66,16 +67,25 @@ Now that GNS3 is installed and the GNS3 VM is added, start up GNS3 to link the t
 ![EnableGNS3VMs](./media/class-type-networking-gns3/gns3-preference-vm.png)
 
 ### Add appropriate appliances
+
 At this point you'll want to add the appropriate [appliances for the class.](https://docs.gns3.com/docs/using-gns3/beginners/install-from-marketplace)
 
+### Publish template
+
+Now that the template VM is setup properly, and ready for publishing there are a few key points to check.
+- Make sure that the GNS3 VM is shutdown or turned off.  Publishing while the VM is still running will corrupt the VM.
+- Close down GNS3, publishing while and running can lead to unintended side effects.
+- Clean up any installation files or other unneccessary files.
+
 ## Cost  
+
 If you would like to estimate the cost of this lab, you can use the following example: 
  
 For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be: 
 
 25 students * (20 + 10) hours * 84 Lab Units * 0.01 USD per hour = 630 USD. 
 
-For more information on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+**Important** Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
 This article walked you through the steps to create a lab for network configuration using GNS3.
