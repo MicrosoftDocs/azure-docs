@@ -95,8 +95,8 @@ All search parameter types are supported.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
 | `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
-| `_include`              | Yes*       | Yes       | Yes*       |Included items are limited to 100. _include on PaaS and OSS on Cosmos DB does not include :iterate support.|
-| `_revinclude`           | Yes*       | Yes       | Yes*       | Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB does not include :iterate support.|
+| `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
+| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
 | `_total`                | Partial   | Partial   | Partial   | _total=non and _total=accurate      |
 | `_elements`             | Yes       | Yes       | Yes       |         |
@@ -130,9 +130,9 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have your RUs increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
-* **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
+* **Concurrent connections** and **Instances** - By dafault, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
 * **Bundle size** - Each bundle is limited to 500 items.
 
