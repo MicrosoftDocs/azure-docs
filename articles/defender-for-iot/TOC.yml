@@ -44,15 +44,6 @@
     items:
     - name: Key concepts
       href: concept-key-concepts.md    
-  - name: Agent-based Solution for Device Builders
-    items: 
-    - name: Security Module for Azure RTOS
-      href: iot-security-azure-rtos.md
-      items: 
-      - name: Understand the Security Module for Azure RTOS
-        href: concept-rtos-security-module.md
-      - name: Security Module for Azure RTOS alerts and recommendations 
-        href: concept-rtos-security-alerts-recommendations.md
   - name: Agent-based solution for Device Builders
     items:
     - name: Agent portfolio overview and OS support                      
@@ -85,7 +76,7 @@
         href: concept-security-agent-authentication-methods.md
       - name: Baseline
         href: concept-baseline.md
-      - name: Event aggregation                                          
+      - name: Security module classic event aggregation                                          
         href: event-aggregation.md
 - name: How-to guides
   items:
@@ -173,20 +164,21 @@
       href: how-to-set-up-snmp-mib-monitoring.md
   - name: Agent-based solution for device builders
     items:
-    - name: Configure security module for Azure RTOS                     Repeat article from start of quickstart
-      href:
+    - name: Security Module for Azure RTOS
+      href: iot-security-azure-rtos.md
+      items: 
+      - name: Work with Security Module for Azure RTOS
+        href: how-to-azure-rtos-security-module.md
+      - name: Understand the Security Module for Azure RTOS
+        href: concept-rtos-security-module.md
+      - name: Security Module for Azure RTOS alerts and recommendations 
+        href: concept-rtos-security-alerts-recommendations.md
     - name: Connect to Azure Sentinel
       href: how-to-configure-with-sentinel.md
-    - name: Configure Azure Defender for IoT agent-based solution        Need to Copy
-      href: 
-    - name: Configuration                                                Why is single article nested
-      items:
-      - name: Configuration types description
-        href: 
-    - name: Investigate a device
-      href: how-to-investigate-device.md
-    - name: Investigate CIS benchmark recommendation                     Need to copy
-      href: 
+    - name: Configure Azure Defender for IoT agent-based solution      Needs Review
+      href: how-to-configure-agent-based-solution.md
+    - name: Investigate CIS benchmark recommendation                   Needs review and Next Steps
+      href: how-to-investigate-cis-benchmark.md
     - name: Investigate security recommendations
       href: quickstart-investigate-security-recommendations.md
     - name: Investigate security alerts
@@ -208,7 +200,11 @@
       - name: Troubleshoot a security agent
         items:
         - name: Troubleshoot Azure Defender for IoT Linux security agent
-          href: troubleshoot-agent.md 
+          href: troubleshoot-agent.md
+        - name: Local configuration C
+          href: azure-iot-security-local-configuration-c.md
+        - name: Local configuration C#
+          href: azure-iot-security-local-configuration-csharp.md 
       - name: Deploy Edge security module
         href: how-to-deploy-edge.md
       - name: Configure security agents
@@ -217,6 +213,8 @@
         href: how-to-send-security-messages.md
       - name: Access raw security data
         href: how-to-security-data-access.md
+      - name: Investigate a device
+        href: how-to-investigate-device.md
 - name: Troubleshooting
   items:
   - name: Managed
@@ -225,10 +223,10 @@
       href: 
     - name: Events in the cloud                                                 Need to copy
       href:
-  - name: Feature retirement
-    items:
-    - name: Defender for IoT C/C#/ Edge security module deprecation                                                  Need to copy
-      href:
+- name: Feature retirement
+  items:
+  - name: Defender for IoT C, C#, and Edge security module deprecation                                                  Need to copy
+    href: edge-security-module-deprecation.md
 - name: References
   items:
   - name: Agentless Solution for Organizations
@@ -275,27 +273,3 @@
       href: https://azure.microsoft.com/pricing/details/security-center/
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
-
-     
-
-    
-
-  
-  - name: Agent-based Solution for Device Builders
-    items: 
-    - name: Work with Security Module for Azure RTOS
-      href: how-to-azure-rtos-security-module.md
- 
-      - name: Local configuration C
-        href: azure-iot-security-local-configuration-c.md
-      - name: Local configuration C#
-        href: azure-iot-security-local-configuration-csharp.md
-
-
-To Remove
-    - name: IoT Hub
-      href: quickstart-iot-hub-integration.md
-    - name: Security baseline
-      href: security-baseline.md
-    - name: Customize your agent
-      href: how-to-customize-solution.md
