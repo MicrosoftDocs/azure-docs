@@ -28,7 +28,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 ## Create a Cloud Service (extended Support) using ARM templates
 
-1. Prepare your deployment artifacts (csdef and cscfg) and associated resources. For more information see [Deployment prerequisites](deploy-prerequisites.md)
+1. Prepare your deployment artifacts (csdef and cscfg) and associated resources. For more information see [Deployment prerequisites](deploy-prerequisite.md)
 
 2. Create an Azure resource group with New-AzResourceGroup command (or through portal). A resource group is a logical container into which Azure resources are deployed and managed. 
      
@@ -232,13 +232,10 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                 } 
               ] 
             } 
-    ```
-    
-    Use this document to get details of each object referenced above. (ARM template reference documentation) 
-    
+    ```    
  
 
-10.  Use the template & parameters (link to github hyperlinks) file to create/update the Cloud Services (extended support) deployment 
+10.  Use the template & parameters file to create/update the Cloud Services (extended support) deployment.
   
 
 ```powershell
