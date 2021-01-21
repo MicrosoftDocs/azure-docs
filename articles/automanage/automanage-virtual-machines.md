@@ -38,16 +38,16 @@ There are several prerequisites to consider before trying to enable Azure Automa
 
 - Windows Server VMs only
 - VMs must be running
-- VMs must be in a supported region
+- VMs must be in a supported region (see paragraph below)
 - User must have correct permissions (see paragraph below)
 - Automanage does not support Sandbox subscriptions at this time
+
+It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
 
 You must have the **Contributor** role on the resource group containing your VMs to enable Automanage on VMs using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions on your subscription: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.
-
-It is also important to note that Automanage only supports Windows VMs located in the following regions: West Europe, East US, West US 2, Canada Central, West Central US, Japan East.
 
 ## Participating services
 
@@ -150,6 +150,12 @@ Read carefully through the messaging in the resulting pop-up before agreeing to 
 
 First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift.
 
+## Resource movement across regions
+If you want to move a VM that is currently onboarded to Automanage to a different region, please do the following:
+
+1. Ensure that your VM's target region is [supported by Automanage](#prerequisites)
+1. Ensure that your Log Analytics workspace, Automation account, and VM's target region are located in a region supported by the region mappings [here](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+1. Disable Automanage before moving regions, and reenable Automanage after your region move is complete.
 
 ## Next steps
 
