@@ -224,7 +224,7 @@ The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, wh
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in scalable plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md#windows).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md#windows).
 
 |Key|Sample value|
 |---|------------|
@@ -242,7 +242,7 @@ For Premium plans only. A value of `1` enables your function app to scale when y
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in a scalable plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#windows).
+The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#windows).
 
 |Key|Sample value|
 |---|------------|
