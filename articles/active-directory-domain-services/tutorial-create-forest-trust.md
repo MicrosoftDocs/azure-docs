@@ -82,8 +82,8 @@ The on-premises AD DS domain needs an incoming forest trust for the managed doma
 
 To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
-1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**.
-1. Right-select domain, such as *onprem.contoso.com*, then select **Properties**.
+1. Select **Start** > **Administrative Tools** > **Active Directory Domains and Trusts**.
+1. Right-click the domain, such as *onprem.contoso.com*, then select **Properties**.
 1. Choose **Trusts** tab, then **New Trust**.
 1. Enter the name for Azure AD DS domain name, such as *aaddscontoso.com*, then select **Next**.
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
@@ -91,6 +91,14 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
 1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
 1. Select **Finish**.
+
+If the forest trust is no longer needed for an environment, complete the following steps to remove it from the on-premises domain:
+
+1. Select **Start** > **Administrative Tools** > **Active Directory Domains and Trusts**.
+1. Right-click the domain, such as *onprem.contoso.com*, then select **Properties**.
+1. Choose **Trusts** tab, then **Domains that trust this domain (incoming trusts)**, click the trust to be removed, and then click **Remove**.
+1. On the Trusts tab, under either Domains trusted by this domain (outgoing trusts) or , click the trust to be removed, and then click Remove.
+1. Click **No, remove the trust from the local domain only**.
 
 ## Create outbound forest trust in Azure AD DS
 
@@ -111,12 +119,11 @@ To create the outbound trust for the managed domain in the Azure portal, complet
 
     ![Create outbound forest trust in the Azure portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
-If the forest trust is no longer needed for an environment, complete the following steps to remove it:
+If the forest trust is no longer needed for an environment, complete the following steps to remove it from Azure AD DS:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
 1. From the menu on the left-hand side of the managed domain, select **Trusts**, choose the trust, and click **Remove**.
-1. Provide the same trust password that was used to configure the forest trust.
-
+1. Provide the same trust password that was used to configure the forest trust and click **OK**.
 
 ## Validate resource authentication
 
