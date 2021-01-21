@@ -234,7 +234,7 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 ### Deploy an application package
 
 You can specify one or more application packages for deployment when you create a pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
-1805924
+
 Specify the `-ApplicationPackageReference` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. First, create a **PSApplicationPackageReference** object, and configure it with the application ID and package version you want to deploy to the pool's compute nodes:
 
 ```powershell
