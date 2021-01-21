@@ -100,7 +100,7 @@ For creating Key Vault you need following information:
     - Resource group name: ContosOrg 
     - Location: EastUS 
 
-12. Although we use "ContosKeyVault" as the name of our Key Vault through out, you must use a unique name. 
+12. Although we use "ContosKeyVault" as the name of our Key Vault throughout, you must use a unique name. 
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -129,7 +129,7 @@ For creating Key Vault you need following information:
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -CertificatePolicy $Policy 
     ```
  
-15. Create an OS Profile in-memory object. OS Profile specifies the certificates which are assosiated to cloud service roles. Over here you will use the certificate that was created in previous steps. 
+15. Create an OS Profile in-memory object. OS Profile specifies the certificates which are associated to cloud service roles. Over here you will use the certificate that was created in previous steps. 
 
     ```powershell
     $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault 

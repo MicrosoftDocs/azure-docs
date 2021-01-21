@@ -58,7 +58,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     | Configuration | string | Specifies the XML service configuration (.cscfg) for the cloud service. | 
     | ConfigurationUrl | string | Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account. | 
 
-    Refer to this document to create storage account and obtain SAS URIs for Service Package and Service Configuration (Link to PS document section for storage account creation and accessing SAS URIs  
+    For more information, see [Create a storage account(https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)]
 
     ```arm
     "properties": { 
@@ -167,7 +167,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 
 7. Create Key vault  (Optional if using existing KeyVault) & upload the certificates. 
  
-    Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your ServiceConfiguration.cscfg file and the certificates must be uploaded to your Key vault. KeyVault can be created through portal and  powershell. KeyVault must be created in the same region and subscription as cloud service. You will also need to add your key vault reference in the OsProfile section of the ARM template.    
+    Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your ServiceConfiguration.cscfg file and the certificates must be uploaded to your Key vault. KeyVault can be created through portal and  PowerShell. KeyVault must be created in the same region and subscription as cloud service. You will also need to add your key vault reference in the OsProfile section of the ARM template.    
      
     ```arm
     "osProfile": { 
