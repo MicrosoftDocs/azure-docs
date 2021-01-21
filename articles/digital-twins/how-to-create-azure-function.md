@@ -109,29 +109,12 @@ After these changes, your function code will be similar to the following:
 
 ## Publish the function app to Azure
 
-To publish the project to a function app in Azure, right-select the function project (not the solution) in Solution Explorer, and choose **Publish**.
-
 > [!IMPORTANT] 
 > Publishing to a function app in Azure incurs additional charges on your subscription, independent of Azure Digital Twins.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publish function to Azure":::
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-Select **Azure** as the publishing target and select **Next**.
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publish Azure Functions dialog, select Azure ":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: publish function dialog, select Azure Function App(Windows) or (Linux) based on your machine":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: publish function dialog, Create a new Azure Function":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: publish function dialog, Fill in the fields, and select create":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publish function dialog, Select your function app from the list, and finish":::
-
-On the following page, enter the desired name for the new function app, a resource group, and other details.
-For your function app to be able to access Azure Digital Twins, it needs to have a system-managed identity and have permissions to access your Azure Digital Twins instance.
-
-Next, you can set up security access for the function using CLI or Azure portal. Choose either of these methods:
+Next, you can set up security access for the function using CLI or Azure portal.
 
 ## Set up security access for the function app
 You can set up security access for the function app using one of these options:
