@@ -57,9 +57,9 @@ Here are other resources that incur costs when you create them for use with logi
 
 * An [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing) where the rate is based on the ISE SKU that you create and other settings.
 
-* A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#connectors) except when you use them in an ISE.
+* A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing) except when you use them in an ISE.
 
-In the multi-tenant Logic Apps service, [data retention and storage consumption](../logic-apps/logic-apps-pricing.md#data-retention) also accrue costs using a [fixed pricing model](#data-retention). However, in an ISE, data retention and storage consumption don't incur costs.
+In the multi-tenant Logic Apps service, [data retention and storage consumption](../logic-apps/logic-apps-pricing.md#data-retention) also accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). However, in an ISE, data retention and storage consumption don't incur costs.
 
 <a name="costs-after-resource-deletion"></a>
 
@@ -146,7 +146,7 @@ Using Azure Monitor, you can view these metrics for a specific logic app:
 
 1. In the pane's upper-right corner, select the time period that you want.
 
-1. To view other storage consumption data, specifically action input and output sizes in your logic app's run history, [follow these steps](#input-output-sizes).
+1. To view other storage consumption data, specifically action input and output sizes in your logic app's run history, [follow these steps](#view-input-output-sizes).
 
 <a name="view-input-output-sizes"></a>
 

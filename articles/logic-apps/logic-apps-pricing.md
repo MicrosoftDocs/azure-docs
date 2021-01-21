@@ -12,7 +12,7 @@ ms.date: 01/31/2021
 
 # Pricing model for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for the Logic Apps service and related resources. For specific pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for the Logic Apps service and related resources. For specific pricing rates, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps). To learn how you can plan, manage, and monitor costs, see [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md).
 
 <a name="consumption-pricing"></a>
 
@@ -133,7 +133,7 @@ To monitor storage consumption usage, see [View metrics for executions and stora
 
 ## On-premises data gateway
 
-An [on-premises data gateway](../logic-apps/) is a separate resource that you create so that your logic apps can access on-premises data by using specific gateway-supported connectors. Connectors operations that run through the gateway incur charges, but the gateway itself doesn't incur charges.
+An [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a separate resource that you create so that your logic apps can access on-premises data by using specific gateway-supported connectors. Connectors operations that run through the gateway incur charges, but the gateway itself doesn't incur charges.
 
 <a name="disabled-apps"></a>
 
@@ -143,5 +143,4 @@ Disabled logic apps aren't charged because they can't create new instances while
 
 ## Next steps
 
-* [Learn more about Azure Logic Apps](logic-apps-overview.md)
-* [Create your first logic app](quickstart-create-first-logic-app-workflow.md)
+* [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md)
