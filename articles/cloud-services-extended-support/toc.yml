@@ -7,7 +7,7 @@
   - name: Prerequisites for deployment
     href: deploy-prerequisite.md
   - name: Config files and packaging
-    - cloud-services-model-and-package.md
+    href: cloud-services-model-and-package.md
 - name: Tutorials
   items: 
   - name: Deploy a Cloud Service - Portal

@@ -1,19 +1,16 @@
 ---
-title: What is a Cloud Service (classic) model and package | Microsoft Docs
-description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
+title: What is a Cloud Service (extended support) model and package
+description: Describes the cloud service (extended support) model (.csdef, .cscfg) and package (.cspkg) in Azure
 ms.topic: article
-ms.service: cloud-services
-ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+ms.service: cloud-services-extended-support
+author: gachandw
+ms.author: gachandw
 ms.reviewer: mimckitt
+ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# What is the Cloud Service (classic) model and how do I package it?
-
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+# What is the Cloud Service (extended support) model and how do I package it?
 
 A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
@@ -221,7 +218,7 @@ The [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.
 
 To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
 
-**CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
+**CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](../cloud-services/cloud-services-how-to-create-deploy-portal.md#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
 
 **CSPack** is located at  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
@@ -274,21 +271,3 @@ Where the variables are defined as follows:
 | \[RoleAssemblyName\] |The name of the binary file for the role. |
 
 ## Next steps
-I'm creating a cloud service package and I want to...
-
-* [Setup remote desktop for a cloud service instance][remotedesktop]
-* [Deploy a Cloud Service project][deploy]
-
-I am using Visual Studio and I want to...
-
-* [Create a new cloud service][vs_create]
-* [Reconfigure an existing cloud service][vs_reconfigure]
-* [Deploy a Cloud Service project][vs_deploy]
-* [Setup remote desktop for a cloud service instance][vs_remote]
-
-[deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
-[vs_deploy]: /visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio
-[vs_reconfigure]: /visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service
-[vs_create]: /visualstudio/azure/vs-azure-tools-azure-project-create
