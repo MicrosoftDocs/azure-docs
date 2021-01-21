@@ -32,7 +32,7 @@ The TechNet Script Center is retiring and all runbooks hosted in the Runbook gal
 
 **Type:** New feature
 
-Azure Automation and Update Management support announced as GA for Azure global & Government clouds. Azure Automation enabled Private Link support to secure execution of a runbook on a hybrid worker role, using Update Management to patch machines, invoking a runbook through a webhook, and using State Configuration service to keep your machines complaint. For more information, read [Azure Automation Private Link support](https://azure.microsoft.com/updates/azure-automation-private-link)
+Azure Automation and Update Management support announced as GA for Azure global and Government clouds. Azure Automation enabled Private Link support to secure execution of a runbook on a hybrid worker role, using Update Management to patch machines, invoking a runbook through a webhook, and using State Configuration service to keep your machines complaint. For more information, read [Azure Automation Private Link support](https://azure.microsoft.com/updates/azure-automation-private-link)
 
 ### Azure Automation classified as Grade-C certified on Accessibility
 
