@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Firewall Active FTP support
 
-With Active FTP, the FTP server initiates the data connection to the designated FTP client data port. Firewalls on the client-side network normally block an outside connection request to an internal client port. For more details, see [Active FTP vs. Passive FTP, a Definitive Explanation](https://slacksite.com/other/ftp.html).
+With Active FTP, the FTP server initiates the data connection to the designated FTP client data port. Firewalls on the client-side network normally block an outside connection request to an internal client port. For more information, see [Active FTP vs. Passive FTP, a Definitive Explanation](https://slacksite.com/other/ftp.html).
 
 By default, Active FTP support is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP `PORT` command. However, you can enable Active FTP when you deploy using Azure PowerShell, the Azure CLI, or an Azure ARM template.
 
@@ -23,7 +23,7 @@ To deploy using Azure PowerShell, use the `AllowActiveFTP` parameter. For more i
 
 To deploy using the Azure CLI, use the `--allow-active-ftp` parameter. For more information, see [az network firewall create](/cli/azure/ext/azure-firewall/network/firewall?view=azure-cli-latest#ext_azure_firewall_az_network_firewall_create-optional-parameters). 
 
-## Azure ARM templates
+## Azure Resource Manager (ARM) template
 
 To deploy using an ARM template, use the `AdditionalProperties` field:
 
