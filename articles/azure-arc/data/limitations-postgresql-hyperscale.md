@@ -36,9 +36,9 @@ The roles and responsibilities between Microsoft and its customers differ betwee
 | Does Microsoft provide SLAs?      | Yes                                | No                        |
 | Who’s in charge of SLAs?|actually | Microsoft                          | Customer                  |
 
-_*Azure services_
+_*Azure services*_
 
-__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Microsoft does not own the infrastructure and does not operate it. Customers do.
 
 
 
