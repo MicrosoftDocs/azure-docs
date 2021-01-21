@@ -47,6 +47,9 @@ Azure Automation supports using a single Automation account from one subscriptio
 
 You assign the Run As account service principal the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the other subscription, or more restrictive permissions. For more information, see [Role-based access control](automation-role-based-access-control.md) in Azure Automation. To assign the Run As account to the role in the other subscription, the user account performing this task needs to be a member of the **Owner** role in that subscription.
 
+> [!NOTE]
+> This configuration only supports multiple subscriptions of an organization using a common Azure AD tenant.
+
 Before granting the Run As account permissions, you need to first note the display name of the service principal to assign.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
