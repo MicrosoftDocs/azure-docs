@@ -5,7 +5,7 @@ description: You have full control over viewing, exporting, and deleting their d
 services: cognitive-services
 
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference

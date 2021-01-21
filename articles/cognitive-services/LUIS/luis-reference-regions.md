@@ -7,6 +7,7 @@ author: aahill
 ms.author: aahi
 ms.topic: reference
 ms.date: 01/21/2021
+ms.custom: references_regions
 ---
 
 # Authoring and publishing regions and the associated keys
