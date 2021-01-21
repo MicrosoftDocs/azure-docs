@@ -1,6 +1,6 @@
 ---
-title: Synchronize device state from Azure IoT Hub | Microsoft Docs
-description: Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
+title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
+description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
