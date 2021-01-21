@@ -1,5 +1,5 @@
 ---
-title: Manage resources with Microsoft Graph
+title: Register a Microsoft Graph application
 titleSuffix: Azure AD B2C
 description: Prepare for managing Azure AD B2C resources with Microsoft Graph by registering an application that's granted the required Graph API permissions.
 services: B2C
@@ -9,12 +9,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Manage Azure AD B2C with Microsoft Graph
+# Register a Microsoft Graph application
 
 [Microsoft Graph][ms-graph] allows you to manage many of the resources within your Azure AD B2C tenant, including customer user accounts and custom policies. By writing scripts or applications that call the [Microsoft Graph API][ms-graph-api], you can automate tenant management tasks like:
 
@@ -79,14 +79,15 @@ If your application or script needs to delete users or update their passwords, a
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
 ## Next steps
+
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API. 
 
-* [Get an access token from Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Use the access token to call Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Get an access token from Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Use the access token to call Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
-* [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md)
 * [Get audit logs with the Azure AD reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
-[ms-graph-api]: https://docs.microsoft.com/graph/api/overview
+[ms-graph]: /graph/
+[ms-graph-api]: /graph/api/overview

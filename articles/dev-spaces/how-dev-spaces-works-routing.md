@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # How routing works with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. Once your project is running in a dev space, Azure Dev Spaces provides additional networking and routing capabilities for your project.
 
 This article describes how routing works with Dev Spaces.
@@ -59,11 +61,7 @@ When using *azureuser*, all requests to *serviceA* will be routed to the updated
 
 ## Next steps
 
-To see some examples of how Azure Dev Spaces uses routing to provide rapid iteration and development, see [How Local Process with Kubernetes works][how-it-works-local-process-kubernetes], [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging], and [GitHub Actions & Azure Kubernetes Service][pr-flow].
+To see an example of how Azure Dev Spaces uses routing to provide rapid iteration and development, see [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md

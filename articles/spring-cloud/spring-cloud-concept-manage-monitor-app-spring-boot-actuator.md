@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Manage and monitor app with Azure Spring Boot Actuator
 
+**This article applies to:** ✔️ Java
+
 After deploying new binary to your app, you may want to check the functionality and see information about your running application. This article explains how to access the API from a test endpoint provided by Azure Spring Cloud and expose the production-ready features for your app.
 
 ## Prerequisites
@@ -68,5 +70,7 @@ You can now go back to the app overview pane and wait until the Provisioning Sta
 To view all the endpoints built-in, see [Exposing Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 
 ## Next steps
+
 * [Understand metrics for Azure Spring Cloud](spring-cloud-concept-metrics.md)
-* [Understanding app status in Azure Spring Cloud](spring-cloud-concept-app-status.md))
+* [Understanding app status in Azure Spring Cloud](spring-cloud-concept-app-status.md)
+

@@ -30,7 +30,7 @@ IoT Hub gives you a secure communication channel for your devices to send data.
 
 * You have complete control over device access and can control connections at the per-device level.
 
-* The [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) automatically provisions devices to the right IoT hub when the device first boots up.
+* The [IoT Hub Device Provisioning Service](../iot-dps/index.yml) automatically provisions devices to the right IoT hub when the device first boots up.
 
 * Multiple authentication types support a variety of device capabilities:
 
@@ -54,13 +54,13 @@ Built-in message routing functionality gives you flexibility to set up automatic
 
 You can integrate IoT Hub with other Azure services to build complete, end-to-end solutions. For example, use:
 
-* [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) to enable your business to react quickly to critical events in a reliable, scalable, and secure manner.
+* [Azure Event Grid](../event-grid/index.yml) to enable your business to react quickly to critical events in a reliable, scalable, and secure manner.
 
-* [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to automate business processes.
+* [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
 
 * [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) to add machine learning and AI models to your solution.
 
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) to run real-time analytic computations on the data streaming from your devices.
+* [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
 ## Configure and control your devices
 
@@ -78,9 +78,10 @@ There's a 99.9% [Service Level Agreement for IoT Hub](https://azure.microsoft.co
 
 ## Connect your devices
 
-Use the [Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) libraries to build applications that run on your devices and interact with IoT Hub. Supported platforms include multiple Linux distributions, Windows, and real-time operating systems. Supported languages include:
+Use the [Azure IoT device SDK](./iot-hub-devguide-sdks.md) libraries to build applications that run on your devices and interact with IoT Hub. Supported platforms include multiple Linux distributions, Windows, and real-time operating systems. Supported languages include:
 
 * C
+* Embedded C
 * C#
 * Java
 * Python
@@ -98,7 +99,7 @@ If your solution cannot use the device libraries, devices can use the MQTT v3.1.
 
 If your solution cannot use one of the supported protocols, you can extend IoT Hub to support custom protocols:
 
-* Use [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) to create a field gateway to perform protocol translation on the edge.
+* Use [Azure IoT Edge](../iot-edge/index.yml) to create a field gateway to perform protocol translation on the edge.
 
 * Customize the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) to perform protocol translation in the cloud.
 
@@ -109,6 +110,12 @@ Each Azure subscription has default quota limits in place to prevent service abu
 * [Azure subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
+
+## IoT Hub on Azure Stack Hub (preview)
+
+IoT Hub on Azure Stack Hub (preview) allows you to create hybrid IoT solutions. IoT Hub is a managed service, acting as a central message hub for bi-directional communication between your IoT application and the devices it manages. You can use IoT Hub on Azure Stack Hub to build IoT solutions with reliable and secure communications between IoT devices and your on-premises solutions.
+
+IoT Hub on Azure Stack Hub is free during public preview. For more information, see the [IoT Hub on Azure Stack Hub overview](/azure-stack/operator/iot-hub-rp-overview).
 
 ## Next steps
 

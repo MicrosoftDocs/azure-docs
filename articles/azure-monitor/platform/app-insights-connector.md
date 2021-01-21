@@ -53,7 +53,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 ## Configuration
 
-1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../insights/solutions.md).
+1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../insights/solutions.md).
 2. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Application Insights. Then, search for Application Insights. 
 3. Under **Subscriptions**, select a subscription that has Application Insights resources and then under **Name**, select one or more applications.
 4. Click **Save**.
@@ -79,9 +79,9 @@ The following sections describe how you can use the blades shown in the Applicat
 
 Click the **Application Insights** tile to open the **Application Insights** dashboard to see the following blades.
 
-![Application Insights dashboard](./media/app-insights-connector/app-insights-dash01.png)
+![Screenshot of the Application Insights dashboard showing the blades for Applications, Data Volume, and Availability.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Application Insights dashboard](./media/app-insights-connector/app-insights-dash02.png)
+![Screenshot of the Application Insights dashboard showing the blades for Server Requests, Failures, and Exceptions.](./media/app-insights-connector/app-insights-dash02.png)
 
 The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
 

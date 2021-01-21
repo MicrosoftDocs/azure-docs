@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 
 #Customer intent: As a administrator, I want learn about entitlement management so that see how I can use it to manage access to resources in my organization.
@@ -75,8 +75,9 @@ Entitlement management introduces to Azure AD the concept of an *access package*
 
 You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
-- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
+- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
+- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
+- You can give users access to manage Azure AD roles by using groups assignable to Azure AD roles in an access package and [assigning an Azure AD role to that group](../roles/groups-assign-role.md).
 
 ## How do I control who gets access?
 
@@ -141,17 +142,22 @@ Specialized clouds, such as Azure Germany, and Azure China 21Vianet, are not cur
 Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
 - Member users who **can** request an access package.
-- Member and guest users who request an access package.
-- Member and guest users who approve requests for an access package.
-- Member and guest users who have a direct assignment to an access package.
+- Member users who <u>request</u> an access package.
+- Member users who <u>approve requests</u> for an access package.
+- Member users who <u>review assignments</u> for an access package. 
+- Member users who have a <u>direct assignment</u> to an access package.
+
+For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
+- Guest users who <u>request</u> an access package. 
+- Guest users who <u>approve requests</u> for an access package.
+- Guest users who <u>review assignments</u> for an access package.
+- Guest users who have a <u>direct assignment</u> to an access package. 
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 
 - No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
 - No licenses are required for guests who **can** request access packages, but do **not** request an access package.
-
-For each paid Azure AD Premium P2 license that you purchase for your member users (employees), you can use Azure AD B2B to invite up to five guest users. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../external-identities/licensing-guidance.md).
 
 For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 

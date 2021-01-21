@@ -1,5 +1,5 @@
 ---
-title: Log metrics in the designer (preview)
+title: Log metrics in the designer
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure ML designer experiments. Enable logging using the Execute Python Script module and view the logged results in the studio.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/30/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: designer
 ---
 
-# Enable logging in Azure Machine Learning designer (preview) pipelines
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Enable logging in Azure Machine Learning designer pipelines
+
 
 In this article, you learn how to add logging code to designer pipelines. You also learn how to view those logs using the Azure Machine Learning studio web portal.
 
@@ -22,7 +22,7 @@ For more information on logging metrics using the SDK authoring experience, see 
 
 ## Enable logging with Execute Python Script
 
-Use the __Execute Python Script__ module to enable logging in designer pipelines. Although you can log any value with this workflow, it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across runs.
+Use the [Execute Python Script](./algorithm-module-reference/execute-python-script.md) module to enable logging in designer pipelines. Although you can log any value with this workflow, it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across runs.
 
 The following example shows you how to log the mean squared error of two trained models using the Evaluate Model and Execute Python Script modules.
 
@@ -44,13 +44,13 @@ The following example shows you how to log the mean squared error of two trained
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
+        parent_run = Run.get_context().parent
+        
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+        parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
+        parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
-        # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
         return dataframe1,
     ```
     
@@ -73,5 +73,7 @@ After the pipeline run completes, you can see the *Mean_Absolute_Error* in the E
 
 In this article, you learned how to use logs in the designer. For next steps, see these related articles:
 
-* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+* Learn how to use [Execute Python Script](./algorithm-module-reference/execute-python-script.md) in the designer.

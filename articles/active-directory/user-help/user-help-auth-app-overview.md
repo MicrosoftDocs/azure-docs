@@ -37,8 +37,8 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 | ----|-----------|
 | Two-factor verification | A verification process that requires you to specifically use only two pieces of verification info, like a password and a PIN. The Microsoft Authenticator app supports both the standard two-factor verification and passwordless sign-in. |
 | Multi-factor authentication (MFA) | All two-factor verification is multi-factor authentication, requiring you to use *at least* two pieces of verification info, based on your organization's requirements. |
-| Microsoft account (also called, MSA) | You create your own personal accounts, to get access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft. |
-| Work or school account | Your organization creates your work or school account (such as alain@contoso.com) to let you access internal and potentially restricted resources, such as Microsoft Azure, Windows Intune, and Office 365. |
+| Microsoft account (also called, MSA) | You create your own personal accounts, to get access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Microsoft 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft. |
+| Work or school account | Your organization creates your work or school account (such as alain@contoso.com) to let you access internal and potentially restricted resources, such as Microsoft Azure, Windows Intune, and Microsoft 365. |
 | Verification code | The six-digit code that appears in the authenticator app, under each added account. The verification code changes every 30 seconds preventing someone from using a code multiple times. This is also known as a one-time passcode (OTP). |
 
 ## How two-factor verification works with the app

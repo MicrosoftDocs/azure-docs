@@ -12,7 +12,7 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
+ms.custom: devops, devx-track-js
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---
@@ -91,7 +91,7 @@ Follow the additional steps described below based on the runtime stack used for 
 
 #### [JavaScript](#tab/java-script)
 
-To install a javascript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
+To install a JavaScript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
 If you don't already have a Linux VM with Nginx, create one now in Azure using the steps in
 [this example](./quick-create-cli.md).
 
@@ -120,7 +120,7 @@ You can create an environment in the “**Environments**” hub within the “**
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. You can add tags to the VM as part of the interactive PS registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
+9. You can add tags to the VM as part of the interactive PowerShell registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
 
    The tags you assign allow you to limit deployment to specific virtual machines when the environment is used in a Deployment job. Tags are each limited to 256 characters, but there is no limit to the number of tags you can use.
 
@@ -150,6 +150,7 @@ a deployment script that can be run locally on the Ubuntu server. Set up a CI bu
 Select the **starter** template and copy the below YAML snippet that builds your Java project and runs tests with Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -204,7 +205,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 - Take a look at the pipeline to see what it does. Make sure that all the default inputs are appropriate for your code.
 
-- Select **Save and run**, then select **Commit directly to the master branch**, and then choose **Save and run** again.
+- Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 
 - A new run is started. Wait for the run to finish.
 
@@ -212,7 +213,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
 
 ## Define CD steps to deploy to the Linux VM
 
-1. Edit the above pipeline and include a [deployment job](/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
+1. Change the YAML file for the above pipeline to include a [deployment job](/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
 
    ```YAML
    jobs:  
@@ -221,13 +222,12 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. You can select specific sets of virtual machines from the environment to receive the deployment by specifying the **tags** that you have defined for each virtual machine in the environment.
 [Here](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
 
-3. You can specify eithor `runOnce` or `rolling` as deployment strategy. 
+3. You can specify either `runOnce` or `rolling` as deployment strategy. 
 
    `runOnce` is the simplest deployment strategy wherein all the life cycle hooks, namely `preDeploy` `deploy`, `routeTraffic`, and `postRouteTraffic`, are executed once. Then,  either `on:` `success` or `on:` `failure` is executed.
 

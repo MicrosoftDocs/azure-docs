@@ -16,6 +16,8 @@ If you are using Azure Active Directory (Azure AD) to authenticate and authorize
 - [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) for the send access.
 - [Azure Event Hubs Data receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) for the receive access.
 
+For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#azure-role-based-access-control).
+
 ### Resource scopes
 - **Consumer group**: At this scope, role assignment applies only to this entity. Currently, the Azure portal doesn't support assigning an Azure role to a security principal at this level. 
 - **Event hub**: Role assignment applies to the Event Hub entity and the consumer group under it.

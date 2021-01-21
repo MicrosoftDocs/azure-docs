@@ -4,8 +4,8 @@ description: How to configure the Azure Linux Diagnostic Extension (LAD) to coll
 services: virtual-machines-linux
 author: axayjo
 manager: gwallace
-
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018 
@@ -34,6 +34,9 @@ This extension works with both Azure deployment models.
 ## Installing the extension in your VM
 
 You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
+
+>[!NOTE]
+>Certain components of the Diagnostics VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
 
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 
@@ -66,6 +69,29 @@ Supported distributions and versions:
 * **Azure CLI**. [Set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing general purpose storage account to store the data in.  General purpose storage accounts support Table storage which is required.  A Blob storage account will not work.
+* Python 2
+
+### Python requirement
+
+The Linux Diagnostic Extension requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.	
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+
+1. Run the following command to remove any existing aliases.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Run the following command to create the alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### Sample installation
 
@@ -102,6 +128,35 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+```
+#### Azure CLI sample for Installing LAD 3.0 extension on the VMSS instance
+
+```azurecli
+#Set your Azure VMSS diagnostic variables correctly below
+$my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
+$my_linux_vmss=<your_azure_linux_vmss_name>
+$my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
+
+# Should login to Azure first before anything else
+az login
+
+# Select the subscription containing the storage account
+az account set --subscription <your_azure_subscription_id>
+
+# Download the sample Public settings. (You could also use curl or any web browser)
+wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
+
+# Build the VMSS resource ID. Replace storage account name and resource ID in the public settings.
+$my_vmss_resource_id=$(az vmss show -g $my_resource_group -n $my_linux_vmss --query "id" -o tsv)
+sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
+sed -i "s#__VM_RESOURCE_ID__#$my_vmss_resource_id#g" portal_public_settings.json
+
+# Build the protected settings (storage account SAS token)
+$my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
+$my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
+
+# Finally tell Azure to install and enable the extension
+az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
 #### PowerShell sample
@@ -185,7 +240,7 @@ You can easily construct the required SAS token through the Azure portal.
 1. Make the appropriate sections as previously described
 1. Click the "Generate SAS" button.
 
-![image](./media/diagnostics-linux/make_sas.png)
+![Screenshot shows the Shared access signature page with Generate S A S.](./media/diagnostics-linux/make_sas.png)
 
 Copy the generated SAS into the storageAccountSasToken field; remove the leading question-mark ("?").
 
@@ -575,7 +630,7 @@ Assuming your protected settings are in the file ProtectedSettings.json and your
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
 
 ### PowerShell
 
@@ -743,7 +798,7 @@ The `resourceId` in the configuration must match that of the VM or the virtual m
 
 Use the Azure portal to view performance data or set alerts:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.](./media/diagnostics-linux/graph_metrics.png)
 
 The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
@@ -752,7 +807,7 @@ Data sent to JsonBlob sinks is stored in blobs in the storage account named in t
 In addition, you can use these UI tools to access the data in Azure Storage:
 
 * Visual Studio Server Explorer.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Screenshot shows containers and tables in Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
 

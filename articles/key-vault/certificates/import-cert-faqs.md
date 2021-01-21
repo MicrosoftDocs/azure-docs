@@ -21,7 +21,7 @@ This article answers frequently asked questions about importing Azure Key Vault 
 
 ### How can I import a certificate in Azure Key Vault?
 
-For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault).
+For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
 
 ### After I import a password-protected certificate to Key Vault and then download it, why can't I see the password that's associated with it?
  	
@@ -31,7 +31,7 @@ After a certificate is imported and protected in Key Vault, its associated passw
 
 When you import a certificate, you need to ensure that the key is included in the file. If you have a private key stored separately in a different format, you need to combine the key with the certificate. Some certificate authorities (CAs) provide certificates in other formats. Therefore, before you import the certificate, make sure that it's in either PEM or PFX file format and that the key uses either Rivest–Shamir–Adleman (RSA) or elliptic-curve cryptography (ECC) encryption. 
 
-For more information, see [certificate requirements](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) and [certificate key requirements](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+For more information, see [certificate requirements](./certificate-scenarios.md#formats-of-import-we-support) and [certificate key requirements](../keys/about-keys.md).
 
 ###  Can I import a certificate by using an ARM template?
 
@@ -39,20 +39,20 @@ No, it isn't possible to perform certificate operations by using an Azure Resour
 
 ### When I import a certificate via the Azure portal, I get a "Something went wrong" error. How can I investigate further?
  	
-To view a more descriptive error, import the certificate file by using [the Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 ### How can I resolve "Error type: Access denied or user is unauthorized to import certificate"?
 	
 The import operation requires that you grant the user permissions to import the certificate under the access policies. To do so, go to your key vault, select **Access policies** > **Add Access Policy** > **Select Certificate Permissions** > **Principal**, search for the user, and then add the user's email address. 
 
-For more information about certificate-related access policies, see [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
+For more information about certificate-related access policies, see [About Azure Key Vault certificates](./about-certificates.md#certificate-access-control).
 
 
 ### How can I resolve "Error type: Conflict when creating a certificate"?
 	
-Each certificate name must be unique. A certificate with the same name as another might be in a soft-deleted state. Also, according to the [composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) in Azure Key Vault, if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
+Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](./about-certificates.md#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
 
-For more information, see [Get Deleted Certificate operation](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 
 ### Why am I getting "Error type: char length is too long"?
 This error could be caused by either of two reasons:	
@@ -79,4 +79,4 @@ If you've imported the certificate successfully, you should be able to confirm i
 
 ## Next steps
 
-- [Azure Key Vault certificates](/azure/key-vault/certificates/about-certificates)
+- [Azure Key Vault certificates](./about-certificates.md)

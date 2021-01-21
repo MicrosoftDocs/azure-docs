@@ -54,6 +54,11 @@ void GetBounds(ApiHandle<Entity> entity)
 }
 ```
 
+## API documentation
+
+* [C# Entity.QueryLocalBoundsAsync](/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [C++ Entity::QueryLocalBoundsAsync](/cpp/api/remote-rendering/entity#querylocalboundsasync)
+
 ## Next steps
 
 * [Spatial queries](../overview/features/spatial-queries.md)

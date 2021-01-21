@@ -10,7 +10,7 @@ ms.subservice: imaging
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
-This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) for customizing the image:
+This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows Restart - restarts the VM.
 - PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
@@ -156,7 +156,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> For the source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+> For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
 > If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
@@ -180,7 +180,7 @@ In the background, Image Builder will also create a staging resource group in yo
 > You must not delete the staging resource group directly. First delete the image template artifact, this will cause the staging resource group to be deleted.
 
 If the service reports a failure during the image configuration template submission:
--  Review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
+-  Review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) steps. 
 - You will need to delete the template, using the following snippet, before you retry submission.
 
 ```azurecli-interactive
@@ -203,7 +203,7 @@ az resource invoke-action \
 
 Wait until the build is complete. This can take about 15 minutes.
 
-If you encounter any errors, please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steps.
+If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 
 
 ## Create the VM
@@ -266,4 +266,4 @@ az group delete -n $imageResourceGroup
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To learn more about the components of the .json file used in this article, see [Image builder template reference](../linux/image-builder-json.md).

@@ -1,7 +1,7 @@
 ---
 title: Authentication secrets in training
 titleSuffix: Azure Machine Learning
-description: Pass secrets to training runs in secure fashion using Workspace Key Vault
+description: Learn how to pass secrets to training runs in secure fashion using the Azure Key Vault for your workspace.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -14,13 +14,13 @@ ms.custom: how-to
 ---
 
 # Use authentication credential secrets in Azure Machine Learning training runs
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to use secrets in training runs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote run context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 
-Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Use this Key Vault to pass secrets to remote runs securely through a set of APIs in the Azure Machine Learning Python SDK.
+Instead, your Azure Machine Learning workspace has an associated resource called a [Azure Key Vault](../key-vault/general/overview.md). Use this Key Vault to pass secrets to remote runs securely through a set of APIs in the Azure Machine Learning Python SDK.
 
-The basic flow for using secrets is:
+The standard flow for using secrets is:
  1. On local computer, log in to Azure and connect to your workspace.
  2. On local computer, set a secret in Workspace Key Vault.
  3. Submit a remote run.
@@ -28,7 +28,7 @@ The basic flow for using secrets is:
 
 ## Set secrets
 
-In the Azure Machine Learning, the [Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) class contains methods for setting secrets. In your local Python session, first obtain a reference to your workspace Key Vault, and then use the [`set_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) method to set a secret by name and value. The __set_secret__ method updates the secret value if the name already exists.
+In the Azure Machine Learning, the [Keyvault](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py) class contains methods for setting secrets. In your local Python session, first obtain a reference to your workspace Key Vault, and then use the [`set_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-secret-name--value-) method to set a secret by name and value. The __set_secret__ method updates the secret value if the name already exists.
 
 ```python
 from azureml.core import Workspace
@@ -44,13 +44,13 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 
 Do not put the secret value in your Python code as it is insecure to store it in file as cleartext. Instead, obtain the secret value from an environment variable, for example Azure DevOps build secret, or from interactive user input.
 
-You can list secret names using the [`list_secrets()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) method and there is also a batch version,[set_secrets()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) that allows you to set multiple secrets at a time.
+You can list secret names using the [`list_secrets()`](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=truelist-secrets--) method and there is also a batch version,[set_secrets()](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-secrets-secrets-batch-) that allows you to set multiple secrets at a time.
 
 ## Get secrets
 
-In your local code, you can use the [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) method to get the secret value by name.
+In your local code, you can use the [`get_secret()`](/python/api/azureml-core/azureml.core.keyvault.keyvault?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secret-name-) method to get the secret value by name.
 
-For runs submitted the [`Experiment.submit`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-)  , use the [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) method with the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) class. Because a submitted run is aware of its workspace, this method shortcuts the Workspace instantiation and returns the secret value directly.
+For runs submitted the [`Experiment.submit`](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-)  , use the [`get_secret()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secret-name-) method with the [`Run`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) class. Because a submitted run is aware of its workspace, this method shortcuts the Workspace instantiation and returns the secret value directly.
 
 ```python
 # Code in submitted run
@@ -62,7 +62,7 @@ secret_value = run.get_secret(name="mysecret")
 
 Be careful not to expose the secret value by writing or printing it out.
 
-There is also a batch version, [get_secrets()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) for accessing multiple secrets at once.
+There is also a batch version, [get_secrets()](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secrets-secrets-) for accessing multiple secrets at once.
 
 ## Next steps
 

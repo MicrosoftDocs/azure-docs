@@ -12,11 +12,11 @@ ms.author: memildin
 ---
 # Protect Windows Admin Center resources with Security Center
 
-Windows Admin Center is a management tool for your Windows servers. It's a single location for system administrators to access the majority of the most commonly used admin tools. From within Windows Admin Center, you can directly onboard your on-prem servers into Azure Security Center. You can then view a summary of your security recommendations and alerts directly in the Windows Admin Center experience.
+Windows Admin Center is a management tool for your Windows servers. It's a single location for system administrators to access the majority of the most commonly used admin tools. From within Windows Admin Center, you can directly onboard your on-premises servers into Azure Security Center. You can then view a summary of your security recommendations and alerts directly in the Windows Admin Center experience.
 
 > [!NOTE]
-> Your Azure subscription and the associated Log Analytics workspace both need to have Security Center's standard tier enabled in order to enable the Windows Admin Center integration.
-> The standard tier is free for the first 30 days if you haven't previously used it on the subscription and workspace. For more information​, see [the pricing information page](security-center-pricing.md).
+> Your Azure subscription and the associated Log Analytics workspace both need to have Azure Defender enabled in order to enable the Windows Admin Center integration.
+> Azure Defender is free for the first 30 days if you haven't previously used it on the subscription and workspace. For more information​, see [the pricing information page](security-center-pricing.md).
 >
 
 When you've successfully onboarded a server from Windows Admin Center to Azure Security Center, you can:
@@ -24,7 +24,7 @@ When you've successfully onboarded a server from Windows Admin Center to Azure S
 * View security alerts and recommendations inside the Security Center extension in Windows Admin Center
 * View the security posture and retrieve additional detailed information of your Windows Admin Center managed servers in Security Center within the Azure portal (or via an API)
 
-By combining these two tools, Security Center becomes your single pane of glass to view all your security information, whatever the resource: protecting your Windows Admin Center managed on-prem servers, your VMs, and any additional PaaS workloads.
+By combining these two tools, Security Center becomes your single pane of glass to view all your security information, whatever the resource: protecting your Windows Admin Center managed on-premises servers, your VMs, and any additional PaaS workloads.
 
 ## Onboard Windows Admin Center managed servers into Security Center
 
@@ -41,8 +41,8 @@ By combining these two tools, Security Center becomes your single pane of glass 
 1. Follow the instructions to connect your server to Security Center. After you've entered the necessary details and confirmed, Security Center makes the necessary configuration changes to ensure that all of the following are true:
     * An Azure Gateway is registered.
     * The server has a workspace to report to and an associated subscription.
-    * Security Center's standard tier Log Analytics solution is enabled on the workspace. This solution provides Security Center's standard tier features for *all* servers and virtual machines reporting to this workspace.
-    * Security Center's standard tier pricing for Virtual Machine is enabled on the subscription.
+    * Security Center's Log Analytics solution is enabled on the workspace. This solution provides Azure Defender's features for *all* servers and virtual machines reporting to this workspace.
+    * Azure Defender for servers is enabled on the subscription.
     * The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 
     > [!NOTE]
@@ -58,12 +58,8 @@ Once onboarded, you can view your alerts and recommendations directly in the Azu
 ## View security recommendations and alerts for Windows Admin Center managed servers in Security Center
 From Azure Security Center:
 
-* To view security recommendations for all your Windows Admin Center servers, open **Compute & Apps** and click the **VMs and Computers** tab. Filter the list by resource "Server" as shown here:
-
-    [![View security recommendations for Windows Admin Center managed servers](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* To view security recommendations for all your Windows Admin Center servers, open [asset inventory](asset-inventory.md) and filter to the machine type that you want to investigate. select the **VMs and Computers** tab.
 
 * To view security alerts for all your Windows Admin Center servers, open **Security alerts**. Click **Filter** and ensure **only** "Non-Azure" is selected:
 
-    ![Filter security alerts for Windows Admin Center managed servers](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![View security alerts for Windows Admin Center managed servers](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filter security alerts for Windows Admin Center managed servers" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

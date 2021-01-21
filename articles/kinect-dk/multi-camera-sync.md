@@ -21,7 +21,7 @@ There are many reasons to use multiple Azure Kinect DK devices, including the fo
 
 - Fill in occlusions. Although the Azure Kinect DK data transformations produce a single image, the two cameras (depth and RGB) are actually a small distance apart. The offset makes occlusions possible. An occlusion occurs when a foreground object blocks the view of part of a background object for one of the two cameras on a device. In the resulting color image, the foreground object seems to cast a shadow on the background object.  
    For example, in the following diagram, the left-side camera sees the gray pixel "P2." However, the white foreground object blocks the right-side camera IR beam. The right-side camera has no data for "P2."  
-   ![Occlusion](./media/occlusion.png)  
+   ![Diagram shows two cameras directed at the same point with one of them blocked.](./media/occlusion.png)  
    Additional synchronized devices can provide the occluded data.
 - Scan objects in three dimensions.
 - Increase the effective frame rate to a value that's greater than 30 frames per second (FPS).
@@ -83,6 +83,9 @@ Additionally, differences between the camera clock and the device firmware clock
 When you use an offset of 160&mu;s, you can configure up to nine additional depth cameras so that each laser turns on while the other lasers are idle.
 
 In your software, use ```depth_delay_off_color_usec``` or ```subordinate_delay_off_master_usec``` to make sure that each IR laser fires in its own 160&mu;s window or has a different field of view.
+
+> [!NOTE]  
+> The actual pulse width is 125us however we state 160us to provide for some leeway. Taking NFOV UNBINNED as an example, each 125us pulse is followed by 1450us idle. Totaling these up - (9 x 125) + (8 x 1450) - yields the exposure time of 12.8ms. The closet you can interleave the exposure of 2 devices is to have the first pulse of the second camera to fall in the first idle period of the first camera. The delay between the first and second cameras could be as little as 125us (the width of a pulse) however we recommend some leeway hence the 160us. Given 160us you can interleave the exposure periods of a maximum of 10 cameras.
 
 ## Prepare your devices and other hardware
 

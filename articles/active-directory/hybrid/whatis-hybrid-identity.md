@@ -39,7 +39,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 |I need to:|PHS and SSO<sup>1</sup>| PTA and SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Sync new user, contact, and group accounts created in my on-premises Active Directory to the cloud automatically.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
-|Set up my tenant for Office 365 hybrid scenarios.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
+|Set up my tenant for Microsoft 365 hybrid scenarios.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Enable my users to sign in and access cloud services using their on-premises password.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implement single sign-on using corporate credentials.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|  
 |Ensure no password hashes are stored in the cloud.| |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 

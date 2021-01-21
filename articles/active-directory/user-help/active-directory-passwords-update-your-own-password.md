@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
 ---
 
@@ -65,7 +65,7 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
 
     3. Type and confirm your new password, and then select **Finish**.
 
-- **Reset your password using a phone number.** Sends a text message to the phone number you previously set up in security info. If your administrator has turned on the security info experience, you can find more info about setting up a phone number in the [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) article. If you're not yet using security info, you can find more info about setting up a phone number in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+- **Reset your password using a phone number.** Places an automated voice call to the phone number you previously set up in security info. If your administrator has turned on the security info experience, you can find more info about setting up a phone number in the [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) article. If you're not yet using security info, you can find more info about setting up a phone number in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 
     1. Select **Call my mobile phone**, type your phone number, and then select **Call**.
 
@@ -103,7 +103,7 @@ After resetting your password, you might get a confirmation email that comes fro
 
 ## How to change your password
 
-If you just want to change your password, you can do it through the Office 365 portal, the Azure Access Panel, or the Windows 10 sign-in page.
+If you just want to change your password, you can do it through the Office 365 portal, the My Apps portal, or the Windows 10 sign-in page.
 
 ### To change your password using the Office 365 portal
 
@@ -117,11 +117,11 @@ Use this method if you typically access your apps through the Office portal:
 
 4. Type your old password, create and confirm your new password, and then select **Submit**.
 
-### To change your password from the Azure Access Panel
+### To change your password from the My Apps portal
 
-Use this method if you typically access your apps from the Azure Access Panel (MyApps):
+Use this method if you typically access your apps from the My Apps portal:
 
-1. Sign in to the [Azure Access Panel](https://myapps.microsoft.com/), using your existing password.
+1. Sign in to the [My Apps portal](https://myapps.microsoft.com/), using your existing password.
 
 2. Select your profile on the upper-right side, and then select **Profile**.
 

@@ -1,6 +1,6 @@
 ---
 title: Firewall access rules
-description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to ("whitelisting") REST API and data endpoint domain names or service-specific IP address ranges.
+description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to REST API and data endpoint domain names or service-specific IP address ranges.
 ms.topic: article
 ms.date: 05/18/2020
 ---
@@ -108,7 +108,7 @@ Search for the specific region, such as **Storage.AustraliaCentral**.
 
 ## Allow access by service tag
 
-In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
+In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/network-security-groups-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
 
 For example, create an outbound network security group rule with destination **AzureContainerRegistry** to allow traffic to an Azure container registry. To allow access to the service tag only in a specific region, specify the region in the following format: **AzureContainerRegistry**.[*region name*].
 
@@ -178,7 +178,7 @@ If you need to access Microsoft Container Registry (MCR) from behind a firewall,
 
 * Learn about [Azure best practices for network security](../security/fundamentals/network-best-practices.md)
 
-* Learn more about [security groups](../virtual-network/security-overview.md) in an Azure virtual network
+* Learn more about [security groups](../virtual-network/network-security-groups-overview.md) in an Azure virtual network
 
 * Learn more about setting up [Private Link](container-registry-private-link.md) for a container registry
 

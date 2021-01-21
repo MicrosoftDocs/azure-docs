@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 > or you can [create a Google client app to use for authentication in your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
 > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
++ This article uses as its starting point the resources created in [Create your first function from the Azure portal](./functions-get-started.md).
 If you haven't already done so, complete these steps now to create your function app.
 
 ## Create a Cognitive Services resource
@@ -181,7 +181,7 @@ Now your app is connected to Twitter. Next, you connect to text analytics to det
 
 2. In **Choose an action**, type **Text Analytics**, and then click the **Detect sentiment** action.
     
-    ![New Step, and then Add an action](media/functions-twitter-email/11-detect-sentiment.png)
+    ![Screenshot that shows the "Choose an action" section with "Text Analytics" in the search box, and the "Detect sentiment" action selected. ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. Type a connection name such as `MyCognitiveServicesConnection`, paste the key for your Cognitive Services API and the Cognitive Services endpoint you set aside in a text editor, and click **Create**.
 
@@ -201,7 +201,7 @@ Now that sentiment detection is configured, you can add a connection to your fun
   
 4. Select the function app you created earlier.
 
-    ![Select function](media/functions-twitter-email/15-select-function.png)
+    ![Screenshot that shows the "Choose an action" section with a function app selected.](media/functions-twitter-email/15-select-function.png)
 
 5. Select the function you created for this tutorial.
 
@@ -227,7 +227,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
 3. In **IF TRUE**, click **Add an action**, search for `outlook.com`, click **Send an email**, and sign in to your Outlook.com account.
 
-    ![Configure the email for the send an email action.](media/functions-twitter-email/20-add-outlook.png)
+    ![Screenshot that shows the "IF TRUE" section with "outlook.com" entered in the search box, and the "Send an email" action selected.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > If you don't have an Outlook.com account, you can choose another connector, such as Gmail or Office 365 Outlook

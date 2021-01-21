@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 09/28/2020
 ms.author: allensu
 ---
 
@@ -28,7 +28,7 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix." width="256" title="Virtual Network NAT">
 </p>
 
 
@@ -39,7 +39,7 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 Outbound connectivity can be defined for each subnet with NAT.  Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource to use. All UDP and TCP outbound flows from any virtual machine instance will use NAT. 
 
-NAT is compatible with standard SKU public IP address resources or public IP prefix resources or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix.  Any IP whitelisting of your deployments is now easy.
+NAT is compatible with standard SKU public IP address resources or public IP prefix resources or a combination of both.  You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix.  Any IP filtering of your deployments is now easy.
 
 All outbound traffic for the subnet is processed by NAT automatically without any customer configuration.  User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
@@ -47,11 +47,11 @@ All outbound traffic for the subnet is processed by NAT automatically without an
 
 NAT uses "port network address translation" (PNAT or PAT) and is recommended for most workloads. Dynamic or divergent workloads can be easily accommodated with on-demand outbound flow allocation. Extensive pre-planning, pre-allocation, and ultimately overprovisioning of outbound resources is avoided. SNAT port resources are shared and available across all subnets using a specific NAT gateway resource and are provided when needed.
 
-A public IP address attached to NAT provides up to 64,000 concurrent flows for UDP and TCP. You can start with a single IP address and scale up to 16 public IP addresses.
+A public IP address attached to NAT provides up to 64,000 concurrent flows for UDP and TCP respectively. You can start with a single IP address and scale up to 16  IP addresses using public IP addresses or public IP prefixes or both.  A NAT gateway resource will use all IP addresses associated with the resource for outbound connections from all subnets configured with the same NAT gateway resource.
 
 NAT allows flows to be created from the virtual network to the Internet. Return traffic from the Internet is only allowed in response to an active flow.
 
-Unlike load balancer outbound SNAT, NAT has no restrictions on which private IP of a virtual machine instance can make outbound connections.  Secondary IP configurations can create outbound Internet connection with NAT.
+Unlike load balancer outbound SNAT, NAT has no restrictions on which private IP of a virtual machine instance can make outbound connections.  Primary and secondary IP configurations can create outbound Internet connection with NAT.
 
 ## Coexistence of inbound and outbound
 
@@ -141,4 +141,3 @@ We want to know how we can improve the service. Propose and vote on what we shou
 
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-

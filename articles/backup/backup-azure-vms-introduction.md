@@ -46,7 +46,7 @@ When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Sto
 
 **Encryption** | **Details** | **Support**
 --- | --- | ---
-**SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. Azure Backup supports backups of VMs with two types of Storage Service Encryption:<li> **SSE with platform-managed keys**: This encryption is by default for all disks in your VMs. See more [here](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE with customer-managed keys**. With CMK, you manage the keys used to encrypt the disks. See more [here](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Azure Backup uses SSE for at-rest encryption of Azure VMs.
+**SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. Azure Backup supports backups of VMs with two types of Storage Service Encryption:<li> **SSE with platform-managed keys**: This encryption is by default for all disks in your VMs. See more [here](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE with customer-managed keys**. With CMK, you manage the keys used to encrypt the disks. See more [here](../virtual-machines/disk-encryption.md#customer-managed-keys). | Azure Backup uses SSE for at-rest encryption of Azure VMs.
 **Azure Disk Encryption** | Azure Disk Encryption encrypts both OS and data disks for Azure VMs.<br/><br/> Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). | Azure Backup supports backup of managed and unmanaged Azure VMs encrypted with BEKs only, or with BEKs together with KEKs.<br/><br/> Both BEKs and KEKs are backed up and encrypted.<br/><br/> Because KEKs and BEKs are backed up, users with the necessary permissions can restore keys and secrets back to the key vault if needed. These users can also recover the encrypted VM.<br/><br/> Encrypted keys and secrets can't be read by unauthorized users or by Azure.
 
 For managed and unmanaged Azure VMs, Backup supports both VMs encrypted with BEKs only or VMs encrypted with BEKs together with KEKs.
@@ -101,6 +101,13 @@ These common scenarios can affect the total backup time:
 - **Disk churn:** If protected disks that are undergoing incremental backup have a daily churn of more than 200 GB, backup can take a long time (more than eight hours) to complete.
 - **Backup versions:** The latest version of Backup (known as the Instant Restore version) uses a more optimized process than checksum comparison for identifying changes. But if you're using Instant Restore and have deleted a backup snapshot, the backup switches to checksum comparison. In this case, the backup operation will exceed 24 hours (or fail).
 
+### Restore performance
+
+These common scenarios can affect the total restore time:
+
+- The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account.
+- The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
+
 ## Best practices
 
 When you're configuring VM backups, we suggest following these practices:
@@ -109,6 +116,7 @@ When you're configuring VM backups, we suggest following these practices:
 - If you're restoring VMs from a single vault, we highly recommend that you use different [general-purpose v2 storage accounts](../storage/common/storage-account-upgrade.md) to ensure that the target storage account doesn't get throttled. For example, each VM must have a different storage account. For example, if 10 VMs are restored, use 10 different storage accounts.
 - For backup of VMs that are using premium storage with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space isn't a requirement for backups after the first backup is complete
 - The limit on the number of disks per storage account is relative to how heavily the disks are being accessed by applications that are running on an infrastructure as a service (IaaS) VM. As a general practice, if 5 to 10 disks or more are present on a single storage account, balance the load by moving some disks to separate storage accounts.
+- To restore VMs with managed disks using PowerShell, provide the additional parameter ***TargetResourceGroupName*** to specify the resource group to which managed disks will be restored, [Learn more here](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
 
 ## Backup costs
 

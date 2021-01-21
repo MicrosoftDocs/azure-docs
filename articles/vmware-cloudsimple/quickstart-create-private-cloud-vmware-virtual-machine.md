@@ -1,8 +1,8 @@
 --- 
 title: Quickstart - Create an Azure VMware VM on a Private Cloud - Azure VMware Solution by CloudSimple
 description: Learn how to create a VMware virtual machine on CloudSimple Private Cloud. Access the CloudSimple portal from the Azure portal. 
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -53,37 +53,37 @@ To access vCenter, start from the CloudSimple portal. On the Home page, under **
 1. In vCenter, click the **Hosts and Clusters** icon.
 
 2. Right-click **Workload** and select **New Virtual Machine**.
-    ![New VM](media/vcvm01.png)
+    ![Screenshot that highlights the New Virtual Machine menu option.](media/vcvm01.png)
 
 3. Select **Create new virtual machine** and click **Next**.
-    ![New VM](media/vcvm02.png)
+    ![Screenshot that highlights the Create new virtual machine option.](media/vcvm02.png)
 
 4. Name the machine, select the **Workload VM's** location, and click **Next**.
-    ![New VM](media/vcvm03.png)
+    ![Screenshot that highlights the Workload VMs option.](media/vcvm03.png)
 
 5. Select the **Workload** compute resource and click **Next**.
-    ![New VM](media/vcvm04.png)
+    ![Screenshot that highlights the Workload compute resource.](media/vcvm04.png)
 
 6. Select **vsanDatastore** and click **Next**.
-    ![New VM](media/vcvm05.png)
+    ![Screenshot that highlights the vsanDatastore option.](media/vcvm05.png)
 
 7. Keep the default ESXi 6.5 compatibility selection and click **Next**.
-    ![New VM](media/vcvm06.png)
+    ![Screenshot that shows the selected ESXi 6.5 compatibility option.](media/vcvm06.png)
 
 8. Select the guest OS of the ISO for the VM that you are creating and click **Next**.
-    ![New VM](media/vcvm07.png)
+    ![Screenshot that shows how to select the guese OS of the ISO for the VM.](media/vcvm07.png)
 
 9. Select hard disk and network options. For New CD/DVD Drive, select **Datastore ISO file**.  If you want to allow traffic from the Public IP address to this VM, select the network as **vm-1**.
-    ![New VM](media/vcvm08.png)
+    ![Screenshot that highlights where you select the Datastore ISO file.](media/vcvm08.png)
 
 10. A selection window opens. Select the file you previously uploaded to the ISOs and Templates folder and click **OK**.
     ![New VM](media/vcvm10.png)
 
 11. Review the settings and click **OK** to create the VM.
-    ![New VM](media/vcvm11.png)
+    ![Screenshot that shows where you review the settings.](media/vcvm11.png)
 
 The VM is now added to the Workload compute resources and is ready for use. 
-![New VM](media/vcvm12.png)
+![Screenshot that shows the VM that's been added to the Workload compute resources.](media/vcvm12.png)
 
 The basic setup is now complete. You can start using your Private Cloud similar to how you would use your on-premises VM infrastructure.
 

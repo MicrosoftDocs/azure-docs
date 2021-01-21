@@ -12,7 +12,7 @@ ms.date: 04/27/2020
 
 # Add additional storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure Storage *accounts* to HDInsight. The steps in this document add a storage *account* to an existing HDInsight cluster. This article applies to storage *accounts* (not the default cluster storage account), and not additional storage such as [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) and [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how to use script actions to add additional Azure Storage *accounts* to HDInsight. The steps in this document add a storage *account* to an existing HDInsight cluster. This article applies to storage *accounts* (not the default cluster storage account), and not additional storage such as [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) and [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > The information in this document is about adding additional storage account(s) to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
@@ -21,7 +21,7 @@ Learn how to use script actions to add additional Azure Storage *accounts* to HD
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Storage account name and key. See [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
-* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](/powershell/azure/).
 
 ## How it works
 

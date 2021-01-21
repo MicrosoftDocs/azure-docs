@@ -40,17 +40,51 @@ At times, either random failures may happen in backup and restore operations or 
 1. Exclude the following folders from antivirus scanning:
 
     `C:\Program Files\Azure Workload Backup`
-    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
     Replace `C:\` with the letter of your *SystemDrive*.
 
 1. Exclude the following three processes running within a VM from antivirus scanning:
 
     - IaasWLPluginSvc.exe
-    - IaasWorkloadCoordinaorService.exe
+    - IaaSWorkloadCoordinatorService.exe
     - TriggerExtensionJob.exe
 
 1. SQL also offers some guidelines about to work with antivirus programs. See [this article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) for details.
+
+## Faulty instance in a VM with multiple SQL Server instances
+
+You can restore to a SQL VM only if all the SQL instances running within the VM are reported healthy. If one or more instances are "faulty", the VM won't appear as a restore target. So this could be a possible reason why a multi-instance VM may not appear in the "server" dropdown during the restore operation.
+
+You can validate the "Backup Readiness" of all the SQL instances in the VM, under **Configure backup**:
+
+![Validate backup readiness](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+If you'd like to trigger a restore on the healthy SQL instances, do the following steps:
+
+1. Sign in to the SQL VM and go to `C:\Program Files\Azure Workload Backup\bin`.
+1. Create a JSON file named `ExtensionSettingsOverrides.json` (if it's not already present). If this file is already present on the VM, continue using it.
+1. Add the following content in the JSON file and save the file:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Trigger the **Rediscover DBs** operation on the impacted server from the Azure portal (the same place where backup readiness can be seen). The VM will start appearing as target for restore operations.
+
+    ![Rediscover DBs](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Remove the *whitelistedInstancesForInquiry* entry from the ExtensionSettingsOverrides.json file once the restore operation is complete.
 
 ## Error messages
 
@@ -58,7 +92,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Differential backup and transaction log backup aren't possible. </li> <li>Any database in the simple recovery model doesn't allow for the backup of transaction logs.</li> | Modify the database settings sp all the backup types in the policy are supported. Or change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
+| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Differential backup and transaction log backup aren't possible. </li> <li>Any database in the simple recovery model doesn't allow for the backup of transaction logs.</li> | Modify the database settings so all the backup types in the policy are supported. Or change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
 
 ### UserErrorSQLPODoesNotSupportBackupType
 
@@ -126,7 +160,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -168,7 +202,7 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup Service, Azure Storage, or Azure Active Directory services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
 
 ## Re-registration failures
 

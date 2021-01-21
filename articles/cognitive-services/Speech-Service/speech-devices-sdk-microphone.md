@@ -100,7 +100,7 @@ microphones into a device:
 | Sampling Clock      | Device audio must be free of jitter and drop-outs with low drift |
 | Record Capability   | The device must be able to record individual channel raw streams simultaneously |
 | USB                 | All USB audio input devices must set descriptors according to the [USB Audio Devices Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Microphone Geometry | Drivers must implement [Microphone Array Geometry Descriptors](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly |
+| Microphone Geometry | Drivers must implement [Microphone Array Geometry Descriptors](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly |
 | Discoverability     | Devices must not have any undiscoverable or uncontrollable hardware, firmware, or 3rd party software-based non-linear audio processing algorithms to/from the device |
 | Capture Format      | Capture formats must use a minimum sampling rate of 16 kHz and recommended 24-bit depth |
 

@@ -180,16 +180,18 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows support | Linux (Docker) support | Description |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | TBD | File changes made to the site content; only available for Premium tier and above |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | Yes | Container logs |
+| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
+| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
+| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+
+<sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

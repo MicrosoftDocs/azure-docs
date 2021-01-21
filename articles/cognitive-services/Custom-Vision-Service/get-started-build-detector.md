@@ -1,7 +1,7 @@
 ---
-title: "Quickstart Build an object detector - Custom Vision Service"
+title: "Quickstart: Build an object detector with the Custom Vision website"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
+description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an object detector model.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,13 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/30/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: image recognition, image recognition app, custom vision
 ---
 
-# Quickstart: How to build an object detector with Custom Vision
+# Quickstart: Build an object detector with the Custom Vision website
 
-In this quickstart, you'll learn how to build an object detector through the Custom Vision website. Once you build a detector model, you can use the Custom Vision service for object detection.
+In this quickstart, you'll learn how to use the Custom Vision website to create an object detector model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -23,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A set of images with which to train your detector model. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) on GitHub. Or, you can choose your own images using the tips below.
 
-## Create Custom Vision resources in the Azure portal
+## Create Custom Vision resources
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -41,7 +43,7 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
 
    > [!NOTE]
-   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same "Directory" in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
+   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same "Directory" in the Custom Vision website as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
 1. Select __Object Detection__ under __Project Types__.
 
@@ -94,12 +96,17 @@ After training has completed, the model's performance is calculated and displaye
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.
+- **Mean average precision** is the average value of the average precision (AP). AP is the area under the precision/recall curve (precision plotted against recall for each prediction made).
 
 ![The training results show the overall precision and recall, and mean average precision.](./media/get-started-build-detector/trained-performance.png)
 
-### Probability Threshold
+### Probability threshold
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### Overlap threshold
+
+The **Overlap Threshold** slider deals with how correct an object prediction must be to be considered "correct" in training. It sets the minimum allowed overlap between the predicted object bounding box and the actual user-entered bounding box. If the bounding boxes don't overlap to this degree, the prediction won't be considered correct.
 
 ## Manage training iterations
 
@@ -114,3 +121,4 @@ In this quickstart, you learned how to create and train an object detector model
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)
 
+* [What is Custom Vision?](./overview.md)

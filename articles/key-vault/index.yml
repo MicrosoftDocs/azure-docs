@@ -21,9 +21,9 @@ highlightedContent:
     - title: Introduction to Azure Key Vault
       itemType: overview
       url: ./general/overview.md
-    - title: Important changes to soft delete
+    - title: Important updates to service
       itemType: whats-new
-      url: ./general/soft-delete-change.md
+      url: ./general/whats-new.md
     - title: Authentication
       itemType: overview
       url: ./general/authentication.md
@@ -90,6 +90,21 @@ conceptualContent:
         url: ./secrets/index.yml
         text: See more
   
+    - title: Managed HSM (preview)
+      links:
+        - url: ./managed-hsm/overview.md
+          itemType: overview
+          text: What is managed HSM?
+        - url: ./managed-hsm/best-practices.md
+          itemType: overview
+          text: Best practices
+        - url: ./managed-hsm/quick-create-cli.md
+          itemType: quickstart
+          text: Provision and activate a managed HSM
+      footerLink:
+          text: See more
+          url: ./managed-hsm/index.yml
+
     - title: Client libraries
       links:
         - url: ./general/client-libraries.md
@@ -142,7 +157,7 @@ conceptualContent:
           text: Key Vault with Virtual Machine Scale Sets
     - title: Key Vault Integration
       links:
-        - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+        - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
           itemType: overview
           text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
         - url: ../app-service/app-service-key-vault-references.md
@@ -154,6 +169,6 @@ conceptualContent:
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
           itemType: overview
           text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
-        - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
+        - url: /azure/databricks/security/secrets/secret-scopes
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault

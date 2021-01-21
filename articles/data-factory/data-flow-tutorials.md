@@ -1,11 +1,11 @@
 ---
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/14/2020
 ---
 
 # Mapping data flow video tutorials
@@ -78,7 +78,13 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
-[Transform Hierarchical Data](https://youtu.be/oAEh21NFgWQ)
+[Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
+
+[Rank transformation](https://youtu.be/6XvgkbMtws0)
+
+[Cached lookup](https://www.youtube.com/watch?v=HqCn42FaRJs)
+
+[Row context via Window transformation](http://youtu.be/jqt1gmX2XUg)
 
 ## Source and sink
 
@@ -167,3 +173,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+## Metadata
+
+[Metadata validation rules](https://www.youtube.com/watch?v=E_UD3R-VpYE)

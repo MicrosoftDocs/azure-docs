@@ -47,6 +47,8 @@ The following list describes the endpoints:
 
   * *Receive direct method requests*. A device uses this endpoint to listen for [direct method](iot-hub-devguide-direct-methods.md)'s requests. HTTPS is not supported.
 
+  [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP](https://www.amqp.org/) and AMQP over WebSockets protocols. The direct method invocation endpoint is exposed over the HTTPS protocol.
   
   * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). A back-end service can use it to read the [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
@@ -84,7 +86,7 @@ For the limits on the number of endpoints you can add, see [Quotas and throttlin
 
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway might be a dedicated hardware device or a low-power computer running custom gateway software.
 
-You can use [Azure IoT Edge](/azure/iot-edge/) to implement a field gateway. IoT Edge offers functionality such as multiplexing communications from multiple devices onto the same IoT Hub connection.
+You can use [Azure IoT Edge](../iot-edge/index.yml) to implement a field gateway. IoT Edge offers functionality such as multiplexing communications from multiple devices onto the same IoT Hub connection.
 
 ## Next steps
 

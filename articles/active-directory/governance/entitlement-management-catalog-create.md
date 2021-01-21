@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -98,6 +98,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 1. Select the resources you want to remove.
 
 1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
+
 
 ## Add additional catalog owners
 

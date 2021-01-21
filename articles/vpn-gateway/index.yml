@@ -38,20 +38,16 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create a VPN gateway
-            url: create-routebased-vpn-gateway-portal.md
-          - text: Create a site-to-site connection
-            url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-          - text: Create a point-to-site connection
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
       - linkListType: tutorial
         links:
           - text: Create and manage a VPN gateway
-            url: vpn-gateway-tutorial-create-gateway-powershell.md
-          - text: Create and manage a site-to-site connection
-            url: vpn-gateway-tutorial-vpnconnection-powershell.md
+            url: tutorial-create-gateway-portal.md
+          - text: Create a site-to-site VPN connection
+            url: tutorial-site-to-site-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a point-to-site VPN connection
+            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
   # Card
   - title: VPN devices
     linkLists:
@@ -72,10 +68,10 @@ landingContent:
         links:
           - text: Gateway configuration settings
             url: vpn-gateway-about-vpn-gateway-settings.md
-          - text: Point-to-site routing
-            url: vpn-gateway-about-point-to-site-routing.md
           - text: Gateway SKUs
             url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+          - text: Point-to-site routing
+            url: vpn-gateway-about-point-to-site-routing.md
       - linkListType: how-to-guide
         links:
           - text: Verify a VPN gateway
@@ -90,7 +86,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security controls
-            url: vpn-gateway-security-controls.md
+            url: ./security-baseline.md
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts

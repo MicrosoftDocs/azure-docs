@@ -15,7 +15,7 @@ The metered billing APIs should be used when the publisher creates custom meteri
 
 For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](saas-metered-billing.md).
 
-For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see the [technical configuration section of create a new Azure Apps offer](create-new-azure-apps-offer.md#technical-configuration)).
+For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see [Configure your Azure application offer setup details](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
 
 ## Enforcing TLS 1.2 Note
 
@@ -62,7 +62,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 >[!NOTE]
 >`resourceId` has different meaning for SaaS app and for Managed app emitting custom meter. 
 
-For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -186,7 +186,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 >[!NOTE]
 >`resourceId` has different meaning for SaaS app and for Managed app emitting custom meter. 
 
-For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -268,7 +268,7 @@ You can also use private plan for an existing live offer to limit the access to 
 
 ## Get support
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](./support.md) to understand publisher support options and open a support ticket with Microsoft.
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](../support.md) to understand publisher support options and open a support ticket with Microsoft.
 
 ## Next steps
 

@@ -66,13 +66,21 @@ Next, in Visual Studio code, open src/ams-asset-player. This folder contains the
 } 
 ```
 
-In Visual Studio Code, you can click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
-![Run](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
 
-![Debug](./media/playback-multi-day-recordings-tutorial/debug.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. <!--In Visual Studio Code, you can click-->Click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
+
+    ![Screenshot shows a menu in Visual Studio Code with the run item selected.](./media/playback-multi-day-recordings-tutorial/run.png)
+1. Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.
+
+    ![Screenshot show a menu in Visual Studio Code with AMS Asset Player selected.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 The sample application will build and launch your default browser app, and open up the AMS Asset Player page.
 

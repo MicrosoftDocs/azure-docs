@@ -5,19 +5,90 @@ author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
-ms.custom: devx-track-java
+ms.date: 09/08/2020
+ms.custom: devx-track-java, devx-track-azurecli
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Quickstart: Provision Azure Spring Cloud service
 
+::: zone pivot="programming-language-csharp"
+In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Cloud service.
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). The Azure Spring Cloud service supports .NET Core 3.1 and later versions.
+* [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Git](https://git-scm.com/).
+
+## Install Azure CLI extension
+
+Verify that your Azure CLI version is 2.0.67 or later:
+
+```azurecli
+az --version
+```
+
+Install the Azure Spring Cloud extension for the Azure CLI using the following command:
+
+```azurecli
+az extension add --name spring-cloud
+```
+
+## Log in to Azure
+
+1. Log in to the Azure CLI.
+
+    ```azurecli
+    az login
+    ```
+
+1. If you have more than one subscription, choose the one you want to use for this quickstart.
+
+   ```azurecli
+   az account list -o table
+   ```
+
+   ```azurecli
+   az account set --subscription <Name or ID of a subscription from the last step>
+   ```
+
+## Provision an instance of Azure Spring Cloud
+
+1. Create a [resource group](../azure-resource-manager/management/overview.md) to contain your Azure Spring Cloud service. The resource group name can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters.
+
+   ```azurecli
+   az group create --location eastus --name <resource group name>
+   ```
+
+1. Provision an instance of Azure Spring Cloud service. The service instance name must be unique, between 4 and 32 characters long, and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+
+    ```azurecli
+    az spring-cloud create -n <service instance name> -g <resource group name>
+    ```
+
+    This command might take several minutes to complete.
+
+1. Set your default resource group name and service instance name so you don't have to repeatedly specify these values in subsequent commands.
+
+   ```azurecli
+   az configure --defaults group=<resource group name>
+   ```
+
+   ```azurecli
+   az configure --defaults spring-cloud=<service instance name>
+   ```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 ## Prerequisites
 
-* [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Install JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Provision an instance of Azure Spring Cloud
 
@@ -54,7 +125,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Cloud.
 
-1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
+1. Log in to the Azure CLI and choose your active subscription.
 
     ```azurecli
     az login
@@ -80,9 +151,11 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
     The service instance will take around five minutes to deploy.
 ---
+::: zone-end
 
 ## Next steps
+
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+
 > [!div class="nextstepaction"]
 > [Set up configuration server](spring-cloud-quickstart-setup-config-server.md)
-
-

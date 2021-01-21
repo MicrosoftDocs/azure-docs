@@ -34,7 +34,7 @@ For more information, see [What is Apache Storm on Azure HDInsight?](storm/apach
 
 Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Storm, Spark Streaming provides stateful exactly once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data is received by Spark Streaming exactly once, it's possible to achieve end-to-end exactly once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
 
-For more information, see [What is Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
+For more information, see [What is Apache Spark Streaming?](./spark/apache-spark-streaming-overview.md).
 
 ## Scaling a cluster
 

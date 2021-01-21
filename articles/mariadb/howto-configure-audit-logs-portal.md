@@ -1,9 +1,9 @@
 ---
 title: Access audit logs - Azure portal - Azure Database for MariaDB
 description: This article describes how to configure and access the audit logs in Azure Database for MariaDB from the Azure portal.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/24/2020
 ---

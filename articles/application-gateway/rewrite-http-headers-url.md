@@ -45,7 +45,7 @@ With URL rewrite capability in Application Gateway, you can:
 
 To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Diagram that describes the process for rewriting a URL with Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

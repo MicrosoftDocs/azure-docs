@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: erhopf
-ms.custom: "devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js
 keywords: intent recognition
 ---

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
 ---
 
@@ -60,6 +60,10 @@ There's no asymmetric routing issue with this scenario. The incoming packets arr
 
 So, you can deploy this scenario similar to the public load balancer scenario, but without the need for the firewall public IP address host route.
 
+>[!NOTE]
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](../load-balancer/egress-only.md)** </br> [**What is Virtual Network NAT?**](../virtual-network/nat-overview.md)
+
+
 ## Additional security
 
 To further enhance the security of your load-balanced scenario, you can use network security groups (NSGs).
@@ -68,7 +72,7 @@ For example, you can create an NSG on the backend subnet where the load-balanced
 
 ![Network security group](media/integrate-lb/nsg-01.png)
 
-For more information about NSGs, see [Security groups](../virtual-network/security-overview.md).
+For more information about NSGs, see [Security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Next steps
 

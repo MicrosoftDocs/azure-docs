@@ -52,8 +52,8 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet, and can dire
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
 * Features **not supported on kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
-   * [Windows node pools](windows-node-limitations.md)
-   * [Virtual nodes add-on](virtual-nodes-portal.md#known-limitations)
+   * [Windows node pools](./windows-faq.md)
+   * [Virtual nodes add-on](virtual-nodes.md#network-requirements)
 
 ### IP address availability and exhaustion
 
@@ -158,7 +158,7 @@ You've now created a virtual network and subnet, and created and assigned permis
 
 The following IP address ranges are also defined as part of the cluster create process:
 
-* The *--service-cidr* is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+* The *--service-cidr* is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
 
 * The *--dns-service-ip* address should be the *.10* address of your service IP address range.
 
@@ -220,7 +220,6 @@ Kubenet networking requires organized route table rules to successfully route re
 Limitations:
 
 * Permissions must be assigned before cluster creation, ensure you are using a service principal with write permissions to your custom subnet and custom route table.
-* Managed identities are not currently supported with custom route tables in kubenet.
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * Each AKS cluster must use a single, unique route table for all subnets associated with the cluster. You cannot reuse a route table with multiple clusters due to the potential for overlapping pod CIDRs and conflicting routing rules.

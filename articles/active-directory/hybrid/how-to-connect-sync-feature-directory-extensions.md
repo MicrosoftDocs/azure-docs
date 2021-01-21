@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [extensions](/graph/extensibility-overview
 ). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
-At present, no Office 365 workload consumes these attributes.
+At present, no Microsoft 365 workload consumes these attributes.
 
 ## Customize which attributes to synchronize with Azure AD
 
@@ -42,7 +42,7 @@ The installation shows the following attributes, which are valid candidates:
 
 
 >[!NOTE]
-> Although Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions, there is currently no way to retrieve/consume the data uploaded in multi-valued directory extension attributes.
+> After Azure AD Connect synchronized multi-valued Active Directory attribute to Azure AD as a multi-valued attribute extension, it is possible to include attribute to the SAML claim. But, it is not possible to consume this data through API call.
 
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
@@ -67,9 +67,12 @@ These attributes are now available through the Microsoft Graph API, by using [Mi
 >
 > For more information, see [Microsoft Graph: Use query parameters](/graph/query-parameters#select-parameter).
 
+>[!NOTE]
+> It is not supported to sync attribute values from AADConnect to extension attributes that are not created by AADConnect. Doing so may produce performance issues and unexpected results. Only extension attributes that are created as shown in the above are supported for synchronization.
+
 ## Use the attributes in dynamic groups
 
-One of the more useful scenarios is to use these attributes in dynamic security or Office 365 groups.
+One of the more useful scenarios is to use these attributes in dynamic security or Microsoft 365 groups.
 
 1. Create a new group in Azure AD. Give it a good name and make sure the **Membership type** is **Dynamic User**.
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 06/22/2020
 ---
 

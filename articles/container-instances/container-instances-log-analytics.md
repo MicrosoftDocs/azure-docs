@@ -3,7 +3,6 @@ title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
 ms.date: 07/13/2020
-ms.author: danlep
 ---
 # Container group and instance logging with Azure Monitor logs
 
@@ -164,7 +163,7 @@ For information about monitoring container instance CPU and memory resources, se
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/
-[query_lang]: https://aka.ms/LogAnalyticsLanguage
+[query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -1,6 +1,8 @@
 ---
 title: Migration overview - LUIS
 description: Understand what is on a migration path
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/22/2020
 ---

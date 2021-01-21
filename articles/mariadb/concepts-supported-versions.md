@@ -1,9 +1,9 @@
 ---
 title: Supported versions - Azure Database for MariaDB
 description: Learn which versions of the MariaDB server are supported in the Azure Database for MariaDB service.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/20/2020
 ---

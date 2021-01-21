@@ -35,7 +35,7 @@ After you sign in to the portal, you can create a subscription to Translator as 
 When you sign up for Translator, you get a personalized access key unique to your subscription. This key is required on each call to the Translator.
 
 1. Retrieve your authentication key by first selecting the appropriate subscription.
-1. Select **Keys** in the **Resource Management** section of your subscription's details.
+1. Select **Keys and Endpoint** in the **Resource Management** section of your subscription's details.
 1. Copy either of the keys listed for your subscription.
 
 ## Learn, test, and get support

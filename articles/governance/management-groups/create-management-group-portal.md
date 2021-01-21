@@ -43,7 +43,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 1. Select **+ Add management group**.
 
-   :::image type="content" source="./media/main.png" alt-text="Page for working with management groups" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Screenshot of the Management groups page showing child management groups and subscriptions." border="false":::
 
 1. Leave **Create new** selected and fill in the management group ID field.
 
@@ -56,7 +56,7 @@ directory. You receive a notification when the process is complete. For more inf
    - The display name field is the name that is displayed within the Azure portal. A separate
      display name is an optional field when creating the management group and can be changed at any time.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Options pane for creating a new management group":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Screenshot of the 'Add management group' options for creating a new management group.":::
 
 1. Select **Save**.
 

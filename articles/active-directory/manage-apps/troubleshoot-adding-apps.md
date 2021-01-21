@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot common problem adding an application to Azure Active Directory
-description: Troubleshoot the common problems people face when adding an app to Azure Active Directory.
+title: Troubleshoot common problem adding or removing an application to Azure Active Directory
+description: Troubleshoot the common problems people face when adding or removing an app to Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,8 +12,8 @@ ms.date: 09/11/2018
 ms.author: kenwith
 ---
 
-# Troubleshoot common problem adding an application to Azure Active Directory
-This article helps you understand the common problems people face when adding an app to Azure Active Directory.
+# Troubleshoot common problem adding or removing an application to Azure Active Directory
+This article helps you understand the common problems people face when adding or removing an app to Azure Active Directory.
 
 ## I clicked the “add” button and my application took a long time to appear
 Under some circumstances, it can take 1-2 minutes (and sometimes longer) for an application to appear after adding it to your directory. While this is not the normal expected performance, you can see the application addition is in progress by clicking on the **Notifications** icon (the bell) in the upper right of the [Azure portal](https://portal.azure.com/) and looking for an **In Progress** or **Completed** notification labeled **Adding application.**
@@ -26,9 +26,19 @@ Sometimes, due to transient issues, networking problems, or a bug, adding an app
 If you encounter an error when clicking the **Add** button, you’ll see a **Notification** in an **Error** state. If you want more details about the error to learn more to or share with a support engineer, you can see more information about the error by following the steps in the [How to see the details of a portal notification](#how-to-see-the-details-of-a-portal-notification) section.
 
 ## I don’t know how to set up my application once I’ve added it
-If you need help with learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) article is a good place to start.
+If you need help with learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md) article is a good place to start.
 
-In addition to this, the [Azure AD Applications Document Library](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) helps you to learn more about single sign-on with Azure AD and how it works.
+In addition to this, the [Azure AD Applications Document Library](./what-is-application-management.md) helps you to learn more about single sign-on with Azure AD and how it works.
+
+## I want to delete an application but the delete button is disabled
+
+The delete button will be disabled in the following scenarios:
+
+- For applications under Enterprise application, if you don't have one of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
+- For Microsoft application, you won't be able to delete them from the UI regardless of your role.
+
+- For servicePrincipals that correspond to a managed identity. Managed identities service principals can't be deleted in the Enterprise apps blade. You need to go to the Azure resource to manage it. Learn more about [Managed Identity](../managed-identities-azure-resources/overview.md)
 
 ## How to see the details of a portal notification
 You can see the details of any portal notification by following the steps below:

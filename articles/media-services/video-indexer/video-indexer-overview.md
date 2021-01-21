@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
 ---
 
@@ -72,12 +72,12 @@ The following list shows the insights you can retrieve from your videos using Vi
 
 * **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Arabic, Russian, Portuguese, Hindi, and Korean.
 * **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese. If the language can't be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
-* **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* **Multi-language speech identification and transcription**: Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
 * **Noise reduction**: Clears up telephony audio or noisy recordings (based on Skype filters).
 * **Transcript customization** (CRIS): Trains custom speech to text models to create industry-specific transcripts. For more information, see [Customize a Language model from the Video Indexer website](customize-language-model-with-website.md) and [Customize a Language model with the Video Indexer APIs](customize-language-model-with-api.md).
-* **Speaker enumeration**: Maps and understands which speaker spoke which words and when.
+* **Speaker enumeration**: Maps and understands which speaker spoke which words and when. Sixteen speakers can be detected in a single audio-file.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
 * **Audio effects**: Identifies audio effects like hand claps, speech, and silence.

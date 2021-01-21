@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Use persistent storage in Azure Spring Cloud
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 Azure Spring Cloud provides two types of storage for your application: persistent and temporary.
 
 By default, Azure Spring Cloud provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path /tmp.

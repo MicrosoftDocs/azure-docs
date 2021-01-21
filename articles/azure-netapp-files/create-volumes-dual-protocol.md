@@ -13,17 +13,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 8/11/2020
+ms.date: 01/12/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv3, or dual protocol. This article shows you how to create a volume that uses the dual protocol of NFSv3 and SMB with support for LDAP user mapping.  
+Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol. This article shows you how to create a volume that uses the dual protocol of NFSv3 and SMB with support for LDAP user mapping.  
 
 
 ## Before you begin 
 
-* You must have already set up a capacity pool.  
+* You must have already created a capacity pool.  
     See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
@@ -33,6 +33,20 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * Ensure that you meet the [Requirements for Active Directory connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
+* Ensure that the Active Directory (AD) LDAP server is up and running on the AD. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
+* Dual-protocol volumes do not currently support Azure Active Directory Domain Services (AADDS).  
+* The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
+    * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
+    * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
+
+    The following table describes the security styles and their effects:  
+    
+    | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
+    |-	|-	|-	|-	|-	|
+    | `Unix` 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
+    | `Ntfs` 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
+* UNIX users mounting the NTFS security style volume using NFS will be authenticated as Windows user `root` for UNIX `root` and `pcuser` for all other users. Make sure that these user accounts exist in your Active Directory prior to mounting the volume when using NFS. 
+
 
 ## Create a dual-protocol volume
 
@@ -46,7 +60,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
         A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
 
-        You cannot use `default` as the volume name.
+        You cannot use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -55,6 +69,11 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Throughput (MiB/S)**   
+        If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
+
+        If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -80,9 +99,6 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 3. Click **Protocol**, and then complete the following actions:  
     * Select **dual-protocol (NFSv3 and SMB)** as the protocol type for the volume.   
 
-    * Select the **Active Directory** connection from the drop-down list.  
-    The Active Directory you use must have a server root CA certificate. 
-
     * Specify the **Volume path** for the volume.   
     This volume path is the name of the shared volume. The name must start with an alphabetical character, and it must be unique within each subscription and each region.  
 
@@ -98,34 +114,17 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
-## Upload Active Directory Certificate Authority public root certificate  
-
-1.	Follow [Install the Certification Authority](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) to install and configure ADDS Certificate Authority. 
-
-2.	Follow [View certificates with the MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) to use the MMC snap-in and the Certificate Manager tool.  
-    Use the Certificate Manager snap-in to locate the root or issuing certificate for the local device. You should run the Certificate Management snap-in commands from one of the following settings:  
-    * A Windows-based client that has joined the domain and has the root certificate installed 
-    * Another machine in the domain containing the root certificate  
-
-3. Export the root certificate.  
-    Ensure that the certificate is exported in the Base-64 encoded X.509 (.CER) format: 
-
-    ![Certificate Export Wizard](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Go to the NetApp account of the dual-protocol volume, click **Active Directory connections**, and upload the root CA certificate by using the **Join Active Directory** window:  
-
-    ![Server root CA certificate](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
-
-    ![Certificate information](../media/azure-netapp-files/certificate-information.png)
-
 ## Manage LDAP POSIX Attributes
 
 You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor:  
 
 ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+You need to set the following attributes for LDAP users and LDAP groups: 
+* Required attributes for LDAP users:   
+    `uid`: Alice, `uidNumber`: 139, `gidNumber`: 555, `objectClass`: posixAccount
+* Required attributes for LDAP groups:   
+    `objectClass`: "posixGroup", `gidNumber`: 555
 
 ## Configure the NFS client 
 
@@ -133,5 +132,5 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## Next steps  
 
-* [Dual-protocol FAQs](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
+* [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
+* [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)

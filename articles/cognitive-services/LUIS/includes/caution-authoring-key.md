@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 08/12
 ms.subservice: language-understanding
-ms.author: diberry
+
 ---
 
 > [!CAUTION]

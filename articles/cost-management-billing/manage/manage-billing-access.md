@@ -35,7 +35,7 @@ Account administrator can grant others access to Azure billing information by as
 
 These roles have access to billing information in the [Azure portal](https://portal.azure.com/). People that are assigned these roles can also use the [Billing APIs](usage-rate-card-overview.md) to programmatically get invoices and usage details.
 
-To assign roles, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+To assign roles, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ** If you're an EA customer, an Account Owner can assign the above role to other users of their team. But for these users to view billing information, the Enterprise Administrator must enable AO view charges in the Enterprise portal.
 
@@ -48,7 +48,7 @@ After an Account administrator has assigned the appropriate roles to other users
 
 1. Search on **Cost Management + Billing**.
 
-    ![Screenshot that shows Azure portal search](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Screenshot that highlights Cost Management + Billing under the Services section.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
 1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions**.
 
@@ -89,7 +89,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 1. In the **Select** textbox, type the name or email for the user you want to add.
 1. Select the user.
 1. Select **Save**.
-    ![Screenshot that shows clicking add role assignment](./media/manage-billing-access/billing-save-role-assignment.png)
+    ![Screenshot that highlights the Save button.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. After a few moments, the user is assigned the Billing Reader role for the subscription.
 
@@ -100,7 +100,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
 ## Next steps
 
-- Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 - For more information about roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Need help? Contact us.

@@ -65,7 +65,7 @@ ms.custom: include file
 |**Intent**|Enum|The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center's supported kill chain intents, see [Intentions](../articles/security-center/alerts-reference.md#intentions).<br/>This field might have multiple values (separated by comma).|
 |**IsIncident**|Bool|This field determines whether the alert is an incident (a compound grouping of several alerts) or a single alert. Default value for the field is 'false' (meaning it's a single alert).|
 |**ProcessingEndTime**|DateTime|The time the alert was accessible to the end user in the original product holding the alert.|
-|**ProductName**|String|The name of the product that published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS, and so on).|
+|**ProductName**|String|The name of the product that published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, MCAS, and so on).|
 |**RemediationSteps**|List<String>|Manual action items to take to remediate the alert.|
 |**ResourceIdentifiers**|List (Resource Identifiers)|The resource identifiers for this alert that can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert.|
 |**Severity**|Enum|The severity of the alert as reported by the provider. Possible Values: Informational, Low, Medium, and High.|

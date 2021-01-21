@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/18/2020
+ms.date: 01/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -39,7 +39,7 @@ In addition to these three accounts used to run Azure AD Connect, you will also 
 
 - **AD DS Enterprise Administrator account**: Optionally used to create the “AD DS Connector account” above.
 
-- **Azure AD Global Administrator account**:  used to create the Azure AD Connector account and configure Azure AD.
+- **Azure AD Global Administrator account**:  used to create the Azure AD Connector account and configure Azure AD.  You can view global administrator accounts in the azure portal.  See [View Roles](../../active-directory/roles/manage-roles-portal.md#view-all-roles).
 
 - **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md)
 
@@ -110,7 +110,7 @@ With the custom settings installation, the wizard offers you more choices and op
 
 The following is a summary of the custom installation wizard pages, the credentials collected, and what they are used for.
 
-![Express installation](./media/reference-connect-accounts-permissions/customize.png)
+![Screenshot that shows the custom installation wizard pages.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
@@ -144,7 +144,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/tutorial-enable-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](how-to-connect-device-writeback.md). |
-| Group writeback |Allows you to writeback **Office 365 Groups** to a forest with Exchange installed.|
+| Group writeback |Allows you to writeback **Microsoft 365 Groups** to a forest with Exchange installed.|
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
@@ -203,7 +203,7 @@ Legend:
 #### Virtual service account
 A virtual service account is a special type of account that does not have a password and is managed by Windows.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Screenshot that shows the virtual service account (VSA).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a Group Managed Service Account instead.
 
@@ -236,7 +236,7 @@ The account is also granted permissions to files, registry keys, and other objec
 ### Azure AD Connector account
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
 
-![AD account](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Screenshot that shows the Azure AD account.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is DC1. If you have staging servers, each server has its own account.
 
@@ -247,7 +247,7 @@ There is a limit of 20 sync service accounts in Azure AD. To get the list of exi
 To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Before you can use the above PowerShell commands you will need to install the [Azure Active Directory PowerShell for Graph module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) and connect to your instance of Azure AD using [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Before you can use the above PowerShell commands you will need to install the [Azure Active Directory PowerShell for Graph module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) and connect to your instance of Azure AD using [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 
 For additional information on how to manage or reset the password for the Azure AD Connector account see [Manage the Azure AD Connect account](how-to-connect-azureadaccount.md)
 

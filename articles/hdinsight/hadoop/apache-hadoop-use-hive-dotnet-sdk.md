@@ -141,6 +141,6 @@ In this article, you learned how to submit Apache Hive queries using HDInsight .
 
 * [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight)
 * [Use Apache Sqoop with HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

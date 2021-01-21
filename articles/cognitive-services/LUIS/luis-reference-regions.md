@@ -1,10 +1,14 @@
 ---
 title: Publishing regions & endpoints - LUIS
 description: The region specified in the Azure portal is the same where you will publish the LUIS app and an endpoint URL is generated for this same region.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/19/2019
+ms.date: 11/09/2020
 ---
 # Authoring and publishing regions and the associated keys
+
+[!INCLUDE [LUIS Free account](includes/luis-portal-note.md)]
 
 Three authoring regions are supported by corresponding LUIS portals. To publish a LUIS app to more than one region, you need at least one key per region.
 
@@ -15,11 +19,11 @@ There are three LUIS authoring portals, based on region. You must author and pub
 
 |LUIS|Authoring region|Azure region name|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|U.S.<br>not Europe<br>not Australia| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|Australia| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|Europe|`westeurope`|
+|[www.luis.ai][www.luis.ai] |U.S.<br>not Europe<br>not Australia| `westus`|
+|[au.luis.ai][au.luis.ai] |Australia| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] |Europe|`westeurope`|
 
-Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -75,6 +79,7 @@ To publish to the other regions, you create LUIS apps at [https://www.luis.ai](h
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Japan West<br>`japanwest`     |   `https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Korea Central<br>`koreacentral`     |   `https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asia | `westus`<br>[www.luis.ai][www.luis.ai]| Southeast Asia<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| Asia | `westus`<br>[www.luis.ai][www.luis.ai]| North UAE<br>`northuae`     |   `https://northuae.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | North America |`westus`<br>[www.luis.ai][www.luis.ai] | Canada Central<br>`canadacentral`     |   `https://canadacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | North America |`westus`<br>[www.luis.ai][www.luis.ai] | Central US<br>`centralus`     |   `https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | North America |`westus`<br>[www.luis.ai][www.luis.ai] | East US<br>`eastus`      |  `https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
@@ -94,7 +99,7 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 
 Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
 
-Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
 
 ## Next steps
 

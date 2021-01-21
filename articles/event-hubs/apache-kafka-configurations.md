@@ -2,7 +2,7 @@
 title: Recommended configurations for Apache Kafka clients - Azure Event Hubs
 description: This article provides recommended Apache Kafka configurations for clients interacting with Azure Event Hubs for Apache Kafka. 
 ms.topic: reference
-ms.date: 07/20/2020
+ms.date: 01/07/2021
 ---
 
 # Recommended configurations for Apache Kafka clients
@@ -74,7 +74,7 @@ Check the following table of common configuration-related error scenarios.
 
 Symptoms | Problem | Solution
 ----|---|-----
-Offset commit failures because of rebalancing | Your consumer is waiting too long in between calls to poll() and the service is kicking the consumer out of the group. | You have several options: <ul><li>increase session timeout</li><li>decrease message batch size to speed up processing</li><li>improve processing parallelization to avoid blocking consumer.poll()</li></ul> Applying some combination of the three is likely wisest.
+Offset commit failures because of rebalancing | Your consumer is waiting too long in between calls to poll() and the service is kicking the consumer out of the group. | You have several options: <ul><li>Increase poll processing timeout (`max.poll.interval.ms`)</li><li>Decrease message batch size to speed up processing</li><li>Improve processing parallelization to avoid blocking consumer.poll()</li></ul> Applying some combination of the three is likely wisest.
 Network exceptions at high produce throughput | Are you using Java client + default max.request.size?  Your requests may be too large. | See Java configs above.
 
 ## Next steps

@@ -78,7 +78,7 @@ If you're going to continue on to a Backup tutorial that explains how to restore
 6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.
 7. Select **Delete resource group**. To confirm, enter the resource group name, then select **Delete**.
 
-    ![Delete the resource group from the Azure portal](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![Delete the resource group from the Azure portal](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
 title: High availability - Azure Database for MySQL
 description: This article provides information on high availability in Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
@@ -24,7 +24,7 @@ Azure Database for MySQL is suitable for running mission critical databases that
 ## Planned downtime mitigation
 Azure Database for MySQL is architected to provide high availability during planned downtime operations. 
 
-![view of Elastic Scaling in Azure MySQL](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="view of Elastic Scaling in Azure MySQL":::
 
 Here are some planned maintenance scenarios:
 
@@ -41,7 +41,7 @@ Here are some planned maintenance scenarios:
 Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. MySQL engine performs the recovery operation using WAL and database files, and opens up the database server to allow clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for MySQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention. 
 
 
-![view of High Availability in Azure MySQL](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="view of High Availability in Azure MySQL":::
 
 ### Unplanned downtime: failure scenarios and service recovery
 Here are some failure scenarios and how Azure Database for MySQL automatically recovers:

@@ -43,7 +43,7 @@ After you specify an error page, the application gateway downloads it from the s
 
 1. Navigate to Application Gateway in the portal and choose an application gateway.
 
-    ![ag-overview](media/custom-error/ag-overview.png)
+    ![Screenshot shows the Overview page for an application gateway.](media/custom-error/ag-overview.png)
 2. Click **Listeners** and navigate to a particular listener where you want to specify an error page.
 
     ![Application Gateway listeners](media/custom-error/ag-listener.png)
@@ -76,7 +76,7 @@ $listener01 = Get-AzApplicationGatewayHttpListener -Name <listener-name> -Applic
 $updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
 ```
 
-For more information, see [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) and [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+For more information, see [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) and [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
 
 ## Next steps
 

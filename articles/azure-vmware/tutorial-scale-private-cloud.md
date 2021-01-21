@@ -1,19 +1,17 @@
 ---
-title: "Tutorial: Scale a private cloud"
-description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution Preview private cloud.
+title: Tutorial - Scale a private cloud
+description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
 ---
 
-# Tutorial: Scale an Azure VMware Solution Preview private cloud
+# Tutorial: Scale an Azure VMware Solution private cloud
 
-To get the most out of your Azure VMware Solution Preview private cloud experience, scale the clusters and hosts to reflect what you need for planned workloads. Since Azure VMware Solution won’t support your on-premises vCenter during preview, you'll need to use what you have already created through the Azure portal.
+To get the most out of your Azure VMware Solution private cloud experience, scale the clusters and hosts to reflect what you need for planned workloads. You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis. The cluster and host limits are provided in the [private cloud concept](concepts-private-clouds-clusters.md) article.
 
-You can scale the number of clusters and the number of hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services need to be addressed on a case by case basis within your Azure VMware Solution Preview cloud environment. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
-
-In this tutorial, you use the Azure portal to:
+In this tutorial, you'll use the Azure portal to:
 
 > [!div class="checklist"]
 > * Add a cluster to an existing private cloud
@@ -21,7 +19,7 @@ In this tutorial, you use the Azure portal to:
 
 ## Prerequisites
 
-You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create a private cloud and configure networking for your VMware private cloud in Azure to setup the required virtual network.
+A private cloud to complete this tutorial. If you haven't created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one. Configure networking for your VMware private cloud in Azure to set up the required virtual network.
 
 ## Add a new cluster
 
@@ -49,7 +47,7 @@ You need a private cloud to complete this tutorial. If you haven't yet created a
 
 ## Next steps
 
-If you require another Azure VMware Solution private cloud, [create another private cloud](tutorial-create-private-cloud.md), following the same networking prerequisites, cluster and host limits.
+If you require another Azure VMware Solution private cloud, [create another private cloud](tutorial-create-private-cloud.md), following the same networking prerequisites, cluster, and host limits.
 
 <!-- LINKS - external-->
 

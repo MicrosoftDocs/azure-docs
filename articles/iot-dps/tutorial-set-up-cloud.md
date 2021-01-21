@@ -22,7 +22,7 @@ This tutorial shows how to set up the cloud for automatic device provisioning us
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Sign in to the Azure portal
+## Prerequisites
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 

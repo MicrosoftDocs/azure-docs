@@ -19,8 +19,8 @@ This article shows you how to create this new account type using the [Azure port
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use the Azure PowerShell module, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- If you intend to use the Azure PowerShell module, [install the latest version](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## Create a FileStorage storage account
 
@@ -158,6 +158,7 @@ To create a premium file share with the Azure PowerShell module, use the [New-Az
 ```powershell
 New-AzStorageShare `
    -Name myshare `
+   -EnabledProtocol SMB `
    -Context $storageAcct.Context
 ```
 
@@ -172,6 +173,7 @@ To create a premium file share with the Azure CLI, use the [az storage share cre
 az storage share create \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
+    --enabled-protocol SMB \
     --name "myshare" 
 ```
 ---

@@ -8,10 +8,9 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -23,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 # Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 
 Windows Server failover clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.

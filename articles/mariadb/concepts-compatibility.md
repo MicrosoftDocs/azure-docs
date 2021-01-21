@@ -1,9 +1,9 @@
 ---
 title: Drivers and tools compatibility - Azure Database for MariaDB
 description: This article describes the MariaDB drivers and management tools that are compatible with Azure Database for MariaDB. 
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

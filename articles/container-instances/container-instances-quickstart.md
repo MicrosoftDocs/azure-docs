@@ -3,7 +3,7 @@ title: Quickstart - Deploy Docker container to container instance - Azure CLI
 description: In this quickstart, you use the Azure CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom: [seo-python-october2019, seodec18, mvc, devx-track-javascript, devx-track-azurecli]
+ms.custom: [seo-python-october2019, seodec18, mvc, devx-track-js, devx-track-azurecli]
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure CLI
@@ -14,11 +14,11 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 
 ![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
-If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.0.55 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+- This quickstart requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

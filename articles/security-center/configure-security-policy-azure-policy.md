@@ -5,7 +5,7 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: memildin
 ---
@@ -119,7 +119,7 @@ This example shows you how to remove an assignment:
 |System updates |Monitor missing system updates in Azure Security Center |systemUpdatesMonitoringEffect|
 |Storage encryption |Audit missing blob encryption for storage accounts |storageEncryptionMonitoringEffect|
 |JIT Network access |Monitor possible network just-in-time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Adaptive application controls |Monitor possible app Whitelisting in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Adaptive application controls |Monitor possible app allow lists in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Network security groups |Monitor permissive network access in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Endpoint protection |Monitor missing Endpoint Protection in Azure Security Center |endpointProtectionMonitoringEffect |

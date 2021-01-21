@@ -1,9 +1,11 @@
 ---
 title: Prepare machines for migration with Azure Migrate 
 description: Learn how to prepare on-premises machines for migration with Azure Migrate.
-ms.topic: tutorial
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
 ms.date: 06/08/2020
-ms.custom: MVC
 ---
 
 # Prepare on-premises machines for migration to Azure
@@ -104,11 +106,13 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux 7.0+, 6.5+
-- CentOS 7.0+, 6.5+
+- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 18.04LTS, 16.04LTS, 14.04LTS
+- SUSE Linux Enterprise Server 15 SP1
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Debian 8, 7
+- Oracle Linux 7.7, 7.7-CI
 
 For other versions, prepare machines as summarized in the table.  
 

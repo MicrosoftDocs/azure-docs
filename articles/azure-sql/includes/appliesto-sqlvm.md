@@ -1,2 +1,2 @@
-<Token>**APPLIES TO:** ![yes](../media/applies-to/yes.png)SQL Server on Azure VM </Token> 
+<Token>**APPLIES TO:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL Server on Azure VM </Token> 
 

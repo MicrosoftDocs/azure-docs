@@ -20,7 +20,7 @@ Additional resources:
 * [API reference documentation](/python/api/azure-storage-blob)
 * [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
 * [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -78,10 +78,10 @@ From the project directory:
 
     ```python
     import os, uuid
-    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 
     try:
-        print("Azure Blob storage v12 - Python quickstart sample")
+        print("Azure Blob storage v" + __version__ + " - Python quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')
@@ -288,5 +288,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob storage SDK v12 Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
+* To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview).
 * For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).

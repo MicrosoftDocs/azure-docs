@@ -53,6 +53,9 @@ For more information, see [OWASP top-10 vulnerabilities](https://owasp.org/www-p
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
 
+### Does WAF store customer data?
+
+No, WAF does not store customer data.
 
 ## Next steps
 

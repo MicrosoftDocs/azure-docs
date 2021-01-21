@@ -14,7 +14,7 @@ ms.custom: "devx-track-csharp, devx-track-python"
 
 Use Azure Service Bus output binding to send queue or topic messages.
 
-For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
+For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
 
 ## Example
 

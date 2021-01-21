@@ -40,9 +40,13 @@ You will be attaching Azure SignalR Service to Azure Digital Twins through the p
 ## Download the sample applications
 
 First, download the required sample apps. You will need both of the following:
-* [**Azure Digital Twins samples**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
-    - Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_samples.zip**_. Unzip the folder.
-* [**SignalR integration web app sample**](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a sample React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
+* [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* holding two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second. 
+    - If you haven't already downloaded the sample as part of the tutorial in [*Prerequisites*](#prerequisites), navigate to the sample link and select the *Browse code* button underneath the title. This will take you to the GitHub repo for the samples, which you can download as a *.ZIP* by selecting the *Code* button and *Download ZIP*.
+
+    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="View of the digital-twins-samples repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/includes/download-repo-zip.png":::
+
+    This will download a copy of the sample repo to your machine, as **digital-twins-samples-master.zip**. Unzip the folder.
+* [**SignalR integration web app sample**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This is a sample React web app that will consume Azure Digital Twins telemetry data from an Azure SignalR service.
     -  Navigate to the sample link and hit the *Download ZIP* button to download a copy of the sample to your machine, as _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Unzip the folder.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
@@ -64,73 +68,15 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *Azure_Digital_Twins_samples > ADTSampleApp* folder. Then do the following steps to create the functions:
+Next, start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 
 1. Create a new C# sharp class called **SignalRFunctions.cs** in the *SampleFunctionsApp* project.
 
 1. Replace the contents of the class file with the following code:
+    
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-    ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Azure.EventGrid.Models;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
-    using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-    using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System.Collections.Generic;
-    
-    namespace SampleFunctionsApp
-    {
-        public static class SignalRFunctions
-        {
-            public static double temperature;
-    
-            [FunctionName("negotiate")]
-            public static SignalRConnectionInfo GetSignalRInfo(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
-                [SignalRConnectionInfo(HubName = "dttelemetry")] SignalRConnectionInfo connectionInfo)
-            {
-                return connectionInfo;
-            }
-    
-            [FunctionName("broadcast")]
-            public static Task SendMessage(
-                [EventGridTrigger] EventGridEvent eventGridEvent,
-                [SignalR(HubName = "dttelemetry")] IAsyncCollector<SignalRMessage> signalRMessages,
-                ILogger log)
-            {
-                JObject eventGridData = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-    
-                log.LogInformation($"Event grid message: {eventGridData}");
-    
-                var patch = (JObject)eventGridData["data"]["patch"][0];
-                if (patch["path"].ToString().Contains("/Temperature"))
-                {
-                    temperature = Math.Round(patch["value"].ToObject<double>(), 2);
-                }
-    
-                var message = new Dictionary<object, object>
-                {
-                    { "temperatureInFahrenheit", temperature},
-                };
-        
-                return signalRMessages.AddAsync(
-                    new SignalRMessage
-                    {
-                        Target = "newMessage",
-                        Arguments = new[] { message }
-                    });
-            }
-        }
-    }
-    ```
-
-1. In Visual Studio's *Package Manager Console* window, or any command window on your machine in the *Azure_Digital_Twins_samples\AdtSampleApp\SampleFunctionsApp* folder, run the following command to install the `SignalRService` NuGet package to the project:
+1. In Visual Studio's *Package Manager Console* window, or any command window on your machine in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp* folder, run the following command to install the `SignalRService` NuGet package to the project:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -146,7 +92,7 @@ Next, publish your function to Azure, using the steps described in the [*Publish
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
-1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
+1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -185,7 +131,7 @@ In this section, you will see the result in action. First, you'll start up the *
 
 During the end-to-end tutorial prerequisite, you [configured the device simulator](tutorial-end-to-end.md#configure-and-run-the-simulation) to send data through an IoT Hub and to your Azure Digital Twins instance.
 
-Now, all you have to do is start the simulator project, located in *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
+Now, all you have to do is start the simulator project, located in *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="The Visual Studio start button (DeviceSimulator project)":::
 
@@ -196,7 +142,7 @@ You don't need to do anything else in this console, but leave it running while y
 ### Configure the sample client web app
 
 Next, set up the **SignalR integration web app sample** with these steps:
-1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Prerequisites*](#prerequisites) section.
+1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
 
 1. Open the *src/App.js* file, and replace the URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
 
@@ -233,7 +179,7 @@ This will open a browser window running the sample app, which displays a visual 
 
 If you no longer need the resources created in this article, follow these steps to delete them. 
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Removing the resource group will also remove...
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) command. Removing the resource group will also remove...
 * the Azure Digital Twins instance (from the end-to-end tutorial)
 * the IoT hub and the hub device registration  (from the end-to-end tutorial)
 * the event grid topic and associated subscriptions
@@ -247,13 +193,7 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 az group delete --name <your-resource-group>
 ```
 
-If you're deleting your Azure Digital Twins instance, you can also delete the Azure AD app registration you created for it in the end-to-end tutorial, using this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
-
-Finally, delete the project sample folders that you downloaded to your local machine (*Azure_Digital_Twins_samples.zip* and *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Finally, delete the project sample folders that you downloaded to your local machine (*digital-twins-samples-master.zip* and *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## Next steps
 

@@ -37,7 +37,7 @@ We set up an ADF pipeline that composes two data migration activities. Together 
 * Copy data from the Azure Blob Storage account to Azure SQL Database.
 
 > [!NOTE]
-> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from a SQL Server database to Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) References to the relevant sections of that topic are provided when appropriate.
+> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Copy data from a SQL Server database to Azure Blob storage](../../data-factory/tutorial-hybrid-copy-portal.md) References to the relevant sections of that topic are provided when appropriate.
 >
 >
 
@@ -46,7 +46,7 @@ This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
-* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the topic [Getting Started with Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
+* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the topic [Getting Started with Microsoft Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) provides information on how to provision a new instance of an Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
@@ -65,7 +65,7 @@ The instructions for creating a new Azure Data Factory and a resource group in t
 ## Install and configure Azure Data Factory Integration Runtime
 The Integration Runtime is a customer-managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway".
 
-To set up, [follow the instructions for creating a pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+To set up, [follow the instructions for creating a pipeline](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
 A linked service defines the information needed for Azure Data Factory to connect to a data resource. We have three resources in this scenario for which linked services are needed:
@@ -81,7 +81,7 @@ The step-by-step procedure for creating linked services is provided in [Create l
 Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> You should execute the `Add-AzureAccount` cmdlet before executing the [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet to confirm that the right Azure subscription is selected for the command execution. For documentation of this cmdlet, see [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> You should execute the `Add-AzureAccount` cmdlet before executing the [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) cmdlet to confirm that the right Azure subscription is selected for the command execution. For documentation of this cmdlet, see [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 

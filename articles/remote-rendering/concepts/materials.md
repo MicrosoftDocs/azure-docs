@@ -77,6 +77,16 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 }
 ```
 
+## API documentation
+
+* [C# Material class](/dotnet/api/microsoft.azure.remoterendering.material)
+* [C# ColorMaterial class](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ Material class](/cpp/api/remote-rendering/material)
+* [C++ ColorMaterial class](/cpp/api/remote-rendering/colormaterial)
+* [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## Next steps
 

@@ -3,9 +3,9 @@ title: Connectors for Azure Logic Apps
 description: Automate workflows with connectors for Azure Logic Apps, such as built-in, managed, on-premises, integration account, ISE, and enterprise connectors
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 01/07/2021
 ---
 
 # Connectors for Azure Logic Apps
@@ -24,7 +24,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="built-in"></a>
 
-* [**Built-in**](#built-ins): Built-in triggers and actions are "native" to Azure Logic Apps and help you perform these tasks for your logic apps:
+* [**Built-in**](#built-ins): Built-in triggers and actions run natively in Azure Logic Apps so they don't require creating a connection before you use them and help you perform these tasks for your logic apps:
 
   * Run on custom and advanced schedules.
 
@@ -135,7 +135,7 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 | [![Azure Service Bus managed connector][azure-service-bus-icon]<br>**Azure Service Bus**][azure-service-bus-doc] | Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps. |
 | [![SQL Server managed connector][sql-server-icon]<br>**SQL Server**][sql-server-doc] | Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. |
 | [![Azure Blob Storage managed connector][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | Connect to your storage account so that you can create and manage blob content. |
-| [![Office 365 Outlook managed connector][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your Office 365 email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. |
+| [![Office 365 Outlook managed connector][office-365-outlook-icon]<br>**Office 365<br>Outlook**][office-365-outlook-doc] | Connect to your work or school email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more. |
 | [![SFTP-SSH managed connector][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders. |
 | [![SharePoint Online managed connector][sharepoint-online-icon]<br>**SharePoint<br>Online**][sharepoint-online-doc] | Connect to SharePoint Online so that you can manage files, attachments, folders, and more. |
 | [![Azure Queues managed connector][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | Connect to your Azure Storage account so that you can create and manage queues and messages. |
@@ -150,7 +150,9 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 
 ## On-premises connectors
 
-Here are some commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
+Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure. 
+
+Here are *some* commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. For the on-premises connectors list, see [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
@@ -388,6 +390,54 @@ For connectors that use Azure Active Directory (Azure AD) OAuth, creating a conn
 
 Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
 
+<a name="recurrence-behavior"></a>
+
+## Recurrence behavior
+
+The behavior for recurring built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurring connection-based triggers where you need to create a connection first, such as the SQL connector trigger.
+
+However, for both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
+
+<a name="recurrence-built-in"></a>
+
+### Recurrence for built-in triggers
+
+Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. However, if a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. Also, if you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+To make sure that your logic app runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try these solutions:
+
+* Make sure that you select a time zone so that your logic app runs at your specified start time. Otherwise, DST might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+
+  When scheduling jobs, Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. By specifying a time zone, the UTC time for your logic app also shifts to counter the seasonal time change. However, some time windows might cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Use the Recurrence trigger and provide a start date and time for the recurrence plus the specific times for when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+
+* Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+
+<a name="recurrence-connection-based"></a>
+
+### Recurrence for connection-based triggers
+
+In recurring connection-based triggers, such as SQL or SFTP-SSH, the schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior, for example:
+
+* Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
+
+* Any failures or retries that the trigger incurs.
+
+* Latency during storage calls.
+
+* Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
+
+* Other factors that can affect when the next run time happens.
+
+To resolve or work around these problems, try these solutions:
+
+* To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence so that your logic app continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends.
+
+* Use the Recurrence trigger so that you can specify a time zone, a start date and time, *plus* the specific times when to run subsequent recurrences by using the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* To avoid missed recurrences, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+
 <a name="custom"></a>
 
 ## Custom APIs and connectors
@@ -591,7 +641,7 @@ Although you create connections from within a logic app, connections are separat
 [instagram-doc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
 [mysql-doc]: /connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your work or school account so that you can send and receive emails, manage your calendar and contacts, and more"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
