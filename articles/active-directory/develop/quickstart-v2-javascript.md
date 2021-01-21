@@ -215,7 +215,7 @@ For more information about available configurable options, see [Initialize clien
 The following code snippet shows how to sign in users:
 
 ```javascript
-// Add scopes for the id token to be used at the Microsoft identity platform.
+// Add scopes for the id token to be used at Microsoft identity platform endpoints.
 const loginRequest = {
     scopes: ["openid", "profile", "User.Read"],
 };
