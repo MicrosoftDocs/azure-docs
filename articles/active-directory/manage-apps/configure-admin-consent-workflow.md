@@ -154,4 +154,4 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
-[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD on Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
