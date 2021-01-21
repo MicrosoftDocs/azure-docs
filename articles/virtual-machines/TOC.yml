@@ -1605,7 +1605,7 @@
     - name: Agents overview
       href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
-      href: ../azure-monitor/faq.md#agents?context=/azure/virtual-machines/context/context
+      href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -1662,7 +1662,7 @@
       - name: General Availability FAQ
         href: ../azure-monitor/insights/vminsights-ga-release-faq.md?context=/azure/virtual-machines/context/context
       - name: FAQ
-        href: ../azure-monitor/faq.md#azure-monitor-for-vms?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#azure-monitor-for-vms
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
