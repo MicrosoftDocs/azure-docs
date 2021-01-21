@@ -70,7 +70,7 @@ Azure Automation now supports Python 3 cloud & hybrid runbook execution in publi
 
 **Type:** New feature
 
-See [Suported Linux Distros](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions) for updates to the documentation reflecting these changes.
+See [Supported Linux Distros](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions) for updates to the documentation reflecting these changes.
 
 ## October 2020
 
