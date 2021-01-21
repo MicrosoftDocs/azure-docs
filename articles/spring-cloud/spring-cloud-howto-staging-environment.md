@@ -76,7 +76,7 @@ View deployed apps using the following procedures.
     az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. After the CLI deployment finishes successfully, access the app page from the **Application Dashboard**, and view all your instances in the **App Instances** tab on the left.
+1. After the CLI deployment finishes successfully, access the app page from the **Application Dashboard**, and view all your instances in the **Deployments** tab on the left.
 
    [ ![Deployments dashboard after green deployed](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
 
