@@ -739,8 +739,6 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
-![View function `invoke_URL_template` in the portal.](./media/functions-bindings-http-webhook/get-function-url.png)
-
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) or [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
 
 ## Working with client identities
@@ -842,11 +840,7 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Function Keys**.
 
-![Manage function keys in the portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
-
 You can also manage host keys. Navigate to the function app in the [Azure portal](https://portal.azure.com) and select **App keys**.
-
-![Manage host keys in the portal.](./media/functions-bindings-http-webhook/manage-host-keys.png)
 
 You can obtain function and host keys programmatically by using the Azure Resource Manager APIs. There are APIs to [List Function Keys](/rest/api/appservice/webapps/listfunctionkeys) and [List Host Keys](/rest/api/appservice/webapps/listhostkeys), and when using deployment slots the equivalent APIs are [List Function Keys Slot](/rest/api/appservice/webapps/listfunctionkeysslot) and [List Host Keys Slot](/rest/api/appservice/webapps/listhostkeysslot).
 
