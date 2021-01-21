@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 01/21/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -33,7 +33,7 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.  
 <a name="azprovider">2</a> - When specified as a *provider* data source in tabular 1200 and higher models, both in-memory and DirectQuery models require Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, or .NET Framework Data Provider for SQL Server.  
 <a name="azsqlmanaged">3</a> - Azure SQL Managed Instance is supported. Because SQL Managed Instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an [On-premises data gateway](analysis-services-gateway.md) is required.  
-<a name="aadsp">4</a> - Azure Active Directory [Service Principal authentication](#service-principal-authentication) is supported.   
+<a name="aadsp">4</a> - When specified as a *provider* data source, Azure Analysis Services supports [MSOLEDBSQL 18.5.0.0](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) Azure Active Directory service principal authentication for Azure SQL Database and Azure Synapse data sources.     
 <a name="gen2">5</a> - ADLS Gen2 connector is currently not supported, however, Azure Blob Storage connector can be used with an ADLS Gen2 data source.
 <a name="databricks">6</a> - Azure Databricks using the Spark connector is currently not supported.  
 
@@ -113,14 +113,6 @@ For on-premises data sources:
 For cloud data sources:
 
 * If using SQL authentication, impersonation should be Service Account.
-
-## Service Principal authentication
-
-When specified as a *provider* data source, Azure Analysis Services supports [MSOLEDBSQL 18.5.0.0](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) Azure Active Directory service principal authentication for Azure SQL Database and Azure Synapse data sources.
-
-`
-Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
-`
 
 ## OAuth credentials
 
