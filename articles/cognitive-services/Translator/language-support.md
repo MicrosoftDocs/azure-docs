@@ -202,7 +202,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
 |Kazakh| `kk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
-|Kyrgz| `ky` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Kyrgyz| `ky` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Macedonian| `mk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
