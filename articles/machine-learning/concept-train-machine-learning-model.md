@@ -104,7 +104,6 @@ The R SDK enables you to use the R language with Azure Machine Learning. The SDK
 
 For more information, see the following articles:
 
-* [Tutorial: Create a logistic regression model](tutorial-1st-r-experiment.md)
 * [Azure Machine Learning SDK for R reference](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## Azure Machine Learning designer
