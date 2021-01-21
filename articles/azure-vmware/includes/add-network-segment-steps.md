@@ -13,7 +13,7 @@ ms.date: 11/09/2020
 
 1. Select **Add Segment** and enter a name for the segment.
 
-1. Select the Tier1 Gateway (TNTxx-T1) as the **Connected Gateway** and leave the **Type** as Flexible.
+1. Select the Tier-1 Gateway (TNTxx-T1) as the **Connected Gateway** and leave the **Type** as Flexible.
 
 1. Select the pre-configured overlay **Transport Zone** (TNTxx-OVERLAY-TZ) and then select **Set Subnets**. 
 

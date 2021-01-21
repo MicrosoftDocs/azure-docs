@@ -31,7 +31,7 @@ You can find information about guest operating system compatibility with vSphere
 
 ### Do I use the same tools that I use now to manage private cloud resources?
 
-Yes. The Azure portal is used for deployment and several management operations. vCenter and NSX Manager are used to manage vSphere and NSX-T resources.
+Yes. The Azure portal is used for deployment and several management operations. vCenter and NSX-T Manager are used to manage vSphere and NSX-T resources.
 
 ### Can I manage a private cloud with my on-premises vCenter?
 
@@ -181,7 +181,7 @@ You can connect to the service in one of two methods:
 
 ### How do I connect a workload VM to the internet or an Azure service endpoint?
 
-In the Azure portal, enable internet connectivity for a private cloud. With NSX-T manager, create an NSX-T T1 router and a logical switch. You then use vCenter to deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and Azure services.
+In the Azure portal, enable internet connectivity for a private cloud. With NSX-T Manager, create an NSX-T Tier-1 (T1) Gateway and a segment (logical switch). You then use vCenter to deploy a VM on the network segment defined by the logical switch. That VM will have network access to the internet and Azure services.
 
 ### Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
 
@@ -189,7 +189,7 @@ No. Network traffic inbound from the internet directly to private clouds isn't a
 
 ### Do I need to restrict internet access from VMs on logical networks to the internet?
 
-Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
+Yes. You'll need to use NSX-T Manager to create a firewall to restrict VM access to the internet.
 
 
 ### Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
@@ -216,12 +216,12 @@ No, administrator access to ESXi is restricted to meet the security requirements
 
 You'll have CloudAdmin group privileges. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
-### What privileges and permissions will I have on the NSX-T manager?
+### What privileges and permissions will I have on the NSX-T Manager?
 
 You'll have full administrator privileges on NSX-T and can manage vSphere role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 > [!NOTE]
-> A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
+> A Tier-0 Gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
 ## Billing and Support
 
