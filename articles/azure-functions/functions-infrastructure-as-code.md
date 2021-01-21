@@ -259,7 +259,7 @@ On Windows, a Consumption plan requires two additional settings in the site conf
 
 #### Linux
 
-On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`. The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux.
+On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`. 
 
 ```json
 {
