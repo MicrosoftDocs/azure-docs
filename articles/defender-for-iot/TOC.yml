@@ -41,8 +41,8 @@
   - name: Agentless Solution for Organizations
     items:
     - name: Key concepts
-      href: concept-key-concepts.md    
-  - name: Agent-based Solution for Device Builders
+      href: concept-key-concepts.md
+  - name: Agent-based Solution for Device Builders 
     items: 
     - name: Security Module for Azure RTOS
       href: iot-security-azure-rtos.md
@@ -73,8 +73,6 @@
       href: concept-baseline.md
     - name: Event aggregation
       href: event-aggregation.md
-    - name: Pricing and associated costs
-      href: concept-pricing.md
 - name: How-to guides
   items:
   - name: Agentless Solution for Organizations
@@ -252,6 +250,6 @@
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/security-center/
+      href: https://azure.microsoft.com/pricing/details/azure-defender/
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
