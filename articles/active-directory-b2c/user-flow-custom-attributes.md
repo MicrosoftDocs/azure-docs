@@ -27,7 +27,7 @@ Your Azure AD B2C directory comes with a [built-in set of attributes](user-profi
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
 * A custom user journey needs to persist the state of the user, **migrationStatus**, for other logic to operate on.
 
-Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](manage-user-accounts-graph-api.md).
+Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](microsoft-graph-operations.md).
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ You can create these attributes by using the portal UI before or after you use t
 |Name     |Used in |
 |---------|---------|
 |`extension_loyaltyId`  | Custom policy|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md)|
 
 The following example demonstrates the use of custom attributes in an Azure AD B2C custom policy claim definition.
 

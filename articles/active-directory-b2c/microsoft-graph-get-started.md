@@ -84,7 +84,7 @@ Now that you've registered your management application and have granted it the r
 * [Get an access token from Azure AD](/graph/auth-v2-service#4-get-an-access-token)
 * [Use the access token to call Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
-* [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Manage Azure AD B2C user accounts with Microsoft Graph](microsoft-graph-operations.md)
 * [Get audit logs with the Azure AD reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->

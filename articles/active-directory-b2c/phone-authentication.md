@@ -134,7 +134,7 @@ As you upload each file, Azure adds the prefix `B2C_1A_`.
 
 A user that signs up with a phone number but does not provide a recovery email address is recorded in your Azure AD B2C directory with their phone number as their sign-in name. If the user then wishes to change their phone number, your help desk or support team must first find their account, and then update their phone number.
 
-You can find a user by their phone number (sign-in name) by using [Microsoft Graph](manage-user-accounts-graph-api.md):
+You can find a user by their phone number (sign-in name) by using [Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
