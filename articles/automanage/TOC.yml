@@ -20,7 +20,7 @@
   - name: Enable on VMs through Azure Policy
     href: virtual-machines-policy-enable.md
   - name: Troubleshoot onboarding errors
-    href: automanage-common-errors.md
+    href: common-errors.md
   - name: Repair a broken Automanage account
     href: repair-automanage-account.md
 - name: Resources
