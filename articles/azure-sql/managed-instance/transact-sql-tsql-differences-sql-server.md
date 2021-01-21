@@ -272,7 +272,7 @@ The following options can't be modified:
 - `SINGLE_USER`
 - `WITNESS`
 
-Some `ALTER DATABASE` statements (e.g. [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) might transiently fail, for example during the automated database backup or right after a database is created. In this case `ALTER DATABASE` statement should be retried. For more details and information on related error messages see the [Remarks section](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Some `ALTER DATABASE` statements (e.g. [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) might transiently fail, for example during the automated database backup or right after a database is created. In this case `ALTER DATABASE` statement should be retried. For more details and information on related error messages, see the [Remarks section](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
