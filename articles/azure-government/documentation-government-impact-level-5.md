@@ -349,7 +349,7 @@ Azure Logic Apps supports Impact Level 5 workloads in Azure Government. To meet 
 
 ### [Event Grid](https://azure.microsoft.com/services/event-grid/)
 
-Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](../event-grid/security-authentication.md#encryption-at-rest).  All data written to disk is encrypted with Microsoft-managed keys. 
+Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](../event-grid/security-authentication.md).  All data written to disk is encrypted with Microsoft-managed keys. 
 
 Azure Event Grid supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
