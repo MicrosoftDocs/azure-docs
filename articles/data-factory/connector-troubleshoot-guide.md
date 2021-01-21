@@ -147,8 +147,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     "Failed to get access token by using service principal.  
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable."
 
-- **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable (that is, it's too
-busy to handle requests), it returns an HTTP error 503. 
+- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not unavailable (that is, it's too busy to handle requests), it returns HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
 
@@ -588,7 +587,7 @@ busy to handle requests), it returns an HTTP error 503.
 
 ### Error code:  FtpFailedToConnectToFtpServer
 
-- **Message**: "Failed to connect to FTP server. Please make sure the provided server informanion is correct, and try again."
+- **Message**: "Failed to connect to FTP server. Please make sure the provided server information is correct, and try again."
 
 - **Cause**: An incorrect linked service type might be used for the FTP server, such as using the Secure FTP (SFTP) linked service to connect to an FTP server.
 
