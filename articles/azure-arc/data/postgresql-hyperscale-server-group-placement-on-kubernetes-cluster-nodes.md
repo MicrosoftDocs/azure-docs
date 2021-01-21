@@ -64,7 +64,7 @@ Each of those pods host a PostgreSQL instance. Together they form the Azure Arc 
 
 ```output
 Pod name	    Role in the server group
-postgres01c-0  Coordinator
+postgres01c-0 Coordinator
 postgres01w-0	Worker
 postgres01w-1	Worker
 ```
