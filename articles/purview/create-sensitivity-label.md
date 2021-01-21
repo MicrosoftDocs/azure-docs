@@ -63,7 +63,7 @@ Sensitivity labels are supported in Azure Purview for the following data types:
 
 In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [MIP sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
 
-Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with eachother. Therefore, labels applied in SSMS are not shown in Purview, and vice versa. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
+Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with each other. Therefore, labels applied in SSMS are not shown in Purview, and vice versa. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
 
 For more information, see the [SQL data discovery and classification documentation](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
@@ -88,7 +88,7 @@ By default, MIP sensitivity labels are only available for assets in Microsoft 36
 
 To apply MIP sensitivity labels to Azure assets in Azure Purview, you must explicitly consent to extending the labels, and select the specific labels that you want to be available in Purview.
 
-By extending MIP’s sensitivity labels with Azure Purview, organizations can now discover, classify and get insight into sensitivity across a broader range of data sources, minimizing compliance risk.
+By extending MIP’s sensitivity labels with Azure Purview, organizations can now discover, classify, and get insight into sensitivity across a broader range of data sources, minimizing compliance risk.
 
 > [!NOTE]
 > Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer data, and are kept within the same GEO location by default to protect the sensitivity of your data and to avoid GDPR laws.
@@ -125,7 +125,7 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
     For more information about wizard options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
-1. Repeat the steps listed above to create additional labels. 
+1. Repeat the steps listed above to create more labels. 
 
     To create a sublabel, select the parent label > **...** > **More actions** > **Add sub label**.
 
