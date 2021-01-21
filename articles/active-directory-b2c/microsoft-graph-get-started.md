@@ -1,5 +1,5 @@
 ---
-title: Register a Microsoft Graph Application
+title: Register a Microsoft Graph application
 titleSuffix: Azure AD B2C
 description: Prepare for managing Azure AD B2C resources with Microsoft Graph by registering an application that's granted the required Graph API permissions.
 services: B2C
@@ -14,7 +14,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Register a Microsoft Graph Application
+# Register a Microsoft Graph application
 
 [Microsoft Graph][ms-graph] allows you to manage many of the resources within your Azure AD B2C tenant, including customer user accounts and custom policies. By writing scripts or applications that call the [Microsoft Graph API][ms-graph-api], you can automate tenant management tasks like:
 
