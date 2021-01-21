@@ -192,15 +192,15 @@ appendix
 
 Regenerate your package in case you changed your service definition file. Otherwise, you can use the same package from cloud service (classic) deployment. 
 
-Package needs to be passed in Powershell cmdlet as PackageUrl that refers to the location of the service package in the Blob service. The package URL can be Shared Access Signature (SAS) URI from any storage account 
+Package needs to be passed in PowerShell cmdlet as PackageUrl that refers to the location of the service package in the Blob service. The package URL can be Shared Access Signature (SAS) URI from any storage account 
 
 ### Service Configuration 
 
 Service Configuration can be specified either as string XML or URL format 
 
-Service Configuration needs to be passed  in Powershell cmdlet as ConfigurationUrl that refers to Shared Access Signature (SAS) URI from any storage account 
+Service Configuration needs to be passed  in PowerShell cmdlet as ConfigurationUrl that refers to Shared Access Signature (SAS) URI from any storage account 
 
-Service configuration can also be passed in Powershell cmdlet as Configuration that specifies the XML service configuration (.cscfg) for the cloud service in string format 
+Service configuration can also be passed in PowerShell cmdlet as Configuration that specifies the XML service configuration (.cscfg) for the cloud service in string format 
 
 | Parameter Name | Type | Description | 
 |---|---|---|
