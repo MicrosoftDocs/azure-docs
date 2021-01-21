@@ -58,6 +58,12 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
    1. On the **Settings** menu, under **Gateway**, select **Extensions**.
 
+   1. Select the **Feeds** tab and select **Add**.
+
+   1. Enter https://aka.ms/wac-insiders-feed into the text box and select **Add**.
+
+   1. After the feed has been added, navigate to the **Available extensions** tab. It may take a moment to update the extensions list.
+
    1. On the **Available extensions** tab, find **Azure IoT Edge** in the list of extensions. Choose it, and select the **Install** prompt above the list of extensions.
 
    1. After the installation completes, you should see Azure IoT Edge in the list of installed extensions on the **Installed extensions** tab.

@@ -123,7 +123,11 @@ Allow access to the following URLs:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |The connector uses these URLs during the registration process. |
 | ctldl.windowsupdate.com | 80/HTTP |The connector uses this URL during the registration process. |
 
-You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+You can allow connections to &ast;.msappproxy.net, &ast;.servicebus.windows.net, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+
+### DNS name resolution for Azure AD Application Proxy endpoints
+
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses hostnames with the domain suffixes _*.msappproxy.net_ or _*.servicebus.windows.net_. However, during the name resolution the CNAME records might contain DNS records with different hostnames and suffixes.  Due to this, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we cannot provide you with any list DNS records.
 
 ## Install and register a connector
 
