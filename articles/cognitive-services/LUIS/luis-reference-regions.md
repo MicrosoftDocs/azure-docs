@@ -3,8 +3,10 @@ title: Publishing regions & endpoints - LUIS
 description: The region specified in the Azure portal is the same where you will publish the LUIS app and an endpoint URL is generated for this same region.
 ms.service: cognitive-services
 ms.subservice: language-understanding
+author: aahill
+ms.author: aahi
 ms.topic: reference
-ms.date: 12/02/2020
+ms.date: 01/21/2021
 ---
 
 # Authoring and publishing regions and the associated keys
