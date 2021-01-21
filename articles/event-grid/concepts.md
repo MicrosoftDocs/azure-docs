@@ -68,7 +68,7 @@ If Event Grid can't confirm that an event has been received by the subscriber's 
 
 ## Batching
 
-When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB.
+When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB and the maximum size of an event is 1 MB. 
 
 ## Next steps
 
