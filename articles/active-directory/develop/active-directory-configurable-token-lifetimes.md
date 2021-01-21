@@ -80,6 +80,8 @@ You can set token lifetime policies for refresh tokens and session tokens.
 > If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
 > If you do not want to use Conditional Access after the retirement date, your refresh and session tokens will be set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement) on that date and you will no longer be able to change their lifetimes.
+>
+> Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Retirement information":::
 
