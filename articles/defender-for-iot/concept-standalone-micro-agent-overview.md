@@ -1,6 +1,6 @@
 ---
 title: Standalone micro agent overview 
-description: The Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects.
+description: The Azure Defender for IoT security agents allows you to build security directly into your new IoT devices and Azure IoT projects.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: azure
 ---
 
-## Standalone micro agent overview 
+# Standalone micro agent overview 
 
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements. 
 
-The Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. 
+The Azure Defender for IoT security agents allows you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. 
 
 The Azure Defender for IoT micro agent provides endpoint visibility into security posture management, threat detection, and integration into Microsoft's other security tools for unified security management. 
 
@@ -33,7 +33,7 @@ The Azure Defender for IoT micro agent includes source code, allowing you to inc
 
 The Azure Defender for IoT micro agent is easy to deploy, and has minimal performance impact on the endpoint. With Defender for IoT micro agent you can:
 
-- **Optimize for performance**: The Azure Defender for IoT micro agent has a very small footprint and low CPU consumption.  
+- **Optimize for performance**: The Azure Defender for IoT micro agent has a small footprint and low CPU consumption.  
 
 - **Plug and Play**: There are no specific OS kernel dependencies, or support necessary for all major IoT operating systems. Azure Defender for IoT micro agent meets your devices where they are. 
 

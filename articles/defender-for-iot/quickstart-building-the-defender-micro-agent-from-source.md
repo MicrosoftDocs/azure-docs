@@ -1,5 +1,5 @@
 ---
-title: Standalone agent binary installation
+title: Building the Defender micro agent from source
 description: Micro Agent includes an infrastructure which can be used to customize your distribution.
 author: shhazam-ms
 manager: rkarlin

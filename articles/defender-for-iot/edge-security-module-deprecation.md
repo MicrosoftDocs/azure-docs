@@ -1,6 +1,6 @@
 ---
 title: Defender for IoT C, C#, and Edge security module deprecation
-description: 
+description: Defender for IoT will continue to support C, C#, and Edge until March 1, 2022. 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
