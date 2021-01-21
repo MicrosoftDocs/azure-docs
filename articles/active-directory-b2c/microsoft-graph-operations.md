@@ -16,9 +16,9 @@ ms.subservice: B2C
 ---
 # Microsoft Graph operations available for Azure AD B2C
 
-Microsoft Graph allows you to manage objects, such as user accounts, user flows, keys, and more in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
+Microsoft Graph allows you to manage objects in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
-## Register a management application
+## Perquisites
 
 To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 
 
@@ -37,7 +37,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 - [Update](/graph/api/b2cauthenticationmethodspolicy-update)
 - [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-For more information about managing user's sign-in phone number with the Microsoft Graph API, see [B2C Authentication Methods](/graph/api/resources/b2cauthenticationmethodspolicy).
+For more information about managing user's sign-in phone number, see [B2C Authentication Methods](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## Identity providers (user flow)
 
@@ -72,7 +72,7 @@ The following operations allow you to manage your Azure AD B2C Trust Framework p
 
 The Identity Experience Framework stores the secrets referenced in a custom policy to establish trust between components. These secrets can be symmetric or asymmetric keys/values. In the Azure portal, these entities are shown as **Policy keys**.
 
-The top-level resource for policy keys in the Microsoft Graph API is the [Trusted Framework Keyset](/graph/api/resources/trustframeworkkeyset). Each **Keyset** contains at least one **Key**. To create a key, first create an empty keyset, and then generate a key in the keyset. You can create a manual secret, upload a certificate, or a PKCS12 key. The key can be a generated secret, a string you define (such as the Facebook application secret), or a certificate you upload. If a keyset has multiple keys, only one of the keys is active.
+The top-level resource for policy keys in the Microsoft Graph API is the [Trusted Framework Keyset](/graph/api/resources/trustframeworkkeyset). Each **Keyset** contains at least one **Key**. To create a key, first create an empty keyset, and then generate a key in the keyset. You can create a manual secret, upload a certificate, or a PKCS12 key. The key can be a generated secret, a string (such as the Facebook application secret), or a certificate you upload. If a keyset has multiple keys, only one of the keys is active.
 
 ### Trust Framework policy keyset
 
@@ -109,12 +109,7 @@ Azure AD B2C provides a directory that can hold 100 custom attributes per user. 
 
 - [List audit logs](/graph/api/directoryaudit-list)
 
-For more information about accessing Azure AD B2C audit logs with the Microsoft Graph API, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
-
-
-You can migrate an existing user store to an Azure AD B2C tenant and perform other user account management operations by calling the Microsoft Graph API.
-
-In the sections that follow, the key aspects of Azure AD B2C user management with the Microsoft Graph API are presented. The Microsoft Graph API operations, types, and properties presented here are a subset of that which appears in the Microsoft Graph API reference documentation.
+For more information about accessing Azure AD B2C audit logs, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
 
 ## Code sample: How to programmatically manage user accounts
 
@@ -197,10 +192,6 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 ```
 
 [Make API calls using the Microsoft Graph SDKs](/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
-
-## Next steps
-
-For a full index of the Microsoft Graph API operations supported for Azure AD B2C resources, see [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md).
 
 <!-- LINK -->
 
