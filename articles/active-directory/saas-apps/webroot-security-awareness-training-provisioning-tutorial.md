@@ -116,7 +116,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
-   |externalId|String|&check;|
+   |userName|String|&check;|
+   |externalId|String|
    |name.givenName|String|
    |name.familyName|String|
    |emails[type eq "work"].value|String|

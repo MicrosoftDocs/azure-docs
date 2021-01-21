@@ -193,6 +193,10 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](./consumption-model.md).
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 To learn more about Azure Notebooks, see
