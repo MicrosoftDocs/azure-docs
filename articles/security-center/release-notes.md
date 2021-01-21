@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2021
+ms.date: 01/21/2021
 ms.author: memildin
 
 ---
@@ -33,7 +33,7 @@ Updates in December include:
 
 - [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
 - [Vulnerability assessment for on-premise and multi-cloud machines is generally available](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
-
+- ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
 ### CSV export of filtered list of recommendations 
 
@@ -67,6 +67,13 @@ Main capabilities:
 [Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+
+### "Not applicable" resources now reported as "Compliant" in Azure Policy assessments
+
+Previously, resources that were evaluated for a recommendation and found to be **not applicable** appeared in Azure Policy as "Non-compliant". No user actions could change their state to "Compliant". With this change, they're reported as "Compliant" for improved clarity.
+
+The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
+
 
 
 ## December 2020
