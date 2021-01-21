@@ -57,11 +57,13 @@ You can navigate directly to the _Details_ page for your service:
 > [!div class="checklist"]
 > * **Subscription**. Select one of your available Azure subscriptions.
 > * **Resource Group**. This Azure resource group will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group that shares the same lifecycle, permissions, and policies.
-> * **Resource Region**. Enter the [Azure geographical region](https://azure.microsoft.com/global-infrastructure/geographies/) that meets your needs.
+> * **Resource Region**. Choose the Global unless your business or application requires a specific region. Translator is a non-regional service for which there is no dependency on a specific Azure region.
 > * **Name**. Enter the name you have chosen for your resource. This will be your custom domain name in your endpoint.
-> * **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) that meets your needs:
+> * **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
 
-<ul style="padding-left:30px"><li>Each subscription has a free tier.</li><li>The free tier has the same features and functionalities as paid plans and doesn't expire.</li><li>You can have only one free subscription per account.</li></ul>
+> > * Each subscription has a free tier.
+>> * The free tier has the same features and functionalities as paid plans and doesn't expire.
+>> * You can only have one free subscription per account.</li></ul>
 
 > [!div class="checklist"]
 > * If you have created a multi-service resource, you will need to confirm additional usage details via the check boxes.
@@ -74,21 +76,21 @@ You can navigate directly to the _Details_ page for your service:
 All Cognitive Services API requests require an authentication key. You can pass your key through a query-string parameter or by specifying it in the HTTP request header.
 
 1. Retrieve your authentication key by selecting **Keys and Endpoint** from the left-rail menu.
-1. Copy either of the listed subscription keys.
-
-[!INCLUDE  cognitive-services-environment-variables]
+1. You can copy the endpoint and either of the listed subscription keys to a text editor for easy retrieval.
 
 ## Delete a  resource or resource group
 
-To remove a Cognitive Services or Translator resource, you can [delete the resource](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). **NOTE**: Deleting the resource group also deletes the resources contained in the group.
+To remove a Cognitive Services or Translator resource, you can [delete the resource](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource) or [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group). 
 
-## Learn more
+> [!Warning]
+> Deleting a resource group also deletes all resources contained in the group.
 
-* **[Custom Translator](customization.md)**.  You can customize text translations to reflect your domain-specific terminology and style.
+## Get started
 
-* **[Microsoft Translator code samples](https://github.com/MicrosoftTranslator)**.  Multi-language Translator code samples are available on GitHub.
+* **[Translator quickstart](quickstart-translator.md?tabs=csharp)**.  Learn to use the Translator service with REST APIs.
 
 ## More resources
 
-- [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
-- [Get Started with Azure (3-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
+* [Microsoft Translator code samples](https://github.com/MicrosoftTranslator).  Multi-language Translator code samples are available on GitHub.
+* [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
+* [Get Started with Azure (3-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
