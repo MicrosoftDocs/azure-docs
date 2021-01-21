@@ -42,7 +42,7 @@ First, Microsoft cancels the existing reservation and refunds the pro-rated amou
 
 ### Enterprise agreement customers
 
-Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
+Money is added to the Azure Prepayment (previously called monetary commitment) for exchanges and refunds if the original purchase was made using one. If the Azure Prepayment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
 If the original purchase was made as an overage, the original invoice on which the reservation was purchased and all later invoices are reopened and readjusted. Microsoft issues a credit memo for the refunds.
 

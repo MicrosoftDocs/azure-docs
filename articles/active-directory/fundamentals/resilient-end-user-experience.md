@@ -53,7 +53,7 @@ As part of the external identity provider registration process, include a verifi
 
  2. Configure a profile policy to allow users to [link the other identity to their account](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) after they sign in.
 
- 3. Notify and allow users to [switch to an alternate IDP](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#configure-dynamic-custom-page-content-uri) during an outage.
+ 3. Notify and allow users to [switch to an alternate IDP](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) during an outage.
 
 ## Availability of Multi-factor authentication
 

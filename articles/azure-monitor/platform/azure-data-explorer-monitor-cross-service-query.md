@@ -1,7 +1,7 @@
 ---
 title: Cross service query between Azure Monitor and Azure Data Explorer (preview)
 description: Query Azure Data Explorer data through Azure Log Analytics tools vice versa to join and analyze all your data in one place.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
@@ -13,8 +13,6 @@ ms.date: 06/12/2020
 Create cross service queries between [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## Azure Monitor and Azure Data Explorer cross-service querying
 This experience enables you to [create cross service queries between Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) and to [create cross service queries between Azure Monitor and Azure Data Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Azure data explorer proxy flow.":::
 
 For example, (querying Azure Data Explorer from Log Analytics):
 ```kusto

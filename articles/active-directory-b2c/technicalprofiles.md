@@ -48,7 +48,7 @@ All types of technical profiles share the same concept. You send input claims, r
 ![Diagram illustrating the technical profile flow](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Single sign-on (SSO) session management** - Restores technical profile's session state, using [SSO session management](custom-policy-reference-sso.md).
-1. **Input claims transformation** - Before the technical profile is started, Azure AD B2C runs input [claims transformation].(claimstransformations.md).
+1. **Input claims transformation** - Before the technical profile is started, Azure AD B2C runs input [claims transformation](claimstransformations.md).
 1. **Input claims** - Claims are picked up from the claims bag that are used for the technical profile.
 1. **Technical profile execution** - The technical profile exchanges the claims with the configured party. For example:
     - Redirect the user to the identity provider to complete the sign-in. After successful sign-in, the user returns back and the technical profile execution continues.

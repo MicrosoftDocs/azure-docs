@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-## Create an Azure Database for PostgreSQL - Hyperscale (Citus)
+## Create a Hyperscale (Citus) server group
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

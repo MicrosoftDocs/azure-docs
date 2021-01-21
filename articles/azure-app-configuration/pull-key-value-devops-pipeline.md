@@ -99,6 +99,9 @@ echo "$env:myBuildSetting"
 ```
 And the value will be printed to the console.
 
+> [!NOTE]
+> Azure Key Vault references within App Configuration will be resolved and set as [secret variables](/azure/devops/pipelines/process/variables#secret-variables). In Azure pipelines, secret variables are masked out from log. They are not passed into tasks as environment variables and must instead be passed as inputs. 
+
 ## Troubleshooting
 
 If an unexpected error occurs, debug logs can be enabled by setting the pipeline variable `system.debug` to `true`.

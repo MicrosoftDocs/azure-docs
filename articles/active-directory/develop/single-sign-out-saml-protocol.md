@@ -19,6 +19,8 @@ ms.reviewer: paulgarn
 
 Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. Azure AD uses the LogoutURL to redirect users after they're signed out.
 
+Azure AD supports redirect binding (HTTP GET), and not HTTP POST binding.
+
 The following diagram shows the workflow of the Azure AD single sign-out process.
 
 ![Azure AD Single Sign Out Workflow](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)

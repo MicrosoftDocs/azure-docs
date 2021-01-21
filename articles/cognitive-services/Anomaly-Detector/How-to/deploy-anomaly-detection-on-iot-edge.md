@@ -43,7 +43,7 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 
 5. Navigate to **Environment Variables** and provide the following information.
 
-    1.  Keep the value accept for ***Eula**.
+    1.  Keep the value accept for **Eula**.
 
     1. Fill out **Billing** with your Cognitive Services endpoint.
 

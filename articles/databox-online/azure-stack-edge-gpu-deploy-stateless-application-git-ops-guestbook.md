@@ -23,6 +23,8 @@ The deployment is done using GitOps on the Arc enabled Kubernetes cluster on you
 
 This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
 
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Prerequisites
 
@@ -104,7 +106,6 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 1. The deployment takes a couple minutes. When the deployment completes, the **Operator state** shows as **Installed**.
 
     ![Screenshot shows the Azure Arc enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## Verify deployment
 

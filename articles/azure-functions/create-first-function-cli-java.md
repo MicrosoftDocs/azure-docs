@@ -66,7 +66,7 @@ In Azure Functions, a function project is a container for one or more individual
     ---
 
     > [!IMPORTANT]
-    > + Use `-DjavaVersion=11` if you want to your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+    > + Use `-DjavaVersion=11` if you want your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
     > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
 
 1. Maven asks you for values needed to finish generating the project on deployment.   
@@ -139,7 +139,7 @@ The archetype also generates a unit test for your function. When you change your
     </pre>
     
     > [!NOTE]  
-    > If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
+    > If HttpExample doesn't appear as shown above, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
 1. Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<YOUR_NAME>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 

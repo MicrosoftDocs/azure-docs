@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 12/18/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -102,7 +102,7 @@ Having the search ID allows correlation of the metrics emitted by Azure Cognitiv
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
 
-var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>)
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
@@ -119,7 +119,7 @@ if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };

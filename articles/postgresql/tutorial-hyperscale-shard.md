@@ -196,9 +196,9 @@ roughly equal numbers of rows.
 The rows in our `users` example distributed evenly because properties of the
 distribution column, `email`.
 
-1. The number of email addresses was greater than or equal to the number of shards
+1. The number of email addresses was greater than or equal to the number of shards.
 2. The number of rows per email address was similar (in our case, exactly one
-   row per address because we declared email a key)
+   row per address because we declared email a key).
 
 Any choice of table and distribution column where either property fails will
 end up with uneven data size on workers, that is, *data skew*.
