@@ -188,17 +188,15 @@ Then, save your details by hitting the _Save_ button.
 
 You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
 
-You'll need ADT_INSTANCE_URL to create an application setting.
-
-You can get ADT_INSTANCE_URL by appending **_https://_** to your instance host name. In the Azure portal, you can find your digital twins instance host name by searching for your instance in the search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value to create an application setting.
+To set an environment variable with the URL of your instance, first get the URL by finding your Azure Digital Twins instance's host name. Search for your instance in the [Azure portal](https://portal.azure.com) search bar. Then, select _Overview_ on the left navigation bar to view the _Host name_. Copy this value.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure portal: Overview-> Copy hostname to use in the _Value_ field.":::
 
 You can now create an application setting following the steps below:
 
-* Search for your app using the function app name in the search bar and select the function app from the list
-* Select _Configuration_ on the navigation bar on the left to create a new application setting
-* In the _Application settings_ tab, select _+ New application setting_
+1. Search for your app using the function app name in the search bar and select the function app from the list
+1. Select _Configuration_ on the navigation bar on the left to create a new application setting
+1. In the _Application settings_ tab, select _+ New application setting_
 
 :::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure portal: Search for an existing function app":::
 
@@ -212,7 +210,7 @@ Select _OK_ to create an application setting.
 
 :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure portal: Add application settings.":::
 
-You can view your application settings with application name under the _Name_ field. Then, save your application settings by selecting _Save_ button.
+You can view your application settings with application name under the _Name_ field. Then, save your application settings by selecting the _Save_ button.
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure portal: View the application created and restart the application":::
 
