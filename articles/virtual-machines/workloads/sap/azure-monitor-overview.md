@@ -60,12 +60,12 @@ Microsoft SQL server telemetry:
 - Blocking processes and SQL Wait Statistics over time
 
 Operating system Telemetry (Linux) 
-- CPU utilization, count of fork, running and blocked processes. 
+- CPU utilization, fork's count, running and blocked processes. 
 - Memory utilization and distribution among utilized, cached, buffered. 
 - Swap utilization, Paging, and swap rate. 
 - Filesystems utilization, Number of bytes read and written per block device. 
-- Time spent on Read/write by each block device. 
-- Ongoing i/o count, Persistent memory read/write bytes. 
+- Read/write latency per block device. 
+- Ongoing I/O count, Persistent memory read/write bytes. 
 - Network packets in/out, Network bytes in/out 
 
 ## Data sharing with Microsoft
