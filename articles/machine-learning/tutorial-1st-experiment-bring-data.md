@@ -96,6 +96,20 @@ tutorial
 
 If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
 
+Also, to run on local, make sure you exit the tutorial environment and activate the new conda environment:
+
+```bash
+conda deactivate				# If you are still using the tutorial environment, exit it
+```
+
+```bash
+conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+```
+
+```bash
+conda activate pytorch-aml-env			# activate new conda environment
+```
+
 To run the modified training script locally, call:
 
 ```bash

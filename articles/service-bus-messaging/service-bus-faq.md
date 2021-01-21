@@ -52,7 +52,7 @@ The official Azure SDKs generally use the AMQP protocol for sending and receivin
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
-The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) setting, which applies globally to the application.
+The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) setting, which applies globally to the application.
 
 ### What IP addresses do I need to add to allow list?
 To find the right IP addresses to add to allow list for your connections, follow these steps:
@@ -163,6 +163,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
+No. It's not possible to disable TLS 1.0 or 1.1 on Service Bus namespaces. In your client applications connecting to Service Bus, use TLS 1.2 or above. For more information, see [Enforcing TLS 1.2 use with Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## Next steps
 To learn more about Service Bus, see the following articles:

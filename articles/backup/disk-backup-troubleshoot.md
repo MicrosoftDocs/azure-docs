@@ -148,11 +148,29 @@ Error Message: The disk snapshot metadata for this Restore point has been delete
 
 Recommended Action: Consider using another recovery point to restore. For more information, see the [restore documentation](restore-managed-disks.md).
 
+### Error Code: BackupAgentPluginHostValidateProtectionError
+
+Error Message: Disk Backup is not yet available in the region of the Backup Vault under which Configure Protection is being tried.
+
+Recommended Action: Backup Vault must be in a preview supported region. For region availability see the [the support matrix](disk-backup-support-matrix.md).
+
+### Error Code: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Error Message: The disk you are trying to configure backup is already being protected. Disk is already associated with a backup instance in a Backup vault.
+
+Recommended Action: This disk is already associated with a backup instance in a Backup vault. If you want to re-protect this disk, then delete the backup instance from the Backup vault where it's currently protected and re-protect the disk in any other vault.
+
+### Error Code: UserErrorDppDatasourceAlreadyProtected
+
+Error Message: The disk you are trying to configure backup is already being protected. Disk is already associated with a backup instance in a Backup vault.
+
+Recommended Action: This disk is already associated with a backup instance in a Backup vault. If you want to re-protect this disk, then delete the backup instance from the Backup vault where it is currently protected and re-protect the disk in any other vault.
+
 ### Error Code: UserErrorMaxConcurrentOperationLimitReached
 
-Error Message: Unable to start the operation as maximum number of allowed concurrent operations has reached for this operation type.
+Error Message: Unable to start the operation as maximum number of allowed concurrent backups has reached.
 
-Recommended Action: Wait until the previous operations complete.
+Recommended Action: Wait until the previous running backup completes.
 
 ## Next steps
 
