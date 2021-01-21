@@ -672,8 +672,6 @@
         href: ./linux/tutorial-secure-web-server.md
       - name: Windows
         href: ./windows/tutorial-secure-web-server.md
-  - name: VM template description
-    href: ./windows/template-description.md
   - name: Connect to Linux VMs
     items:
     - name: SSH for Linux VMs
@@ -1851,6 +1849,8 @@
     href: ./windows/ps-common-ref.md
   - name: Common networking PowerShell commands
     href: ./windows/ps-common-network-ref.md
+  - name: VM template description
+    href: ./windows/template-description.md
   - name: Classic deployments
     items:
     - name: Linux VMs using classic deployment
