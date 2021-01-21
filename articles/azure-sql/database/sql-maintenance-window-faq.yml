@@ -16,14 +16,14 @@ title: SQL Maintenance Window
 summary: This article answers frequently asked questions about SQL Maintenance Windows.
 
 sections:
-  - name: General 
-    questions: 
-      - question: What is the SQL Maintenance Window feature?
-        answer: | 
-          The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled, off business hour time blocks 
-          - Default window, 5PM to 8AM local time Monday - Sunday
-          - Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in**
-          - Weekend window, 10PM to 6AM local time Friday - Sunday: Requires customer opt-in
+  - name: General 
+    questions:
+      - question: What is the SQL Maintenance Window feature?
+        answer: | 
+          The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled, off business hour time blocks 
+          - Default window, 5PM to 8AM local time Monday - Sunday
+          - Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in**
+          - Weekend window, 10PM to 6AM local time Friday - Sunday: Requires customer opt-in
 
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
