@@ -38,15 +38,15 @@ On Azure Arc enabled hybrid services, Microsoft does not own and operate the inf
 
 The roles and responsibilities between Microsoft and its customers differ between Azure PaaS (Platform As A Service) and Azure hybrid (like Azure Arc enabled PostgreSQL Hyperscale). 
 
-The table below summarizes the support differences:
+The table below summarizes the support differences for each scenario based on support tasks:
 
-|                                   | Azure Platform As A Service (PaaS) | Azure Arc hybrid services |
-|:-----------------------------------|:------------------------------------:|:---------------------------:|
-| Who provides the infrastructure?   | Microsoft                          | Customer                  |
-| Who provides the software*?        | Microsoft                          | Microsoft                 |
-| Who does the operations?           | Microsoft                          | Customer                  |
-| Does Microsoft provide SLAs?       | Yes                                | No                        |
-| Who’s in charge of SLAs?           | Microsoft                          | Customer                  |
+| Task                      | Azure Platform As A Service (PaaS) | Azure Arc hybrid services |
+|:--------------------------|:---------------------------------:|:--------------------------:|
+| Provide infrastructure          | Microsoft                          | Customer                  |
+| Provide Azure services software | Microsoft                          | Microsoft                 |
+| Deliver operations              | Microsoft                          | Customer                  |
+| Apply Microsoft SLA             | Yes                                | No                        |
+| Manage SLA                      | Microsoft                          | Customer                  |
 
 ## Next steps
 
