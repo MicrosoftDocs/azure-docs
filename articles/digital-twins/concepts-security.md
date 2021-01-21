@@ -90,6 +90,14 @@ The following list describes the levels at which you can scope access to Azure D
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
 
+## Managed identity in Azure Digital Twins for accessing other resources
+
+A managed identity from Azure Active Directory (Azure AD) allows Azure Digital Twins instance to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+
+Azure support two types of managed identities: System-assigned and User-assigned. Currently, Azure Digital Twins supports only System-assigned identity. This means that you can use the System-assigned identity for your Azure Digital Instance to authenticate to [custom-defined endpoint](concepts-route-events.md#create-an-endpoint).  
+
+Azure Digital Twins supports System-assigned identity based authentication to your customer-defined endpoints for EventHub and ServiceBus destinations, and Azure Storage Container endpoint for dead-letter events. EventGrid is currently not supported.   
+
 ## Service tags
 
 A **service tag** represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [*Virtual network tags*](../virtual-network/service-tags-overview.md). 
