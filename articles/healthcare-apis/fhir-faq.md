@@ -2,12 +2,12 @@
 title: FAQs about FHIR services in Azure - Azure API for FHIR
 description: Get answers to frequently asked questions about the Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
-author: caitlinv39
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/21/2021
-ms.author: cavoeg
+ms.date: 08/03/2020
+ms.author: matjazl
 ---
 
 # Frequently asked questions about the Azure API for FHIR
@@ -32,7 +32,7 @@ The Azure API for FHIR is backed by Cosmos DB as our persistence provider. Becau
 
 We support versions 4.0.0 and 3.0.1 on both the Azure API for FHIR (PaaS) and FHIR Server for Azure (open source).
 
-For details, see [Supported features](fhir-features-supported.md). Read about what has changed between FHIR versions (for example from STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
+For details, see [Supported features](fhir-features-supported.md). Read about what has changed between FHIR versions (i.e. STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
 Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4, and is visible only on R4 instances of Azure API for FHIR.
 
@@ -46,7 +46,7 @@ For a development standpoint, every feature that doesn't apply only to the manag
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
-To see some of what is releasing into the Azure API for FHIR, refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
 
 ### In which regions is Azure API for FHIR Available?
 
@@ -54,11 +54,11 @@ Currently, we have general availability for both public and government in [multi
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
-To see some of what is releasing into the Azure API for FHIR, refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
 
 ### What is SMART on FHIR?
 
-SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and used by a plethora of different systems.
+SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
 
 ### Where can I find what version of FHIR is running on my database. 
@@ -81,7 +81,7 @@ The current limit on _count is 100. If you set _count to more than 100, you will
 
 ### Are there any limitations on the Group Export functionality?
 
-In Group Export, we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
+For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
 
 ### Can I post a bundle to the Azure API for FHIR?
 
@@ -89,7 +89,7 @@ We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-b
 
 ### How can I get all resources for a single patient in the Azure API for FHIR?
 
-We support [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
+We support [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
 
 Some examples of this are below:
 
@@ -103,9 +103,9 @@ We support sorting by the date last updated: _sort=_lastUpdated. For more inform
 
 ### Does the Azure API for FHIR support $everything? 
 
-We do not support $everything. However it can be achieved with two API calls. For example to get Patient$everything, you can first grab the patient record using /Patient/[ID] and then a second call to retrieve all the patient data using /Patient/[ID]/*.
+No. At this time we do not support $everything. However it can be achieved with two API calls. For example to get Patient$everything, you can first grab the patient record using /Patient/[ID] and then a second call to retrieve all the patient data using /Patient/[ID]/*.
 
-You can see more details on $everything at this [community post](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
+You can see more details at this [community post](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
 
 ### How does $export work?
 
@@ -129,7 +129,7 @@ We have a [Health Architecture GitHub page](https://github.com/microsoft/health-
 
 ### Is there a way to encrypt my data using my personal key not a default key?
 
-Yes, Azure API for FHIR allows configuring customer-managed keys, using support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](./customer-managed-key.md).
+Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](./customer-managed-key.md).
 
 ## Azure API for FHIR: Preview Features
 
@@ -139,4 +139,4 @@ Since Azure IoT Connector for FHIR is free of charge during public preview, its 
 
 ### Why can't I install Azure IoT Connector for FHIR (preview) when Private Link is enabled on Azure API for FHIR?
 
-Azure IoT Connector for FHIR doesn't support Private Link capability currently. If you have Private Link enabled on Azure API for FHIR, you can't install Azure IoT Connector for FHIR and vice-versa. This limitation is expected to go away when Azure IoT Connector for FHIR is available for General Availability (GA).
+Azure IoT Connector for FHIR doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install Azure IoT Connector for FHIR and vice-versa. This limitation is expected to go away when Azure IoT Connector for FHIR is available for General Availability (GA).
