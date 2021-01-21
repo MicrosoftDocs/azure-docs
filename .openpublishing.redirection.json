@@ -27359,7 +27359,7 @@
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-1st-r-experiment.md",
       "redirect_url": "https://github.com/Azure/azureml-sdk-for-r",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/tutorial-1st-r-experiment.md",
