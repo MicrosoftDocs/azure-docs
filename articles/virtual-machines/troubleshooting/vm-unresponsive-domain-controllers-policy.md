@@ -34,6 +34,9 @@ This issue may be due to recent changes made to the Default Domain Controllers P
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 If you have recently made changes to the Default Domain Controllers Policy, you may wish to undo those changes to fix the issue. If you are not sure what is causing the issue, collect a memory dump and then submit a support ticket.
 
 ### Collect the memory dump file
