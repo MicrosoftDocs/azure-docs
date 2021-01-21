@@ -49,6 +49,8 @@ kind: Pod
 metadata:
   name: nginx
 spec:
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
   containers:
   - name: mypod
     image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine

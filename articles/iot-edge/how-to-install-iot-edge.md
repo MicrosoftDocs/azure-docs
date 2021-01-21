@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 01/20/2021
 ms.author: kgremban
 ---
 
@@ -217,6 +217,40 @@ After entering the provisioning information in the configuration file, restart t
 
    ```bash
    sudo systemctl restart iotedge
+   ```
+
+## Verify successful configuration
+
+Verify that the runtime was successfully installed and configured on your IoT Edge device.
+
+1. Check to see that the IoT Edge security daemon is running as a system service.
+
+   ```bash
+   sudo systemctl status iotedge
+   ```
+
+   >[!TIP]
+   >You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use `sudo` in front of the commands.
+
+2. If you need to troubleshoot the service, retrieve the service logs.
+
+   ```bash
+   journalctl -u iotedge
+   ```
+
+3. Use the `check` tool to verify configuration and connection status of the device.
+
+   ```bash
+   sudo iotedge check
+   ```
+
+   >[!TIP]
+   >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the **config.yaml** file to verify configuration status.
+
+4. View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+
+   ```bash
+   sudo iotedge list
    ```
 
 ## Offline or specific version installation (optional)
