@@ -88,7 +88,7 @@ This list shows the JWT claims that are in most id_tokens by default (except whe
 > The v1.0 and v2.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint, new applications should use the "Microsoft identity platform".
 >
 > - v1.0: Azure AD endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
-> - v2.0: The Microsoft identity platform: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v2.0: Microsoft identity Platform endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ### Using claims to reliably identify a user (Subject and Object ID)
 
