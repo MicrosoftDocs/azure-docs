@@ -281,6 +281,10 @@ To get a list of devices that are Azure certified for IoT, visit:
 
 * [Azure certified devices](https://catalog.azureiotsolutions.com/)
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 To learn more about how to send device-to-cloud telemetry, and the other way around, see:
