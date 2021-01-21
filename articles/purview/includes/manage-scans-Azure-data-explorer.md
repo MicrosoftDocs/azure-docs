@@ -1,5 +1,5 @@
 ---
-author: hrasheed-msft,amberz
+author: hrasheed-msft, amberz
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
@@ -21,19 +21,19 @@ To create and run a new scan, do the following:
 
 1. Select the credential to connect to your data source. 
 
-   :::image type="content" source="media/manage-scans/set-up-scan.png" alt-text="Set up scan":::
+   :::image type="content" source="media/manage-scans/Azure-data-explorer/set-up-scan.png" alt-text="Set up scan":::
 
 1. You can scope your scan to specific parts of the data source such as folders, collections or schemas by checking the appropriate items in the list.
 
-   :::image type="content" source="media/manage-scans/scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/manage-scans/Azure-data-explorer/scope-your-scan.png" alt-text="Scope your scan":::
 
 1. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-   :::image type="content" source="media/manage-scans/scan-rule-set.png" alt-text="Scan rule set":::
+   :::image type="content" source="media/manage-scans/Azure-data-explorer/scan-rule-set.png" alt-text="Scan rule set":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-   :::image type="content" source="media/manage-scans/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/manage-scans/Azure-data-explorer/trigger-scan.png" alt-text="trigger":::
 
 1. Review your scan and select **Save and run**.
 
