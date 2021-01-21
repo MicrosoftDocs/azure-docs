@@ -155,7 +155,13 @@ Subscriptions, as specified in the Java Message Service (JMS) 2.0 API, may or ma
 
 Once the subscription is scoped, it **can only be accessed** from client applications that have the same client id. 
 
-Any attempts to access a subscription scoped to a specific client id (say clientId1) from an application having another client id (say clientId2) will lead to the creation of another subscription scoped to the other client id (clientId2).  
+Any attempts to access a subscription scoped to a specific client id (say clientId1) from an application having another client id (say clientId2) will lead to the creation of another subscription scoped to the other client id (clientId2).
+
+> [!NOTE]
+> Client id can be null or empty, but it must match the client id set on the JMS client application. From the Azure Service Bus perspective, a null client id and an empty client id have the same behavior.
+>
+> If the client id is set to null or empty, it is only accessible to client applications whose client id is also set to null or empty.
+>
 
 ### Shareability
 
@@ -175,7 +181,14 @@ Any attempts to access a subscription scoped to a specific client id (say client
 
 **Non-durable** subscriptions are not-persisted and collect messages from the topic as long as an application (`JMSConsumer`) is consuming messages from it. 
 
+## Representation of client scoped subscriptions
 
+Given that the client scoped (JMS) subscriptions must co-exist with the existing [subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), the way the client scoped (JMS) subscriptions are represented follow the below format.
+
+   * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**D** (for durable subscriptions)
+   * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**ND** (for non-durable subscriptions)
+
+Here, **$** is the delimiter.
 
 ## Next steps
 
