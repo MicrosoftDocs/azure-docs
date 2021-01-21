@@ -394,6 +394,10 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)
 * [Azure Maps REST APIs](./consumption-model.md)
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 To learn more about Azure Notebooks, see
