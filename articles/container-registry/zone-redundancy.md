@@ -214,7 +214,7 @@ Copy the following contents to a new file and save it using a filename such as `
   }
 ```
 
-Run the following [az deployment group create](/cli/azure/deployment?view=azure-cli-latest#az_group_deployment_create) command to create the registry using the preceding template file. Where indicated, provide:
+Run the following [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) command to create the registry using the preceding template file. Where indicated, provide:
 
 * a unique registry name, or deploy the template without parameters and it will create a unique name for you
 * a location for the replica that supports availability zones, such as *westus2*
