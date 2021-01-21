@@ -691,7 +691,7 @@
   - name: Create Windows VMs
     items:
     - name: Use C#
-      href: ../azure-resource-manager/templates/deploy-rest.md
+      href: ../azure-resource-manager/templates/deploy-rest.md?context=/azure/virtual-machines/context/context
     - name: Use specialized disk
       items:
       - name: Portal
@@ -1118,13 +1118,13 @@
 - name: Availability and scale
   items:
   - name: Scale sets
-    href: ../virtual-machine-scale-sets/overview.md
+    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
   - name: Availability
     href: availability.md
   - name: Co-location
     href: ./linux/co-location.md
   - name: Network performance
-    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
+    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Autoscale
@@ -1281,7 +1281,7 @@
     - name: Virtual machine and disk performance
       href: disk-performance.md
     - name: Disk Storage reservations
-      href: ../cost-management-billing/reservations/understand-disk-reservations.md
+      href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
     - name: Reserve Disk Storage
       href: disks-reserved-capacity.md
     - name: Design for high performance
@@ -1436,7 +1436,7 @@
   - name: Overview
     href: network-overview.md
   - name: Create virtual network
-    href: ../virtual-network/quick-create-cli.md
+    href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
   - name: Open ports to a VM
     items:
     - name: CLI
@@ -1447,7 +1447,7 @@
       href: ./windows/nsg-quickstart-portal.md
     
   - name: Assign public IP address
-    href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md
+    href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
   - name: Use multiple NICs
     items:
     - name: Linux using CLI
@@ -1455,7 +1455,7 @@
     - name: Windows using PowerShell
       href: ./windows/multiple-nics.md
   - name: Use accelerated networking
-    href: ../virtual-network/create-vm-accelerated-networking-cli.md
+    href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
   - name: Assign public DNS name
     href: create-fqdn.md
   - name: Find and delete unattached NICs
@@ -1585,7 +1585,7 @@
     - name: Virtual machine scale set OS image upgrades
       items:
       - name: Automatic OS upgrades
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
       - name: Maintenance control
         items:
         - name: Overview (Preview)
@@ -1595,7 +1595,7 @@
 - name: Monitoring
   items:
   - name: Overview
-    href: ../azure-monitor/insights/monitor-vm-azure.md
+    href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
   - name: Monitoring VMs
     items:
     - name: Linux
@@ -1605,70 +1605,70 @@
   - name: Agents
     items:
     - name: Agents overview
-      href: ../azure-monitor/platform/agents-overview.md
+      href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
-      href: ../azure-monitor/faq.md#agents
+      href: ../azure-monitor/faq.md#agents?context=/azure/virtual-machines/context/context
     - name: Azure Diagnostics extension
       items:
       - name: Overview
-        href: ../azure-monitor/platform/diagnostics-extension-overview.md
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
       - name: Linux diagnostics extension
         items:
         - name: Overview
           href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
         - name: Collect metrics with Telegraf
-          href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md
+          href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
           displayname: diagnostics extension
     - name: Log Analytics agent
       items:
       - name: Overview
-        href: ../azure-monitor/platform/log-analytics-agent.md
+        href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
       - name: Linux agents
-        href: ../azure-monitor/platform/agent-linux.md
+        href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
       - name: Log Analytics gateway
-        href: ../azure-monitor/platform/gateway.md
+        href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
       - name: Agent management
-        href: ../azure-monitor/platform/agent-manage.md
+        href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
       - name: Agent Health
-        href: ../azure-monitor/insights/solution-agenthealth.md
+        href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
       - name: Data sources
         items:
         - name: Overview
-          href: ../azure-monitor/platform/agent-data-sources.md
+          href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
         - name: Custom JSON data
-          href: ../azure-monitor/platform/data-sources-json.md
+          href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
         - name: collectd performance data
-          href: ../azure-monitor/platform/data-sources-collectd.md
+          href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
         - name: Syslog
-          href: ../azure-monitor/platform/data-sources-syslog.md
+          href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
         - name: Performance counters
-          href: ../azure-monitor/platform/data-sources-performance-counters.md
+          href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
         - name: Linux application performance
-          href: ../azure-monitor/platform/data-sources-linux-applications.md
+          href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
         - name: Custom logs
-          href: ../azure-monitor/platform/data-sources-custom-logs.md
+          href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
         - name: Custom fields
-          href: ../azure-monitor/platform/custom-fields.md
+          href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
     - name: Troubleshoot
       items:
       - name: Log Analytics VM Extension
-        href: ../azure-monitor/platform/vmext-troubleshoot.md
+        href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
         displayname: troubleshoot, troubleshooting
       - name: Log Analytics Linux agent
-        href: ../azure-monitor/platform/agent-linux-troubleshoot.md
+        href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
         displayname: troubleshoot, troubleshooting
     - name: Azure Monitor for VMs
       items:
       - name: Overview
-        href: ../azure-monitor/insights/vminsights-overview.md
+        href: ../azure-monitor/insights/vminsights-overview.md?context=/azure/virtual-machines/context/context
       - name: General Availability FAQ
-        href: ../azure-monitor/insights/vminsights-ga-release-faq.md
+        href: ../azure-monitor/insights/vminsights-ga-release-faq.md?context=/azure/virtual-machines/context/context
       - name: FAQ
-        href: ../azure-monitor/faq.md#azure-monitor-for-vms
+        href: ../azure-monitor/faq.md#azure-monitor-for-vms?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
-          href: ../azure-monitor/insights/vminsights-enable-overview.md
+          href: ../azure-monitor/insights/vminsights-enable-overview.md?context=/azure/virtual-machines/context/context
         - name: Enable for single Azure VM
           href: ../azure-monitor/insights/vminsights-enable-portal.md?context=/azure/virtual-machines/context/context
         - name: Enable using Azure Policy
@@ -1678,19 +1678,19 @@
         - name: Enable for Hybrid environment
           href: ../azure-monitor/insights/vminsights-enable-hybrid.md?context=/azure/virtual-machines/context/context
       - name: Map dependencies
-        href: ../azure-monitor/insights/vminsights-maps.md
+        href: ../azure-monitor/insights/vminsights-maps.md?context=/azure/virtual-machines/context/context
       - name: Monitor performance
-        href: ../azure-monitor/insights/vminsights-performance.md
+        href: ../azure-monitor/insights/vminsights-performance.md?context=/azure/virtual-machines/context/context
       - name: Analyze data with log queries
-        href: ../azure-monitor/insights/vminsights-log-search.md
+        href: ../azure-monitor/insights/vminsights-log-search.md?context=/azure/virtual-machines/context/context
       - name: Visualize data with workbooks
-        href: ../azure-monitor/insights/vminsights-workbooks.md
+        href: ../azure-monitor/insights/vminsights-workbooks.md?context=/azure/virtual-machines/context/context
       - name: Create alert rules
-        href: ../azure-monitor/insights/vminsights-alerts.md
+        href: ../azure-monitor/insights/vminsights-alerts.md?context=/azure/virtual-machines/context/context
       - name: Upgrade Dependency agent
-        href: ../azure-monitor/insights/vminsights-dependency-agent-maintenance.md
+        href: ../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?context=/azure/virtual-machines/context/context
       - name: Disable monitoring
-        href: ../azure-monitor/insights/vminsights-optout.md
+        href: ../azure-monitor/insights/vminsights-optout.md?context=/azure/virtual-machines/context/context
   - name: VM usage
     href: vm-usage.md
   - name: Tag a VM
