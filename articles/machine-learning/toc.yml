@@ -70,10 +70,6 @@
         - name: Label image data
           displayName: tag, tagging, images
           href: tutorial-labeling.md
-    - name: R SDK
-      items: 
-        - name: Create first ML experiment (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items: 
         - name: Train & deploy with CLI

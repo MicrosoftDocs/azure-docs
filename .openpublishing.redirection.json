@@ -2,6 +2,48 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/tutorial-azure-security.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-backup-vms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/csharp-template.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/csharp-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/publish-web-app-from-visual-studio.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-backup-vms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-backup-vms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
+      "source_path": "articles/virtual-machines/extensions/log-collector.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/extensions/custom-script-linuxOstc.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/extensions/custom-script-linuxOstc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/extensions/trend.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/extensions/trend",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm.md",
       "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm",
       "redirect_document_id": false
@@ -27358,8 +27400,13 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-1st-r-experiment.md",
-      "redirect_url": "/azure/machine-learning/tutorial-1st-r-experiment",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/Azure/azureml-sdk-for-r",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-1st-r-experiment.md",
+      "redirect_url": "https://github.com/Azure/azureml-sdk-for-r",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-auto-train-models.md",
@@ -51879,7 +51926,7 @@
     },
 	{
       "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
-      "redirect_url": "/azure/articles/active-directory/cloud-sync/what-is-cloud-sync",
+      "redirect_url": "/azure/active-directory/cloud-sync/what-is-cloud-sync",
       "redirect_document_id": false
     },
 	{
