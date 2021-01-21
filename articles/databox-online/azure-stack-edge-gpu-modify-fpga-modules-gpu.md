@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device
 
-This article describes how to modify a docker-based IoT Edge module that runs on Azure Stack Edge Pro FPGA so it can run on a Kubernetes-based IoT Edge platform on Azure Stack Edge Pro GPU device. The article details the changes to be made to docker-based IoT Edge modules to run successfully on Kubernetes-based IoT Edge modules.
+This article details the changes needed for a docker-based IoT Edge module that runs on Azure Stack Edge Pro FPGA so it can run on a Kubernetes-based IoT Edge platform on Azure Stack Edge Pro GPU device. 
 
 ## About IoT Edge implementation 
 
@@ -22,6 +22,8 @@ The IoT Edge implementation is different on Azure Stack Edge Pro FPGA devices vs
 If you are migrating your workloads from an FPGA device to a GPU device, you will need to make changes to existing IoT Edge modules for those to run successfully on the Kubernetes platform. You may need to specify your storage, networking, resource usage, and web proxy requirements differently.
 
 ## Storage
+
+Consider the following information when specifying storage for the IoT Edge modules.
 
 - Storage for containers on Kubernetes is specified using volume mounts whereas storage on docker uses binding paths.
 - Deployment on Kubernetes can’t have binds for associating persistent storage or host paths.
@@ -87,18 +89,19 @@ For the GPU devices running IoT Edge on Kubernetes, volume mounts are used to sp
 
 ## Network
 
-The following 
+Consider the following information when specifying networking for the IoT Edge modules. 
+
 - `HostPort` specification is required to expose a service both inside and outside the cluster.
     - K8sExperimental options to limit exposure of service to cluster only.
-- Inter module communication requires HostPort specification, and connection using mapped port (and not using the container exposed port).
-- Host networking works with dnsPolicy = ClusterFirstWithHostNet, with that all containers (esp edgeHub) don’t have to be on host network as well.
-- Adding port mappings for tcp, udp in same request doesn’t work.
+- Inter module communication requires `HostPort` specification, and connection using mapped port (and not using the container exposed port).
+- Host networking works with `dnsPolicy = ClusterFirstWithHostNet`, with that all containers (especially `edgeHub`) don’t have to be on host network as well. <!--Need further clarifications on this one-->
+- Adding port mappings for TCP, UDP in same request doesn’t work.
 
 #### Example - External access to modules 
 
 For any IoT Edge modules that specify port bindings, an IP address is assigned using the Kubernetes external service IP range that was specified in the local UI of the device. There are no changes to the container create options between IoT Edge on docker vs IoT Edge on Kubernetes as shown in the following example.  
 
-```	
+```json	
 {
     "HostConfig": {
         "PortBindings": {
@@ -112,99 +115,111 @@ For any IoT Edge modules that specify port bindings, an IP address is assigned u
 }
 ```
 
-However, to query the IP address assigned to your module, you can use the Kubernetes dashboard as described in [Get IP address for services or modules](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules). Alternatively, you can [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and use the `iotedge` list command to list all the modules running on your device. The [Command output](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge) will also indicate the external IPs associated with the module.
+However, to query the IP address assigned to your module, you can use the Kubernetes dashboard as described in [Get IP address for services or modules](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules). 
+
+Alternatively, you can [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and use the `iotedge` list command to list all the modules running on your device. The [Command output](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge) will also indicate the external IPs associated with the module.
 
 
-## Resource usage
+## Resource usage 
 
 With the Kubernetes-based IoT Edge setups on GPU devices, the resources such as hardware acceleration, memory, and CPU requirements are specified differently than on the FPGA devices. 
 
-- **Specifying GPU usage**: To deploy FPGA models, you use the container create options with Device Bindings as shown in the following config: <!--not sure where are device bindings in this config--> 
+#### Compute acceleration usage
 
-    ```	
-    {
-        "HostConfig": {
-        "Privileged": true,
-        "PortBindings": {
-            "50051/tcp": [
-            {
-                "HostPort": "50051"
-            }
-            ]
+To deploy modules on FPGA, use the container create options with Device Bindings as shown in the following config: <!--not sure where are device bindings in this config--> 
+
+```json
+{
+    "HostConfig": {
+    "Privileged": true,
+    "PortBindings": {
+        "50051/tcp": [
+        {
+            "HostPort": "50051"
         }
-        },
-        "k8s-experimental": {
-        "resources": {
-            "limits": {
-            "microsoft.com/fpga_catapult": 2
-            },
-            "requests": {
-            "microsoft.com/fpga_catapult": 2
-            }
-        }
-        },
-        "Env": [
-        "WIRESERVER_ADDRESS=10.139.218.1"
         ]
     }
-	```		
-	<!--Note: The IP address assigned to your FPGA module's service can be used to send inferencing requests from outside the cluster OR your ML module can be used along with DBE Simple Module Flow by passing files to the module using an input share.-->
-	
-    For GPU, use resource request specifications instead of Device Bindings as shown in the following minimal configuration. You request nvidia resources instead of catapult, and you needn't specify the `wireserver`. 
-
-    ```    	
-    {
-        "HostConfig": {
-        "Privileged": true,
-        "PortBindings": {
-            "50051/tcp": [
-            {
-                "HostPort": "50051"
-            }
-            ]
-        }
+    },
+    "k8s-experimental": {
+    "resources": {
+        "limits": {
+        "microsoft.com/fpga_catapult": 2
         },
-        "k8s-experimental": {
-        "resources": {
-            "limits": {
-            "nvidia.com/gpu": 2
-            }    
+        "requests": {
+        "microsoft.com/fpga_catapult": 2
         }
     }
-    ```
+    },
+    "Env": [
+    "WIRESERVER_ADDRESS=10.139.218.1"
+    ]
+}
+```	
+    
+			
+	
+<!--Note: The IP address assigned to your FPGA module's service can be used to send inferencing requests from outside the cluster OR your ML module can be used along with DBE Simple Module Flow by passing files to the module using an input share.-->
+	
+For GPU, use resource request specifications instead of Device Bindings as shown in the following minimal configuration. You request nvidia resources instead of catapult, and you needn't specify the `wireserver`. 
 
-- **Specifying memory and CPU usage**: 
-    - To set memory and CPU usage, use processor limits for modules in the `k8s-experimental` section. <!--can we verify if this is how we set limits of memory and CPU-->
-        ```
-         "k8s-experimental": {
-	        "resources": {
-	            "limits": {
-	                "memory": "128Mi",
-	                "cpu": "500m",
-	                "nvidia.com/gpu": 2
-	            },
-	            "requests": {
-	                "nvidia.com/gpu": 2
-	            }
+```json    	
+{
+    "HostConfig": {
+    "Privileged": true,
+    "PortBindings": {
+        "50051/tcp": [
+        {
+            "HostPort": "50051"
         }
-        ```
-    - The memory and CPU specification are not necessary but generally good practice. If `requests` isn't specified, the values set in limits are used as the minimum required. 
-    - Using shared memory for modules also requires a different way. <!-- should we give an example-->
+        ]
+    }
+    },
+    "k8s-experimental": {
+    "resources": {
+        "limits": {
+        "nvidia.com/gpu": 2
+        }    
+    }
+}
+```
+
+#### Memory and CPU usage
+ 
+To set memory and CPU usage, use processor limits for modules in the `k8s-experimental` section. <!--can we verify if this is how we set limits of memory and CPU-->
+
+```json
+    "k8s-experimental": {
+    "resources": {
+        "limits": {
+            "memory": "128Mi",
+            "cpu": "500m",
+            "nvidia.com/gpu": 2
+        },
+        "requests": {
+            "nvidia.com/gpu": 2
+        }
+}
+```
+The memory and CPU specification are not necessary but generally good practice. If `requests` isn't specified, the values set in limits are used as the minimum required. 
+
+Using shared memory for modules also requires a different way. <!-- should we give an example-->
 
 
 
-## Web proxy configuration
+## Web proxy 
 
-- If you have web proxy configured in your network, you will need to configure the following environment variables for the edgeHub deployment on your Docker-based IoT Edge setup on FPGA devices:
+Consider the following information when configuring web proxy:
 
-    - `https_proxy : <proxy URL>`
-    - `UpstreamProtocol : AmqpWs` (unless the web proxy allows `Amqp` traffic)
+If you have web proxy configured in your network, configure the following environment variables for the `edgeHub` deployment on your docker-based IoT Edge setup on FPGA devices:
 
-    For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configure this additional variable during the deployment:
+- `https_proxy : <proxy URL>`
+- `UpstreamProtocol : AmqpWs` (unless the web proxy allows `Amqp` traffic)
 
-    - `no_proxy`: localhost
+For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configure this additional variable during the deployment:
 
-- IoT Edge proxy uses port 35000 and 35001. Make sure that your module does not run at these ports or it could cause port conflicts.  
+- `no_proxy`: localhost
+
+- IoT Edge proxy uses port 35000 and 35001. Make sure that your module does not run at these ports or it could cause port conflicts.  <!--need to confirm if this applies only to K8 IoT or also FPGA IoT-->
 
 ## Other differences
 
