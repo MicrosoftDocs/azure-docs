@@ -20,7 +20,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ## January 2021
 
 * New languages are added to [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, starting with model version `2021-01-15`. It adds `fr`,`de`,`it`,`pt-PT`,`pt-BR`,`zh-hans`,`ja` and `ko` support with the full complement of v3 general entity categories, and is powered by our latest [AI models](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/).
-
+* Additional [language support](language-support.md?tabs=language-detection) for [Language Detection](how-tos/text-analytics-how-to-language-detection.md).  
 
 ## December 2020
 
