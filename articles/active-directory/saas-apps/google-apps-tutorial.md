@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/11/2021
 ms.author: jeedes
 ---
 
@@ -127,8 +127,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
 
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
@@ -147,8 +147,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
     
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
     > [!NOTE]

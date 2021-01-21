@@ -43,6 +43,8 @@ The following terms are used in this article:
 
 -  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (this can be an existing or new namespace). The secondary namespace is "passive" and does not receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias. 
 
+    > [!IMPORTANT]
+    > The geo-disaster recovery feature requires the subscription and the resource group to be the same for primary and secondary namespaces.
 -  *Metadata*: Entities such as queues, topics, and subscriptions; and their properties of the service that are associated with the namespace. Note that only entities and their settings are replicated automatically. Messages are not replicated.
 
 -  *Failover*: The process of activating the secondary namespace.
