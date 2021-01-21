@@ -1,6 +1,6 @@
 ---
 title: Building the Defender micro agent from source
-description: Micro Agent includes an infrastructure which can be used to customize your distribution.
+description: Micro Agent includes an infrastructure, which can be used to customize your distribution.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -11,7 +11,7 @@ ms.service: azure
 
 # Distro configurations 
 
-The Micro Agent includes an infrastructure which can be used to customize your distribution. To see a list of the available configuration parameters look at the `configs/LINUX_BASE.conf` file.
+The Micro Agent includes an infrastructure, which can be used to customize your distribution. To see a list of the available configuration parameters look at the `configs/LINUX_BASE.conf` file.
 
 For a single distribution, modify the base `.conf` file. 
 
@@ -20,12 +20,14 @@ If you require more than one distribution, you can inherit from the base configu
 To override the values:
 
 1. Create a new `.dist` file.
-1. Add `CONF_DEFINE_BASE(${g_plat_config_path} LINUX_BASE.conf)` to the top. 
+
+1. Add `CONF_DEFINE_BASE(${g_plat_config_path} LINUX_BASE.conf)` to the top.
+ 
 1. Define new values to whatever you require, example: 
 
     `set(ASC_LOW_PRIORITY_INTERVAL 60*60*24)` 
 
-1. You should then give a reference to that `.dis` file when building. For example, 
+1. Give the `.dis` file a reference when building. For example, 
 
     `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -Ddist_target=UBUNTU1804 ..` 
 
@@ -35,16 +37,18 @@ The agent verifies the authenticity of configuration files that are placed on th
 
 You can stop this process by defining the preprocessor flag `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
 
-We do not recommended turning off the signature check for production environments. 
+We don't recommended turning off the signature check for production environments. 
 
-If you require a different configuration for production scenarios, please contact the Defender for IoT team. 
+If you require a different configuration for production scenarios, contact the Defender for IoT team. 
 
 ## Prerequisites 
 
 1. Contact your account manager to ask for access to Defender for IoT source code.
  
 1. Clone, or extract the source code to a folder on the disk.
-1. Naviagte into that directory.
+
+1. Navigate into that directory.
+
 1. Pull the submodules using the following code:
 
     ```azurecli
@@ -72,7 +76,7 @@ If you require a different configuration for production scenarios, please contac
 
 1. (Optional) Download and install [VSCode](https://code.visualstudio.com/download ) 
 
-1. (Optional) Install the [C/C++ extension](https://code.visualstudio.com/docs/languages/cpp ) for vscode.
+1. (Optional) Install the [C/C++ extension](https://code.visualstudio.com/docs/languages/cpp ) for VSCode.
 
 ## Building the Defender IoT Micro Agent 
 

@@ -1,5 +1,5 @@
 ---
-title: Create a Defender Iot Micro Agent module twin
+title: Create a Defender Iot micro agent module twin
 description: Learn how to create individual DefenderIotMicroAgent module twins for new devices.
 author: shhazam-ms
 manager: rkarlin
@@ -9,9 +9,9 @@ ms.topic: quickstart
 ms.service: azure
 ---
 
-# Create a Defender Iot Micro Agent module twin
+# Create a Defender Iot micro agent module twin
 
-This quickstart explains how to create individual **DefenderIotMicroAgent** module twins for new devices, or to batch create module twins for all devices in an IoT Hub. 
+You can create individual **DefenderIotMicroAgent** module twins for new devices. You can also batch create module twins for all devices in an IoT Hub. 
 
 ## Device twins 
 
@@ -29,7 +29,7 @@ Defender for IoT uses a security module twin for each device. The security modul
 
 Device twins play a key role in both device management and process automation, for IoT solutions that are built in to Azure.
 
-Defender for IoT offers the capability to fully integrate your existing IoT device management platform, enabling you to manage your device security status and make use of the existing device control capabilities. You can integrate your Defender for IoT through the use of the IoT Hub twin mechanism.  
+Defender for IoT offers the capability to fully integrate your existing IoT device management platform, enabling you to manage your device security status and make use of the existing device control capabilities. You can integrate your Defender for IoT by using the IoT Hub twin mechanism.  
 
 To learn more about the general concept of module twins in Azure IoT Hub, see [IoT Hub module twins](../iot-hub/iot-hub-devguide-module-twins.md).
 
@@ -59,12 +59,14 @@ To verify if a security module twin exists for a specific device:
 
 1. Enter the device ID, or select an option in the **Query device** field and select **Query devices**.  
 
+    :::image type="content" source="media/quickstart-create-micro-agent-module-twin/iot-devices.png" alt-text="Select query devices to get a list of your devices.":::
+
 1. Select the device, and open the **Device details** page. 
 
 1. Select the **Module identities** menu, and confirm the existence of the **DefenderIotMicroAgent** module in the list of module identities associated with the device.  
 
+    :::image type="content" source="media/quickstart-create-micro-agent-module-twin/device-details-module.png" alt-text="Select module identities from the tab.":::
+
 ## Next steps 
 
-Advance to the next article to learn how to investigate security recommendations... 
-
-Investigate security recommendations 
+Advance to the next article to learn how to [investigate security recommendations](quickstart-investigate-security-recommendations.md).

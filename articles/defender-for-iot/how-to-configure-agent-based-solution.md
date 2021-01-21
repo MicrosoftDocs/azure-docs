@@ -23,6 +23,8 @@ To configure data collection in Azure Defender for IoT agent-based solution:
 
 1. Select **Data Collection**. 
 
+    :::image type="content" source="media/how-to-configure-agent-based-solution/data-collection.png" alt-text="Select data collection from the security menu settings.":::
+
 ## Geolocation and IP address handling 
 
 In order to secure your IoT solution, the IP addresses of the incoming, and outgoing connections for your IoT devices, IoT Edge, and IoT Hub(s) are collected and stored by default. This information is essential, and used to detect abnormal connectivity from suspicious IP address sources. For example, when there are attempts made that try to establish connections from an IP address source of a known botnet, or from an IP address source outside your geolocation. The Defender for IoT service, offers the flexibility to enable and disable the collection of the IP address data at any time. 
@@ -54,6 +56,8 @@ To enable Log Analytics to work with micro agent:
 1. Create a new Log Analytics workspace, or attach an existing one. 
 
 1. Verify that the **Access to raw security data** option is selected.  
+
+    :::image type="content" source="media/how-to-configure-agent-based-solution/data-settings.png" alt-text="Ensure Access to raw security data is selected.":::
 
 1. Select **Save**.
 

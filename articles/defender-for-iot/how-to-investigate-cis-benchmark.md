@@ -37,13 +37,15 @@ To query your IoT security events in Log Analytics for recommendations:
 
 1. Select **Show Operation system (OS) baseline rules details** from the **Recommendation details** quick view page to see the details of a specific device.
 
+   :::image type="content" source="media/how-to-investigate-cis-benchmark/recommendation-details.png" alt-text="See the details of a specific device."::: 
+
 To query your IoT security events in Log Analytics workspace directly:
 
 1. Navigate to the **Logs** page.
 
-1. Select **Investigate the alerts** or, select the **Investigate the alerts in Log Analytics** option from any security recommendation, or alert.
+    :::image type="content" source="media/how-to-investigate-cis-benchmark/logs.png" alt-text="Select logs from tne left side pane.":::
 
-
+1. Select **Investigate the alerts** or, select the **Investigate the alerts in Log Analytics** option from any security recommendation, or alert.   
 
 ## Useful queries to investigate the OS baseline resources: 
 

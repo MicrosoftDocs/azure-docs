@@ -16,19 +16,17 @@
       href: quickstart-system-prerequisites.md
     - name: Get started with Azure Defender for IoT
       href: getting-started.md
-    - name: Create an Azure Defender for IoT module twin
-      href:  
   - name: Agent-based solution for device builders
     items: 
     - name: Configure security module for Azure RTOS
       href: quickstart-azure-rtos-security-module.md
     - name: Onboard to Defender for IoT agent-based solution
       href: quickstart-onboard-iot-hub.md
-    - name: Create a Defender Iot Micro Agent module twin
+    - name: Create a Defender Iot micro agent module twin
       href: quickstart-create-micro-agent-module-twin.md
     - name: Standalone agent binary installation
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Building the Defender for IoT Micro Agent from source
+    - name: Building the Defender for IoT micro agent from source
       href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Add Azure resources to your IoT solution
       href: quickstart-configure-your-solution.md
