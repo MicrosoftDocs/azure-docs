@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 
-The Microsoft identity platform for identity-as-a-service implements authentication and authorization with the industry standard protocols OpenID Connect (OIDC) and OAuth 2.0, respectively. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third-party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
+The Microsoft identity platform endpoint for identity-as-a-service implements authentication and authorization with the industry standard protocols OpenID Connect (OIDC) and OAuth 2.0, respectively. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third-party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
 
 ## The basics
 
@@ -26,7 +26,7 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* The **Authorization Server** is the Microsoft identity platform and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
+* The **Authorization Server** is the Microsoft identity platform and is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow clients to access that data or resource.
 * The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
 * The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.
