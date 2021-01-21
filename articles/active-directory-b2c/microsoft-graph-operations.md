@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
