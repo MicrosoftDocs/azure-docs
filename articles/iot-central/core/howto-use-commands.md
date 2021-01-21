@@ -244,6 +244,9 @@ Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
 Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-name","value":"GenerateDiagnostics"}]}
 ```
 
+> [!NOTE]
+> The default time-to-live for offline commands is 24 hours, after which the message expires.
+
 ## Next steps
 
 Now that you've learned how to use commands in your Azure IoT Central application, see [Payloads](concepts-telemetry-properties-commands.md) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.
