@@ -1,7 +1,7 @@
 ---
 title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
-description: How to manage objects in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
+description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -16,7 +16,7 @@ ms.subservice: B2C
 ---
 # Manage Azure AD B2C with Microsoft Graph
 
-Microsoft Graph allows you to manage objects in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
+Microsoft Graph allows you to manage resources in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
 ## Perquisites
 
