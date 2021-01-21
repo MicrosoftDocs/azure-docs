@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Configure and enable users for SMS-based authentication using Azure Active Directory 
 
-To reduce the complexity and security risks for users to sign in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign in without needing to provide, or even know, their username and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt, and provide an authentication code that's sent to them via text message. This authentication method simplifies access to applications and services, especially for front line workers.
+To simplify and secure sign in to applications and services, Azure Active Directory (Azure AD) provides multiple authentication options. SMS-based authentication lets users sign in without providing, or even knowing, their user name and password. After their account is created by an identity administrator, they can enter their phone number at the sign-in prompt, and provide an authentication code that's sent to them via text message. This authentication method simplifies access to applications and services, especially for front line workers.
 
 This article shows you how to enable SMS-based authentication for select users or groups in Azure AD.
 
@@ -41,7 +41,7 @@ To complete this article, you need the following resources and privileges:
 The following limitations apply to SMS-based authentication:
 
 * SMS-based authentication isn't currently compatible with Azure AD Multi-Factor Authentication.
-* With the exception of Teams, SMS-based authentication isn't currently compatible with native Office applications.
+* Except for Teams, SMS-based authentication isn't compatible with native Office applications.
 * SMS-based authentication isn't recommended for B2B accounts.
 * Federated users won't authenticate in the home tenant. They only authenticate in the cloud.
 
