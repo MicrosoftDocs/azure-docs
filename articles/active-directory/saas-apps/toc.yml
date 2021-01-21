@@ -700,6 +700,8 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GitHub AE
+        href: github-ae-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -2243,6 +2245,10 @@
         href: tic-tac-mobile-provisioning-tutorial.md
       - name: Templafy
         href: templafy-provisioning-tutorial.md
+      - name: Templafy SAML2
+        href: templafy-saml-2-provisioning-tutorial.md
+      - name: Templafy OpenID Connect
+        href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
