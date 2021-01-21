@@ -50,7 +50,7 @@ You can find your overall secure score, as well as your score per subscription, 
 
 ### Get your secure score from the portal
 
-Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score. 
 
 To recap, your secure score is shown in the following locations in Security Center's portal pages.
 
@@ -58,9 +58,14 @@ To recap, your secure score is shown in the following locations in Security Cent
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
 
-- In the dedicated **Secure score** page:
+- In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's secure score page":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score on Security Center's secure score page":::
+
+    > [!NOTE]
+    > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.” 
 
 - At the top of the **Recommendations** page:
 

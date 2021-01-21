@@ -29,13 +29,35 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 ## January 2021
 
-Updates in December include:
+Updates in January include:
 
+- [Azure Security Benchmark is now the default policy initiative for Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
 - [Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Multi-cloud connectors are released for General Availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
 - ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
+
+### Azure Security Benchmark is now the default policy initiative for Azure Security Center
+
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the Center for Internet Security (CIS) controls with a focus on cloud centric security.
+
+In recent months, Security Center's list of built-in security recommendations has grown significantly to expand our coverage of this  benchmark.
+
+From this release, the benchmark is the foundation for Security Center’s recommendations and fully integrated as the default policy initiative. 
+
+All Azure services have a security baseline page in their documentation. For example, [this is Security Center's baseline](security-baseline.md). These baselines are built on Azure Security Benchmark.
+
+If you're using Security Center's regulatory compliance dashboard, you'll see two instances of the benchmark during a transition period:
+
+:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Azure Security Center's regulatory compliance dashboard showing the Azure Security Benchmark":::
+
+To learn more, see the following pages:
+
+- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
 
@@ -59,6 +81,14 @@ Main capabilities:
 [Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
 
 
+### Secure score for management groups is now available in preview
+
+The secure score page now shows the aggregated secure scores for your management groups in addition to the subscription level. So now you can see the list of management groups in your organization and the score for each management group.
+
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Viewing the secure scores for you management groups.":::
+
+Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
 ### Secure score API is released for General Availability (GA)
 
 You can now access your score via the [secure score API](/rest/api/securitycenter/securescores/). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
@@ -66,6 +96,36 @@ You can now access your score via the [secure score API](/rest/api/securitycente
 For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
 Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+
+### Multi-cloud connectors are released for General Availability (GA)
+
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
+
+Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+
+Connecting your AWS or GCP accounts integrates their native security tools like AWS Security Hub and GCP Security Command Centre into Azure Security Center.
+
+This capability means that Security Center provides visibility and protection across all major cloud environments. Some of the benefits of this integration:
+
+- Automatic agent provisioning - Security Center uses Azure Arc to deploy the Log Analytics agent to your AWS instances
+- Policy management
+- Vulnerability management
+- Embedded Endpoint Detection and Response (EDR)
+- Detection of security misconfigurations
+- A single view showing security recommendations from all cloud providers
+- Incorporate all of your resources into Security Center's secure score calculations
+- Regulatory compliance assessments of your AWS and GCP resources
+
+From Security Center's menu, select **Multi cloud connectors** and you'll see the options for creating new connectors:
+
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi cloud connectors page":::
+
+Learn more in:
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+
+
 
 
 ### CSV export of filtered list of recommendations 
