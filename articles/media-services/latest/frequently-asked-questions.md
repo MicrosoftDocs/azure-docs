@@ -166,7 +166,7 @@ For all other management tasks (for example, [Transforms and Jobs](transforms-jo
 
 The `AssetFile` concept was removed from the Media Services API to separate Media Services from Storage SDK dependency. Now Azure Storage, not Media Services, keeps the information that belongs in the Storage SDK. 
 
-For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+For more information, see [Migrate to Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### Where did client-side storage encryption go?
 
