@@ -40,7 +40,7 @@ A workload group `DataLoads` exists.  See the [Quickstart: Configure workload is
 
 ## Create a login for ELTLogin
 
-Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for `ELTLogin`.
+Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for `ELTLogin`.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -52,7 +52,7 @@ END
 
 ## Create user and grant permissions
 
-After the login is created, a user needs to be created in the database.  Use [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to create the SQL user `ELTRole` in the **mySampleDataWarehouse**.  Since we will test the classification during this tutorial, grant `ELTLogin` permissions to **mySampleDataWarehouse**. 
+After the login is created, a user needs to be created in the database.  Use [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to create the SQL user `ELTRole` in the **mySampleDataWarehouse**.  Since we will test the classification during this tutorial, grant `ELTLogin` permissions to **mySampleDataWarehouse**. 
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
