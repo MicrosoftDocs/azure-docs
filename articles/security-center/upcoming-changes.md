@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2021
+ms.date: 01/21/2021
 ms.author: memildin
 
 ---
@@ -29,7 +29,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
-- ["Not applicable" resources to be reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
 - [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 
@@ -57,15 +56,6 @@ The current version of the recommendation **Sensitive data in your SQL databases
 - The security control ("Apply data classification") will no longer affect your secure score
 - The recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59)
 
-
-
-### "Not applicable" resources to be reported as "Compliant" in Azure Policy assessments
-
-**Estimated date for change:** January 2021
-
-Currently, resources that are evaluated for a recommendation and found to be **not applicable** appear in Azure Policy as "Non-compliant". No user actions can change their state to "Compliant". From this planned change, they'll be reported as "Compliant" for improved clarity.
-
-The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
 
 ### 35 preview recommendations being added to increase coverage of Azure Security Benchmark
 

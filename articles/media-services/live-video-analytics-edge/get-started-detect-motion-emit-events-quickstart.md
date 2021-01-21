@@ -21,6 +21,10 @@ You can view the following video with detailed steps on how to get started with 
 ## Prerequisites
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
+
+  > [!NOTE]
+  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions.  
+
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol (AMQP) over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
@@ -38,7 +42,7 @@ This tutorial requires the following Azure resources:
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
-1. Go to [Azure Portal](https://portal.azure.com) and select the cloud shell icon.
+1. Go to [Azure portal](https://portal.azure.com) and select the Cloud Shell icon.
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
@@ -80,7 +84,7 @@ Now the modules are deployed, but no media graphs are active.
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
+1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::

@@ -167,7 +167,7 @@ The **quota** property means something slightly different between premium and st
 
 - For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB (or 5 TiB if the large file shares property is not set for a storage account).
 
-- For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-billing).
+- For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
 
 # [Portal](#tab/azure-portal)
 If you just created your storage account, you can navigate to it from the deployment screen by selecting **Go to resource**. Once in the storage account, select the tile labeled **File shares** (you can also navigate to **File shares** via the table of contents for the storage account).
