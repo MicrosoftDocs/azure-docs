@@ -155,7 +155,7 @@ You have the option to pick premium storage (SSD) for Azure file shares or stand
 
 Still not sure?
 
-* Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-billing).
+* Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-model).
 * Choose standard storage for general-purpose file server workloads, which includes hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync.
 
 #### Account kind
