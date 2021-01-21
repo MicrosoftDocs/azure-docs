@@ -18,45 +18,45 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: 1 - Create / manage VMs
+  - name: Create / manage VMs
     href: tutorial-manage-vm.md
-  - name: 2 - Create / manage disks
+  - name: Create / manage disks
     href: tutorial-manage-disks.md
-  - name: 3 - Automate configuration
+  - name: Automate configuration
     href: tutorial-automate-vm-deployment.md
-  - name: 4 - Create VM images
+  - name: Create VM images
     href: tutorial-custom-images.md
-  - name: 5 - Highly available VMs
+  - name: Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Create a scale set
+  - name: Create a scale set
     href: tutorial-create-vmss.md
-  - name: 7 - Load balance VMs
+  - name: Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 8 - Manage networking
+  - name: Manage networking
     href: tutorial-virtual-network.md
-  - name: 10 - Enable disaster recovery
+  - name: Enable disaster recovery
     href: tutorial-disaster-recovery.md
-  - name: 11 - Manage VMs
+  - name: Manage VMs
     href: tutorial-govern-resources.md
-  - name: 12 - Track and update VMs
+  - name: Track and update VMs
     href: tutorial-config-management.md
-  - name: 13 - Monitor VMs
+  - name: Monitor VMs
     href: tutorial-monitor.md
-  - name: 15a - Build with Jenkins
+  - name: Build with Jenkins
     href: /azure/developer/jenkins/pipeline-with-github-and-docker
-  - name: 15b - Integrate Jenkins with Azure DevOps
+  - name: Integrate Jenkins with Azure DevOps
     href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-  - name: 16a - Configure Rolling deployment strategy
+  - name: Configure Rolling deployment strategy
     href: tutorial-devops-azure-pipelines-classic.md
-  - name: 16b - Configure Canary deployment strategy
+  - name: Configure Canary deployment strategy
     href: tutorial-azure-devops-canary-strategy.md
-  - name: 16c - Configure Blue-Green deployment strategy
+  - name: Configure Blue-Green deployment strategy
     href: tutorial-azure-devops-blue-green-strategy.md
-  - name: 16d - CI/CD with Azure Pipelines(YAML)
+  - name: CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
-  - name: 17 - Create LAMP stack
+  - name: Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 18 - Secure web server with SSL
+  - name: Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Concepts
   items:
