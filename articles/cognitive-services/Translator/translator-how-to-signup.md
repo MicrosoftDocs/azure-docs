@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 ## Prerequisites
 
-To get started, you need an active Azure subscription.
+To get started, you'll need an active Azure subscription.
 If you don't have one, you can [**create a free Azure account**](https://azure.microsoft.com/free/cognitive-services/).
 
 ## Create your resource
