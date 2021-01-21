@@ -8,8 +8,9 @@ ms.reviewer: twarwick
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 01/20/2021
 ms.author: kgremban
+monikerRange: "=iotedge-2018-06"
 ---
 
 # What is Azure IoT Edge for Linux on Windows (Preview)
@@ -17,6 +18,9 @@ ms.author: kgremban
 Azure IoT Edge for Linux on Windows allows you to run containerized Linux workloads alongside Windows applications in Windows IoT deployments. Businesses that rely on Windows IoT to power their edge devices can now take advantage of the cloud-native analytics solutions being built in Linux.
 
 IoT Edge for Linux on Windows works by running a Linux virtual machine on a Windows device. The Linux virtual machine comes pre-installed with the IoT Edge runtime. Any IoT Edge modules deployed to the device run inside the virtual machine. Meanwhile, Windows applications running on the Windows host device can communicate with the modules running in the Linux virtual machine.
+
+>[!NOTE]
+>Please consider taking our [Product survey](https://aka.ms/AzEFLOW-Registration) to help us improve Azure IoT Edge for Linux on Windows based on your IoT Edge background and goals. You can also use this survey to sign up for future Azure IoT Edge for Linux on Windows announcements.
 
 ## Components
 
@@ -40,14 +44,22 @@ For samples that demonstrate communication between Windows applications and IoT 
 
 ## Public preview
 
-IoT Edge for Linux on Windows is currently in public preview. Support and installation may be different than for generally available features.
+IoT Edge for Linux on Windows is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
 
 Currently, IoT Edge for Linux on Windows uses the Windows Insider Preview version of Windows Admin Center. For more information about the Windows Insider Program and to register, see [What is the Windows Insider Program?](https://insider.windows.com/about-windows-insider-program).
 
-<!--TODO: Add link to how-to guide-->
+## Support
+
+Use the IoT Edge support and feedback channels to get assistance with IoT Edge for Linux on Windows.
+
+**Reporting bugs** – Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the IoT Edge open-source project. 
+
+**Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+
+**Feature requests** – The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
 ## Next steps
 
 Watch [IoT Edge for Linux on Windows 10 IoT Enterprise](https://aka.ms/EFLOWPPC9) for more information and a sample in action.
 
-<!--TODO: Add link to how-to guide-->
+Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md) to set up a device with IoT Edge for Linux on Windows.
