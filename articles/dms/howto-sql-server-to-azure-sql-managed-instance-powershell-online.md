@@ -245,7 +245,7 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMiSync `
   -StorageResourceId $storageAccountResourceId
 ```
 
-For more information, see [New-AzDataMigrationTask](/powershell/module/az.datamigration/new-azdatamigrationtask)
+For more information, see [New-AzDataMigrationTask](/powershell/module/az.datamigration/new-azdatamigrationtask).
 
 ## Monitor the migration
 

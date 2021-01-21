@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article provides steps for an offline migration, but it's also possible to migrate [online](howto-sql-server-to-azure-sql-mi-powershell-online.md).
+This article provides steps for an offline migration, but it's also possible to migrate [online](howto-sql-server-to-azure-sql-managed-instance-powershell-online.md).
 
 
 ## Prerequisites
