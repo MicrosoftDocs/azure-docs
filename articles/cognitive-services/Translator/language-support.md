@@ -189,24 +189,38 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabic | `ar` | Arabic `Arab` | <--> | Latin `Latn` |
 | Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
+|Belarusian| `be` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Bulgarian| `bg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Latin `Latn` |
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Chinese Simplified `Hans` |
+|Greek| `el` | Greek `Grek`  | <--> | Latin `Latn` |
 | Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latin `Latn` |
 | Hebrew | `he` | Hebrew `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+|Kazakh| `kk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Kyrgz| `ky` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Macedonian| `mk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
+|Mongolian| `mn` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+|Persian| `fa` | Arabic `Arab`  | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
+|Russian| `ru` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
+|Sindhi| `sd` | Arabic `Arab`  | <--> | Latin `Latn` |
+|Tajik| `tg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
+|Tatar| `tt` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
+|Ukrainian| `bg` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
+|Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
 ### Dictionary
 
