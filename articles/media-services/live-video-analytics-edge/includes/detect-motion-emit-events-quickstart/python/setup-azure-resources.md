@@ -18,7 +18,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    If the script finishes successfully, you should see all of the required resources in your subscription.
+    Upon successful completion of the script, you should see all of the required resources in your subscription.
 1. After the script finishes, select the curly brackets to expose the folder structure. You'll see a few files in the *~/clouddrive/lva-sample* directory. Of interest in this quickstart are:
 
      * ***~/clouddrive/lva-sample/edge-deployment/.env*** - This file contains properties that Visual Studio Code uses to deploy modules to an edge device.
@@ -27,3 +27,6 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     You'll need these files when you set up your development environment in Visual Studio Code in the next section. You might want to copy them into a local file for now.
     
     ![App settings](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.

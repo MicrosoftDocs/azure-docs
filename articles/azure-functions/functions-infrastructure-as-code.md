@@ -136,7 +136,7 @@ A function app must include these application settings:
 | Setting name                 | Description                                                                               | Example values                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime uses for internal queueing | See [Storage account](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~2`                                  |
+| FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, `python`, or `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the version to use              | `10.14.1`                             |
 
@@ -160,7 +160,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
             },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             }
         ]
     }
@@ -247,7 +247,7 @@ On Windows, a Consumption plan requires two additional settings in the site conf
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -286,7 +286,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         },
@@ -367,7 +367,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -455,7 +455,7 @@ A function app on an App Service plan must have the `serverFarmId` property set 
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -463,13 +463,13 @@ A function app on an App Service plan must have the `serverFarmId` property set 
 }
 ```
 
-Linux apps should also include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack:
+Linux apps should also include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of ```runtime|runtimeVersion```:
 
 | Stack            | Example value                                         |
 |------------------|-------------------------------------------------------|
-| Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
-| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
-| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+| Python           | `python|3.7`      |
+| JavaScript       | `node|12`          |
+| .NET             | `dotnet|3.0` |
 
 ```json
 {
@@ -500,10 +500,10 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ],
-            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+            "linuxFxVersion": "node|12"
         }
     }
 }
@@ -540,7 +540,7 @@ If you are [deploying a custom container image](./functions-create-function-linu
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 },
                 {
                     "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -590,7 +590,7 @@ A function app has many child resources that you can use in your deployment, inc
         "appSettings": [
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             },
             {
                 "name": "Project",
@@ -612,7 +612,7 @@ A function app has many child resources that you can use in your deployment, inc
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_EXTENSION_VERSION": "~3",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         }

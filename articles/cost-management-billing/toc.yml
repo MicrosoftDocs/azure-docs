@@ -115,7 +115,7 @@
       href: manage/mca-understand-pricesheet.md
     - name: Microsoft Partner Agreement invoice terms
       href: understand/mpa-invoice-terms.md
-    - name: Changes to your updated individual billing account
+    - name: Changes to your updated pay-as-you-go billing account
       href: understand/mosp-new-customer-experience.md
     - name: Billing accounts for Microsoft Customer Agreement
       href: understand/mca-overview.md
@@ -189,16 +189,6 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create EA subscriptions programmatically
-        href: manage/programmatically-create-subscription-enterprise-agreement.md
-      - name: Create MCA subscriptions programmatically
-        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-      - name: Create MPA subscriptions programmatically
-        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions - ARM template
-        href: manage/create-subscription-template.md
-      - name: Create subscriptions programmatically - preview
-        href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
@@ -215,6 +205,20 @@
         href: manage/transfer-subscriptions-subscribers-csp.md
       - name: Cancel subscription
         href: manage/cancel-azure-subscription.md
+    - name: Create subscriptions programmatically
+      items:
+      - name: Create subscriptions programmatically
+        href: manage/programmatically-create-subscription.md
+      - name: Create EA subscriptions programmatically
+        href: manage/programmatically-create-subscription-enterprise-agreement.md
+      - name: Create MCA subscriptions programmatically
+        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MPA subscriptions programmatically
+        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+      - name: Create subscriptions - ARM template
+        href: manage/create-subscription-template.md
+      - name: Create subscriptions programmatically - preview APIs
+        href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions
       items:
       - name: EA roles in Azure

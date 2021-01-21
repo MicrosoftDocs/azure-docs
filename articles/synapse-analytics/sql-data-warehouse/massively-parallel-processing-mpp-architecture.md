@@ -102,13 +102,13 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 ## Next steps
 
-Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](load-data-from-azure-blob-storage-using-polybase.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](./load-data-from-azure-blob-storage-using-copy.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
 
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

@@ -34,7 +34,6 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Ensure that the Active Directory (AD) LDAP server is up and running on the AD. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
-* Ensure that a certificate authority (CA)  is created for the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
 * The LDAP over TLS feature must *not* be enabled if you are creating a dual-protocol volume with Azure Active Directory Domain Services (AADDS).
 * The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
@@ -100,9 +99,6 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 3. Click **Protocol**, and then complete the following actions:  
     * Select **dual-protocol (NFSv3 and SMB)** as the protocol type for the volume.   
 
-    * Select the **Active Directory** connection from the drop-down list.  
-    The Active Directory you use must have a server root CA certificate. 
-
     * Specify the **Volume path** for the volume.   
     This volume path is the name of the shared volume. The name must start with an alphabetical character, and it must be unique within each subscription and each region.  
 
@@ -118,6 +114,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
+<!--
 ## Upload Active Directory Certificate Authority public root certificate  
 
 1.	Follow [Install the Certification Authority](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) to install and configure ADDS Certificate Authority. 
@@ -143,7 +140,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
     Ensure that the certificate authority name can be resolved by DNS. This name is the "Issued By" or "Issuer" field on the certificate:  
 
     ![Screenshot that shows certificate information](../media/azure-netapp-files/certificate-information.png)
-
+-->
 ## Manage LDAP POSIX Attributes
 
 You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor:  

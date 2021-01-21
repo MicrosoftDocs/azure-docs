@@ -123,6 +123,8 @@
     items:
     - name: Sign-up or sign-in policy
       href: add-sign-up-and-sign-in-policy.md
+    - name: Sign-in policy
+      href: add-sign-in-policy.md
     - name: Password reset policy
       href: add-password-reset-policy.md
     - name: Password change policy
@@ -131,22 +133,29 @@
       href: add-profile-editing-policy.md
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
+      displayName: ROPC
     - name: Set up self-serve password reset policy (Deprecated)
       href: user-flow-self-service-password-reset.md
     - name: Phone sign-up & sign-in
       href: phone-authentication-user-flows.md
   - name: Identity providers
     items:
+    - name: Local account identity provider
+      href: identity-provider-local.md
+      displayName: Username, Email, Phone authorization, Phone sing-in
     - name: Add an identity provider
       href: add-identity-provider.md
     - name: AD FS
       href: identity-provider-adfs.md
+      displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
     - name: Azure AD (Single-tenant)
       href: identity-provider-azure-ad-single-tenant.md
     - name: Azure AD (Multi-tenant)
       href: identity-provider-azure-ad-multi-tenant.md
+    - name: Azure AD B2C
+      href: identity-provider-azure-ad-b2c.md
     - name: Facebook
       href: identity-provider-facebook.md
     - name: Generic identity provider
@@ -163,6 +172,8 @@
       href: identity-provider-microsoft-account.md
     - name: QQ
       href: identity-provider-qq.md
+    - name: Salesforce
+      href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
     - name: Twitter
@@ -227,8 +238,10 @@
       items:
       - name: Mailjet
         href: custom-email-mailjet.md
+        displayName: Custom email, Custom verification email, Verification email
       - name: SendGrid
         href: custom-email-sendgrid.md
+        displayName: Custom email, Custom verification email, Verification email
       displayName: verification
     - name: Add your own business logic
       items:
@@ -440,7 +453,7 @@
   - name: Billing model
     href: billing.md
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+    href: /samples/browse/?terms=b2c
   - name: Cookie definitions
     href: cookie-definitions.md
     displayName: cookies, SameSite

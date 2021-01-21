@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # Azure portal registration fields for custom-developed apps

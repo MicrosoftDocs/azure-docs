@@ -32,7 +32,7 @@ Create the VM. In this example, the VM is named *myVM* and the VM size is *Stand
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
    --name myVM \
-   --image openSUSE-Leap \
+   --image SUSE:openSUSE-Leap:15-2:latest \
    --size Standard_D2s_v3 \
    --generate-ssh-keys
 ```
