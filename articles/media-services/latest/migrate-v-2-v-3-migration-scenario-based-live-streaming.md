@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps4.svg)
+![migration steps 2](./media/migration-guide/steps-4.svg)
 
 The Azure portal now supports live event set up and management.  You are encouraged to try it out while testing your V2 to V3 migration.
 

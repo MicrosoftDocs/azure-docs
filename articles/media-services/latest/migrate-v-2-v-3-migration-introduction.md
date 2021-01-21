@@ -28,7 +28,7 @@ Throughout the guide, you will see the following graphic.
 
 The step you are on will be indicated by a color change in the number of the step, like so:
 
-![migration steps 2](./media/migration-guide/steps2.svg)<br/>
+![migration steps 2](./media/migration-guide/steps-2.svg)<br/>
 
 At the end of each page, you will see links to the rest of the migration documents you can read underneath the **Next steps** heading.
 
@@ -74,7 +74,7 @@ Your application of Media Services V2 may be unique. Therefore, we have provided
 - [Live streaming](migrate-v-2-v-3-migration-scenario-based-live-streaming.md)
 - [Packaging and delivery](migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [Content protection](migrate-v-2-v-3-migration-scenario-based-content-protection.md)
-- [Media Reserved Units (MRU)](migrate-v-2-v-3-migration-scenario-based-mru.md)
+- [Media Reserved Units (MRU)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
 
 ## Next steps
 

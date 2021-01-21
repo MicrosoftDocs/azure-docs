@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps2.svg)
+![migration steps 2](./media/migration-guide/steps-2.svg)
 
 This part of the migration guidance gives you detailed information about the
 differences between the V2 and V3 APIs.

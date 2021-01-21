@@ -18,7 +18,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps4.svg)
+![migration steps 2](./media/migration-guide/steps-4.svg)
 
 This article gives you encoding scenario based guidance that will assist you in migrating from Azure Media Services v2 to v3.
 

@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps2.svg)
+![migration steps 2](./media/migration-guide/steps-2.svg)
 
 This article describes the terminology differences between Azure Media Services v2 to v3.
 

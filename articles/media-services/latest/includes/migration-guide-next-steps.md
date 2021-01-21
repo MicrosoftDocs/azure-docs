@@ -28,4 +28,4 @@ Your application of Media Services V2 may be unique. Therefore, we have provided
 - [Live streaming](../migrate-v-2-v-3-migration-scenario-based-live-streaming.md)
 - [Packaging and delivery](../migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [Content protection](../migrate-v-2-v-3-migration-scenario-based-content-protection.md)
-- [Media Reserved Units (MRU)](../migrate-v-2-v-3-migration-scenario-based-mru.md)
+- [Media Reserved Units (MRU)](../migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)

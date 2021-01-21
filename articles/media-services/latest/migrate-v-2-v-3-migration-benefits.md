@@ -18,7 +18,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps1.svg)
+![migration steps 2](./media/migration-guide/steps-1.svg)
 
 We encourage you to start using version 2020-05-01 of the Azure Media Services V3 API now to gain the benefits because new features, functionality, and performance optimizations are only available in the current V3 API.
 

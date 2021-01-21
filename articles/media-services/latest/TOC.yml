@@ -296,7 +296,7 @@
         href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
         displayName: migration, content protection, DRM, digital rights management
       - name: Media Reserved Units (MRU)
-        href: migrate-v-2-v-3-migration-scenario-based-mru.md
+        href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
         displayName: migration, media reserved units
     - name: Samples comparison
       href: migrate-v-2-v-3-migration-samples.md

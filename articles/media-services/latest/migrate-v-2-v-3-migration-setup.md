@@ -22,7 +22,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps3.svg)
+![migration steps 2](./media/migration-guide/steps-3.svg)
 
 The following describes the steps to take to set up your environment to use the Media Services V3 API.
 

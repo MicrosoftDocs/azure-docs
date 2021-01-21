@@ -21,7 +21,7 @@ ms.author: inhenkel
 
 <hr color="#5ea0ef" size="10">
 
-![migration steps 2](./media/migration-guide/steps2.svg)
+![migration steps 2](./media/migration-guide/steps-2.svg)
 
 This article describes the API access differences between Azure Media Services V2 to V3.
 
@@ -42,7 +42,7 @@ While you are migrating, you can create a V3 account that still has access to V2
 - Selecting the checkbox in the portal.
 
 > [!div class="mx-imgBorder"]
-> [ ![account creation in the portal](./media/migration-guide/v-3-v2-access-account-creation-sm.png) ](./media/migration-guide/v-3-v2-access-account-creation.png#lightbox)
+> [ ![account creation in the portal](./media/migration-guide/v-3-v-2-access-account-creation-small.png) ](./media/migration-guide/v-3-v-2-access-account-creation.png#lightbox)
 
 All the .NET, CLI, and other SDKs will be targeting the latest 2020-05-01 API, so find or configure the older API versions.
 
