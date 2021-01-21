@@ -303,7 +303,7 @@ This section covers provisioning your device automatically using DPS and X.509 c
 
 ---
 
-## Verify successful installation
+## Verify successful configuration
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
