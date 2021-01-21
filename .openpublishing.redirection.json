@@ -55621,6 +55621,11 @@
       "redirect_document_id": true
     },
     {
+    "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
+    "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
+    "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intralinks-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/intralinks-tutorial",
       "redirect_document_id": true
