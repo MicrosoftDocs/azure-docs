@@ -19,7 +19,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
 * An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A logic app from which you want to access your SAP resources. If you're new to Logic Apps, see the [Logic Apps service overview](../logic-apps/logic-apps-overview.md) and the [quickstart for creating your first logic app in the Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A logic app from which you want to access your SAP resources. If you're new to Logic Apps, see the [Logic Apps service overview](../logic-apps/logic-apps-overview.md) and the [quickstart for creating your first logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
     * If you've used a previous version of the SAP connector that has been deprecated, you must [migrate to the current connector](#migrate-to-current-connector) before you can connect to your SAP server.
 
