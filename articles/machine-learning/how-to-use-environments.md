@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.custom: how-to, devx-track-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -129,6 +129,8 @@ myenv.docker.base_image_registry="your_registry_location"
 #### Use your own Dockerfile 
 
 You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
+
+Please note that Python is an implicit dependency in Azure Machine Learning so a custom dockerfile must have Python installed.
 
 ```python
 # Specify docker steps as a string. 

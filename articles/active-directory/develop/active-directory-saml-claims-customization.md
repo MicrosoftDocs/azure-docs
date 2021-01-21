@@ -76,7 +76,7 @@ For more info, see [Table 3: Valid ID values per source](active-directory-claims
 
 You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
 
 1. Click on the required claim which you want to modify.
 
@@ -130,7 +130,7 @@ You can use the following functions to transform claims.
 | **StartWith()** | Outputs an attribute or constant if the input starts with the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s employee ID if the country/region starts with "US", otherwise you want to output an extension attribute. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.country<br/>*Value*: "US"<br/>Parameter 2 (output): user.employeeid<br/>Parameter 3 (output if there's no match): user.extensionattribute1 |
 | **Extract() - After matching** | Returns the substring after it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon", the matching value is "Finance_", then the claim's output is "BSimon". |
 | **Extract() - Before matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "BSimon_US", the matching value is "_US", then the claim's output is "BSimon". |
-| **Extract() - Between matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon_US", the first matching value is "Finance_", the second matching value is "_US", then the claim's output is "BSimon". |
+| **Extract() - Between matching** | Returns the substring until it matches the specified value.<br/>For example, if the input's value is "Finance_BSimon_US", the first matching value is "Finance\_", the second matching value is "\_US", then the claim's output is "BSimon". |
 | **ExtractAlpha() - Prefix** | Returns the prefix alphabetical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "BSimon". |
 | **ExtractAlpha() - Suffix** | Returns the suffix alphabetical part of the string.<br/>For example, if the input's value is "123_Simon", then it returns "Simon". |
 | **ExtractNumeric() - Prefix** | Returns the prefix numerical part of the string.<br/>For example, if the input's value is "123_BSimon", then it returns "123". |

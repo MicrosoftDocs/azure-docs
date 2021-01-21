@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
+ms.custom: references_regions
 
 ---
 
@@ -16,31 +17,51 @@ Azure Monitor for VMs guest health allows you to view the health of a virtual ma
 Azure Monitor for VMs guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
-- Virtual Machine must run one of the following operating systems: 
+
+
+## Supported operating systems
+Virtual Machine must run one of the following operating systems: 
+
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 or later
-- Virtual machine must be located in one of the following regions:
-  - Australia East
-  - Australia Southeast
-  - Central India
-  - Central US
-  - East US
-  - East US 2
-  - East US 2 EUAP
-  - Germany West Central
-  - Japan East
-  - North Central US
-  - North Europe
-  - South Central US
-  - Southeast Asia
-  - UK South
-  - West Europe
-  - West US
-  - West US 2
-- Log Analytics workspace must be located in one of the following regions:
-  - East US
-  - East US 2 EUAP
-  - West Europe region
+
+## Supported regions
+
+Virtual machine must be located in one of the following regions:
+
+- Australia Central
+- Australia East
+- Australia Southeast
+- Central India
+- Central US
+- East Asia
+- East US
+- East US 2
+- East US 2 EUAP
+- Germany West Central
+- Japan East
+- North Central US
+- North Europe
+- South Central US
+- Southeast Asia
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
+
+
+Log Analytics workspace must be located in one of the following regions:
+
+- Central US
+- East US
+- East US 2
+- East US 2 EUAP
+- North Europe
+- Southeast Asia
+- UK South
+- West Europe region
+- West US 2
 
 ## Prerequisites
 
@@ -48,9 +69,8 @@ Azure Monitor for VMs guest health has the following limitations in public previ
 - User executing onboarding steps must have a minimum Contributor level access to the subscription where virtual machine and data collection rule are located.
 - Required Azure resource providers must be registered as described in the following section.
 
-
 ## Register required Azure resource providers
-The following Azure resource providers need to registered for your subscription to enable Azure Monitor for VMs guest health. 
+The following Azure resource providers  be registered for your subscription to enable Azure Monitor for VMs guest health. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights

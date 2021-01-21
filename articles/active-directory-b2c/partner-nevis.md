@@ -129,9 +129,9 @@ You'll receive two emails:
 
 4. **Save** the changes to the file.
 
-5. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#2-create-an-azure-blob-storage-account) and upload the **nevis.html** file to your Azure blob storage.
+5. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) and upload the **nevis.html** file to your Azure blob storage.
 
-6. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors) and enable Cross-Origin Resource Sharing (CORS) for this file.
+6. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) and enable Cross-Origin Resource Sharing (CORS) for this file.
 
 7. Once the upload is complete and CORS is enabled, select the **nevis.html** file in the list.
 

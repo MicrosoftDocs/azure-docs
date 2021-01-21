@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ---
 
@@ -25,8 +25,6 @@ For more information, see [Supported languages](../language-support.md).
 > * You can also use this feature [asynchronously](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
 ## Preparation
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 Key phrase extraction works best when you give it bigger amounts of text to work on. This is opposite from sentiment analysis, which performs better on smaller amounts of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 

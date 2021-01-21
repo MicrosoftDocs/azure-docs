@@ -331,6 +331,9 @@ If you see the following error message when you initiate a remote desktop connec
 ![Your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Verify that you have [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grants the user either the Virtual Machine Administrator Login or Virtual Machine User Login role:
+
+> [!NOTE]
+> If you are running into issues with Azure role assignments, see [Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
  
 #### Unauthorized client
 

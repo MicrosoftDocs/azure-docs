@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/04/2021
 ms.author: damendo
 
 ---
@@ -352,6 +352,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Storage account considerations**: 
 
 - Location: The storage account used must be in the same region as the NSG.
+- Performance Tier: Currently, only standard tier storage accounts are supported.
 - Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
 
 **Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging means incurring separate storage costs for extended periods of time. If you do not require the retention policy feature, we recommend that you set this value to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
@@ -373,7 +374,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied at the resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/network-security-group-how-it-works.md) in Network Security Groups. 
 
 Few common scenarios:
-1. **Multiple NSG at a NIC**: In case multiple NSGs are attached to a NIC, flow logging must be enabled on all of them
+1. **Multiple NICs at a VM**: In case multiple NICs are attached to a virtual machine, flow logging must be enabled on all of them
 1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the Subnet level, then flow logging must be enabled at both the NSGs. 
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.

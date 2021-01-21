@@ -118,7 +118,7 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
        }
      }
   ...
- }
+}
 ```
 
 ## Validating an id_token

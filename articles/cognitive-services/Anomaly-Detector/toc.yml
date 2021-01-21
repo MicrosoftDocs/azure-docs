@@ -12,14 +12,6 @@
       items:
         - name: Anomaly Detector client libraries
           href: ./quickstarts/client-libraries.md
-    - name: REST API
-      items:
-        - name: Using C#
-          href: quickstarts/detect-data-anomalies-csharp.md
-        - name: Using Java
-          href: quickstarts/detect-data-anomalies-java.md
-        - name: Using Python
-          href: quickstarts/detect-data-anomalies-python.md
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI

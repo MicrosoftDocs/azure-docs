@@ -60,7 +60,7 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ### [Anonymous access](#tab/public-access)
 
-You can access publicly available files placed on Azure storage accounts that [allow anonymous access](/azure/storage/blobs/storage-manage-access-to-resources).
+You can access publicly available files placed on Azure storage accounts that [allow anonymous access](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -86,9 +86,68 @@ You can use the following combinations of authorization and Azure Storage types:
 
 \* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
 
-> [!IMPORTANT]
-> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
->
+
+### Querying firewall protected storage
+
+When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
+
+#### User Identity
+
+To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
+#### Configuration via PowerShell
+
+Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
+
+1. Open PowerShell or [install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
+2. Install the updated Az. Storage Module: 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    ```
+    > [!IMPORTANT]
+    > Make sure that you use version 3.0.1 or newer. You can check your Az.Storage version by running this command:  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Connect to your Azure Tenant: 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. Define variables in PowerShell: 
+    - Resource group name - you can find this in Azure portal in overview of Synapse workspace.
+    - Account Name - name of storage account that is protected by firewall rules.
+    - Tenant ID - you can find this in Azure portal in Azure Active Directory in tenant information.
+    - Resource ID - you can find this in Azure portal in overview of Synapse workspace.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $resourceId = "<Synapse workspace resource id>"
+    ```
+    > [!IMPORTANT]
+    > Make sure that resource id matches this template.
+    >
+    > It's important to write **resourcegroups** in lower case.
+    > Example of one resource id: 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. Add Storage Network rule: 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. Verify that rule was applied in your storage account: 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules
+    ```
+
+#### Managed Identity
+You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
+In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
 ## Credentials
 

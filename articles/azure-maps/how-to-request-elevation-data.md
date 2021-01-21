@@ -467,9 +467,9 @@ The following sample web page shows you how to use the map control to display el
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-### Get elevation data by PolyLine path
+### Get elevation data by Polyline path
 
-The following sample web page shows you how to use the map control to display elevation data along a path. The user defines the path by clicking on the `PolyLine` icon in the upper-left hand corner, and drawing the PolyLine on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right hand corner.
+The following sample web page shows you how to use the map control to display elevation data along a path. The user defines the path by clicking on the `Polyline` icon in the upper-left hand corner, and drawing the Polyline on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right hand corner.
 
 <br/>
 

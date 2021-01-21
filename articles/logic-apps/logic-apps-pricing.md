@@ -1,6 +1,6 @@
 ---
 title: Pricing & billing model
-description: Overview about how the pricing and billing model works for Azure Logic Apps
+description: Overview about how the pricing and billing work for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -60,11 +60,11 @@ For logic apps that you create and run in an ISE, you pay a [fixed price](https:
 
   * **Developer** ISE SKU: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  Regardless of SKU, each ISE can have a [limited number of integration accounts](logic-apps-limits-and-config.md#integration-account-limits). You can raise this limit for an additional cost:
+  For an additional cost, you can create more integration accounts for your ISE [up to the total limit](logic-apps-limits-and-config.md#integration-account-limits). 
 
-  * **Premium** ISE SKU: Up to four more Standard accounts. No Free or Basic accounts.
+  * **Premium** ISE SKU: Up to 19 more Standard accounts. No Free or Basic accounts are permitted.
 
-  * **Developer** ISE SKU: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
+  * **Developer** ISE SKU: Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted.
 
   For more information about integration account limits, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
@@ -113,7 +113,7 @@ A [fixed pricing model](https://azure.microsoft.com/pricing/details/logic-apps) 
 
 Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on region availability, throughput, and usage. Except for Free tier integration accounts, you can have more than one integration account in each Azure region. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), regardless of [SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have a [limited number of integration accounts](logic-apps-limits-and-config.md#integration-account-limits), but you can [raise this limit for an additional cost](#fixed-pricing). To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), your ISE can use a single integration account at no additional cost, although the included account type varies by [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). For an [additional cost](#fixed-pricing), you can create more integration accounts for your ISE up to the [total limit on integration accounts](logic-apps-limits-and-config.md#integration-account-limits). To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 

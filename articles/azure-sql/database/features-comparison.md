@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/25/2020
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -46,7 +46,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Collation - server/instance](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, default server collation `SQL_Latin1_General_CP1_CI_AS` is always used. | Yes, can be set when the [instance is created](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) and can't be updated later. |
 | [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, Business Critical, and HyperScale tiers](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes, but without access to file system in `CREATE ASSEMBLY` statement - see [CLR differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [Credentials](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Yes, but only [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Yes, but only **Azure Key Vault** and `SHARED ACCESS SIGNATURE` are supported see [details](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [Credentials](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Yes, but only [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Yes, but only **Azure Key Vault** and `SHARED ACCESS SIGNATURE` are supported - see [details](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
 | [Cross-database/three-part name queries](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](elastic-query-overview.md) | Yes, plus [Elastic queries](elastic-query-overview.md) |
 | [Cross-database transactions](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Yes, within the instance. See [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) for cross-instance queries. |
 | [Database mail - DbMail](/sql/relational-databases/database-mail/database-mail) | No | Yes |
@@ -59,6 +59,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) |  No - see [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration. |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | Yes, with required RDBMS type. |
 | [Event notifications](/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](alerts-insights-configure-portal.md) | No |
 | [Expressions](/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events (XEvent)](/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](xevent-db-diff-from-svr.md) | Yes - see [Extended events differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -122,6 +123,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [Azure Resource Health](../../service-health/resource-health-overview.md) | Yes | No |
 | Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](/sql/dma/dma-overview) | Yes | Yes |
+| [Elastic jobs](elastic-jobs-overview.md) | Yes - see [Elastic jobs (preview)](elastic-jobs-overview.md) | No ([SQL Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) can be used instead). |
 | File system access | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
 | [Geo-restore](recovery-using-backups.md#geo-restore) | Yes | Yes |
 | [Hyperscale architecture](service-tier-hyperscale.md) | Yes | No |
@@ -141,7 +143,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
-| VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | No, [SQL Managed Instance is not supported](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) due to [load balancer constraint in VNet global peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 
 ## Tools
 
