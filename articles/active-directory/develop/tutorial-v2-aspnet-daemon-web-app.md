@@ -234,9 +234,9 @@ When no longer needed, delete the app object that you created in the [Register y
 
 ## Get help
 
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
-Ask your questions on Stack Overflow first, and browse existing issues to see if someone has asked your question before.
-Make sure that your questions or comments are tagged with "adal," "msal," and "dotnet."
+Use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) to get support from the community.
+Ask your questions on Microsoft Q&A first, and browse existing issues to see if someone has asked your question before.
+Make sure that your questions or comments are tagged with "azure-ad-adal-deprecation," "azure-ad-msal," and "dotnet-standard."
 
 If you find a bug in the sample, please raise the issue on [GitHub Issues](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 
