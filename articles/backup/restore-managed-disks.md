@@ -61,6 +61,8 @@ The following pre-requisites are required to perform a restore operation:
     >
     >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation will fail.
 
+1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or using [double encryption using platform-managed keys and customer-managed keys](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
+
 Once the prerequisites are met, follow these steps to perform the restore operation.
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Backup center**. Select **Backup instances** under the **Manage** section. From the list of backup instances, select the disk backup instance for which you want to perform the restore operation.
