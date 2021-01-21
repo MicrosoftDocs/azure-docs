@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article provides steps for an online migration, but it's also possible to migrate [offline](howto-sql-server-to-azure-sql-mi-powershell-offline.md).
+This article provides steps for an online migration, but it's also possible to migrate [offline](howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md).
 
 
 ## Prerequisites
@@ -118,7 +118,7 @@ $targetPassword = "<password>"
 
 Provide databases to be migrated in this  migration project
 
-The following script maps source database to the respective new database on the target SQL Managed Intsance with the provided name.
+The following script maps source database to the respective new database on the target SQL Managed Instance with the provided name.
 
 ```powershell
 # Selected databases (Source database name to target database name mapping)

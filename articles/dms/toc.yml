@@ -98,7 +98,7 @@
     - name: SQL Server to SQL MI (online)
       href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
     - name: SQL Server to SQL MI (offline)
-      href: howto-sql-server-to-azure-sql-mi-powershell-offline.md
+      href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
   - name: Redeploy SSIS package to
     items: 
     - name: Azure SQL Database
