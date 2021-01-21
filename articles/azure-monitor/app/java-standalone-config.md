@@ -300,7 +300,9 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-[//]: # "NOTE not advertising OpenTelemetry support until we support 0.10.0, which has massive breaking changes from 0.9.0"
+Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set.
+
+[//]: # "NOTE OpenTelemetry support is in private preview until OpenTelemetry API reaches 1.0"
 
 [//]: # "## Support for OpenTelemetry API pre-1.0 releases"
 
