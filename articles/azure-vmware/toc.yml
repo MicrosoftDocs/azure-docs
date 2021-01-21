@@ -84,6 +84,8 @@
         href: backup-azure-vmware-solution-virtual-machines.md
     - name: Lifecycle management of VMs
       href: lifecycle-management-of-azure-vmware-solution-vms.md
+    - name: Azure NetApp Files
+      href: net-app-files-with-azure-vmware-solution.md
     - name: Application Gateway
       href: protect-azure-vmware-solution-with-application-gateway.md
     - name: Traffic Manager

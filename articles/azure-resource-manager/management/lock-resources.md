@@ -249,10 +249,17 @@ To get all locks for a resource group, use:
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-To delete a lock, use:
+To delete a lock for a resource, use:
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+To delete a lock for a resource group, use:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
@@ -290,10 +297,17 @@ To get all locks for a resource group, use:
 az lock list --resource-group exampleresourcegroup
 ```
 
-To delete a lock, use:
+To delete a lock for a resource, use:
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+To delete a lock for a resource group, use:
+
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
 az lock delete --ids $lockid
 ```
 
