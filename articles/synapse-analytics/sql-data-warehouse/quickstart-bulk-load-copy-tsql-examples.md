@@ -171,5 +171,5 @@ Managed Identity authentication is required when your storage account is attache
 
 ## Next steps
 
-- Check the [COPY statement article](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) article for the detailed syntax
+- Check the [COPY statement article](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) article for the detailed syntax
 - Check the [data loading overview](./design-elt-data-loading.md#what-is-elt) article for loading best practices

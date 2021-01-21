@@ -388,7 +388,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) to load data into your data warehouse.
+In this tutorial, you learned how to create a data warehouse and create a user for loading data. You used the simple [COPY statement](/sql/t-sql/statements/copy-into-transact-sql&preserve-view=true?view=azure-sqldw-latest&preserve-view=true#examples) to load data into your data warehouse.
 
 You did these things:
 > [!div class="checklist"]
@@ -408,6 +408,6 @@ Advance to the development overview to learn how to migrate an existing database
 
 For more loading examples and references, view the following documentation:
 
-- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [COPY examples for each authentication method](./quickstart-bulk-load-copy-tsql-examples.md)
 - [COPY quickstart for a single table](./quickstart-bulk-load-copy-tsql.md)

@@ -128,6 +128,6 @@ Loading data is the first step to developing a data warehouse solution using Azu
 > [Learn how to develop tables for data warehousing](sql-data-warehouse-tables-overview.md)
 
 For more loading examples and references, view the following documentation:
-- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [COPY statement reference documentation](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [COPY examples for each authentication method](./quickstart-bulk-load-copy-tsql-examples.md)
 - [COPY quickstart for a single table](./quickstart-bulk-load-copy-tsql.md)
