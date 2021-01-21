@@ -35,7 +35,7 @@
     displayName: corrupt data
   - name: Versioning policy
     href: concepts-version-policy.md
-    displayName: version policy 
+    displayName: version policy
 - name: Single Server
   expanded: true
   items:
@@ -454,6 +454,10 @@
             href: flexible-server/connect-workbench.md
           - name: Python
             href: flexible-server/connect-python.md
+          - name: Java
+            href: flexible-server/connect-java.md
+          - name: .NET
+            href: flexible-server/connect-csharp.md
   - name: Tutorials
     items:
     - name : WordPress on Azure Kubernetes
