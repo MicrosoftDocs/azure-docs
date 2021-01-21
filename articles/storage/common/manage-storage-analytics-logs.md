@@ -121,10 +121,10 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## Modify log data retention policy
 
-Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention policy. For example, if you need logs for only three days, set your log data retention policy to a value of `3`. Logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention policy, and then update that policy if that's what you want to do.
+Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
 
 > [!NOTE]
-> These steps apply only for accounts that do not have the **Hierarchical namespace** setting enabled on them. If you've enabled that setting on your account, then the setting for retention days is not yet supported. Instead, you'll have to periodically delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK. To find those logs in your storage account, see [How logs are stored](storage-analytics-logging.md#how-logs-are-stored)
+> These steps apply only for accounts that do not have the **Hierarchical namespace** setting enabled on them. If you've enabled that setting on your account, then the setting for retention days is not yet supported. Instead, you'll have to delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK. To find those logs in your storage account, see [How logs are stored](storage-analytics-logging.md#how-logs-are-stored).
 
 ### [Portal](#tab/azure-portal)
 
@@ -174,18 +174,18 @@ For information about accessing the $logs container, see [Storage analytics logg
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account. 
 
-6. Use the [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) to view the current log retention policy.
+6. Use the [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) to view the current log retention policy. The following example prints to the console the retention period for blob and queue storage services.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
    ```  
 
-   In the console output, the retention policy appears beneath the `RetentionDays` column heading.
+   In the console output, the retention period appears beneath the `RetentionDays` column heading.
 
    > [!div class="mx-imgBorder"]
    > ![Retention policy in PowerShell output](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Use the [Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) to change the current log settings. The following example changes the retention period for logs for the blob and queue storage services to 4 days.  
+7. Use the [Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) to change the retention period. The following example changes the retention period to 4 days.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -194,12 +194,18 @@ For information about accessing the $logs container, see [Storage analytics logg
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).  
 
 ### [.NET v12](#tab/dotnet)
-The following example changes the retention period for logs for the blob and queue storage services to 4 days. 
+
+The following example prints to the console the retention period for blob and queue storage services.
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ViewRetentionPeriod":::
+
+The following example changes the retention period to 4 days. 
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
 ### [.NET v11](#tab/dotnet11)
-The following example changes the retention period for logs for the blob and queue storage services to 4 days. 
+
+The following example prints to the console the retention period for blob and queue storage services.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connectionString);
@@ -209,6 +215,17 @@ var queueClient = storageAccount.CreateCloudQueueClient();
 
 var blobserviceProperties = blobClient.GetServiceProperties();
 var queueserviceProperties = queueClient.GetServiceProperties();
+
+Console.WriteLine("Retention period for logs from the blob service is: " +
+   blobserviceProperties.Logging.RetentionDays.ToString());
+
+Console.WriteLine("Retention period for logs from the queue service is: " +
+   queueserviceProperties.Logging.RetentionDays.ToString());
+```
+
+The following example changes the retention period for logs for the blob and queue storage services to 4 days. 
+
+```csharp
 
 blobserviceProperties.Logging.RetentionDays = 4;
 queueserviceProperties.Logging.RetentionDays = 4;
