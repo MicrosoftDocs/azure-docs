@@ -198,7 +198,7 @@ Then you can find `lvaEdge`, `rtspsim`, `spatialAnalysis` and `rtspsim` modules 
 To see these events, follow these steps:
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
+1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
