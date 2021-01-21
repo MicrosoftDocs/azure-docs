@@ -11,8 +11,6 @@ ms.date: 01/15/2021
 ms.author: aahi
 ---
 
-## General NER entity categories and subcategories
-
 The NER feature for Text Analytics returns the following general (non identifying) entity categories. for example when sending requests to the `/entities/recognition/general` endpoint.
 
 
@@ -33,7 +31,7 @@ The NER feature for Text Analytics returns the following general (non identifyin
 | [DateTime](#category-datetime) | Dates and times of day. |
 
 
-## Category: Person
+### Category: Person
 
 This category contains the following entity:
 
@@ -58,7 +56,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: PersonType
+### Category: PersonType
 
 This category contains the following entity:
 
@@ -84,7 +82,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: Location
+### Category: Location
 
 This category contains the following entity:
 
@@ -109,7 +107,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Subcategories
+#### Subcategories
 
 The entity in this category can have the following subcategories.
 
@@ -168,7 +166,7 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
-## Category: Organization
+### Category: Organization
 
 This category contains the following entity:
 
@@ -193,7 +191,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Subcategories
+#### Subcategories
 
 The entity in this category can have the following subcategories.
 
@@ -252,7 +250,7 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
-## Category: Event
+### Category: Event
 
 This category contains the following entity:
 
@@ -277,7 +275,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Subcategories
+#### Subcategories
 
 The entity in this category can have the following subcategories.
 
@@ -336,7 +334,7 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
-## Category: Product
+### Category: Product
 
 This category contains the following entity:
 
@@ -362,7 +360,7 @@ This category contains the following entity:
 :::row-end:::
 
 
-### Subcategories
+#### Subcategories
 
 The entity in this category can have the following subcategories.
 
@@ -386,7 +384,7 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
-## Category: Skill
+### Category: Skill
 
 This category contains the following entity:
 
@@ -411,7 +409,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: Address
+### Category: Address
 
 This category contains the following entity:
 
@@ -436,7 +434,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: PhoneNumber
+### Category: PhoneNumber
 
 This category contains the following entity:
 
@@ -461,7 +459,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: Email
+### Category: Email
 
 This category contains the following entity:
 
@@ -486,7 +484,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: URL
+### Category: URL
 
 This category contains the following entity:
 
@@ -511,7 +509,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: IP
+### Category: IP
 
 This category contains the following entity:
 
@@ -536,7 +534,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Category: DateTime
+### Category: DateTime
 
 This category contains the following entities:
 
@@ -563,7 +561,7 @@ This category contains the following entities:
 
 Entities in this category can have the following subcategories
 
-### Subcategories
+#### Subcategories
 
 The entity in this category can have the following subcategories.
 
@@ -673,7 +671,7 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
-## Category: Quantity
+### Category: Quantity
 
 This category contains the following entities:
 
@@ -698,7 +696,7 @@ This category contains the following entities:
    :::column-end:::
 :::row-end:::
 
-### Subcategories
+#### Subcategories
 
 The entity in this category can have the following subcategories.
 
