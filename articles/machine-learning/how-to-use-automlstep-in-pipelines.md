@@ -207,7 +207,7 @@ pq.write_table(pa.Table.from_pandas(df), args.output_path)
 print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 ```
 
-The above code snippet is a complete, but minimal, example of data preparation for the Titanic data. The snippet starts with a Jupyter "magic command" to output the code to a file. If you aren't using a Jupyter notebook, remove that line and create the file manually.
+The above code snippet is a complete, but minimal, example of data preparation for the Titanic data. The snippet starts with a Jupyter "magic command" to output the code to a file. If you aren't using a Jupyter Notebook, remove that line and create the file manually.
 
 The various `prepare_` functions in the above snippet modify the relevant column in the input dataset. These functions work on the data once it has been changed into a Pandas `DataFrame` object. In each case, missing data is either filled with representative random data or categorical data indicating "Unknown." Text-based categorical data is mapped to integers. No-longer-needed columns are overwritten or dropped. 
 
@@ -505,7 +505,7 @@ Finally, the actual metrics and model are downloaded to your local machine, as w
 
 ## Next Steps
 
-- Run this Jupyter notebook showing a [complete example of automated ML in a pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) that uses regression to predict taxi fares
+- Run this Jupyter Notebook showing a [complete example of automated ML in a pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) that uses regression to predict taxi fares
 - [Create automated ML experiments without writing code](how-to-use-automated-ml-for-ml-models.md)
-- Explore a variety of [Jupyter notebooks demonstrating automated ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+- Explore a variety of [Jupyter Notebooks demonstrating automated ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 - Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md#automate-the-ml-lifecycle) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)
