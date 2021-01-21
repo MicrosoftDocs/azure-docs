@@ -198,9 +198,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
    ![In Ambari, change the container name for HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
 	
-1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature, and only in cases where your original cluster was an HBase cluster with Enhanced Writes feature .
-
-   Clean the zookeeper and WAL FS data for this new cluster. Issue the following commands in any of the zookeeper nodes or worker nodes:
+1. Clean the zookeeper and WAL FS data for this new cluster. Issue the following commands in any of the zookeeper nodes or worker nodes:
 
    ```bash
    hbase zkcli
@@ -237,15 +235,6 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. Start the ingestion to see if everything is functioning as expected.
 
 1. If the new cluster is satisfactory, delete the original cluster.
-
-## Additional steps required if you are using Phoenix
-
-1. Please run UPDATE STATISTICS command on all the user tables. This will ensure that the performance is not degraded due to SYSTEM.STATS table not getting migrated. 
-
-1. To workaround an existing limitation in HBase open source, please ensure that the SYSTEM.CATALOG tables are migrated to the destination by following these steps: 
-    1. Take the snapshot of the SYSTEM.CATALOG table on the source cluster.
-    1. Export the snapshot to the destination cluster 
-    1. Restore the snapshot on the destination cluster.
     
 ## Next steps
 
