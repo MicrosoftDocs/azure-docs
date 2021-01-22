@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
 ---
 
@@ -41,9 +41,6 @@ See the reference documentation for examples of the JSON response.
 
 ### Feature changes
 
-> [!NOTE] 
-> Currently, [v3 entity categories](named-entity-types.md) are only returned on English and Spanish text. The API returns version 2.1 results for requests in other languages, provided they are supported in version 2.1.
-
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. Version 3 provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Starting in v3.1-preview.1, NER can additionally detect personal `pii` and health `phi` information. 
 
 ### Steps to migrate
@@ -68,6 +65,35 @@ See the reference documentation for examples of the JSON response.
 #### Client libraries
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### Version 2.1 entity types
+
+The following table lists the entity types returned for NER v2.1.
+
+| Category   | Subcategory | Description                          |
+|------------|-------------|--------------------------------------|
+| Person     | N/A         | Names of people.  |
+|Location    | N/A         | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. |
+| PhoneNumber | N/A | Phone numbers (US and EU phone numbers only). |
+| Email | N/A | Email addresses. |
+| URL | N/A | URLs to websites. |
+| IP | N/A | Network IP addresses. |
+| DateTime | N/A | Dates and times of day.| 
+| DateTime | Date | Calender dates. |
+| DateTime | Time | Times of day |
+| DateTime | DateRange | Date ranges. |
+| DateTime | TimeRange | Time ranges. |
+| DateTime | Duration | Durations. |
+| DateTime | Set | Set, repeated times. |
+| Quantity | N/A | Numbers and numeric quantities. |
+| Quantity | Number | Numbers. |
+| Quantity | Percentage | Percentages.|
+| Quantity | Ordinal | Ordinal numbers. |
+| Quantity | Age | Ages. |
+| Quantity | Currency | Currencies. |
+| Quantity | Dimension | Dimensions and measurements. |
+| Quantity | Temperature | Temperatures. |
 
 ## [Language detection](#tab/language-detection)
 

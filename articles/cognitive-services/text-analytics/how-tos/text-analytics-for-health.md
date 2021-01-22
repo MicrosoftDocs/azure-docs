@@ -25,8 +25,6 @@ Text Analytics for health is a feature of the Text Analytics API service that ex
 * [The web-based API (asynchronous)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
 * [A Docker container (synchronous)](#hosted-asynchronous-web-api-response)   
 
-
-	text-analytics-for-health.md#hosted-asynchronous-web-api-response
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Features
