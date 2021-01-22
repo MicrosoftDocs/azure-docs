@@ -1,17 +1,9 @@
 ---
 title: "Quickstart: Use cURL & REST to manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.date: 11/09/2020
-ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.date: 1/22/2021
 ms.topic: quickstart
 ---
-
-# Quickstart: Use cURL and REST to manage knowledge base
-
-This quickstart walks you through creating, publishing, and querying your knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../index.yml). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -412,8 +404,3 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 * [Authoring](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Reference documentation
 * [Runtime](/rest/api/cognitiveservices/qnamaker4.0/runtime) Reference documentation
 * [Sample BASH scripts using cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

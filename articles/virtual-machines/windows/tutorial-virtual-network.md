@@ -277,7 +277,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure network traffic
 > * Create a back-end VM
 
-Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup.
-
-> [!div class="nextstepaction"]
-> [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
+To learn about protecting your VM disks, see [Backup and disaster recovery for disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
