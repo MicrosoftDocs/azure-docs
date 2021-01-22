@@ -19,7 +19,7 @@ sections:
     questions: 
       - question: What is the SQL Maintenance Window feature?
         answer: |
-         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-SQL-maintenance-windows) for more information.
+         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-sql-maintenance-windows) for more information.
 
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
