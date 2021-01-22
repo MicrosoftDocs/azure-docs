@@ -100,7 +100,7 @@ An *existing* OR *new* ExpressRoute virtual network gateway can be used.
 
 If you use an *existing* ExpressRoute virtual network gateway, the Azure VMware Solution ExpressRoute circuit is established after you deploy the private cloud.  So, you don't need to populate the **Virtual Network** field.  
 
-At this point, just make note of which ExpressRoute virtual network gateway will be used and move on to the next step in this document.
+Make note of which ExpressRoute virtual network gateway you'll use and continue to the next step.
 
 ### Create a new ExpressRoute virtual network gateway
 
