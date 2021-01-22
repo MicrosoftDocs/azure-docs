@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -21,7 +21,7 @@ The Import/Export service supports only import of Azure Files into Azure Storage
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription to use with Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-account-create.md).
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 - [Download the WAImportExport version 2](https://aka.ms/waiev2) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
@@ -163,7 +163,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
@@ -241,7 +241,7 @@ Use the following steps to create an import job in the Azure CLI.
 
 Use the following steps to create an import job in Azure PowerShell.
 
-[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+[!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
 > [!IMPORTANT]
 > While the **Az.ImportExport** PowerShell module is in preview, you must install it separately
@@ -340,11 +340,11 @@ Install-Module -Name Az.ImportExport
 
 ## Step 3: Ship the drives to the Azure datacenter
 
-[!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
+[!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
 ## Step 4: Update the job with tracking information
 
-[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+[!INCLUDE [storage-import-export-update-job-tracking](../../includes/storage-import-export-update-job-tracking.md)]
 
 ## Step 5: Verify data upload to Azure
 
