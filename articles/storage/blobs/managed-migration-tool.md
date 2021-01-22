@@ -42,25 +42,25 @@ Once you've created the account, you'll have to manually configure account setti
 2. In the left menu for the account, scroll to the **ADLS Gen2 Migration** section, then select **Migration**.
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint](./media/managed-migration-tool/migrate-button.png)
+   > ![Image Hint1](./media/managed-migration-tool/migrate-button.png)
 
    The **Microsoft Managed Gen1 to Gen2 Migration** wizard appears.
 
 3. In the **Choose a Gen2 account for migration** page, choose a storage account that has the **Hierarchical namespace** feature enabled on it.
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint](./media/managed-migration-tool/managed-migration-wizard-page-1.png)
+   > ![Image Hint2](./media/managed-migration-tool/managed-migration-wizard-page-1.png)
 
 4.	In the **Consent to the migration** page, review the terms, choose whether to perform a test migration or a complete migration, and then click the **I consent to the migration** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint](./media/managed-migration-tool/managed-migration-wizard-page-2.png)
+   > ![Image Hint3](./media/managed-migration-tool/managed-migration-wizard-page-2.png)
 
 5. For the **Migration Mode** option, choose **Test Migration**. That way the tool migrates your data and metadata such as ACLs and timestamps, but doesn't yet redirect the URL of your Gen1 account. In test migration mode, the Gen1 account remains active while you test your applications against Gen2.
 
 ## Step 3: Test your applications
  
-Test your applications against your new account to ensure that they work as expected. When you've completed your testing, you can complete the migration.
+Test your applications against your new account to ensure that they work as expected.
 
 1. To ensure that you encounter the least number of issues, make sure to update your Gen1 SDKs to the following versions.
 
@@ -72,7 +72,11 @@ Test your applications against your new account to ensure that they work as expe
 
 2. Review the list of known issues that have been identified in the Gen1 compatibility layer.
 
-3. Next steps for what is required to test the compatibility layer. 
+3. In your application code and related configuration files, find and replace Gen1 URLs with Gen2 URLs.
+
+   For example, if your Gen1 account is named `mygen1account` and your Gen2 account is named `mygen2account`, you would replace any instances of the string `mygen1account.azuredatalakestore.net` with `mygen2account.dfs.core.windows.net`.
+
+4. Test your applications. When you've completed your testing, you can complete the migration.
 
 ## Step 4: Complete the migration
 
