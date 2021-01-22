@@ -17,15 +17,15 @@ Cloud Services (extended support) is a new [Azure Resource Manager](https://docs
 
 ## Changes in deployment model
 
-Minimal changes are required to cscfg and csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
+Minimal changes are required to .cscfg and .csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
 
 :::image type="content" source="media/overview-image-1.png" alt-text="Image shows classic cloud service configuration with addition of template section. ":::
 
-- The Azure Resource Manager templates need to be maintained and kept consistent with the cscfg and csdef files for Cloud Services (extended support) deployments.
+- The Azure Resource Manager templates need to be maintained and kept consistent with the .cscfg and .csdef files for Cloud Services (extended support) deployments.
 - Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
 - The concept of staging and production slots do not exist for Cloud Services (extended support).
 - Assigning a [DNS label](https://docs.microsoft.com/azure/dns/dns-zones-records) to the Cloud Service is optional and the DNS label is tied to the public IP resource associated with the Cloud Service.
-- [VIP Swap](cloud-services-swap.md) continues to be supported for Cloud Services (extended support). [VIP Swap](cloud-services-swap.md) can be used to swap between two Cloud Service (extended support) deployments.
+- VIP Swap is currently unsupported for Cloud Services (extended support).
 - Cloud Services (extended support) requires [Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to manage certificates. The cscfg file and templates require referencing the Key Vault to obtain the certificate information. 
 - [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are required to deploy Cloud Services (extended support).
 - The Network Configuration File (netcfg) does not exist in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
