@@ -63,6 +63,15 @@ This quickstart uses MSAL Angular v2 with the authorization code flow. For a sim
 > 1. Under **Platform Configurations** expand **Single-page application**.
 > 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png)Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure your application in the Azure portal
+> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:4200/`.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make these changes for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-javascript/green-check.png) Your application is configured with these attributes.
+
  #### Step 2: Download the project
 
 > [!div renderon="docs"]

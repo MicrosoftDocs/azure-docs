@@ -73,7 +73,7 @@ Azure Cognitive Search supports Impact Level 5 workloads in Azure Government wit
 
 Azure Machine Learning supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](../machine-learning/concept-enterprise-security.md#data-encryption). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
+- Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](../machine-learning/concept-enterprise-security.md). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 ### [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 
 
@@ -125,7 +125,7 @@ Azure Analysis Services supports Impact Level 5 workloads in Azure Government wi
 
 Azure Data Explorer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](https://docs.microsoft.com/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
 
 ### [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
@@ -349,7 +349,7 @@ Azure Logic Apps supports Impact Level 5 workloads in Azure Government. To meet 
 
 ### [Event Grid](https://azure.microsoft.com/services/event-grid/)
 
-Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](https://docs.microsoft.com/azure/event-grid/security-authentication#encryption-at-rest).  All data written to disk is encrypted with Microsoft-managed keys. 
+Azure Event Grid can persist customer content for no more than 24 hours. For more information, see [Authenticate event delivery to event handlers](../event-grid/security-authentication.md).  All data written to disk is encrypted with Microsoft-managed keys. 
 
 Azure Event Grid supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
@@ -572,7 +572,7 @@ Microsoft Graph supports Impact Level 5 workloads in Azure Government with no ad
 
 For Storage services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-### [Azure Import/Export service](../storage/common/storage-import-export-service.md)
+### [Azure Import/Export service](../import-export/storage-import-export-service.md)
 
 Azure Import/Export service can be used in Azure Government to import and export Impact Level 5 data. By default, the Import/Export service will encrypt data that's written to the hard drive for transport. When you create a target storage account for import and export of Impact Level 5 data, add storage encryption via customer-managed keys. For more information, see the [storage services section](#storage-encryption-with-key-vault-managed-keys) of this document.
 

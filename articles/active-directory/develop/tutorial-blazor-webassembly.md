@@ -23,7 +23,7 @@ In this tutorial:
 > * Create a new Blazor WebAssembly app configured to use Azure Active Directory (Azure AD) for [authentication and authorization](authentication-vs-authorization.md) using the Microsoft identity platform
 > * Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
 
-This tutorial uses .NET Core 3.1. The .NET docs contain instructions on [how to secure a Blazor WebAssembly app](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) using ASP.NET Core 5.0. 
+This tutorial uses .NET Core 3.1. The .NET docs contain instructions on [how to secure a Blazor WebAssembly app](/aspnet/core/blazor/security/webassembly/graph-api) using ASP.NET Core 5.0. 
 
 We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
 
@@ -77,7 +77,7 @@ The components of this template that enable logins with Azure AD using the Micro
 
 [Microsoft Graph](/graph/overview) contains APIs that provide access to Microsoft 365 data for your users, and it supports the tokens issued by the Microsoft identity platform, which makes it a good protected API to use as an example. In this section, you add code to call Microsoft Graph and display the user's emails on the application's "Fetch data" page.
 
-This section is written using a common approach to calling a protected API using a named client. The same method can be used for other protected APIs you want to call. However, if you do plan to call Microsoft Graph from your application you can use the Graph SDK to reduce boilerplate. The .NET docs contain instructions on [how to use the Graph SDK](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+This section is written using a common approach to calling a protected API using a named client. The same method can be used for other protected APIs you want to call. However, if you do plan to call Microsoft Graph from your application you can use the Graph SDK to reduce boilerplate. The .NET docs contain instructions on [how to use the Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
 
