@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 1/13/2021
+ms.date: 1/22/2021
 ---
 # Quickstart: Create an Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,8 +65,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 | **vCore compute model** | Select an option. | vCores represent exact amount of compute resources that are always provisioned for your workload. **Eight vCores** is the default.|
 | **Storage in GB** | Select an option. | Storage size in GB, select based on expected data size. If migrating existing data from on-premises or on various cloud platforms, see [Migration overview: SQL Server to SQL Managed Instance](../../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).|
 | **Azure Hybrid Benefit** | Check option if applicable. | For leveraging an existing license for Azure. For more information, see [Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance](../../azure-sql/azure-hybrid-benefit.md). |
-| **Backup storage redundancy** | Select **Geo-redundant storage**. | Storage redundancy inside Azure for backups. Note that this value cannot be changed later. Geo-redundant storage is default and recommended, though Zone and Local redundancy allow for more cost flexibility. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).|
-
+| **Backup storage redundancy** | Select **Geo-redundant backup storage**. | Storage redundancy inside Azure for backup storage. Note that this value cannot be changed later. Geo-redundant backup storage is default and recommended, though Zone and Local redundancy allow for more cost flexibility and single region data residency. For more information, see [Backup Storage redundancy](../database/automated-backups-overview?tabs=managed-instance#backup-storage-redundancy).|
 
 
 - To review your choices before you create a SQL Managed Instance, you can select **Review + create**. Or, configure networking options by selecting **Next: Networking**.
