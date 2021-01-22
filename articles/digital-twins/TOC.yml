@@ -243,10 +243,10 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-    - name: Customer data requests
-      href: resources-customer-data-requests.md
-    - name: Digital Twins service limits
-      href: reference-service-limits.md
+  - name: Customer data requests
+    href: resources-customer-data-requests.md
+  - name: Digital Twins service limits
+    href: reference-service-limits.md
   - name: Pricing and availability
     items:
     - name: Pricing
