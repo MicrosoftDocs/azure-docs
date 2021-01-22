@@ -70,7 +70,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ### Text Analytics for health container updates
 
 The following updates are specific to the September release of the Text Analytics for health container only.
-* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the containerpreview repository. 
+* A new container image with tag `1.1.013530001-amd64-preview` with the new model-version `2020-09-03` has been released to the container preview repository. 
 * This model version provides improvements in entity recognition, abbreviation detection, and latency enhancements.
 
 > [!div class="nextstepaction"]
