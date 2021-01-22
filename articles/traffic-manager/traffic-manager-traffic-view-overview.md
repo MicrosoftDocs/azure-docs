@@ -16,7 +16,7 @@ ms.custom:
 
 # Traffic Manager Traffic View
 
-Traffic Manager provides you with DNS (Domain Name System) level routing so that your end users get directed to healthy endpoints based on the routing method of your choosing. Traffic View provides Traffic Manager with a view of your user bases (at a DNS resolver granularity level) and their traffic pattern. When you enable Traffic View, this information is processed to provide you with actionable insights. 
+Traffic Manager provides you with DNS (Domain Name System) level routing. This service allows your end users to get directed to healthy endpoints based on the routing method of your choosing. Traffic View provides Traffic Manager with a view of your user bases (at a DNS resolver granularity level) and their traffic pattern. When you enable Traffic View, this information is processed to provide you with actionable insights. 
 
 By using Traffic View, you can:
 - understand where your user bases are located (up to a local DNS resolver level granularity).
@@ -24,11 +24,11 @@ By using Traffic View, you can:
 - get insights into what is the representative latency experienced by these users.
 - deep dive into the specific traffic patterns from each of these user bases to Azure regions where you have endpoints. 
 
-For example, you can use Traffic View to understand which regions have a large amount of traffic but suffer from higher latencies. Next, you use this information to plan your footprint expansion to new Azure regions so that these users will have a lower latency experience.
+For example, you can use Traffic View to understand which regions have a large amount of traffic but suffer from higher latencies. Then you use this information to plan your footprint expansion to new Azure regions. That way your users will have a lower latency experience.
 
 ## How Traffic View works
 
-Traffic View works by look at the incoming queries received over the last seven days for a profile. From the incoming queries information, Traffic View extracts the source IP of the DNS resolver that is used as a representation of the location of the users. Then gets grouped together at a DNS resolver level to create user base regions by using the geographic information of IP addresses maintained by Traffic Manager. Traffic Manager then looks at the Azure regions to which the query gets routed and constructs a traffic flow map for users from those regions.
+Traffic View works by look at the incoming queries received over the last seven days for a profile. From the incoming queries information, Traffic View extracts the source IP of the DNS resolver used to represent the location of the users. This information gets grouped together at a DNS resolver level to create user-base regions. Traffic Manager maintains the geographic information of IP addresses. Traffic Manager then looks at the Azure regions to which the query gets routed and constructs a traffic flow map for users from those regions.
  
 In the next step, Traffic Manager correlates the user base region to Azure region mapping with the network intelligence latency tables. This table is maintained for different end-user networks to understand the average latency experienced by users from those regions when connecting to Azure regions. All these calculations are then combined at a per local DNS resolver IP level before it's presented to you. You can consume the information in various ways.
 
@@ -55,7 +55,7 @@ If you hover over a DNS resolver location in the map, it shows:
 
 ### Endpoint information
 
-The Azure regions in which the endpoints are located are shown as blue dots in the map. If your endpoint is external and doesn’t have an Azure region that maps to it, then it will be shown at the top of the map. Select any endpoint to see the different locations (based on the DNS resolver used) from where traffic was directed to that endpoint. The connections are shown as a line between the endpoint and the DNS resolver location and are colored according to the representative latency between that pair. You can also see the name of the endpoint, the Azure region in which it runs, and the total volume of requests that get directed to it by this Traffic Manager profile.
+The Azure regions in which the endpoints are located are shown as blue dots in the map. If your endpoint is external and doesn’t have an Azure region map to it, then they're shown at the top of the map. Select any endpoint to see the different locations (based on the DNS resolver used) from where traffic was directed to that endpoint. The connections are shown as a line between the endpoint and the DNS resolver location. They're colored according to the representative latency between that pair. You can see the name of the endpoint and the Azure region in which it runs. The total volume of requests that get directed to it by this Traffic Manager profile are also displayed.
 
 
 ## Tabular listing and raw data download
