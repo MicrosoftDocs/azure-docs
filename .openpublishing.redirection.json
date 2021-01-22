@@ -12574,6 +12574,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/windows/index.yml",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/index.yml",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database-edge/index.yml",
       "redirect_url": "/azure/azure-sql-edge/",
       "redirect_document_id": true
@@ -16394,6 +16414,71 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-import-export-contact-microsoft-support.md",
+      "redirect_url": "/azure/import-export/storage-import-export-contact-microsoft-support",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-data-from-blobs.md",
+      "redirect_url": "/azure/import-export/storage-import-export-data-from-blobs",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-data-to-blobs.md",
+      "redirect_url": "/azure/import-export/storage-import-export-data-to-blobs",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-data-to-files.md",
+      "redirect_url": "/azure/import-export/storage-import-export-data-to-files",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-encryption-key-portal.md",
+      "redirect_url": "/azure/import-export/storage-import-export-encryption-key-portal",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-requirements.md",
+      "redirect_url": "/azure/import-export/storage-import-export-requirements",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-service.md",
+      "redirect_url": "/azure/import-export/storage-import-export-service",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-service-faq.md",
+      "redirect_url": "/azure/import-export/storage-import-export-service-faq",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-tool-repairing-an-export-job-v1.md",
+      "redirect_url": "/azure/import-export/storage-import-export-tool-repairing-an-export-job-v1",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-tool-repairing-an-import-job-v1.md",
+      "redirect_url": "/azure/import-export/storage-import-export-tool-repairing-an-import-job-v1",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-tool-reviewing-job-status-v1.md",
+      "redirect_url": "/azure/import-export/storage-import-export-tool-reviewing-job-status-v1",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-tool-setup-v1.md",
+      "redirect_url": "/azure/import-export/storage-import-export-tool-setup-v1",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/storage/common/storage-import-export-view-drive-status.md",
+      "redirect_url": "/azure/import-export/storage-import-export-view-drive-status",
+      "redirect_document_id": false
+    },
+{
       "source_path_from_root": "/articles/databox-online/data-box-edge-connect-powershell-interface.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-connect-powershell-interface",
       "redirect_document_id": false
@@ -61398,6 +61483,11 @@
     {
       "source_path": "articles/media-services/latest/migrate-from-v2-to-v3.md",
       "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     }
   ]
