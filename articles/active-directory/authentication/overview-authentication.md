@@ -29,7 +29,7 @@ One of the main features of an identity platform is to verify, or *authenticate*
 
 Take a look at our short video to learn more about these authentication components.
 
-> [!VIDEO https:// https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## Improve the end-user experience
 
