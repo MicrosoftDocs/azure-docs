@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -20,7 +20,7 @@ Before you create an export job to transfer data out of Azure Blob Storage, care
 You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-account-create.md).
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   - The account must be valid, should have balance, and must have return shipping capabilities.
@@ -101,7 +101,7 @@ Perform the following steps to create an export job in the Azure portal.
 
 Use the following steps to create an export job in the Azure portal.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
@@ -176,7 +176,7 @@ Use the following steps to create an export job in the Azure portal.
 
 Use the following steps to create an export job in Azure PowerShell.
 
-[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+[!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
 > [!IMPORTANT]
 > While the **Az.ImportExport** PowerShell module is in preview, you must install it separately
@@ -270,11 +270,11 @@ Install-Module -Name Az.ImportExport
 
 If you do not know the number of drives you need, go to the [Check the number of drives](#check-the-number-of-drives). If you know the number of drives, proceed to ship the drives.
 
-[!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
+[!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
 ## Step 3: Update the job with tracking information
 
-[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+[!INCLUDE [storage-import-export-update-job-tracking](../../includes/storage-import-export-update-job-tracking.md)]
 
 ## Step 4: Receive the disks
 
