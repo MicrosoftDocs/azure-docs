@@ -90,4 +90,4 @@ Now that you've registered your management application and have granted it the r
 
 <!-- LINKS -->
 [ms-graph]: /graph/
-[ms-graph-api]: https://docs.microsoft.com/graph/api/overview
+[ms-graph-api]: /graph/api/overview

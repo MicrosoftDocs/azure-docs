@@ -36,7 +36,6 @@ Microsoft partners with the following ISVs for identity verification and proofin
 |![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
 |![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
 |![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |
-|![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is an ID verification service that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
 | ![Screenshot of a LexisNexis logo.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) is a profiling and identity validation provider that verifies user identification and provides comprehensive risk assessment based on user’s device. |
 | ![Screenshot of a Onfido logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) is a document ID and facial biometrics verification solution that allows companies to meet *Know Your Customer* and identity requirements in real time.  |
 
@@ -48,6 +47,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 |:-------------------------|:--------------|
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
+|![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is a passwordless authentication provider that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
 | ![Screenshot of a nevis logo](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) enables passwordless authentication and provides a mobile-first, fully branded end-user experience with Nevis Access app for strong customer authentication and to comply with PSD2 transaction requirements. |
 | ![Screenshot of a trusona logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, MFA, and digital license scanning. |
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
@@ -75,9 +75,9 @@ Microsoft partners with the following ISVs for security.
 
 ## Additional information
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
 ## Next steps
 
