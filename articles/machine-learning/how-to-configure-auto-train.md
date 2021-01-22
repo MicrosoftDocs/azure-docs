@@ -212,15 +212,17 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 Choosing a primary metric for automated machine learning to optimize depends on many factors. The primary consideration is choosing a metric which best represents your business needs. The secondary consideration is choosing a metric suitable for your dataset. 
 
+
+
 #### Classification
 
 | Metric | Task(s) |
 | ------ | ------- |
-| accuracy | ... |
-| AUC_weighted | ... |
-| average_precision_score_weighted | ... |
-| norm_macro_recall | ... |
-| precision_score_weighted | ... |
+| accuracy | image classification, sentiment analysis |
+| AUC_weighted | fraud detection, image classification, Anomaly detection/spam detection |
+| average_precision_score_weighted | sentiment analysis |
+| norm_macro_recall |  |
+| precision_score_weighted |  |
 
 Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are very small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.1. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
 
@@ -228,19 +230,19 @@ Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `
 
 | Metric | Task(s) |
 | ------ | ------- |
-| spearman_correlation | ... |
-| normalized_root_mean_squared_error | ... |
-| r2_score | ... |
-| normalized_mean_absolute_error | ... |
+| spearman_correlation | |
+| normalized_root_mean_squared_error |  |
+| r2_score |  |
+| normalized_mean_absolute_error | |
 
 #### Time series forecasting
 
 | Metric | Task(s) |
 | ------ | ------- |
-| spearman_correlation | ... |
-| normalized_root_mean_squared_error | ... |
-| r2_score | ... |
-| normalized_mean_absolute_error | ... |
+| spearman_correlation | |
+| normalized_root_mean_squared_error | Price prediction(forecasting), Inventory optimization, Demand forecasting |
+| r2_score | Price prediction(forecasting), Inventory optimization, Demand forecasting |
+| normalized_mean_absolute_error | |
 
 ### Data featurization
 
