@@ -120,4 +120,4 @@ Test your Azure AD single sign-on configuration with one of the following option
 
 ## Next steps
 
-Enforce session controls, which protect against exfiltration and infiltration of your organization's sensitive data in real time. Configure session controls in [Microsoft Cloud App Security Conditional Access App Control](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+After you configure Splan Visitor, you can [learn how to enforce session controls in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). Session controls help protect exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access.
