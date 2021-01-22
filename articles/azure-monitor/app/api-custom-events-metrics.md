@@ -141,7 +141,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Analytics
 
-The telemetry is available in the `customEvents` table in [Application Insights Analytics](../log-query/log-query-overview.md). Each row represents a call to `trackEvent(..)` in your app.
+The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../log-query/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
+
+ 
 
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should therefore use code such as `customEvents | summarize sum(itemCount)`.
 
@@ -529,7 +531,7 @@ If [sampling](./sampling.md) is in operation, the itemCount property shows a val
 Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. The code snippet below needs to be added wherever a dependency call is made.
 
 > [!NOTE]
-> For .NET and .NET Core you can alternatively use the `TelemetryClient.StartOperation` (extension) method that fills the `DependencyTelemetry` properties that are needed for correlation and some other properties like the start time and duration so you don't need to create a custom timer as with the examples below. For more information consult this article's [section on outgoing dependency tracking](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+> For .NET and .NET Core you can alternatively use the `TelemetryClient.StartOperation` (extension) method that fills the `DependencyTelemetry` properties that are needed for correlation and some other properties like the start time and duration so you don't need to create a custom timer as with the examples below. For more information consult this article's [section on outgoing dependency tracking](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 
@@ -1119,4 +1121,3 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 * [Search events and logs](./diagnostic-search.md)
 * [Troubleshooting](../faq.md)
-

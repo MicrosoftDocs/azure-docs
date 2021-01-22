@@ -36,7 +36,7 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 
 2. Create applications with endpoints
 
-```azcli
+```azurecli
 az spring-cloud app create --name resilience4j --is-public \
     -s ${asc-service-name} -g ${asc-resource-group}
 az spring-cloud app create --name reactive-resilience4j --is-public \
@@ -45,7 +45,7 @@ az spring-cloud app create --name reactive-resilience4j --is-public \
 
 3. Deploy applications.
 
-```azcli
+```azurecli
 az spring-cloud app deploy -n resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
@@ -68,7 +68,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
-> * The customer code must use the API of `CircuitBreakerFactory`, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker0#overview).
+> * The customer code must use the API of `CircuitBreakerFactory`, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
 > * The following 2 dependencies have conflicts with resilient4j packages above.  Be sure the customer does not include them.
 >
@@ -86,7 +86,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >
 > Navigate to the URL provided by gateway applications, and access the endpoint from [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) as follows:
 >
->   ```
+>   ```console
 >   /get
 >   /get/delay/{seconds}
 >   /get/fluxdelay/{seconds}

@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ trigger for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
 
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
 
@@ -309,6 +309,21 @@ If you are testing locally without a connection string, you should set the "host
 |hostName|n/a|(ignored if using connectionString) <br>Hostname of the queue (Ex: 10.26.45.210)|
 |userName|n/a|(ignored if using connectionString) <br>Name to access the queue |
 |password|n/a|(ignored if using connectionString) <br>Password to access the queue|
+
+
+## Enable Runtime Scaling
+
+In order for the RabbitMQ trigger to scale out to multiple instances, the **Runtime Scale Monitoring** setting must be enabled. 
+
+In the portal, this setting can be found under **Configuration** > **Function runtime settings** for your function app.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+In the CLI, you can enable **Runtime Scale Monitoring** by using the following command:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## Monitoring RabbitMQ endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:

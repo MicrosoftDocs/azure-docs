@@ -24,7 +24,7 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge P
 
 The deployment workflow is illustrated in the following diagram.
 
-![VM deployment workflow](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 The high level summary of the deployment workflow are as follows:
 
@@ -40,7 +40,7 @@ The high level summary of the deployment workflow are as follows:
 10. Create a VNet
 11. Create a VNIC using the VNet subnet ID
 
-For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## Prerequisites
 
@@ -120,7 +120,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following is a sample output of the above command:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -144,7 +144,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\windows\system32>
     ```
 
-    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
+    If you do not have Azure CLI, download and [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows). You can run Azure CLI using Windows command prompt or through Windows PowerShell.
 
 2. Make a note of the CLI's Python location. You need this to determine the location of trusted root certificate store for Azure CLI.
 
@@ -168,7 +168,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following sample output shows the installation of Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -184,7 +184,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following sample output shows the installation of pip for `msrestazure`: 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -208,7 +208,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
     The cmdlet returns the certificate location, as seen below:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -320,7 +320,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
    The following shows sample output for a successful sign in after supplying the password:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [

@@ -14,7 +14,8 @@ ms.date: 12/21/2020
 
 # Service limits in Azure Machine Learning
 
-This section lists basic quotas and throttling thresholds in Azure Machine Learning.
+This section lists basic quotas and throttling thresholds in Azure Machine Learning. 
+To learn how increase resource quotas, see ["Manage and increase quotas for resources"](how-to-manage-quotas.md)
 
 ## Workspaces
 | Limit | Value |
@@ -68,3 +69,5 @@ Some limits can be increased for individual workspaces by [contacting support](h
 ## Next steps
 
 - [Configure your Azure Machine Learning environment](how-to-configure-environment.md)
+- Learn how increase resource quotas in ["Manage and increase quotas for resources"](how-to-manage-quotas.md).
+

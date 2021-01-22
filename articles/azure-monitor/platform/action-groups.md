@@ -158,6 +158,7 @@ You may have a limited number of Logic App actions in an Action Group.
 
 > [!NOTE]
 > Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object Ids through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
 
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
@@ -312,7 +313,8 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 ### Webhook
 
 > [!NOTE]
-> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. 
+> If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
 
 Webhooks are processed using the following rules
 - A webhook call is attempted a maximum of 3 times.

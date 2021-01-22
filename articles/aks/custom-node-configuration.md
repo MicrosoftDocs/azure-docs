@@ -127,7 +127,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | This value controls whether the kernel should make aggressive use of memory compaction to make more `hugepages` available. | 
 
 > [!IMPORTANT]
-> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Create a `kubeletconfig.json` file with the following contents:
 

@@ -35,6 +35,9 @@ Usually, this is due to a critical system process failing during boot. You can r
 
 ### Process Overview:
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and Access a Repair VM.
 2. Fix any OS Corruption.
 3. **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection.

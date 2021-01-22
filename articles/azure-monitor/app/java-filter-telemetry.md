@@ -78,7 +78,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
 ```
 
-[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
+[Inspect the full set of built-in processors](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## Built-in filters
 

@@ -3,8 +3,8 @@ title: Monitor Azure Storage services with Azure Monitor for Storage | Microsoft
 description: This article describes the Azure Monitor for Storage feature that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
 ms.subservice: 
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 05/11/2020
 
 ---

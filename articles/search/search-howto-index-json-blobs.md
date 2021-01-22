@@ -104,7 +104,7 @@ You can use the REST API to index JSON blobs, following a three-part workflow co
 
 You can review [REST example code](#rest-example) at the end of this section that shows how to create all three objects. This section also contains details about [JSON parsing modes](#parsing-modes), [single blobs](#parsing-single-blobs), [JSON arrays](#parsing-arrays), and [nested arrays](#nested-json-arrays).
 
-For code-based JSON indexing, use [Postman or Visual Studio Code](search-get-started-rest.md) and the REST API to create these objects:
+For code-based JSON indexing, use [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) and the REST API to create these objects:
 
 + [index](/rest/api/searchservice/create-index)
 + [data source](/rest/api/searchservice/create-data-source)

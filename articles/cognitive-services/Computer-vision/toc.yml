@@ -140,7 +140,7 @@
     - name: Explore an image processing app
       href: Tutorials/CSharpTutorial.md
     - name: Other Computer Vision samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+      href: https://docs.microsoft.com/samples/browse/?products=azure&terms=computer-vision
   - name: FAQ
     href: FAQ.md
   - name: Category taxonomy

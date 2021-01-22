@@ -11,9 +11,14 @@ In this article, we cover some of the common issues that you might face while in
 
 ## Check the self-diagnostic log file
 
-By default, the Java 3.0 agent for Application Insights produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.0.0.jar` file.
+By default, the Java 3.0 agent for Application Insights produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.0.2.jar` file.
 
 This log file is the first place to check for hints to any issues you might be experiencing.
+
+## JVM fails to start
+
+If the JVM fails to start with "Error opening zip file or JAR manifest missing",
+try re-downloading the agent jar file because it may have been corrupted during file transfer.
 
 ## Upgrade from the Application Insights Java 2.x SDK
 
