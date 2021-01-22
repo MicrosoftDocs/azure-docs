@@ -37,6 +37,8 @@
     href: concepts-security.md
   - name: High availability and disaster recovery
     href: concepts-high-availability-disaster-recovery.md
+  - name: Private access with Private Link
+    href: concepts-private-link.md
 - name: How-to guides
   items:
   - name: Deploy
