@@ -262,5 +262,3 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 
 * [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md)
-* [Understand batch testing with this tutorial]()
-* [Learn batch testing concepts]().
