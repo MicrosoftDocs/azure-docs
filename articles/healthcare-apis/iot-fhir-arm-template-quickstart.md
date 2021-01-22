@@ -41,7 +41,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-:::code language="json" source="samples/101-azure-iot-connector-for-fhir/azuredeploy.json":::
+:::code language="json" source="https://github.com/microsoft/iomt-fhir/tree/master/deploy/templates/managed/azuredeploy.json":::
 
 The template defines following Azure resources:
 
