@@ -18,6 +18,22 @@ ms.author: marsma
 
 Welcome to what's new in Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## January 2021
+
+### New articles
+
+- [Quickstart: Sign in and get an access token in an Angular SPA using the auth code flow](quickstart-v2-javascript-auth-code-angular.md)
+- [Quickstart: Sign in and get an access token in a React SPA using the auth code flow](quickstart-v2-javascript-auth-code-react.md)
+
+### Updated articles
+
+- [Authentication vs. authorization](authentication-vs-authorization.md)
+- [How to: Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
+- [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md)
+- [Configurable token lifetimes in Microsoft identity platform (preview)](active-directory-configurable-token-lifetimes.md)
+- [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
+
 ## December 2020
 
 ### New articles
@@ -32,6 +48,7 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 
 ### Updated articles
 
+- [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
 - [Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform](tutorial-v2-aspnet-daemon-web-app.md)
 - [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
 - [Microsoft identity platform and implicit grant flow](v2-oauth2-implicit-grant-flow.md)
