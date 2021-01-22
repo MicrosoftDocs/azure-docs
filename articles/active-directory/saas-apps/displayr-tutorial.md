@@ -74,6 +74,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<YOURDOMAIN>.displayr.com`
 
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:`<YOURDOMAIN>.displayr.com`
+	
+	c. In the **Reply URL** text box, type `https://app.displayr.com/Login/ProcessSamlResponse`.
+	
+	d. Click **Save**.
 
 	>[!NOTE]
 	>These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
@@ -84,25 +88,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Displayr application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![Screenshot that shows the "User Attributes" section with the "Edit" icon highlighted.](common/edit-attribute.png)
+   ![Screenshot that shows the "User Attributes" section with the "Edit" icon highlighted.](common/edit-attribute.png)
 
 1. In addition to above, Displayr application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
+   a. Click **Add a group claim**.
 
-	![Screenshot that shows the "User Attributes & Claims" section with the "Pen" icon next to "Groups returned in claim" selected.](./media/displayr-tutorial/config04.png)
+      ![Screenshot that shows the "Group Claims (Preview) window with settings selected.](./media/displayr-tutorial/config05.png)
 
-	![Screenshot that shows the "Group Claims (Preview) window with settings selected.](./media/displayr-tutorial/config05.png)
+   b. Select **All Groups** from the radio list.
 
-	b. Select **All Groups** from the radio list.
+   c. Select **Source Attribute** of **Group ID**.
 
-	c. Select **Source Attribute** of **Group ID**.
+   d. Check **Customize the name of the group claim**.
 
-	d. Check **Customize the name of the group claim**.
+   e. Check **Emit groups as role claims**.
 
-	e. Check **Emit groups as role claims**.
-
-	f. Click **Save**.
+   f. Click **Save**.
 
 1. On the **Set-up Displayr** section, copy the appropriate URL(s) based on your requirement.
 
