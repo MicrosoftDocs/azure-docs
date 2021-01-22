@@ -17,7 +17,7 @@ ms.reviewer:
 
 Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
 
-Azure AD must be configured to integrate with an application. In other words, it needs to know what apps are using it for identities. The process of keeping Azure AD aware of these apps, and how it should handle them, is known as application management.
+Azure AD must be configured to integrate with an application. In other words, it needs to know what apps are using it for identities. Making Azure AD aware of these apps, and how it should handle them, is known as application management.
 
 You manage applications on the **Enterprise applications** page located in the Manage section of the Azure Active Directory portal.
 
@@ -33,12 +33,12 @@ A centralized identity system provides a single place to store user information 
 
 ## Why manage applications with a cloud solution?
 
-Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset all the time. With so many applications and access points, it's more critical than ever to use a cloud-based solution to manage user access to all applications.
+Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset all the time. With so many apps and access points, it's important to use an identity solution that works with them all.
 
 >[!TIP]
 >The Azure AD app gallery contains many popular applications that are already pre-configured to work with Azure AD as an identity provider.
 
-## How does Azure AD work with applications?
+## How does Azure AD work with apps?
 
 Azure AD sits in the middle and provides identity management for cloud and on-premises apps. 
 
