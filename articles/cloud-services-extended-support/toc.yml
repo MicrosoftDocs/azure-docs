@@ -53,6 +53,8 @@
   items:
   - name: Extensions
     href: extensions.md
+  - name: Enable remote desktop
+    href: enable-rdp.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
