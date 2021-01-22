@@ -408,40 +408,40 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                 }
               ]
             },
-    "extensionProfile": {​​​​
-          "extensions": [
-            {​​​​
-              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-              "properties": {​​​​
-                "autoUpgradeMinorVersion": true,
-                "publisher": "Microsoft.Azure.Diagnostics",
-                "type": "PaaSDiagnostics",
-                "typeHandlerVersion": "1.5",
-                "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                "rolesAppliedTo": [
-                  "WebRole1"
-                ]
-              }​​​​
-            }​​​​,
-            {​​​​
-              "name": "RDPExtension",
-              "properties": {​​​​
-                "autoUpgradeMinorVersion": true,
-                "publisher": "Microsoft.Windows.Azure.Extensions",
-                "type": "RDP",
-                "typeHandlerVersion": "1.2.1",
-                "settings": "[parameters('rdpPublicConfig')]",
-                "protectedSettings": "[parameters('rdpPrivateConfig')]"
-              }​​​​
+        "extensionProfile": {​​​​
+              "extensions": [
+                {​​​​
+                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+                  "properties": {​​​​
+                    "autoUpgradeMinorVersion": true,
+                    "publisher": "Microsoft.Azure.Diagnostics",
+                    "type": "PaaSDiagnostics",
+                    "typeHandlerVersion": "1.5",
+                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                    "rolesAppliedTo": [
+                      "WebRole1"
+                    ]
+                  }​​​​
+                }​​​​,
+                {​​​​
+                  "name": "RDPExtension",
+                  "properties": {​​​​
+                    "autoUpgradeMinorVersion": true,
+                    "publisher": "Microsoft.Windows.Azure.Extensions",
+                    "type": "RDP",
+                    "typeHandlerVersion": "1.2.1",
+                    "settings": "[parameters('rdpPublicConfig')]",
+                    "protectedSettings": "[parameters('rdpPrivateConfig')]"
+                  }​​​​
+                }​​​​
+              ]
             }​​​​
-          ]
+          }​​​​
         }​​​​
-      }​​​​
-    }​​​​
-  ]
-```
-
+      ]
+    ```
+ 
 8. Deploy the template and create the Cloud Service (extended support) deployment. 
 
     ```powershell
