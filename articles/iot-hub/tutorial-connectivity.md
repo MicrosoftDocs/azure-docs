@@ -48,7 +48,7 @@ Make sure that port 8883 is open in your firewall. The device sample in this tut
 
 If you created a free or standard tier IoT hub in a previous quickstart or tutorial, you can skip this step.
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-tutorials-create-free-hub](../../includes/iot-hub-tutorials-create-free-hub.md)]
 
 ## Check device authentication
 
@@ -62,7 +62,7 @@ To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**
 
 ![Add new device](media/tutorial-connectivity/add-device.png)
 
-To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Connection string-primary key** value. The connection string includes the *shared access key* for the device.
+To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Primary Connection String** value. The connection string includes the *shared access key* for the device.
 
 ![Retrieve device connection string](media/tutorial-connectivity/copy-connection-string.png)
 
