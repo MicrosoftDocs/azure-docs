@@ -59,7 +59,7 @@ To check the version of `kubectl`:
    Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:09:21Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
    ```
 
-   In this case the client version of kubectl is v1.15.2 and is compatible to proceed.
+   In this case, the client version of kubectl is v1.15.2 and is compatible to continue.
 
 2. Get a list of the pods running on your Kubernetes cluster. A pod is an application container, or process, running on your Kubernetes cluster.
 
@@ -99,7 +99,7 @@ To check the version of `kubectl`:
 
 ### Create a stateless application using a deployment
 
-Now that you have verified that the kubectl command-line version is correct and have the required configuration files, you can create a stateless application deployment.
+Now that you've verified that the kubectl command-line version is correct and you have the required configuration files, you can create a stateless application deployment.
 
 A pod is the basic execution unit of a Kubernetes application, the smallest and simplest unit in the Kubernetes object model that you create or deploy. A pod also encapsulates storage resources, a unique network IP, and options that govern how the container(s) should run.
 
@@ -119,7 +119,7 @@ Follow these steps to create an nginx deployment:
 
    In this example, the path to the application YAML file is an external source.
 
-   Here is a sample usage of the command and output:
+   Here is a sample use of the command and its output:
 
    ```powershell
    PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n "test1"
@@ -159,7 +159,7 @@ Follow these steps to create an nginx deployment:
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   Here is sample usage of the command and output:
+   Here is a sample use of the command, with output:
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -199,13 +199,13 @@ Follow these steps to create an nginx deployment:
      Normal  ScalingReplicaSet  2m22s  deployment-controller  Scaled up replica set nginx-deployment-5754944d6c to 2
    ```
 
-   If you look closely at the *replicas* setting, you will see:
+   For the *replicas* setting, you will see:
     
    ```powershell
    Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
    ```
 
-   The *replicas* setting indicates that your deployment specification required two pods, that those pods where created and updated, and that they are ready for you to use.
+   The *replicas* setting indicates that your deployment specification requires two pods, and that those pods were created and updated and are ready for you to use.
 
    > [!NOTE]
    > A replica set replaces pods that are deleted or terminated for any reason, such as in the case of device node failure or a disruptive device upgrade. For this reason, we recommend that you use a replica set even if your application requires only a single pod.
@@ -216,7 +216,7 @@ Follow these steps to create an nginx deployment:
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   Here is sample usage of the command and output:
+   Here is a sample use of the command, with output:
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -234,7 +234,7 @@ Follow these steps to create an nginx deployment:
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-   Here is sample usage of the command and output:
+   Here is a sample use of the command, with output:
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -291,7 +291,7 @@ Follow these steps to create an nginx deployment:
 
 ### Rescale the application deployment by increasing the replica count
 
-Each pod is meant to run a single instance of a given application. If you want to scale your application horizontally to run multiple instances, you can increase the number of pods, one for each instance. In Kubernetes, this is referred to as replication.
+Each pod is meant to run a single instance of a given application. If you want to scale your application horizontally to run multiple instances, you can increase the number of pods to one for each instance. In Kubernetes, this is referred to as replication.
 You can increase the number of pods in your application deployment by applying a new YAML file. The YAML file changes the replicas setting to 4, which increases the number of pods in your deployment to four pods. To increase the number of pods from 2 to 4:
 
 ```powershell

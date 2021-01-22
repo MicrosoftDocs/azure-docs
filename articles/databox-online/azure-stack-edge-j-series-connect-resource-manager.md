@@ -153,7 +153,7 @@ Your Windows client must meet the following prerequisites:
     
 2. You can access the PowerShell Gallery.
 
-    Run PowerShell as administrator. Verify if the PSGallery is registered as a repository.
+    Run PowerShell as administrator. Verify if the `PSGallery` is registered as a repository.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
