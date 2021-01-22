@@ -76,7 +76,7 @@ Monitor apps through reports that use Security Incident and Event Monitoring (SI
 
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
-For Human Resources focused applications, or other applications with a large set of users, you can use app provisioning to make your life easier. App provisioning automates the process of adding and removing users. To learn more, see [What is application provisioning?](../app-provisioning/user-provisioning.md).
+For Human Resources focused applications, or other applications with a large set of users, you can use app provisioning to make your life easier. App provisioning automates the process of adding and removing users. To learn more, see [What is application provisioning?](../app-provisioning/user-provisioning.md)
 
 ## Next steps
 
