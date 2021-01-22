@@ -13,8 +13,7 @@ ms.date: 01/19/2021
 ---
 
 # SQL Maintenance Window (Preview)
-
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 SQL Maintenance Windows allow for the configuration of predictable maintenance window schedules for [Azure SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). 
 
@@ -55,7 +54,7 @@ SQL Maintenance Window is free of charge to all customers with [subscription typ
 
 ## Notifications
 
-Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [SQL Maintenance Window Notifications](TBD).
+Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. 
 
 ## Availability
 

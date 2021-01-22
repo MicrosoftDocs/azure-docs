@@ -19,7 +19,7 @@ sections:
     questions: 
       - question: What is the SQL Maintenance Window feature?
         answer: |
-         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#Gain-more-predictability-with-SQL-maintenance-windows) for more information.
+         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#gain-more-predictability-with-SQL-maintenance-windows) for more information.
 
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
@@ -51,7 +51,7 @@ sections:
         
       - question: Would I receive a notification of the Maintenance Window?
         answer: |
-          Customers can expect to receive notification 24 hours prior to the maintenance event, immediately before maintenance starts, and when the maintenance window is completed. The Resource health center can be checked for more information. Notification email alerts can also be configured, for more information see [SQL Maintenance Window Notifications walkthrough](TBD).
+          Customers can expect to receive notification 24 hours prior to the maintenance event, immediately before maintenance starts, and when the maintenance window is completed. The Resource health center can be checked for more information. Notification email alerts can also be configured.
 
       - question: Which service level objectives (SLOs) are not supported for selecting a SQL Maintenance Window? 
         answer: |
@@ -75,7 +75,7 @@ sections:
 
       - question: Can I see my databases are in each SQL Maintenance Window?
         answer: |
-          Yes, on the managed database screen. TBD
+          Yes, on the managed database screen.
 
       - question: Can I configure a different SQL Maintenance Window for each database in an elastic pool?
         answer: |
