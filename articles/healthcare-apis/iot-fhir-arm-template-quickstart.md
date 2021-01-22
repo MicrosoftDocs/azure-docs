@@ -41,7 +41,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-:::code language="json" source="https://github.com/microsoft/iomt-fhir/tree/master/deploy/templates/managed/azuredeploy.json":::
+:::code language="json" source="https://raw.githubusercontent.com/microsoft/iomt-fhir/master/deploy/templates/managed/azuredeploy.json":::
 
 The template defines following Azure resources:
 
