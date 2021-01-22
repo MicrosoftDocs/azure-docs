@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Roles | user.assignedroles |
 
     > [!NOTE]
-    > You can find more guidance [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) on how to create custom roles in Azure AD.
+    > You can find more guidance [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) on how to create custom roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
