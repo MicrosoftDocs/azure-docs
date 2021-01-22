@@ -22,9 +22,9 @@ Notifications can be configured so you can get texts, emails, Azure push notific
 
 ## Create an advanced notification
 
-Advance notifications are available for Azure SQL databases and managed instance that have their SQL Maintenance Window configured. 
+Advance notifications are available for Azure SQL databases and managed instances that have their SQL Maintenance Window configured. 
 
-Complete the following steps to enable a notification in the portal.  on the [Planned maintenance](https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/plannedMaintenance) page. 
+Complete the following steps to enable a notification.  
 
 1. Go to the [Planned maintenance](https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/plannedMaintenance) page, select **Health alerts**, then **Add service health alert**.
 
@@ -72,12 +72,12 @@ The following table shows additional notifications that may be sent while mainte
 |Status|Description|
 |:---|:---|
 |**Extended** | Maintenance is in progress, but didn’t complete for database *xyz*, we’ll continue tomorrow.| 
-|**Cancelled**| Maintenance for database *xyz* is cancelled and will be rescheduled later. |
+|**Canceled**| Maintenance for database *xyz* is canceled and will be rescheduled later. |
 |**Blocked**|There was a problem during maintenance for database *xyz*. We'll notify you when we resume.| 
 |**Resumed**|The problem has been resolved and maintenance will continue tonight.|
 
 
-## See also
+## Next steps
 
 - [SQL Maintenance window](sql-maintenance-window.md)
 - [SQL Maintenance window FAQ](sql-maintenance-window-faq.yml)
