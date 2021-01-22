@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 ---
 
 # Replace your Azure Stack Edge Pro device
 
-This article describes how to get a replacement Azure Stack Edge Pro device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
+This article describes how to replace your Azure Stack Edge Pro device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
 
 
 In this article, you learn how to:
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 If your existing device has a hardware failure, open a Support ticket by following these steps:
 
-1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the **Azure Stack Edge Pro Hardware** problem type, and either choose the appropriate problem subtype or choose **Other hardware issues**.
+1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the **Azure Stack Edge Pro Hardware** problem type, and choose the **Hardware issues** subtype.
 
     ![Open Support ticket](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
