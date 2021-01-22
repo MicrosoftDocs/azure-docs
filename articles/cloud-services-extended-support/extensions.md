@@ -33,8 +33,6 @@ With advanced monitoring, additional metrics are sampled and collected at interv
 Windows Azure Diagnostics extension can be enabled for Cloud Services (extended support) through [PowerShell](deploy-powershell.md) or [ARM template](deploy-template.md)
 
 
-
-
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
