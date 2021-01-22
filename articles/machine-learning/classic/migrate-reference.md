@@ -60,7 +60,7 @@ Use the following steps to ingest data from the cloud:
  
 
 
-### Studio (classic) and designer module-mapping
+## Studio (classic) and designer module-mapping
 
 Module for same functionality has the same name in AML designer and ML Studio(classic). See below table for the module mapping. 
 
@@ -96,11 +96,11 @@ Module for same functionality has the same name in AML designer and ML Studio(cl
 
 Find more about how to use designer modules in [module reference](../algorithm-module-reference/module-reference.md) 
  
-### What if the wanted module is not in designer? 
+## What if the wanted module is not in designer? 
 
 Azure Machine Learning designer builds the most popular modules in ML Studio(classic). It also added some new modules leveraging the state of art machine learning technology (for example DenseNet for image classification). We expect designer supported module will cover most of the migration scenario. If your migration is blocked by missing modules in designer, contact us by [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
     
-### Notes for Execute R Script
+## Execute R Script
 
 Execute R Script module is a popular module in ML Studio(classic), which allows customer to do customized task using R script. Given that ML Studio(classic) is hosted on Windows platform and the Azure Machine Learning designer is running on Linux platform, it would be slightly different to install an R package in designer.
 ||ML Studio(classic)|Azure Machine Learning designer|
