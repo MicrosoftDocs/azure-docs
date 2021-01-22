@@ -14,7 +14,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial for configuring Keyless with Azure Active Directory B2C
+# Tutorial: Configure Keyless with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to configure Azure Active Directory (AD) B2C with [Keyless](https://keyless.io/). With Azure AD B2C as an Identity provider, you can integrate Keyless with any of your customer applications to provide true passwordless authentication to your users.
 

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -15,7 +15,7 @@ Azure Import/Export service is used to securely import large amounts of data to 
 
 Supply your own disk drives and transfer data with the Azure Import/Export service. You can also use disk drives supplied by Microsoft.
 
-If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40 TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../../databox/data-box-disk-overview.md).
+If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40 TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../databox/data-box-disk-overview.md).
 
 ## Azure Import/Export use cases
 
@@ -136,7 +136,7 @@ For import jobs, drives are encrypted in two ways.
 
 For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. The drive needs to be unlocked using the WAImporExport tool using the key.
 
-[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../includes/storage-import-export-delete-personal-info.md)]
 
 ### Pricing
 
