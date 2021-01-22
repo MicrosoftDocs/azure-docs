@@ -12575,7 +12575,7 @@
     },
     {
       "source_path_from_root": "/articles/extensions/index.yml",
-      "redirect_url": "/azure/virtual-machines/index.yml",
+      "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
     {
@@ -12585,12 +12585,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/index.yml",
-      "redirect_url": "/azure/virtual-machines/index.yml",
+      "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/linux/index.yml",
-      "redirect_url": "/azure/virtual-machines/index.yml",
+      "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
     {
