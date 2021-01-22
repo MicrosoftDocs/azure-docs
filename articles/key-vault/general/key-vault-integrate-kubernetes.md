@@ -15,7 +15,7 @@ ms.date: 09/25/2020
 > CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link [here](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues). This tool is provided for users to self-install into clusters and gather feedback from our community.
 
 
-In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
+In this tutorial, you access and retrieve secrets from your Azure Key Vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
 
 In this tutorial, you learn how to:
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Use managed identities.
 > * Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI.
 > * Install Helm and the Secrets Store CSI driver.
-> * Create an Azure key vault and set your secrets.
+> * Create an Azure Key Vault and set your secrets.
 > * Create your own SecretProviderClass object.
 > * Deploy your pod with mounted secrets from your key vault.
 
@@ -80,7 +80,7 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
 
 To install the Secrets Store CSI driver, you first need to install [Helm](https://helm.sh/docs/intro/install/).
 
-With the [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md) driver interface, you can get the secrets that are stored in your Azure key vault instance and then use the driver interface to mount the secret contents into Kubernetes pods.
+With the [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md) driver interface, you can get the secrets that are stored in your Azure Key Vault instance and then use the driver interface to mount the secret contents into Kubernetes pods.
 
 1. Check to ensure that the Helm version is v3 or later:
     ```azurecli
@@ -93,7 +93,7 @@ With the [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-p
     helm install csi-secrets-store-provider-azure/csi-secrets-store-provider-azure --generate-name
     ```
 
-## Create an Azure key vault and set your secrets
+## Create an Azure Key Vault and set your secrets
 
 To create your own key vault and set your secrets, follow the instructions in [Set and retrieve a secret from Azure Key Vault by using the Azure CLI](../secrets/quick-create-cli.md).
 
