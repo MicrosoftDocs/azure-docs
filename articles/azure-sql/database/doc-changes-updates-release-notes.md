@@ -92,7 +92,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp-send-dbmail-may-transiently-fail-when-query-parameter-is-used)|Jan 2021|Has Workaround||
+|[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when-parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
 |[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
@@ -126,22 +126,24 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 
-Procedure sp_send_dbmail may transiently fail when `@query` parameter is used. When this issue occurs, every second execution of procedure sp_send_dbmail fails with error `Msg 22050, Level 16, State 1` and message `Failed to initialize sqlcmd library with error number -2147467259`.
-This is happening due to a known bug related to how sp_send_dbmail is using impersonation and connection pooling.
-To workaround this issue wrap code for sending email into a retry logic that relies on output parameter `@mailitem_id`. If the execution fails then `@mailitem_id` will be NULL indicating `sp_send_dbmail` should be called one more time to successfully send an email. Here is an example this retry logic.
+Procedure sp_send_dbmail may transiently fail when `@query` parameter is used. When this issue occurs, every second execution of procedure sp_send_dbmail fails with error `Msg 22050, Level 16, State 1` and message `Failed to initialize sqlcmd library with error number -2147467259`. To be able to see this error properly the procedure should be called with default value 0 for the parameter `@exclude_query_output`, otherwise the error will not be propagated.
+This problem is caused by a known bug related to how sp_send_dbmail is using impersonation and connection pooling.
+To workaround this issue wrap code for sending email into a retry logic that relies on output parameter `@mailitem_id`. If the execution fails then parameter value will be NULL, indicating sp_send_dbmail should be called one more time to successfully send an email. Here is an example this retry logic.
 ```sql
 CREATE PROCEDURE send_dbmail_with_retry AS
 BEGIN
     DECLARE @miid INT
     EXEC msdb.dbo.sp_send_dbmail
-        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table', @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
         @mailitem_id = @miid OUTPUT
 
     -- If dp_send_dbmail returned NULL @mailidem_id then retry sending email.
     --
     IF (@miid is NULL)
     EXEC msdb.dbo.sp_send_dbmail
-        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table', @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
 END
 ```
 
