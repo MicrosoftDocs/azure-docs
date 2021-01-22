@@ -12574,11 +12574,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/extensions/",
-      "redirect_url": "/azure/virtual-machines/extensions/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/windows/index.yml",
       "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
