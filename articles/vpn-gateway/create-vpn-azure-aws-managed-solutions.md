@@ -39,6 +39,8 @@ Create a VPN gateway for your virtual network. For instructions, see [Tutorial: 
 
 The following example values and settings are used in this article:
 
+* **Gateway name:** vpn-azure-aws
+* **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
 * **SKU:** VpnGw1
@@ -198,11 +200,11 @@ The connections are now established.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-effective-routes.png" alt-text="Check the effective routes":::
 
-1. From a Linux VM on Azure, the environment is similar to the following example.
+1. After the creation of a Linux VM on Azure the environment is similar to the following example.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-overview.png" alt-text="Azure overview from Linux VM":::
 
-1. From a Linux VM on AWS, the environment is similar to the following example.
+1. After another Linux VM created on AWS the environment is similar to the following example.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-overview.png" alt-text="AWS overview from Linux VM":::
 
