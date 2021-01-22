@@ -51,10 +51,12 @@
       href: schema-cscfg-networkconfiguration.md
 - name: How To
   items:
-  - name: Extensions
+  - name: Extensions Overview
     href: extensions.md
-  - name: Enable remote desktop
+  - name: Apply Remote Desktop extension
     href: enable-rdp.md
+  - name: Apply WAD extension
+    href: enable-wad.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling

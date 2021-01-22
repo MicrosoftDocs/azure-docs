@@ -1,6 +1,6 @@
 ---
-title: Apply Extensions in Cloud Services (extended support) 
-description: Apply Extensions for Cloud Services (extended support)
+title: Extensions for Cloud Services (extended support) 
+description: Extensions for Cloud Services (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Apply extensions to Cloud Services (extended support) deployments
+# Extensions for Cloud Services (extended support)
 
 Extensions are small applications that provide post-deployment configuration and automation tasks on roles. For example, You can enable a Remote Desktop connection in your role during cloud service (extended support) deployment by using Remote Desktop Extension.  
 
