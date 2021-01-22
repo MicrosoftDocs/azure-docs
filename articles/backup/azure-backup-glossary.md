@@ -51,7 +51,7 @@ Azure Backup offers three types of replication to keep your storage and data hig
 [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your backup data to a secondary region, hundreds of miles away from the primary location of the source data. GRS costs more than LRS, but GRS provides a higher level of durability for your backup data, even if there's a regional outage.
 
 >[!NOTE]
->For GRS vaults that have teh cross-region restore feature enabled, backup storage is upgraded from GRS to RA-GRS (Read-Access Geo-Redundant Storage).
+>For GRS vaults that have the cross-region restore feature enabled, backup storage is upgraded from GRS to RA-GRS (Read-Access Geo-Redundant Storage).
 
 ### ZRS
 

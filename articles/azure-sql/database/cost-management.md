@@ -63,7 +63,7 @@ Azure SQL Database (with the exception of serverless) is billed on a predictable
 
 ### Using Monetary Credit with Azure SQL Database
 
-You can pay for Azure SQL Database charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure SQL Database charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Review estimated costs in the Azure portal
 

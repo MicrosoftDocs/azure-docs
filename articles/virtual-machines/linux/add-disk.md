@@ -175,5 +175,5 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 ## Next steps
 
-* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md) recommendations.
+* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](/previous-versions/azure/virtual-machines/linux/optimization) recommendations.
 * Expand your storage capacity by adding additional disks and [configure RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) for additional performance.
