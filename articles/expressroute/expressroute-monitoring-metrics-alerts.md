@@ -143,7 +143,7 @@ You can view packets per second traversing the gateway.
 
 You can view the number of virtual machines in the virtual network.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Number of virtual machine in the virtual network":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Number of virtual machines in the virtual network":::
 
 ## ExpressRoute gateway connections in bits/seconds
 
