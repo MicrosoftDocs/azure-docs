@@ -18,17 +18,8 @@ This article explains how to use the Azure portal to create a Cloud Service (ext
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Before you begin
-1. Register the Cloud Service feature to the desired subscription
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-    ```
-2.  View the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support). 
-
-## Deploy a Cloud Service (extended support)
-
-1.	Sign in to the Azure portal
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).	
+1. Sign in to the Azure portal
 2.	Select **Create a resource** and search for Cloud Services (extended support)
 
     :::image type="content" source="media/deploy-portal-1.png" alt-text="Image shows the all resources blade in the Azure portal.":::

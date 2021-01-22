@@ -46,11 +46,10 @@ To change the size of an existing role, change the virtual machine size in the s
 
 ## Get a list of available sizes 
 
-The following PowerShell command to retrieves a list of available virtual machine sizes that can be utilized.
+To retrieve a list of available sizes see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters:
 
-```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel 
-```
+`ResourceType = virtualMachines ` <br>
+`VMDeploymentTypes = PaaS `
 
 ## Next steps 
 Learn about [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). 

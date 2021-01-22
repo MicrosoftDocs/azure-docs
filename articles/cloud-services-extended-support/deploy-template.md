@@ -12,25 +12,10 @@ ms.custom:
 
 # Create a Cloud Service (extended support) using ARM templates
 
-This tutorial explains how to create a Cloud Service (extended support) deployment using ARM templates. 
+This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 ## Before you begin
-1. Register the Cloud Service feature to the desired subscription.
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-    ```
-
-2.  View the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support). 
-
-3. When creating a Cloud Service (extended support) deployment using ARM templates, the template and other artifacts (cscfg/ csdef/ cspkg) need to be kept in sync. 
-
-
-## Create a Cloud Service (extended Support) using ARM templates
-
-### Outside of the ARM template
-
-1. Prepare your deployment artifacts (csdef and cscfg) and associated resources. For more information see [Deployment prerequisites](deploy-prerequisite.md)
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 
 2. Create a new resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). This step is optional if you are using an existing resource group. 
  
@@ -41,7 +26,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 5. (Optional) Create a Key vault and upload the certificates. 
     -  Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your Service Configuration (cscfg) file and the certificates must be uploaded to a Key vault. A Key Vault can be created through the [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). The associated Key Vault must be located in the same region and subscription as cloud service. You will also need to add your key vault reference in the OsProfile section of the ARM template shown in the below steps.  
 
-### Added to the ARM template
+## Create a Cloud Service (extended support) 
 1. Create virtual network and subnet. The names of the virtual network and subnet much match the references in the Service Configuration uploaded in the previous step.  
 
     ```json

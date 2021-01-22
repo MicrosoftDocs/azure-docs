@@ -32,7 +32,7 @@ This article explains how to enable monitoring on existing Cloud Service (extend
 
      :::image type="content" source="media/enable-alerts-5.png" alt-text="Image shows configuring action group logic.":::
 
-6. When you have finished setting up the monitoring rules and alerts, save the changes and you will begin to see the **Alerts** and **Metrics** sections in your Cloud Services (extended support) blade populate over time.
+6. When you have finished setting up the monitoring rules and alerts, save the changes and based on the metrics configured you will begin to see the **Alerts** blade populate over time.
 
 ## Next steps
 See [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)

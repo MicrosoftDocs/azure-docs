@@ -31,16 +31,16 @@ Minimal changes are required to cscfg and csdef files to deploy Cloud Services (
 - The Network Configuration File (netcfg) does not exist in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
 
 ## What does not change 
-- You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.  (change)
+- You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
 - Cloud Services (extended support) also supports two types of roles, web and worker. 
 - The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their formats. 
 - No changes are required to runtime code as data plane is the same and control plane is only changing. 
 
-## Migration
+## Migration to Azure Resource Manager
 
 Cloud Services (extended support) provides two paths for you to migrate from Azure Service Manager to Azure Resource Manager. 
-1) Re-deploy. Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in ASM after thorough validation. 
-2) In place migration. The ability to migrate Cloud Services (classic) with minimal to no downtime. 
+1) Redeploy. Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in ASM after thorough validation. 
+2) In-place migration. The ability to migrate Cloud Services (classic) with minimal to no downtime. 
 
 ### Additional migration options
 

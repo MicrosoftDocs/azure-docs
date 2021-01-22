@@ -271,3 +271,5 @@ Where the variables are defined as follows:
 | \[RoleAssemblyName\] |The name of the binary file for the role. |
 
 ## Next steps
+
+For more information, see [Frequently asked questions](faq.md)

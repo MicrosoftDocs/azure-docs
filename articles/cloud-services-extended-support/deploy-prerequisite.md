@@ -12,7 +12,7 @@ ms.custom:
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
 
-Description goes here
+To ensure a successful Cloud Services (extended support) deployment review the below steps and complete each item prior to attempting any deployments. 
 
 
 ## 1) Register the feature for your subscription
@@ -20,6 +20,14 @@ Cloud Services (extended support) is currently in preview. Register the feature 
 
 ```powershell
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
+```
+
+Check if the registration was successful for CloudServices resource. This may take a few minutes.
+```powershell
+Get-AzProviderFeature 
+
+FeatureName               ProviderName      RegistrationState
+CloudServices           Microsoft.Compute    Registered
 ```
 
 ## 2) Update the Service Definition file
