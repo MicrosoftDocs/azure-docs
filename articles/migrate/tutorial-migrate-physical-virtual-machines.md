@@ -159,6 +159,8 @@ On machines you want to migrate, you need to install the Mobility service agent.
     - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
     - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
 
+> [!NOTE]
+> In the */Platform* parameter, you specify *VMware* if you migrate VMware VMs, or physical machines.
 
 ### Install on Windows
 

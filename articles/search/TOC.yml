@@ -5,9 +5,9 @@
   items:
   - name: What is Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: Features in Cognitive Search
+  - name: Feature list
     href: search-features-list.md
-  - name: What's new in Cognitive Search
+  - name: New in Search
     href: whats-new.md
 - name: Quickstarts
   items:
@@ -308,10 +308,10 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Estimate capacity and cost
-      href: search-sku-manage-costs.md
-    - name: Adjust capacity
+    - name: Estimate and manage capacity
       href: search-capacity-planning.md
+    - name: Estimate costs
+      href: search-sku-manage-costs.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Scale for performance

@@ -32,7 +32,7 @@ Azure services supporting Availability Zones fall into three categories: **zonal
 - **Non-regional services** – Services that do not have dependency on a specific Azure region, making them resilient to zone-wide outages as well as region-wide outages.
 
 
-To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection. To learn more, read [building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability). 
+To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection. To learn more, read [building solutions for high availability using Availability Zones](/azure/architecture/high-availability/building-solutions-for-high-availability). 
 
 
 ### Azure Services supporting Availability Zones
@@ -119,7 +119,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for MySQL - Flexible Server](../mysql/flexible-server/concepts-high-availability.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/overview.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | :heavy_check_mark:(Preview) | :x: | :heavy_check_mark:(Preview) |
+| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) | :x: | :heavy_check_mark:(Preview) |
 | [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analytics** |  |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -164,7 +164,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for MySQL - Flexible Server](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) |
+| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) |
 | [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analytics** |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -200,8 +200,8 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Create a zone redundant virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard)
-- [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard)
+- [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard)
+- [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard)
 - [Zone-redundant storage](../storage/common/storage-redundancy.md)
 - [SQL Database general purpose tier](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
@@ -209,7 +209,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 - [Add zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Getting Started Azure Cache for Redis Availability Zones](https://gist.github.com/JonCole/92c669ea482bbb7996f6428fb6c3eb97#file-redisazgettingstarted-md)
-- [Create an Azure Active Directory Domain Services instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+- [Create an Azure Active Directory Domain Services instance](../active-directory-domain-services/tutorial-create-instance.md)
 - [Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones](../aks/availability-zones.md)
 
 

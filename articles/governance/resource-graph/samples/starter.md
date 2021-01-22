@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 10/14/2020
+ms.date: 01/21/2021
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -25,6 +25,7 @@ We'll walk through the following starter queries:
 - [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
 - [List resources with a specific tag value](#list-tag)
 - [List all storage accounts with specific tag value](#list-specific-tag)
+- [List all tags and their values](#list-all-tag-values)
 - [Show unassociated network security groups](#unassociated-nsgs)
 - [Get cost savings summary from Azure Advisor](#advisor-savings)
 - [Count machines in scope of Guest Configuration policies](#count-gcmachines)
@@ -487,6 +488,56 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 > [!NOTE]
 > This example uses `==` for matching instead of the `=~` conditional. `==` is a case sensitive match.
+
+## <a name="list-all-tag-values"></a>List all tags and their values
+
+This query lists tags on management groups, subscriptions, and resources along with their values.
+The query first limits to resources where tags `isnotempty()`, limits the included fields by only
+including _tags_ in the `project`, and `mvexpand` and `extend` to get the paired data from the
+property bag. It then uses `union` to combine the results from _ResourceContainers_ to the same
+results from _Resources_, giving broad coverage to which tags are fetched. Last, it limits the
+results to `distinct` paired data and excludes system-hidden tags.
+
+```kusto
+ResourceContainers 
+| where isnotempty(tags)
+| project tags
+| mvexpand tags
+| extend tagKey = tostring(bag_keys(tags)[0])
+| extend tagValue = tostring(tags[tagKey])
+| union (
+    resources
+    | where isnotempty(tags)
+    | project tags
+    | mvexpand tags
+    | extend tagKey = tostring(bag_keys(tags)[0])
+    | extend tagValue = tostring(tags[tagKey])
+)
+| distinct tagKey, tagValue
+| where tagKey !startswith "hidden-"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
+---
 
 ## <a name="unassociated-nsgs"></a>Show unassociated network security groups
 
