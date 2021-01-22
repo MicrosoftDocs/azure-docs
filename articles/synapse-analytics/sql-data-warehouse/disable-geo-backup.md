@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019
 
 In this article, you learn to disable geo-backups for your dedicated SQL pool (formerly SQL DW) Azure portal.
 
-## Disable geo-backups through Azure Portal
+## Disable geo-backups through Azure portal
 
 Follow these steps to disable geo-backups for your dedicated SQL pool (formerly SQL DW):
 
@@ -39,7 +39,7 @@ Follow these steps to disable geo-backups for your dedicated SQL pool (formerly 
 
    ![Geo-backup](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-3.png)
 
-## Next Steps
+## Next steps
 
 - [Restore an existing dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restore a deleted dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-restore-deleted-dw.md)
