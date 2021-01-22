@@ -111,6 +111,36 @@ chmod 600 fuse_connection.cfg
 > If you have created the configuration file on Windows, make sure to run `dos2unix` to sanitize and convert the file to Unix format. 
 >
 
+### General options
+
+```
+accountName: Specifies the storage account blobfuse targets.
+blobEndpoint: Optional parameter, defaults to blob.core.windows.net". This parameter should be specified for zonal dns accounts, custom domain name accounts or storage emulators.(e.g. storageaccountname.blob.region.azurestack.company.com)
+authType: Overrides the currently specified auth type. Options: Key, SAS, MSI, SPN (Using this option is only available for 1.2.0 or above)
+logLevel: Specifies the logging level. Use to change the logging level dynamically. Read Logging section for details. For allowed values refer to --log-level command line option.
+accountType: Specifies the type of account. Either block or adls can be specified, block is the default value. Same can also be controlled through the command line option --use-adls=true. If wrong account type is supplied, certain features may not work as expected. To learn more about ADLS follow the link (https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+Account key auth:
+
+accountKey: Specifies the storage account key to use for authentication.
+SAS token auth:
+
+sasToken: Specifies the SAS token to use for authentication.
+Managed Identity auth: (Only available for 1.2.0 or above)
+
+identityClientId: If a MI endpoint is specified, this is the only parameter used, in the form of the Secret header. Only one of these three parameters are needed if multiple identities are present on the system.
+identityObjectId: Only one of these three parameters are needed if multiple identities are present on the system.
+identityResourceId: Only one of these three parameters are needed if multiple identities are present on the system.
+msiEndpoint: Specifies a custom managed identity endpoint, as IMDS may not be available under some scenarios. Uses the identityClientId parameter as the Secret header.
+(environment variable) MSI_SECRET: Specifies a custom secret for an alternate managed identity endpoint.
+Service Principal Name auth:
+
+servicePrincipalClientId: Specifies the client ID for your application registration
+servicePrincipalTenantId: Specifies the tenant ID for your application registration
+aadEndpoint: Specifies a custom AAD endpoint to authenticate against
+(environment variable) AZURE_STORAGE_SPN_CLIENT_SECRET: Specifies the client secret for your application registration. Please store this in the environment variable, not a config option.
+
+```
+
 ### Create an empty directory for mounting
 ```bash
 mkdir ~/mycontainer
