@@ -61,5 +61,7 @@ You're all set. Next time there's a planned Azure SQL maintenance event, you'll 
 
 ## See also
 
+- [SQL Maintenance window](sql-maintenance-window.md)
+- [SQL Maintenance window FAQ](sql-maintenance-window-faq.md)
 - [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 - [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role).
