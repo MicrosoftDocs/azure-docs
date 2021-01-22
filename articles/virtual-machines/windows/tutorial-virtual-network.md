@@ -124,7 +124,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Set the username and password needed for the administrator account on the VM using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true). You use these credentials to connect to the VM in additional steps:
+Set the username and password needed for the administrator account on the VM using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). You use these credentials to connect to the VM in additional steps:
 
 ```azurepowershell-interactive
 $cred = Get-Credential

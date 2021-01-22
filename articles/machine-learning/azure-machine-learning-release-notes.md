@@ -31,6 +31,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixed issue on service.reload() to pick up changes on score.py in local deployment.
     + `run.get_details()` has an extra field named "submittedBy" which displays the author's name for this run.
     + Edited Model.register method documentation to mention how to register model from run directly
+    + Fixed IOT-Server connection status change handling issue.
    
 
 ## 2020-12-31
