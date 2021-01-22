@@ -37,7 +37,11 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 The Face service must then download the image from the remote server. If the connection from the Face service to the remote server is slow, that will impact the response time of the Detect method.
 
-To mitigate this, consider [storing the image in Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+To mitigate this, consider [storing the image in Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). For example:
+
+``` csharp
+var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+```
 
 ### Large upload size
 
@@ -53,7 +57,10 @@ If the file to upload is large, that will impact the response time of the `Detec
 - It takes the service longer to process the file, in proportion to the file size.
 
 Mitigations:
-- Consider [storing the image in Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet).
+- Consider [storing the image in Azure Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). For example:
+``` csharp
+var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+```
 - Consider uploading a smaller file.
 	- See the guidelines regarding [input data for face detection](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-detection#input-data) and [input data for face recognition](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-recognition#input-data).
 	- For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When using detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.

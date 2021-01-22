@@ -29,10 +29,10 @@ When you create a function app in the Azure portal, the Consumption plan is the 
 Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
 
 + [Azure CLI](./scripts/functions-cli-create-serverless.md)
-+ [Azure portal](functions-create-first-azure-function.md)
++ [Azure portal](./functions-get-started.md)
 + [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
 
-You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## Multiple apps in the same plan
 
