@@ -61489,6 +61489,11 @@
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "articles/service-fabric/upgrade-managed-disks.md",
+      "redirect_url": "azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_document_id": false
     }
   ]
 }
