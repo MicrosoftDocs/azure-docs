@@ -33,7 +33,7 @@ If your existing device has a hardware failure, open a Support ticket by followi
 
     ![Open Support ticket](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
-2. A Microsoft Support engineer get in will touch with you to determine if a Field Replacement Unit (FRU) can fix the problem and is available for this instance. If a FRU is not available or the device needs a hardware upgrade, Support will guide you to place a new order and return your old device.
+2. A Microsoft Support engineer will get in touch with you to determine if a Field Replacement Unit (FRU) can fix the problem and is available for this instance. If a FRU is not available or the device needs a hardware upgrade, Support will guide you to place a new order and return your old device.
 
 ## Create a new order
 
