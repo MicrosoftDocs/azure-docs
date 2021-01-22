@@ -5,11 +5,10 @@ keywords: azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: 
-ms.author: v-dturcaso
-ms.date: 01/19/2021
-ms.topic: 
-manager: 
+author: magoedte
+ms.author: magoedte
+ms.topic: conceptual
+ms.date: 01/21/2021
 ---
 # Azure Automation Network Configuration details
 
@@ -51,4 +50,4 @@ Communication to these addresses uses **port 443**.
 |\*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net|
 |\*.azure-automation.net | \*.azure-automation.us|
 
-When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tags](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tags](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](./how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
