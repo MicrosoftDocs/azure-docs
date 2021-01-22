@@ -1,5 +1,5 @@
 ---
-title: Job automation
+title: Job automation with SQL Agent jobs in Azure SQL Managed Instance
 description: 'Automation options to run Transact-SQL (T-SQL) scripts in Azure SQL Managed Instance'
 services: sql-database
 ms.service: sql-db-mi
@@ -13,7 +13,7 @@ ms.author: wiassaf
 ms.reviewer:
 ms.date: 12/31/2020
 ---
-# Automate management tasks using database jobs in Azure SQL Managed Instance
+# Automate management tasks using SQL Agent jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can create and schedule jobs that could be periodically executed against one or many databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. This article introduced SQL Agent for SQL Managed Instance.
@@ -21,7 +21,7 @@ Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQ
 > [!Note]
 > SQL Agent is not available in Azure SQL Database or Azure Synapse Analytics. Instead, we recommend [Job automation with Elastic Jobs](job-automation-overview.md).
 
-### SQL Agent Job Limitations in Azure SQL Managed Instance
+### SQL Agent job limitations in Azure SQL managed instance
 
 It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent). 
 
@@ -54,7 +54,7 @@ There are several scenarios when you could use SQL Agent jobs:
   - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changes in the database.
   - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
 
-## SQL Agent Jobs 
+## SQL Agent jobs in Azure SQL managed instance
 
 SQL Agent Jobs are executed by the SQL Agent service that continues to be used for task automation in SQL Server and SQL Managed Instance. 
 
@@ -68,7 +68,7 @@ There are several key concepts in SQL Agent Jobs:
 - **Schedules** define when the job should be executed.
 - **Notifications** enable you to define rules that will be used to notify operators via email once the job completes.
 
-### Job steps
+### SQL Agent job steps
 
 SQL Agent Job steps are sequences of actions that SQL Agent should execute. Every step has the following step that should be executed if the step succeeds or fails, number of retries in a case of failure.
 
@@ -85,7 +85,7 @@ Other types of job steps are not currently supported in SQL Managed Instance, in
 - Queue Reader is not supported.
 - Analysis Services are not supported
  
-### Job schedules
+### SQL Agent job schedules
 
 A schedule specifies when a job runs. More than one job can run on the same schedule, and more than one schedule can apply to the same job.
 
@@ -98,7 +98,7 @@ A schedule can define the following conditions for the time when a job runs:
 > [!Note]
 > SQL Managed Instance currently does not enable you to start a job when the CPU is idle.
 
-### Job notifications
+### SQL Agent job notifications
 
 SQL Agent Jobs enable you to get notifications when the job finishes successfully or fails. You can receive notifications via email.
 
@@ -126,12 +126,12 @@ EXECUTE msdb.dbo.sysmail_add_account_sp
     @display_name = 'SQL Agent Account',
     @mailserver_name = '$(mailserver)' ,
     @username = '$(loginEmail)' ,
-    @password = '$(password)'
+    @password = '$(password)';
 
 -- Create a Database Mail profile
 EXECUTE msdb.dbo.sysmail_add_profile_sp
     @profile_name = 'AzureManagedInstance_dbmail_profile',
-    @description = 'E-mail profile used for messages sent by Managed Instance SQL Agent.' ;
+    @description = 'E-mail profile used for messages sent by Managed Instance SQL Agent.';
 
 -- Add the account to the profile
 EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
@@ -161,7 +161,7 @@ You can [create operators](/sql/relational-databases/system-stored-procedures/sp
 EXEC msdb.dbo.sp_add_operator
     @name=N'AzureSQLTeam',
     @enabled=1,
-    @email_address=N'AzureSQLTeamn@contoso.com'
+    @email_address=N'AzureSQLTeamn@contoso.com';
 ```
 
 Confirm the email's success or failure via the [Database Mail Log](/sql/relational-databases/database-mail/database-mail-log-and-audits) in SSMS.
@@ -171,10 +171,10 @@ You can then [modify any SQL Agent job](/sql/relational-databases/system-stored-
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
     @notify_level_email=3, -- Options are: 1 on succeed, 2 on failure, 3 on complete
-    @notify_email_operator_name=N'AzureSQLTeam'
+    @notify_email_operator_name=N'AzureSQLTeam';
 ```
 
-### Job history
+### SQL Agent job history
 
 Azure SQL Managed Instance currently doesn't allow you to change any SQL Agent properties because they are stored in the underlying registry values. This means options for adjusting the Agent retention policy for job history records are fixed at the default of 1000 total records and max 100 history records per job.
 
@@ -187,14 +187,14 @@ Once you add users to a SQL Agent fixed database role (SQLAgentUserRole, SQLAgen
 ```sql
 USE [master]
 GO
-CREATE USER [login_name] FOR LOGIN [login_name]
+CREATE USER [login_name] FOR LOGIN [login_name];
 GO
-GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
-## Learn More
+## Learn more
 
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [What's new in Azure SQL Database & SQL Managed Instance?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)

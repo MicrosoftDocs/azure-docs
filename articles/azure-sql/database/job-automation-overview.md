@@ -4,7 +4,7 @@ description: 'Use Elastic Jobs for Job Automation to run Transact-SQL (T-SQL) sc
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, contperf-fy21q3
 ms.devlang: 
 ms.topic: conceptual
 author: williamdassafMSFT
@@ -12,7 +12,8 @@ ms.author: wiassaf
 ms.reviewer:
 ms.date: 12/31/2020
 ---
-# Overview
+# Automate management tasks using elastic jobs (preview)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 You can create and schedule elastic jobs that could be periodically executed against one or many Azure SQL databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. 
@@ -21,14 +22,6 @@ You can define target database or groups of databases where the job will be exec
 A job handles the task of logging in to the target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of databases.
 
 Every job logs the status of execution and also automatically retries the operations if any failure occurs.
-
-## Automation on other platforms
-
-Elastic Jobs can target [Azure SQL Databases](sql-database-paas-overview.md), [Azure SQL Database elastic pools](elastic-pool-overview.md), and Azure SQL Databases in [shard maps](elastic-scale-shard-map-management.md).
-
-For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-mi.md). 
-
-For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
 
 ## When to use elastic jobs
 
@@ -44,12 +37,18 @@ There are several scenarios when you could use elastic job automation:
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 - Data movements 
 
-## Elastic Database Jobs Preview
+### Automation on other platforms
 
-The following job scheduling technologies are available:
+Consider the following job scheduling technologies on different platforms:
 
-- **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many databases in Azure SQL Database.
+- **Elastic Jobs** are Job Scheduling services that execute custom jobs on one or many databases in Azure SQL Database.
 - **SQL Agent Jobs** are executed by the SQL Agent service that continues to be used for task automation in SQL Server and is also included with Azure SQL Managed Instances. SQL Agent Jobs are not available in Azure SQL Database.
+
+Elastic Jobs can target [Azure SQL Databases](sql-database-paas-overview.md), [Azure SQL Database elastic pools](elastic-pool-overview.md), and Azure SQL Databases in [shard maps](elastic-scale-shard-map-management.md).
+
+For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-mi.md). 
+
+For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
 
 It is worth noting differences between SQL Agent (available in SQL Server and as part of SQL Managed Instance), and the Database Elastic Job agent (which can execute T-SQL on Azure SQL Databases or databases in SQL Server and Azure SQL Managed Instance, Azure Synapse Analytics).
 
@@ -58,9 +57,9 @@ It is worth noting differences between SQL Agent (available in SQL Server and as
 |**Scope** | Any number of databases in Azure SQL Database and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shard map (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. The Multi Server Administration feature of SQL Server Agent allows for master/target instances to coordinate job execution. |
 |**Supported APIs and Tools** | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
  
-## Elastic Database Job Targets
+## Elastic job targets
 
-**Elastic Database Jobs** provide the ability to run one or more T-SQL scripts in parallel, across a large number of databases, on a schedule or on-demand.
+**Elastic Jobs** provide the ability to run one or more T-SQL scripts in parallel, across a large number of databases, on a schedule or on-demand.
 
 You can run scheduled jobs against any combination of databases: one or more individual databases, all databases on a server, all databases in an elastic pool, or shard map, with the added flexibility to include or exclude any specific database. Jobs can run across multiple servers, multiple pools, and can even run against databases in different subscriptions. Servers and pools are dynamically enumerated at runtime, so jobs run against all databases that exist in the target group at the time of execution.
 
@@ -68,7 +67,7 @@ The following image shows a job agent executing jobs across the different types 
 
 ![Elastic Job agent conceptual model](./media/job-automation-overview/conceptual-diagram.png)
 
-### Elastic Job components
+### Elastic job components
 
 |Component | Description (additional details are below the table) |
 |---------|---------|
@@ -77,7 +76,7 @@ The following image shows a job agent executing jobs across the different types 
 |[**Target group**](#target-group) | The set of servers, pools, databases, and shard maps to run a job against. |
 |[**Job**](#job) | A job is a unit of work that is composed of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script. |
 
-#### Elastic Job agent
+#### Elastic job agent
 
 An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell-create.md) and REST are also supported).
 
@@ -85,7 +84,7 @@ Creating an **Elastic Job agent** requires an existing database in Azure SQL Dat
 
 The Elastic Job agent is free. The job database is billed at the same rate as any database in Azure SQL Database.
 
-#### Job database
+#### Elastic job database
 
 The *Job database* is used for defining jobs and tracking the status and history of job executions. The *Job database* is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures and other database objects for creating, running, and managing jobs using T-SQL.
 
@@ -95,7 +94,7 @@ The *Job database* should be a clean, empty, S0 or higher service objective Azur
 
 If operations against the job database are slower than expected, [monitor](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) database performance and the resource utilization in the job database during periods of slowness using Azure portal or the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. If utilization of a resource, such as CPU, Data IO, or Log Write approaches 100% and correlates with periods of slowness, consider incrementally scaling the database to higher service objectives (either in the [DTU model](service-tiers-dtu.md) or in the [vCore model](service-tiers-vcore.md)) until job database performance is sufficiently improved.
 
-##### Job database permissions
+##### Elastic job database permissions
 
 During job agent creation, a schema, tables, and a role called *jobs_reader* are created in the *Job database*. The role is created with the following permission and is designed to give administrators finer access control for job monitoring:
 
@@ -140,11 +139,9 @@ The following examples show how different target group definitions are dynamical
 > [!NOTE]
 > The Job database itself can be the target of a job. In this scenario, the Job database is treated just like any other target database. The job user must be created and granted sufficient permissions in the Job database, and the database scoped credential for the job user must also exist in the Job database, just like it does for any other target database.
 
-#### Job
+#### Elastic jobs and job steps
 
 A *job* is a unit of work that is executed on a schedule or as a one-time job. A job consists of one or more *job steps*.
-
-##### Job step
 
 Each job step specifies a T-SQL script to execute, one or more target groups to run the T-SQL script against, and the credentials the job agent needs to connect to the target database. Each job step has customizable timeout and retry policies, and can optionally specify output parameters.
 
@@ -166,7 +163,7 @@ Elastic Jobs use minimal compute resources while waiting for long-running jobs t
 
 Depending on the size of the target group of databases and the desired execution time for a job (number of concurrent workers), the agent requires different amounts of compute and performance of the *Job database* (the more targets and the higher number of jobs, the higher the amount of compute required).
 
-Currently, the preview is limited to 100 concurrent jobs.
+Currently, the limit is 100 concurrent jobs.
 
 #### Prevent jobs from reducing target database performance
 
