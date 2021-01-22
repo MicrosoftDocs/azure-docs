@@ -5,7 +5,6 @@ keywords: azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: magoedte
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/21/2021
