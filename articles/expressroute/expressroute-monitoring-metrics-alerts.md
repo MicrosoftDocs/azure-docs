@@ -35,8 +35,8 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 |BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>ExpressRoute Gateway Connection</ui></li>|
 |CPU Utilization|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
 |Packets per Second|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Count of Routes Advertised to Peer |Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Count of Routes Learned from Peer |Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Advertised to Peer |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Learned from Peer |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
 |Frequency of Routes change |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
 |Number of VMs in the Virtual Network |Availability| N/A |ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
@@ -129,9 +129,15 @@ You can view packets per second traversing the gateway.
 
 ### Count of Routes Advertised to Peer - Split by Instance
 
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Count of Routes Advertised to Peer":::
+
 ### Count of Routes Learned from Peer - Split by Instance
 
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Count of Routes Learned from Peer":::
+
 ### Frequency of Routes change - Split by Instance
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Frequency of Routes Changed":::
 
 ### Number of VMs in the Virtual Network
 
