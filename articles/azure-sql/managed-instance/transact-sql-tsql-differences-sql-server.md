@@ -504,15 +504,14 @@ The following variables, functions, and views return different results:
 
 ### Subnet
 -  You cannot place any other resources (for example virtual machines) in the subnet where you have deployed your SQL Managed Instance. Deploy these resources using a different subnet.
-- Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). Minimum is 16, while recommendation is to have at least 32 IP addresses in the subnet.
-- [Service endpoints cannot be associated with the SQL Managed Instance's subnet](connectivity-architecture-overview.md#network-requirements). Make sure that the service endpoints option is disabled when you create the virtual network.
+- Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). Minimum is to have at least 32 IP addresses in the subnet.
 - The number of vCores and types of instances that you can deploy in a region have some [constraints and limits](resource-limits.md#regional-resource-limitations).
-- There are some [security rules that must be applied on the subnet](connectivity-architecture-overview.md#network-requirements).
+- There is a [networking configuration](connectivity-architecture-overview.md#network-requirements) that must be applied on the subnet.
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
 - After a SQL Managed Instance is created, moving the SQL Managed Instance or VNet to another resource group or subscription is not supported.
-- Some services such as App Service Environments, Logic apps, and SQL Managed Instance (used for Geo-replication, Transactional replication, or via linked servers) cannot access SQL Managed Instance in different regions if their VNets are connected using [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
+- For SQL Managed Instances hosted in virtual clusters that are created before 9/22/2020 [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) is not supported. You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ### Failover groups
 System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
