@@ -15,9 +15,9 @@ ms.date: 01/21/2021
 # Advanced notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Advanced Notification (Preview), is available to customers on [SQL Maintenance Windows](sql-maintenance-window.md). Advanced notifications enable customers to configure email notification up to 24 hours in advance of any planned maintenance.
+Advanced notification (Preview), is available to databases configured for [SQL Maintenance Window](sql-maintenance-window.md). Advanced notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned maintenance.
 
-Email notifications can be configured for subscription owners and other individuals within the organization that planned maintenance is due to begin in the next 24 hours. Additional notifications are sent when maintenance begins and when maintenance ends.
+Notifications can be configured so you can get texts, emails, Azure push notifications, and voicemails when planned maintenance is due to begin in the next 24 hours. Additional notifications are sent when maintenance begins and when maintenance ends.
 
 
 ## Create an advanced notification
@@ -55,13 +55,13 @@ Complete the following steps to enable a notification in the portal.  on the [Pl
 8. Click the **Health alerts** menu item again, and the list of alerts now contains your new alert. 
 
 
-You're all set. Next time there's a planned Azure SQL maintenance event, you'll get an advanced notification.
+You're all set. Next time there's a planned Azure SQL maintenance event, you'll receive an advanced notification.
 
 ## Receiving notifications
 
 The following table shows the general-information notifications you may receive: 
 
-|Event|Description|
+|Status|Description|
 |:---|:---|
 |**Planned Deployment**| Received 24 hours prior to the maintenance event. Maintenance is planned on DATE between 5pm - 8am (local time) for DB xyz.|
 |**In-Progress** | Maintenance for database *xyz* is starting.| 
@@ -69,7 +69,7 @@ The following table shows the general-information notifications you may receive:
 
 The following table shows additional notifications that may be sent while maintenance is ongoing: 
 
-|Event|Description|
+|Status|Description|
 |:---|:---|
 |**Extended** | Maintenance is in progress, but didn’t complete for database *xyz*, we’ll continue tomorrow.| 
 |**Cancelled**| Maintenance for database *xyz* is cancelled and will be rescheduled later. |
@@ -82,4 +82,4 @@ The following table shows additional notifications that may be sent while mainte
 - [SQL Maintenance window](sql-maintenance-window.md)
 - [SQL Maintenance window FAQ](sql-maintenance-window-faq.yml)
 - [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-- [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role).
+- [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
