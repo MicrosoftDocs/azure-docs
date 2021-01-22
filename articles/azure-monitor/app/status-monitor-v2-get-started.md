@@ -22,6 +22,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Download and install via PowerShell Gallery
 
 ### Install prerequisites
+
+> [!NOTE]
+> As of April 2020 PowerShell gallery has deprecated TLS 1.0 and 1.1. 
+> Please consult [Powershell Gallery TLS](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support) Support to find additionnal prerequisite you might need.
+
 Run PowerShell as Admin.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
