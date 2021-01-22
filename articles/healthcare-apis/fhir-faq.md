@@ -101,6 +101,12 @@ Some examples of this are below:
 
 We support sorting by the date last updated: _sort=_lastUpdated. For more information about other supported search parameters, check out our [supported features page](./fhir-features-supported.md#search).
 
+### Does the Azure API for FHIR support $everything? 
+
+No. At this time we do not support $everything. However it can be achieved with two API calls. For example to get Patient$everything, you can first grab the patient record using /Patient/[ID] and then a second call to retrieve all the patient data using /Patient/[ID]/*.
+
+You can see more details at this [community post](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
+
 ### How does $export work?
 
 $export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](./export-data.md).

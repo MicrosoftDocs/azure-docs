@@ -81,7 +81,7 @@ All search parameter types are supported.
 | `_id`                   | Yes       | Yes       | Yes       |         |
 | `_lastUpdated`          | Yes       | Yes       | Yes       |         |
 | `_tag`                  | Yes       | Yes       | Yes       |         |
-| `_profile`              | Yes       | Yes       | Yes       |         |
+| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
 | `_security`             | Yes       | Yes       | Yes       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
@@ -132,7 +132,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 * [**Request Units (RUs)**](../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
-* **Concurrent connections** and **Instances** - By dafault, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
+* **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
 * **Bundle size** - Each bundle is limited to 500 items.
 
