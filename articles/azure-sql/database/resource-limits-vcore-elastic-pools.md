@@ -10,7 +10,7 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/15/2021
+ms.date: 01/22/2021
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -212,7 +212,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |TempDB max data size (GB)|83.25|92.5|111|148|166.5|333|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS per pool <sup>2</sup>|5760|6400|7680|10240|11520|23040|
+|Max data IOPS per pool <sup>2</sup>|5760|6400|7680|10240|11520|12800|
 |Max log rate per pool (MBps)|48|48|48|48|48|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
