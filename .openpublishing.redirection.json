@@ -12574,6 +12574,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/extensions/index.yml",
+      "redirect_url": "/azure/virtual-machines/index.yml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/extensions/",
+      "redirect_url": "/azure/virtual-machines/extensions/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/index.yml",
+      "redirect_url": "/azure/virtual-machines/index.yml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/index.yml",
+      "redirect_url": "/azure/virtual-machines/index.yml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/linux/",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/",
+      "redirect_url": "/azure/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "articles/virtual-machines/windows/context/windows-vm-context.yml",
+      "redirect_url": "articles/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "articles/virtual-machines/linux/context/linux-vm-context.yml",
+      "redirect_url": "articles/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "articles/virtual-machines/linux/breadcrumb/toc.yml",
+      "redirect_url": "articles/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "articles/virtual-machines/windows/breadcrumb/toc.yml",
+      "redirect_url": "articles/virtual-machines/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database-edge/index.yml",
       "redirect_url": "/azure/azure-sql-edge/",
       "redirect_document_id": true
