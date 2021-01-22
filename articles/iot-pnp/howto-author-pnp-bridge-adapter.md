@@ -16,7 +16,7 @@ The [IoT Plug and Play bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-brid
 This article explains in detail how to:
 
 - Extend the IoT Plug and Play bridge with an adapter.
-- Implement common callbacks for a bridge adapter
+- Implement common callbacks for a bridge adapter.
 
 For a simple example that shows how to use the bridge, see [How to connect the IoT Plug and Play bridge sample that runs on Linux or Windows to IoT Hub](howto-use-iot-pnp-bridge.md).
 
@@ -116,15 +116,15 @@ The [Camera adapter readme](https://github.com/Azure/iot-plug-and-play-bridge/bl
 ## Code examples for common adapter scenarios/callbacks
 
 The following section will provide details on how an adapter for the bridge would implement callbacks for a number of common scenarios and usages This section covers the following callbacks:
-- [Receive Property Update (Cloud to Device)](#receive-property-update-cloud-to-device)
-- [Report a Property Update (Device to Cloud)](#report-a-property-update-device-to-cloud)
-- [Send Telemetry (Device to Cloud)](#send-telemetry-device-to-cloud)
-- [Receive Command update callback from the cloud and process it on the device side (Cloud to Device)](#receive-command-update-callback-from-the-cloud-and-process-it-on-the-device-side-cloud-to-device)
-- [Respond to Command update on the device side (Device to Cloud)](#respond-to-command-update-on-the-device-side-device-to-cloud)
+- [Receive property update (cloud to device)](#receive-property-update-cloud-to-device)
+- [Report a property update (device to cloud)](#report-a-property-update-device-to-cloud)
+- [Send telemetry (device to cloud)](#send-telemetry-device-to-cloud)
+- [Receive command update callback from the cloud and process it on the device side (cloud to device)](#receive-command-update-callback-from-the-cloud-and-process-it-on-the-device-side-cloud-to-device)
+- [Respond to command update on the device side (device to cloud)](#respond-to-command-update-on-the-device-side-device-to-cloud)
 
 The examples below are based on the [environmental sensor sample adapter](https://github.com/Azure/iot-plug-and-play-bridge/tree/master/pnpbridge/src/adapters/samples/environmental_sensor).
 
-### Receive Property Update (Cloud to Device)
+### Receive property update (cloud to device)
 The first step is to register a callback function:
 
 ```c
@@ -226,7 +226,7 @@ static void SampleEnvironmentalSensor_BrightnessCallback(
 
 ```
 
-### Report a Property Update (Device to Cloud)
+### Report a property update (device to cloud)
 At any point after your component is created, your device can report properties to the cloud with status: 
 ```c
 // Environmental sensor's read-only property, device state indiciating whether its online or not
@@ -304,7 +304,7 @@ exit:
 
 ```
 
-### Send Telemetry (Device to Cloud)
+### Send telemetry (device to cloud)
 ```c
 //
 // SampleEnvironmentalSensor_SendTelemetryMessagesAsync is periodically invoked by the caller to
@@ -366,7 +366,7 @@ exit:
 }
 
 ```
-### Receive Command update callback from the cloud and process it on the device side (Cloud to Device)
+### Receive command update callback from the cloud and process it on the device side (cloud to device)
 ```c
 // SampleEnvironmentalSensor_ProcessCommandUpdate receives commands from the server.  This implementation acts as a simple dispatcher
 // to the functions to perform the actual processing.
@@ -431,7 +431,7 @@ static int SampleEnvironmentalSensor_BlinkCallback(
 }
 
 ```
-### Respond to Command update on the device side (Device to Cloud)
+### Respond to command update on the device side (device to cloud)
 
 ```c
 	static int SampleEnvironmentalSensor_BlinkCallback(

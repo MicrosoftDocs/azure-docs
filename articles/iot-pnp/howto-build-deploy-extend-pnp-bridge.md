@@ -1,5 +1,5 @@
 ---
-title: How to build, and deploy IoT Plug and Play bridge | Microsoft Docs
+title: How to build and deploy IoT Plug and Play bridge | Microsoft Docs
 description: Identify the IoT Plug and Play bridge components. Learn how to run it on IoT devices, gateways, and as an IoT Edge module.
 author: usivagna
 ms.author: ugans
@@ -11,9 +11,9 @@ services: iot-pnp
 # As a device builder, I want to understand the IoT Plug and Play bridge, learn how to extend it, and learn how to run it on IoT devices, gateways, and as an IoT Edge module.
 ---
 
-# Build, and deploy the IoT Plug and Play bridge
+# Build and deploy the IoT Plug and Play bridge
 
-The [IoT Plug and Play bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) lets you connect the existing devices attached to a gateway to your IoT hub. You use the bridge to map IoT Plug and Play interfaces to the attached devices. An IoT Plug and Play interface defines the telemetry that a device sends, the properties synchronized between the device and the cloud, and the commands that the device responds to. You can install and configure the open-source bridge application on Windows or Linux gateways.Additionally, the bridge can be run as an Azure IoT Edge runtime module.
+The [IoT Plug and Play bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) lets you connect the existing devices attached to a gateway to your IoT hub. You use the bridge to map IoT Plug and Play interfaces to the attached devices. An IoT Plug and Play interface defines the telemetry that a device sends, the properties synchronized between the device and the cloud, and the commands that the device responds to. You can install and configure the open-source bridge application on Windows or Linux gateways. Additionally, the bridge can be run as an Azure IoT Edge runtime module.
 
 This article explains in detail how to:
 
