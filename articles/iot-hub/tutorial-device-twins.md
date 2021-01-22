@@ -63,8 +63,8 @@ az extension add --name azure-iot
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create an IoT Hub.
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
+# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
 az iot hub connection-string show --name $hubname --policy-name service -o table
