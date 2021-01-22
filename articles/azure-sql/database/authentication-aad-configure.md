@@ -104,7 +104,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
     ![Add Azure Active Directory admin](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
 
-8. At the top of the Active Directory admin page, select **Set admin**.
+8. At the top of the Active Directory admin page, select **Save**.
 
     ![Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.](./media/authentication-aad-configure/save.png)
 
@@ -252,7 +252,7 @@ The following two procedures show you how to provision an Azure Active Directory
 
     ![Select Azure Active Directory admin](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 
-6. At the top of the **Active Directory admin** page, select **Set admin**.
+6. At the top of the **Active Directory admin** page, select **Save**.
 
     ![save admin](./media/authentication-aad-configure/save-admin.png)
 
