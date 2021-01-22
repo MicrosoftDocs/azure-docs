@@ -130,7 +130,7 @@ az network public-ip show \
 
 Copy and paste the public IP address into the address bar of your browser.
 
-  ![App in public IP](media/spring-cloud-expose-apps-gateway-az-firewall/app-gw-public-ip.png)
+  ![App in public IP](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
 ## See also
 
