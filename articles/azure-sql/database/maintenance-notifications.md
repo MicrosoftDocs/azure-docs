@@ -1,5 +1,5 @@
 ---
-title: Advanced notifications for planned Azure SQL maintenance (Preview)
+title: Advanced notification for planned Azure SQL maintenance (Preview)
 description: Get email notifications before Azure performs planned maintenance for Azure SQL Database or Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 01/21/2021
 ---
-# Get an email before Azure performs planned maintenance for Azure SQL Database or Azure SQL Managed Instance
+# Advanced notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Advanced Notification (Preview), is available to customers on [SQL Maintenance Windows](sql-maintenance-window.md). Advanced notifications enable customers to configure email notification up to 24 hours in advance of any planned maintenance.
@@ -61,5 +61,5 @@ You're all set. Next time there's a planned Azure SQL maintenance event, you'll 
 
 ## See also
 
-- [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview)
+- [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 - [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role).
