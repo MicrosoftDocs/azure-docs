@@ -22,7 +22,7 @@ In this article, you learn about:
 
 Azure Machine Learning Studio (classic) will retire on Aug 30, 2024. We encourage users to migrate to Azure Machine Learning for a modernized data science platform.
 
-To understand the benefits, see [ML Studio (classic) vs Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning).
+To understand the benefits, see [ML Studio (classic) vs Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
 
  - **Current customers** can create new experiments and run existing Studio (classic) assets like experiments and web services until the retirement date.
 
