@@ -84,6 +84,8 @@ This template contains several parameters that are predefined for your convenien
 
 ## 3. Deploy the template
 
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+
 ::: zone pivot="platform-windows"
 Run the code below to deploy a .NET framework app on Windows. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
 
@@ -104,9 +106,9 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 ```
 ::: zone-end
 
-Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+> [!NOTE]
+> The code creates a <abbr title="Contains all of the Azure resources for the service.">resource group</abbr>, an <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>, and an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr>. A default resource group, App Service plan, and location have been set for you.
 
-The code creates a <abbr title="Contains all of the Azure resources for the service.">resource group</abbr>, an <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>, and an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr>. A default resource group, App Service plan, and location have been set for you.
 
 ::: zone pivot="platform-windows"
 To deploy a different language stack, update `language` parameter with appropriate values. This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
