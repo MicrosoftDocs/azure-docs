@@ -16,7 +16,7 @@ ms.author: mbaldwin
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal
 
-Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you create a key vault, then use it to store a secret. 
+Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure Key Vaults may be created and managed through the Azure portal. In this quickstart, you create a key vault, then use it to store a secret. 
 
 For more information about, see 
 - [Key Vault Overview](../general/overview.md)
