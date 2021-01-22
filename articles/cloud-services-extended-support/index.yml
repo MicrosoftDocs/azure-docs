@@ -45,8 +45,6 @@ landingContent:
         links:
           - text: Available sizes
             url: available-sizes.md
-          - text: Manage deployments
-            url: manage-powershell.md
           - text: Frequently asked questions
             url: faq.md
 
@@ -55,17 +53,13 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable Remote Desktop
-            url: enable-rdp.md
+          - text: Extensions
+            url: extensions.md
           - text: Enable alerts
             url: enable-alerts.md
           - text: Configure scaling
             url: configure-scaling.md
-          - text: Swap Cloud Service deployments
-            url: cloud-services-swap.md
-          - text: Update a Cloud Service
-            url: update-powershell.md
-          - text: Store and use certificates
+          - text: Certificates
             url: certificates-and-key-vault.md
 
   # Card

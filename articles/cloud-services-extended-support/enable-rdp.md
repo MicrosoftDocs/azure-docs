@@ -1,6 +1,6 @@
 ---
-title: Enable Remote Desktop in Cloud Services (extended support) using the Azure portal
-description: Enable Remote Desktop for Cloud Services (extended support) instances using the Azure portal
+title: Enable Remote Desktop in Cloud Services (extended support) 
+description: Enable Remote Desktop for Cloud Services (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,19 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Enable remote desktop for Cloud Services (extended support) instances using the Azure portal
-
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a remote desktop connection to troubleshoot and diagnose problems with your application while it is running.
-
-You can enable a remote desktop connection in your role during development by including the remote desktop modules in your service definition or through the remote desktop extension. 
-
-## How does the RDP Extension Work?
-The user passes their preferred username and password using the cscfg and csdef file in the public and private config sections. Cloud Services (extended support) does not do any validations on the backend. Cloud Services (extended support) encrypts the password and writes the configuration. Once the platform receives the configuration, the GuestAgent will see the extension and attempt to install it on the virtual machine instance. 
-
-Part of installation is setting the username and password of the virtual machine as per Group Policy restrictions. If username or password is not complex enough, the installation of the remote desktop extension will fail. When installation succeeds, the RDP listener starts on the role and waits for incoming requests.  
-
-
-## Configure remote desktop from the Azure portal
+# Configure remote desktop from the Azure portal
 
 The Azure portal uses the remote desktop extension to enable remote desktop even after the application is deployed. The remote desktop settings for your Cloud Service allows you to enable remote desktop, update the local administrator account, select the certificates used in authentication and set the expiration date for those certificates. 
 
@@ -53,5 +41,7 @@ Once remote desktop is enabled on the roles, you can initiate a connection direc
 4. Open the file to connect to the role instance.
 
 
-## Next steps
-For more information, see [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

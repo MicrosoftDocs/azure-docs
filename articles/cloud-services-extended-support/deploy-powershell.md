@@ -19,18 +19,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Before you begin
-1. Register the Cloud Service feature to the desired subscription
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-    ```
-
-2. View the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support). 
-
-## Create a Cloud Service (extended support) 
-
-1. Prepare the deployment artifacts. For more information see [Deployment prerequisites](deploy-prerequisite.md) 
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 
 3. Install Az.CloudService PowerShell module  
 
@@ -44,14 +33,14 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-5. Create a storage account and container which will be used to store cloud service package (cspkg). You must use a unique name for storage account name. 
+5. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. You must use a unique name for storage account name. 
 
     ```powershell
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
     $container = New-AzStorageContainer -Name “contosocontainer” -Context $storageAccount.Context -Permission Blob 
     ```
 
-6. Upload your cloud service package (cspkg) to the storage account. The SAS URI of the package will be generated which will be used in later steps. 
+6. Upload your Cloud Service package (cspkg) to the storage account.
 
     ```powershell
     $tokenStartTime = Get-Date 
@@ -62,14 +51,13 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     ```
  
 
-7.  Upload your cloud service configuration (cscfg) to the storage account. The SAS URI of the configuration will be generated which will be used in later steps. 
+7.  Upload your cloud service configuration (cscfg) to the storage account. 
 
     ```powershell
     $cscfgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cscfg” -Container ContosoContainer -Blob “ContosoApp.cscfg” -Context $storageAccount.Context 
     $cscfgToken = New-AzStorageBlobSASToken -Container “ContosoContainer” -Blob $cscfgBlob.Name -Permission rwd -StartTime $tokenStartTime -ExpiryTime $tokenEndTime -Context $storageAccount.Context 
     $cscfgUrl = $cscfgBlob.ICloudBlob.Uri.AbsoluteUri + $cscfgToken 
     ```
-
 
 8. Create a virtual network and subnet. This step is optional if using an existing network and subnet. This example uses a single virtual network and subnet for both cloud service roles (WebRole and WorkerRole). 
 
@@ -93,12 +81,11 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-11. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the cloud service roles. The key vault needs to be enabled for deployment which permits role instances to retrieve certificate stored as secrets from key vault. The vault name must be unique.  
+11. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the cloud service roles. The key vault needs to be enabled for deployment which permits role instances to retrieve certificate stored as secrets from key vault. he Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
- 
 
 13. Update the Key Vault access policy and grant certificate permissions to your user account. 
 
@@ -151,7 +138,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     $tag=@{"Owner" = "Contoso"} 
     ```
 
-19. Create Cloud Service deployment using profile objects & SAS URLs 
+19. Create Cloud Service deployment using profile objects & SAS URLs.  `-Configuration $cscfgContent` is also supported 
 
     ```powershell
     $cloudService = New-AzCloudService                                            	    ` 
@@ -168,7 +155,8 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     -Tag $tag 
     ```
 
-    `-Configuration $cscfgContent` is also supported 
 
- ## Next steps
-For more information, see [Frequently asked questions about Cloud services (extended support)](faq.md)
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

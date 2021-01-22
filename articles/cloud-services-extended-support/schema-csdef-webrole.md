@@ -302,7 +302,7 @@ The following table describes the attributes of the `Import` element.
 
 | Attribute | Type | Description |  
 | --------- | ---- | ----------- |  
-|moduleName|string|Required. The name of the module to import. Valid import modules are:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> The RemoteAccess and RemoteForwarder modules allow you to configure your role instance for remote desktop connections. For more information see [Enable Remote Desktop Connection](enable-rdp.md).<br /><br /> The Diagnostics module allows you to collect diagnostic data for a role instance.|  
+|moduleName|string|Required. The name of the module to import. Valid import modules are:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> The RemoteAccess and RemoteForwarder modules allow you to configure your role instance for remote desktop connections. For more information see [Extensions](extensions.md).<br /><br /> The Diagnostics module allows you to collect diagnostic data for a role instance.|  
 
 ##  <a name="Runtime"></a> Runtime  
 The `Runtime` element describes a collection of environment variable settings for a web role that control the runtime environment of the Azure host process. This element is the parent of the `Environment` element. This element is optional and a role can have only one runtime block.

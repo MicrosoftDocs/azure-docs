@@ -9,7 +9,7 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: 
 ---
-
+ 
 # Available sizes for Azure Cloud Services (extended support)
 
 This article describes the available virtual machine sizes for Cloud Services (extended support) instances.   
@@ -46,11 +46,14 @@ To change the size of an existing role, change the virtual machine size in the s
 
 ## Get a list of available sizes 
 
-The following PowerShell command to retrieves a list of available virtual machine sizes that can be utilized.
+To retrieve a list of available sizes see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters:
 
-```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel 
-```
+
+`ResourceType = virtualMachines ` <br>
+`VMDeploymentTypes = PaaS `
+
 
 ## Next steps 
-Learn about [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

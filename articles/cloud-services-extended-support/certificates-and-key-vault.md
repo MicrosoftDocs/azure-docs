@@ -10,9 +10,9 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Store and use certificates in Azure Cloud Services (extended support)
+# Use certificates with Azure Cloud Services (extended support)
 
-To install certificates on Cloud Service roles, add the certificates to an Azure Key Vault and reference the certificate thumbprints in the cscfg and osProfile.
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Key Vaults can be created through [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) and [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault.  
 
 ## Upload a certificate to Key Vault 
 
@@ -36,33 +36,20 @@ To install certificates on Cloud Service roles, add the certificates to an Azure
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ import option":::
 
-4.	Add the certificate details associated with the role to the cscfg file.
+4.	Complete the required information to finish uploading the certificate. 
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image shows importing window in the Azure portal.":::
 
-5.	Add the Key Vault reference to the template file.
+5.	Add the certificate details to your role in the Service Configuration (.cscfg). Ensure the thumbprint of the certificate in the Azure portal matches the thumbprint in the .cscfg file. 
     
-    >[!NOTE]
-    > Certificate Identifier should be in the following format: `https://<vaultEndpoint>/secrets/<secretName>/<secretVersion>`
-
+    ```json
+    <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
-    "osProfile": 
-        { "secrets":  
-            [  
-                { "sourceVault": { 
-                     "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/{keyvault-name}"  
-                },  
-    "vaultCertificates": [ 
-            { "certificateUrl": "https://{keyvault-name}.vault.azure.net:443/secrets/ContosoCertificate/{secret-id}"  
-            } 
-        ] 
-    } 
-    ```
-
-    - `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
-    - `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
+- `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
+- `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
  
 
-## Next steps
-
-[Enable Remote Desktop](enable-rdp.md) for your Cloud Service (extended support) roles.
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

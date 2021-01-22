@@ -15,8 +15,8 @@ This article covers frequently asked questions related to Azure Cloud Services (
 
 ## General
 
-### What new features come with Cloud Services (extended support)?
-Cloud Services (extended support) supports features such as templates, role-based access control, Azure Resource Manager policies for improved control on security and privacy, resource tagging, private links, Azure firewall, VNET peering and Key Vault support.
+### What's with Cloud Services (extended support)?
+Cloud Services (extended support) supports json based templates for deploying directly in Azure Resource Manager. It also includes new features such as role-based access control, policies for improved control on security and privacy, resource tagging, private links, Azure firewall, VNET peering and Key Vault support. Cloud Services (extended support) are required to always be deployed in a virtual network
 
 ### Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
 Yes. Cloud Services (extended support) supports additional features such as the use of Key Vault and dynamic/ static IP addresses. Customers will be charged for the utilization of these resources similar to other Azure Resource Manager products. 
@@ -32,7 +32,7 @@ Cloud Services (extended support) is available in all public cloud regions.
 Customers will need to request quota using the same processes as any other Azure Resource Manager product.Quota in Azure Resource Manager is regional and a separate quota request will be needed for each region.
 
 ### Why don’t I see a production & staging slot anymore?
-Cloud Services (extended support) does not support the logical concept of hosted service, which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. 
+Cloud Services (extended support) does not support the logical concept of a hosted service, which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)
 
 ### Why can’t I create an empty Cloud Service anymore?
 The concept of hosted service names does not exist anymore, you cannot create an empty Cloud Service (extended support).
@@ -62,28 +62,21 @@ Cloud Services (extended support) deployments cannot scale across multiple clust
 ## Resources 
 
 ###	What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group?
-Storage accounts, public IP addresses, load balancers, Cloud Service deployments, network security groups and route tables need to live in the same region and resource group. 
+Load balancers, network security groups and route tables need to live in the same region and resource group. 
 
 ###	What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
-Key Vault, virtual network, public IP addresses, Cloud Service deployments, network security groups and route tables need to live in the same region.
+Key Vault, virtual network, public IP addresses, network security groups and route tables need to live in the same region.
 
 ###	What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
-Public IP addresses, load balancers, Cloud Services deployment, network security groups and route tables need to live in the same virtual network. 
+Public IP addresses, load balancers, network security groups and route tables need to live in the same virtual network. 
 
 ## Deployment files 
 
 ### How can I use a template to deploy or manage my deployment?
 Template and parameter files can be passed as a parameter using REST, PowerShell and CLI. They can also be uploaded using the Azure portal.  
 
-### What is changing in my existing csdef deployment file?
-
-Properties of load balancer probes, endpoints, reserved IPs and public IPs now use the fully qualified Azure Resource Manager resource name.
-
-`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`
-
 ### Do I need to maintain four files now? (template, parameter, csdef, cscfg)
-Template and parameter files are only used for deployment automation. Like Cloud Services (classic), you can manually create dependent resources first and then a Cloud Services (extended support) deployment using PowerShell or CLI commands. 
-
+Template and parameter files are only used for deployment automation. Like Cloud Services (classic), you can manually create dependent resources first and then a Cloud Services (extended support) deployment using PowerShell, CLI commands or through Portal with existing csdef, cscfg.
 
 ###	How does my application code change on Cloud Services (extended support)
 There are no changes required for your application code packaged in cspkg. Your existing applications will continue to work as before. 
@@ -99,14 +92,11 @@ Estimating the time required and complexity migration depends on a range of vari
 
 ## Networking
 
-### How does this affect VIP swap feature?
-During creation of a new Cloud Service (extended support) deployment, you can define the deployment ID you want to swap with. This defines the VIP swap relationship between two Cloud Service deployments. 
-
 ###	Why can’t I create a deployment without virtual network?
 Virtual networks are a required resource for any deployment on Azure Resource Manager. Cloud Services (extended support) deployment must live inside a virtual network. 
 
 ###	Why am I now seeing so many networking resources? 
-In Azure Resource Manager, components of your Cloud Services (extended support) deployment are exposed as a resource for better visibility and improved control. The same type of resources were used in Cloud Services (classic) however they were just hidden from a portal view. 
+In Azure Resource Manager, components of your Cloud Services (extended support) deployment are exposed as a resource for better visibility and improved control. The same type of resources were used in Cloud Services (classic) however they were just hidden. One example of such a resource is the Public Load Balancer, which is now an explicit 'read only' resource automatically created by the platform
 
 ###	What restrictions apply for a subnet with respective to Cloud Services (extended support)?
 A subnet containing Cloud Services (extended support) deployments cannot be shared with deployments from other compute products such as Virtual Machines, Virtual Machines Scale Sets, Service Fabric, etc.

@@ -25,8 +25,6 @@
     href: available-sizes.md
   - name: Frequently Asked Questions
     href: faq.md
-  - name: Manage Cloud Service deployments
-    href: manage-powershell.md
   - name: Guest OS patches
     href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
   - name: Guest OS retirement
@@ -53,17 +51,15 @@
       href: schema-cscfg-networkconfiguration.md
 - name: How To
   items:
+  - name: Extensions
+    href: extensions.md
   - name: Enable remote desktop
     href: enable-rdp.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
     href: configure-scaling.md
-  - name: Swap Cloud Service deployments
-    href: cloud-services-swap.md
-  - name: Update a Cloud Service
-    href: update-powershell.md
-  - name: Store and use certificates
+  - name: Certificates
     href: certificates-and-key-vault.md
 - name: Samples
   items: 
@@ -71,16 +67,12 @@
     href: sample-create-cloud-service.md
   - name: Get Cloud Service details
     href: sample-get-cloud-service.md
-  - name: Update a Cloud Service
-    href: sample-update-cloud-service.md
   - name: Reset a Cloud Service
     href: sample-reset-cloud-service.md
 - name: Reference
   items:
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=cloud-services
-  - name: REST
-    href: /rest/api/compute/cloudservices/
+  - name: PowerShell
+    href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
 - name: Resources
   items:
   - name: Azure Roadmap
