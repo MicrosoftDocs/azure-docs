@@ -82,7 +82,7 @@ To learn more about how each authentication method works, see the following sepa
 * [FIDO2 security key (preview)](concept-authentication-passwordless.md#fido2-security-keys)
 * [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
-* SMS [sign-in (preview)](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
+* [SMS sign-in](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Voice call verification](concept-authentication-phone-options.md)
 * Password
 
