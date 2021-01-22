@@ -117,11 +117,11 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 7. Select **Next: Shipping address**.
 
-    - If you already have a device, select the combo box for **I already have a device**.
+   - If you already have a device, select the combo box for **I already have a device**.
 
      ![Create a resource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device to, and contact information.
+   - If this is the new device that you are ordering, enter the contact name, company, address to ship the device to, and contact information.
 
      ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
