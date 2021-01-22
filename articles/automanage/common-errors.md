@@ -36,3 +36,9 @@ Workspace region not matching region mapping requirements | Automanage was unabl
 "The assignment has failed; there is no additional information available" | Please open a case with Microsoft Azure support.
 
 ## Next steps
+
+* [Learn more about Azure Automanage](./automanage-virtual-machines.md)
+
+> [!div class="nextstepaction"]
+> [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)
+
