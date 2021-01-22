@@ -7,7 +7,7 @@ ms.date: 11/24/2020
 
 # Subscription Rule SQL Filter Syntax
 
-A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It is a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
 
 Service Bus Premium also supports the [JMS SQL message selector syntax](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) through the JMS 2.0 API.
 
@@ -267,6 +267,65 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 
 ## Examples
 
+### Filter on system properties
+To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
+
+```csharp
+sys.Label LIKE '%bus%'`
+sys.messageid = 'xxxx'
+sys.correlationid like 'abc-%'
+```
+
+## Filter on message properties
+Here are the examples of using message properties in a filter. You can access message properties using `user.property-name` or just `property-name`.
+
+```csharp
+MessageProperty = 'A'
+SuperHero like 'SuperMan%'
+```
+
+### Filter on message properties with special characters
+If the message property name has special characters, use double quotes (`"`) to enclose the property name. For example if the property name is `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"`, use the following syntax in the filter. 
+
+```csharp
+"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" = 'account'
+```
+
+### Filter on message properties with numeric values
+The following examples show how you can use properties with numeric values in filters. 
+
+```csharp
+MessageProperty = 1
+MessageProperty > 1
+MessageProperty > 2.08
+MessageProperty = 1 AND MessageProperty2 = 3
+MessageProperty = 1 OR MessageProperty2 = 3
+```
+
+### Parameter-based filters
+Here are a few examples of using parameter-based filters. In these examples, `DataTimeMp` is a message property of type `DateTime` and `@dtParam` is a parameter passed to the filter as a `DateTime` object.
+
+```csharp
+DateTimeMp < @dtParam
+DateTimeMp > @dtParam
+
+(DateTimeMp2-DateTimeMp1) <= @timespan //@timespan is a parameter of type TimeSpan
+DateTimeMp2-DateTimeMp1 <= @timespan
+```
+
+### Using IN and NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
+
 ### Set rule action for a SQL filter
 
 ```csharp
@@ -291,30 +350,6 @@ var filterActionRule = new RuleDescription
 await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
 ```
 
-### SQL filter on a system property
-
-```csharp
-sys.Label LIKE '%bus%'`
-```
-
-### Using OR 
-
-```csharp
- sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
-```
-
-### Using IN and NOT IN
-
-```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
-
-sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
-
-sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
-```
-
-For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
-
 
 ## Next steps
 
@@ -322,5 +357,5 @@ For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/a
 - [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [SqlFilter class (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
 - [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
-- [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

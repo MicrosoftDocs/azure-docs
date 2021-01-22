@@ -14,29 +14,39 @@ ms.author: mbaldwin
 
 Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy.
 
-## Default policy for an SGX enclave with PolicyFormat=Text
+## Default policy for an SGX enclave 
 
 ```
-Version= 1.0;
+version= 1.0;
 authorizationrules
 {
-	c:[type==”$is-debuggable”] => permit();
+	c:[type=="$is-debuggable"] => permit();
 };
+
 issuancerules
 {
-	c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-	c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-	c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-	c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-	c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-	c:[type==”$tee”] => issue(type=”tee”, value=c.value);
+	c:[type=="$is-debuggable"] => issue(type="is-debuggable", value=c.value);
+	c:[type=="$sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+	c:[type=="$sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
+	c:[type=="$product-id"] => issue(type="product-id", value=c.value);
+	c:[type=="$svn"] => issue(type="svn", value=c.value);
+	c:[type=="$tee"] => issue(type="tee", value=c.value);
 };
 ```
 
-## Default policy for VBS enclave
+## Sample custom policy for an SGX enclave 
 
-There is no default policy for VBS enclave
-
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+```
 
 ## Unsigned Policy for an SGX enclave with PolicyFormat=JWT
 

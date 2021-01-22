@@ -102,7 +102,7 @@ Yes, Azure Backup supports backup of SQL Server databases or server with TDE ena
 
 ## Does Azure Backup perform a checksum operation on the data stream?
 
-We do perform a checksum operation on the data stream. However, this isn't to be confused with [SQL checksum](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+We do perform a checksum operation on the data stream. However, this isn't to be confused with [SQL checksum](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 Azure workload backup computes the checksum on the data stream and stores it explicitly during the backup operation. This checksum stream is then taken as a reference and cross-verified with the checksum of the data stream during the restore operation to make sure that the data is consistent.
 
 ## Next steps
