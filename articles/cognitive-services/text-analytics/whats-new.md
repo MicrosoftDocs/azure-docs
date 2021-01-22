@@ -20,7 +20,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ## January 2021
 
 * New languages are added to [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, starting with model version `2021-01-15`. 
-  * Expanded language support for [several general entity categories](named-entity-types,md). 
+  * Expanded language support for [several general entity categories](named-entity-types.md). 
   * This new model version is utilizes Microsoft's [Z-code model](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/) to improve detection and accuracy.
 
 
