@@ -26,7 +26,7 @@ landingContent:
           - text: Prerequisites for deployment
             url: deploy-prerequisite.md
           - text: Config files and packaging
-            url: cloud-services-model-and-packaging.md
+            url: cloud-services-model-and-package.md
 
   # Card
   - title: Tutorials
