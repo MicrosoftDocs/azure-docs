@@ -31,7 +31,7 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 New-AzResourceGroup -Name 'CreatePrivLinkService-rg' -Location 'eastus2'
 
 ```
----
+
 ## Create an internal load balancer
 
 In this section, you'll create a virtual network and an internal Azure Load Balancer.
