@@ -69,9 +69,9 @@ Update the subnet to disable private endpoint network policies for the private e
 ```azurecli-interactive
 az network vnet subnet update \
     --name mySubnet \
-    --resource-group CreatePrivLinkService-rg  \
+    --resource-group CreatePrivLinkService-rg \
     --vnet-name myVNet \
-    --disable-private-endpoint-network-policies true
+    --disable-private-link-service-network-policies true
 ```
 
 ### Create standard load balancer
@@ -173,7 +173,7 @@ Create a private link service using a standard load balancer frontend IP configu
  
 ```azurecli-interactive
 az network private-link-service create \
-    --resource-group myPrivateLinkService \
+    --resource-group CreatePrivLinkService-rg \
     --name myPrivateLinkService \
     --vnet-name myVNet \
     --subnet mySubnet \
