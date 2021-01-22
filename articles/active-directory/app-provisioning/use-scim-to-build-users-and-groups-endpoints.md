@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Develop a sample SCIM endpoint
 
-This tutorial descibes how to build a [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) endpoint and offers guidance on how to implement CRUD operations.  The example includes support for a user and group object and optional features such as filtering and pagination.
+This tutorial descibes how to build a [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) endpoint and offers guidance on how to implement CRUD operations.  An example is included to support a user and group object with optional features such as filtering and pagination.
 
-In this tutorial, you'll see how to:
+In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Download the reference code
@@ -53,7 +53,7 @@ The projects contain the following folders and files:
 |-|-|
 |**Schemas** folder| The models for the **User** and **Group** resources along with some abstract classes like Schematized for shared functionality.<br/><br/> An **Attributes** folder which contains the class definitions for complex attributes of **Users** and **Groups** such as addresses.|
 |**Service** folder | Contains logic for actions relating to the way resources are queried and updated.<br/><br/> The reference code has services to return users and groups.<br/><br/>The **controllers** folder contains the various SCIM endpoints. Resource controllers include HTTP verbs to perform CRUD operations on the resource (**GET**, **POST**, **PUT**, **PATCH**, **DELETE**). Controllers rely on services to perform the actions.|
-|**Protocol** folder|Contains logic for actions relating to the way resources are returned according to the SCIM RFC such as:<br/><br/><ul><li>Returning multiple resources as a list.</li><li>Returning only specific resources based on a filter.</li><li>Turning a query into a list of linked lists of single filters.</li><li>Turning a PATCH request into an operation with attributes pertaining to the value path.</li></li>Defining the type of operation that can be used to apply changes to resource objects.</li></ul>|
+|**Protocol** folder|Contains logic for actions relating to the way resources are returned according to the SCIM RFC such as:<br/><ul><li>Returning multiple resources as a list.</li><li>Returning only specific resources based on a filter.</li><li>Turning a query into a list of linked lists of single filters.</li><li>Turning a PATCH request into an operation with attributes pertaining to the value path.</li></li>Defining the type of operation that can be used to apply changes to resource objects.</li></ul>|
 |`Microsoft.SystemForCrossDomainIdentityManagement`| Sample source code.|
 |`Microsoft.SCIM.WebHostSample`| Sample implementation of the SCIM library.|
 |*.gitignore*|Define what to ignore at commit time.|
@@ -91,7 +91,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Deploy your SCIM endpoint in Azure
 
-The SCIM reference code can be run locally, hosted by a on-premises server, or deployed to a service. The steps provided here deploy the SCIM endpoint to an external service using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Services](https://docs.microsoft.com/azure/app-service/).
+The steps provided here deploy the SCIM endpoint to a service using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Services](https://docs.microsoft.com/azure/app-service/). The SCIM reference code can also be run locally, hosted by a on-premises server, or deployed to another external service. 
 
 ### Open solution and deploy to Azure App Service
 
@@ -120,9 +120,9 @@ The SCIM reference code can be run locally, hosted by a on-premises server, or d
 
 1. Navigate to the application in **Azure App Services** > **Configuration** and select **New application setting** to add the *Token__TokenIssuer* setting with the value `https://sts.windows.net/<tenant_id>/`. Replace `<tenant_id>` with your Azure AD tenant_id and if you're looking to test the SCIM endpoint using [Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), also add a *ASPNETCORE_ENVIRONMENT* setting with the value `Development`. 
 
-   When testing your endpoint with an Enterprise Application in the Azure Portal, choose to keep the environment as `Development` and provide the token generated from the `/scim/token` endpoint for testing or change the environment to `Production` and leave the token field empty in the enterprise application in the [Azure Portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+   ![appservice settings](media/use-scim-to-build-users-and-groups-endpoints/appservice_settings.png)
 
-	![appservice settings](media/use-scim-to-build-users-and-groups-endpoints/appservice_settings.png)
+   When testing your endpoint with an Enterprise Application in the Azure Portal, choose to keep the environment as `Development` and provide the token generated from the `/scim/token` endpoint for testing or change the environment to `Production` and leave the token field empty in the enterprise application in the [Azure Portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 That's it! Your SCIM endpoint is now published and allows you to use the Azure App Service URL to test the SCIM endpoint.
 
@@ -179,17 +179,17 @@ The endpoints are located in the `{host}/scim/` directory and can be interacted 
    |Environment|Variable|Value|
    |-|-|-|
    |Run project locally using IIS Express|||
-   ||**Server**|localhost|
-   ||**Port**|:44359 *(don't forget the `:`)*|
-   ||**Api**|scim|
+   ||**Server**|`localhost`|
+   ||**Port**|`:44359` *(don't forget the **:**)*|
+   ||**Api**|`scim`|
    |Run project locally using Kestrel|||
-   ||**Server**|localhost|
-   ||**Port**|:5001 *(don't forget the `:`)*|
-   ||**Api**|scim|
+   ||**Server**|`localhost`|
+   ||**Port**|`:5001` *(don't forget the **:**)*|
+   ||**Api**|`scim`|
    |Hosting the endpoint in Azure|||
    ||**Server**|*(input your SCIM URL)*|
    ||**Port**|*(leave blank)*|
-   ||**Api**|scim|
+   ||**Api**|`scim`|
 
 1. Use **Get Key** from the Postman Collection to send a **GET** request to the token endpoint and retrieve a security token to be stored in the **token** variable for subsequent requests. 
 
@@ -202,7 +202,7 @@ That's it! You can now run the **Postman** collection to test the SCIM endpoint 
 
 ## Next Steps
 
-To develop a SCIM compliant user and group endpoint with interoperability for any [SCIM client](http://www.simplecloud.info/#Implementations2), see [Azure AD SCIM client](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+To develop a SCIM compliant user and group endpoint with interoperability for a client, see the [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)
