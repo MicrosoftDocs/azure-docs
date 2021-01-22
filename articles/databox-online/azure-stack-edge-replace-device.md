@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 If your existing device has a hardware failure, open a Support ticket by following these steps:
 
-1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the **Azure Stack Edge Pro Hardware** problem type, and choose the **Hardware issues** subtype.
+1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the **Azure Stack Edge Pro Hardware** problem type, and choose the **Hardware issues** subtype.  
 
     ![Open Support ticket](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
