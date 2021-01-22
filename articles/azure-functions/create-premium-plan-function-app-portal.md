@@ -30,4 +30,4 @@ At this point, you can create functions in the new function app. These functions
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add an HTTP triggered function](functions-create-first-azure-function.md#create-function)
+> [Add an HTTP triggered function](./functions-get-started.md
