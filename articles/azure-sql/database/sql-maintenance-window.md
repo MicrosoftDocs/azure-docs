@@ -16,7 +16,10 @@ ms.date: 01/19/2021
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-SQL Maintenance Windows allow for configuration of predictable maintenance windows for [Azure SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
+SQL Maintenance Windows allow for the configuration of predictable maintenance window schedules for [Azure SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). 
+
+> [!Note]
+> For more information on maintenance events, see [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md).
 
 ## Overview
 
@@ -24,26 +27,27 @@ Azure performs planned maintenance updates on Azure SQL Database resources perio
 
 The SQL Maintenance Window is intended for business workloads that are sensitive to the potential connectivity interruptions that can result from planned maintenance events during the default window.  
 
-SQL Maintenance Window can be configured using the Azure portal PowerShell, or CLI on creation, or for existing Azure SQL Database and Managed Instances.
+SQL Maintenance Window can be configured using the Azure portal PowerShell, or CLI on creation, or for existing Azure SQL Database and SQL Managed Instances.
 
 ### Gain more predictability with SQL maintenance windows
 
 By default, all SQL Azure databases and Managed Instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional SQL Maintenance Window slots:
 
-* Default window, 5PM to 8AM local time Mon-Sunday 
-* Weekday window, 10PM to 6AM local time Monday – Thursday: Requires customer opt-in 
-* Weekend window, 10PM to 6AM local time Friday - Sunday: Requires customer opt-in  
+* **Default** window, 5PM to 8AM local time Mon-Sunday 
+* Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in** 
+* Weekend window, 10PM to 6AM local time Friday - Sunday: **Requires customer opt-in**  
 
 Once the maintenance window selection is made, all planned maintenance updates will only occur during the window of your choice.   
 
-### Known limitations
+> [!Note]
+> In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability. 
 
-Service tiers where SQL Maintenance Windows cannot be configured:
+### Supported service level objectives
+
+SQL Maintenance Windows are available on all Azure SQL Database and SQL Managed Instance SLOs except for:
 * Hyperscale 
 * Legacy Gen4 vCore
 * DTU S0 and S1 
-
-In addition to planned maintenance updates, in rare circumstances unplanned maintenance events can cause unavailability. 
 
 ### Cost
 
@@ -67,8 +71,3 @@ The SQL Maintenance Window is available in the following regions:
 - West Europe
 - West US 2
 
-## Next steps
-
-* [SQL Maintenance Window FAQ](sql-maintenance-window-faq.yml)
-* [SQL Maintenance Window walkthrough](TBD)
-* [SQL Maintenance Window Notifications walkthrough](TBD)

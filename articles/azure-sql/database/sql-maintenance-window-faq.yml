@@ -17,20 +17,25 @@ summary: This article answers frequently asked questions about SQL Maintenance W
 sections:
   - name: General
     questions: 
+      - question: What is the SQL Maintenance Window feature?
+        answer: |
+         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours. See [SQL Maintenance Window schedules](sql-maintenance-window.md#Gain-more-predictability-with-SQL-maintenance-windows) for more information.
+
       - question: What is the default SQL Maintenance Window if I do not choose any specific window? 
         answer: |
           The default window remains 5PM to 8AM local time, Monday - Sunday.
 
-      - question: What is the SQL Maintenance Window feature?
-        answer: |
-         The SQL Maintenance Window (SMW) feature provides you with the ability to onboard a SQL DB resource to prescheduled time blocks outside of business hours.
-         - Default window, 5PM to 8AM local time Monday thru Sunday
-         - Weekday window, 10PM to 6AM local time Monday thru Thursday: Requires customer opt-in
-         - Weekend window, 10PM to 6AM local time Friday thru Sunday: Requires customer opt-in
-
       - question: Can I choose a specific time/day in SQL Maintenance Windows?
         answer: |
           No, you can choose between pre-scheduled Weekday or Weekend windows. The maintenance can happen any time or day within the window.  
+
+      - question: What maintenance updates are typically performed during a SQL Maintenance window? 
+        answer: |
+          The SQL Maintenance Window can include updates to underlying hardware, software including underlying operating system (OS) and SQL engine.
+
+      - question: What can I expect during a maintenance event?
+        answer: |
+          During a maintenance update, Azure SQL Database are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL Databases offline for a short time to apply the maintenance updates (on average, eight seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and Managed Instance, and only during the maintenance window slots selected by the customer.
 
       - question: In which regions is SQL Maintenance Window Available?
         answer: | 
@@ -40,28 +45,17 @@ sections:
         answer: |
           We are working on adding more regions, you can open a ticket to check if your Region will be available soon. 
       
-      - question: What maintenance updates are typically performed during a SQL Maintenance window? 
-        answer: |
-          The SQL Maintenance Window can include updates to underlying hardware, software including underlying operating system (OS) and SQL engine.
-
-      - question: What can I expect during a maintenance event?
-        answer: |
-          During a maintenance update, Azure SQL Database are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL Databases offline for a short time to apply the maintenance updates (on average, eight seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and Managed Instance, and only during the maintenance window slots selected by the customer.
-
       - question: What is the pricing for SQL Maintenance Window? 
         answer: |
-          SQL Maintenance Window is free of charge to all customers with [subscription types](/support/legal/offer-details/) Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise, or Microsoft Customer Agreement.
+          SQL Maintenance Window is free of charge to all customers with paid Azure subscription types, see [SQL Maintenance Window cost](sql-maintenance-window.md#cost).
         
       - question: Would I receive a notification of the Maintenance Window?
         answer: |
           Customers can expect to receive notification 24 hours prior to the maintenance event, immediately before maintenance starts, and when the maintenance window is completed. The Resource health center can be checked for more information. Notification email alerts can also be configured, for more information see [SQL Maintenance Window Notifications walkthrough](TBD).
 
-      - question: Which Service Level Objectives (SLOs) are not supported for selecting a SQL Maintenance Window? 
+      - question: Which service level objectives (SLOs) are not supported for selecting a SQL Maintenance Window? 
         answer: |
-          Service tiers where SQL Maintenance Windows cannot be configured:
-           - Hyperscale 
-           - Legacy Gen4 vCore
-           - DTU S0 and S1 
+          This feature is available in most SLOs, see [SQL maintenance window supported service level objectives](sql-maintenance-window.md#supported-service-level-objectives).
 
       - question: If I have selected a SQL Maintenance Window for a resource, and I downscale to a service tier where SQL Maintenance Windows is not supported, would the Maintenance Window revert to default?
         answer: |
@@ -92,8 +86,3 @@ sections:
           Azure Portal, PowerShell, CLI, Azure API.
 
 
-additionalContent: |
- ## See Also
- - [SQL Maintenance Window](sql-maintenance-window.md)
- - [SQL Maintenance Window walkthrough](TBD)
- - [SQL Maintenance Window Notifications walkthrough](TBD)
