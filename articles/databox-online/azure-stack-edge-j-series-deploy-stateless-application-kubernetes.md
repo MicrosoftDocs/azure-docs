@@ -51,7 +51,7 @@ To check the version of `kubectl`:
    kubectl version
    ```
     
-   Here is an example of the output:
+   An example of the output is shown below:
     
    ```powershell
    PS C:\WINDOWS\system32> C:\windows\system32\kubectl.exe version
@@ -67,7 +67,7 @@ To check the version of `kubectl`:
    kubectl get pods -n <namespace-string>
    ```
     
-   Here is an example of command usage:
+   An example of command usage is shown below:
     
    ```powershell
    PS C:\WINDOWS\system32> kubectl get pods -n "test1"
@@ -127,7 +127,7 @@ Follow these steps to create an nginx deployment:
    deployment.apps/nginx-deployment created
    ```
 
-   Alternatively, you can save the following markdown to your local machine and substitute the path and filename in the *-f* parameter. For instance, "C:\Kubernetes\deployment.yaml". Here is the configuration for the application deployment:
+   Alternatively, you can save the following markdown to your local machine and substitute the path and filename in the *-f* parameter. For instance, "C:\Kubernetes\deployment.yaml". The configuration for the application deployment would be:
 
    ```markdown
    apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -159,7 +159,7 @@ Follow these steps to create an nginx deployment:
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   Here is a sample use of the command, with output:
+   A sample use of the command, with output, is shown below:
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -216,7 +216,7 @@ Follow these steps to create an nginx deployment:
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   Here is a sample use of the command, with output:
+   A sample use of the command, with output, is shown below:
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -234,7 +234,7 @@ Follow these steps to create an nginx deployment:
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-   Here is a sample use of the command, with output:
+  A sample use of the command, with output, is shown below:
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -298,7 +298,7 @@ You can increase the number of pods in your application deployment by applying a
 PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml -n "test1"
 ```
 
-Alternatively, you can save the following markdown on your local machine and substitute the path and filename for the *-f* parameter for `kubectl apply`. For instance, "C:\Kubernetes\deployment-scale.yaml". Here is the configuration for the application deployment scale:
+Alternatively, you can save the following markdown on your local machine and substitute the path and filename for the *-f* parameter for `kubectl apply`. For instance, "C:\Kubernetes\deployment-scale.yaml". The configuration for the application deployment scale would be:
 
 ```markdown
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -328,7 +328,7 @@ To verify that the deployment has four pods:
 kubectl get pods -l app=nginx
 ```
 
-Here is example output for a rescaling deployment from two to four pods:
+Example output for a rescaling deployment from two to four pods is shown below:
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl get pods -l app=nginx
@@ -350,7 +350,7 @@ To delete the deployment, including all the pods, you need to run `kubectl delet
    kubectl delete deployment nginx-deployment -n <namespace-string>
    ```
 
-Here is an example of command usage and output:
+An example of command usage, with output, is shown below:
 
 ```powershell
 PS C:\Users\user> kubectl delete deployment nginx-deployment -n "test1"
