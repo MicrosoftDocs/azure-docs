@@ -102,7 +102,7 @@ In this scenario, you can enable encryption by using the Resource Manager templa
 
 You can enable disk encryption on your encrypted VHD by installing and using the [Azure CLI](/cli/azure/) command-line tool. You can use it in your browser with [Azure Cloud Shell](../../cloud-shell/overview.md), or you can install it on your local machine and use it in any PowerShell session. To enable encryption on existing or running Linux VMs in Azure, use the following CLI commands:
 
-Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-show) command to enable encryption on a running virtual machine in Azure.
+Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_show) command to enable encryption on a running virtual machine in Azure.
 
 - **Encrypt a running VM:**
 
