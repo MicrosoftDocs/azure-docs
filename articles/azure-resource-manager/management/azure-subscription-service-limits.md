@@ -171,6 +171,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
+## Azure role-based access control limits
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
+
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
@@ -334,10 +338,6 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 ## Notification Hubs limits
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
-
-## Azure role-based access control limits
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
 ## Service Bus limits
 

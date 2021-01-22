@@ -120,7 +120,7 @@ Azure Files also supports REST in addition to SMB. REST access works over port 4
 
 System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure Files. 
 
-To determine whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
+To determine whether this is the cause of the error, verify that the following registry subkey is not set to a value less than 3:
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 

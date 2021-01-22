@@ -165,7 +165,7 @@ The two sections of the chart in green did match the expected prediction.
 
 LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](luis-tutorial-batch-testing.md). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
 
-Remember to add your LUIS key to `Apim-Subscription-Id` in the header, and set `Content-Type` to `application/json`.
+Remember to add your LUIS key to `Ocp-Apim-Subscription-Key` in the header, and set `Content-Type` to `application/json`.
 
 ### Start a batch test
 

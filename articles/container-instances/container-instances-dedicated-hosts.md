@@ -15,6 +15,9 @@ The dedicated sku is appropriate for container workloads that require workload i
 
 ## Prerequisites
 
+> [!NOTE]
+> Due to some current limitations, not all limit increase requests are guaranteed to be approved.
+
 * The default limit for any subscription to use the dedicated sku is 0. If you would like to use this sku for your production container deployments, create an [Azure Support request][azure-support] to increase the limit.
 
 ## Use the dedicated sku

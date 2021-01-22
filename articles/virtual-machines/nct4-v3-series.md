@@ -6,7 +6,7 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/12/2021
 ms.author: vikancha
 ---
 
@@ -21,7 +21,7 @@ The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://w
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 Accelerated Networking: Supported<br>
 Nvidia NVLink Interconnect: Not Supported<br>
 <br>
