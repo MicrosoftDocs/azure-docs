@@ -19,7 +19,13 @@ ms.custom:
 
 Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is currently in public preview. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some ARM capabilities such as role-based access and control (RBAC), tags, policy and supports deployment templates.  
 
-With this change, the Azure Service Manager based deployment model for Cloud Services will be renamed [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). You will retain the ability to build and rapidly deploy your web and cloud applications and services. You will be able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.   
+With this change, the Azure Service Manager based deployment model for Cloud Services will be renamed [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). You will retain the ability to build and rapidly deploy your web and cloud applications and services. You will be able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.  
+
+## What does not change 
+- You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
+- Cloud Services (extended support) also supports two types of roles, [web and worker](../cloud-services/cloud-services-choose-me.md). 
+- The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their [formats](cloud-services-model-and-package.md). 
+- No changes are required to runtime code as data plane is the same and control plane is only changing.  
 
 ## Changes in deployment model
 
@@ -43,17 +49,11 @@ The major differences between Cloud Services (classic) and Cloud Services (exten
 
 <sup>*</sup> VIP swap for Cloud Services (extended support) is not available during Public Preview.  
 
-## What does not change 
-- You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
-- Cloud Services (extended support) also supports two types of roles, web and worker. 
-- The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their formats. 
-- No changes are required to runtime code as data plane is the same and control plane is only changing. 
-
 ## Migration to Azure Resource Manager
 
-Cloud Services (extended support) provides two paths for you to migrate from Azure Service Manager to Azure Resource Manager. 
-1) Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in ASM after thorough validation. 
-2) In-place migration supports the ability to migrate Cloud Services (classic) with minimal to no downtime. 
+Cloud Services (extended support) provides two paths for you to migrate from [Azure Service Manager](https://docs.microsoft.com/powershell/azure/servicemanagement/overview?view=azuresmps-4.0.0) to [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
+1) Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager. 
+2) In-place migration supports the ability to migrate Cloud Services (classic) with minimal to no downtime to Cloud Services (extended support). 
 
 ### Additional migration options
 
@@ -63,5 +63,5 @@ Depending on the application, Cloud Services (extended support) may require subs
 
 ## Next steps
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
