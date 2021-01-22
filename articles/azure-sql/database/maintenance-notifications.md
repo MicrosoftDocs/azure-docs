@@ -1,0 +1,65 @@
+---
+title: Advanced notifications for planned Azure SQL maintenance (Preview)
+description: Get email notifications before Azure performs planned maintenance for Azure SQL Database or Azure SQL Managed Instance.
+services: sql-database
+ms.service: sql-db-mi
+ms.subservice: service
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
+ms.date: 01/21/2021
+---
+# Get an email before Azure performs planned maintenance for Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+Advanced Notification (Preview), is available to customers on [SQL Maintenance Windows](sql-maintenance-window.md). Advanced notifications enable customers to configure email notification up to 24 hours in advance of any planned maintenance.
+
+Email notifications can be configured for subscription owners and other individuals within the organization that planned maintenance is due to begin in the next 24 hours. Additional notifications are sent when maintenance begins and when maintenance ends.
+
+
+## Create an advanced notification
+
+Advance notifications are available for Azure SQL databases that have their SQL Maintenance Window configured. 
+
+Complete the following steps to enable a notification in the portal.  on the [Planned maintenance](https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/plannedMaintenance) page. 
+
+1. Go to the [Planned maintenance](https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/plannedMaintenance) page, select **Health alerts**, then **Add service health alert**.
+
+    :::image type="content" source="media/maintenance-notifications/health-alerts.png" alt-text="create a new health alert menu option":::
+
+2. In the **Actions** section, select **Add action groups**. 
+
+    :::image type="content" source="media/maintenance-notifications/add-action-group.png" alt-text="add an action group menu option":::
+
+3. Complete the **Create action group** form, then select **Next: Notifications**.  
+
+    :::image type="content" source="media/maintenance-notifications/create-action-group.png" alt-text="create action group form":::
+
+1. On the **Notifications** tab, select the **Notification type**. The **Email/SMS message/Push/Voice** option offers the most flexibility and is the recommended option. Select the pen to configure the notification.  
+
+    :::image type="content" source="media/maintenance-notifications/notifications.png" alt-text="configure notifications":::
+
+
+
+   1. Complete the *Add or edit notification* form that opens and select **OK**: 
+
+   2. Actions and Tags are optional. Here you can configure additional actions to be triggered or use tags to categorize and organize your Azure resources. 
+
+   4. Check the details on the **Review + create** tab and select **Create**. 
+
+7. After selecting create, the alert rule configuration screen opens and the action group will be selected. Give a name to your new alert rule, then choose the resource group for it, and select **Create alert rule**. 
+
+8. Click the **Health alerts** menu item again, and the list of alerts now contains your new alert. 
+
+
+You're all set. Next time there's a planned Azure SQL maintenance event, you'll get an advanced notification.
+
+
+
+## See also
+
+- [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview)
+- [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role).
