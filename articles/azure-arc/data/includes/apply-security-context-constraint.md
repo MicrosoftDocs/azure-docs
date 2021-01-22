@@ -7,7 +7,7 @@ ms.date: 01/15/2021
 ms.author: mikeray
 ---
 
-This section explains how to apply a security context constraint (SCC). For the preview release, these relax the security constraints. Future releases will provide updated SCC.
+This section explains how to apply a security context constraint (SCC). For the preview release, these relax the security constraints. 
 
 1. Download the custom security context constraint (SCC). Use one of the following: 
    - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
