@@ -34,19 +34,23 @@ Managing users and roles is not  supported. For now, continue to use the postgre
 
 ## Roles and responsibilities
 
-On Azure Arc enabled hybrid services, Microsoft does not own and operate the infrastructure. Therefore Microsoft does not provide SLAs for Azure Arc enabled hybrid services. 
+The roles and responsibilities between Microsoft and its customers differ between Azure PaaS services (Platform As A Service) and Azure hybrid (like Azure Arc enabled PostgreSQL Hyperscale). 
 
-The roles and responsibilities between Microsoft and its customers differ between Azure PaaS (Platform As A Service) and Azure hybrid (like Azure Arc enabled PostgreSQL Hyperscale). 
+### Frequently asked questions
 
-The table below summarizes the support differences for each scenario based on support tasks:
+The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
 
-| Task                      | Azure Platform As A Service (PaaS) | Azure Arc hybrid services |
-|:--------------------------|:---------------------------------:|:--------------------------:|
-| Provide infrastructure          | Microsoft                          | Customer                  |
-| Provide Azure services software | Microsoft                          | Microsoft                 |
-| Deliver operations              | Microsoft                          | Customer                  |
-| Apply Microsoft SLA             | Yes                                | No                        |
-| Manage SLA                      | Microsoft                          | Customer                  |
+| Question                      | Azure Platform As A Service (PaaS) | Azure Arc hybrid services |
+|:----------------------------------|:------------------------------------:|:---------------------------:|
+| Who provides the infrastructure?  | Microsoft                          | Customer                  |
+| Who provides the software?*       | Microsoft                          | Microsoft                 |
+| Who does the operations? | Microsoft                          | Customer                  |
+| Does Microsoft provide SLAs?      | Yes                                | No                        |
+| Who’s in charge of SLAs? | Microsoft                          | Customer                  |
+
+\* Azure services
+
+__Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Microsoft does not own the infrastructure and does not operate it. Customers do.
 
 ## Next steps
 
