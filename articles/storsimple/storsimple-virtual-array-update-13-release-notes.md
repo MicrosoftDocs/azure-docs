@@ -4,7 +4,7 @@ description: Describes critical open issues and resolutions for the StorSimple V
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 01/22/2021
 ms.author: alkohli
 ---
 
@@ -17,8 +17,9 @@ The release notes are continuously updated. As critical issues requiring a worka
 Update 1.3 corresponds to software version 10.0.10319.0.
 
 > [!IMPORTANT]
-> - Updates are disruptive and restart your device. If I/O is in progress, the device incurs downtime. For detailed instructions on packages used to apply this update, go to [Download Update 1.3](#download-update-13).
+> - Update 1.3 is a critical update. We strongly recommend you install it as soon as possible.
 > - Update 1.3 is available to you through the Azure portal only if your device is running Update 1.2.
+> - Updates are disruptive and restart your device. If I/O is in progress, the device incurs downtime. For detailed instructions on packages used to apply this update, go to [Download Update 1.3](#download-update-13).
 
 ## What's new in Update 1.3
 
@@ -34,24 +35,25 @@ This update contains the following improvements:
 
 ## Download Update 1.3
 
-To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4539946 package. This package contains the following packages:
+To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4575898 package. This package contains the following packages:
 
-- **KB4537819**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4537819).
-- **KB4539946**, which is a Microsoft Update Standalone Package file, WindowsTH-KB4539946-x64. This file is used to update the device software.<!--Should there be a link to thisKB? I'm not seeing KB4539946 in the Microsoft Update Catalog.-->
+- **KB4540725**, which contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [March monthly security rollup](https://support.microsoft.com/help/4540725).
+- **KB4565541**, which contains cumulative Windows Updates for 2012 R2 up to July 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4565541).
+- **KB4565622**, which contains cumulative.NET Framework updates up to July 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4565622).
+- **KB3011067**, which contains device software updates up to March 2020. For more information on what is included in this rollup, go to <!--[February monthly security rollup](https://support.microsoft.com/help/3011067)- URL unknown. No help topic for KB3011067.-->.
 
-Download KB4539946, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
+Download KB4575898, and follow these instructions to [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## Known issues in Update 1.3
 No new issues were release-noted in Update 1.3. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.2](./storsimple-virtual-array-update-12-release-notes.md#known-issues-in-update-12).
 
 ## Next steps
-Download KB4539946 and [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
+Download KB4539946 and [Apply the update via local web UI](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).<!--If we temporarily retire this topic, how will customers know how to apply the updates? Info seems pretty critical. If I comment it out for the time being, do we need to provide a few key points of info to get them to the right place?-->
 
 ## References
 Looking for an older release note? Go to:
 
 - [StorSimple Virtual Array Update 1.2 Release Notes](./storsimple-virtual-array-update-12-release-notes.md)
-- [StorSimple Virtual Array Update 1.1 Release Notes](./storsimple-virtual-array-update-11-release-notes.md)
 - [StorSimple Virtual Array Update 1.0 Release Notes](./storsimple-virtual-array-update-1-release-notes.md)
 - [StorSimple Virtual Array Update 0.6 Release Notes](./storsimple-virtual-array-update-06-release-notes.md)
 - [StorSimple Virtual Array Update 0.5 Release Notes](./storsimple-virtual-array-update-05-release-notes.md)
