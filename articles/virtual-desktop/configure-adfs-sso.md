@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/01/2020
+ms.date: 03/01/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -25,6 +25,7 @@ Before configuring AD FS single sign-on, you must have the following setup and r
 - **Active Directory Federation Services (AD FS)** - The servers running this role must be domain-joined, have the latest Windows Updates installed, and running Windows Server 2016 or later. See this [federation tutorial](https://docs.microsoft.com/azure/active-directory/hybrid/tutorial-federation) to get started.
 - **Web Application Proxy** - Recommended to secure the environment as a frontend to the AD FS servers. The servers running this role must have the latest Windows Updates installed, and running Windows Server 2016 or later. See this [Web Application Proxy guide](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started.
 - **Azure AD Connect** - For the Azure Active Directory (AD) Connect role, your service must be configured in [federation mode](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
+- **PowerShell** - [Set up your PowerShell environment](powershell-module.md) for Windows Virtual Desktop on the AD FS server.
 
 ## Supported clients
 
@@ -61,7 +62,7 @@ Once you create these certificate templates, you must enable them on the certifi
 ### Configure the smart card logon certificate template for interactive logon
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
-2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add >** > **OK** to view the list of certificate templates.
+2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add** > **OK** to view the list of certificate templates.
 3. Expand the **Certificate Templates**, right-click **Smartcard Logon** and select **Duplicate Template**.
 4. Select the **General** tab, then enter "ADFS SSO" into the **Template display name** field. This will automatically set the template name to "ADFSSSO".
    > [!NOTE]
@@ -138,49 +139,27 @@ Install-Script ConfigureWVDSSO
 
 The certificate or key used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
-To set the access policy on the Key Vault:
+To set the access policy on the Key Vault, run the following in PowerShell:
 
-1. Navigate to your Key Vault in the Azure Portal.
-1. In the left pane, select **Access policies**.
-1. Ensure the **Permission model** is set to "Vault access policy".
-1. Click on **+ Add Access Policy**.
-1. Expand the **Secret permissions** dropdown and select "Get".
-1. Click **None selected** next to the "Select principal".
-1. Search for and select **Windows Virtual Desktop** in the Principal pane. The associated ID is "9cdead84-a844-4324-93f2-b2e6bb768d07".
-1. Click **Select** at the bottom and then **Add**.
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get
+```
 
-If using a shared key, store it in Key Vault:
+Next, you must store the secret (shared key or certificate) in Key Vault.
 
-1. Navigate to your Key Vault in the Azure Portal.
-1. In the left pane, select **Secrets**.
-1. Click **+ Generate/Import**.
-1. Leave **Upload options** to "Manual".
-1. Provide a **Name**. Example: adfsssosecret.
-1. From the previous PowerShell window where you ran ConfigureWVDSSO, type $config and copy the SSOClientSecret.
-1. Paste the SSOClientSecret as the **Value** for the secret in the Azure Portal.
-1. Click **Create**.
+If using a shared key, run the following in PowerShell:
 
-If using a certificate, store it in Key Vault:
+```powershell
+$hp = Get-AzWvdHostPool -ResourceGroupName "<Host Pool Resource Group Name>" -Name "<Host Pool Name>"
+$secret = Set-AzKeyVaultSecret -VaultName "<Key Vault Name>" -Name "adfsssosecret" -SecretValue (ConvertTo-SecureString -String $config.SSOClientSecret  -AsPlainText -Force) -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]}
+```
 
-1. Navigate to your Key Vault in the Azure Portal.
-1. In the left pane, select **Certificates**.
-1. Click **+ Generate/Import**.
-1. Change the **Method of Certificate Creation** to "Import".
-1. Provide a **Certificate Name**. Example: adfsssocert.
-1. Click to **Upload Certificate File** and navigate to the pfx file.
-1. Enter the **Password** if needed.
-1. Click **Create**.
+If using a certificate, run the following in PowerShell:
 
-For added security, you must add a tag to the secret so it can only be used in specified subscriptions:
-
-1. From your Key Vault, select your previously saved secret or certificate.
-1. Select the ID under **CURRENT VERSION**.
-1. Click on **Tags**.
-1. Set the **Tag Name** to "AllowedWVDSubscriptions".
-1. Set the **Tag Value** to a coma separated list of subscription IDs that can use this secret.
-1. Click **OK**.
-1. Copy the **Secret Identifier** for later. 
-1. Click **Save**.
+```powershell
+$hp = Get-AzWvdHostPool -ResourceGroupName "<Host Pool Resource Group Name>" -Name "<Host Pool Name>"
+$secret = Import-AzKeyVaultCertificate -VaultName "<Key Vault Name>" -Name "adfsssosecret" -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]} -FilePath "<Path to pfx>" -Password (ConvertTo-SecureString -String "<pfx password>"  -AsPlainText -Force)
+```
 
 ## Update your Windows Virtual Desktop Host Pool
 
