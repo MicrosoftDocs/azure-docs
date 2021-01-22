@@ -42,9 +42,19 @@ The subnets:
 | Network usage             | Subnet | Example          |
 | ------------------------- | ------ | ---------------- |
 | Private cloud management  | `/26`  | `10.10.0.0/26`   |
-| vMotion network           | `/25`  | `10.10.1.128/25` |
-| VM workloads              | `/24`  | `10.10.2.0/24`   |
-| ExpressRoute peering      | `/29`  | `10.10.3.8/29`   |
+| HCX Mgmt Migrations       | `/26`  | `10.10.0.64/26`  |
+| Global Reach Reserved     | `/26`  | `10.10.0.128/26` |
+| ExpressRoute Reserved     | `/27`  | `10.10.0.192/27` |
+| ExpressRoute peering      | `/27`  | `10.10.0.224/27` |
+| ESXi Management           | `/25`  | `10.10.1.0/25`   |
+| vMotion Network           | `/25`  | `10.10.1.128/25` |
+| Replication Network       | `/25`  | `10.10.2.0/25`   |
+| vSAN                      | `/25`  | `10.10.2.128/25` |
+| HCX Uplink                | `/26`  | `10.10.3.0/26`   |
+| Reserved                  | `/26`  | `10.10.3.64/26`  |
+| Reserved                  | `/26`  | `10.10.3.128/26` |
+| Reserved                  | `/26`  | `10.10.3.192/26` |
+
 
 
 ## Required network ports

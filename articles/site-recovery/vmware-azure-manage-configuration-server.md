@@ -165,12 +165,12 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-For detailed guidance on Azure Site Recovery components support statement refer [here](https://aka.ms/asr_support_statement).
-Links to update rollups for upgrading to all versions of the configuration server are available [here](https://aka.ms/asr_update_rollups).
+For detailed guidance on Azure Site Recovery components support statement refer [here](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
+Links to update rollups for upgrading to all versions of the configuration server are available [here](./service-updates-how-to.md#links-to-currently-supported-update-rollups).
 
 > [!IMPORTANT]
 > With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.</br>
-> For detailed guidance on Azure Site Recovery components support statement refer [here](https://aka.ms/asr_support_statement).
+> For detailed guidance on Azure Site Recovery components support statement refer [here](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
 
 Upgrade the server as follows:
 
@@ -179,16 +179,16 @@ Upgrade the server as follows:
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Download the update installer file to the configuration server.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Screenshot that shows where to click to download the update installer file.](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Double-click to run the installer.
 5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
 6. When the upgrade completes the server configuration validates.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Screenshot that shows the completed server validation configuration.](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Click **Finish** to close the installer.
-8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](https://aka.ms/asr_vmware_upgrades).
+8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## Upgrade configuration server/process server from the command line
 

@@ -46,7 +46,7 @@ For example, you can add a **Telemetry** tile for the current temperature of the
 Now when you view your personal dashboard, you see the new tile with the **Temperature** setting for the device:
 
 > [!div class="mx-imgBorder"]
-> ![Dashboard" tab with details for the Temperature tile](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Screenshot that shows the new tile with the Temperatures setting for the device.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 You can explore other tile types in the library to discover how to further customize your personal dashboards.
 

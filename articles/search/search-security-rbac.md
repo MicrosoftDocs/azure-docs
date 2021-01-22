@@ -1,7 +1,7 @@
 ---
 title: Set Azure roles for Azure administrative access
 titleSuffix: Azure Cognitive Search
-description: Role-based access control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
+description: Azure role-based access control (Azure RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 
 manager: nitinme
 author: HeidiSteen
@@ -16,7 +16,7 @@ ms.date: 10/16/2020
 Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
 > [!Note]
-> There is no role-based access control (RBAC) for securing content on the service. You will either use an admin API key or query API key for authenticated requests to the service itself. For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md).
+> There is no Azure role-based access control (Azure RBAC) for securing content on the service. You will either use an admin API key or query API key for authenticated requests to the service itself. For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md).
 
 ## Management tasks by role
 
@@ -34,22 +34,22 @@ Roles do not grant access rights to the service endpoint. Search service operati
 
 The following table summarizes the operations allowed in Azure Cognitive Search and which key unlocks access a particular operation.
 
-RBAC permissions apply to portal operations and service management (create, delete, or change a service or its API keys). API keys are created after a service exists and apply to content operations on the service. Additionally, for content-related operations in the portal, such as creating or deleting objects, an RBAC Owner or Contributor interact with the service with an implied admin API key.
+Azure RBAC permissions apply to portal operations and service management (create, delete, or change a service or its API keys). API keys are created after a service exists and apply to content operations on the service. Additionally, for content-related operations in the portal, such as creating or deleting objects, an Azure RBAC Owner or Contributor interact with the service with an implied admin API key.
 
 | Operation | Controlled by |
 |-----------|-------------------------|
-| Create a service | RBAC permissions: Owner or Contributor |
-| Scale a service | RBAC permissions: Owner or Contributor|
-| Delete a service | RBAC permissions: Owner or Contributor |
-| Manage admin or query keys | RBAC permissions: Owner or Contributor|
-| View service information in the portal or a management API | RBAC permissions: Owner, Contributor, or Reader  |
-| View object information and metrics in the portal or a management API | RBAC permissions: Owner or Contributor |
-| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters | Admin key if using an API, RBAC Owner or Contributor if using the portal |
-| Query an index | Admin or query key if using an API, RBAC Owner or Contributor if using the portal |
-| Query system information about objects, such as returning statistics, counts, and lists of objects | Admin key if using an API, RBAC Owner or Contributor if using the portal |
+| Create a service | Azure RBAC permissions: Owner or Contributor |
+| Scale a service | Azure RBAC permissions: Owner or Contributor|
+| Delete a service | Azure RBAC permissions: Owner or Contributor |
+| Manage admin or query keys | Azure RBAC permissions: Owner or Contributor|
+| View service information in the portal or a management API | Azure RBAC permissions: Owner, Contributor, or Reader  |
+| View object information and metrics in the portal or a management API | Azure RBAC permissions: Owner or Contributor |
+| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters | Admin key if using an API, Azure RBAC Owner or Contributor if using the portal |
+| Query an index | Admin or query key if using an API, Azure RBAC Owner or Contributor if using the portal |
+| Query system information about objects, such as returning statistics, counts, and lists of objects | Admin key if using an API, Azure RBAC Owner or Contributor if using the portal |
 
 ## Next steps
 
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md)
-+ [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
++ [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).

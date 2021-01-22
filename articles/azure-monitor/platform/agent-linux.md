@@ -26,22 +26,28 @@ See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-sy
 
 >[!NOTE]
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
->
+
+>[!NOTE]
+>Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../insights/containers.md) for Docker hosts or [Azure Monitor for containers](../insights/container-insights-overview.md) for Kubernetes.
+
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
 * Only the server versions are supported, not client.  
 * Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
-* Versions that have passed their manufacturer's end-of-support date are not supported.  
+* Versions that have passed their manufacturer's end-of-support date are not supported.
+* Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
 * New versions of AMI are not supported.  
 * Only versions that run SSL 1.x by default are supported.
 
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
-### Python 2 requirement
+### Python requirement
 
- The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
+
+If you are using an older version of the agent, you must have the Virtual Machine use python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -67,7 +73,7 @@ The OMS Agent has limited customization support for Linux.
 The following are currently supported: 
 - FIPs
 
-The following are planned but not yet supported:
+The following are in consideration but not yet supported:
 - CIS
 - SELINUX
 

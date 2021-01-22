@@ -33,6 +33,7 @@ Azure Arc enabled Kubernetes features have been tested by the Arc team on follow
 * Canonical Charmed Kubernetes 1.18
 * AKS Engine
 * AKS Engine on Azure Stack Hub
+* AKS on Azure Stack HCI
 * Cluster API Provider Azure
 
 ## Supported scenarios 
@@ -68,7 +69,7 @@ Azure Arc enabled Kubernetes is currently supported in these regions:
 
     No. All features of Azure Arc enabled Kubernetes like Azure Monitor, Azure Policy (Gatekeeper) are natively available with AKS, which already has a resource representation in Azure.
     
-* Should I connect my AKS cluster on Azure Stack HCI to Azure Arc? What about Kubernetes clusters running on Azure Stack Hub or Azure Stack Engine?
+* Should I connect my AKS cluster on Azure Stack HCI to Azure Arc? What about Kubernetes clusters running on Azure Stack Hub or Azure Stack Edge?
 
     Yes, connecting these clusters to Azure Arc does have benefits. It provides a resource representation for these Kubernetes clusters in Azure Resource Manager. Using this resource representation, capabilities like Cluster Configuration, Azure Monitor, Azure Policy (Gatekeeper) can be extended to these Kubernetes clusters
 

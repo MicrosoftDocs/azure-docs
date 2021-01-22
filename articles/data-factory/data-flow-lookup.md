@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date:  05/28/2020
+ms.date:  10/30/2020
 ---
 
 # Lookup transformation in mapping data flow
@@ -22,7 +22,7 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 
 ## Configuration
 
-![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
+![Screenshot shows the Lookup settings tab with the labels described in the following text.](media/data-flow/lookup1.png "Lookup")
 
 **Primary stream:** The incoming stream of data. This stream is equivalent to the left side of a join.
 
@@ -64,6 +64,10 @@ In joins, lookups and exists transformation, if one or both data streams fit int
 
 It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
+## Cached lookup
+
+If you're doing multiple smaller lookups on the same source, a cached sink and lookup maybe a better use case than the lookup transformation. Common examples where a cache sink may be better are looking up a max value on a data store and matching error codes to an error message database. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
+
 ## Data flow script
 
 ### Syntax
@@ -80,7 +84,7 @@ It's not recommended to disable broadcasting via the **Off** option unless your 
 ```
 ### Example
 
-![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
+![Screenshot shows the Lookup settings tab for the following code.](media/data-flow/lookup-dsl-example.png "Lookup")
 
 The data flow script for the above lookup configuration is in the code snippet below.
 

@@ -1,6 +1,6 @@
 ---
 title: SAML authentication with Azure Active Directory
-description: Architectural guidance on achieving this authentication pattern
+description: Architectural guidance on achieving SAML authentication with Azure Active Directory
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -33,7 +33,7 @@ There's a need to provide an single sign-on (SSO) experience for an enterprise S
 
 While one of most important use cases that SAML addresses is SSO, especially by extending SSO across security domains, there are other use cases (called profiles) as well. 
 
-![architectural diagram](./media/authentication-patterns/saml-auth.png)
+![architectural diagram for SAML](./media/authentication-patterns/saml-auth.png)
 
 ## Components of system
 
@@ -49,8 +49,8 @@ While one of most important use cases that SAML addresses is SSO, especially by 
 
 ## Implement SAML authentication with Azure AD
 
-* [Tutorials for integrating SaaS applications using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Tutorials for integrating SaaS applications using Azure Active Directory](../saas-apps/tutorial-list.md) 
 
-* [Configuring SAML based single sign-on for non-gallery applications](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) 
+* [Configuring SAML based single sign-on for non-gallery applications](../manage-apps/add-application-portal.md) 
 
-* [How Azure AD uses the SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+* [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md)

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Securing security info registration
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want to use conditions like trusted network location to restrict access to register for Azure Multi-Factor Authentication and self-service password reset (SSPR). For more information about usable conditions, see the article [Conditional Access: Conditions](concept-conditional-access-conditions.md).
+Securing when and how users register for Azure AD Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want to use conditions like trusted network location to restrict access to register for Azure AD Multi-Factor Authentication and self-service password reset (SSPR). For more information about usable conditions, see the article [Conditional Access: Conditions](concept-conditional-access-conditions.md).
 
 ## Create a policy to require registration from a trusted location
 
@@ -31,6 +31,8 @@ The following policy applies to all selected users, who attempt to register usin
    > [!WARNING]
    > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   1. Select **Done**.
 1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
 1. Under **Conditions** > **Locations**.
    1. Configure **Yes**.
@@ -58,7 +60,7 @@ Some may choose to use device state instead of location in step 6 above:
 
 > [!WARNING]
 > If you use device state as a condition in your policy this may impact guest users in the directory. [Report-only mode](concept-conditional-access-report-only.md) can help determine the impact of policy decisions.
-> Note that report-only mode is not applicable for CA policies with "User Actions" scope.
+> Note that report-only mode is not applicable for Conditional Access policies with "User Actions" scope.
 
 ## Next steps
 

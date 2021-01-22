@@ -76,7 +76,7 @@ expect delays when retrieving the same results via external tools.
 
 ## Next steps
 
-* [Apache Beeline on HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [HDInsight Gateway Timeout Troubleshooting Steps](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Virtual Networks for HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight with Express Route](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache Beeline on HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
+* [HDInsight Gateway Timeout Troubleshooting Steps](./troubleshoot-gateway-timeout.md)
+* [Virtual Networks for HDInsight](../hdinsight-plan-virtual-network-deployment.md)
+* [HDInsight with Express Route](../connect-on-premises-network.md)

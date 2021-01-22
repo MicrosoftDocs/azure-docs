@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -72,7 +72,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
+2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Then select **OK**.
     
     ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -85,11 +85,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
@@ -227,11 +227,11 @@ During the copy process, if there are any errors, you will see a notification.
 
 Select **Download issue list**.
 
-![Download and view errors on Connect and copy 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Connect and copy, Download issue list](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
 
-![Download and view errors on Connect and copy 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Connect and copy, download and view errors](media/data-box-deploy-copy-data/view-errors-3.png)
 
 For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 

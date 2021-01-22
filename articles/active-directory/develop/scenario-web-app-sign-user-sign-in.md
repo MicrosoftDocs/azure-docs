@@ -431,5 +431,5 @@ If you want to learn more about sign-out, read the protocol documentation that's
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-web-app-sign-user-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-app-sign-user-production.md).

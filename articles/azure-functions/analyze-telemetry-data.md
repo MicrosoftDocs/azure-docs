@@ -3,6 +3,7 @@ title: Analyze Azure Functions telemetry in Application Insights
 description: Learn how to view and query for Azure Functions telemetry data collected by and stored in Azure Application Insights.
 ms.topic: how-to
 ms.date: 10/14/2020
+ms.custom: "contperf-fy21q2"
 # Customer intent: As a developer, I want to view and query the data being collected from my function app so I can know if it's running correctly and to make improvements.
 ---
 # Analyze Azure Functions telemetry in Application Insights 
@@ -102,7 +103,7 @@ The runtime provides the `customDimensions.LogLevel` and `customDimensions.Categ
 
 ## Consumption plan-specific metrics
 
-When running in a [Consumption plan](functions-scale.md#consumption-plan), the execution *cost* of a single function execution is measured in *GB-seconds*. Execution cost is calculated by combining its memory usage with its execution time. To learn more, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+When running in a [Consumption plan](consumption-plan.md), the execution *cost* of a single function execution is measured in *GB-seconds*. Execution cost is calculated by combining its memory usage with its execution time. To learn more, see [Estimating Consumption plan costs](functions-consumption-costs.md).
 
 The following telemetry queries are specific to metrics that impact the cost of running functions in the Consumption plan.
 

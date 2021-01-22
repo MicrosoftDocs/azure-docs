@@ -116,7 +116,7 @@ The y-axis is the number of packages that completed execution in one hour. Pleas
 
 ## AzureSSISMaxParallelExecutionsPerNode
 
-When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. If you want to increase max value, you need use Azure PowerShell to update **AzureSSISMaxParallelExecutionsPerNode**. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/windows/sizes-general.md).
+When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. If you want to increase max value, you need use Azure PowerShell to update **AzureSSISMaxParallelExecutionsPerNode**. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/sizes-general.md).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -155,7 +155,7 @@ Here are the guidelines for setting the right value for the **AzureSSISMaxParall
 
 -   Choose a more powerful database such as s3 if the logging level is set to verbose. According our unofficial in-house testing, s3 pricing tier can support SSIS package execution with 2 nodes, 128 parallel counts and verbose logging level.
 
-You can also adjust the database pricing tier based on [database transaction unit](../sql-database/sql-database-what-is-a-dtu.md) (DTU) usage information available on the Azure portal.
+You can also adjust the database pricing tier based on [database transaction unit](../azure-sql/database/service-tiers-dtu.md) (DTU) usage information available on the Azure portal.
 
 ## Design for high performance
 Designing an SSIS package to run on Azure is different from designing a package for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.

@@ -1,12 +1,12 @@
 ---
 title: Ev3-series and Esv3-series 
 description: Specifications for the Ev3 and Esv3-series VMs.
-author: joelpelley
+author: DavidCBerry13
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.author: lahugh
+ms.author: daberry
 ---
 
 # Ev3 and Esv3-series
@@ -75,7 +75,7 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
-<sup>3</sup> Esv3-series VMs can [burst](linux/disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>3</sup> Esv3-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

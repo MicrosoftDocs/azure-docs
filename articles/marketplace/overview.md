@@ -3,7 +3,6 @@ title: What is the Microsoft commercial marketplace?
 description: An overview of the benefits and options for Microsoft partners who list solutions on the Microsoft commercial marketplace.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dsindona
 ms.service: marketplace 
 ms.topic: overview
 ms.date: 10/15/2020
@@ -19,13 +18,13 @@ The commercial marketplace is available in more than 100 countries and regions, 
 
 The Microsoft commercial marketplace has two online stores: [Microsoft AppSource](https://appsource.microsoft.com/) and [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contains business solutions and Azure Marketplace contains IT solutions. Commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
 
-When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Select an online store](determine-your-listing-type.md#selecting-an-online-store) and [A Buyer’s Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) and [A Buyer's Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
 ### Microsoft AppSource
 
 [Microsoft AppSource](https://appsource.microsoft.com/) is for business solutions, such as software as a service (SaaS) applications, and also apps that extend directly into Dynamics 365, Microsoft 365, and Microsoft Power Platform. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 
-Here’s an example of an offer listing page in AppSource:
+Here's an example of an offer listing page in AppSource:
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Illustrates an offer listing page in Microsoft AppSource.":::
 
@@ -43,7 +42,7 @@ This option opens a window where the customer can search for Power BI add-ins by
 
 [Azure Marketplace](https://azuremarketplace.microsoft.com/) is for solutions that are built on or built for Azure and intended for IT professionals and developers. This includes listings for consulting and managed services. Azure Marketplace consulting services are professional service offerings that help customers get started with or accelerate the use of Azure.
 
-Here’s an example of an offer listing page in Azure Marketplace:
+Here's an example of an offer listing page in Azure Marketplace:
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustrates an offer listing page in Azure Marketplace."::: 
 

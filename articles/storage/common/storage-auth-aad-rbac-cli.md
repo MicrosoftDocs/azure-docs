@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -53,6 +53,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## Assign an Azure role to a security principal
 
 To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
+
+> [!NOTE]
+> When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
 
 ### Container scope
 

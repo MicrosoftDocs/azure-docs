@@ -36,7 +36,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-In this quickstart, you'll create a Front Door configuration with a single backend and a single default path matching "/*". 
+In this quickstart, you'll create a Front Door configuration with a single backend and a single default path matching `/*`.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -46,7 +46,7 @@ One Azure resource is defined in the template:
 
 ## Deploy the template
 
-1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
+1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -69,7 +69,7 @@ One Azure resource is defined in the template:
 
 1. Enter the values.
 
-    The template deployment creates a Front Door with a single backend. In this example *<span>microsoft.</span>com* is used as the **backendAddress**.
+    The template deployment creates a Front Door with a single backend. In this example `microsoft.com` is used as the **backendAddress**.
 
     The resource group name is the project name with **rg** appended.
 
@@ -106,8 +106,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you created a:
-* Front Door
+In this quickstart, you created a Front Door.
 
 To learn how to add a custom domain to your Front Door, continue to the Front Door tutorials.
 

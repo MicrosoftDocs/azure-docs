@@ -38,7 +38,7 @@ For SQL-based sharing, a SQL user needs to be created from an external provider 
 |**SQL Database Type**|**Data Provider SQL User Permission**|**Data Consumer SQL User Permission**|
 |---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
-|Azure Synapse Analytics (formerly SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Azure Synapse Analytics | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
 ### Data provider
@@ -58,9 +58,9 @@ To create a role assignment for the data share resource's managed identity manua
 1. Under *Select*, type in the name of your Azure Data Share resource.
 1. Click *Save*.
 
-To learn more about role assignment, refer to [Add or remove Azure role assignments using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). If you are sharing data using REST APIs, you can create role assignment using API by referencing [Add or remove Azure role assignments using the REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+To learn more about role assignment, refer to [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). If you are sharing data using REST APIs, you can create role assignment using API by referencing [Add or remove Azure role assignments using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
-For SQL-based sources, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Synapse Analytics](how-to-share-from-sql.md) tutorial. 
+For SQL-based sources, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
 
 ### Data consumer
 To receive data, consumer data share resource's managed identity needs to be granted access to the target Azure data store. For example, in the case of storage account, the data share resource's managed identity is granted the Storage Blob Data Contributor role. 
@@ -78,9 +78,9 @@ To create a role assignment for the data share resource's managed identity manua
 1. Under *Select*, type in the name of your Azure Data Share resource.
 1. Click *Save*.
 
-To learn more about role assignment, refer to [Add or remove Azure role assignments using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). If you are receiving data using REST APIs, you can create role assignment using API by referencing [Add or remove Azure role assignments using the REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+To learn more about role assignment, refer to [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). If you are receiving data using REST APIs, you can create role assignment using API by referencing [Add or remove Azure role assignments using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
-For SQL-based target, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Synapse Analytics](how-to-share-from-sql.md) tutorial. 
+For SQL-based target, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
 
 ## Resource provider registration 
 
@@ -98,7 +98,7 @@ Follow these steps to register the Microsoft.DataShare resource provider into yo
 1. Search for Microsoft.DataShare.
 1. Click **Register**.
  
-To learn more about resource provider, refer to [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+To learn more about resource provider, refer to [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Next steps
 

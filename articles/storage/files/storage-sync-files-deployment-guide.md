@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync, from start to finish, using th
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -43,7 +43,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     > [!Important]  
     > If you plan to use the Server Registration UI, rather than registering directly from PowerShell, you must use PowerShell 5.1.
 
-1. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
+1. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 
     > [!Important]  
     > If you are installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags or the installation will fail. For example, if installing .NET 4.8, the command would look like the following:
@@ -51,7 +51,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > The Az.StorageSync module is now installed automatically when you install the Az PowerShell module.
@@ -519,7 +519,7 @@ The recommended steps to onboard on Azure File Sync for the first with zero down
 If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
  
 1. Ensure that data on any of the servers can't change during the onboarding process.
-1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. YOu can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
+1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. You can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
 1. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
 1. Let sync finish reconciliation process on all endpoints. 
 1. Once reconciliation is complete, you can open shares for changes.
@@ -569,7 +569,7 @@ However, if you change the schedule in a way that will result in an available sn
 
 The default maximum number of VSS snapshots per volume (64) as well as the default schedule to take them, result in a maximum of 45 days of previous versions an information worker can restore from, depending on how many VSS snapshots you can store on your volume.
 
-If max. 64 VSS snapshots per volume is not the correct setting for you, you can [change that value via a registry key](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+If max. 64 VSS snapshots per volume is not the correct setting for you, you can [change that value via a registry key](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 For the new limit to take effect, you need to re-run the cmdlet to enable previous version compatibility on every volume it was previously enabled, with the -Force flag to take the new maximum number of VSS snapshots per volume into account. This will result in a newly calculated number of compatible days. Please note that this change will only take effect on newly tiered files and overwrite any customizations on the VSS schedule you might have made.
 
 <a id="proactive-recall"></a>
@@ -595,7 +595,7 @@ A globally distributed company has branch offices in the US and in India. In the
 
 # [PowerShell](#tab/proactive-powershell)
 
-You can modify server endpoint properties in PowerShell through the [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) cmdlet.
+You can modify server endpoint properties in PowerShell through the [Set-AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) cmdlet.
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

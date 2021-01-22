@@ -1,6 +1,9 @@
 ---
 title: Azure VM assessments in Azure Migrate Server Assessment
 description: Learn about assessments in Azure Migrate Server Assessment
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
 ---
@@ -49,7 +52,7 @@ If you're deploying an Azure Migrate appliance to discover on-premises servers, 
 
 After the appliance begins machine discovery, you can gather machines you want to assess into a group and run an assessment for the group with assessment type **Azure VM**.
 
-Follow our tutorials for [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md) to try out these steps.
+Follow our tutorials for [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md) to try out these steps.
 
 ## How do I assess with imported data?
 
@@ -168,7 +171,7 @@ Windows Server 2012 R2 and all SPs | Azure provides full support. | Ready for Az
 Windows Server 2012 and all SPs | Azure provides full support. | Ready for Azure.
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure.
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
-Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
+Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
 Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
@@ -260,8 +263,14 @@ This table shows the assessment confidence ratings, which depend on the percenta
 Here are a few reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- Some VMs were shut down during the time for which the assessment was calculated. If any VMs are turned off for some duration, Server Assessment can't collect the performance data for that period.
-- Some VMs were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some VMs were created only a week ago. The performance history of the new VMs won't exist for the complete duration.
+- Assessment is not able to collect the performance data for some or all the VMs in the assessment period. For a high confidence rating, please ensure that: 
+    - VMs are powered on for the duration of the assessment
+    - Outbound connections on ports 443 are allowed
+    - For Hyper-V VMs dynamic memory is enabled 
+    
+    Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
+
+- Some VMs were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some VMs were created only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
 > [!NOTE]
 > If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing.
@@ -292,6 +301,6 @@ Costs are displayed in the currency specified in the assessment settings.
 
 [Review](best-practices-assessment.md) best practices for creating assessments. 
 
-- Learn about running assessments for [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md).
-- Learn about assessing servers [imported with a CSV file](tutorial-assess-import.md).
+- Learn about running assessments for [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), and [physical servers](./tutorial-discover-physical.md).
+- Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md).
 - Learn about setting up [dependency visualization](concepts-dependency-visualization.md).

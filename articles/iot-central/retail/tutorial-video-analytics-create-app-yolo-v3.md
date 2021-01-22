@@ -18,10 +18,10 @@ As a solution builder, learn how to create a video analytics application with th
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) - this file helps you record the various configuration options you need as you work through these tutorials.
 - [deployment.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) - you only need to download this file if you plan to use the Intel NUC device in the second tutorial.
 
 > [!NOTE]
 > The GitHub repository also includes the source code for the **LvaEdgeGatewayModule** and **lvaYolov3** IoT Edge modules. For more information about working with the source code, see the [Build the LVA Gateway Modules](tutorial-video-analytics-build-module.md).
@@ -36,7 +36,7 @@ To prepare the deployment manifest:
 
 1. Open the *deployment.amd64.json* file, which you saved in the *lva-configuration* folder, using a text editor.
 
-1. Find the `LvaEdgeGatewayModule` settings and change the image name as shown in the following snippet:
+1. Find the `LvaEdgeGatewayModule` settings and make sure the image name is as shown in the following snippet:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -44,7 +44,7 @@ To prepare the deployment manifest:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Add the name of your Media Services account in the `env` node in the `LvaEdgeGatewayModule` section. You made a note of this account name in the *scratchpad.txt* file:
+1. Add the name of your Media Services account in the `env` node in the `LvaEdgeGatewayModule` section. You made a note of the Media Services account name in the *scratchpad.txt* file:
 
     ```json
     "env": {
@@ -52,7 +52,7 @@ To prepare the deployment manifest:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -61,7 +61,16 @@ To prepare the deployment manifest:
 
     The `azureMediaServicesArmId` is the **Resource ID** you made a note of in the *scratchpad.txt* file when you created the Media Services account.
 
-    You made a note of the `aadTenantId`, `aadServicePrincipalAppId`, and `aadServicePrincipalSecret` in the *scratchpad.txt* file when you created the service principal for your Media Services account:
+    The following table shows the values from the **Connect to Media Services API (JSON)** in the *scratchpad.txt* file that you should use in the deployment manifest:
+
+    | Deployment manifest       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Use the previous table to make sure that you add the correct values in the deployment manifest, otherwise the device won't work.
 
     ```json
     {
@@ -105,7 +114,7 @@ This tutorial configures your solution to use the YOLO v3 module for object and 
 
 ### Replace the manifest
 
-On the **LVA Edge Gateway** page, select **+ Replace manifest**.
+On the **LVA Edge Gateway v2** page, select **+ Replace manifest**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-yolo-v3/replace-manifest.png" alt-text="Replace Manifest":::
 

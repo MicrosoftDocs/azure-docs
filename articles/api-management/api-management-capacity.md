@@ -39,7 +39,7 @@ To follow the steps from this article, you must have:
 
 ## What is capacity
 
-![Capacity metric](./media/api-management-capacity/capacity-ingredients.png)
+![Diagram that explains the Capacity metric.](./media/api-management-capacity/capacity-ingredients.png)
 
 **Capacity** is an indicator of load on an API Management instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by:
 

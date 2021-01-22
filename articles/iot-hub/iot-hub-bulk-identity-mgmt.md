@@ -427,8 +427,7 @@ The cloning article has a working sample associated with it, which is located in
 
 To learn more about managing Azure IoT Hub, check out the following articles:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [IoT Hub logs](iot-hub-monitor-resource-health.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 

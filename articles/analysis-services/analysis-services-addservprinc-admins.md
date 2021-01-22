@@ -36,7 +36,7 @@ You can configure server administrators using SQL Server Management Studio (SSMS
 
 4. Verify the service principal account ID, and then click **OK**.
     
-    ![Search for service principal account](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Screenshot that shows the service principal account ID and highlights the OK button.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## Using a Resource Manager template
 

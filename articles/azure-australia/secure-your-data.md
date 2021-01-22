@@ -30,7 +30,7 @@ The encryption of data can be applied at the disk level (at-rest), in databases 
 |Client-Side Encryption|This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPS for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you're encrypting and transferring large amounts of data.|
 |
 
-For more information on the encryption options in Azure, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
+For more information on the encryption options in Azure, see the [Storage Security Guide](../storage/blobs/security-recommendations.md).
 
 ## Protecting data by managing secrets
 

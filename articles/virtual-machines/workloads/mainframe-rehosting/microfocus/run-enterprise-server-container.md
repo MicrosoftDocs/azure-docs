@@ -156,11 +156,11 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 8. To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
 
-     ![Screenshot of Account Demo](./media/run-image-7.png)
+     ![Screenshot shows a console window displaying the application.](./media/run-image-7.png)
 
 9. Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
 
-    ![Screenshot of Account Demo](./media/run-image-8.png)
+    ![Screenshot shows editing different values in the application.](./media/run-image-8.png)
 
 10. To display the Enterprise Server Administration console, go to the command prompt and type **start http:172.19.202.52:86**.
 
