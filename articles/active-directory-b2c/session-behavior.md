@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 01/29/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -68,9 +68,9 @@ The application session can be a cookie-based session stored under the applicati
 
 You can configure the Azure AD B2C session behavior, including:
 
-- **Web app session lifetime (minutes)** - The amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session life time to a value from 15 to 720 minutes.
+- **Web app session lifetime (minutes)** - The amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session lifetime to a value from 15 to 720 minutes.
 
-- **Web app session timeout** - Indicates how a session is extended by the session life time setting or the keep me signed-in setting.
+- **Web app session timeout** - Indicates how a session is extended by the session lifetime setting or the Keep me signed in (KMSI) setting.
   - **Rolling** - Indicates that the session is extended every time the user performs a cookie-based authentication (default).
   - **Absolute** - Indicates that the user is forced to re-authenticate after the time period specified.
 
@@ -79,9 +79,7 @@ You can configure the Azure AD B2C session behavior, including:
   - **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, you can use this setting if you want the user to sign in to Contoso Pharmacy regardless of whether the user is already signed into Contoso Groceries.
   - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For example, if the user has already signed in and completed a multi-factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications, as long as the session tied to the user flow doesn't expire.
   - **Disabled** - This setting forces the user to run through the entire user flow upon every execution of the policy.
-::: zone pivot="b2c-custom-policy"
-- **Keep me signed-in** - extends the session life time through the use of a persistent cookie. The session remains active after the user closes and reopens the browser. The session is revoked only when a user signs out. The Keep me signed-in feature only applies to sign-in with local accounts. The Keep me signed-in feature takes precedence over the session life time. If the Keep me signed-in feature is enabled and the user selects it, this feature dictates when the session will expire. 
-::: zone-end
+- **Keep me signed in (KMSI)** - Extends the session lifetime through the use of a persistent cookie. If this feature is enabled and the user selects it, the session remains active even after the user closes and reopens the browser. The session is revoked only when the user signs out. The KMSI feature only applies to sign-in with local accounts. The KMSI feature takes precedence over the session lifetime.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -109,12 +107,55 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable Keep Me Signed In functionality for users of your web and native applications that have local accounts in your Azure Active Directory B2C (Azure AD B2C) directory. This feature grants access to users returning to your application without prompting them to reenter their username and password. This access is revoked when a user signs out.
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users have the option of selecting KMSI during sign-in. If a user selects KMSI, the session remains active after they close the browser, and they can reopen the browser without being prompted to reenter their username and password. This access is revoked when a user signs out.
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+KMSI is configured at the policy level, and is supported with the "Recommended" versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have "Standard," or "Legacy preview - v2" versions of these user flows and want to enable KMSI, you'll need to create new "Recommended" versions of these user flows. KMSI is not supported with password reset or sign-up user flows. If you have multiple policies and want to apply KMSI to all applications in your tenant, we recommend you enable KMSI for all policies. Moving from a policy that has KMSI enabled to a policy that doesn't will remove the KMSI cookie from the session. We don't recommend enabling the KMSI option on public computers.
+
+### Configure policy for KMSI
+
+To enable KMSI for your user flow:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. Select **User flows (policies)**.
+5. Open the user flow that you previously created.
+6. Select **Properties**.
+7. Under **Session behavior**, select **Enable keep me signed in session**.
+
+   ![Enable keep me signed in session](media/session-behavior/enable-keep-me-signed-in.png)
+
+### Update the display label for KMSI
+
+To change the default label for the KMSI option, see [language customization](language-customization.md).  You can override the `remember_me` ElementId to change the value that is displayed. Download the defaults and use the following format:
+
+```
+    { 
+      "ElementType": "UxElement", 
+      "ElementId": null, 
+      "StringId": "remember_me", 
+      "Override": true, 
+      "Value": "Keep me signed in" 
+    }, 
+```
+
+Set the values as follows:
+
+- **Override** value ‘true’ overrides the default value 
+- **Value** is the value that's shown to the user. 
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Users should not enable this option on public computers.
 
