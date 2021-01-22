@@ -1,7 +1,7 @@
 ---
 title: Getting started with UI Framework Components
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK
+description: In this quickstart, you'll learn how to get started with UI Framework Components
 author: ddematheu2
 ms.author: dademath
 ms.date: 11/16/2020
