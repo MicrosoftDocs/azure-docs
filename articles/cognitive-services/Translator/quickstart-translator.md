@@ -963,7 +963,7 @@ If you're translating into a language that uses a different alphabet (or phoneme
 
 To get a transliteration from the `translate` endpoint, use the `toScript` parameter.
 
-> ![NOTE]
+> [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
 
 # [C#](#tab/csharp)
@@ -1243,7 +1243,7 @@ After a successful call, you should see the following response. Keep in mind tha
 
 You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดี. 
 
-> ![NOTE]
+> [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
 
 # [C#](#tab/csharp)

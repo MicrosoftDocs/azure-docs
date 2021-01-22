@@ -195,7 +195,7 @@ However, if you do not wish to enable automatic user provisioning on the user fi
 
 In this section, you test your Azure AD single sign-on configuration using the My Apps.
 
-When you click the EasySSO for Confluence tile in the My Apps, you should be automatically signed in to the Confluence instance for which you set up SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the EasySSO for Confluence tile in the My Apps, you should be automatically signed in to the Confluence instance for which you set up SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ### SP-initiated workflow
 

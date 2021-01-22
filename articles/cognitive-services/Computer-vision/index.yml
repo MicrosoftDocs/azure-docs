@@ -114,7 +114,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Use container instances
-            url: deploy-computer-vision-on-container-instances.md
+            url: ../containers/azure-container-instance-recipe.md
           - text: Use with Kubernetes and Helm
             url: deploy-computer-vision-on-premises.md
   - title: Use the spatial analysis container
