@@ -94,7 +94,7 @@ For a virtual network belonging to the same resource group as the cloud service,
 <VirtualNetworkSite name="<vnet-name>"/> 
 ```
 
-**Seperate resource group**
+**Separate resource group**
 ```json
 “/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
 <AddressAssignments> 

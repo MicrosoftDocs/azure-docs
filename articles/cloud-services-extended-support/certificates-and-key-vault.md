@@ -40,7 +40,7 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image shows importing window in the Azure portal.":::
 
-5.	Add the certificate details to your role in the Service Configuration (.cscfg). Ensure the thumbprint of the certificate in the Azure portal matches the thumprint in the .cscfg file. 
+5.	Add the certificate details to your role in the Service Configuration (.cscfg). Ensure the thumbprint of the certificate in the Azure portal matches the thumbprint in the .cscfg file. 
     
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
