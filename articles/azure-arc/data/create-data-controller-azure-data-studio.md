@@ -46,22 +46,23 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
    > The Azure location selected here is the location in Azure where the *metadata* about the data controller and the database instances that it manages will be stored. The data controller and database instances will be actually crewted in your Kubernetes cluster wherever that may be.
 
 10. Select the appropriate Connectivity Mode. Learn more on [Connectivity modes](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Click Next**.
-   > [!NOTE]
-   > If you select direct connectivity mode Service Principal credentials are required as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 
-11. Enter a name for the data controller and for the namespace that the data controller will be created in.  
+    > [!NOTE]
+    > If you select direct connectivity mode Service Principal credentials are required as described in [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 
-   The data controller and namespace name will be used to create a custom resource in the Kubernetes cluster so they must conform to [Kubernetes naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+11. Enter a name for the data controller and for the namespace that the data controller will be created in.
 
-   > [!NOTE]
-   > If the namespace already exists it will be used if the namespace does not already contain other Kubernetes objects - pods, etc.  If the namespace does not exist, an attempt to create the namespace will be made.  Creating a namespace in a Kubernetes cluster requires Kubernetes cluster administrator privileges.  If you don't have Kubernetes cluster administrator privileges, ask your Kubernetes cluster administrator to perform the first few steps in the [Create a data controller using Kubernetes-native tools](./create-data-controller-using-kubernetes-native-tools.md) article which are required to be performed by a Kubernetes administrator before you complete this wizard.
+    The data controller and namespace name will be used to create a custom resource in the Kubernetes cluster so they must conform to [Kubernetes naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+
+    > [!NOTE]
+    > If the namespace already exists it will be used if the namespace does not already contain other Kubernetes objects - pods, etc.  If the namespace does not exist, an attempt to create the namespace will be made.  Creating a namespace in a Kubernetes cluster requires Kubernetes cluster administrator privileges.  If you don't have Kubernetes cluster administrator privileges, ask your Kubernetes cluster administrator to perform the first few steps in the [Create a data controller using Kubernetes-native tools](./create-data-controller-using-kubernetes-native-tools.md) article which are required to be performed by a Kubernetes administrator before you complete this wizard.
 
 
 12. Select the storage class where the data controller will be deployed. 
 13.  Enter a username and password and confirm the password for the data controller administrator user account. **Click Next**.
 
-> [!NOTE]
-> The password must be at least 8 characters long.
+    > [!NOTE]
+    > The password must be at least 8 characters long.
 
 14. Review the deployment configuration.
 15. Click the **Deploy** to deploy the desired configuration or the **Script to Notebook** to review the deployment instructions or make any changes necessary such as storage class names or service types. Click **Run All** at the top of the notebook.
