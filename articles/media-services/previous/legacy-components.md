@@ -45,4 +45,4 @@ The following Media Analytics media processors are either deprecated or soon to 
 
 ## Next steps
 
-[Migration guidance for moving from Media Services v2 to v3](../latest/migrate-from-v2-to-v3.md)
+[Migration guidance for moving from Media Services v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)

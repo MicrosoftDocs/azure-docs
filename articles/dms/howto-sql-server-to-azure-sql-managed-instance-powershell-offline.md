@@ -1,7 +1,7 @@
 ---
-title: "PowerShell: Migrate SQL Server to SQL Managed Instance"
+title: "PowerShell: Migrate SQL Server to SQL Managed Instance offline"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
+description: Learn to offline migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,12 +11,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019,fasttrack-edit, devx-track-azurepowershell"
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 12/16/2020
 ---
 
-# Migrate SQL Server to SQL Managed Instance with PowerShell & Azure Database Migration Service
+# Migrate SQL Server to SQL Managed Instance offline with PowerShell & Azure Database Migration Service
 
-In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL SQL Managed Instance by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to an SQL Managed Instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you offline migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL SQL Managed Instance by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to an SQL Managed Instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -24,18 +24,19 @@ In this article, you learn how to:
 > * Create a resource group.
 > * Create an instance of Azure Database Migration Service.
 > * Create a migration project in an instance of Azure Database Migration Service.
-> * Run the migration.
+> * Run the migration offline.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article includes detail on how to perform both online and offline migrations.
+This article provides steps for an offline migration, but it's also possible to migrate [online](howto-sql-server-to-azure-sql-managed-instance-powershell-online.md).
+
 
 ## Prerequisites
 
 To complete these steps, you need:
 
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
-* A local copy of the **AdventureWorks2016** database, which is available for download [here](/sql/samples/adventureworks-install-configure?view=sql-server-2017).
+* A local copy of the **AdventureWorks2016** database, which is available for download [here](/sql/samples/adventureworks-install-configure).
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -43,12 +44,10 @@ To complete these steps, you need:
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem).
-* To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+* To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](/powershell/module/powershellget/Install-Module).
 * To ensure that the credentials used to connect to source SQL Server instance have the [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
 * To ensure that the credentials used to connect to target SQL Managed Instance has the CONTROL DATABASE permission on the target SQL Managed Instance databases.
 
-    > [!IMPORTANT]
-    > For online migrations, you must already have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Sign in to your Microsoft Azure subscription
 
@@ -78,9 +77,6 @@ This cmdlet expects the following required parameters:
 * *Virtual Subnet Identifier*. You can use the cmdlet [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet.
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and a subnet named *MySubnet*.
-
-> [!IMPORTANT]
-> The code snippet below is for an offline migration, which does not require an instance of Azure Database Migration Service based on a Premium SKU. For an online migration, the value of the -Sku parameter must include a Premium SKU.
 
 ```powershell
 $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
@@ -156,7 +152,7 @@ Next, create and start an Azure Database Migration Service task. This task requi
 
 ### Create credential parameters for source and target
 
-Create connection security credentials as a [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object.
+Create connection security credentials as a [PSCredential](/dotnet/api/system.management.automation.pscredential) object.
 
 The following example shows the creation of *PSCredential* objects for both the source and target connections, providing passwords as string variables *$sourcePassword* and *$targetPassword*.
 
@@ -225,11 +221,8 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 
 ### Additional configuration requirements
 
-There are a few additional requirements you need to address, but they differ depending on whether you're performing an offline or online migration.
+There are a few additional requirements you need to address:
 
-#### Offline migrations
-
-For offline migrations only, perform the following additional configuration tasks.
 
 * **Select logins**. Create a list of logins to be migrated as shown in the following example:
 
@@ -249,24 +242,7 @@ For offline migrations only, perform the following additional configuration task
     > [!IMPORTANT]
     > Currently, Azure Database Migration Service only supports jobs with T-SQL subsystem job steps.
 
-#### Online migrations
 
-For online migrations only, perform the following additional configuration tasks.
-
-* **Configure Azure Active Directory App**
-
-    ```powershell
-    $pwd = "Azure App Key"
-    $appId = "Azure App Id"
-    $AppPasswd = ConvertTo-SecureString $pwd -AsPlainText -Force
-    $app = New-AzDmsAdApp -ApplicationId $appId -AppKey $AppPasswd
-    ```
-
-* **Configure Storage Resource**
-
-    ```powershell
-    $storageResourceId = "Storage Resource Id"
-    ```
 
 ### Create and start the migration task
 
@@ -274,9 +250,7 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task.
 
 #### Specify parameters
 
-##### Common Parameters
-
-Regardless of whether you're performing an offline or online migration, the `New-AzDataMigrationTask` cmdlet expects the following parameters:
+The `New-AzDataMigrationTask` cmdlet expects the following parameters:
 
 * *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 * *Resource Group Name*. Name of Azure resource group in which to create the task.
@@ -285,29 +259,19 @@ Regardless of whether you're performing an offline or online migration, the `New
 * *TaskName*. Name of task to be created. 
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
 * *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Managed Instance connection.
-* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to source server.
-* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) object for connecting to target server.
+* *SourceCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to source server.
+* *TargetCred*. [PSCredential](/dotnet/api/system.management.automation.pscredential) object for connecting to target server.
 * *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
 * *BackupFileShare*. FileShare object representing the local network share that the Azure Database Migration Service can take the source database backups to.
 * *BackupBlobSasUri*. The SAS URI that provides the Azure Database Migration Service with access to the storage account container to which the service uploads the backup files. Learn how to get the SAS URI for blob container.
 * *SelectedLogins*. List of selected logins to migrate.
 * *SelectedAgentJobs*. List of selected agent jobs to migrate.
+* *SelectedLogins*. List of selected logins to migrate.
+* *SelectedAgentJobs*. List of selected agent jobs to migrate.
 
-##### Additional parameters
 
-The `New-AzDataMigrationTask` cmdlet also expects parameters that are unique to the type of migration, offline or online, that you are performing.
 
-* **Offline migrations**. For offline migrations, the `New-AzDataMigrationTask` cmdlet also expects the following parameters:
-
-  * *SelectedLogins*. List of selected logins to migrate.
-  * *SelectedAgentJobs*. List of selected agent jobs to migrate.
-
-* **Online migrations**. For online migrations, the `New-AzDataMigrationTask` cmdlet also expects the following parameters.
-
-* *AzureActiveDirectoryApp*. Active Directory Application.
-* *StorageResourceID*. Resource ID of Storage Account.
-
-#### Create and start an offline migration task
+#### Create and start a migration task
 
 The following example creates and starts an offline migration task named **myDMSTask**:
 
@@ -328,26 +292,6 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMi `
   -SelectedAgentJobs $selectedJobs `
 ```
 
-#### Create and start an online migration task
-
-The following example creates and starts an online migration task named **myDMSTask**:
-
-```powershell
-$migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMiSync `
-  -ResourceGroupName myResourceGroup `
-  -ServiceName $service.Name `
-  -ProjectName $project.Name `
-  -TaskName myDMSTask `
-  -SourceConnection $sourceConnInfo `
-  -SourceCred $sourceCred `
-  -TargetConnection $targetConnInfo `
-  -TargetCred $targetCred `
-  -SelectedDatabase  $selectedDbs `
-  -BackupFileShare $backupFileShare `
-  -SelectedDatabase $selectedDbs `
-  -AzureActiveDirectoryApp $app `
-  -StorageResourceId $storageResourceId
-```
 
 ## Monitor the migration
 
@@ -386,24 +330,8 @@ To monitor the migration, perform the following tasks.
     }
     ```
 
-## Performing the cutover (online migrations only)
 
-With an online migration, a full backup and restore of databases is performed, and then work proceeds on restoring the Transaction Logs stored in the BackupFileShare.
-
-When the database in a Azure SQL Managed Instance is updated with latest data and is in sync with the source database, you can perform a cutover.
-
-The following example will complete the cutover\migration. Users invoke this command at their discretion.
-
-```powershell
-$command = Invoke-AzDmsCommand -CommandType CompleteSqlMiSync `
-                               -ResourceGroupName myResourceGroup `
-                               -ServiceName $service.Name `
-                               -ProjectName $project.Name `
-                               -TaskName myDMSTask `
-                               -DatabaseName "Source DB Name"
-```
-
-## Deleting the instance of Azure Database Migration Service
+## Delete the instance of Azure Database Migration Service
 
 After the migration is complete, you can delete the Azure Database Migration Service instance:
 
@@ -411,10 +339,9 @@ After the migration is complete, you can delete the Azure Database Migration Ser
 Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
-## Additional resources
-
-For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Next steps
 
 Find out more about Azure Database Migration Service in the article [What is the Azure Database Migration Service?](./dms-overview.md).
+
+For information about additional migrating scenarios (source/target pairs), see the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
