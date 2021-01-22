@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array Update 1.3 release notes | Microsoft Docs
-description: Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 1.3.
+title: Microsoft Azure StorSimple Virtual Array Update 1.3 release notes | Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure StorSimple Virtual Array running Update 1.3.
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
