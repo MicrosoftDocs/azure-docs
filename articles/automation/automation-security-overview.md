@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 01/06/2021
+ms.date: 01/21/2021
 ms.topic: conceptual
 ---
 
@@ -99,6 +99,8 @@ To verify that the situation producing the error message has been remedied:
 ## Role-based access control
 
 Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate the service principal. Read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.
+
+If you have strict security controls for permission assignment in resource groups, you need to assign the Run As account membership to the **Contributor** role in the resource group.
 
 ## Runbook authentication with Hybrid Runbook Worker
 
