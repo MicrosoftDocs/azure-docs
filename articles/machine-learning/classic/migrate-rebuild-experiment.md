@@ -35,7 +35,7 @@ Rebuilding a pipeline is an iterative process, so it's important to check result
 
 There are multiple ways ingest data in Azure Machine Learning. The simplest way to migrate an existing dataset from Studio (classic) is by downloading the Studio (classic) dataset and using the data file to create a new dataset in Azure Machine Learning.
 
-For more information on importing data directly from cloud sources, see [TODO].
+For more information on importing data directly from cloud sources, see [Migration reference](migrate-reference.md#import-data).
 
 ### Download the dataset
 
@@ -103,7 +103,7 @@ In Azure Machine Learning, the visual graph is called a pipeline draft. Once you
     See the the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping) to see if replacement modules are available in the designer. Many of Studio (classic)'s most popular modules have identical versions the designer.
 
     > [!Important]
-    > If your experiment uses the Execute R Script module, additional steps are required to migrate your experiment. For more information, see [TODO].
+    > If your experiment uses the Execute R Script module, additional steps are required to migrate your experiment. For more information, see [Migration reference](migrate-reference.md#execute-r-script).
 
 1. Set parameters.
     
@@ -120,7 +120,7 @@ To set a default compute for the entire pipeline:
 
     You only need to set the default compute target the first time you run it. Later runs will use the default compute target. 
 
-![run-setting](./media/migrate-to-AML/run-setting.png) 
+![Screenshot highlighting the Select compute target selection in the run settings](./media/migrate-to-AML/run-setting.png) 
 
 ## Submit a run and check results
 
@@ -144,8 +144,11 @@ After the run finishes, you can check the results of each module:
 - **View Output**: Open a link to the output storage location. Use this to explore or download the output. 
 - **View Log** : View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script.
 
+## Next steps
 
-### [to-do] which is better? include the R script/Import data difference here or in the reference? 
-> [!TIP]
-> The [migration reference article](./migrate-reference.md) call outs the difference of Studio(classic) and designer that you should pay attention to. For example, it includes the module mapping table, the tips to migrate R script.
+In this article, you learned how to rebuild a Studio (classic) experiment in Azure Machine Learning. See the other articles in the Studio (classic) migration series:
 
+- [Migration overview](migrate-overview.md)
+- [Rebuild a Studio (classic) web service in Azure Machine Learning](migrate-rebuild-web-service.md)
+- [Integrate an Azure Machine Learning webservice with client apps](migrate-rebuild-integrate-with-client-app.md)
+- [Migration reference](migrate-reference.md)
