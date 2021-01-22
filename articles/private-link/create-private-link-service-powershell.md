@@ -182,5 +182,5 @@ In this quickstart, you:
 
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Private Endpoint using Azure powershell](create-private-endpoint-powershell.md)
+> [Quickstart: Create a Private Endpoint using Azure Powershell](create-private-endpoint-powershell.md)
 
