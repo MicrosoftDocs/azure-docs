@@ -1,7 +1,7 @@
 ---
 title: Dataset versioning
 titleSuffix: Azure Machine Learning
-description: Learn how to best version your datasets and how versioning works with machine learning pipelines.
+description: Learn how to version machine learning datasets and how versioning works with machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, data4ml
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
 ---
 
-# Version and track datasets in experiments
+# Version and track Azure Machine Learning datasets
 
 In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 

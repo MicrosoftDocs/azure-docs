@@ -102,7 +102,7 @@ bin/kafka-server-start.sh config/server.properties
 
 ### Setup connectors
 
-Install the Debezium PostgreSQL and DataStax Apache Kafka connector. Download the Debezium PostgreSQL connector plug-in archive. For example, to download version 1.3.0 of the connector (latest at the time of writing), use [this link](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz). Download the DataStax Apache Kafka connector from [this link](https://downloads.datastax.com/#akc).
+Install the Debezium PostgreSQL and DataStax Apache Kafka connector. Download the Debezium PostgreSQL connector plug-in archive. For example, to download version 1.3.0 of the connector (latest at the time of writing), use [this link](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.3.0.Final-plugin.tar.gz). Download the DataStax Apache Kafka connector from [this link](https://downloads.datastax.com/#akc).
 
 Unzip both the connector archives and copy the JAR files to the [Kafka Connect plugin.path](https://kafka.apache.org/documentation/#connectconfigs).
 

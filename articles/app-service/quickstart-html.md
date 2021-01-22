@@ -58,7 +58,7 @@ The `az webapp up` command does the following actions:
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
-<pre>
+```output
 {
   "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
   "location": "westeurope",
@@ -70,7 +70,7 @@ This command may take a few minutes to run. While running, it displays informati
   "src_path": "/home/&lt;username&gt;/quickstart/html-docs-hello-world ",
   &lt; JSON data removed for brevity. &gt;
 }
-</pre>
+```
 
 Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
 

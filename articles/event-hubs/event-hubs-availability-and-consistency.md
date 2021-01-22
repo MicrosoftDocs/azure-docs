@@ -25,10 +25,10 @@ Event Hubs is built on top of a partitioned data model. You can configure the nu
 The simplest way to get started with Event Hubs is to use the default behavior. 
 
 #### [Azure.Messaging.EventHubs (5.0.0 or later)](#tab/latest)
-If you create a new **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** object and use the **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
+If you create a new **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** object and use the **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
 
 #### [Microsoft.Azure.EventHubs (4.1.0 or earlier)](#tab/old)
-If you create a new **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** object and use the **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
+If you create a new **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** object and use the **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
 
 ---
 
