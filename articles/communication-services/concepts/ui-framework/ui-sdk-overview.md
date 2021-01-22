@@ -14,13 +14,12 @@ ms.service: azure-communication-services
 
 :::image type="content" source="../media/ui framework/preandcustomcomposite.png" alt-text="Comparison between pre-built and custom composites":::
 
-Azure Communication Services UI Framework simplifies building modern user experiences. You can choose from
-different production-ready UI SDKs options depending on your customization, performance, and feature needs:
+Azure Communication Services UI Framework simplifies building modern communications user experiences. You can choose from
+different production-ready UI SDK options depending on your customization, performance, and feature needs:
 
-- **Composite Components** - Turn-key solutions that implement common communication scenarios. Developers can quickly add video calling or chat experiences to their applications. Composites come in two flavors depending on the scenario required:
-  - **Open-Source Composites** - These are open-source UI composite components built on the core Azure Communication SDKs that deliver core voice and video calling, chat, and SMS experiences.
-  - **Meeting Composite** - These are closed-source components focused on meeting experiences that leverage collaboration between Azure Communication Services and Teams. They include certain features unique to the meeting system, but provide a lower level of customization. More info: [UI Framework Meetings](./meetings.md)
-- **Base Components** - These are open-source building blocks that enable developers to build custom communications experience. 
+- **Composite Components** - Turn-key solutions that implement common communication scenarios. Developers can quickly add video calling or chat experiences to their applications. Composites are open-source components built using base components
+  - **Meeting Composite** - In addition to open-source composite components, we offer a closed-source composite that enables a Teams-like meeting experience that features many of the features you would expect such as blurred background and raised hand. More info: [UI Framework Meetings](./meetings.md). This experience is only available for **mobile** today.
+- **Base Components** - These are open-source building blocks that enable developers to build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences. 
 
 These UI SDKs all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. The Meeting system is designed to match Microsoft Team's default meeting experience. 
 
@@ -38,24 +37,27 @@ an app, you simply import the chat composite component and initialize it. You do
 
 :::image type="content" source="../media/ui framework/compositeoverview.png" alt-text="Overview of composite for UI Framework":::
 
-You can also create your own custom **Composite Components** 
-using desired **Base Components.** This allows for customization, such as modifying mute iconography, while still benefiting from UX controls for the rest of the application. 
+**Meeting Composite** directly implements a Teams meeting experience while using underlying Azure Communication SDKs. Key additional features offered by this experience include:
+- Blurred Background
+- Multiple video gallery options such as large gallery, together mode, focus, pinning and spotlight
+For more information see: [UI Framework Meetings](./meetings.md)
 
 ## What UI Framework is best for my project?
+
 Understanding these requirements will help you pick the right SDK:
 
 1. **How much customization do you desire?** Azure Communication core SDKs do not have a UX and are designed so you can build whatever UX you want. Base components, and composites provide UI assets at the the cost of reduced customization.
-1. **Do you require Meeting features?** The Meeting system has several unique capabilities not currently available in the core Azure SDKs, such as blurred backgrounds. 
-3. **What platforms are you targeting?** Differant platforms have differant capabilities.
+1. **Do you require Meeting features?** The Meeting system has several unique capabilities not currently available in the core Azure SDKs, such as blurred background and raised hand.
+3. **What platforms are you targeting?** Different platforms have different capabilities.
 
 Details about feature availability in the varied [UI SDKs is available here](ui-sdk-features.md), but key trade-offs are summarized below.
 
-|SDK|Implementation Complexity|	Customization Ability|	Calling|	Chat|	SMS|	Meetings
-|--|--|-|-|-|-|-|
-|Open-Source Composite	|Medium|	High|	✔	|✔|	✔|❌	
-|Meeting Composite|	Low	|Low|❌|❌|❌|✔
-|Base Components|	High|	High|	✔	|✔	|✔|❌	
-|Core SDKs|	High|	High|	✔|	✔	|✔|❌	
+|SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../voice-video-calling/teams-interop.md) | Teams Capabilities
+|---|---|---|---|---|---|---|
+|Meeting Composite|Low|Low|❌|❌|✔|✔
+|Open-Source Composite|Low|Low|✔|✔|Coming|❌
+|Base Components|Medium|Medium|✔|✔|Coming|❌
+|Core SDKs|High|High|✔|✔ |✔|❌
 
 ## Cost
 
@@ -68,10 +70,6 @@ Calling:
 
 1.  Join Teams Meeting Call
 2.  Join Azure Communication Services call with Group Id
-3.  Start a VoIP call to a Teams user
-4.  Start a VoIP call to another Azure Communication Services user
-5.  Start a PSTN call to a phone number using Azure Communication Services
-    procured phone number
 
 Chat:
 
@@ -90,9 +88,6 @@ layouts and data models:
 -   Themes: Change color schemes on Base and Composite Components to match your
     branding style.
 
--   Sizing: Resize Base and Composite Components to match your desired
-    specification.
-
 -   Layouts: Use Base Components to create custom layouts that match your specific
     experience.
 
@@ -110,7 +105,7 @@ trusted service you manage.
 
 These SDKs also require the context for the call or chat they will join. Similar to user access tokens, these context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
-| Contoso Responsibilities                                 | UI Framework Composite Responsibilities                         |
+| Contoso Responsibilities                                 | UI Framework Responsibilities                         |
 |----------------------------------------------------------|-----------------------------------------------------------------|
 | Provide access token from Azure                    | Pass through given access token to initialize components        |
 | Provide refresh function                                 | Refresh access token using developer provided function          |
