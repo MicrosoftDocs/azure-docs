@@ -73,8 +73,14 @@
     href: sample-reset-cloud-service.md
 - name: Reference
   items:
-  - name: PowerShell
+  - name: Az.CloudService Module
     href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
+  - name: PowerShell cmdlets
+    href: https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
+  - name: ARM Template Reference
+    href: https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/compute/cloudservices
 - name: Resources
   items:
   - name: Azure Roadmap
