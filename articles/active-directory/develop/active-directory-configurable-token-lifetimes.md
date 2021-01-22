@@ -77,9 +77,11 @@ You can set token lifetime policies for refresh tokens and session tokens.
 > [!IMPORTANT]
 > As of May 2020, new tenants can not configure refresh and session token lifetimes.  Tenants with existing configuration can modify refresh and session token policies until January 30, 2021.   Azure Active Directory will stop honoring existing refresh and session token configuration in policies after January 30, 2021. You can still configure access, SAML, and ID token lifetimes after the retirement.
 >
-> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 >
 > If you do not want to use Conditional Access after the retirement date, your refresh and session tokens will be set to the [default configuration](#configurable-token-lifetime-properties-after-the-retirement) on that date and you will no longer be able to change their lifetimes.
+>
+> Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Retirement information":::
 
@@ -96,8 +98,7 @@ Confidential clients are applications that can securely store a client password 
 
 Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. To do this, use the [Refresh Token Max Inactive Time property](#refresh-token-max-inactive-time) (`MaxInactiveTime`). You also can use policies to set a period beyond which the refresh tokens are no longer accepted. To do this, use the [Single-Factor Refresh Token Max Age](#single-factor-session-token-max-age) or [Multi-Factor Session Token Max Age](#multi-factor-refresh-token-max-age) property. You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
 
-> [!NOTE]
-> The Max Age property is the length of time a single token can be used. 
+The Max Age property is the length of time a single token can be used. 
 
 ### Single sign-on session tokens
 When a user authenticates with Microsoft identity platform, a single sign-on session (SSO) is established with the user’s browser and Microsoft identity platform. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
