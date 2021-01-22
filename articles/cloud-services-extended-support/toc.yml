@@ -53,13 +53,13 @@
       href: schema-cscfg-networkconfiguration.md
 - name: How To
   items:
-  - name: Enable remote desktop
-    href: enable-rdp.md
+  - name: Extensions
+    href: extensions.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
     href: configure-scaling.md
-  - name: Store and use certificates
+  - name: Certificates
     href: certificates-and-key-vault.md
 - name: Samples
   items: 
