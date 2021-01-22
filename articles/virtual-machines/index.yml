@@ -82,7 +82,7 @@ conceptualContent:
         - url: ../virtual-machine-scale-sets/quick-create-powershell.md
           itemType: how-to-guide
           text: Create a scale set using PowerShell
-        - url: ../virtual-machine-scale-sets/orchestration-modes.md
+        - url: /previous-versions/azure/virtual-machine-scale-sets/orchestration-modes
           itemType: concept
           text: Orchestration modes
         - url: ../virtual-machine-scale-sets/use-spot.md

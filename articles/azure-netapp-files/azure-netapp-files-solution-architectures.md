@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/21/2021
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -87,6 +87,10 @@ This section provides references to SAP on Azure solutions.
 * [Azure NetApp Files – SAP HANA offloading backup with Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Speed up your SAP HANA system copies using Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Cloud Volumes ONTAP and Azure NetApp Files: SAP HANA system migration made easy](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
+
+## Azure VMware Solutions
+
+* [Azure NetApp Files with Azure VMware Solution - Guest OS Mounts](../azure-vmware/net-app-files-with-azure-vmware-solution.md)
 
 ## Virtual Desktop Infrastructure solutions
 
