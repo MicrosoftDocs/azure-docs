@@ -7,7 +7,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.author: jingwang
 ---
 
@@ -28,7 +28,8 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **Excel**.   | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. | Yes      |
-| sheetName        | The Excel worksheet name to read data.                       | Yes      |
+| sheetName        | The Excel worksheet name to read data.                       | Specify `sheetName` or `sheetIndex` |
+| sheetIndex | The Excel worksheet index to read data, starting from 0. | Specify `sheetName` or `sheetIndex` |
 | range            | The cell range in the given worksheet to locate the selective data, e.g.:<br>- Not specified: reads the whole worksheet as a table from the first non-empty row and column<br>- `A3`: reads a table starting from the given cell, dynamically detects all the rows below and all the columns to the right<br>- `A3:H5`: reads this fixed range as a table<br>- `A3:A3`: reads this single cell | No       |
 | firstRowAsHeader | Specifies whether to treat the first row in the given worksheet/range as a header line with names of columns.<br>Allowed values are **true** and **false** (default). | No       |
 | nullValue        | Specifies the string representation of null value. <br>The default value is **empty string**. | No       |

@@ -270,6 +270,8 @@ go run sample.go
 
 The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
 
+## Clean up resources
+
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps

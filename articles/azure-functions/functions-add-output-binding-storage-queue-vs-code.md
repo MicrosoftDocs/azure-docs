@@ -144,6 +144,8 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
+## Update the test set
+
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
@@ -165,6 +167,8 @@ After the binding is defined, you can use the `name` of the binding to access it
 A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
 ::: zone pivot="programming-language-java"  
+
+## Update the tests
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 

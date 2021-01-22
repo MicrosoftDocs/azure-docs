@@ -29,7 +29,11 @@ The ASE has the following addresses at creation:
 | Windows outbound address | The Windows apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 | Linux outbound address | The Linux apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 
-If you delete the private endpoint used by the ASE, you can't reach the apps in your ASE. Don't delete the Azure DNS private zone associated with your ASE.  
+The ASEv3 has details on the addresses used by the ASE in the **IP Addresses** portion of the ASE portal.
+
+![ASE addresses UI](./media/networking/networking-ip-addresses.png)
+
+If you delete the private endpoint used by the ASE, you can't reach the apps in your ASE.  
 
 The ASE uses addresses in the outbound subnet to support the infrastructure used by the ASE. As you scale your App Service plans in your ASE, you'll use more addresses. Apps in the ASE don't have dedicated addresses in the outbound subnet. The addresses used by an app in the outbound subnet by an app will change over time.
 
@@ -43,7 +47,7 @@ Unlike the ASEv2, with ASEv3 you can set Network Security Groups (NSGs) and Rout
 
 ## DNS
 
-The apps in your ASE will use the DNS that your VNet is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server. 
+The apps in your ASE will use the DNS that your VNet is configured with. Follow the instructions in [Using an App Service Environment](./using.md#dns-configuration) to configure your DNS server to point to your ASE. If you want some apps to use a different DNS server than what your VNet is configured with, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server. 
 
 ## Preview limitation
 
@@ -60,4 +64,3 @@ There are a few networking features that aren't available with ASEv3.  The thing
 • Use of Network Watcher or NSG Flow on outbound traffic
 	
 	
-

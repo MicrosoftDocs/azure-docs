@@ -54,11 +54,11 @@ Follow these steps to install the Speech CLI in a Docker container:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> for your platform if it isn't already installed.
 2. In a new command prompt or terminal, type this command:
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Type this command. You should see help information for Speech CLI:
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -90,22 +90,28 @@ you must mount a directory in the container to your filesystem where the Speech 
 
 On Windows, your commands will start like this:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 On Linux or macOS, your commands will look like the sample below. Replace `ABSOLUTE_PATH` with the absolute path for your mounted directory. This path was returned by the `pwd` command in the previous section. 
 
 If you run this command before setting your key and region, you will get an error telling you to set your key and region:
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
+
+For more extended interaction with the command line tool, you can start a container with an interactive bash shell by adding an entrypoint parameter.
+On Windows, enter this command to start a container that exposes an interactive command line interface where you can enter multiple `spx` commands:
+```console
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 > [!WARNING]
@@ -152,7 +158,7 @@ To start using the Speech CLI, you need to enter your Speech subscription key an
 Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

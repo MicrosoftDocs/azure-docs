@@ -1,8 +1,8 @@
 ---
 title: Manage data sources in Azure Purview (Preview)
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview).
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -23,7 +23,6 @@ In this article, you learn how to register new data sources, manage collections 
 * Azure Synapse Analytics (formerly SQL DW)
 * Azure Cosmos DB
 * Power BI
-* Teradata (Preview)
 
 ## Register a new source
 

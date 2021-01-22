@@ -69,7 +69,7 @@ When we want to deploy locally we need to start up both applications. When the s
 
 You can test the sample locally by opening multiple browser sessions with the URL of your call to simulate a multi-user call.
 
-## Before running the sample for the first time
+### Before running the sample for the first time
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`

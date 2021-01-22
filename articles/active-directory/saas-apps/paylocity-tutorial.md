@@ -144,7 +144,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Paylocity SSO
 
-To configure single sign-on on **Paylocity** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Paylocity support team](mailto:service@paylocity.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Paylocity** side,
+
+1. Download the **Federation Metadata XML**.
+1. In Paylocity, navigate to **HR & Payroll** > **User Access** > **SSO Configuration**.
+1. Select **Add SSO Integration** under **SSO Integrations**. A new drawer opens.
+1. Select **Microsoft Azure** as the SSO Provider from dropdown.
+1. Select **Status** from dropdown.
+1. Drag and drop metadata file in the drop area. Paylocity attempts to parse the Issuer, Post Redirect and Binding URLs and Security Certificate(s).
+1. Select **Save** to confirm the changes. The integration should display under **SSO Integrations**.
 
 ### Create Paylocity test user
 

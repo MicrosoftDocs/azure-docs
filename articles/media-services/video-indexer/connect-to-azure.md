@@ -102,9 +102,14 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
 
+     Make sure the Media Services account was created with the classic APIs. 
+ 
+    ![Media Services classic API](./media/create-account/enable-classic-api.png)
+
+
     When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant** (GRS) for replication fields.
 
-    ![New AMS account](./media/create-account/create-ams-account1.png)
+    ![New AMS account](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
@@ -115,7 +120,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
-    ![Streaming endpoints](./media/create-account/create-ams-account2.png)
+    ![Streaming endpoints](./media/create-account/create-ams-account-se.png)
 4. For Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. In the new Media Services account, select **API access**.
@@ -166,7 +171,9 @@ The account will be permanently deleted in 90 days.
 
 The following Azure Media Services related considerations apply:
 
-* If you connect automatically, you see a new resource group, Media Services account, and a Storage account in your Azure subscription.
+* If you plan to connect to an existing Media Services account, make sure the Media Services account was created with the classic APIs. 
+ 
+    ![Media Services classic API](./media/create-account/enable-classic-api.png)
 * If you connect to an existing Media Services account, Video Indexer doesn't change the existing media **Reserved Units** configuration.
 
    You might need to adjust the type and number of Media Reserved Units according to your planned load. Keep in mind that if your load is high and you don't have enough units or speed, videos processing can result in timeout failures.

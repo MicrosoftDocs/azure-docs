@@ -16,6 +16,10 @@ This article discusses how to register and scan an instance of Azure Synapse Ana
 
 Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to capture the metadata and schema. Scans also classify the data automatically based on system and custom classification rules.
 
+### Known limitations
+
+Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) in Azure Synapse Analytics
+
 ## Prerequisites
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
@@ -24,7 +28,7 @@ Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to
  
 ## Setting up authentication for a scan
 
-There are three ways to set up authentication for Azure blob storage:
+There are three ways to set up authentication for Azure Synapse Analytics:
 
 - Managed Identity
 - SQL Authentication
@@ -35,7 +39,7 @@ There are three ways to set up authentication for Azure blob storage:
 
 ### Managed Identity (Recommended) 
    
-Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Example SQL syntax to create user and grant permission:
 
@@ -92,7 +96,7 @@ GO
 
 ### SQL authentication
 
-You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure Synapse Analytics (formerly SQL DW) if you don't already have one.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) to create a login for Azure Synapse Analytics (formerly SQL DW) if you don't already have one.
 
 When authentication method selected is **SQL Authentication**, you need to get your password and store in the key vault:
 

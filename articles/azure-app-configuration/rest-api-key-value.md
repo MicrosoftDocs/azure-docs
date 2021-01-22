@@ -1,8 +1,8 @@
 ﻿---
 title: Azure App Configuration REST API - key-value
 description: Reference pages for working with key-values by using the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020

@@ -36,6 +36,9 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 
 Include the SDK in your app, so it can gather data.
 
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=nodejs) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
 1. Copy your resource's instrumentation Key (also called an *ikey*) from your newly created resource. Application Insights uses the ikey to map data to your Azure resource. Before the SDK can use your ikey, you must specify the ikey in an environment variable or in your code.  
 
    ![Copy instrumentation key](./media/nodejs/instrumentation-key-001.png)
@@ -326,6 +329,12 @@ server.on("listening", () => {
   appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
+
+### Flush
+
+By default, telemetry is buffered for 15 seconds before it is sent to the ingestion server. If your application has a short lifespan (e.g. a CLI tool), it might be necessary to manually flush your buffered telemetry when application terminates, `appInsights.defaultClient.flush()`.
+
+If the SDK detects that your application is crashing, it will call flush for you, `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state, not suitable for sending telemetry. Instead, the SDK will save all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and let your application terminate. When you application starts again, it will try to send any telemetry that was saved to persistent storage.
 
 ### Preprocess data with telemetry processors
 

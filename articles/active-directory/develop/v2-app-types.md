@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit, contperfq2
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
 ---
 
 # Application types for Microsoft identity platform

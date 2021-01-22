@@ -36,6 +36,13 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 
 ## Create new Data Factory connection
 
+>[!Note]
+>In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
+>- Owner
+>- User Access Administrator
+>
+> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”. 
+
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
 1. Select **Management Center** on the left navigation pane.
@@ -65,12 +72,6 @@ To remove a data factory connection, do the following:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
->[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
->- Owner
->- User Access Administrator
-> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”, or “Data Factory contributor”. 
-
 ## Configure a self-hosted IR to collect lineage from on-prem SQL
 
 Lineage for the Data Factory Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
@@ -92,9 +93,9 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 | Data storage system | Supported as source | Supported as sink |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (no JSON support) | Yes | Yes (non-binary copy only) |
-| ADLS Gen2 (no JSON support) | Yes | Yes |
-| Azure Blob (no JSON support) | Yes | Yes |
+| ADLS Gen1 | Yes | Yes (non-binary copy only) |
+| ADLS Gen2 | Yes | Yes |
+| Azure Blob | Yes | Yes |
 | Azure Cosmos DB (SQL API) | Yes | Yes |
 | Azure Cosmos DB (Mongo API) | Yes | Yes |
 | Azure Cognitive Search | Yes | Yes |

@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -273,13 +273,15 @@ its read-only attribute set.
 **--include-after** string   Include only those files modified on or after the given date/time. The value should be in ISO8601 format. If no timezone 
 is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
 
+ **--include-before** string  Include only those files modified before or on the given date/time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy. E.g. `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
+
 **--include-attributes** string   (Windows only) Includes files whose attributes match the attribute list. For example: A;S;R
 
 **--include-path** string    Include only these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix (For example: `myFolder;myFolder/subDirName/file.pdf`).
 
 **--include-pattern** string   Include only these files when copying. This option supports wildcard characters (*). Separate files by using a `;`.
 
-**--list-of-versions** string  Specifies a file where each version id is listed on a separate line. Ensure that the source must point to a single blob and all the version ids specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided. For more information, see [Download previous versions of a blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--list-of-versions** string  Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided. For more information, see [Download previous versions of a blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--log-level** string    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default `INFO`). 
 

@@ -46,6 +46,15 @@ The following diagram shows the modules, inputs, outputs, and the IoT Edge Hub r
 
 The steps in this article are typically performed by a cloud developer.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create an IoT Edge module from custom code.
+> * Generate a Docker image from your custom module.
+> * Reconfigure IoT Hub routing to support your custom modules.
+> * Build, publish, and deploy your custom modules.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.

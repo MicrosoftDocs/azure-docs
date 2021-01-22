@@ -72,8 +72,9 @@ A vault created with GRS redundancy includes the option to configure the Cross R
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. From the portal, go to Recovery Services vault > Settings > Properties.
-2. Select **Enable Cross Region Restore in this vault** to enable the functionality.
+1. From the portal, go to your Recovery Services vault > **Properties** (under **Settings**).
+1. Under **Backup Configuration**, select **Update**.
+1. Select **Enable Cross Region Restore in this vault** to enable the functionality.
 
    ![Enable Cross Region restore](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
