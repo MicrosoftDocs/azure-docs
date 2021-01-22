@@ -1126,11 +1126,17 @@ Applications that support the SCIM profile described in this article can be conn
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
 2. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
-3. Select **+ New application** > **All** > **Non-gallery application**.
-4. Enter a name for your application, and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
+3. Select **+ New application** > **+ Create your own application**.
+4. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
 
-   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)<br/>
    *Azure AD application gallery*
+
+   > [!NOTE]
+   > If you are using the old app gallery experience, follow the screen guide below.
+   
+   ![Screenshot shows the Azure AD old app gallery experience](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   *Azure AD old app gallery experience*
 
 5. In the app management screen, select **Provisioning** in the left panel.
 6. In the **Provisioning Mode** menu, select **Automatic**.
