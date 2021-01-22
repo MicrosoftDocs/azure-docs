@@ -147,7 +147,7 @@ detect changes for network resources related to your Azure Batch pools.
 Create alerts within Azure Monitor that will trigger when changes to 
 critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-logview-the-activity-log) 
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -195,7 +195,7 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 - [How to collect diagnostic logs from your Azure Batch account](batch-diagnostics.md#batch-diagnostics)
 
-- [How to remotely connect to your Azure Batch pool nodes](./batch-service-workflow-features.md#error-handling)
+- [How to remotely connect to your Azure Batch pool nodes](./batch-service-workflow-features.md#basic-workflow)
 
 **Azure Security Center monitoring**: Yes
 
@@ -267,9 +267,9 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 In addition, you may use Azure Security Center Identity and Access Management recommendations.
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -587,7 +587,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -708,7 +708,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch accounts and pools.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -754,9 +754,9 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Batch accounts, pools, or related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -799,7 +799,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 -Storage Accounts should use a virtual network service endpoint
 - Diagnostic logs in Batch accounts should be enabled
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -892,7 +892,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 - [How to configure storage redundancy for Azure Storage Accounts](../storage/common/storage-redundancy.md)
 
-- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -902,9 +902,9 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 **Guidance**: If you are managing your own keys for Azure Storage Accounts or any other resource related to your Azure Batch implementation, periodically test restoration of backed up keys.
 
-- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
-- [How to restore a customer-managed key with PowerShell](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [How to restore a customer-managed key with PowerShell](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Azure Security Center monitoring**: Not applicable
 
