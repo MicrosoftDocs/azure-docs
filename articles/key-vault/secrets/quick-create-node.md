@@ -1,6 +1,6 @@
 ---
 title: Quickstart -  Azure Key Vault secret client library for JavaScript (version 4)
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
+description: Learn how to create, retrieve, and delete secrets from an Azure Key Vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 12/6/2020
@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 
 # Quickstart: Azure Key Vault secret client library for JavaScript (version 4)
 
-Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
+Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure Key Vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure Key Vault using the JavaScript client library
 
 Key Vault client library resources:
 
