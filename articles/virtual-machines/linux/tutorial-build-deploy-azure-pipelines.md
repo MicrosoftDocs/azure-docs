@@ -24,7 +24,7 @@ This document contains the steps associated with setting up a CI/CD pipeline for
 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to Virtual machines, both on-prem or on any cloud.
 
-In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
+In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](/azure/devops/pipelines/process/environments) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
 
 You learn how to:
 
@@ -225,7 +225,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](/azure
        tags: web
    ```
 2. You can select specific sets of virtual machines from the environment to receive the deployment by specifying the **tags** that you have defined for each virtual machine in the environment.
-[Here](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
+[Here](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
 
 3. You can specify either `runOnce` or `rolling` as deployment strategy. 
 
