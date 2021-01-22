@@ -30,7 +30,8 @@ and [Certificate-based authentication](../authentication/active-directory-certif
 
 - Preemptive [Conditional Access](../conditional-access/overview.md) and [Multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
-- [Identity Protection](../identity-protection/overview-identity-protection.md#:~:text=Identity%20Protection%20is%20a%20tool%20that%20allows%20organizations,detection%20data%20to%20third-party%20utilities%20for%20further%20analysis) - Adaptive control through user and session risk profiling
+- [Identity Protection](../identity-protection/overview-identity-protection.md) - Adaptive control through user and session risk profiling
+
 
 - [Leaked credential detection](../identity-protection/concept-identity-protection-risks.md)
 

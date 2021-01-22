@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| | |
 
 	> [!NOTE]
-	> **groups** refers to the security group in Appneta which is mapped to a **Role** in Azure AD. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) doc which explains how to create custom roles in Azure AD.
+	> **groups** refers to the security group in Appneta which is mapped to a **Role** in Azure AD. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) doc which explains how to create custom roles in Azure AD.
 
 	1. Click **Add new claim** to open the **Manage user claims** dialog.
 

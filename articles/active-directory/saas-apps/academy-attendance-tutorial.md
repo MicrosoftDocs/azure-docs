@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| role      | user.assignedroles |
 
 	> [!NOTE]
-	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) doc which explains how to create custom roles in Azure AD.
+	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) doc which explains how to create custom roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
