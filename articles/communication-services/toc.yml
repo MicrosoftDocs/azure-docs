@@ -42,6 +42,8 @@
       href: quickstarts/ui-framework/getting-started-with-components.md
     - name: Create your own UI Framework component
       href: quickstarts/ui-framework/create-your-own-components.md
+    - name: How to customize components
+      href: quickstarts/ui-framework/how-to-customize-components.md
 - name: Tutorials
   expanded: false
   items:
