@@ -68,19 +68,19 @@ The resource tenant is always responsible for MFA for users, even if the guest u
 >[!NOTE]
 >MFA is done at resource tenancy to ensure predictability.
 
-### Set up Multi-factor Authentication for B2B users
+### Set up Azure AD Multi-factor Authentication for B2B users
 
-To set up MFA for B2B collaboration users, watch this video:
+To set up Azure AD Multi-factor Authentication for B2B collaboration users, watch this video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### B2B users MFA experience for offer redemption
+### B2B users Azure AD Multi-factor Authentication for offer redemption
 
-To learn more about the MFA redemption experience, watch this video:
+To learn more about the Azure AD Multi-factor Authentication redemption experience, watch this video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### Multi-factor Authentication reset for B2B users
+### Azure AD Multi-factor Authentication reset for B2B users
 
 Now, the following PowerShell cmdlets are available to proof up B2B guest users:
 
@@ -101,7 +101,8 @@ Now, the following PowerShell cmdlets are available to proof up B2B guest users:
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Reset the MFA method for a specific user to require the B2B collaboration user to set proof-up methods again. Example:
+3. Reset the MFA method for a specific user to require the B2B collaboration user to set proof-up methods again. 
+   Here is an example:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
