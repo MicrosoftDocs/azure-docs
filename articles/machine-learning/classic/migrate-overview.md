@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 
-author: zhanxia
-ms.author: zhanixa
+author: xiaoharper
+ms.author: zhanxia
 ms.date: 11/27/2020
 ---
 
@@ -37,11 +37,11 @@ At this time, to migrate resources from Studio (classic) to Azure Machine Learni
 
 To rebuild your Studio (classic) experiments and web services you must:
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#portal).
+1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
 
 1. [Rebuild the training experiment using drag-and-drop modules](migrate-rebuild-experiment.md).
     - Recreate the dataset in Azure Machine Learning.
-    - Use the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping-table) to select replacement modules.
+    - Use the [module-mapping table](migrate-reference.md#studio-classic-and-designer-module-mapping) to select replacement modules.
         
 1. [Rebuild the web service](migrate-rebuild-web-service.md).
 
@@ -89,7 +89,7 @@ In Azure Machine Learning, **real-time endpoints** are used for real-time predic
 
 See detailed steps on how to complete each step of the migration:
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#portal).
+1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
 1. [Rebuild the training pipeline](migrate-rebuild-experiment.md).
 1. [Rebuild the web service](migrate-rebuild-web-service.md).
 1. [Integrate web service with client app](migrate-rebuild-integrate-with-client-app.md).

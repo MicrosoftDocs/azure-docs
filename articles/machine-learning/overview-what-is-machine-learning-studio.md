@@ -69,7 +69,7 @@ Manage your machine learning assets directly in your browser. Assets are shared 
 
 Even if you're an experienced developer, the studio can simplify how you manage workspace resources.
 
-## ML Studio (classic) vs Azure Machine Learning
+## ML Studio (classic) vs Azure Machine Learning studio
 
 Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is scheduled to retire on February 29th, 2024. For more information on retirement, see the [Studio (classic) migration guide](classic/migrate-step-by-step-guidance.md).
 

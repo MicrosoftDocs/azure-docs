@@ -60,7 +60,7 @@ Use the following steps to ingest data from the cloud:
  
 
 
-### Studio (classic) and designer module-mapping table
+### Studio (classic) and designer module-mapping
 
 Module for same functionality has the same name in AML designer and ML Studio(classic). See below table for the module mapping. 
 
