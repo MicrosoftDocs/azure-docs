@@ -77,6 +77,12 @@ state interface for developers to build their own Components on top of.
 
 See [How to customize UI Framework Components](../../quickstarts/ui-framework/how-to-customize-components.md) for more information on customization.
 
+## Error Handling
+
+UI Framework Components and Composite allow developers to handle errors related to the communication experience.
+- **Base Components** provide the greatest control over error handling. Developers can consume individual component error and handle them accordingly.
+- **Composite** provide less control. Composite handle part of the error logic internally to maintain the experience working. They only surface up a handful of error that require developer management.
+
 ## Platform Support
 
 |        | Windows            | macOS                | Ubuntu   | Linux    | Android  | iOS        |
