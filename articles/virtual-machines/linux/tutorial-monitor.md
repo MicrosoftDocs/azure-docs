@@ -50,7 +50,7 @@ To see diagnostics and metrics in action, you need a VM. First, create a resourc
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
+Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
