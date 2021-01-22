@@ -66,13 +66,13 @@ See the reference documentation for examples of the JSON response.
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
-#### Version 2.1 entity types
+#### Version 2.1 entity categories
 
-The following table lists the entity types returned for NER v2.1.
+The following table lists the entity categories returned for NER v2.1.
 
 | Category   | Description                          |
 |------------|--------------------------------------|
-| Person      Names of people.  |
+| Person   |   Names of people.  |
 |Location    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
 |Organization | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. |
 | PhoneNumber | Phone numbers (US and EU phone numbers only). |
@@ -86,7 +86,7 @@ The following table lists the entity types returned for NER v2.1.
 | TimeRange | Time ranges. |
 | Duration | Durations. |
 | Set | Set, repeated times. |
-| N/A | Numbers and numeric quantities. |
+| Quantity | Numbers and numeric quantities. |
 | Number | Numbers. |
 | Percentage | Percentages.|
 | Ordinal | Ordinal numbers. |
