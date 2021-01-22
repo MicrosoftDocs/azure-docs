@@ -186,11 +186,11 @@ In this section, you create a second connection to ensure high availability.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw.png" alt-text="Attaching the Internet Gateway to VPC":::
 
-1. Select a VPC and **Attach the internet gateway**.
+1. Select a VPC and **Attach internet gateway**.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/attach-igw-2.png" alt-text="Attach the gateway":::
 
-1. Create a route to allow connections to **0.0.0.0/0** (Internet) through the Internet Gateway.
+1. Create a route to allow connections to **0.0.0.0/0** (Internet) through the internet gateway.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/allow-internet-igw.png" alt-text="Configure the route through the gateway":::
 
