@@ -7,10 +7,23 @@ ms.date: 01/22/2021
 
 # Topic filters and actions
 
-Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a condition that selects particular messages and an action that annotates the selected message. For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter** condition that selects particular messages, and **optionally** contain an **action** that annotates the selected message. 
+
+All rules **without actions** are combined using an `OR` condition and result in a **single message** on the subscription even if you have multiple matching rules. 
+
+Each rule **with an action** produces a copy of the message. This message will have a property called `RuleName` where the value is the name of the matching rule. The action may add or update properties, or delete properties from the original message to produce a message on the subscription. 
+
+Consider the following scenario:
+
+- Subscription has five rules.
+- Two rules contain actions.
+- Three rules don't contain actions.
+
+In this example, if you send one message that matches all five rules, you get three messages on the subscription. That's two messages for two rules with actions and one message for three rules without actions. 
 
 Each newly created topic subscription has an initial default subscription rule. If you don't explicitly specify a filter condition for the rule, the applied filter is the **true** filter that enables all messages to be selected into the subscription. The default rule has no associated annotation action.
 
+## Filters
 Service Bus supports three filter conditions:
 
 -   *Boolean filters* - The **TrueFilter** and **FalseFilter** either cause all arriving messages (**true**) or none of the arriving messages (**false**) to be selected for the subscription. These two filters derive from the SQL filter. 
