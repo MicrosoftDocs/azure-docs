@@ -17,7 +17,7 @@ ms.date: 02/07/2020
 
 This article provides many example scenarios to get started working with Elastic Jobs using T-SQL.
 
-The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](job-automation-overview.md#job-database).
+The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](job-automation-overview.md#elastic-job-database).
 
 Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Creating the Elastic Job agent is not supported in T-SQL, so you must first create an *Elastic Job agent* using the portal, or [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
@@ -45,7 +45,7 @@ GO
 ## Create a target group (servers)
 
 The following example shows how to execute a job against all databases in a server.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 -- Connect to the job database specified when creating the job agent
@@ -68,7 +68,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## Exclude an individual database
 
 The following example shows how to execute a job against all databases in an server, except for the database named *MappingDB*.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -110,7 +110,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## Create a target group (pools)
 
 The following example shows how to target all the databases in one or more elastic pools.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -134,7 +134,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## Deploy new schema to many databases
 
 The following example shows how to deploy new schema to all databases.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -182,7 +182,7 @@ If you want to manually create the table ahead of time, then it needs to have th
 3. A nonclustered index named `IX_<TableName>_Internal_Execution_ID` on the internal_execution_id column.
 4. All permissions listed above except for `CREATE TABLE` permission on the database.
 
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following commands:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following commands:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -252,7 +252,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## View job definitions
 
 The following example shows how to view current job definitions.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -272,7 +272,7 @@ select * from jobs.jobsteps
 ## Begin unplanned execution of a job
 
 The following example shows how to start a job immediately.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -294,7 +294,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## Schedule execution of a job
 
 The following example shows how to schedule a job for future execution.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -309,7 +309,7 @@ EXEC jobs.sp_update_job
 ## Monitor job execution status
 
 The following example shows how to view execution status details for all jobs.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -337,7 +337,7 @@ ORDER BY start_time DESC
 ## Cancel a job
 
 The following example shows how to cancel a job.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -355,12 +355,12 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## Delete old job history
 
 The following example shows how to delete job history prior to a specific date.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Delete history of a specific job’s executions older than the specified date
+-- Delete history of a specific job's executions older than the specified date
 EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00'
 
 --Note: job history is automatically deleted if it is >45 days old
@@ -369,7 +369,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## Delete a job and all its job history
 
 The following example shows how to delete a job and all related job history.  
-Connect to the [*job database*](job-automation-overview.md#job-database) and run the following command:
+Connect to the [*job database*](job-automation-overview.md#elastic-job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -381,7 +381,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## Job stored procedures
 
-The following stored procedures are in the [jobs database](job-automation-overview.md#job-database).
+The following stored procedures are in the [jobs database](job-automation-overview.md#elastic-job-database).
 
 |Stored procedure  |Description  |
 |---------|---------|
@@ -425,7 +425,7 @@ The name of the job. The name must be unique and cannot contain the percent (%) 
 The description of the job. description is nvarchar(512), with a default of NULL. If description is omitted, an empty string is used.
 
 [ **\@enabled =** ] enabled  
-Whether the job’s schedule is enabled. Enabled is bit, with a default of 0 (disabled). If 0, the job is not enabled and does not run according to its schedule; however, it can be run manually. If 1, the job will run according to its schedule, and can also be run manually.
+Whether the job's schedule is enabled. Enabled is bit, with a default of 0 (disabled). If 0, the job is not enabled and does not run according to its schedule; however, it can be run manually. If 1, the job will run according to its schedule, and can also be run manually.
 
 [ **\@schedule_interval_type =**] schedule_interval_type  
 Value indicates when the job is to be executed. schedule_interval_type is nvarchar(50), with a default of Once, and can be one of the following values:
@@ -456,7 +456,7 @@ The job identification number assigned to the job if created successfully. job_i
 #### Remarks
 
 sp_add_job must be run from the job agent database specified when creating the job agent.
-After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job’s initial version number is 0, which will be incremented to 1 when the first step is added.
+After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job's initial version number is 0, which will be incremented to 1 when the first step is added.
 
 #### Permissions
 
@@ -495,7 +495,7 @@ The new name of the job. new_name is nvarchar(128).
 The description of the job. description is nvarchar(512).
 
 [ **\@enabled =** ] enabled  
-Specifies whether the job’s schedule is enabled (1) or not enabled (0). Enabled is bit.
+Specifies whether the job's schedule is enabled (1) or not enabled (0). Enabled is bit.
 
 [ **\@schedule_interval_type=** ] schedule_interval_type  
 Value indicates when the job is to be executed. schedule_interval_type is nvarchar(50) and can be one of the following values:
@@ -522,7 +522,7 @@ Date on which job execution can stop. schedule_end_time is DATETIME2, with the d
 
 #### Remarks
 
-After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job’s initial version number is 0, which will be incremented to 1 when the first step is added.
+After sp_add_job has been executed to add a job, sp_add_jobstep can be used to add steps that perform the activities for the job. The job's initial version number is 0, which will be incremented to 1 when the first step is added.
 
 #### Permissions
 
@@ -645,7 +645,7 @@ The number of times to retry execution if the initial attempt fails. For example
 The maximum amount of time allowed for the step to execute. If this time is exceeded, then the job execution will terminate with a lifecycle of TimedOut. step_timeout_seconds is int, with default value of 43,200 seconds (12 hours).
 
 [ **\@output_type =** ] 'output_type'  
-If not null, the type of destination that the command’s first result set is written to. output_type is nvarchar(50), with a default of NULL.
+If not null, the type of destination that the command's first result set is written to. output_type is nvarchar(50), with a default of NULL.
 
 If specified, the value must be SqlDatabase.
 
@@ -668,7 +668,7 @@ If not null, the name of the database that contains the output destination table
 If not null, the name of the SQL schema that contains the output destination table. If output_type equals SqlDatabase, the default value is dbo. output_schema_name is nvarchar(128).
 
 [ **\@output_table_name =** ] 'output_table_name'  
-If not null, the name of the table that the command’s first result set will be written to. If the table doesn't already exist, it will be created based on the schema of the returning result-set. Must be specified if output_type equals SqlDatabase. output_table_name is nvarchar(128), with a default value of NULL.
+If not null, the name of the table that the command's first result set will be written to. If the table doesn't already exist, it will be created based on the schema of the returning result-set. Must be specified if output_type equals SqlDatabase. output_table_name is nvarchar(128), with a default value of NULL.
 
 [ **\@job_version =** ] job_version OUTPUT  
 Output parameter that will be assigned the new job version number. job_version is int.
@@ -682,7 +682,7 @@ The maximum level of parallelism per elastic pool. If set, then the job step wil
 
 #### Remarks
 
-When sp_add_jobstep succeeds, the job’s current version number is incremented. The next time the job is executed, the new version will be used. If the job is currently executing, that execution will not contain the new step.
+When sp_add_jobstep succeeds, the job's current version number is incremented. The next time the job is executed, the new version will be used. If the job is currently executing, that execution will not contain the new step.
 
 #### Permissions
 
@@ -776,7 +776,7 @@ The number of times to retry execution if the initial attempt fails. For example
 The maximum amount of time allowed for the step to execute. If this time is exceeded, then the job execution will terminate with a lifecycle of TimedOut. step_timeout_seconds is int, with default value of 43,200 seconds (12 hours).
 
 [ **\@output_type =** ] 'output_type'  
-If not null, the type of destination that the command’s first result set is written to. To reset the value of output_type back to NULL, set this parameter's value to '' (empty string). output_type is nvarchar(50), with a default of NULL.
+If not null, the type of destination that the command's first result set is written to. To reset the value of output_type back to NULL, set this parameter's value to '' (empty string). output_type is nvarchar(50), with a default of NULL.
 
 If specified, the value must be SqlDatabase.
 
@@ -793,7 +793,7 @@ If not null, the name of the database that contains the output destination table
 If not null, the name of the SQL schema that contains the output destination table. If output_type equals SqlDatabase, the default value is dbo. To reset the value of output_schema_name back to NULL, set this parameter's value to '' (empty string). output_schema_name is nvarchar(128).
 
 [ **\@output_table_name =** ] 'output_table_name'  
-If not null, the name of the table that the command’s first result set will be written to. If the table doesn't already exist, it will be created based on the schema of the returning result-set. Must be specified if output_type equals SqlDatabase. To reset the value of output_server_name back to NULL, set this parameter's value to '' (empty string). output_table_name is nvarchar(128), with a default value of NULL.
+If not null, the name of the table that the command's first result set will be written to. If the table doesn't already exist, it will be created based on the schema of the returning result-set. Must be specified if output_type equals SqlDatabase. To reset the value of output_server_name back to NULL, set this parameter's value to '' (empty string). output_table_name is nvarchar(128), with a default value of NULL.
 
 [ **\@job_version =** ] job_version OUTPUT  
 Output parameter that will be assigned the new job version number. job_version is int.
@@ -807,7 +807,7 @@ The maximum level of parallelism per elastic pool. If set, then the job step wil
 
 #### Remarks
 
-Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
+Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job's version number is incremented. The next time the job is executed, the new version will be used.
 
 #### Permissions
 
@@ -850,7 +850,7 @@ Output parameter that will be assigned the new job version number. job_version i
 
 #### Remarks
 
-Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job’s version number is incremented. The next time the job is executed, the new version will be used.
+Any in-progress executions of the job will not be affected. When sp_update_jobstep succeeds, the job's version number is incremented. The next time the job is executed, the new version will be used.
 
 The other job steps will be automatically renumbered to fill the gap left by the deleted job step.
 
@@ -1018,25 +1018,25 @@ Adds a database or group of databases to a target group.
 The name of the target group to which the member will be added. target_group_name is nvarchar(128), with no default.
 
 [ **\@membership_type =** ] 'membership_type'  
-Specifies if the target group member will be included or excluded. target_group_name is nvarchar(128), with default of ‘Include’. Valid values for membership_type are ‘Include’ or ‘Exclude’.
+Specifies if the target group member will be included or excluded. target_group_name is nvarchar(128), with default of 'Include'. Valid values for membership_type are 'Include' or 'Exclude'.
 
 [ **\@target_type =** ] 'target_type'  
-The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’.
+The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are 'SqlServer', 'SqlElasticPool', 'SqlDatabase', or 'SqlShardMap'.
 
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
 The name of the database scoped credential. refresh_credential_name is nvarchar(128), with no default.
 
 [ **\@server_name =** ] 'server_name'  
-The name of the server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
+The name of the server that should be added to the specified target group. server_name should be specified when target_type is 'SqlServer'. server_name is nvarchar(128), with no default.
 
 [ **\@database_name =** ] 'database_name'  
-The name of the database that should be added to the specified target group. database_name should be specified when target_type is ‘SqlDatabase’. database_name is nvarchar(128), with no default.
+The name of the database that should be added to the specified target group. database_name should be specified when target_type is 'SqlDatabase'. database_name is nvarchar(128), with no default.
 
 [ **\@elastic_pool_name =** ] 'elastic_pool_name'  
-The name of the Elastic pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlElasticPool’. elastic_pool_name is nvarchar(128), with no default.
+The name of the Elastic pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is 'SqlElasticPool'. elastic_pool_name is nvarchar(128), with no default.
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
-The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlShardMap’. shard_map_name is nvarchar(128), with no default.
+The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is 'SqlShardMap'. shard_map_name is nvarchar(128), with no default.
 
 [ **\@target_id =** ] target_group_id OUTPUT  
 The target identification number assigned to the target group member if created added to the target group. target_id is an output variable of type uniqueidentifier, with a default of NULL.
@@ -1198,7 +1198,7 @@ GO
 
 ## Job views
 
-The following views are available in the [jobs database](job-automation-overview.md#job-database).
+The following views are available in the [jobs database](job-automation-overview.md#elastic-job-database).
 
 |View  |Description  |
 |---------|---------|
@@ -1224,18 +1224,18 @@ Shows job execution history.
 |**job_version** | int | Version of the job (automatically updated each time the job is modified).
 |**step_id** |int | Unique (for this job) identifier for the step. NULL indicates this is the parent job execution.
 |**is_active** | bit | Indicates whether information is active or inactive. 1 indicates active jobs, and 0 indicates inactive.
-|**lifecycle** | nvarchar(50) | Value indicating the status of the job:‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
+|**lifecycle** | nvarchar(50) | Value indicating the status of the job:'Created', 'In Progress', 'Failed', 'Succeeded', 'Skipped', 'SucceededWithSkipped'|
 |**create_time**| datetime2(7) | Date and time the job was created.
 |**start_time** | datetime2(7) | Date and time the job started execution. NULL if the job has not yet been executed.
 |**end_time** | datetime2(7) | Date and time the job finished execution. NULL if the job has not yet been executed or has not yet completed execution.
 |**current_attempts** | int | Number of times the step was retried. Parent job will be 0, child job executions will be 1 or greater based on the execution policy.
 |**current_attempt_start_time** | datetime2(7) | Date and time the job started execution. NULL indicates this is the parent job execution.
 |**last_message** | nvarchar(max) | Job or step history message.
-|**target_type** | nvarchar(128) | Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’. NULL indicates this is the parent job execution.
+|**target_type** | nvarchar(128) | Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are 'SqlServer', 'SqlElasticPool' or 'SqlDatabase'. NULL indicates this is the parent job execution.
 |**target_id** | uniqueidentifier | Unique ID of the target group member.  NULL indicates this is the parent job execution.
 |**target_group_name** | nvarchar(128) | Name of the target group. NULL indicates this is the parent job execution.
-|**target_server_name** | nvarchar(256)  | Name of the server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
-|**target_database_name** | nvarchar(128) | Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’. NULL indicates this is the parent job execution.
+|**target_server_name** | nvarchar(256)  | Name of the server contained in the target group. Specified only if target_type is 'SqlServer'. NULL indicates this is the parent job execution.
+|**target_database_name** | nvarchar(128) | Name of the database contained in the target group. Specified only when target_type is 'SqlDatabase'. NULL indicates this is the parent job execution.
 
 ### jobs view
 
@@ -1279,8 +1279,8 @@ Shows all steps in the current version of each job.
 |**job_version**|int|Version of the job (automatically updated each time the job is modified).|
 |**step_id**|int|Unique (for this job) identifier for the step.|
 |**step_name**|nvarchar(128)|Unique (for this job) name for the step.|
-|**command_type**|nvarchar(50)|Type of command to execute in the job step. For v1, value must equal to and defaults to ‘TSql’.|
-|**command_source**|nvarchar(50)|Location of the command. For v1, ‘Inline’ is the default and only accepted value.|
+|**command_type**|nvarchar(50)|Type of command to execute in the job step. For v1, value must equal to and defaults to 'TSql'.|
+|**command_source**|nvarchar(50)|Location of the command. For v1, 'Inline' is the default and only accepted value.|
 |**command**|nvarchar(max)|The commands to be executed by Elastic jobs through command_type.|
 |**credential_name**|nvarchar(128)|Name of the database scoped credential used to execution the job.|
 |**target_group_name**|nvarchar(128)|Name of the target group.|
@@ -1297,7 +1297,7 @@ Shows all steps in the current version of each job.
 |**output_server_name**|nvarchar(256)|Name of the destination server for the results set.|
 |**output_database_name**|nvarchar(128)|Name of the destination database for the results set.|
 |**output_schema_name**|nvarchar(max)|Name of the destination schema. Defaults to dbo, if not specified.|
-|**output_table_name**|nvarchar(max)|Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn’t already exist. Schema must match the schema of the results set.|
+|**output_table_name**|nvarchar(max)|Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn't already exist. Schema must match the schema of the results set.|
 |**max_parallelism**|int|The maximum number of databases per elastic pool that the job step will be run on at a time. The default is NULL, meaning no limit. |
 
 ### <a name="jobstep_versions-view"></a>jobstep_versions view
@@ -1327,16 +1327,16 @@ Shows all members of all target groups.
 |-----|-----|-----|
 |**target_group_name**|nvarchar(128|The name of the target group, a collection of databases. |
 |**target_group_id**|uniqueidentifier|Unique ID of the target group.|
-|**membership_type**|int|Specifies if the target group member is included or excluded in the target group. Valid values for target_group_name are ‘Include’ or ‘Exclude’.|
-|**target_type**|nvarchar(128)|Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’.|
+|**membership_type**|int|Specifies if the target group member is included or excluded in the target group. Valid values for target_group_name are 'Include' or 'Exclude'.|
+|**target_type**|nvarchar(128)|Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are 'SqlServer', 'SqlElasticPool', 'SqlDatabase', or 'SqlShardMap'.|
 |**target_id**|uniqueidentifier|Unique ID of the target group member.|
 |**refresh_credential_name**|nvarchar(128)|Name of the database scoped credential used to connect to the target group member.|
 |**subscription_id**|uniqueidentifier|Unique ID of the subscription.|
 |**resource_group_name**|nvarchar(128)|Name of the resource group in which the target group member resides.|
-|**server_name**|nvarchar(128)|Name of the server contained in the target group. Specified only if target_type is ‘SqlServer’. |
-|**database_name**|nvarchar(128)|Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’.|
-|**elastic_pool_name**|nvarchar(128)|Name of the Elastic pool contained in the target group. Specified only when target_type is ‘SqlElasticPool’.|
-|**shard_map_name**|nvarchar(128)|Name of the shard maps contained in the target group. Specified only when target_type is ‘SqlShardMap’.|
+|**server_name**|nvarchar(128)|Name of the server contained in the target group. Specified only if target_type is 'SqlServer'. |
+|**database_name**|nvarchar(128)|Name of the database contained in the target group. Specified only when target_type is 'SqlDatabase'.|
+|**elastic_pool_name**|nvarchar(128)|Name of the Elastic pool contained in the target group. Specified only when target_type is 'SqlElasticPool'.|
+|**shard_map_name**|nvarchar(128)|Name of the shard maps contained in the target group. Specified only when target_type is 'SqlShardMap'.|
 
 ## Resources
 

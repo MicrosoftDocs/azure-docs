@@ -72,15 +72,15 @@ The following image shows a job agent executing jobs across the different types 
 |Component | Description (additional details are below the table) |
 |---------|---------|
 |[**Elastic Job agent**](#elastic-job-agent) | The Azure resource you create to run and manage Jobs. |
-|[**Job database**](#job-database) | A database in Azure SQL Database that the job agent uses to store job related data, job definitions, etc. |
+|[**Job database**](#elastic-job-database) | A database in Azure SQL Database that the job agent uses to store job related data, job definitions, etc. |
 |[**Target group**](#target-group) | The set of servers, pools, databases, and shard maps to run a job against. |
-|[**Job**](#job) | A job is a unit of work that is composed of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script. |
+|[**Job**](#elastic-jobs-and-job-steps) | A job is a unit of work that is composed of one or more job steps. Job steps specify the T-SQL script to run, as well as other details required to execute the script. |
 
 #### Elastic job agent
 
 An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell-create.md) and REST are also supported).
 
-Creating an **Elastic Job agent** requires an existing database in Azure SQL Database. The agent configures this existing Azure SQL Database as the [*Job database*](#job-database).
+Creating an **Elastic Job agent** requires an existing database in Azure SQL Database. The agent configures this existing Azure SQL Database as the [*Job database*](#elastic-job-database).
 
 The Elastic Job agent is free. The job database is billed at the same rate as any database in Azure SQL Database.
 
