@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services (extended support)
+title: About Azure Cloud Services (extended support)
 description: Learn about the child elements of the Network Configuration element of the service configuration file, which specifies Virtual Network and DNS values.
 ms.topic: article
 ms.service: cloud-services-extended-support
@@ -10,25 +10,38 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
   
-# Azure Cloud Services (extended support) overview
+# About Azure Cloud Services (extended support)
 
+> [!IMPORTANT]
+> Cloud Services (extended support) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). 
+Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is currently in public preview. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some ARM capabilities such as role-based access and control (RBAC), tags, policy and supports deployment templates.  
+
+With this change, the Azure Service Manager based deployment model for Cloud Services will be renamed [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). You will retain the ability to build and rapidly deploy your web and cloud applications and services. You will be able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.   
 
 ## Changes in deployment model
 
-Minimal changes are required to .cscfg and .csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
+Minimal changes are required to Service Configuration (.cscfg) and Service Definition (.csdef) files to deploy Cloud Services (extended support). No changes are required to runtime code. However, deployment scripts will need to be updated to call the new Azure Resource Manager based APIs. 
 
 :::image type="content" source="media/overview-image-1.png" alt-text="Image shows classic cloud service configuration with addition of template section. ":::
 
-- The Azure Resource Manager templates need to be maintained and kept consistent with the .cscfg and .csdef files for Cloud Services (extended support) deployments.
-- Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
-- The concept of staging and production slots do not exist for Cloud Services (extended support).
-- Assigning a [DNS label](https://docs.microsoft.com/azure/dns/dns-zones-records) to the Cloud Service is optional and the DNS label is tied to the public IP resource associated with the Cloud Service.
-- VIP Swap is currently unsupported for Cloud Services (extended support).
-- Cloud Services (extended support) requires [Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to manage certificates. The cscfg file and templates require referencing the Key Vault to obtain the certificate information. 
-- [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are required to deploy Cloud Services (extended support).
-- The Network Configuration File (netcfg) does not exist in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
+The major differences between Cloud Services (classic) and Cloud Services (extended support) with respect to deployment are: 
+
+- Azure Resource Manager deployments use [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) which is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. Service Configuration and Service definition file needs to be consistent with the [ARM Template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) while deploying Cloud Services (extended support). This can be achieved either by [manually creating the ARM template](deploy-template.md) or using [PowerShell](deploy-powershell.md), [Portal](deploy-portal.md) and [Visual Studio](deploy-visual-studio.md).  
+
+- Customers must use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to [manage certificates in Cloud Services (extended support)](certificates-and-key-vault.md). Azure Key Vault lets you securely store and manage application credentials such as secrets, keys and certificates in a central and secure cloud repository. Your applications can authenticate to Key Vault at run time to retrieve credentials. 
+
+- All resources deployed through the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) must be inside a virtual network. Virtual networks and subnets are created in Azure Resource Manager using existing Azure Resource Manager APIs and will need to be referenced within the NetworkConfiguration section of the .cscfg when deploying Cloud Services (extended support).   
+
+- Each cloud service (extended support) is a single independent deployment. Cloud services (extended support) does not support multiple slots within a single cloud service.  
+    - VIP Swap<sup>*</sup> capability may be used to swap between two cloud services (extended support). To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)  
+
+- Domain Name Service (DNS) label is optional for a cloud service (extended support). In Azure Resource Manager, the DNS label is a property of the Public IP resource associated with the cloud service. 
+
+
+<sup>*</sup> VIP swap for Cloud Services (extended support) is not available during Public Preview.  
 
 ## What does not change 
 - You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
