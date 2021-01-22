@@ -170,7 +170,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 - If you run the script again in the same location, these files are overwritten.
 
-To run the script:  
+To run the script:  
 
 1. Copy the script to a local drive and unzip it. The following files appear:
 

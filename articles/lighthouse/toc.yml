@@ -116,6 +116,8 @@
     href: ./samples/policy-reference.md
   - name: Terraform
     href: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+  - name: Ansible
+    href: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - name: Resources
   items:
   - name: Microsoft Q&A for Azure Lighthouse
