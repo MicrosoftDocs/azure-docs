@@ -19,7 +19,7 @@ Use this article to find the entity categories that can be returned by [Named En
 
 A preview of NER v3.1 is also available, which includes the ability to detect personal (`PII`) and health (`PHI`) information. Additionally, click on the **Health** tab to see a list of supported categories in Text Analytics for health. 
 
-You can find a list of types returned by version 2.1 in the [migration guide](migration-guide.md#version-2-1-entity-types)
+You can find a list of types returned by version 2.1 in the [migration guide](migration-guide.md#version-21-entity-types)
 
 ## Entity categories
 
