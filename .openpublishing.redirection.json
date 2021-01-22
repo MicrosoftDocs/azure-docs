@@ -55621,6 +55621,11 @@
       "redirect_document_id": true
     },
     {
+    "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
+    "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
+    "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intralinks-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/intralinks-tutorial",
       "redirect_document_id": true
@@ -61383,6 +61388,16 @@
     {
       "source_path": "articles/data-factory/wrangling-data-flow-tutorial.md",
       "redirect_url": "/azure/data-factory/wrangling-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/media-services-v2-vs-v3.md",
+      "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/migrate-from-v2-to-v3.md",
+      "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
       "redirect_document_id": false
     }
   ]
