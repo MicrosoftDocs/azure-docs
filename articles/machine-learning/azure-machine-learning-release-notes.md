@@ -21,11 +21,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Fixed CLI help text when using AmlCompute with UserAssigned Identity
-  + **azureml-automl-core**
-    + Deploy and download buttons will become visible for AutoML vision runs, and models can be deployed or downloaded similar to other AutoML runs. There are two new files (scoring_file_v_1_0_0.py and conda_env_v_1_0_0.yml) which contain a script to run inferencing and a yml file to recreate the conda environment. The 'model.pth' file has also been renamed to use the '.pt' extension.
-    + In this update, we...
-  + **azureml-automl-runtime**
-    + In this update, we...
   + **azureml-contrib-automl-dnn-vision**
     + Deploy and download buttons will become visible for AutoML vision runs, and models can be deployed or downloaded similar to other AutoML runs. There are two new files (scoring_file_v_1_0_0.py and conda_env_v_1_0_0.yml) which contain a script to run inferencing and a yml file to recreate the conda environment. The 'model.pth' file has also been renamed to use the '.pt' extension.
   + **azureml-core**
@@ -41,8 +36,6 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
   + **azureml-interpret**
     + updated azureml-interpret to interpret-community 0.16.0
     + memory optimizations for explanation client in azureml-interpret
-  + **azureml-train-automl-client**
-    + In this update, we...
   + **azureml-train-automl-runtime**
     + Enabled streaming for ADB runs
   + **azureml-train-core**
