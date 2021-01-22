@@ -29,15 +29,15 @@ Follow these steps to disable geo-backups for your dedicated SQL pool (formerly 
 1. Select the dedicated SQL pool (formerly SQL DW) resource that you would like to disable geo-backups for. 
 1. Under **Settings** in the left-hand navigation panel, select **Geo-backup policy**.
 
-   ![Geo-backup](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-1.png)
+   ![Disable geo-backup](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-1.png)
 
 1. To disable geo-backups, select **Disabled**. 
 
-   ![Geo-backup](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-2.png)
+   ![Disabled geo-backup](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-2.png)
 
 1. Select *Save* to ensure that your settings are saved. 
 
-   ![Geo-backup](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-3.png)
+   ![Save geo-backup settings](./media/sql-data-warehouse-restore-from-geo-backup/disable-geo-backup-3.png)
 
 ## Next steps
 
