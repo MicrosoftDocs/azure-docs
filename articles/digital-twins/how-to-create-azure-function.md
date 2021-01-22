@@ -194,7 +194,7 @@ To set an environment variable with the URL of your instance, first get the URL 
 
 You can now create an application setting following the steps below:
 
-1. Search for your app using the function app name in the search bar and select the function app from the list
+1. Search for your function app in the portal search bar, and select it from the results
 1. Select _Configuration_ on the navigation bar on the left to create a new application setting
 1. In the _Application settings_ tab, select _+ New application setting_
 
@@ -203,8 +203,8 @@ You can now create an application setting following the steps below:
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Screenshot of the Azure portal: In the Configuration page for the function app, the button to create a New application setting is highlighted.":::
 
 In the window that opens up, use the host name value copied above to create an application setting.
-* _Name_ : ADT_SERVICE_URL
-* _Value_: https://{your-azure-digital-twins-host-name}
+* **Name**: ADT_SERVICE_URL
+* **Value**: https://{your-azure-digital-twins-host-name}
 
 Select _OK_ to create an application setting.
 
@@ -214,7 +214,7 @@ You can view your application settings with application name under the _Name_ fi
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal: The application settings page, with the new ADT_SERVICE_URL setting highlighted. The Save button is also highlighted.":::
 
-Any changes to the application settings need an application restart. Select _Continue_ to restart your application.
+Any changes to the application settings will require an application restart to take effect. Select _Continue_ to restart your application.
 
 :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal: There is a notice that any changes to application settings with restart your application. The Continue button is highlighted.":::
 
