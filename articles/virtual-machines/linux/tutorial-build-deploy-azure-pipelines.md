@@ -41,7 +41,7 @@ You learn how to:
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](./tutorial-manage-vm.md).
 
