@@ -4,7 +4,7 @@ description: A quickstart guide for Application Insights Agent. Monitor website 
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019 
+ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -24,8 +24,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ### Install prerequisites
 
 > [!NOTE]
-> As of April 2020 PowerShell gallery has deprecated TLS 1.0 and 1.1. 
-> Please consult [Powershell Gallery TLS](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support) Support to find additionnal prerequisite you might need.
+> As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
+>
+> For additionnal prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
 
 Run PowerShell as Admin.
 ```powershell
