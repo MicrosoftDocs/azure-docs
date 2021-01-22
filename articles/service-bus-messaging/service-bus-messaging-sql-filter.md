@@ -277,7 +277,7 @@ sys.correlationid like 'abc-%'
 ```
 
 ## Filter on message properties
-Here are the examples of using message properties in a filter. 
+Here are the examples of using message properties in a filter. You can access message properties using `user.property-name` or just `property-name`.
 
 ```csharp
 MessageProperty = 'A'
