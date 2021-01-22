@@ -36,7 +36,7 @@ This article explains how to use the Azure portal to create a Cloud Service (ext
     - Enter the desired name for your Cloud Service (extended support) deployment.
     -  Select the region to deploy to.
 
-    :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows purchasing a cloud service from the marketplace.":::
+    :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the Cloud Services (extended support) home blade.":::
 
     > [!NOTE]
     > The subscription used for deploying Cloud Services (extended support) needs to have one of the following roles (owner or contributor) assigned via Azure Resource Manager role based access control (RBAC). If your subscription does not have one of these roles, make sure it is added before proceeding further.

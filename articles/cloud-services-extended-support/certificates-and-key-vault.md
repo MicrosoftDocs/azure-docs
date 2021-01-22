@@ -49,8 +49,6 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 - `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
  
 
-## Next steps
-
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).

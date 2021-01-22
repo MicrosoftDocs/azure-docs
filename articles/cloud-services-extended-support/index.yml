@@ -54,7 +54,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Extensions
-            url: extension.md
+            url: extensions.md
           - text: Enable alerts
             url: enable-alerts.md
           - text: Configure scaling
