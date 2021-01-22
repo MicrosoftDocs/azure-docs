@@ -21,7 +21,7 @@ different production-ready UI SDK options depending on your customization, perfo
   - **Meeting Composite** - In addition to open-source composite components, we offer a closed-source composite that enables a Teams-like meeting experience that features many of the features you would expect such as blurred background and raised hand. More info: [UI Framework Meetings](./meetings.md). This experience is only available for **mobile** today.
 - **Base Components** - These are open-source building blocks that enable developers to build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences. 
 
-These UI SDKs all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. The Meeting system is designed to match Microsoft Team's default meeting experience. 
+These UI SDKs all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. The Meeting system is designed to match Microsoft Team's default meeting experience. Fluent UI provides a foundational layer for the UI Framework that has been battle tested across Microsoft products. They have built in customization which can be accessed directly using Fluent UI methods. More information on [How to customize components](../../quickstarts/ui-framework/how-to-customize-components.md).
 
 ## **Differentiating Components and Composites**
 
