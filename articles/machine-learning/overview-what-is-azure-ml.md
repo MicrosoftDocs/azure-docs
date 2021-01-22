@@ -123,7 +123,6 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 - Create your first experiment with your preferred method:
 - + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
