@@ -61,6 +61,10 @@ If a queue item was already processed, allow your function to be a no-op.
 
 Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
+## Group functions with care
+
+TODO
+
 ## Scalability best practices
 
 There are a number of factors that impact how instances of your function app scale. The details are provided in the documentation for [function scaling](functions-scale.md).  The following are some best practices to ensure optimal scalability of a function app.
