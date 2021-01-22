@@ -95,7 +95,7 @@ The steps provided here deploy the SCIM endpoint to a service using [Visual Stud
 
 ### Open solution and deploy to Azure App Service
 
-1. Download the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from GitHub. Select **Clone or download**, thne either:
+1. Download the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from GitHub. Select **Clone or download**, then either:
    - Select **Open in Desktop**
    - Copy the link, open **Visual Studio**, and select **Clone or check out code** to enter copied link to make a local copy.
 
