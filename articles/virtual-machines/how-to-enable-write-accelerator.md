@@ -165,7 +165,7 @@ You can enable Write Accelerator via the portal where you specify your disk cach
 
 You can use the [Azure CLI](/cli/azure/) to enable Write Accelerator.
 
-To enable Write Accelerator on an existing disk, use [az vm update](/cli/azure/vm#az-vm-update), you may use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+To enable Write Accelerator on an existing disk, use [az vm update](/cli/azure/vm#az_vm_update), you may use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
 To attach a disk with Write Accelerator enabled use [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach), you may use the following example if you substitute in your own values: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
