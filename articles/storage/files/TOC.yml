@@ -93,6 +93,8 @@
       href: storage-how-to-create-file-share.md
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
+    - name: Deploy DFS-N with Azure Files
+      href: manage-namespaces.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
     - name: Create an NFS share
