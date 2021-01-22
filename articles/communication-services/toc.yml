@@ -38,10 +38,10 @@
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
   - name: UI Framework
     items:
-    - name: Create your own UI Framework component
-      href: quickstarts/ui-framework/create-your-own-components.md
     - name: Getting started with components
       href: quickstarts/ui-framework/getting-started-with-components.md
+    - name: Create your own UI Framework component
+      href: quickstarts/ui-framework/create-your-own-components.md
 - name: Tutorials
   expanded: false
   items:
