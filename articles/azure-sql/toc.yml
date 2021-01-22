@@ -1376,7 +1376,7 @@
     - name: SQL maintenance windows
       href: database/sql-maintenance-window.md
     - name: SQL Maintenance window FAQ
-      href: database/sql-maintenance-window-faq.md
+      href: database/sql-maintenance-window-faq.yml
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
