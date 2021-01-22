@@ -16,65 +16,62 @@ Get started with Azure Attestation by following this quickstart to manage an att
 
 ## Attestation provider
 
-### Create an attestation provider
+In this section, you'll create an attestation provider and configure it with either unsigned policies or signed policies. This section also explains how to view and how to delete the attestation provider.
 
-#### To configure the provider with unsigned policies
+### Create and configure the provider with unsigned policies
 
-1.	From the Azure portal menu, or from the Home page, select **Create a resource**
-2.	In the Search box, enter **attestation**
-3.	From the results list, choose **Microsoft Azure Attestation**
-4.	On the Microsoft Azure Attestation page, choose **Create**
-5.	On the Create attestation provider page, provide the following inputs:
-	
-	**Subscription**: Choose a subscription
-	
-	**Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name
-	
-	**Name**: A unique name is required
+1. Go to the Azure portal menu or the home page and select **Create a resource**.
+2. In the search box, enter **attestation**.
+3. On the results list, choose **Microsoft Azure Attestation**.
+4. On the **Microsoft Azure Attestation** page, select **Create**.
+5. On the **Create attestation provider** page, provide the following inputs:
 
-	**Location**: choose a location 
-	
-	**Policy signer certificates file**: Do not upload policy signer certificates file to configure the provider with unsigned policies 
-6.	After providing the required inputs, click **Review+Create**
-7.	Fix validation issues if any and click **Create**.
+   - **Subscription**: choose a subscription.
+   - **Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name.
+   - **Name**: enter a unique name.
+   - **Location**: choose a location.
+   - **Policy signer certificates file**: don't upload the policy signer certificates file to configure the provider with unsigned policies.
 
-#### To configure the provider with signed policies
+6. After you provide the required inputs, select **Review+Create**.
+7. If there are validation issues, fix them and select **Create**.
 
-1.	From the Azure portal menu, or from the Home page, select **Create a resource**
-2.	In the Search box, enter **attestation**
-3.	From the results list, choose **Microsoft Azure Attestation**
-4.	On the Microsoft Azure Attestation page, choose **Create**
-5.	On the Create attestation provider page, provide the following information:
-	
-	a. **Subscription**: Choose a subscription
-	
-	b. **Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name
-	
-	c. **Name**: A unique name is required
+### Create and configure the provider with signed policies
 
-	d. **Location**: choose a location 
-	
-	e. **Policy signer certificates file**: To configure the attestation provider with policy signing certs, upload certs file. See examples [here](/azure/attestation/policy-signer-examples) 
-6.	After providing the required inputs, click **Review+Create**
-7.	Fix validation issues if any and click **Create**.
+1. Go to the Azure portal menu or the home page and select **Create a resource**.
+2. In the search box, enter **attestation**.
+3. On the results list, choose **Microsoft Azure Attestation**.
+4. On the **Microsoft Azure Attestation** page, choose **Create**.
+5. On the **Create attestation provider** page, provide the following information:
 
-### View attestation provider
+   - **Subscription**: choose a subscription.
+   - **Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name.
+   - **Name**: enter a unique name.
+   - **Location**: choose a location.
+   - **Policy signer certificates file**: upload the policy signer certificates file to configure the attestation provider with signed policies. Look at some [examples of policy signer certificates](/azure/attestation/policy-signer-examples) for more information.
 
-1.	From the Azure portal menu, or from the Home page, select **All resources**
-2.	In the filter box, enter attestation provider name and select it
+6. After you provide the required inputs, select **Review+Create**.
+7. If there are validation issues, fix them and select **Create**.
 
-### Delete attestation provider
+### View the attestation provider
 
-1.	From the Azure portal menu, or from the Home page, select **All resources**
-2.	In the filter box, enter attestation provider name
-3.	Select the checkbox and click **Delete**
-4.	Type yes and click **Delete**
-[OR]
-1.	From the Azure portal menu, or from the Home page, select **All resources**
-2.	In the filter box, enter attestation provider name
-3.	Select the attestation provider and navigate to overview page
-4.	Click **Delete** in the top menu and click **Yes**
+1. Go to the Azure portal menu or the home page and select **All resources**.
+2. In the filter box, enter the attestation provider name and select it.
 
+### Delete the attestation provider
+
+There are two ways to delete the attestation provider. You can:
+
+1. Go to the Azure portal menu or the home page and select **All resources**.
+2. In the filter box, enter the attestation provider name.
+3. Select the checkbox and choose **Delete**.
+4. Enter **yes** and select **Delete**.
+
+Or you can:
+
+1. Go to the Azure portal menu or the home page and select **All resources**.
+2. In the filter box, enter the attestation provider name.
+3. Select the attestation provider and go to the overview page.
+4. Select **Delete** on the menu bar and choose **Yes**.
 
 ## Attestation policy signers
 
