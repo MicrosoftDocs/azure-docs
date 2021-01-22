@@ -1,6 +1,6 @@
 ---
 title: Set up KDC proxy Windows Virtual Desktop - Azure
-description: How to set up the KDC proxy in Windows Virtual Desktop.
+description: How to set up a Windows Virtual Desktop host pool to use a KDC proxy.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/21/2021
@@ -9,7 +9,7 @@ manager: lizross
 ---
 # Configure KDC proxy
 
-This article will show you how to configure a KDC proxy for your host pool. This proxy lets organizations authenticate with Kerberos outside of their enterprise boundaries, which enables Smartcard authentication for external clients.
+This article will show you how to configure a KDC proxy for your host pool. This proxy lets organizations authenticate with Kerberos outside of their enterprise boundaries. For example, you can use the KDC proxy to enable Smartcard authentication for external clients.
 
 To configure the KDC proxy:
 
@@ -34,4 +34,4 @@ To configure the KDC proxy:
 6. The selected host pool should now begin to issue RDP connection files with the kdcproxyname field that you entered included.
 
 >[!NOTE]
->The RDGateway role in Remote Desktop Services includes a KDC Proxy service. See *this article* for how to set one up to be a target for Windows Virtual Desktop.
+>The RDGateway role in Remote Desktop Services includes a KDC Proxy service. See [Deploy the RD Gateway role in Windows Virtual Desktop](rdgateway-role.md) for how to set one up to be a target for Windows Virtual Desktop.
