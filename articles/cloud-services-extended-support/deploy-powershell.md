@@ -37,7 +37,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 
     ```powershell
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
-    $container = New-AzStorageContainer -Name “contosocontainer” -Context $storageAccount.Context -Permission Blob 
+    $container = New-AzStorageContainer -Name “ContosoContainer” -Context $storageAccount.Context -Permission Blob 
     ```
 
 6. Upload your Cloud Service package (cspkg) to the storage account.
@@ -69,7 +69,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 9. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a static IP, it needs to referenced as a Reserved IP in Service Configuration file.  
 
     ```powershell
-    $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “ContosoAppDNS” -Sku Basic 
+    $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
 10. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer.  
@@ -81,10 +81,10 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-11. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the cloud service roles. The key vault needs to be enabled for deployment which permits role instances to retrieve certificate stored as secrets from key vault. he Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+11. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
     ```powershell
-    New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
+    New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US” 
     ```
 
 13. Update the Key Vault access policy and grant certificate permissions to your user account. 
@@ -100,7 +100,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     ```
  
 
-14. For the purpose of this example we will add a self signed certificate to a Key Vault. The certificate thumbprint needs to be added in cloud service configuration (cscfg) file for deployment on cloud service roles. 
+14. For the purpose of this example we will add a self signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles. 
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
@@ -119,12 +119,12 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 16. Create a Role Profile in-memory object. Role profile defines a roles sku specific properties such as name, capacity and tier. For this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
 
     ```powershell
-    $frontendRole = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
-    $backendRole = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoBackend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
+    $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
+    $backendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoBackend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
     $roleProfile = @{role = @($frontendRole, $backendRole)} 
     ```
 
-17. Create a Extension Profile in-memory object that you want to add to your cloud service. For this example we will add RDP extension. 
+17. (Optional) Create a Extension Profile in-memory object that you want to add to your cloud service. For this example we will add RDP extension. 
 
     ```powershell
     $credential = Get-Credential 
@@ -138,7 +138,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     $tag=@{"Owner" = "Contoso"} 
     ```
 
-19. Create Cloud Service deployment using profile objects & SAS URLs.  `-Configuration $cscfgContent` is also supported 
+19. Create Cloud Service deployment using profile objects & SAS URLs.
 
     ```powershell
     $cloudService = New-AzCloudService                                            	    ` 
@@ -148,15 +148,13 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     -PackageUrl $cspkgUrl     				    ` 
     -ConfigurationUrl $cscfgUrl                                  	    ` 
     -UpgradeMode 'Auto'                                           ` 
-    -RoleProfileRole $roleProfile                                       ` 
-    -NetworkProfileLoadBalancerConfiguration $networkProfile  ` 
-    -ExtensionProfileExtension $extensionProfile ` 
-    -OsProfile $osProfile  
+    -RoleProfile $roleProfile                                       ` 
+    -NetworkProfile $networkProfile  ` 
+    -ExtensionProfile $extensionProfile ` 
+    -OSProfile $osProfile  
     -Tag $tag 
     ```
 
-
 ## Next steps 
-- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
