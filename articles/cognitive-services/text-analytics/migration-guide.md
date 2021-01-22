@@ -70,30 +70,30 @@ See the reference documentation for examples of the JSON response.
 
 The following table lists the entity types returned for NER v2.1.
 
-| Category   | Subcategory | Description                          |
-|------------|-------------|--------------------------------------|
-| Person     | N/A         | Names of people.  |
-|Location    | N/A         | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
-|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. |
-| PhoneNumber | N/A | Phone numbers (US and EU phone numbers only). |
-| Email | N/A | Email addresses. |
-| URL | N/A | URLs to websites. |
-| IP | N/A | Network IP addresses. |
-| DateTime | N/A | Dates and times of day.| 
-| DateTime | Date | Calender dates. |
-| DateTime | Time | Times of day |
-| DateTime | DateRange | Date ranges. |
-| DateTime | TimeRange | Time ranges. |
-| DateTime | Duration | Durations. |
-| DateTime | Set | Set, repeated times. |
-| Quantity | N/A | Numbers and numeric quantities. |
-| Quantity | Number | Numbers. |
-| Quantity | Percentage | Percentages.|
-| Quantity | Ordinal | Ordinal numbers. |
-| Quantity | Age | Ages. |
-| Quantity | Currency | Currencies. |
-| Quantity | Dimension | Dimensions and measurements. |
-| Quantity | Temperature | Temperatures. |
+| Category   | Description                          |
+|------------|--------------------------------------|
+| Person      Names of people.  |
+|Location    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+|Organization | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. |
+| PhoneNumber | Phone numbers (US and EU phone numbers only). |
+| Email | Email addresses. |
+| URL | URLs to websites. |
+| IP | Network IP addresses. |
+| DateTime | Dates and times of day.| 
+| Date | Calender dates. |
+| Time | Times of day |
+| DateRange | Date ranges. |
+| TimeRange | Time ranges. |
+| Duration | Durations. |
+| Set | Set, repeated times. |
+| N/A | Numbers and numeric quantities. |
+| Number | Numbers. |
+| Percentage | Percentages.|
+| Ordinal | Ordinal numbers. |
+| Age | Ages. |
+| Currency | Currencies. |
+| Dimension | Dimensions and measurements. |
+| Temperature | Temperatures. |
 
 ## [Language detection](#tab/language-detection)
 
