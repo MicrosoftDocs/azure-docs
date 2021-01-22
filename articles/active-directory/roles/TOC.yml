@@ -10,6 +10,11 @@
   items:
   - name: Create unlimited app registrations
     href: quickstart-app-registration-limits.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Assign users to admin roles
+    href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   expanded: true
   items:
@@ -21,11 +26,6 @@
     href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name: Understand administrative units in Azure AD
     href: administrative-units.md
-- name: Tutorials
-  expanded: true
-  items:
-  - name: Assign users to admin roles
-    href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: How-to guides
   expanded: true
   items:
