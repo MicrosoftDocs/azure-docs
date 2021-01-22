@@ -39,6 +39,30 @@ To use the new feature, follow the steps below.
 
 ![Accidental deletes](media/how-to-accidental-deletes/accident-1.png)
 
+## Recovering from an accidental delete instance
+If you encounter an accidental delete you will see this on the status of your provisioning agent configuration.  It will say **Delete threshold exceeded**.
+ ![Accidental deletes](media/how-to-accidental-deletes/delete-1.png)
+
+By clicking on **Delete threshold exceeded**, you will see the sync status info.  This will provide additional details. 
+ ![Accidental deletes](media/how-to-accidental-deletes/delete-2.png)
+
+By right-clicking on the elipses you will get the following options:
+ - View provisioning log
+ - View agent
+ - Allow deletes
+
+ ![Accidental deletes](media/how-to-accidental-deletes/delete-3.png)
+
+By viewing the provisioning logs, you can see the **StagedDelete** entries and review the information provided on the users that have been deleted.
+ ![Accidental deletes](media/how-to-accidental-deletes/delete-7.png)
+
+
+By allowing the deletes, click **Yes** on the confirmation to allow the deletes.
+ ![Accidental deletes](media/how-to-accidental-deletes/delete-4.png)
+
+You will see confirmation that the deletes were accepted and the status will return to healthy with the next cycle. 
+ ![Accidental deletes](media/how-to-accidental-deletes/delete-8.png)
+
 ## Next steps 
 
 - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
