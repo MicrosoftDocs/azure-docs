@@ -37,7 +37,7 @@ The following headers are required:
 
 | Name | Description |
 | :--- | :---------- |
-| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | The name of the Azure resource group associated with the resource. You can get this value from the Azure Resource Manager API, CLI, or the portal. |
 | vmname | The name of the Azure Virtual Machine. |
 | metricnames | Comma-separated list of valid  [Load Balancer metrics](../../load-balancer/load-balancer-standard-diagnostics.md). |
