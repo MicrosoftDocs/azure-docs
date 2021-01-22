@@ -1,7 +1,7 @@
 ---
-title: Getting started with UI Framework Base Components
+title: Getting started with UI Framework Composite Components
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to get started with UI Framework Base Components
+description: In this quickstart, you'll learn how to get started with UI Framework Composite Components
 author: ddematheu2
 ms.author: dademath
 ms.date: 11/16/2020
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 ---
 
-# Quickstart: Getting started with UI Framework Components
+# Quickstart: Getting started with UI Framework Composites
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
