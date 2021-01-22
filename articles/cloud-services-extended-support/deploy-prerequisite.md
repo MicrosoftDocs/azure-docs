@@ -87,7 +87,7 @@ Remove old certificate definitions (used for RDP plugin) from the Service Config
 
 Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) in the NetworkConfiguration section. 
 
-For a virtual network belonging to the same resource group as the cloud service, referencing only the virtual network name in the .cscfg is sufficient. If the virtual network and cloud service are in two different resource groups, then the virtual network needs to be specified in the .cscfg file.
+For a virtual network belonging to the same resource group as the cloud service, referencing only the virtual network name in the cscfg is sufficient. If the virtual network and cloud service are in two different resource groups, then the virtual network needs to be specified in the cscfg file.
  
 **Same resource group**
 ```json
