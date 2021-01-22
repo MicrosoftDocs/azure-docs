@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Deploy Azure IoT Connector for FHIR (preview) using an ARM template'
 description: In this quickstart, learn how to deploy Azure IoT Connector for FHIR (preview) using an Azure Resource Manager template (ARM template).
-author: ms-puneet-nagpal
+author: rbhaiya
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.author: punagpal
-ms.date: 11/12/2020
+ms.author: rabhaiya
+ms.date: 01/21/2021
 ---
 
 # Quickstart: Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)
@@ -17,7 +17,7 @@ In this quickstart, you'll learn how to use an Azure Resource Manager template (
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fdocs.microsoft.com%2fazure%2fhealthcare-apis%2fsamples%2f101-azure-iot-connector-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-:::code language="json" source="samples/101-azure-iot-connector-for-fhir/azuredeploy.json":::
+:::code language="json" source="https://raw.githubusercontent.com/microsoft/iomt-fhir/master/deploy/templates/managed/azuredeploy.json":::
 
 The template defines following Azure resources:
 
@@ -55,7 +55,7 @@ The template defines following Azure resources:
 
 Select the following link to deploy the Azure IoT Connector for FHIR using the ARM template in the Azure portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fdocs.microsoft.com%2fazure%2fhealthcare-apis%2fsamples%2f101-azure-iot-connector-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
 
 On the **Deploy Azure API for FHIR** page:
 
@@ -114,7 +114,7 @@ Write-Verbose "New-AzResourceGroup -Name $resourceGroupName -Location $resourceG
 New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion
 Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure IoT Connector for FHIR service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://docs.microsoft.com/azure/healthcare-apis/samples/101-azure-iot-connector-for-fhir/azuredeploy.json `
+    -TemplateUri https://raw.githubusercontent.com/microsoft/iomt-fhir/master/deploy/templates/managed/azuredeploy.json `
     -fhirServiceName $fhirServiceName `
     -location $location
     -iotConnectorName $iotConnectorName
@@ -154,7 +154,7 @@ params='fhirServiceName='$fhirServiceName' location='$location' iotConnectorName
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
 echo "RUN az deployment group create, which creates an Azure IoT Connector for FHIR service using an ARM template" &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://docs.microsoft.com/azure/healthcare-apis/samples/101-azure-iot-connector-for-fhir/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/microsoft/iomt-fhir/master/deploy/templates/managed/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
 
