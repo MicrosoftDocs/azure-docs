@@ -98,7 +98,7 @@ The `set-backend-service` policy is often used on an existing API to transform a
 
 ### Create API
 
-Follow the steps in [Add an API manually](add-api-manually) to create a blank API.
+Follow the steps in [Add an API manually](add-api-manually.md) to create a blank API.
 
 * In the API settings, leave the **Web service URL** blank
 * Add an **API URL suffix**, such as *fabric*.
