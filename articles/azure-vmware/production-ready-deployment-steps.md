@@ -92,7 +92,7 @@ Keep in mind that:
 
 In this step, you'll identify an ExpressRoute virtual network gateway and supporting Azure virtual network used to connect the Azure VMware Solution ExpressRoute circuit.  The ExpressRoute circuit facilitates connectivity to and from the Azure VMware Solution private cloud to other Azure services, Azure resources, and on-premises environments.
 
-An *existing* OR *new* ExpressRoute virtual network gateway can be used.
+You can use an *existing* OR *new* ExpressRoute virtual network gateway.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identity - Azure Virtual Network to attach Azure VMware Solution" border="false":::
 
