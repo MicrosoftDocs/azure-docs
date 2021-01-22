@@ -100,7 +100,7 @@ When boot diagnostics are enabled, each time you stop and start the VM, informat
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Now start the VM with the [az vm start](/cli/azure/vm#az-vm-start) command as follows:
+Now start the VM with the [az vm start](/cli/azure/vm#az_vm_start) command as follows:
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
