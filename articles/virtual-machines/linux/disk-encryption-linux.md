@@ -42,7 +42,7 @@ The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resour
 
  
 
-To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index#az-login) command.
+To [Sign in to your Azure account with the Azure CLI](/cli/azure/authenticate-azure-cli), use the [az login](/cli/azure/reference-index#az_login) command.
 
 ```azurecli
 az login
