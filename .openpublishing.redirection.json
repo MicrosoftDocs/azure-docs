@@ -27400,8 +27400,13 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-1st-r-experiment.md",
-      "redirect_url": "/azure/machine-learning/tutorial-1st-r-experiment",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/Azure/azureml-sdk-for-r",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-1st-r-experiment.md",
+      "redirect_url": "https://github.com/Azure/azureml-sdk-for-r",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-auto-train-models.md",
@@ -51921,7 +51926,7 @@
     },
 	{
       "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
-      "redirect_url": "/azure/articles/active-directory/cloud-sync/what-is-cloud-sync",
+      "redirect_url": "/azure/active-directory/cloud-sync/what-is-cloud-sync",
       "redirect_document_id": false
     },
 	{
@@ -55614,6 +55619,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intime-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/intime-tutorial",
       "redirect_document_id": true
+    },
+    {
+    "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
+    "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
+    "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intralinks-tutorial.md",
