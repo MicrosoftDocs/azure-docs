@@ -53446,7 +53446,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications.md",
+      "source_path_from_root": "/articles/active-directory/manage-apps/developer-guidance-for-integrating-applications.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
