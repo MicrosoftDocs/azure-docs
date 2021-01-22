@@ -25,7 +25,7 @@ The tier you select determines:
 In a few instances, the tier you choose determines the availability of [premium features](#premium-features).
 
 > [!NOTE]
-> Looking for information about *Azure SKUs*? Start with the [Azure pricing](https://azure.microsoft.com/pricing/) and scroll down for links to per-service pricing pages.
+> Looking for information about "Azure SKUs"? Start with [Azure pricing](https://azure.microsoft.com/pricing/) and then scroll down for links to per-service pricing pages.
 
 ## Tier descriptions
 
