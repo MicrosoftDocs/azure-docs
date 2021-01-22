@@ -166,7 +166,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 In this section, create a private link service that uses the Standard Azure Load Balancer created in the previous step.
 
-Ceate a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
+Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
 * Named **myPrivateLinkService**.
 * In virtual network **myVNet**.
