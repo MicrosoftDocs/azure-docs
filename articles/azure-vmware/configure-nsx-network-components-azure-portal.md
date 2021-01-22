@@ -25,7 +25,7 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 ## Prerequisites
 Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a segment. 
 
-## Create an NSX-T segment
+## Create an NSX-T segment in the Azure portal
 You can create and configure an NSX-T segment from the Azure VMware Solution console in the Azure portal.  These segments are connected to the default Tier-1 Gateway, and the workloads on these segments get East-West and North-South connectivity. Once you create the segment, it displays in NSX-T Manager and vCenter.
 
 >[!NOTE]
@@ -48,7 +48,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
 3. Select **OK** to create the segment and attach it to the Tier-1 Gateway. The segment is now visible in the Azure VMware Solution console, NSX-T Manger, and vCenter.
 
-## Create a DHCP server or DHCP relay
+## Create a DHCP server or DHCP relay in the Azure portal
 You can create a DHCP server or relay directly from the Azure VMware Solution console in the Azure portal. The DHCP server or relay connects to the Tier-1 Gateway, which gets created when you deploy Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP.  After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP (Preview)** and then **Add**.
@@ -64,7 +64,7 @@ You can create a DHCP server or relay directly from the Azure VMware Solution co
 
 4. Complete the DHCP configuration by [providing DHCP ranges on the logical segments](#create-an-nsx-t-segment).
  
-## Configure port mirroring 
+## Configure port mirroring in the Azure portal
 You can configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. This option places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a VM, or a group of VMs, and then sent to a defined destination. 
 
 To set up port mirroring in the Azure VMware Solution console, you'll:
@@ -110,7 +110,7 @@ In this step, you'll define a profile for the source and destination VM groups' 
 
 3. Select **OK**. The profile and VM groups are visible in the Azure VMware Solution console.
 
-## Configure a DNS forwarder
+## Configure a DNS forwarder in the Azure portal
 You'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
 
 >[!TIP]
