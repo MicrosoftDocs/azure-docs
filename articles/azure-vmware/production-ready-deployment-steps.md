@@ -110,7 +110,6 @@ If the choice is to use an existing Azure Virtual Network verify there are no pr
 
 If the choice is to create a new Azure Virtual Network it can be created ahead of time or during deployment by clicking on the Create new option of Virtual Network section of the Create a private cloud deployment screen.
 
-For reference, below is a image of the Create a private cloud deployment screen and outlined in red is the Azure Virtual Network field that has been referred to throughout this section.
 
 
 >[!NOTE]
