@@ -18,38 +18,32 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: 1 - Create / manage a VM
+  - name: Create / manage a VM
     href: tutorial-manage-vm.md
-  - name: 2 - Create / manage disks
+  - name: Create / manage disks
     href: tutorial-manage-data-disk.md
-  - name: 3 - Automate configuration
+  - name: Automate configuration
     href: tutorial-automate-vm-deployment.md
-  - name: 4 - Create VM images
+  - name: Create VM images
     href: tutorial-custom-images.md
-  - name: 5 - Highly available VMs
+  - name: Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Create a scale set
+  - name: Create a scale set
     href: tutorial-create-vmss.md
-  - name: 7 - Load balance VMs
+  - name: Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 8 - Manage networking
+  - name: Manage networking
     href: tutorial-virtual-network.md
-  - name: 9 - Backup virtual machines
-    href: tutorial-backup-vms.md
-  - name: 10 - Enable disaster recovery
+  - name: Enable disaster recovery
     href: tutorial-disaster-recovery.md
-  - name: 11 - Manage VMs
+  - name: Manage VMs
     displayName: scope policy Azure RBAC lock tag
     href: tutorial-govern-resources.md
-  - name: 12 - Track and update VMs
+  - name: Track and update VMs
     href: tutorial-config-management.md
-  - name: 13 - Monitor VMs
+  - name: Monitor VMs
     href: tutorial-monitor.md
-  - name: 14 - Manage VM security
-    href: ../tutorial-azure-security.md
-  - name: 15 - Install a SQL\IIS\.NET stack
-    href: tutorial-iis-sql.md
-  - name: 16 - Secure web server with SSL
+  - name: Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Concepts
   items:
@@ -758,8 +752,6 @@
       href: ../custom-data.md
     - name: Chef
       href: /azure/developer/chef/windows-vm-configure
-    - name: Publish Web App from Visual Studio
-      href: publish-web-app-from-visual-studio.md
   - name: Run applications
     items:
     - name: SQL Server

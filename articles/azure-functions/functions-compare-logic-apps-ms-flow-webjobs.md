@@ -74,7 +74,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
 |**[Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](event-driven-scaling.md)**|✔||
-|**[Develop and test in browser](functions-create-first-azure-function.md)** |✔||
+|**[Develop and test in browser](./functions-get-started.md)** |✔||
 |**[Pay-per-use pricing](consumption-plan.md)**|✔||
 |**[Integration with Logic Apps](functions-twitter-email.md)**|✔||
 | **Trigger events** |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
@@ -119,4 +119,4 @@ Get started by creating your first flow, logic app, or function app. Select any 
 
 * [Get started with Power Automate](/power-automate/getting-started)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create your first Azure function](functions-create-first-azure-function.md)
+* [Create your first Azure function](./functions-get-started.md)
