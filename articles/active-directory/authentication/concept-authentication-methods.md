@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 
 ms.author: justinha
 author: justinha
@@ -69,7 +69,7 @@ The following table outlines when an authentication method can be used during a 
 | FIDO2 security key (preview)   | Yes                    | MFA                       |
 | OATH hardware tokens (preview) | No                     | MFA                       |
 | OATH software tokens           | No                     | MFA                       |
-| SMS                            | Yes (preview)          | MFA and SSPR              |
+| SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
 
