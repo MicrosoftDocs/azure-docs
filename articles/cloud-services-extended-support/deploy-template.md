@@ -27,7 +27,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     -  Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your Service Configuration (cscfg) file and the certificates must be uploaded to a Key vault. A Key Vault can be created through the [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). The associated Key Vault must be located in the same region and subscription as cloud service. You will also need to add your key vault reference in the OsProfile section of the ARM template shown in the below steps.  
 
 ## Create a Cloud Service (extended support) 
-1. Create virtual network and subnet. The names of the virtual network and subnet much match the references in the Service Configuration uploaded in the previous step. If using an existing virtual network and subnet, omit this section from the ARM template and networking information will be imported based on your .cscfg file. 
+1. Create virtual network and subnet. The names of the virtual network must match the references in the Service Configuration uploaded in the previous step. If using an existing virtual network, omit this section from the ARM template and networking information will be imported based on your .cscfg file. 
 
     ```json
     "resources": [ 
@@ -142,7 +142,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
   
     > [!NOTE]
     > SourceVault is the ARM Resource ID to your Key Vault. You can find this information by locating Resource ID  in the properties section of the Key Vault. 
-    > - certificateUrl can be found by navigating to the certificate in the key vault is the Secret Identifier of your certificate  
+    > - certificateUrl can be found by navigating to the certificate in the key vault labeled as **Secret Identifier**  
    >  - certificateUrl should be of the form https://{keyvault-endpoin}/secrets/{secretname}/{secret-id} 
 
 5. Create a Role Profile. Ensure that the number of roles, role names, number of instances in each role and sizes are the same across the Service Configuration (cscfg), Service Definition (csdef) and role profile section in ARM template. 
@@ -185,7 +185,8 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                   } 
                 } 
               ] 
-            } 
+            },
+
     "extensionProfile": { 
               "extensions": [ 
                 { 
@@ -195,15 +196,15 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                     "publisher": "Microsoft.Azure.Diagnostics", 
                     "type": "PaaSDiagnostics", 
                     "typeHandlerVersion": "1.5", 
-                    "settings": "Include XML format of Public Config  as a string ", 
-                    "protectedSettings": "Include XML format of Private Config  as a string ", 
+                    "settings": "Include PublicConfig XML as a raw string", 
+                    "protectedSettings": "Include PrivateConfig XML as a raw string”", 
                     "rolesAppliedTo": [ 
                       "WebRole1" 
                     ] 
                   } 
-                } 
-              ] 
-            } 
+                }
+              ]
+            },
     ```    
 
 7. Review the full template. 
@@ -413,42 +414,25 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
                   }
                 }
               ]
+            },
+              "extensions": [ 
+                { 
+                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1", 
+                  "properties": { 
+                    "autoUpgradeMinorVersion": true, 
+                    "publisher": "Microsoft.Azure.Diagnostics", 
+                    "type": "PaaSDiagnostics", 
+                    "typeHandlerVersion": "1.5", 
+                    "settings": "Include PublicConfig XML as a raw string", 
+                    "protectedSettings": "Include PrivateConfig XML as a raw string”", 
+                    "rolesAppliedTo": [ 
+                      "WebRole1" 
+                    ] 
+                  } 
+                }
+              ]
             }
-    "extensionProfile": { 
-          "extensions": [ 
-            { 
-              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1", 
-              "properties": { 
-                "autoUpgradeMinorVersion": true, 
-                "publisher": "Microsoft.Azure.Diagnostics", 
-                "type": "PaaSDiagnostics", 
-                "typeHandlerVersion": "1.5", 
-                "settings": “Include XML format of PublicConfig  as a string”, 
-                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]", 
-                "rolesAppliedTo": [ 
-                  "WebRole1" 
-                ] 
-              } 
-            }, 
-            { 
-              "name": "Microsoft.Insights.VMDiagnosticsSettings_WorkerRole1", 
-              "properties": { 
-                "autoUpgradeMinorVersion": true, 
-                "publisher": "Microsoft.Azure.Diagnostics", 
-                "type": "PaaSDiagnostics", 
-                "typeHandlerVersion": "1.5", 
-                "settings": "[parameters('wadPublicConfig_WorkerRole1')]", 
-                "protectedSettings": "[parameters('wadPrivateConfig_WorkerRole1')]", 
-                "rolesAppliedTo": [ 
-                  "WorkerRole1" 
-                ] 
-              } 
-            } 
-          ] 
-        } 
-      }
-    }
-    
+          }
    ```
 
 8. Deploy the template and create the Cloud Service (extended support) deployment. 

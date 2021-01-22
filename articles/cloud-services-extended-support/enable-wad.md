@@ -43,27 +43,14 @@ To apply the Windows Azure diagnostics extension using ARM template, add an `ext
                 "publisher": "Microsoft.Azure.Diagnostics", 
                 "type": "PaaSDiagnostics", 
                 "typeHandlerVersion": "1.5", 
-                "settings": “Include XML format of PublicConfig  as a string”, 
-                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]", 
+                "settings": "Include PublicConfig XML as a raw string", 
+                "protectedSettings": "Include PrivateConfig XML as a raw string”", 
                 "rolesAppliedTo": [ 
                   "WebRole1" 
                 ] 
               } 
-            }, 
-            { 
-              "name": "Microsoft.Insights.VMDiagnosticsSettings_WorkerRole1", 
-              "properties": { 
-                "autoUpgradeMinorVersion": true, 
-                "publisher": "Microsoft.Azure.Diagnostics", 
-                "type": "PaaSDiagnostics", 
-                "typeHandlerVersion": "1.5", 
-                "settings": "[parameters('wadPublicConfig_WorkerRole1')]", 
-                "protectedSettings": "[parameters('wadPrivateConfig_WorkerRole1')]", 
-                "rolesAppliedTo": [ 
-                  "WorkerRole1" 
-                ] 
-              } 
-            } 
-          ] 
-        } 
+            }
+          ]
+        },
+
 ```
