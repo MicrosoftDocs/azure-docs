@@ -187,7 +187,7 @@ When no longer needed, use the [az group delete](/cli/azure/group#az-group-delet
 
 ```azurecli-interactive
   az group delete \
-    --name CreateIntLBQS-rg
+    --name CreatePrivLinkService-rg 
 ```
 
 ## Next steps
