@@ -44,24 +44,24 @@ If you encounter an accidental delete you will see this on the status of your pr
  ![Accidental deletes](media/how-to-accidental-deletes/delete-1.png)
 
 By clicking on **Delete threshold exceeded**, you will see the sync status info.  This will provide additional details. 
- ![Accidental deletes](media/how-to-accidental-deletes/delete-2.png)
+ ![Sync status](media/how-to-accidental-deletes/delete-2.png)
 
 By right-clicking on the elipses you will get the following options:
  - View provisioning log
  - View agent
  - Allow deletes
 
- ![Accidental deletes](media/how-to-accidental-deletes/delete-3.png)
+ ![Right click](media/how-to-accidental-deletes/delete-3.png)
 
 By viewing the provisioning logs, you can see the **StagedDelete** entries and review the information provided on the users that have been deleted.
- ![Accidental deletes](media/how-to-accidental-deletes/delete-7.png)
+ ![Provisioning logs](media/how-to-accidental-deletes/delete-7.png)
 
 
 By allowing the deletes, click **Yes** on the confirmation to allow the deletes.
- ![Accidental deletes](media/how-to-accidental-deletes/delete-4.png)
+ ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
 
 You will see confirmation that the deletes were accepted and the status will return to healthy with the next cycle. 
- ![Accidental deletes](media/how-to-accidental-deletes/delete-8.png)
+ ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
 
 ## Next steps 
 
