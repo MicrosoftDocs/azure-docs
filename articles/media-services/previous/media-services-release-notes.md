@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Azure Media Services release notes
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
-> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum]. 
 
@@ -41,6 +44,18 @@ We want to hear from our customers so that we can focus on fixing problems that 
 
 ## <a name="rest_version_history"></a>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## September 2020
+
+The following v2 properties will no longer be populated with historical job progress data:
+
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+To get task history, you should use the v2 job notifications via webhooks or queue messages using Notification Endpoints. For more information, see:
+
+* [Use Azure Queue storage to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+* [Use Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## February 2020
 
@@ -62,7 +77,7 @@ Also see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Me
 
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
-For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+For details, see [Migrate WAME to Media Encoder Standard](./migrate-windows-azure-media-encoder.md) and [Migrate AME to Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## March 2019
 
@@ -179,7 +194,7 @@ Some clients can come across a repeat tag issue in the Smooth Streaming manifest
 
 ## <a id="apr_changes16"></a>April 2016 release
 ### Media Analytics
- Media Services introduced Media Analytics for powerful video intelligence. For more information, see [Media Services Analytics overview](media-services-analytics-overview.md).
+ Media Services introduced Media Analytics for powerful video intelligence. For more information, see [Media Services Analytics overview](./legacy-components.md).
 
 ### Apple FairPlay (preview)
 You now can use Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay. You also can use the Media Services license delivery service to deliver FairPlay licenses to clients. For more information, see "Use Azure Media Services to stream your HLS content protected with Apple FairPlay."
@@ -256,7 +271,7 @@ For more information, see [this blog](https://azure.microsoft.com/blog/azure-med
 ## <a id="july_changes_15"></a>July 2015 release
 * The general availability of Media Encoder Standard was announced. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard uses presets, as described in [this section](https://go.microsoft.com/fwlink/?LinkId=618336). When you use a preset for 4K encodes, get the Premium reserved unit type. For more information, see [Scale encoding](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard uses presets, as described in [this section](./media-services-mes-presets-overview.md). When you use a preset for 4K encodes, get the Premium reserved unit type. For more information, see [Scale encoding](media-services-scale-media-processing-overview.md).
 * Live real-time captions were used with Media Services and the Media Player. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### Media Services .NET SDK updates
@@ -576,8 +591,8 @@ The following functionality was new in the November release of the SDK:
 [Microsoft Q&A question page for Azure Media Services]: /answers/topics/azure-media-services.html
 [Azure Media Services REST API reference]: /rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
-[Input metadata]: /azure/media-services/previous/media-services-input-metadata-schema
-[Output metadata]: /azure/media-services/previous/media-services-output-metadata-schema
+[Input metadata]: ./media-services-input-metadata-schema.md
+[Output metadata]: ./media-services-output-metadata-schema.md
 [Deliver content]: /previous-versions/azure/hh973618(v=azure.100)
 [Index media files with the Azure Media Indexer]: /previous-versions/azure/dn783455(v=azure.100)
 [StreamingEndpoint]: /rest/api/media/operations/streamingendpoint
@@ -591,7 +606,7 @@ The following functionality was new in the November release of the SDK:
 [Dynamic packaging]: /previous-versions/azure/jj889436(v=azure.100)
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: /previous-versions/azure/dn189154(v=azure.100)
-[Retry logic in the Media Services SDK for .NET]: /azure/media-services/previous/media-services-retry-logic-in-dotnet-sdk
+[Retry logic in the Media Services SDK for .NET]: ./media-services-retry-logic-in-dotnet-sdk.md
 [Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: /previous-versions/azure/dn303341(v=azure.100)
 [Create overlays]: /previous-versions/azure/dn640496(v=azure.100)

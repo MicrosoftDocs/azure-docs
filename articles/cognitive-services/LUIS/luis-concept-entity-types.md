@@ -1,8 +1,10 @@
 ---
 title: Entity types - LUIS
 description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/06/2020
 ---
 
 # Extract data with entities
@@ -135,9 +137,16 @@ A Pattern.any is only available in a [Pattern](luis-concept-patterns.md).
 
 If you need more than the [limit](luis-limits.md#model-limits), contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/).
 
-## Entity prediction status
+## Entity prediction status and errors
 
-The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance. This different score is based on the current trained model. Use this information to resolve training errors using one or more of the following:
+The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance. This different score is based on the current trained model. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="The LUIS portal shows when the entity has a different entity prediction than the entity you selected for an example utterance.":::
+
+The erroring text is highlighted within the example utterance, and the example utterance line has an error indicator to the right, shown as a red triangle. 
+
+Use this information to resolve entity errors using one or more of the following:
+* The highlighted text is mislabeled. To fix, review, correct, and retrain. 
 * Create a [feature](luis-concept-feature.md) for the entity to help identify the entity's concept
 * Add more [example utterances](luis-concept-utterance.md) and label with the entity
 * [Review active learning suggestions](luis-concept-review-endpoint-utterances.md) for any utterances received at the prediction endpoint that can help identify the entity's concept.

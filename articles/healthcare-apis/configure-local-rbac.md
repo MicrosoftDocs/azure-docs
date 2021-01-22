@@ -1,12 +1,12 @@
 ---
-title: Configure local Role Based Access Control (RBAC) for Azure API for FHIR
+title: Configure local role-based access control (local RBAC) for Azure API for FHIR
 description: This article describes how to configure the Azure API for FHIR to use an external Azure AD tenant for data plane
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 03/15/2020
-ms.author: mihansen
+ms.author: matjazl
 ---
 # Configure local RBAC for FHIR 
 
@@ -17,7 +17,7 @@ This article explains how to configure the Azure API for FHIR to use an external
 
 ## Add service principal
 
-Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
+Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the local RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
 
 Using the `Az` PowerShell module:
 

@@ -8,7 +8,14 @@
   expanded: true
   items:
     - name: Build your first static web app
-      href: getting-started.md
+      expanded: true
+      items:
+        - name: Visual Studio Code
+          href: getting-started.md
+        - name: Azure portal
+          href: get-started-portal.md
+        - name: Azure CLI
+          href: get-started-cli.md
 - name: Concepts
   items:
     - name: API support with Azure Functions
@@ -49,6 +56,8 @@
           href: publish-jekyll.md
     - name: Deploy from a framework
       items:
+        - name: Blazor
+          href: deploy-blazor.md
         - name: Next.js
           href: deploy-nextjs.md
         - name: Nuxt.js
@@ -57,9 +66,13 @@
   items:
     - name: Build your skills with Microsoft Learn
       items:
-        - name: Publish an Angular, React, Svelte, or Vue JavaScript app and API
+        - name: Publish an Angular, React, Svelte, or Vue JavaScript app
           href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Publish an API
+          href: /learn/modules/publish-static-web-app-api-preview-url
         - name: Create and publish a static web app with Gatsby
           href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+        - name: Create and publish a static web app with Blazor
+          href: /learn/modules/publish-app-service-static-web-app-api-dotnet
     - name: Quotas
       href: quotas.md

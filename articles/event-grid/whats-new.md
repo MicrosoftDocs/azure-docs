@@ -35,7 +35,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release includes additional bug fixes to enhance quality.
 - As version 5.3.1-preview, this release corresponds to the 2020-04-01-Preview API version, which includes the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
-    - [Partner topics](partner-topics-overview.md)
+    - [Partner topics](./partner-events-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
@@ -44,7 +44,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release includes various bug fixes to enhance quality.
 - As version 5.3.0-preview, this release corresponds to the 2020-04-01-Preview API version, which includes the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
-    - [Partner topics](partner-topics-overview.md)
+    - [Partner topics](./partner-events-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
@@ -54,7 +54,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - As version 5.2.0-preview, this release corresponds to the 2020-04-01-Preview API version.
 - It adds supports to the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
-    - [Partner topics](partner-topics-overview.md)
+    - [Partner topics](./partner-events-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)

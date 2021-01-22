@@ -2,6 +2,7 @@
 title: View Azure reservations as a Cloud Solution Provider
 description: Learn how you can view Azure Reservations as a Cloud Solution Provider.
 ms.service: cost-management-billing
+ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to

@@ -17,7 +17,7 @@ This article will walk you through the steps how to configure Azure Active Direc
 
 ## Setting the Azure AD Admin user
 
-Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create and Azure AD Admin user, please follow the following steps
+Only an Azure AD Admin user can create/enable users for Azure AD-based authentication. To create an Azure AD Admin user, please follow the following steps
 
 1. In the Azure portal, select the instance of Azure Database for MySQL that you want to enable for Azure AD.
 2. Under Settings, select Active Directory Admin:

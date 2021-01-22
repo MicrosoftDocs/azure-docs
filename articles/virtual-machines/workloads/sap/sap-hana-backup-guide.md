@@ -7,7 +7,7 @@ author: msjuergent
 manager: juergent
 editor: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -42,7 +42,7 @@ The first scenario shown is a scenario where Azure Backup Service is either usin
 
 Azure Backup integrates and is certified as backup solution for SAP HANA using the proprietary SAP HANA interface called [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). For more details of the solution, its capabilities and the Azure regions where it is available, read the article [Support matrix for backup of SAP HANA databases on Azure VMs](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). For details and principles about Azure Backup service for HANA, read the article [About SAP HANA database backup in Azure VMs](../../../backup/sap-hana-db-about.md). 
 
-The second possibility to leverage Azure Backup service is to create an application consistent backup using disk snapshots of Azure Premium Storage. Other HANA certified Azure storages, like [Azure Ultra disk](../../linux/disks-enable-ultra-ssd.md) and [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) are not supporting this kind of snapshot through Azure Backup service. Reading these articles:
+The second possibility to leverage Azure Backup service is to create an application consistent backup using disk snapshots of Azure Premium Storage. Other HANA certified Azure storages, like [Azure Ultra disk](../../disks-enable-ultra-ssd.md) and [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) are not supporting this kind of snapshot through Azure Backup service. Reading these articles:
 
 - [Plan your VM backup infrastructure in Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Application-consistent backup of Azure Linux VMs](../../../backup/backup-azure-linux-app-consistent.md) 
@@ -99,7 +99,7 @@ Information about the table consistency check can also be found on the SAP websi
 
 ### Pros and cons of HANA backup versus storage snapshot
 
-SAP doesn&#39;t give preference to either HANA backup versus storage snapshot. It lists their pros and cons, so one can determine which to use depending on the situation and available storage technology (see [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP doesn&#39;t give preference to either HANA backup versus storage snapshot. It lists their pros and cons, so one can determine which to use depending on the situation and available storage technology (see [Planning Your Backup and Recovery Strategy](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)).
 
 On Azure, be aware of the fact that the Azure blob snapshot feature doesn&#39;t provide file system consistency across multiple disks (see [Using blob snapshots with PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 

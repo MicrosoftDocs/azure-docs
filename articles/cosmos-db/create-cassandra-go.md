@@ -11,6 +11,7 @@ ms.date: 07/14/2020
 ---
 
 # Quickstart: Build a Go app with the `gocql` client to manage Azure Cosmos DB Cassandra API data
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -80,7 +81,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-The Azure Cosmos DB Cassandra host is passed to the [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) function to get a [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) struct that is then configured to use the username, password, port, and appropriate TLS version ([HTTPS/SSL/TLS encryption Security requirement](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
+The Azure Cosmos DB Cassandra host is passed to the [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) function to get a [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) struct that is then configured to use the username, password, port, and appropriate TLS version ([HTTPS/SSL/TLS encryption Security requirement](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
 
 The `GetSession` function is then called from the `main` function (`main.go`).
 

@@ -4,13 +4,13 @@ description: This article describes the new serverless compute tier and compares
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
+ms.reviewer: sstein
+ms.date: 12/8/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,7 +82,7 @@ Memory for serverless databases is reclaimed more frequently than for provisione
 
 #### Cache reclamation
 
-Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or active cache utilization is low.  Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.
+Unlike provisioned compute databases, memory from the SQL cache is reclaimed from a serverless database when CPU or active cache utilization is low.
 
 - Active cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 - When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
@@ -90,6 +90,8 @@ Unlike provisioned compute databases, memory from the SQL cache is reclaimed fro
 - The cache size is never reduced below the min memory limit as defined by min vCores which can be configured.
 
 In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
+
+Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delay after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations and QDS cleanup tasks generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs which can involve reading data pages into cache.
 
 #### Cache hydration
 
@@ -106,12 +108,13 @@ Autopausing is triggered if all of the following conditions are true for the dur
 
 An option is provided to disable autopausing if desired.
 
-The following features do not support autopausing, but do support auto-scaling.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
+The following features do not support autopausing, but do support auto-scaling.  If any of the following features are used, then autopausing should be disabled and the database will remain online regardless of the duration of database inactivity:
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
 - The sync database used in SQL data sync.  Unlike sync databases, hub and member databases support autopausing.
-- The job database used in elastic jobs.
+- DNS aliasing
+- The job database used in Elastic Jobs (preview).
 
 Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
 
@@ -126,9 +129,10 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels|
 |Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
 |Data masking|Adding, modifying, deleting, or viewing data masking rules|
-|Transparent data encryption|View state or status of transparent data encryption|
+|Transparent data encryption|Viewing state or status of transparent data encryption|
 |Vulnerability assessment|Ad hoc scans and periodic scans if enabled|
 |Query (performance) data store|Modifying or viewing query store settings|
+|Performance recommendations|Viewing or applying performance recommendations|
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
@@ -186,7 +190,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 

@@ -17,7 +17,9 @@ ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-#  Manage speed and concurrency of your encoding  
+#  Manage speed and concurrency of your encoding
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 This article gives a brief overview of how you can manage speed and concurrency of your encoding jobs/tasks.
 

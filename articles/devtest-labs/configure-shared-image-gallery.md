@@ -1,6 +1,6 @@
 ---
 title: Configure a shared image gallery in Azure DevTest Labs | Microsoft Docs
-description: Learn how to configure a shared image gallery in Azure DevTest Labs
+description: Learn how to configure a shared image gallery in Azure DevTest Labs, which enables users to access images from a shared location while creating lab resources.
 ms.topic: article
 ms.date: 06/26/2020
 ---
@@ -11,7 +11,7 @@ DevTest Labs now supports the [Shared Image Gallery](../virtual-machines/windows
 - Managed global replication of images
 - Versioning and grouping of images for easier management
 - Make your images highly available with Zone Redundant Storage (ZRS) accounts in regions that support availability zones. ZRS offers better resilience against zonal failures.
-- Sharing across subscriptions, and even between tenants, using role-based access control (RBAC).
+- Sharing across subscriptions, and even between tenants, using Azure role-based access control (Azure RBAC).
 
 For more information, see [Shared Image Gallery documentation](../virtual-machines/windows/shared-image-galleries.md). 
  

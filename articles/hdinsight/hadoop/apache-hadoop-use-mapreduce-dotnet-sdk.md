@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 01/15/2020
 ---
 
@@ -169,5 +169,5 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For submitting a Hive job, see [Run Apache Hive queries using HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
 * For creating HDInsight clusters, see [Create Linux-based Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * For managing HDInsight clusters, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md).
-* For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+* For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight).
 * For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).

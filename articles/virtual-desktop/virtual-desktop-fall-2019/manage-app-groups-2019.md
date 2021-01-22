@@ -1,10 +1,7 @@
 ---
 title: Manage app groups for Windows Virtual Desktop (classic) - Azure
-description: Describes how to set up Windows Virtual Desktop (classic) tenants in Azure Active Directory.
-services: virtual-desktop
+description: Learn how to set up Windows Virtual Desktop (classic) tenants in Azure Active Directory (AD).
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
@@ -48,7 +45,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-   
+
 4. Run the following cmdlet to install the application based on `AppAlias`. `AppAlias` becomes visible when you run the output from step 3.
 
    ```powershell

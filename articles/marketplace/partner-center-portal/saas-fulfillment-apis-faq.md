@@ -58,13 +58,13 @@ The response to the `Resolve` API includes the offer and plan information associ
 >[!Note]
 >You can block downgrades if you do not want to support specific conversion paths.
 
-The sequence below captures the flow when an Azure customer changes plan in the SaaS experience:
+The sequence below captures the flow when an Azure customer changes a plan in the SaaS experience:
 
 ![Customer plan change flow](media/saas-metering-service-integration-flow-b.png)
 
-The sequence below captures the flow when an Azure customer changes plan in Microsoft's storefront
+The sequence below captures the flow when an Azure customer changes a plan in Microsoft's online store:
 
-![Customer storefront plan change flow](media/saas-metering-service-integration-flow-c.png)
+![Customer online store plan change flow](media/saas-metering-service-integration-flow-c.png)
 
 ### How can the Azure user unsubscribe from the plan associated with Azure subscription?
 
@@ -74,9 +74,9 @@ The sequence below captures the flow when an Azure customer unsubscribes to the 
 
 ![Customer unsubscribes in the SaaS experience](media/saas-metering-service-integration-flow-d.png)
 
-The sequence below captures the flow when Azure user unsubscribes in Microsoft's storefront:
+The sequence below captures the flow when Azure user unsubscribes in Microsoft's online store:
 
-![Customer unsubscribes in Microsoft's storefront](media/saas-metering-service-integration-flow-e.png)
+![Customer unsubscribes in Microsoft's online store](media/saas-metering-service-integration-flow-e.png)
 
 ## Next steps
 

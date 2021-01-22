@@ -18,10 +18,12 @@ ms.author: juliako
 ms.reviewer: johndeu
 
 ---
-# Media Services operations REST API overview 
+# Media Services operations REST API overview
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 The **Media Services Operations REST** API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. For more information, see [Media Services Operations REST API reference](/rest/api/media/operations/azure-media-services-rest-api-reference).
 

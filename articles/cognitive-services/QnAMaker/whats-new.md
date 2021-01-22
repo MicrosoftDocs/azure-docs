@@ -18,6 +18,16 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 Learn what's new with QnA Maker.
 
+### November 2020
+
+* New version of QnA Maker launched in free Public Preview. Read more [here](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
+* Simplified resource creation
+* End to End region support
+* Deep learnt ranking model
+* Machine Reading Comprehension for precise answers
+  
 ### July 2020
 
 * [Metadata: `OR` logical combination of multiple metadata pairs](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
@@ -30,7 +40,7 @@ Learn what's new with QnA Maker.
 
 ### May 2020
 
-* [Role-based access control (RBAC)](concepts/role-based-access-control.md)
+* [Azure role-based access control (Azure RBAC)](concepts/role-based-access-control.md)
 * [Rich-text editing](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) for answers
 
 ### March 2020
@@ -43,17 +53,17 @@ Learn what's new with QnA Maker.
 
 ### November 2019
 
-* [US Government cloud support](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) for QnA Maker
-* [Multi-turn](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) feature in GA
-* [Chit-chat support](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) available in tier-1 languages
+* [US Government cloud support](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) for QnA Maker
+* [Multi-turn](./how-to/multiturn-conversation.md) feature in GA
+* [Chit-chat support](./how-to/chit-chat-knowledge-base.md#language-support) available in tier-1 languages
 
 ### October 2019
 
-* [Explicitly setting the language](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) for all knowledge bases in the  QnA Maker service.
+* [Explicitly setting the language](./index.yml) for all knowledge bases in the  QnA Maker service.
 
 ### September 2019
 
-* Import and export with [XLS file format](concepts/content-types.md)
+* Import and export with [XLS file format](./index.yml)
 
 ### June 2019
 

@@ -1,8 +1,10 @@
 ---
 title: App schema definition
 description: The LUIS app is represented in either the `.json` or `.lu` and includes all intents, entities, example utterances, features, and settings.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/05/2020
+ms.date: 08/22/2020
 ---
 
 # App schema definition
@@ -50,12 +52,30 @@ When you import and export the app, choose either `.json` or `.lu`.
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| element                  | Comment                              |
+|--------------------------|--------------------------------------|
+| "hierarchicals": [],     | Deprecated, use [machine-learning entities](luis-concept-entity-types.md).   |
+| "composites": [],        | Deprecated, use [machine-learning entities](luis-concept-entity-types.md). [Composite entity](reference-entity-composite.md) reference. |
+| "closedLists": [],       | [List entities](reference-entity-list.md) reference, primarily used as features to entities.    |
+| "versionId": "0.1",      | Version of a LUIS app.|
+| "name": "example-app",   | Name of the LUIS app. |
+| "desc": "",              | Optional description of the LUIS app.  |
+| "culture": "en-us",      | [Language](luis-language-support.md) of the app, impacts underlying features such as prebuilt entities, machine-learning, and tokenizer.  |
+| "tokenizerVersion": "1.0.0", | [Tokenizer](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Pattern.any entity](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Regular expression entity](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [Phrase lists (feature)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Deprecated, use [machine-learning entities](luis-concept-entity-types.md). |
+| "patterns": [],          |  [Patterns improve prediction accuracy](luis-concept-patterns.md) with [pattern syntax](reference-pattern-syntax.md)   |
+| "settings": []           | [App settings](luis-reference-application-settings.md)|
 
 ## Version 6.x
 

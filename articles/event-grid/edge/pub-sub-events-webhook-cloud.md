@@ -7,6 +7,7 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Publish, subscribe to events in cloud

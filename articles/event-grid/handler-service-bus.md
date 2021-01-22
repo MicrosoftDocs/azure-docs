@@ -2,7 +2,7 @@
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/03/2020
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
@@ -35,7 +35,7 @@ In the Azure portal, while creating an event subscription, select **Service Bus 
 
 ### Using CLI to add a Service Bus topic handler
 
-For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
+For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus topic:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -45,21 +45,11 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## Message properties
-If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, set the following message headers: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Property name | Description |
-| ------------- | ----------- | 
-| aeg-subscription-name | Name of event subscription. |
-| aeg-delivery-count | <p>Number of attempts made for the event.</p> <p>Example: "1"</p> |
-| aeg-event-type | <p>Type of the event.</p><p> Example: "Microsoft.Storage.blobCreated"</p> | 
-| aeg-metadata-version | <p>Metadata version of the event.</p> <p>Example: "1".</p><p> For **Event Grid event schema**, this property represents the metadata version and for **cloud event schema**, it represents the **spec version**. </p>|
-| aeg-data-version | <p>Data version of the event.</p><p>Example: "1".</p><p>For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply.</p> |
+When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
-## Message headers
-When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is the **event ID**.
-
-The event ID will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
+The internal system ID for the message will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
 
 ## REST examples (for PUT)
 

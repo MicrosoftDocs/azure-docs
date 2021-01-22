@@ -15,7 +15,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
-ms.author: kaanan
+ms.author: kaanan 
+ms.custom: devx-track-azurecli
 ---
 
 # Work with a virtual network TAP using the Azure CLI

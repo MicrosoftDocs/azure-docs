@@ -26,7 +26,7 @@ To migrate your logic app or related resources to another Azure resource group, 
 
 * The same Azure subscription that was used to create the logic app or integration account that you want to move
 
-* Resource owner permissions to move and set up the resources that you want. Learn more about [role-based access control (RBAC)](../role-based-access-control/built-in-roles.md#owner).
+* Resource owner permissions to move and set up the resources that you want. Learn more about [Azure role-based access control (Azure RBAC)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 

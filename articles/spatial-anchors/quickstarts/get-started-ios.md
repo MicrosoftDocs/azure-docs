@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create an iOS app'
-description: In this quickstart, you learn how to build an iOS app using Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+description: Learn to create an iOS app using Azure Spatial Anchors programmatically in either Swift or Objective-C.
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
@@ -97,7 +97,7 @@ Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `startSession()` and add the following line, substituting in your account domain from earlier: `cloudSession!.configuration.accountDomain = "MyAccountDomain";`.
+Locate the `spatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 # [Objective-C](#tab/openproject-objc)
 
@@ -107,7 +107,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `startSession()` and add the following line, substituting in your account domain from earlier: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 ---
 

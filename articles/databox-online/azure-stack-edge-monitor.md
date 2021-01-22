@@ -1,6 +1,6 @@
 ---
-title: Monitor your Azure Stack Edge device | Microsoft Docs 
-description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge.
+title: Monitor your Azure Stack Edge Pro device | Microsoft Docs 
+description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge Pro.
 services: databox
 author: alkohli
 
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
 ---
-# Monitor your Azure Stack Edge
+# Monitor your Azure Stack Edge Pro
 
-This article describes how to monitor your Azure Stack Edge. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics. Use the local web UI on your physical device to view the hardware status of the various device components.
+This article describes how to monitor your Azure Stack Edge Pro. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics. Use the local web UI on your physical device to view the hardware status of the various device components.
 
 In this article, you learn how to:
 

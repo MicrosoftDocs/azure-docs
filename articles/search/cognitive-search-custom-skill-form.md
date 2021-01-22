@@ -26,7 +26,7 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Train your model
 
-You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
+You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
 
 ## Set up the custom skill
 
@@ -163,5 +163,5 @@ In this guide, you created a custom skill from the Azure Form Recognizer service
 * [Azure Search Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 * [Define a skillset](cognitive-search-defining-skillset.md)
-* [Create a skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+* [Create a skillset (REST)](/rest/api/searchservice/create-skillset)
 * [Map enriched fields](cognitive-search-output-field-mapping.md)

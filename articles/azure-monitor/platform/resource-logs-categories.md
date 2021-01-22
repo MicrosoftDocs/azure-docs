@@ -3,7 +3,7 @@ title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/03/2020
+ms.date: 12/09/2020
 ---
 
 # Supported categories for Azure Resource Logs
@@ -13,7 +13,12 @@ ms.date: 06/03/2020
 
 [Azure Monitor resource logs](./platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service specific fields then added for different log categories. For more information,  see [Common and service specific schema for Azure Resource Logs]()
+A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service-specific fields then added for different log categories. For more information,  see [Common and service-specific schema for Azure Resource Logs]()
+
+
+## Costs
+
+There are costs associated with sending and storing any data into into Log Analytics, Azure Storage and/or Event hub. You may pay for the cost to get the data into these locations and for keeping it there.  Resource logs are one type of data you can send to these locations. There is an additional [cost to export some categories of resource logs](https://azure.microsoft.com/pricing/details/monitor/) into these locations, while others are free of export costs. Export cost specifics are listed in the table below.
 
 ## Supported log categories per resource type
 
@@ -22,17 +27,11 @@ Following is a list of the types of logs available for each resource type.
 Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 If you still something is missing, you can open a GitHub comment at the bottom of this article.
-
-## microsoft.aadiam/tenants
-
-|Category|Category Display Name|
-|---|---|
-|Signin|Signin|
-
-
 ## Microsoft.AnalysisServices/servers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Engine|Engine|
 |Service|Service|
@@ -40,14 +39,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.ApiManagement/service
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|
 
 
 ## Microsoft.AppPlatform/Spring
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ApplicationConsole|Application Console|
 |SystemLogs|System Logs|
@@ -55,23 +58,29 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Automation/automationAccounts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
+|DscNodeStatus|Dsc Node Status|
 |JobLogs|Job Logs|
 |JobStreams|Job Streams|
-|DscNodeStatus|Dsc Node Status|
 
 
 ## Microsoft.Batch/batchAccounts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ServiceLog|Service Logs|
 
 
 ## Microsoft.BatchAI/workspaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |BaiClusterEvent|BaiClusterEvent|
 |BaiClusterNodeEvent|BaiClusterNodeEvent|
@@ -80,58 +89,77 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Blockchain/blockchainMembers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
+|FabricOrderer|Fabric Orderer|
+|FabricPeer|Fabric Peer|
 |Proxy|Proxy|
 
 
 ## Microsoft.Blockchain/cordaMembers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |BlockchainApplication|Blockchain Application|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |WebApplicationFirewallLogs|Web Application Firewall Logs|
 
 
 ## Microsoft.Cdn/profiles
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AzureCdnAccessLog|Azure Cdn Access Log|
 
 
 ## Microsoft.Cdn/profiles/endpoints
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
-|CoreAnalytics|Gets the metrics of the endpoint, for example, bandwidth, egress, etc.|
+|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
 
 
 ## Microsoft.CognitiveServices/accounts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Audit|Audit Logs|
 |RequestResponse|Request and Response Logs|
+|Trace|Trace Logs|
 
 
 ## Microsoft.ContainerRegistry/registries
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ContainerRegistryLoginEvents|Login Events|
 |ContainerRegistryRepositoryEvents|RepositoryEvent logs|
@@ -139,7 +167,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.ContainerService/managedClusters
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |cluster-autoscaler|Kubernetes Cluster Autoscaler|
 |kube-apiserver|Kubernetes API Server|
@@ -150,14 +180,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.CustomProviders/resourceproviders
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AuditLogs|Audit logs for MiniRP calls|
 
 
 ## Microsoft.Databricks/workspaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |accounts|Databricks Accounts|
 |clusters|Databricks Clusters|
@@ -171,16 +205,11 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |workspace|Databricks Workspace|
 
 
-## Microsoft.DataCatalog/datacatalogs
-
-|Category|Category Display Name|
-|---|---|
-|ScanStatusLogEvent|ScanStatus|
-
-
 ## Microsoft.DataFactory/factories
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ActivityRuns|Pipeline activity runs log|
 |PipelineRuns|Pipeline runs log|
@@ -189,31 +218,70 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.DataLakeStore/accounts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Audit|Audit Logs|
 |Requests|Request Logs|
 
 
+## Microsoft.DataShare/accounts
+
+Cost to export: Free 
+
+|Category |Category Display Name|
+|---|---|
+|ReceivedShareSnapshots|Received Share Snapshots|
+|SentShareSnapshots|Sent Share Snapshots|
+|Shares|Shares|
+|ShareSubscriptions|Share Subscriptions|
+
+
 ## Microsoft.DBforMariaDB/servers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MariaDB Audit Logs|
 |MySqlSlowLogs|MariaDB Server Logs|
 
 
+## Microsoft.DBforMySQL/flexibleServers
+
+Cost to export: Free 
+
+|Category |Category Display Name|
+|---|---|
+|MySqlAuditLogs|MySQL Audit Logs|
+|MySqlSlowLogs|MySQL Slow Logs|
+
+
 ## Microsoft.DBforMySQL/servers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |MySqlAuditLogs|MySQL Audit Logs|
 |MySqlSlowLogs|MySQL Server Logs|
 
 
+## Microsoft.DBforPostgreSQL/flexibleServers
+
+Cost to export: Free 
+
+|Category |Category Display Name|
+|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|
+
+
 ## Microsoft.DBforPostgreSQL/servers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
 |QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|
@@ -222,21 +290,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.DBforPostgreSQL/serversv2
 
-|Category|Category Display Name|
-|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|
+Cost to export: Free 
 
-
-## Microsoft.DBforPostgreSQL/singleservers
-
-|Category|Category Display Name|
+|Category |Category Display Name|
 |---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|
 
 
 ## Microsoft.DesktopVirtualization/applicationgroups
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
 |Error|Error|
@@ -245,7 +310,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.DesktopVirtualization/hostpools
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
 |Connection|Connection|
@@ -256,7 +323,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.DesktopVirtualization/workspaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Checkpoint|Checkpoint|
 |Error|Error|
@@ -266,7 +335,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Devices/IotHubs
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |C2DCommands|C2D Commands|
 |C2DTwinOperations|C2D Twin Operations|
@@ -286,7 +357,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Devices/provisioningServices
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |DeviceOperations|Device Operations|
 |ServiceOperations|Service Operations|
@@ -294,28 +367,25 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |CassandraRequests|CassandraRequests|
 |ControlPlaneRequests|ControlPlaneRequests|
 |DataPlaneRequests|DataPlaneRequests|
+|GremlinRequests|GremlinRequests|
 |MongoRequests|MongoRequests|
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|
 |PartitionKeyStatistics|PartitionKeyStatistics|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|
 
 
-## Microsoft.EnterpriseKnowledgeGraph/services
-
-|Category|Category Display Name|
-|---|---|
-|AuditEvent|AuditEvent log|
-|DataIssue|DataIssue log|
-|Requests|Configuration log|
-
 ## Microsoft.EventGrid/domains
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
 |PublishFailures|Publish Failure Logs|
@@ -323,14 +393,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.EventGrid/systemTopics
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
 
 
 ## Microsoft.EventGrid/topics
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |DeliveryFailures|Delivery Failure Logs|
 |PublishFailures|Publish Failure Logs|
@@ -338,11 +412,13 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.EventHub/namespaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ArchiveLogs|Archive Logs|
 |AutoScaleLogs|Auto Scale Logs|
-|CustomerManagedKeyUserLogs|Customer-Managed Key Logs|
+|CustomerManagedKeyUserLogs|Customer Managed Key Logs|
 |EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|
 |KafkaCoordinatorLogs|Kafka Coordinator Logs|
 |KafkaUserErrorLogs|Kafka User Error Logs|
@@ -351,14 +427,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.HealthcareApis/services
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AuditLogs|Audit logs|
 
 
 ## Microsoft.Insights/AutoscaleSettings
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AutoscaleEvaluations|Autoscale Evaluations|
 |AutoscaleScaleActions|Autoscale Scale Actions|
@@ -366,7 +446,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Insights/Components
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AppAvailabilityResults|Availability results|
 |AppBrowserTimings|Browser timings|
@@ -381,50 +463,53 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |AppTraces|Traces|
 
 
-## Microsoft.IoTSpaces/Graph
-
-|Category|Category Display Name|
-|---|---|
-|Audit|Audit|
-|Egress|Egress|
-|Ingress|Ingress|
-|Operational|Operational|
-|Trace|Trace|
-|UserDefinedFunction|UserDefinedFunction|
-
-
 ## Microsoft.KeyVault/vaults
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AuditEvent|Audit Logs|
 
 
 ## Microsoft.Kusto/Clusters
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
+|Command|Command|
 |FailedIngestion|Failed ingest operations|
+|IngestionBatching|Ingestion batching|
+|Query|Query|
 |SucceededIngestion|Successful ingest operations|
+|TableDetails|Table details|
+|TableUsageStatistics|Table usage statistics|
 
 
 ## Microsoft.Logic/integrationAccounts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |IntegrationAccountTrackingEvents|Integration Account track events|
 
 
 ## Microsoft.Logic/workflows
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |WorkflowRuntime|Workflow runtime diagnostic events|
 
 
 ## Microsoft.MachineLearningServices/workspaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|
 |AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
@@ -435,14 +520,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Media/mediaservices
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |KeyDeliveryRequests|Key Delivery Requests|
 
 
 ## Microsoft.Network/applicationGateways
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ApplicationGatewayAccessLog|Application Gateway Access Log|
 |ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
@@ -451,7 +540,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/azurefirewalls
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AzureFirewallApplicationRule|Azure Firewall Application Rule|
 |AzureFirewallNetworkRule|Azure Firewall Network Rule|
@@ -459,21 +550,27 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/bastionHosts
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |BastionAuditLogs|Bastion Audit Logs|
 
 
 ## Microsoft.Network/expressRouteCircuits
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |PeeringRouteLog|Peering Route Table Logs|
 
 
 ## Microsoft.Network/frontdoors
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |FrontdoorAccessLog|Frontdoor Access Log|
 |FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|
@@ -481,7 +578,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/loadBalancers
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |LoadBalancerAlertEvent|Load Balancer Alert Events|
 |LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
@@ -489,7 +588,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/networksecuritygroups
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |NetworkSecurityGroupEvent|Network Security Group Event|
 |NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
@@ -498,7 +599,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/publicIPAddresses
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|
 |DDoSMitigationReports|Reports of DDoS mitigations|
@@ -507,14 +610,18 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/trafficManagerProfiles
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
 
 
 ## Microsoft.Network/virtualNetworkGateways
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |GatewayDiagnosticLog|Gateway Diagnostic Logs|
 |IKEDiagnosticLog|IKE Diagnostic Logs|
@@ -525,21 +632,27 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Network/virtualNetworks
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |VMProtectionAlerts|VM protection alerts|
 
 
 ## Microsoft.PowerBIDedicated/capacities
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Engine|Engine|
 
 
 ## Microsoft.RecoveryServices/Vaults
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AddonAzureBackupAlerts|Addon Azure Backup Alert Data|
 |AddonAzureBackupJobs|Addon Azure Backup Job Data|
@@ -559,35 +672,45 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Relay/namespaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |HybridConnectionsEvent|HybridConnections Events|
 
 
 ## Microsoft.Search/searchServices
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |OperationLogs|Operation Logs|
 
 
 ## Microsoft.ServiceBus/namespaces
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |OperationalLogs|Operational Logs|
 
 
 ## Microsoft.SignalRService/SignalR
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AllLogs|Azure SignalR Service Logs.|
 
 
 ## Microsoft.Sql/managedInstances
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |DevOpsOperationsAudit|Devops operations Audit Logs|
 |ResourceUsageStats|Resource Usage Statistics|
@@ -596,7 +719,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Sql/managedInstances/databases
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Errors|Errors|
 |QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
@@ -606,7 +731,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Sql/servers/databases
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AutomaticTuning|Automatic tuning|
 |Blocks|Blocks|
@@ -628,7 +755,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
-|Category|Category Display Name|
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -637,7 +766,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Storage/storageAccounts/fileServices
 
-|Category|Category Display Name|
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -646,7 +777,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Storage/storageAccounts/queueServices
 
-|Category|Category Display Name|
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -655,7 +788,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.Storage/storageAccounts/tableServices
 
-|Category|Category Display Name|
+Cost to export: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
+ 
+|Category |Category Display Name|
 |---|---|
 |StorageDelete|StorageDelete|
 |StorageRead|StorageRead|
@@ -664,22 +799,64 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |Authoring|Authoring|
 |Execution|Execution|
 
 
+## Microsoft.Synapse/workspaces
+
+Cost to export: Free 
+
+|Category |Category Display Name|
+|---|---|
+|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|
+|GatewayApiRequests|Synapse Gateway Api Requests|
+|SQLSecurityAuditEvents|SQL Security Audit Event|
+|SynapseRbacOperations|Synapse RBAC Operations|
+
+
+## Microsoft.Synapse/workspaces/bigDataPools
+
+Cost to export: Free 
+
+|Category |Category Display Name|
+|---|---|
+|BigDataPoolAppsEnded|Big Data Pool Applications Ended|
+
+
+## Microsoft.Synapse/workspaces/sqlPools
+
+Cost to export: Free 
+
+|Category |Category Display Name|
+|---|---|
+|DmsWorkers|Dms Workers|
+|ExecRequests|Exec Requests|
+|RequestSteps|Request Steps|
+|SqlRequests|Sql Requests|
+|SQLSecurityAuditEvents|Sql Security Audit Event|
+|Waits|Waits|
+
+
 ## microsoft.web/hostingenvironments
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+|Category |Category Display Name|
 |---|---|
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|
 
 
 ## microsoft.web/sites
 
-|Category|Category Display Name|
+Cost to export: Free 
+
+
+|Category |Category Display Name|
 |---|---|
 |AppServiceAppLogs|App Service Application Logs|
 |AppServiceAuditLogs|Access Audit Logs|
@@ -687,13 +864,14 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |AppServiceFileAuditLogs|Site Content Change Audit Logs|
 |AppServiceHTTPLogs|HTTP logs|
 |FunctionAppLogs|Function Application Logs|
-|ScanLogs|Antivirus scan logs|
 
 
 ## microsoft.web/sites/slots
 
+Cost to export: Free 
 
-|Category|Category Display Name|
+
+|Category |Category Display Name|
 |---|---|
 |AppServiceAppLogs|App Service Application Logs|
 |AppServiceAuditLogs|Access Audit Logs|
@@ -701,7 +879,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |AppServiceFileAuditLogs|Site Content Change Audit Logs|
 |AppServiceHTTPLogs|HTTP logs|
 |FunctionAppLogs|Function Application Logs|
-|ScanLogs|Antivirus scan logs|
 
 
 ## Next Steps

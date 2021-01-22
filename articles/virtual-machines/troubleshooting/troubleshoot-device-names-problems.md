@@ -39,7 +39,7 @@ The problem occurs because device scanning in Linux is scheduled by the SCSI sub
 
 To resolve this problem, use persistent naming. There are four ways to use persistent naming: by filesystem label, by UUID, by ID, or by path. We recommend using the filesystem label or UUID for Azure Linux VMs.
 
-Most distributions provide the `fstab` **nofail** or **nobootwait** parameters. These parameters enable a system to boot when the disk fails to mount at startup. Check your distribution documentation for more information about these parameters. For information on how to configure a Linux VM to use a UUID when you add a data disk, see [Connect to the Linux VM to mount the new disk](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+Most distributions provide the `fstab` **nofail** or **nobootwait** parameters. These parameters enable a system to boot when the disk fails to mount at startup. Check your distribution documentation for more information about these parameters. For information on how to configure a Linux VM to use a UUID when you add a data disk, see [Connect to the Linux VM to mount the new disk](../linux/add-disk.md#format-and-mount-the-disk).
 
 When the Azure Linux agent is installed on a VM, the agent uses Udev rules to construct a set of symbolic links under the /dev/disk/azure path. Applications and scripts use Udev rules to identify disks that are attached to the VM, along with the disk type and disk LUNs.
 

@@ -3,7 +3,7 @@ title: Connect to Azure Media Services v3 API - .NET
 description: This article demonstrates how to connect to Media Services v3 API with .NET.  
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,12 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2019
-ms.author: juliako
-ms.custom: has-adal-ref
+ms.topic: how-to
+ms.date: 11/17/2020
+ms.author: inhenkel
+ms.custom: "has-adal-ref, devx-track-csharp"
 ---
 # Connect to Media Services v3 API - .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows you how to connect to the Azure Media Services v3 .NET SDK using the service principal login method.
 
@@ -36,7 +38,7 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 
 The sample app in this topic, targets `netcoreapp2.0`. The code uses 'async main', which is available starting with C# 7.1. See this [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) for more details.
 
-## Add required NuGet packages
+## Add required NuGet packages/assemblies
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **NuGet Manager Console**.
 2. In the **Package Manager Console** window, use `Install-Package` command to add the following NuGet packages. For example, `Install-Package Microsoft.Azure.Management.Media`.
@@ -44,10 +46,14 @@ The sample app in this topic, targets `netcoreapp2.0`. The code uses 'async main
 |Package|Description|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>To make sure you are using the latest Azure Media Services package, check [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL authentication library for Azure SDK for NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Read configuration values from environment variables and local JSON files|
-|`Microsoft.Extensions.Configuration.Json`|Read configuration values from environment variables and local JSON files
-|`WindowsAzure.Storage`|Storage SDK|
+
+### Other required assemblies
+
+- Azure.Storage.Blobs
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.EnvironmentVariables
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Rest.ClientRuntime.Azure.Authentication
 
 ## Create and configure the app settings file
 
@@ -129,9 +135,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
@@ -238,5 +244,5 @@ namespace ConsoleApp1
 
 ## See also
 
-* [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
 * For more code examples, see the [.NET SDK samples](https://github.com/Azure-Samples/media-services-v3-dotnet) repo.

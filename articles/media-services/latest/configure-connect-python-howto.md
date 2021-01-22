@@ -3,7 +3,7 @@ title: Connect to Azure Media Services v3 API - Python
 description: This article demonstrates how to connect to Media Services v3 API with Python.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,13 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/15/2019
-ms.author: juliako
-ms.custom: tracking-python
+ms.topic: how-to
+ms.date: 11/18/2020
+ms.author: inhenkel
+ms.custom: devx-track-python
 
 ---
 # Connect to Media Services v3 API - Python
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows you how to connect to the Azure Media Services v3 Python SDK using the service principal sign in method.
 
@@ -38,11 +40,13 @@ To work with Azure Media Services using Python, you need to install these module
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory.
 * The `azure-mgmt-media` module, which includes the Media Services entities.
 
+    Make sure to get [the latest version of the Media Services SDK for Python](https://pypi.org/project/azure-mgmt-media/).
+
 Open a command-line tool and use the following commands to install the modules.
 
 ```
 pip3 install azure-mgmt-resource
-pip3 install azure-mgmt-media==1.1.1
+pip3 install azure-mgmt-media==3.0.0
 ```
 
 ## Connect to the Python client
@@ -101,4 +105,4 @@ pip3 install azure-mgmt-media==1.1.1
 ## Next steps
 
 - Use [Python SDK](https://aka.ms/ams-v3-python-sdk).
-- Review the Media Services [Python ref](https://aka.ms/ams-v3-python-ref) documentation.
+- Review the Media Services [Python ref](/python/api/overview/azure/mediaservices/management) documentation.

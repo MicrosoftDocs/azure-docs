@@ -20,7 +20,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file storage type storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2, and file storage type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
 | Replication              | Azure  file shares in storage accounts with any replication type are  supported |
 | Firewall enabled         | Azure file shares in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported|

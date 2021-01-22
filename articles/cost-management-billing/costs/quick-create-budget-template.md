@@ -5,6 +5,7 @@ author: bandersmsft
 ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
 ms.custom: subject-armqs
@@ -28,7 +29,7 @@ If you have a new subscription, you can't immediately create a budget or use oth
 
 Budgets are supported for the following types of Azure account types and scopes:
 
-- Azure Role-Based Access Control scopes
+- Azure role-based access control (Azure RBAC) scopes
     - Management groups
     - Subscription
 - Enterprise Agreement scopes

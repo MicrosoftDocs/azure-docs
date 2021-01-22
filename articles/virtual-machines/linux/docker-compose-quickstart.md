@@ -5,7 +5,8 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 02/14/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 ---
 # Get started with Docker and Compose to define and run a multi-container application in Azure
 With [Compose](https://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.

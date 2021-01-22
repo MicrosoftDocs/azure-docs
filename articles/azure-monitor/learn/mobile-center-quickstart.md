@@ -3,8 +3,8 @@ title: Monitor mobile apps with Azure Monitor Application Insights
 description: Provides instructions to quickly set up a mobile app for monitoring with Azure Monitor Application Insights and App Center
 ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/26/2019
 
 ms.reviewer: daviste
@@ -120,7 +120,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
 
-   Learn more about [Application Insights Analytics](../log-query/log-query-overview.md) and the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguageReference).
+   Learn more about [Application Insights Analytics](../log-query/log-query-overview.md) and the [Log Analytics query language](/azure/data-explorer/kusto/query/).
 
 
 2. **Segment and filter your custom event telemetry.** From the Application Insights **Overview** page, choose **Users** in the table of contents.
@@ -164,4 +164,3 @@ To delete the Application Insights resource:
 
 > [!div class="nextstepaction"]
 > [Understand how customers are using your app](../app/usage-overview.md)
-

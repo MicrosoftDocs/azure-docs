@@ -5,17 +5,19 @@ titleSuffix: Azure Media Services
 description: Learn how to create an Azure storage account to use with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 07/01/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 01/05/2021
+ms.author: inhenkel
 ---
 
 # Azure Storage accounts
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account.
 
@@ -48,6 +50,9 @@ To protect your assets at rest, the assets should be encrypted by the storage si
 |[Storage client-side encryption](../../storage/common/storage-client-side-encryption.md)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault.|Not supported.|
 
 <sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your assets were created with Media Services v2, which means v3 works with existing storage encrypted assets but won't allow creation of new ones.
+
+## Double encryption
+Media Services supports double encryption.  To learn more about double encryption, see [Azure double encryption](https://docs.microsoft.com/azure/security/fundamentals/double-encryption).
 
 ## Storage account errors
 

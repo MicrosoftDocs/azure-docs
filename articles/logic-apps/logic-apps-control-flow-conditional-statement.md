@@ -34,7 +34,7 @@ when the new item includes a specific string.
 
 * To follow the example in this article, 
 [create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+with an Outlook.com account or a work or school account.
 
 ## Add condition
 

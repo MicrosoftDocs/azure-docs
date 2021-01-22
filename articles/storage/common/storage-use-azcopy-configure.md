@@ -1,6 +1,6 @@
 ---
 title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microsoft Docs
-description: Configure, optimize, and troubleshoot AzCopy.
+description: Configure, optimize, and troubleshoot AzCopy with Azure Storage. Change the location of or remove the plan and log files. Change the default log level.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -23,13 +23,13 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Configure proxy settings
 
-To configure the proxy settings for AzCopy, set the `https_proxy` environment variable. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection.
+To configure the proxy settings for AzCopy, set the `HTTPS_PROXY` environment variable. If you run AzCopy on Windows, AzCopy automatically detects proxy settings, so you don't have to use this setting in Windows. If you choose to use this setting in Windows, it will override automatic detection.
 
 | Operating system | Command  |
 |--------|-----------|
-| **Windows** | In a command prompt use: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | In a command prompt use: `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> In PowerShell use: `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 Currently, AzCopy doesn't support proxies that require authentication with NTLM or Kerberos.
 
@@ -82,7 +82,7 @@ You can use the `cap-mbps` flag in your commands to place a ceiling on the throu
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
+Throughput can decrease when transferring small files. You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
 
 If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower. 
 

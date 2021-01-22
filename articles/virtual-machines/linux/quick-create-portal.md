@@ -27,11 +27,11 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 1. In the **Virtual machines** page, select **Add**. The **Create a virtual machine** page opens.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.*. 
 
-	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
+	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
 
 1. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose *East US* for your **Region**, and choose *Ubuntu 18.04 LTS* for your **Image**. Leave the other defaults.
 
-	![Instance details section](./media/quick-create-portal/instance-details.png)
+	![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quick-create-portal/instance-details.png)
 
 1. Under **Administrator account**, select **SSH public key**.
 
@@ -39,11 +39,11 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
 
-    ![Administrator account](./media/quick-create-portal/administrator-account.png)
+    ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/quick-create-portal/administrator-account.png)
 
 1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
 
-	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
+	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 1. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
 
-	![Copy the public IP address](./media/quick-create-portal/ip-address.png)
+	![Screenshot showing how to copy the IP address for the virtual machine](./media/quick-create-portal/ip-address.png)
 
 ## Connect to virtual machine
 
@@ -89,7 +89,7 @@ When done, type `exit` to leave the SSH session.
 
 Use a web browser of your choice to view the default NGINX welcome page. Type the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
 
-![NGINX default site](./media/quick-create-portal/nginx.png)
+![Screenshot showing the NGINX default site in a browser](./media/quick-create-portal/nginx.png)
 
 ## Clean up resources
 

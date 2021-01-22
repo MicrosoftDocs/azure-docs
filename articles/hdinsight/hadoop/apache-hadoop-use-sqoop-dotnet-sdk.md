@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: "hdinsightactive, hdiseo17may2017, devx-track-csharp"
 ms.date: 01/14/2020
 ---
 

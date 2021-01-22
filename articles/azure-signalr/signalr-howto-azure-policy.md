@@ -21,7 +21,7 @@ There are no charges for using Azure Policy.
 
 The following built-in policy definitions are specific to Azure SignalR Service:
 
-[!INCLUDE [azure-policy-samples-policies-signalr](../../includes/policy/samples/bycat/policies-signalr.md)]
+[!INCLUDE [azure-policy-reference-policies-signalr](../../includes/policy/reference/bycat/policies-signalr.md)]
 
 ## Assign policy definitions
 

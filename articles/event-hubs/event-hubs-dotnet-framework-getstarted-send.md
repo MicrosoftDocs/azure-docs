@@ -3,6 +3,7 @@ title: 'Azure Event Hubs - Send/receive events using the .NET Framework'
 description: 'Quickstart: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Send events to or receive events from Azure Event Hubs using .NET Framework
@@ -23,7 +24,7 @@ This section shows you how to create a .NET Framework console application to sen
 
 In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
-![Create console application](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+![Screenshot that shows "New Project" window with "Console App (.NET Framework)" selected, and the project name "Sender" and "OK" button highlighted.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### Add the Event Hubs NuGet package
 

@@ -1,6 +1,6 @@
 ---
 title: Managed Service offers in Azure Marketplace
-description: Managed Service offers allow service providers to sell resource management offers to customers in Azure Marketplace.
+description: Managed Service offers let you sell resource management offers to customers in Azure Marketplace.
 ms.date: 07/28/2020
 ms.topic: conceptual
 ---
@@ -13,7 +13,7 @@ This article describes the **Managed Service** offer type in [Azure Marketplace]
 
 Managed Service offers streamline the process of onboarding customers to Azure Lighthouse. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded.
 
-After that, users in your organization will be able to work on those resources from within your organization's tenant through [Azure delegated resource management](azure-delegated-resource-management.md), according to the access you defined when creating the offer. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
+After that, users in your organization will be able to work on those resources from within your managing tenant through [Azure delegated resource management](azure-delegated-resource-management.md), according to the access you defined when creating the offer. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
 
 ## Public and private offers
 

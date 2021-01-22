@@ -148,7 +148,8 @@ Azure Cloud Shell takes your personal data seriously, the data captured and stor
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Image showing a button labeled Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Run the following commands in Bash or PowerShell:
 
 Bash:
@@ -171,7 +172,8 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 >[!Note]
 > If you delete your user settings, the actual Azure Files share will not be deleted. Go to your Azure Files to complete that action.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Image showing a button labeled Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Run the following commands in Bash or PowerShell:
 
 Bash:

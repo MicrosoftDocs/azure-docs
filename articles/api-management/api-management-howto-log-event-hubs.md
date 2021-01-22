@@ -1,6 +1,6 @@
 ---
 title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
-description: Learn how to log events to Azure Event Hubs in Azure API Management.
+description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -28,7 +28,7 @@ For detailed steps on how to create an event hub and get connection strings that
 ## Create an API Management logger
 Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/2019-12-01/logger) in your API Management service so that it can log events to the Event Hub.
 
-API Management loggers are configured using the [API Management REST API](https://aka.ms/apimapi). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## Configure log-to-eventhub policies
 
@@ -59,7 +59,7 @@ Once your logger is configured in API Management, you can configure your log-to-
 ```
 Replace `logger-id` with the value you used for `{loggerId}` in the request URL to create the logger in the previous step.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request id, request ip address, and operation name is logged.
+You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request ID, request IP address, and operation name is logged.
 
 Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
 

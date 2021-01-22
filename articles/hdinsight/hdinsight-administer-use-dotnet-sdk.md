@@ -5,17 +5,18 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
+
 
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+Learn how to manage HDInsight clusters using [HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight).
 
 **Prerequisites**
 
@@ -264,7 +265,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
 
-* [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK reference documentation](/dotnet/api/overview/azure/hdinsight)
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]

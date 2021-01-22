@@ -17,7 +17,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Retry logic in the Media Services SDK for .NET  
+# Retry logic in the Media Services SDK for .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 When working with Microsoft Azure services, transient faults can occur. If a transient fault occurs, in most cases, after a few retries the operation succeeds. The Media Services SDK for .NET implements the retry logic to handle transient faults associated with exceptions and errors that are caused by web requests, executing queries, saving changes, and storage operations.  By default, the Media Services SDK for .NET executes four retries before re-throwing the exception to your application. The code in your application must then handle this exception properly.  
 

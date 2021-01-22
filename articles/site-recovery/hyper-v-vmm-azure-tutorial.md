@@ -78,7 +78,11 @@ Install the agent on each Hyper-V host containing VMs that you want to replicate
 In the Microsoft Azure Recovery Services Agent Setup Wizard, configure these settings:
 
 1. **Prerequisites Check**. Select **Next**. Any missing prerequisites will be installed automatically.
-1. **Installation Settings**. Accept the installation location and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then, select **Install**.
+1. **Installation Settings**. Accept the installation location. Then, select **Install**.
+
+    >[!NOTE]
+    >For Azure Site Recovery, **Cache Location** is not required.
+
 1. **Installation**. When the installation finishes, select **Close** to finish the wizard.
 
    ![Install agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)

@@ -97,10 +97,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    1. Double-click **adftutorial** (folder).
    2. Select **emp.txt**, and click **Choose**
       
-      ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Screenshot shows the Choose option for your input file.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. On the **Choose the input file or folder** page, click **Next**. Do not select **Binary copy**. 
    
-    ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Screenshot shows the Binary copy option for your input.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file. You can also enter the delimiters manually for the copy wizard to stop auto-detecting or to override. Click **Next** after you review the delimiters and preview data. 
    
     ![Copy Tool - File format settings](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -125,10 +125,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
     ![Copy Tool - schema mapping](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. On the **Performance settings** page, click **Next**. 
     
-    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Screenshot shows the Performance settings page where you can select Next.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
     
-    ![Copy Tool - performance settings](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Screenshot shows the Summary page where you can select Next.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Launch Monitor and Manage application
 1. On the **Deployment** page, click the link: `Click here to monitor copy pipeline`.

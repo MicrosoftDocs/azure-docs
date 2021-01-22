@@ -7,7 +7,8 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 #PMcontact: akjosh
 ---
 # Create a VM from a generalized image version using the CLI

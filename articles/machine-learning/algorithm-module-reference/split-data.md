@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Split Data module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use the Split Data module to divide a dataset into two distinct sets.
 

@@ -9,11 +9,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
+ms.custom: devx-track-csharp
 ---
 
 # Manage container properties and metadata with .NET
 
-Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## About properties and metadata
 
@@ -25,7 +26,7 @@ Metadata name/value pairs are valid HTTP headers, and so should adhere to all re
 
 ## Retrieve container properties
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 To retrieve container properties, call one of the following methods:
 
@@ -36,7 +37,7 @@ The following code example fetches a container's system properties and writes so
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 Retrieving property and metadata values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception to this rule is that the **Exists** and **ExistsAsync** methods call the appropriate **FetchAttributes** method under the covers. When you call one of these methods, you do not need to also call **FetchAttributes**.
 
@@ -76,7 +77,7 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## Set and retrieve metadata
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v12](#tab/dotnet)
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to an [IDictionary](/dotnet/api/system.collections.idictionary) object, and then call one of the following methods to write the values:
 
@@ -98,7 +99,7 @@ Then, read the values, as shown in the example below.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
 
-# [.NET v11 SDK](#tab/dotnet11)
+# [.NET v11](#tab/dotnet11)
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call one of the following methods to write the values:
 

@@ -17,7 +17,7 @@ To complete a first publish in [Partner Center](https://partner.microsoft.com/da
 - Present screenshots that demonstrate the solution's [Lifecycle Services](https://lcs.dynamics.com/) (LCS) environment.
 
 > [!NOTE]
-> Subsequent recertification publishes do not require demonstration. To learn more, see the [AppSource Policy document](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
+> Subsequent recertification publishes do not require demonstration. To learn more, see the [AppSource Policy document](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
 
 ## How to validate
 
@@ -30,7 +30,7 @@ The Microsoft certification team reviews the video and files, then either approv
 
 ### Option 1: 30-minute conference call
 
-To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 a.m. and 5 p.m. Pacific Time.
+To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 AM and 5 PM Pacific Time.
 
 ### Option 2: Upload a demo video and LCS screenshots
 
@@ -53,14 +53,14 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
     | Field | Image <img src="" width="400px">|
     | --- | --- |
-    | Package overview | [![Package overview screen](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Package overview | [![Screenshot that shows the "Package overview" window.](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Solution approvers</li></ul> | [![Package overview screen](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Package contents<ul><li>Model</li><li>Software deployable package</li></ul> | [![Package contents screen one](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>GER configuration</li><li>Database backup</li></ul><br>Artifacts are not required in the **GER configuration** section. | [![Package contents screen two](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
     | <ul><li>Power BI report model</li><li>BPM artifact</li></ul><br>Artifacts are not required in the **Power BI** section. | [![Package contents screen three](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Process data package</li><li>Solution license agreement and privacy policy</li></ul><br>The **GER configuration** and **Power BI report model** sections are optional to include for Finance and Operations offers. | [![Package contents screen four](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    To learn more about each section of the LCS portal, see the [LCS User Guide](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
+    To learn more about each section of the LCS portal, see the [LCS User Guide](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Upload to Partner Center.
 
@@ -71,4 +71,4 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ## Next steps
 
-To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md).

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
+ms.date: 09/25/2020
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)
@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 
   This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
 
-  ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="data source page for sample data" border="false":::
 
 When the index is ready to use, move on to the next step.
 
@@ -57,7 +57,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 1. In Description, choose a field that provides details that might help someone decide whether to click through to that particular document.
 
-   ![data source page for sample data](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="configure results for sample data" border="false":::
 
 ## Add a sidebar
 
@@ -79,7 +79,7 @@ Suggestions are enabled on specific field definitions. The wizard gives you opti
 
 The following screenshot shows options in the wizard, juxtaposed with a rendered page in the app. You can see how field selections are used, and how "Show Field Name" is used to include or exclude labeling within the suggestion.
 
-![Query suggestion configuration](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Query suggestion configuration":::
 
 ## Create, download and execute
 
@@ -91,7 +91,7 @@ The following screenshot shows options in the wizard, juxtaposed with a rendered
 
 The underlying index is composed of fictitious, generated data that has been duplicated across documents, and descriptions sometimes do not match the image. You can expect a more cohesive experience when you create an app based on your own indexes.
 
-![Run the app](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Run the app":::
 
 
 ## Clean up resources
@@ -107,4 +107,4 @@ If you are using a free service, remember that you are limited to three indexes,
 While the default app is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Create an index using .NET SDK](./search-get-started-dotnet.md)

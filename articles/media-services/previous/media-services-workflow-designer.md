@@ -17,7 +17,10 @@ ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ---
-# Create Advanced Encoding Workflows with Workflow Designer  
+# Create Advanced Encoding Workflows with Workflow Designer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 The **Workflow Designer** is a Windows desktop tool that is used to design and build custom workflows for encoding with **Media Encoder Premium Workflow**.
 By using the power of the workflow designer tool, you can design and create complex workflows that will run in **Media Encoder Premium**.  

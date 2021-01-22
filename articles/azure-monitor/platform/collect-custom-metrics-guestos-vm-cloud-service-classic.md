@@ -168,7 +168,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Go to the Azure portal. 
 
-   ![Metrics Azure portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   ![Screenshot shows the Azure portal with Monitor, then Metrics selected.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
 2. On the left menu, select **Monitor.**
 
@@ -182,7 +182,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 You use the dimension filtering and splitting capabilities to view the total memory that's used by a specific role or role instance. 
 
- ![Metrics Azure portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ ![Screenshot shows Metrics data.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
 ## Next steps
 

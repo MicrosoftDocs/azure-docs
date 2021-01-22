@@ -31,7 +31,7 @@ When multi-select is enabled, the control adds a **Select all** option and check
 
 Descriptions can be included with multi-select enabled.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft.Common.DropDown multi-select with descriptions":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Screenshot that shows how descriptions can be included with multi-select enabled":::
 
 When filtering is enabled, the control includes a text box for adding the filtering value.
 
@@ -44,6 +44,7 @@ When filtering is enabled, the control includes a text box for adding the filter
     "name": "element1",
     "type": "Microsoft.Common.DropDown",
     "label": "Example drop down",
+    "placeholder": "",
     "defaultValue": "Value two",
     "toolTip": "",
     "multiselect": true,  
@@ -87,6 +88,7 @@ When filtering is enabled, the control includes a text box for adding the filter
 - `constraints.allowedValues` must have at least one item.
 - To emulate a value not being required, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
 - The `defaultDescription` property is used for items that don't have a description.
+- The `placeholder` property is help text that disappears when the user begins editing. If the `placeholder` and `defaultValue` are both defined, the `defaultValue` takes precedence and is shown.
 
 ## Next steps
 

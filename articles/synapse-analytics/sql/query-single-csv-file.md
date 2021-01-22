@@ -1,19 +1,19 @@
 ---
-title: Query CSV files using SQL on-demand (preview) 
-description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand (preview).
+title: Query CSV files using serverless SQL pool 
+description: In this article, you'll learn how to query single CSV files with different file formats using serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
 # Query CSV files
 
-In this article, you'll learn how to query a single CSV file using SQL on-demand (preview) in Azure Synapse Analytics. CSV files may have different formats: 
+In this article, you'll learn how to query a single CSV file using serverless SQL pool in Azure Synapse Analytics. CSV files may have different formats: 
 
 - With and without a header row
 - Comma and tab-delimited values
@@ -26,7 +26,7 @@ All of the above variations will be covered below.
 
 `OPENROWSET` function enables you to read the content of CSV file by providing the URL to your file.
 
-### Reading csv file
+### Read a csv file
 
 The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
 
@@ -41,7 +41,13 @@ from openrowset(
 
 Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### Using data source
+> [!IMPORTANT]
+> If your CSV file contains UTF-8 characters, make sure that you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
+> A mismatch between text encoding in the file and the collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+
+### Data source usage
 
 Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage:
 
@@ -85,6 +91,14 @@ from openrowset(
 ```
 
 The numbers after a data type in the `WITH` clause represent column index in the CSV file.
+
+> [!IMPORTANT]
+> If your CSV file contains UTF-8 characters, make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all columns in `WITH` clause or set some UTF-8 collation at database level.
+> Mismatch between text encoding in the file and collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> You can easily set collation on the colum types using the following definition:
+>    `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 In the following sections you can see how to query various types of CSV files.
 
@@ -209,7 +223,7 @@ WHERE
 > [!NOTE]
 > This query would return the same results if you omitted the FIELDQUOTE parameter since the default value for FIELDQUOTE is a double-quote.
 
-## Escaping characters
+## Escape characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escape char used for the field delimiter (comma) within values. Note the different location of the file as compared to the other examples.
 
@@ -241,7 +255,7 @@ WHERE
 > [!NOTE]
 > This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
-### Escaping Quoting characters
+### Escape quoting characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values. Note the different location of the file as compared to the other examples.
 
@@ -301,7 +315,7 @@ WHERE
     AND year = 2017
 ```
 
-## Returning subset of columns
+## Return a subset of columns
 
 So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 

@@ -3,6 +3,7 @@ title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # Availability and consistency in Event Hubs
@@ -24,17 +25,19 @@ Event Hubs is built on top of a partitioned data model. You can configure the nu
 The simplest way to get started with Event Hubs is to use the default behavior. 
 
 #### [Azure.Messaging.EventHubs (5.0.0 or later)](#tab/latest)
-If you create a new **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** object and use the **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
+If you create a new **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** object and use the **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
 
 #### [Microsoft.Azure.EventHubs (4.1.0 or earlier)](#tab/old)
-If you create a new **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** object and use the **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
+If you create a new **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** object and use the **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** method, your events are automatically distributed between partitions in your event hub. This behavior allows for the greatest amount of up time.
 
 ---
 
 For use cases that require the maximum up time, this model is preferred.
 
 ## Consistency
-In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` object (if you are using the old Microsoft.Azure.Messaging library) to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order. If you are using the **Azure.Messaging.EventHubs** library and for more information, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+In some scenarios, the ordering of events can be important. For example, you may want your back-end system to process an update command before a delete command. In this instance, you can either set the partition key on an event, or use a `PartitionSender` object (if you are using the old Microsoft.Azure.Messaging library) to only send events to a certain partition. Doing so ensures that when these events are read from the partition, they are read in order. 
+
+If you are using the newer **Azure.Messaging.EventHubs** library, see [Migrating code from PartitionSender to EventHubProducerClient for publishing events to a partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
 #### [Azure.Messaging.EventHubs (5.0.0 or later)](#tab/latest)
 

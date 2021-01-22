@@ -49,11 +49,11 @@ The process server generates a number of health alerts. These alerts, and recomm
 ![Healthy][green] | None  | Process server is connected and healthy.
 ![Warning][yellow] | Specified services aren't running. | 1. Check that services are running.<br/> 2. If services are running as expected, follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).
 ![Warning][yellow]  | CPU utilization > 80% for the last 15 minutes. | 1. Don't add new machines.<br/>2. Check that the number of VMs using the process server aligns to [defined limits](site-recovery-plan-capacity-vmware.md#capacity-considerations), and consider setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/>3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).
-![Critical][red] |  CPU utilization > 95% for the last 15 minutes. | 1. Don't add new machines.<br/>2. Check that the number of VMs using the process server aligns to [defined limits](site-recovery-plan-capacity-vmware.md#capacity-considerations), and consider setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/>3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).<br/> 4. If the issue persists, run the [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) for VMware/physical server replication.
+![Critical][red] |  CPU utilization > 95% for the last 15 minutes. | 1. Don't add new machines.<br/>2. Check that the number of VMs using the process server aligns to [defined limits](site-recovery-plan-capacity-vmware.md#capacity-considerations), and consider setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/>3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).<br/> 4. If the issue persists, run the [Deployment Planner](./site-recovery-deployment-planner.md) for VMware/physical server replication.
 ![Warning][yellow] | Memory usage > 80% for the last 15 minutes. |  1. Don't add new machines.<br/>2. Check that the number of VMs using the process server aligns to [defined limits](site-recovery-plan-capacity-vmware.md#capacity-considerations), and consider setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/>3. Follow any instructions associated with the warning.<br/> 4. If the issue persists, follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).
-![Critical][red] | Memory usage > 95% for the last 15 minutes. | 1. Don't add new machines, and considering setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/> 2. Follow any instructions associated with the warning.<br/> 3. 4. If the issue continues, follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).<br/> 4. If the issue persists, run the [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) for VMware/physical server replication issues.
+![Critical][red] | Memory usage > 95% for the last 15 minutes. | 1. Don't add new machines, and considering setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/> 2. Follow any instructions associated with the warning.<br/> 3. 4. If the issue continues, follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).<br/> 4. If the issue persists, run the [Deployment Planner](./site-recovery-deployment-planner.md) for VMware/physical server replication issues.
 ![Warning][yellow] | Cache folder free space < 30% for the last 15 minutes. | 1. Don't add new machines, and consider setting up an [additional process server](vmware-azure-set-up-process-server-scale.md).<br/>2. Check that the number of VMs using the process server aligns to [guidelines](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).
-![Critical][red] |  Free space < 25% for last 15 minutes | 1. Follow the instructions associated with the warning for this issue.<br/> 2. 3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).<br/> 3. If the issue persists, run the [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) for VMware/physical server replication.
+![Critical][red] |  Free space < 25% for last 15 minutes | 1. Follow the instructions associated with the warning for this issue.<br/> 2. 3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).<br/> 3. If the issue persists, run the [Deployment Planner](./site-recovery-deployment-planner.md) for VMware/physical server replication.
 ![Critical][red] | No heartbeat from the process server for 15 minutes or more. The tmansvs service isn't communicating with the configuration server. | 1) Check that the process server is up and running.<br/> 2. Check that the tmassvc is running on the process server.<br/> 3. Follow the instructions below to [troubleshoot connectivity and replication issues](#check-connectivity-and-replication).
 
 
@@ -87,7 +87,7 @@ If there's no heartbeat from the process server (error code 806), do the followi
 
  Initial and ongoing replication failures are often caused by connectivity issues between source machines and the process server, or between the process server and Azure. These steps are summarized in the following graphic, followed by procedures to help you perform the steps.
 
-![Troubleshoot connectivity and replication](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Flowchart showing steps to troubleshoot connectivity and replication.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## Step 4: Verify time sync on source machine
@@ -167,7 +167,7 @@ Check whether the process server is actively pushing data to Azure.
   2. Select the **Performance** tab > **Open Resource Monitor**.
   3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large volume of data.
 
-       ![Volumes under processes with network activity](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Screenshot showing a large number for volumes under processes with network activity.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
@@ -176,7 +176,7 @@ Check whether the process server is actively pushing data to Azure.
 1. In Resource Monitor, select **cbengine.exe**.
 2. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure storage.
 
-  ![Connectivity between cbengine.exe and the Azure Blob storage URL](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Screenshot showing connectivity between cbengine.exe and the Azure Blob storage URL.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### Check services
 

@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: This is a deeper overview highlighting the Threat Modeling Tool in action.
+description: Learn how to get started using the Threat Modeling Tool. Create a diagram, identify threats, mitigate threats, and validate each mitigation.
 services: security
 documentationcenter: na
 author: jegeib
@@ -24,7 +24,7 @@ ms.author: jegeib
 The Microsoft Threat Modeling Tool 2018 was released as GA in September 2018 as a free **[click-to-download](https://aka.ms/threatmodelingtool)**. The change in delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool, making it easier to maintain and use.
 This article takes you through the process of getting started with the Microsoft SDL threat modeling approach and shows you how to use the tool to develop great threat models as a backbone of your security process.
 
-This article builds on existing knowledge of the SDL threat modeling approach. For a quick review, refer to **[Threat Modeling Web Applications](https://msdn.microsoft.com/library/ms978516.aspx)** and an archived version of **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN article published in 2006.
+This article builds on existing knowledge of the SDL threat modeling approach. For a quick review, refer to **[Threat Modeling Web Applications](/previous-versions/msp-n-p/ff648006(v=pandp.10))** and an archived version of **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN article published in 2006.
 
 To quickly summarize, the approach involves creating a diagram, identifying threats, mitigating them and validating each mitigation. Here’s a diagram that highlights this process:
 
@@ -94,11 +94,11 @@ Ricardo begins by selecting the first item on the list. Here’s what happens:
 
 First, the interaction between the two stencils is enhanced
 
-![Interaction](./media/threat-modeling-tool-getting-started/interaction.png)
+![Screenshot shows two stencils and the curved arrow connecting them in a heavier weight of line.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 Second, additional information about the threat appears in the Threat Properties window
 
-![Interaction Info](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Screenshot shows the Threat Properties window, which contains Title, Category, Description, Interaction, and Priority.](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 The generated threat helps him understand potential design flaws. The STRIDE categorization gives him an idea on potential attack vectors, while the additional description tells him exactly what’s wrong, along with potential ways to mitigate it. He can use editable fields to write notes in the justification details or change priority ratings depending on his organization’s bug bar.
 
@@ -115,7 +115,7 @@ Threats not applicable to the design due to existing mitigations or security gua
 
 Once Ricardo goes through the list with Cristina and adds important notes, mitigations/justifications, priority and status changes, he selects Reports -> Create Full Report -> Save Report, which prints out a nice report for him to go through with colleagues to ensure the proper security work is implemented.
 
-![Interaction Info](./media/threat-modeling-tool-feature-overview/report.png)
+![Screenshot shows a representative Threat Modeling Report.](./media/threat-modeling-tool-feature-overview/report.png)
 
 If Ricardo wants to share the file instead, he can easily do so by saving in his organization’s OneDrive account. Once he does that, he can copy the document link and share it with his colleagues. 
 

@@ -22,7 +22,7 @@ An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark
 
 ## Submit an Apache Livy Spark batch job
 
-Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
+Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -83,7 +83,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 Livy provides high-availability for Spark jobs running on the cluster. Here is a couple of examples.
 
 * If the Livy service goes down after you've submitted a job remotely to a Spark cluster, the job continues to run in the background. When Livy is back up, it restores the status of the job and reports it back.
-* Jupyter notebooks for HDInsight are powered by Livy in the backend. If a notebook is running a Spark job and the Livy service gets restarted, the notebook continues to run the code cells.
+* Jupyter Notebooks for HDInsight are powered by Livy in the backend. If a notebook is running a Spark job and the Livy service gets restarted, the notebook continues to run the code cells.
 
 ## Show me an example
 

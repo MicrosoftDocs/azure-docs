@@ -3,6 +3,7 @@ title: Telemetry channels in Azure Application Insights | Microsoft Docs
 description: How to customize telemetry channels in Azure Application Insights SDKs for .NET and .NET Core.
 ms.topic: conceptual
 ms.date: 05/14/2019
+ms.custom: devx-track-csharp
 
 ms.reviewer: mbullwin
 ---
@@ -148,13 +149,25 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 Although the name of its package and namespace includes "WindowsServer," this channel is supported on systems other than Windows, with the following exception. On systems other than Windows, the channel doesn't create a local storage folder by default. You must create a local storage folder and configure the channel to use it. After local storage has been configured, the channel works the same way on all systems.
 
+> [!NOTE]
+> With the release 2.15.0-beta3 and greater local storage is now automatically created for Linux, Mac, and Windows. For non Windows systems the SDK will automatically create a local storage folder based on the following logic:
+> - `${TMPDIR}` - if `${TMPDIR}` environment variable is set this location is used.
+> - `/var/tmp` - if the previous location does not exist we try `/var/tmp`.
+> - `/tmp` - if both the previous locations do not exist we try `tmp`. 
+> - If none of those locations exist local storage is not created and manual configuration is still required. [For full implementation details](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### Does the SDK create temporary local storage? Is the data encrypted at storage?
 
 The SDK stores telemetry items in local storage during network problems or during throttling. This data isn't encrypted locally.
 
 For Windows systems, the SDK automatically creates a temporary local folder in the %TEMP% or %LOCALAPPDATA% directory, and restricts access to administrators and the current user only.
 
-For systems other than Windows, no local storage is created automatically by the SDK, and so no data is stored locally by default. You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
+For systems other than Windows, no local storage is created automatically by the SDK, and so no data is stored locally by default.
+
+> [!NOTE]
+> With the release 2.15.0-beta3 and greater local storage is now automatically created for Linux, Mac, and Windows. 
+
+ You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
 Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK

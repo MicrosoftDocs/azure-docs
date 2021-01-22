@@ -18,7 +18,7 @@ ms.workload: na
 
 # Deploy secure applications on Azure
 In this article we present security activities and controls to consider when you deploy applications for the cloud. Security questions and concepts to consider during the release and response phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) are covered. The goal is to help you define activities and Azure services that you can use to deploy a more secure application.
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) are covered. The goal is to help you define activities and Azure services that you can use to deploy a more secure application.
 
 The following SDL phases are covered in this article:
 
@@ -54,7 +54,7 @@ a known vulnerability at a central location versus securing each
 individual web application.
 
 The [Azure Application Gateway
-WAF](../../application-gateway/waf-overview.md)
+WAF](../../web-application-firewall/ag/ag-overview.md)
 provides centralized protection of your web applications from common
 exploits and vulnerabilities. The WAF is based on rules from the [OWASP
 core rule
@@ -118,7 +118,7 @@ designed to help you continuously improve performance and usability.
 #### Azure Security Center
 
 [Azure Security
-Center](../../security-center/security-center-intro.md)
+Center](../../security-center/security-center-introduction.md)
 helps you prevent, detect, and respond to threats with increased
 visibility into (and control over) the security of your Azure resources,
 including web applications. Azure Security Center helps detect threats
@@ -127,7 +127,7 @@ solutions.
 
 Security Center’s Free tier offers limited security for your Azure
 resources only. The [Security Center Standard
-tier](../../security-center/security-center-onboarding.md)
+tier](../../security-center/security-center-get-started.md)
 extends these capabilities to on-premises resources and other clouds.
 Security Center Standard helps you:
 
