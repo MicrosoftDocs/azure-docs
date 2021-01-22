@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 01/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ To use the new feature, follow the steps below.
 
 ## Recovering from an accidental delete instance
 If you encounter an accidental delete you will see this on the status of your provisioning agent configuration.  It will say **Delete threshold exceeded**.
- ![Accidental deletes](media/how-to-accidental-deletes/delete-1.png)
+ ![Accidental delete status](media/how-to-accidental-deletes/delete-1.png)
 
 By clicking on **Delete threshold exceeded**, you will see the sync status info.  This will provide additional details. 
  ![Sync status](media/how-to-accidental-deletes/delete-2.png)
