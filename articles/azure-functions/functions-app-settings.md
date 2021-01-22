@@ -230,7 +230,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-Only used when deploying to a Consumption or Premium plans running on Windows. Not supported for Linux.
+Only used when deploying to a Consumption or Premium plans running on Windows. Not supported for Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -248,7 +248,9 @@ The file path to the function app code and configuration in an event-driven scal
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Only used when deploying to a Consumption or Premium plans running on Windows. Not supported for Linux.
+Only used by function apps on a Consumption or Premium plans running on Windows. Not supported for Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+When using a Azure Resource Manager to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This application setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).   
 
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
