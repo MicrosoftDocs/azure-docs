@@ -17,22 +17,22 @@ Windows Azure Diagnostics extension can be enabled for Cloud Services (extended 
 
 ## Apply Windows Azure Diagnostics extension using PowerShell
 
-Apply to an existing Cloud Service (extended support) deployment
-
 ```powershell
-# Create RDP extension object
-$rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"
+# Create WAD extension object
+$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
+$extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
+
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
-# Add RDP extension to existing Cloud Service extension object
-$cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $rdpExtension
+
+# Add WAD extension to existing Cloud Service extension object
+$cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $wadExtension
+
 # Update Cloud Service
 $cloudService | Update-AzCloudService
 ```
 
 ## Apply Windows Azure Diagnostics extension using ARM template
-
-To apply the Windows Azure diagnostics extension using ARM template, add an `extensionProfile` section for each role you want to monitor. 
 ```json
 "extensionProfile": { 
           "extensions": [ 
@@ -54,3 +54,8 @@ To apply the Windows Azure diagnostics extension using ARM template, add an `ext
         },
 
 ```
+
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

@@ -130,7 +130,9 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     $credential = Get-Credential 
     $expiration = (Get-Date).AddYears(1) 
     $extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1' 
-    $extensionProfile = @{extension = @($extension)} 
+
+    $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
+    $extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
     ```
 18. (Optional) Define Tags as PowerShell hash table which you want to add to your cloud service. 
 
