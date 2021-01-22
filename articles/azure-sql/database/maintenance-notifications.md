@@ -80,6 +80,6 @@ The following table shows additional notifications that may be sent while mainte
 ## See also
 
 - [SQL Maintenance window](sql-maintenance-window.md)
-- [SQL Maintenance window FAQ](sql-maintenance-window-faq.md)
+- [SQL Maintenance window FAQ](sql-maintenance-window-faq.yml)
 - [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 - [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role).
