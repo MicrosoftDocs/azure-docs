@@ -47,4 +47,4 @@ In the subsequent sections, we’ll guide you to build resilience in the followi
 - [Increase resilience of authentication and authorization in your applications](resilience-app-development-overview.md)
 
 Watch this video to know how to build resilient and scalable flows using Azure AD B2C.
->[!Video https://www.youtube.com/embed/PQ3Xk6SErgC8wWad]
+>[!Video https://www.youtube.com/embed/8f_Ozpw9yTs]
