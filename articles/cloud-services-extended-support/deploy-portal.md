@@ -56,15 +56,13 @@ This article explains how to use the Azure portal to create a Cloud Service (ext
     - Cloud Services (extended support) only supports the Basic IP address SKU.
     - If your cscfg contains a reserved IP address, the allocation type for the public IP address must be **Static**. 
 
-13. (Optional) Swappable Cloud Service. Select an existing Cloud Service for swapping deployments. For more information, see [Cloud Services Swap](cloud-services-swap.md).
-
-14. (Optional) Start Cloud Service. Choose start or not start the service immediately after creation.
+13. (Optional) Start Cloud Service. Choose start or not start the service immediately after creation.
 
     :::image type="content" source="media/deploy-portal-5.png" alt-text="Image shows the configuration blade in the Azure portal when creating a Cloud Services (extended support).":::
     
-15. Select the Key Vault associated with your cscfg file (based on the thumbprints). If any certificates are missing they can be uploaded now retrieved by selecting **Refresh** in the drop down. 
+14. Select the Key Vault associated with your cscfg file (based on the thumbprints). If any certificates are missing they can be uploaded now retrieved by selecting **Refresh** in the drop down. 
 
-16. Once all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your Cloud Service.
+15. Once all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your Cloud Service.
 
 ## Next steps
 For more information, see [Frequently asked questions about Cloud services (extended support)](faq.md)
