@@ -23,6 +23,10 @@ landingContent:
         links:
           - text: What is Cloud Services (extended support)?
             url: overview.md
+          - text: Prerequisites for deployment
+            url: deploy-prerequisite.md
+          - text: Config files and packaging
+            url: cloud-services-model-and-packaging.md
 
   # Card
   - title: Tutorials
