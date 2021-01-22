@@ -29,3 +29,41 @@ $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtensio
 # Update Cloud Service
 $cloudService | Update-AzCloudService
 ```
+
+## Apply Windows Azure Diagnostics extension using ARM template
+
+To apply the Windows Azure diagnostics extension using ARM template, add an `extensionProfile` section for each role you want to monitor. 
+```json
+"extensionProfile": { 
+          "extensions": [ 
+            { 
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1", 
+              "properties": { 
+                "autoUpgradeMinorVersion": true, 
+                "publisher": "Microsoft.Azure.Diagnostics", 
+                "type": "PaaSDiagnostics", 
+                "typeHandlerVersion": "1.5", 
+                "settings": “Include XML format of PublicConfig  as a string”, 
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]", 
+                "rolesAppliedTo": [ 
+                  "WebRole1" 
+                ] 
+              } 
+            }, 
+            { 
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WorkerRole1", 
+              "properties": { 
+                "autoUpgradeMinorVersion": true, 
+                "publisher": "Microsoft.Azure.Diagnostics", 
+                "type": "PaaSDiagnostics", 
+                "typeHandlerVersion": "1.5", 
+                "settings": "[parameters('wadPublicConfig_WorkerRole1')]", 
+                "protectedSettings": "[parameters('wadPrivateConfig_WorkerRole1')]", 
+                "rolesAppliedTo": [ 
+                  "WorkerRole1" 
+                ] 
+              } 
+            } 
+          ] 
+        } 
+```
