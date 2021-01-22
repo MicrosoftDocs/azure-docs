@@ -84,4 +84,4 @@ Private Link service requires an IP from the given VNET and subnet. Currently, A
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).
