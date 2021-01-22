@@ -57,7 +57,7 @@ After you delete Azure App Service resources, resources from related Azure servi
 
 ### Using Monetary Credit with Azure App Service
 
-You can pay for Azure App Service charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third-party products and services, including those from the Azure Marketplace.
+You can pay for Azure App Service charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services, including those from the Azure Marketplace.
 
 ## Estimate costs
 
