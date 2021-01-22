@@ -27,7 +27,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     -  Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your Service Configuration (cscfg) file and the certificates must be uploaded to a Key vault. A Key Vault can be created through the [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). The associated Key Vault must be located in the same region and subscription as cloud service. You will also need to add your key vault reference in the OsProfile section of the ARM template shown in the below steps.  
 
 ## Create a Cloud Service (extended support) 
-1. Create virtual network and subnet. The names of the virtual network and subnet much match the references in the Service Configuration uploaded in the previous step.  
+1. Create virtual network and subnet. The names of the virtual network and subnet much match the references in the Service Configuration uploaded in the previous step. If using an existing virtual network and subnet, omit this section from the ARM template and networking information will be imported based on your .cscfg file. 
 
     ```json
     "resources": [ 
@@ -55,15 +55,15 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ] 
     ```
     
-     Add the following to the `dependsOn` section to ensure the platform creates the virtual network prior to creating the cloud service. 
+     If creating a new virtual network, add the following to the `dependsOn` section to ensure the platform creates the virtual network prior to creating the cloud service. 
 
     ```json
     "dependsOn": [ 
             "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]" 
      ] 
     ```
-  
-2. Create a public IP address and (optionally) set the DNS label property of the public IP address.  If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration file.  
+ 
+2. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration file. If using an existing IP address, skip this step and add the IP address information directly into the load balancer configuration settings of your ARM template.
  
     ```json
     "resources": [ 
@@ -87,7 +87,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ] 
     ```
      
-     Add the following to the `dependsOn` section to ensure the platform creates the IP address prior to creating the cloud service. 
+     If creating a new IP address, add the following to the `dependsOn` section to ensure the platform creates the IP address prior to creating the cloud service. 
     
     ```json
     "dependsOn": [ 
@@ -121,7 +121,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
  
 
-4. (Optional) If using certificates to enable secure communication to and from the service add a Key Vault reference to the OsProfile section.
+4. Add your key vault reference in the OsProfile section of the ARM template. Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. For more information, see [using certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -141,8 +141,9 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
   
     > [!NOTE]
-    > - SourceVault is the ARM Resource ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. It is the Resource ID. 
-    > - VaultCertificates is stored in the certificate of your key vault. Browse to your certificate in the Azure portal and copy the Certificate Identifier (Secret URI)  
+    > SourceVault is the ARM Resource ID to your Key Vault. You can find this information by locating Resource ID  in the properties section of the Key Vault. 
+    > - certificateUrl can be found by navigating to the certificate in the key vault is the Secret Identifier of your certificate  
+   >  - certificateUrl should be of the form https://{keyvault-endpoin}/secrets/{secretname}/{secret-id} 
 
 5. Create a Role Profile. Ensure that the number of roles, role names, number of instances in each role and sizes are the same across the Service Configuration (cscfg), Service Definition (csdef) and role profile section in ARM template. 
     
@@ -404,11 +405,10 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 8. Deploy the template and create the Cloud Service (extended support) deployment. 
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
     ```
  
-
-
-## Next steps
-
-See [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
