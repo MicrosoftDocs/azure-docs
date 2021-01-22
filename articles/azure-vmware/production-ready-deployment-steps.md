@@ -110,7 +110,9 @@ If the choice is to use an existing Azure Virtual Network verify there are no pr
 
 If the choice is to create a new Azure Virtual Network it can be created ahead of time or during deployment by clicking on the Create new option of Virtual Network section of the Create a private cloud deployment screen.
 
+For reference, below is an image of the **Create a private cloud** deployment screen and outlined in red is the Azure **Virtual Network** field that has been referred to throughout this section.
 
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot of the Azure VMware Solution deployment screen with virtual network gateway circled.":::
 
 >[!NOTE]
 >Any virtual network that is going to be used or created may be seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
