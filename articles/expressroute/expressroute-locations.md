@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: duau
 
 ---
@@ -128,7 +128,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Newport (Wales), Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supported |Supported |Busan, Seoul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Supported |Supported |Cape Town, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong SAR, Las Vegas, London, London2, Los Angeles, Melbourne, Miami, Montreal, New York, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Washington DC, Washington DC2, Zurich |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong, Hong Kong2, Las Vegas, London, London2, Los Angeles, Melbourne, Miami, Montreal, New York, Osaka, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Washington DC, Washington DC2, Zurich |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Supported |Supported |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Supported |Supported |Dallas, Los Angeles, Miami, Sao Paulo, Washington DC |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** |Supported |Supported |Newport(Wales) |
@@ -156,7 +156,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Supported | Supported | Zurich |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Supported |Supported |Amsterdam, Chennai, Hong Kong SAR, London, Mumbai, Sao Paulo, Silicon Valley, Singapore, Washington DC |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Supported |Supported |Amsterdam, Sao Paulo |
-| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London, London2 |
+| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London, London2, Singapore2 |
 | **Telenor** |Supported |Supported |Amsterdam, London, Oslo |
 | **[Telia Carrier](https://www.teliacarrier.com/)** | Supported | Supported |Amsterdam, Chicago, Dallas, Frankfurt, Hong Kong, London, Oslo, Paris, Silicon Valley, Stockholm, Washington DC |
 | **[Telin](https://www.telin.net/)** | Supported | Supported |Jakarta |
