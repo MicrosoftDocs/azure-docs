@@ -32,7 +32,7 @@ Follow the guidelines to set up and execute the snapshots and disaster recovery 
 is recommended the following steps are completed as root before installing and using the snapshot
 tools.
 
-1. **OS is patched**: See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#setting-up-smt-server-for-suse-linux).
+1. **OS is patched**: See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **Time Synchronization is set up**. The customer will need to provide an NTP compatible time
     server, and configure the OS accordingly.
 1. **HANA is installed** : See HANA installation instructions in [SAP NetWeaver Installation on HANA database](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
