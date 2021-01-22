@@ -61441,17 +61441,17 @@
       "redirect_document_id": true
     },
     {
-    "source_path_from_root":"articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
+    "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
     "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
     "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python.md",
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
@@ -61486,7 +61486,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
     }
