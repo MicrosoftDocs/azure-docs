@@ -35,7 +35,14 @@
       href: database/features-comparison.md
     - name: Multi-model features
       href: multi-model-features.md
-
+    - name: Scheduled maintenance
+      items:
+      - name: SQL maintenance windows
+        href: database/sql-maintenance-window.md
+      - name: SQL Maintenance window FAQ
+        href: database/sql-maintenance-window-faq.yml
+      - name: Advanced notifications
+        href: database/maintenance-notifications.md
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
     - name: Temporal tables
@@ -1373,10 +1380,6 @@
       href: database/gateway-migration.md
     - name: Periodic maintenance events
       href: database/planned-maintenance.md
-    - name: SQL maintenance windows
-      href: database/sql-maintenance-window.md
-    - name: SQL Maintenance window FAQ
-      href: database/sql-maintenance-window-faq.yml
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
