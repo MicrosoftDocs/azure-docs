@@ -52,12 +52,12 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 * Subnet named **mySubnet**.
 * Subnet prefix of **10.1.0.0/24**.
 * In the **CreatePrivLinkService-rg** resource group.
-* Location of **eastus**.
+* Location of **eastus2**.
 
 ```azurecli-interactive
   az network vnet create \
     --resource-group CreatePrivLinkService-rg \
-    --location eastus \
+    --location eastus2 \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name mySubnet \
@@ -159,9 +159,6 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
     --enable-tcp-reset true
 ```
 
-
-
-
 ## Create a private link service
 
 In this section, create a private link service that uses the Standard Azure Load Balancer created in the previous step.
@@ -171,7 +168,7 @@ Create a private link service using a standard load balancer frontend IP configu
 * Named **myPrivateLinkService**.
 * In virtual network **myVNet**.
 * Associated with standard load balancer **myLoadBalancer** and frontend configuration **myFrontEnd**.
-* IN the **eastus2** location.
+* In the **eastus2** location.
  
  
 ```azurecli-interactive
