@@ -64,16 +64,16 @@ The following table shows the general-information notifications you may receive:
 |Event|Description|
 |:---|:---|
 |**Planned Deployment**| Received 24 hours prior to the maintenance event. Maintenance is planned on DATE between 5pm - 8am (local time) for DB xyz.|
-|**In-Progress** | Maintenance for DB xyz is starting.| 
-|**Complete** | Maintenance of Database ‘XYZ’ is complete |
+|**In-Progress** | Maintenance for database *xyz* is starting.| 
+|**Complete** | Maintenance of database *xyz* is complete. |
 
 The following table shows additional notifications that may be sent while maintenance is ongoing: 
 
 |Event|Description|
 |:---|:---|
-|**Extended** | Maintenance is in progress, but didn’t complete for Database XYZ, we’ll continue tomorrow.| 
-|**Cancelled**| Maintenance for DatabaseXYZ  is cancelled and will be rescheduled later. |
-|**Blocked**|We hit a problem during maintenance for Database “XYZ and will notify you when we resume.| 
+|**Extended** | Maintenance is in progress, but didn’t complete for database *xyz*, we’ll continue tomorrow.| 
+|**Cancelled**| Maintenance for database *xyz* is cancelled and will be rescheduled later. |
+|**Blocked**|There was a problem during maintenance for database *xyz*. We'll notify you when we resume.| 
 |**Resumed**|The problem has been resolved and maintenance will continue tonight.|
 
 
