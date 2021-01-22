@@ -32,7 +32,7 @@ If you have a development-related question, you may be able to find the answer i
 
 ### Scoped search
 
-For faster results, scope your search to Microsoft Q&A Stack , the documentation, and the code samples by using the following query in your favorite search engine:
+For faster results, scope your search to Microsoft Q&A, the documentation, and the code samples by using the following query in your favorite search engine:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
