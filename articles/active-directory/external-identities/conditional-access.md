@@ -25,7 +25,7 @@ This article describes how organizations can scope Conditional Access (CA) polic
 ## Authentication flow for B2B guest users from an external directory
 
 The following diagram illustrates the flow:
-![image shows Authentication flow for B2B guest users from an external directory](./media/authentication-flow-b2b-guests.png)
+![image shows Authentication flow for B2B guest users from an external directory](./media/conditional-access-b2b/authentication-flow-b2b-guests.png)
 
 | Step | Description |
 |--------------|-----------------------|
@@ -37,7 +37,7 @@ The following diagram illustrates the flow:
 ## Authentication flow for B2B guest users with one time passcode
 
 The following diagram illustrates the flow:
-![image shows Authentication flow for B2B guest users with one time passcode](./media/authentication-flow-b2b-guests-otp.png)
+![image shows Authentication flow for B2B guest users with one time passcode](./media/conditional-access-b2b/authentication-flow-b2b-guests-otp.png)
 
 | Step | Description |
 |--------------|-----------------------|
