@@ -29,7 +29,7 @@ You can [programmatically query Application Insights](https://dev.applicationins
 
 * [Automate reports with Power Automate](../platform/logicapp-flow-connector.md)
 * [Automate reports with Logic Apps](automate-with-logic-apps.md)
-* Use the "Application Insights scheduled digest" [Azure function](../../azure-functions/functions-create-first-azure-function.md) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
+* Use the "Application Insights scheduled digest" [Azure function](../../azure-functions/functions-get-started.md) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
@@ -68,7 +68,7 @@ availabilityResults
 
 1. Create an Azure Function App.(Application Insights _On_ is required only if you want to monitor your new Function App with Application Insights)
 
-   Visit the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
+   Visit the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-get-started.md)
 
 2. Once your new Function App has completed deployment, select **Go to resource**.
 
@@ -150,4 +150,3 @@ These steps only apply if you don't already have a SendGrid account configured.
 * Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
 * Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Learn more about [Microsoft Power Automate](https://ms.flow.microsoft.com).
-
