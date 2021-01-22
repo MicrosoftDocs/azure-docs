@@ -1,6 +1,6 @@
 ---
-title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro GPU device using Azure PowerShell.
+title: Deploy VMs on your Azure Stack Edge device via Azure PowerShell
+description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -9,34 +9,30 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
+# Deploy VMs on your Azure Stack Edge device via Azure PowerShell
 
-This article describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
+This article describes how to create and manage a VM on your Azure Stack Edge device by using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
 
 ## VM deployment workflow
 
-The deployment workflow is illustrated in the following diagram.
+Here's what the deployment workflow looks like:
 
-![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
+![Diagram of the VM deployment workflow.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 ## Prerequisites
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## Query for built in subscription on the device
+## Query for built-in subscription on the device
 
-For Azure Resource Manager, only a single user-visible fixed subscription is supported. This subscription is unique per device and this subscription name or subscription ID cannot be changed.
-
-This subscription contains all the resources that are created required for VM creation. 
+For Azure Resource Manager, you can only have a single, user-visible, fixed subscription. This subscription is unique per device, and you can't change the subscription name or subscription ID. This subscription contains all the resources you need to create a VM, and you use the subscription to deploy VMs. 
 
 > [!IMPORTANT]
-> This subscription is created when you enable VMs from the Azure portal and it lives locally on your device .
-
-This subscription is used to deploy the VMs.
+> This subscription is created when you enable VMs from the Azure portal, and it lives locally on your device.
 
 1.  To list this subscription, type:
 
@@ -44,7 +40,7 @@ This subscription is used to deploy the VMs.
     Get-AzureRmSubscription
     ```
     
-    A sample output is shown below.
+    Here's a sample output:
 
     ```powershell
     PS C:\windows\system32> Get-AzureRmSubscription
@@ -56,16 +52,16 @@ This subscription is used to deploy the VMs.
     PS C:\windows\system32>
     ```
         
-3.  Get the list of the registered resource providers running on the device. This list typically includes Compute, Network, and Storage.
+1. Get the list of the registered resource providers running on the device. This list typically includes compute, network, and storage.
 
     ```powershell
     Get-AzureRMResourceProvider
     ```
 
     > [!NOTE]
-    > The resource providers are pre-registered and cannot be modified or changed.
+    > The resource providers are pre-registered, and can't be modified or changed.
     
-    A sample output is shown below:
+    Here's a sample output:
 
     ```powershell
     Get-AzureRmResourceProvider
@@ -97,16 +93,16 @@ This subscription is used to deploy the VMs.
     
 ## Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources, such as a storage account, disk, and managed disk, are deployed and managed.
 
 > [!IMPORTANT]
-> All the resources are created in the same location as that of the device and the location is set to **DBELocal**.
+> All the resources are created in the same location as that of the device, and the location is set to **DBELocal**.
 
 ```powershell
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
 ```
 
-A sample output is shown below.
+Here's a sample output:
 
 ```powershell
 New-AzureRmResourceGroup -Name rg191113014333 -Location DBELocal 
@@ -115,16 +111,16 @@ Successfully created Resource Group:rg191113014333
 
 ## Create a storage account
 
-Create a new storage account using the resource group created in the previous step. This is a **local storage account** that will be used to upload the virtual disk image for the VM.
+Create a new storage account by using the resource group created in the previous step. This is a local storage account that you use to upload the virtual disk image for the VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
 ```
 
 > [!NOTE]
-> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Using Azure Resource Manager, you can only create local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
-A sample output is shown below.
+Here's a sample output:
 
 ```powershell
 New-AzureRmStorageAccount -Name sa191113014333  -ResourceGroupName rg191113014333 -SkuName Standard_LRS -Location DBELocal
@@ -155,7 +151,7 @@ Context                : Microsoft.WindowsAzure.Commands.Common.Storage.LazyAzur
 ExtendedProperties     : {}
 ```
 
-To get the storage account key, run the `Get-AzureRmStorageAccountKey` command. A sample output of this command is shown here.
+To get the storage account key, run the `Get-AzureRmStorageAccountKey` command. Here's a sample output of this command:
 
 ```powershell
 PS C:\Users\Administrator> Get-AzureRmStorageAccountKey
@@ -172,20 +168,19 @@ key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
 key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 ```
 
-## Add blob URI to hosts file
+## Add blob URI to the host file
 
-You already added the blob URI in hosts file for the client that you are using to connect to Blob storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
+You already added the blob URI in the **hosts** file for the client that you're using to connect to Blob storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
-
 ## Install certificates
 
-If you are using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).
+If you're using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Use certificates with Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-manage-certificates.md).
 
 ## Upload a VHD
 
-Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the VHD to the storage account that you created in earlier steps. 
+Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the VHD to the storage account. 
 
 <!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
@@ -194,11 +189,11 @@ AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storag
 ```
 
 > [!NOTE]
-> Set `BlobType` to page for creating a managed disk out of VHD. Set `BlobType` to block when writing to tiered storage accounts using AzCopy.
+> Set `BlobType` to `page` for creating a managed disk out of VHD. Set `BlobType` to `block` when you're writing to tiered storage accounts by using AzCopy.
 
-You can download the disk images from the marketplace. For detailed steps, go to [Get the virtual disk image from Azure marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
+You can download the disk images from Azure Marketplace. For detailed steps, see [Get the virtual disk image from Azure Marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
 
-A sample output using AzCopy 7.3 is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
+Here's a sample output using AzCopy 7.3. For more information on this command, see [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
 
 
 ```powershell
@@ -218,7 +213,7 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 <AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
 
-Here is an example output: 
+Here's an example output: 
 
 ```powershell
 $ContainerName = <ContainerName>
@@ -245,7 +240,8 @@ Create a managed disk from the uploaded VHD.
 ```powershell
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
-A sample output is shown below: 
+Here's a sample output: 
+
 <code>
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
@@ -253,7 +249,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Here's a sample output:
 
 ```powershell
 Tags               :
@@ -293,7 +289,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+Here's a sample output:
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
