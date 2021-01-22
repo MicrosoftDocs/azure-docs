@@ -19,34 +19,33 @@ ms.reviewer: jroth
 # Storage: Performance best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides storage, disks and IO guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
+This article provides storage best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
 
-To learn more, see the other articles in this series:
-- [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Disks](performance-guidelines-best-practices-disks.md)[Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+To learn more, see the other performance best practices articles:
+- [Quick checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Disks](performance-guidelines-best-practices-disks.md), [Azure & SQL feature specific](performance-guidelines-best-practices-feature-specific.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 ## Check list
-### Storage
-- For detailed testing of SQL Server performance on Azure Virtual Machines with TPC-E and TPC_C benchmarks, refer to the blog Optimize OLTP performance.
-- Collect the storage latency requirements for SQL Server data, log, and Tempdb files by monitoring the application before choosing the disk type. If < 1-ms storage latencies are required, then use Ultra Disks, otherwise use premium SSD. If low latencies are only required for the log file and not for data files, then provision the Ultra Disk at required IOPS and throughput levels only for the log File.
-- Add an additional 20% premium IOPS/throughput capacity than your workload requires when configuring storage for SQL Server data, log, and Tempdb files
-- Keep the storage account and SQL Server VM in the same region.
+
+- For detailed testing of SQL Server performance on Azure VMs with TPC-E and TPC_C benchmarks, refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/sql-server/optimize-oltp-performance-with-sql-server-on-azure-vm/ba-p/916794).
+- Monitor the application and determine storage latency requirements for SQL Server data, log, and tempdb files before choosing the disk type. Choose UltraDisks for latencies less than 1 ms, otherwise use Premium SSD. Provision different types of drives for the data and log files if the latency requirements vary. 
+- Buffer your IOPS/throughput capacity by at least 20% more than your workload requires. 
+- Provision the storage account in the same region as the SQL Server VM. 
 - Disable Azure geo-redundant storage (geo-replication) on the storage account.
-- Configure Read only cache for data files and no cache for the log file
-- For workloads requiring < 1-ms IO latencies, enable write accelerator for M series and consider using Ultra SSD disks for Es and DS series virtual machines.
-- Enable read only caching only on the disk(s) hosting the data files.
-- Stop the SQL Server service when changing the cache settings for an Azure Virtual Machines disk.
-- Do not enable caching on disk(s) hosting the log file. 
-- Stripe multiple Azure data disks using Storage Spaces to gain increased storage throughput up to the largest target virtual machine’s IOPs and throughput limits
+- Configure read-only cache for data files and disable cache for the log file. Stop the SQL Server service when changing the cache settings your disk.
+- For workloads requiring IO latencies < 1-ms, enable write accelerator for the M series and consider using Ultra SSD disks for the Es and DS series virtual machines.
+- Stripe multiple Azure data disks using Storage Spaces to gain increased storage throughput up to the largest target virtual machine's IOPs and throughput limits.
+- Place tempdb on the local SSD D:\ drive for most SQL Server workloads after choosing the correct VM size. SQL Server VMs created from the Azure marketplace are already configured with TempDB using the ephemeral disk. 
+   - If the capacity of the local drive is not enough for your tempdb size, then place tempdb on a storage pool striped on premium SSD disks with read-only caching.
+   - Alternatively, consider placing tempdb on a separate data drive with read-caching enabled to prevent overconsmuption of the local Azure cache. 
+   
+   Consider placing tempdb on a separate data drive with read-cahc
+   
+   Consider placing Tempdb on a separate data drive and not on the ephemeral disk D:\ when read-caching is enabled to prevent overconsumption of the local Azure cache.
 
-- Format with documented allocation sizes
-- Place Tempdb on the local SSD D:\ drive for most SQL Server workloads after choosing correct VM size. If you create the VM from the Azure marketplace images, tempdb will already be targeted to leverage ephemeral disk following the best practices for tempdb.
+If you create the VM from the Azure marketplace image, TempDB will already be targeted to leverage the ephemeral disk following the best practices for tempdb.
 
-> [!NOTE] 
->	If the capacity of the local drive is not enough for your tempdb size, then place tempdb on a storage pool striped on premium SSD disks with read-only caching.
->	
->Consider placing tempdb on a separate data drive and not on the ephemeral disk D:\ when read-caching is enabled to prevent overconsumption of the local Azure cache.
 
-## Storage Design and Considerations
+## Design and Considerations
 Making the choice on which Azure managed disks to use is an important phase in storage design. The storage volumes we create, file placement, how these disks are formatted, and the features that support storage are all additional storage considerations that should be taken to have an optimal storage architecture. 
 
 It is also important to understand how a virtual machine addresses the presented storage. Virtual machine storage components such as uncached and cached managed disks and the performance levels of storage access from the virtual machine is summarized in the article below.
@@ -76,7 +75,7 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performa
 ## Uncached vs. Cached throughput
 Virtual Machines can take advantage of the speed of its combined premium disk performance up to the virtual machine limits. For virtual machines that support premium disk caching, you can also take advantage of an additional Azure BLOB cache store to extend the read IOps and throughput capabilities of a virtual machine. Virtual machines that are enabled for both premium storage and premium storage caching have these two different storage bandwidth limits.
 
-It is recommended to find a virtual machine that can handle your application workload via the virtual machine’s maximum uncached disk throughput limits. The maximum cached limits provide an additional buffer for reads that helps address growth and unexpected peaks.
+It is recommended to find a virtual machine that can handle your application workload via the virtual machine's maximum uncached disk throughput limits. The maximum cached limits provide an additional buffer for reads that helps address growth and unexpected peaks.
 
 Premium caching provides a significant performance improvement for reads against the data drive and should be enabled whenever the option is supported for SQL Server workloads.
 
@@ -101,7 +100,7 @@ Uncached Iops – What is it - https://docs.microsoft.com/en-us/azure/virtual-ma
 
 The max cached storage throughput limit is a separate limit available only when you enable host caching. In order to take advantage of premium storage caching your virtual machine must support both premium storage and premium storage caching which can be verified in the virtual machine documentation. When caching is enabled on premium storage, virtual machines can scale beyond the limitations of the VM uncached IOps and throughput and beyond the limits of the underlying disk performance.
 
-The Azure Blob Cache consists of a combination of the host virtual machine’s random-access memory and the VM’s local SSD that is applied only for caching. This means that the cache is entirely local to the virtual machine so that the cache store can be read quickly. 
+The Azure Blob Cache consists of a combination of the host virtual machine's random-access memory and the VM's local SSD that is applied only for caching. This means that the cache is entirely local to the virtual machine so that the cache store can be read quickly. 
 
 ![M-Series Premium Storage Support](./media/performance-guidelines-best-practices/M-Series_table_premium_support.png
 )
@@ -113,7 +112,7 @@ As we can see for the M-series, these virtual machines support both Premium Stor
 
 The [Standard_M128ms](https://docs.microsoft.com/en-us/azure/virtual-machines/m-series) supports 160000 cached disk IOps and 1600 MBps cached disk throughput with a total cache size of 12696 Gib. This limit is governed at the virtual machine level, but only becomes available to the virtual machine when host caching is enabled per disk.
 
-You can manually enable host caching on an existing VM though we always recommend stopping all application workloads and the SQL Server services before any changes are made to your virtual machine’s caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and re-attached after the settings are applied.
+You can manually enable host caching on an existing VM though we always recommend stopping all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and re-attached after the settings are applied.
 
 Note: The [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) experience helps guide you through the storage configuration process and implements storage best practices such as creating separate storage pools for your data and log files and targeting tempdb to the D:\ drive as well as enabling the optimal caching policy. 
 
@@ -127,15 +126,15 @@ For SQL Server workloads, we recommend only enabling caching for the data disks 
 
 Reads from cache will be much faster than the uncached reads that would otherwise come from the data disk.
 
-Additionally, reads provided by the Azure Blob Cache do not count against the virtual machine’s uncached IOps and throughput limits providing the ability to scale beyond these limitations. 
+Additionally, reads provided by the Azure Blob Cache do not count against the virtual machine's uncached IOps and throughput limits providing the ability to scale beyond these limitations. 
 
 ### SQL Server transaction log files
-For SQL Server workloads, we do not recommend enabling caching for the transaction log drive as there is no performance benefit and there is also a potential for corruption if ‘Read/Write’ is used. 
-It is recommended to set the caching policy to ‘None’ for transaction log disks.
+For SQL Server workloads, we do not recommend enabling caching for the transaction log drive as there is no performance benefit and there is also a potential for corruption if ‘Read/Write' is used. 
+It is recommended to set the caching policy to ‘None' for transaction log disks.
 
 ### Operating System OS disk
 The operating system disk will have a caching level set to Read-only or Read/write. The Read/write caching level is meant for workloads that achieve a balance of read and write operations. 
-The default caching policy is Read/write for the premium disk Virtual Machine OS drive. If the OS drive is Standard HDD then the default will be set to ‘Read-only’. It is not recommended to change the caching level of the OS drive.
+The default caching policy is Read/write for the premium disk Virtual Machine OS drive. If the OS drive is Standard HDD then the default will be set to ‘Read-only'. It is not recommended to change the caching level of the OS drive.
 
 ### tempdb
 The local and temp disks will leverage the virtual machine cache. If tempdb cannot be placed on the ephemeral drive D:/ due to capacity reasons it is recommended to either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with Read-only caching configured.
@@ -154,14 +153,14 @@ Azure Premium Storage: Design for high performance
 https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance#disk-caching
 
 Enabling Caching in the Azure Portal
-To verify or change caching for a virtual machine’s existing disks in the Azure Portal you would first select Disks in the Virtual Machine settings. 
+To verify or change caching for a virtual machine's existing disks in the Azure Portal you would first select Disks in the Virtual Machine settings. 
 
 The screenshot below is the result of following the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) experience for the [Standard E16-8s_v3](https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series#esv3-series) with 8 data disks (P30 disks) and 2 log disks (P40 disk) with tempdb placed on the ephemeral D:/ drive. The configuration is guided by the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) where caching policy is applied for the administrator.
 
 ![VM Disk Configuration](./media/performance-guidelines-best-practices/azure_disk_config.png
 )
 
-If an administrator were making these changes without the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration), the administrator would need to manually change the read caching policy from ‘None’ to ‘Read-only’ for each of the data files and make sure that the transaction log file(s) is always set to ‘None’.
+If an administrator were making these changes without the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration), the administrator would need to manually change the read caching policy from ‘None' to ‘Read-only' for each of the data files and make sure that the transaction log file(s) is always set to ‘None'.
 
 > [!NOTE] 
 > It is important to make sure the SQL Server services are stopped before
@@ -175,13 +174,13 @@ We will look at an example of how the [SQL Server IaaS Agent extension](https://
 
 For this example, we will configure a [Standard E16-8s_v3](https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series#esv3-series) that has 8 vCPUs, 128 GiB of memory, and a maximum disk count of 32 disks. 
 
-Using the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) experience in the Azure portal makes storage configuration very straight forward as the defaults already guide us towards best practices. In the ‘storage optimization’ screen in the Azure portal, the data storage, log storage, and tempdb storage is separated pointing to three different drives. 
+Using the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) experience in the Azure portal makes storage configuration very straight forward as the defaults already guide us towards best practices. In the ‘storage optimization' screen in the Azure portal, the data storage, log storage, and tempdb storage is separated pointing to three different drives. 
 
 The default disk type is a P30 which has 5000 IOps and 200 MBps. 
 
-> [!NOTE] It is important to use ‘Premium SSD’ as the disk type to get 
+> [!NOTE] It is important to use ‘Premium SSD' as the disk type to get 
 > the guaranteed disk IOPs and throughput and to provide disk caching. 
-> For ‘Data storage’, we will use the P30 and increase the number of 
+> For ‘Data storage', we will use the P30 and increase the number of 
 > disks to 8 giving the performance potential of 40000 Max IOps and 1600
 > MBps Max Throughput. The capacity for 8 x P30 disks is 8192 GiB. 
 
@@ -189,15 +188,15 @@ The default disk type is a P30 which has 5000 IOps and 200 MBps.
 
 > [!NOTE] The Azure Managed Disks P30, P40, and P50 all provide caching support.
 
-When this configuration is applied, the data files selected for the F:/ drive will be placed in a disk stripe in Windows using ‘Storage Spaces’. There will be 8 stripes matching the disk count applied to the disk stripe set that will help evenly balance the I/O across the disk set. The number of the stripes can be verified looking at the ‘NumberofColumns’ parameter in Storage Manager on Windows Server.
+When this configuration is applied, the data files selected for the F:/ drive will be placed in a disk stripe in Windows using ‘Storage Spaces'. There will be 8 stripes matching the disk count applied to the disk stripe set that will help evenly balance the I/O across the disk set. The number of the stripes can be verified looking at the ‘NumberofColumns' parameter in Storage Manager on Windows Server.
 
 The number of columns specifies how many physical disks the data is striped across and therefore impacts performance. Basically, the more columns a storage space is assigned, the more disks can be striped across and therefore the higher the performance. 
 
 This also impacts the number of disks that must be added to increase the size of the pool. If disks must be added they should be added in multiples of the column count to maintain performance. Often it is more efficient to increase the size of the disks in the pool rather than add more disks unless increasing the size of the existing disks would preclude the use of disk caching.
 
-> [!NOTE] In the Azure portal you can create a stripe set with a number of columns up to 8. If you create a volume with more disks, 12 for example, you will still see 8 looking at the ‘NumberofColumns’ in Storage Manager on Windows Server. If you need to make the NumberofColumns greater than 8, you will need to use PowerShell to create the Storage Spaces stripe.
+> [!NOTE] In the Azure portal you can create a stripe set with a number of columns up to 8. If you create a volume with more disks, 12 for example, you will still see 8 looking at the ‘NumberofColumns' in Storage Manager on Windows Server. If you need to make the NumberofColumns greater than 8, you will need to use PowerShell to create the Storage Spaces stripe.
 
-For ‘Log storage’, we will use a single P60 giving the potential of 16000 max IOps and 500 MBps max throughput. It is recommended to focus on larger premium storage disks to support the capacity needs for your transaction log. The goal is to meet the storage and IOps requirements with the minimum number of disks possible. This allows an administrator to reduce the number of disks when an organization needs to scale down the virtual machine as all VMs have a maximum number of disks it supports.
+For ‘Log storage', we will use a single P60 giving the potential of 16000 max IOps and 500 MBps max throughput. It is recommended to focus on larger premium storage disks to support the capacity needs for your transaction log. The goal is to meet the storage and IOps requirements with the minimum number of disks possible. This allows an administrator to reduce the number of disks when an organization needs to scale down the virtual machine as all VMs have a maximum number of disks it supports.
 
 We do not recommend enabling caching support so we can use any premium storage disk all the way up to the P80.
 
@@ -209,7 +208,7 @@ The architecture previously described matches the storage optimization screen fr
 
 ![Configure Data and Log Storage](./media/performance-guidelines-best-practices/configure_storage_data_log.png)
 
-> [!NOTE] The warning at the bottom, that *‘the desired performance might not be reached due to the maximum virtual machine disk performance cap. The selected VM size (Standard_E16-8s_v3) only supports up to 25600 disk max iops (currently 58000 iops), 384 disk max throughput in MBps (currently 2350 in MBps)’* means that we have added more disk IOps and throughput than our virtual machine can handle. 
+> [!NOTE] The warning at the bottom, that *‘the desired performance might not be reached due to the maximum virtual machine disk performance cap. The selected VM size (Standard_E16-8s_v3) only supports up to 25600 disk max iops (currently 58000 iops), 384 disk max throughput in MBps (currently 2350 in MBps)'* means that we have added more disk IOps and throughput than our virtual machine can handle. 
 
 This can be verified by referring to the documentation for the [Standard E16-8s_v3](https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series#esv3-series) virtual machine.
 
@@ -370,7 +369,7 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performa
 ### Monitoring Azure Virtual Machines
 Once the application has been migrated to an Azure SQL Virtual Machine it is still possible to leverage performance monitor (perfmon) or IOstat on the virtual machine. Additionally, we can leverage Azure Monitor and related capabilities in the Azure portal.
 
-In the Azure Portal an administrator can get a quick view of the performance health of a virtual machine by opening the ‘Virtual Machine’ resource from the Azure dashboard, and clicking the Overview tab.
+In the Azure Portal an administrator can get a quick view of the performance health of a virtual machine by opening the ‘Virtual Machine' resource from the Azure dashboard, and clicking the Overview tab.
 In the Overview tab you can see some quick Metrics already available from the host virtual machine.
 
 The following counters are visible from the Overview tab.
@@ -411,11 +410,11 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-performance-l
 
 ### Virtual Machine Metrics
 
-The metrics listed below help diagnose VM level capping for IOPS and throughput. These metrics represent the limits of the virtual machine. For example, the [M-series](https://docs.microsoft.com/en-us/azure/virtual-machines/m-series) VMs uncached IOPS and bandwidth are represented in the column ‘max uncached disk throughput: IOPS/MBps’. When these limitations are reached the metrics covered here can be used to identify an IO capping condition.
+The metrics listed below help diagnose VM level capping for IOPS and throughput. These metrics represent the limits of the virtual machine. For example, the [M-series](https://docs.microsoft.com/en-us/azure/virtual-machines/m-series) VMs uncached IOPS and bandwidth are represented in the column ‘max uncached disk throughput: IOPS/MBps'. When these limitations are reached the metrics covered here can be used to identify an IO capping condition.
 
 The metrics that monitor this data is represented as a percentage, if the limits are consumed at 100% for either IOPS or bandwidth it means that the throughput is capped at the virtual machine level due to the virtual machines documented limits. 
 
-As described in the previous section, caching is a separate component local to the virtual machine that can improve read/write and read performance. For SQL Server workloads, caching will be important specifically for the data disks and ‘read-only’ caching.
+As described in the previous section, caching is a separate component local to the virtual machine that can improve read/write and read performance. For SQL Server workloads, caching will be important specifically for the data disks and ‘read-only' caching.
 
 *	**VM Cached IOPS Consumed Percentage** - The percentage calculated by the total IOPS completed over the max cached virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's cached IOPS limit.
 *	**VM Cached Bandwidth Consumed Percentage** - The percentage calculated by the total disk throughput completed over the max cached virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's cached bandwidth limit.
@@ -455,7 +454,7 @@ It is not recommended to use Write Accelerator for the SQL Server data files. Wr
 
 *Restrictions*
 
-There are some restrictions regarding Write Acceleration. Premium disk caching should be set to 'None' for the transaction log drive and no other caching modes are supported. The only caching mode that should be used for the log drive is ‘None’ with or without enabling Write Acceleration.
+There are some restrictions regarding Write Acceleration. Premium disk caching should be set to 'None' for the transaction log drive and no other caching modes are supported. The only caching mode that should be used for the log drive is ‘None' with or without enabling Write Acceleration.
 
 There are limits to the number of write accelerator disks that are supported per virtual machine. Additionally, there are IOPs limits at the virtual machine level, this is not governed per disk, that can be supported by Write Acceleration. All Write Acceleration disks share the same IOPS limits per VM.
 
@@ -485,13 +484,13 @@ To enable Write Acceleration on a specific disk you can use the Azure Portal, Po
 
 *Azure Portal*
 
-To enable Write Acceleration in the Azure Portal you would first select Disks in the Virtual Machine settings and then change the Host Caching policy for the transaction log disks to ‘Note + Write Accelerator’ as shown below.
+To enable Write Acceleration in the Azure Portal you would first select Disks in the Virtual Machine settings and then change the Host Caching policy for the transaction log disks to ‘Note + Write Accelerator' as shown below.
 
 ![Write Acceleration](https://docs.microsoft.com/en-us/azure/virtual-machines/media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
 *Best Practice*
 
-It is recommended to use a single large capacity Premium disk for the transaction log with the host caching policy for the disk to be set to ‘None’. 
+It is recommended to use a single large capacity Premium disk for the transaction log with the host caching policy for the disk to be set to ‘None'. 
 
 It is recommended to use the minimum number of disks to achieve the required space and IOPs to enable a wider range of machines to scale to. Often a single large disk is sufficient for a log drive but this must be confirmed by collecting metrics for any existing workloads. 
 
@@ -527,7 +526,7 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd?t
 * Serving reads from cache, means there is additional throughput available from premium data disks. SQL Server can use this additional throughput towards retrieving more data pages and other operations like backup/restore, batch loads, and index rebuilds.
 
 ### Configure "None" cache on premium storage disks hosting the log files.
-*	Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache. Additionally, ‘Read/Write’ can lead to data corruption. Only use ‘None’ for the log file caching policy.
+*	Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache. Additionally, ‘Read/Write' can lead to data corruption. Only use ‘None' for the log file caching policy.
 *	In certain heavy write workloads, better performance might be achieved with no caching. This can only be determined through testing.
 *	For test results on various disk and workload configurations, see the following blog post: [Storage Configuration Guidelines for SQL Server on Azure Virtual Machines](https://docs.microsoft.com/en-us/archive/blogs/sqlserverstorageengine/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 *	For instructions on configuring disk caching, see the following articles. For the classic (ASM) deployment model see: [Set-AzureOSDisk](https://docs.microsoft.com/en-us/previous-versions/azure/jj152847(v=azure.100)) and [Set-AzureDataDisk](https://docs.microsoft.com/en-us/previous-versions/azure/jj152851(v=azure.100)). For the Azure Resource Manager deployment model, see: [Set-AzOSDisk](https://docs.microsoft.com/en-us/powershell/module/az.compute/set-azvmosdisk) and [Set-AzVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/az.compute/set-azvmdatadisk).

@@ -58,19 +58,25 @@ Collect the target workload's performance characteristics and use them to determ
 
 ## Storage
 
-- For detailed testing of SQL Server performance on Azure Virtual Machines with TPC-E and TPC_C benchmarks, refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
+- For detailed testing of SQL Server performance on Azure Virtual Machines with TPC-E and TPC_C benchmarks, refer to the blog Optimize OLTP performance.
+- Collect the storage latency requirements for SQL Server data, log, and Tempdb files by monitoring the application before choosing the disk type. If < 1-ms storage latencies are required, then use Ultra Disks, otherwise use premium SSD. If low latencies are only required for the log file and not for data files, then provision the Ultra Disk at required IOPS and throughput levels only for the log File.
+- Add an additional 20% premium IOPS/throughput capacity than your workload requires when configuring storage for SQL Server data, log, and Tempdb files
+- Keep the storage account and SQL Server VM in the same region.
+- Disable Azure geo-redundant storage (geo-replication) on the storage account.
+- Configure Read only cache for data files and no cache for the log file
+- For workloads requiring < 1-ms IO latencies, enable write accelerator for M series and consider using Ultra SSD disks for Es and DS series virtual machines.
+- Enable read only caching only on the disk(s) hosting the data files.
+- Stop the SQL Server service when changing the cache settings for an Azure Virtual Machines disk.
+- Do not enable caching on disk(s) hosting the log file. 
+- Stripe multiple Azure data disks using Storage Spaces to gain increased storage throughput up to the largest target virtual machine’s IOPs and throughput limits
 
-- Use [premium SSDs](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) for the best price/performance advantages. Configure [Read only cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) for data files and no cache for the log file. 
+- Format with documented allocation sizes
+- Place Tempdb on the local SSD D:\ drive for most SQL Server workloads after choosing correct VM size. If you create the VM from the Azure marketplace images, tempdb will already be targeted to leverage ephemeral disk following the best practices for tempdb.
 
-- Use [Ultra Disks](../../../virtual-machines/disks-types.md#ultra-disk) if less than 1-ms storage latencies are required by the workload. See [migrate to ultra disk](storage-migrate-to-ultradisk.md) to learn more. 
-
-- Collect the storage latency requirements for SQL Server data, log, and Temp DB files by [monitoring the application](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist) before choosing the disk type. If < 1-ms storage latencies are required, then use Ultra Disks, otherwise use premium SSD. If low latencies are only required for the log file and not for data files, then [provision the Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md) at required IOPS and throughput levels only for the log File. 
-
--  Standard storage is only recommended for development and test purposes or for backup files and should not be used for production workloads. 
-
-- Keep the [storage account](../../../storage/common/storage-account-create.md) and SQL Server VM in the same region.
-
-- Disable Azure [geo-redundant storage](../../../storage/common/storage-redundancy.md) (geo-replication) on the storage account.  
+> [!NOTE] 
+>	If the capacity of the local drive is not enough for your tempdb size, then place tempdb on a storage pool striped on premium SSD disks with read-only caching.
+>	
+>Consider placing tempdb on a separate data drive and not on the ephemeral disk D:\ when read-caching is enabled to prevent overconsumption of the local Azure cache.
 
 
 

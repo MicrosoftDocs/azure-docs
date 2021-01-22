@@ -15,7 +15,7 @@ ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# VM Size: Performance best practices for SQL Server on Azure VMs
+# VM size: Performance best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article provides VM size guidance a series of best practices and guidelines to optimize performance for your SQL Server on Azure Virtual Machines (VMs).
