@@ -12574,33 +12574,33 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/extensions/index.yml",
-      "redirect_url": "/azure/virtual-machines/",
+      "source_path_from_root": "/articles/virtual-machines/extensions/index.yml",
+      "redirect_url": "/azure/virtual-machines",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/extensions/",
+      "source_path_from_root": "/articles/virtual-machines/extensions",
       "redirect_url": "/azure/virtual-machines/extensions/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/index.yml",
-      "redirect_url": "/azure/virtual-machines/",
+      "redirect_url": "/azure/virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/linux/index.yml",
-      "redirect_url": "/azure/virtual-machines/",
+      "redirect_url": "/azure/virtual-machines",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/linux/",
-      "redirect_url": "/azure/virtual-machines/",
+      "source_path_from_root": "/articles/virtual-machines/linux",
+      "redirect_url": "/azure/virtual-machines",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-machines/windows/",
-      "redirect_url": "azure/virtual-machines/",
+      "source_path_from_root": "/articles/virtual-machines/windows",
+      "redirect_url": "/azure/virtual-machines",
       "redirect_document_id": false
     },
     {
