@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 > or you can [create a Google client app to use for authentication in your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
 > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
++ This article uses as its starting point the resources created in [Create your first function from the Azure portal](./functions-get-started.md).
 If you haven't already done so, complete these steps now to create your function app.
 
 ## Create a Cognitive Services resource

@@ -688,7 +688,7 @@ Learn more about how to develop and configure Azure Functions.
 
 * [Azure Functions developer reference](functions-reference.md)
 * [How to configure Azure function app settings](functions-how-to-use-azure-function-app-settings.md)
-* [Create your first Azure function](functions-create-first-azure-function.md)
+* [Create your first Azure function](./functions-get-started.md)
 
 <!-- LINKS -->
 
