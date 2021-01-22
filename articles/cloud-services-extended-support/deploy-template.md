@@ -15,7 +15,7 @@ ms.custom:
 This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 ## Before you begin
-1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 
 2. Create a new resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) or [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). This step is optional if you are using an existing resource group. 
  

@@ -19,7 +19,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 
 3. Install Az.CloudService PowerShell module  
 
