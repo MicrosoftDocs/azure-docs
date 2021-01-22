@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -21,8 +21,8 @@ You must:
 
 * Have an active Azure subscription that can be used for the Import/Export service.
 * Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
-  * For information on creating a new storage account, see [How to Create a Storage Account](storage-account-create.md).
-  * For information on storage container, go to [Create a storage container](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+  * For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
+  * For information on storage container, go to [Create a storage container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 * Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 * Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 * Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
@@ -144,7 +144,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
@@ -221,7 +221,7 @@ Use the following steps to create an import job in the Azure CLI.
 
 Use the following steps to create an import job in Azure PowerShell.
 
-[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+[!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
 > [!IMPORTANT]
 > While the **Az.ImportExport** PowerShell module is in preview, you must install it separately
@@ -324,11 +324,11 @@ Skip this step and go to the next step if you want to use the Microsoft managed 
 
 ## Step 4: Ship the drives
 
-[!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
+[!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
 ## Step 5: Update the job with tracking information
 
-[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+[!INCLUDE [storage-import-export-update-job-tracking](../../includes/storage-import-export-update-job-tracking.md)]
 
 ## Step 6: Verify data upload to Azure
 

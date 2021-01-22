@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2017
+ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -147,6 +147,6 @@ Any component failing the verification will be downloaded by the tool and rewrit
 ## Next steps
  
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
-* [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Preparing hard drives for an import job](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
