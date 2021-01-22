@@ -41,9 +41,11 @@ To use the new feature, follow the steps below.
 
 ## Recovering from an accidental delete instance
 If you encounter an accidental delete you will see this on the status of your provisioning agent configuration.  It will say **Delete threshold exceeded**.
- ![Accidental delete status](media/how-to-accidental-deletes/delete-1.png)
+ 
+![Accidental delete status](media/how-to-accidental-deletes/delete-1.png)
 
 By clicking on **Delete threshold exceeded**, you will see the sync status info.  This will provide additional details. 
+ 
  ![Sync status](media/how-to-accidental-deletes/delete-2.png)
 
 By right-clicking on the elipses you will get the following options:
@@ -54,13 +56,16 @@ By right-clicking on the elipses you will get the following options:
  ![Right click](media/how-to-accidental-deletes/delete-3.png)
 
 By viewing the provisioning logs, you can see the **StagedDelete** entries and review the information provided on the users that have been deleted.
+ 
  ![Provisioning logs](media/how-to-accidental-deletes/delete-7.png)
 
 
 By allowing the deletes, click **Yes** on the confirmation to allow the deletes.
+ 
  ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
 
 You will see confirmation that the deletes were accepted and the status will return to healthy with the next cycle. 
+ 
  ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
 
 ## Next steps 
