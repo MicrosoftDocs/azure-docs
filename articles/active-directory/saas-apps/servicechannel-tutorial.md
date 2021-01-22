@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel Client support team](https://servicechannel.zendesk.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
