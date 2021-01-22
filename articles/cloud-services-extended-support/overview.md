@@ -39,14 +39,16 @@ Minimal changes are required to .cscfg and .csdef files to deploy Cloud Services
 ## Migration to Azure Resource Manager
 
 Cloud Services (extended support) provides two paths for you to migrate from Azure Service Manager to Azure Resource Manager. 
-1) Redeploy. Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in ASM after thorough validation. 
-2) In-place migration. The ability to migrate Cloud Services (classic) with minimal to no downtime. 
+1) Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in ASM after thorough validation. 
+2) In-place migration supports the ability to migrate Cloud Services (classic) with minimal to no downtime. 
 
 ### Additional migration options
 
-When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support) you may want to investigate the opportunity of taking advantage of additional Azure services such as: Virtual Machine Scale Sets, App Service, Azure Kubernetes Service, and Azure Service Fabric. These services will continue to feature additional capabilities, while Cloud Services (extended support) will primarily maintain feature parity with Cloud Services (classic.) 
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support) you may want to investigate additional Azure services such as: [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [App Service](https://docs.microsoft.com/azure/app-service/overview), [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes), and [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview). These services will continue to feature additional capabilities, while Cloud Services (extended support) will primarily maintain feature parity with Cloud Services (classic.) 
 
 Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application is not evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements. 
 
 ## Next steps
-Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md)
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

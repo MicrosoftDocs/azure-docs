@@ -29,7 +29,7 @@ Once the cloud service is running in Azure, you can reconfigure it through the *
 <a name="csdef"></a>
 
 ## ServiceDefinition.csdef
-The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](/previous-versions/azure/reference/ee758711(v=azure.100)) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
+The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](schema-csdef-file.md) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -198,16 +198,15 @@ You can update the configuration of your cloud service while it is running in Az
   You can only update a certificate when a role instance is offline. If a certificate is added, deleted, or changed while a role instance is online, Azure gracefully takes the instance offline to update the certificate and bring it back online after the change is complete.
 
 ### Handling configuration changes with Service Runtime Events
-The [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.100)) includes the [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) namespace, which provides classes for interacting with the Azure environment from a role. The [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) class defines the following events that are raised before and after a configuration change:
+The Azure Runtime Library includes the Microsoft.WindowsAzure.ServiceRuntime namespace, which provides classes for interacting with the Azure environment from a role. The RoleEnvironment class defines the following events that are raised before and after a configuration change:
 
-* **[Changing](/previous-versions/azure/reference/ee758134(v=azure.100)) event**  
+* **Changing event**  
   This occurs before the configuration change is applied to a specified instance of a role giving you a chance to take down the role instances if necessary.
-* **[Changed](/previous-versions/azure/reference/ee758129(v=azure.100)) event**  
+* **Changed event**  
   Occurs after the configuration change is applied to a specified instance of a role.
 
 > [!NOTE]
 > Because certificate changes always take the instances of a role offline, they do not raise the RoleEnvironment.Changing or RoleEnvironment.Changed events.
-> 
 > 
 
 <a name="cspkg"></a>
@@ -270,6 +269,7 @@ Where the variables are defined as follows:
 | \[PhysicalPath\] |The physical directories of the contents for each virtual path defined in the site node of the service definition. |
 | \[RoleAssemblyName\] |The name of the binary file for the role. |
 
-## Next steps
-
-For more information, see [Frequently asked questions](faq.md)
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

@@ -22,7 +22,7 @@ Cloud Services (extended support) is currently in preview. Register the feature 
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 
-Check if the registration was successful for CloudServices resource. This may take a few minutes.
+Check if the registration was successful for the CloudServices resource. This may take a few minutes.
 ```powershell
 Get-AzProviderFeature 
 
@@ -65,28 +65,9 @@ Deployments that utilized the previous remote desktop plugins need to have the m
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
 ```
- 
+## 3) Remove the following settings from the cscfg file.
 
-## 3) Update the Service Configuration file
-
-All Cloud Service (extended support) deployments must be in a virtual network and referenced in the cscfg file. You can use an existing virtual network or create a new one using the [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM template](https://docs.microsoft.com/azure/virtual-network/quick-create-template).
-    
-```xml
-<NetworkConfiguration> 
-  <!-- Name of the target Virtual Network --> 
-    <VirtualNetworkSite name="myVnet    "/> 
-      <!-- Associating a Role to a Specific Subnet by name --> 
-      <AddressAssignments> 
-          <InstanceAddress roleName="WebRole1"> 
-            <Subnets> 
-              <Subnet name="WebTier"/> 
-            </Subnets> 
-          </InstanceAddress> 
-      </AddressAssignments> 
-</NetworkConfiguration> 
-```
- 
-## 4) Remove the following settings from the cscfg file.
+Remove old certificate definitions (used for RDP plugin) from the Service Configuration (.cscfg) and Service Definition (.csdef) files. 
 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" /> 
@@ -102,5 +83,32 @@ All Cloud Service (extended support) deployments must be in a virtual network an
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
 
-## Next steps
-Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md)
+## 4) Update the Service Configuration file
+
+Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) in the NetworkConfiguration section. 
+
+For a virtual network belonging to the same resource group as the cloud service, referencing only the virtual network name in the .cscfg is sufficient. If the virtual network and cloud service are in two different resource groups, then the virtual network needs to be specified in the .cscfg file.
+ 
+**Same resource group**
+```json
+<VirtualNetworkSite name="<vnet-name>"/> 
+```
+
+**Seperate resource group**
+```json
+“/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
+<AddressAssignments> 
+<InstanceAddress roleName="<role-name>"> 
+<Subnets> 
+<Subnet name="<subnet-name>"/> 
+</Subnets> 
+</InstanceAddress> 
+```
+## 5) Key Vault creation 
+
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. Key Vault can be created through [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)and  [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). The Key Vault must be created in the same region and subscription as cloud service. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates.md).
+
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
