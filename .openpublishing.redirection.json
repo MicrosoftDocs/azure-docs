@@ -61419,6 +61419,11 @@
       "source_path": "articles/media-services/latest/migrate-from-v2-to-v3.md",
       "redirect_url": "/azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
     }
   ]
 }
