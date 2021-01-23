@@ -6,7 +6,7 @@ In this Sample quickstart, you will learn how to set up and run the sample. An o
 
 ## Download Code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
+Code will posted soon for public consumption. Currently in private preview.
 
 ## Overview
 
@@ -78,6 +78,3 @@ With additional configuration, this sample supports connecting to an **Azure Act
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next steps
-
->[!div class="nextstepaction"] 
->[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
