@@ -41,7 +41,7 @@
     - name: Getting started with base components
       href: quickstarts/ui-framework/getting-started-with-components.md
     - name: Getting started with composite components
-      href: quickstarts/ui-framework/getting-started-with-components.md
+      href: quickstarts/ui-framework/getting-started-with-composites.md
     - name: Create your own UI Framework component
       href: quickstarts/ui-framework/create-your-own-components.md
     - name: How to customize components
