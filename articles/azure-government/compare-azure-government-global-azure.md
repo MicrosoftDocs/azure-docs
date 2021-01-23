@@ -425,26 +425,25 @@ Azure Information Protection Premium is part of the [Enterprise Mobility + Secur
 The following Azure Security Center **features are not currently available** in Azure Government:
 
 - **1st and 3rd party integrations**
-    - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
+    - [Connect AWS account](../security-center/quickstart-onboard-aws.md)
+    - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
     - [Integrated vulnerability assessment for machines (powered by Qualys)](../security-center/deploy-vulnerability-assessment-vm.md).
 
     >[!NOTE]
     >Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
 
 - **Threat detection**
-    - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, threat intelligence reports, and [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
+    - [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
+    - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
+    - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, and threat intelligence reports.
 
     >[!NOTE]
     >Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
-
-    - *Threat intelligence enrichment*: Geo-enrichment and the threat intelligence option.
 
 - **Environment hardening**
     - [Adaptive network hardening](../security-center/security-center-adaptive-network-hardening.md)
 
 - **Preview features**
-    - [Connect AWS account](../security-center/quickstart-onboard-aws.md)
-    - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
     - [Recommendation exemption rules](../security-center/exempt-resource.md)
     - [Azure Defender for Resource Manager](../security-center/defender-for-resource-manager-introduction.md)
     - [Azure Defender for DNS](../security-center/defender-for-dns-introduction.md)
