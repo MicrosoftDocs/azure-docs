@@ -115,7 +115,7 @@ Commonly used services in bot applications that are not currently available in A
 - Application Insights
 - Speech Service
 
-For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0&preserve-view=true#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
 ### [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)
 For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](../machine-learning/reference-machine-learning-cloud-parity.md).
@@ -500,7 +500,7 @@ The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
 When you're deploying the StorSimple Manager service, use the [https://portal.azure.us/](https://portal.azure.us/) URL for the Azure Government portal. For deployment instructions for [StorSimple Virtual Array](../storsimple/storsimple-ova-system-requirements.md), see StorSimple Virtual Array system requirements. For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-8000-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.yml).
 
-### [Azure Import/Export](../storage/common/storage-import-export-service.md)
+### [Azure Import/Export](../import-export/storage-import-export-service.md)
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](./documentation-government-impact-level-5.md#azure-importexport-service).

@@ -48,11 +48,36 @@ If you're using Service Map, you can view the service desk items created in ITSM
      - Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the documentation for making the [hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
 - If Log Analytics alerts fire but work items aren't created in the ITSM product, if configuration items aren't created/linked to work items, or for other information, see these resources:
-   -  ITSMC: The solution shows a summary of connections, work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
+   -  ITSMC: The solution shows a [summary of connections](itsmc-dashboard.md), work items, computers, and more. Select the tile that has the **Connector Status** label. Doing so takes you to **Log Search** with the relevant query. Look at log records with a `LogType_S` of `ERROR` for more information.
+   You can see details about the messages in the table - [here](itsmc-dashboard-errors.md).
    - **Log Search** page: View the errors and related information directly by using the query `*ServiceDeskLog_CL*`.
 
-### Troubleshoot Service Manager web app deployment
+## Common Symptoms - how should it be resolved?
 
--	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
--	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
--	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection) in the Azure portal.
+The list below contain common symptoms and how should it be resolved:
+
+* **Symptom**: Duplicate work items are created
+
+    **Cause**: the cause can be one of the two options:
+    * More than one ITSM action are defined for the alert.
+    * Alert is resolved.
+
+    **Resolution**: There can be two solutions:
+    * Make sure that you have a single ITSM action group per alert.
+    * ITSM Connector does not support matching work items status update when an alert is resolved. A new resolved work item is created.
+* **Symptom**: Work items are not created
+
+    **Cause**: There can be couple of reasons for this symptom:
+    * Code modification in ServiceNow side
+    * Permissions misconfiguration
+    * ServiceNow rate limits are too high/low
+    * Refresh token is expired
+    * ITSM Connector was deleted
+
+    **Resolution**: You can check the [dashboard](itsmc-dashboard.md) and review the errors in the connector status section. Review the [common errors](itsmc-dashboard-errors.md) and find out how to resolve the error.
+
+* **Symptom**: Unable to create ITSM Action for Action Group
+
+    **Cause**:Newly created ITSM Connector has yet to finish the initial Sync.
+
+    **Resolution**: you can review the [common UI errors](itsmc-dashboard-errors.md#ui-common-errors) and find out how to resolve the error.

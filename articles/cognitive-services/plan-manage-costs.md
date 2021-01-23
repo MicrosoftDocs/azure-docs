@@ -56,9 +56,9 @@ After you delete QnA Maker resources, the following resources might continue to 
 - [Azure App Service (for the runtime)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Azure Cognitive Search (for the data)](https://azure.microsoft.com/pricing/details/search/)
 
-### Using Monetary Credit with Cognitive Services
+### Using Azure Prepayment credit with Cognitive Services
 
-You can pay for Cognitive Services charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Cognitive Services charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Create budgets
 
