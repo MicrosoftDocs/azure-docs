@@ -15,12 +15,6 @@ This article covers frequently asked questions related to Azure Cloud Services (
 
 ## General
 
-### What's with Cloud Services (extended support)?
-Cloud Services (extended support) supports json based templates for deploying directly in Azure Resource Manager. It also includes new features such as role-based access control, policies for improved control on security and privacy, resource tagging, private links, Azure firewall, VNET peering and Key Vault support. Cloud Services (extended support) are required to always be deployed in a virtual network
-
-### Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
-Yes. Cloud Services (extended support) supports additional features such as the use of Key Vault and dynamic/ static IP addresses. Customers will be charged for the utilization of these resources similar to other Azure Resource Manager products. 
-
 ### What is the resource name for Cloud Services (classic) & Cloud Services (extended support)?
 - Cloud Services (classic): `microsoft.classiccompute/domainnames`
 - Cloud Services (extended support): `microsoft.compute/cloudservices`
@@ -59,6 +53,8 @@ Cloud Services (extended support) deployment only supports the Stopped- Allocate
 ###	Do Cloud Services (extended support) deployments support scaling across clusters, availability zones, and regions?
 Cloud Services (extended support) deployments cannot scale across multiple clusters, availability zones and regions. 
 
+### Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
+Cloud Services (extended support) uses Azure Key Vault and Basic (ARM) Public IP addresses. Customers requiring certificates need to use Azure Key Vault for certificate management ([learn more](https://azure.microsoft.com/pricing/details/key-vault/) about Azure Key Vault pricing.)  Each Public IP address for Cloud Services (extended support) is charged separately ([learn more](https://azure.microsoft.com/pricing/details/ip-addresses/) about Public IP Address pricing.) 
 ## Resources 
 
 ###	What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group?
