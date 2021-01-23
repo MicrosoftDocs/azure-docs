@@ -169,7 +169,7 @@ In this section, you'll create a load balancer rule:
 
 4. Leave the rest of the defaults and then select **OK**.
 
-## Create a Private Link service
+## Create a private link service
 
 In this section, you'll create a Private Link service behind a standard load balancer.
 
@@ -336,7 +336,7 @@ In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
 * Created a private link service.
-* Create a virtual network and a private endpoint for the private link service.
+* Created a virtual network and a private endpoint for the private link service.
 
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]
