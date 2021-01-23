@@ -14,15 +14,18 @@ ms.custom: contperf-fy21q2
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you [create a search service](search-create-service-portal.md), you choose a pricing tier (or SKU) that's fixed for the lifetime of the service. Estimated monthly costs are shown in the **Select Pricing Tier** page in the portal. If you're creating a service through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter.
+Part of [creating a search service](search-create-service-portal.md) means choosing a pricing tier (or SKU) that's fixed for the lifetime of the service. Prices - or the estimated monthly cost of running the service - are shown in the portal's **Select Pricing Tier** page when you create the service. If you're provisioning through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter, and you should check [service pricing](https://azure.microsoft.com/pricing/details/search/) to learn about estimated costs.
 
 The tier you select determines:
 
-+ Maximum number of indexes and other objects that you can create on the service
++ Maximum number of indexes and other objects allowed on the service
 + Size and speed of partitions (physical storage)
 + Billable rate as a fixed monthly cost, but also an incremental cost if you add capacity
 
 In a few instances, the tier you choose determines the availability of [premium features](#premium-features).
+
+> [!NOTE]
+> Looking for information about "Azure SKUs"? Start with [Azure pricing](https://azure.microsoft.com/pricing/) and then scroll down for links to per-service pricing pages.
 
 ## Tier descriptions
 
@@ -63,11 +66,11 @@ Tiers determine the  maximum storage of the service itself, as well as the maxim
 
 ## Partition size and speed
 
-Tier pricing includes details about per-partition storage that ranges from 2 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, are not published, but tiers that are designed for specific solution architectures are built on hardware that has the features to support those scenarios.
+Tier pricing includes details about per-partition storage that ranges from 2 GB for Basic, up to 2 TB for Storage Optimized (L2) tiers. Other hardware characteristics, such as speed of operations, latency, and transfer rates, are not published, but tiers that are designed for specific solution architectures are built on hardware that has the features to support those scenarios. For more information about partitions, see [Estimate and manage capacity](search-capacity-planning.md) and [Scale for performance](search-performance-optimization.md).
 
 ## Billing rates
 
-Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The billing rate is what you see in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for each service tier of Azure Cognitive Search.
+Tiers have different billing rates, with higher rates for tiers that run on more expensive hardware or provide more expensive features. The per-tier billing rate can be found in the [Azure pricing pages](https://azure.microsoft.com/pricing/details/search/) for Azure Cognitive Search.
 
 Once you create a service, the billing rate becomes both a *fixed cost* of running the service around the clock, and an *incremental cost* if you choose to add more capacity.
 

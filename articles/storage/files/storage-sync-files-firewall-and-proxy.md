@@ -128,6 +128,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | Public | South Central US | https:\//southcentralus01.afs.azure.net | North Central US | https:\//tm-southcentralus01.afs.azure.net |
 | Public | South India | https:\//southindia01.afs.azure.net<br>https:\//kailani-sin.one.microsoft.com | Central India | https:\//tm-southindia01.afs.azure.net<br>https:\//tm-kailani-sin.one.microsoft.com |
 | Public | Southeast Asia | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | East Asia | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
+| Public | Switzerland North | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net | Switzerland West | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net |
+| Public | Switzerland West | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net | Switzerland North | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net |
 | Public | UK South | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | UK West | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
 | Public | UK West | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | UK South | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
 | Public | West Central US | https:\//westcentralus01.afs.azure.net | West US 2 | https:\//tm-westcentralus01.afs.azure.net |

@@ -41,8 +41,8 @@
   - name: Agentless Solution for Organizations
     items:
     - name: Key concepts
-      href: concept-key-concepts.md    
-  - name: Agent-based Solution for Device Builders
+      href: concept-key-concepts.md
+  - name: Agent-based Solution for Device Builders 
     items: 
     - name: Security Module for Azure RTOS
       href: iot-security-azure-rtos.md
@@ -73,8 +73,6 @@
       href: concept-baseline.md
     - name: Event aggregation
       href: event-aggregation.md
-    - name: Pricing and associated costs
-      href: concept-pricing.md
 - name: How-to guides
   items:
   - name: Agentless Solution for Organizations
@@ -159,6 +157,20 @@
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Set up SNMP MIB monitoring
       href: how-to-set-up-snmp-mib-monitoring.md
+    - name: Integrate with partners
+      items:
+      - name: Cisco ISE pxGrid integration
+        href: integration-cisco-ise-pxgrid.md
+      - name: Forescout integration
+        href: integration-forescout.md
+      - name: Fortinet integration
+        href: integration-fortinet.md
+      - name: Palo Alto integration
+        href: integration-palo-alto.md
+      - name: ServiceNow integration
+        href: integration-servicenow.md
+      - name: Splunk integration
+        href: integration-splunk.md
   - name: Agent-based Solution for Device Builders
     items: 
     - name: Work with Security Module for Azure RTOS
@@ -223,7 +235,7 @@
       href: https://azure.microsoft.com/roadmap/?category=security-identity
 - name: Resources
   items:
-  - name: Agent-based solution for device builders
+  - name: Agent-based solution for Device Builders
     items: 
     - name: Build your security skills with Microsoft Learn
       href: /learn/browse/?term=securityS&terms=securityS
@@ -238,6 +250,6 @@
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/security-center/
+      href: https://azure.microsoft.com/pricing/details/azure-defender/
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
