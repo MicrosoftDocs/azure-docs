@@ -32,7 +32,7 @@ Configuring workload isolation implicitly defines a guaranteed level of concurre
 [Guaranteed Concurrency] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> There are specific service level minimum viable values for min_percentage_resource.  For more information, see [Effective Values](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) for further details.
+> There are specific service level minimum viable values for min_percentage_resource.  For more information, see [Effective Values](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values) for further details.
 
 In the absence of workload isolation, requests operate in the [shared pool](#shared-pool-resources) of resources.  Access to resources in the shared pool is not guaranteed and is assigned on an [importance](sql-data-warehouse-workload-importance.md) basis.
 

@@ -253,7 +253,7 @@ $runOutJsonStatus
 ```
 ## Create a VM
 
-Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm#description).
 
 ## Clean Up
 

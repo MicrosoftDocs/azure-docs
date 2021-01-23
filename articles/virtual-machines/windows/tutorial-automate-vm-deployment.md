@@ -36,7 +36,7 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 
 
 ## Create virtual machine
-Set the administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+Set the administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
