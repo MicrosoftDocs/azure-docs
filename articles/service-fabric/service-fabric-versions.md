@@ -52,10 +52,13 @@ To improve security and availability, Azure infrastructure will make a change th
  #### Impact If NOT Upgraded to supported versions
   Azure Service Fabric clusters which **use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) feature for Containers and runs on versions greater than 6.3** that do not include changes will experience loss of functionality  or service disruptions if NOT upgraded to one of below supported versions by **January 19,2021**.
  
-  - **For clusters running a version of Service Fabric greater than 6.3 NOT using Open Networking feature**, the cluster will remain up, however the Open Networking feature for Containers clusters, will cease functioning which could cause service interruptions for your workloads.
+  - **For clusters running a version of Service Fabric greater than 6.3 NOT using Open Networking feature**, the cluster will remain up.
 
  - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
-  
+ 
+ -   **For clusters running [Windows Versions between 7.0 and 7.0.466 (both versions included) ](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) and the Windows OS has the Windows Containers Feature enabled. NOTE: Linux versions 7.0.457, 7.0.464 and  7.0.465 are NOT  impacted**.
+    - **Impact**: The cluster will cease functioning which could cause service interruptions for your workloads.
+       
 #### Required Action
 Upgrade to the Service Fabric supported versions listed below to prevent downtime or loss of functionality related to this change. Please ensure that your clusters are running at least these versions to prevent issues in your environment. 
  
