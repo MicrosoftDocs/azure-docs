@@ -41,9 +41,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-:::code language="json" source="https://raw.githubusercontent.com/microsoft/iomt-fhir/master/deploy/templates/managed/azuredeploy.json":::
-
-The template defines following Azure resources:
+The [template](https://raw.githubusercontent.com/microsoft/iomt-fhir/master/deploy/templates/managed/azuredeploy.json) defines following Azure resources:
 
 * **Microsoft.HealthcareApis/services**
 * **Microsoft.HealthcareApis/services/iomtconnectors**
