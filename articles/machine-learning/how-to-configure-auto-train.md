@@ -241,7 +241,7 @@ Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `
 | ------ | ------- |
 | spearman_correlation | |
 | normalized_root_mean_squared_error | Price prediction (forecasting), Inventory optimization, Demand forecasting |
-| r2_score | Price prediction(forecasting), Inventory optimization, Demand forecasting |
+| r2_score | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | normalized_mean_absolute_error | |
 
 ### Data featurization
