@@ -129,13 +129,19 @@ You can view packets per second traversing the gateway.
 
 ### Count of Routes Advertised to Peer - Split by Instance
 
+You can view the number of routes advertised to the ExpressRoute circuit.
+
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Count of Routes Advertised to Peer":::
 
 ### Count of Routes Learned from Peer - Split by Instance
 
+You can view the number of routes received from the ExpressRoute circuit.
+
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Count of Routes Learned from Peer":::
 
 ### Frequency of Routes change - Split by Instance
+
+You can view the frequency of which the route changes on the gateway.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Frequency of Routes Changed":::
 
