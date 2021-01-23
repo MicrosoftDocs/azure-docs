@@ -5,38 +5,42 @@ author: danielsollondon
 ms.author: danis
 ms.date: 01/22/2021
 ms.topic: article
-ms.service: virtual-machines
+ms.service: virtual-machines-windows
 ms.subservice: imaging
 ---
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
 
-This article is to show you how you can create a basic WVD customized image with these customizations:
+This article shows you how to create a Windows Virtual Desktop image with these customizations:
 
-* Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1)
+* Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Running a [WVD Optimzation script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the WVD Community repo.
-* Installing a LOB App, [MS Teams](https://docs.microsoft.com/en-us/azure/virtual-desktop/teams-on-wvd)
-* [Windows Restart](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
+* Installing a LOB App - [Microsoft Teams](https://docs.microsoft.com/en-us/azure/virtual-desktop/teams-on-wvd).
+* [Restart](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
 * [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
 
-We will show you how to automate this using the Azure VM Image Builder, and distibute to the Azure [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries), where you can replicate regions, control the scale, and share inside and outside your organizations.
+We will show you how to automate this using the Azure VM Image Builder, and distribute the image to a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries), where you can replicate to other regions, control the scale, and share the image inside and outside your organizations.
 
 
-To simplify deploying an AIB configuration template with PowerShell CLI, this example uses an Azure Resource Manager (ARM) template with the AIB template nested inside, and gives you other benefits for free, such as variables and parameter inputs etc. You can also pass parameters from the commandline too, which you will see here.
+To simplify deploying an Image Builder configuration, this example uses an Azure Resource Manager template with the Image Builder template nested inside. This gives you some other benefits, like variables and parameter inputs. You can also pass parameters from the command line.
 
-This walk through is intended to be a copy and paste exercise, and will provide you with a custom Win Server image (AIB also supports client images), showing you how you can easily create a custom image.
+This walk through is intended to be a copy and paste exercise.
 
-> Note! 
-The scripts to install the apps are located in this repo, note, they are for illustration and testing ONLY, and **NOT** production. 
+> [!NOTE]
+> The scripts to install the apps are located on [GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD). They are for illustration and testing only, and not for production workloads. 
 
-## Tips for Building Windows Images with AIB:
-1. VM Size - When AIB runs, it uses a build VM to build the image, the default AIB size (Standard_D1_v2) is not suitable. Use Standard_D2_v2 or greater.
-2. The example here uses the AIB [PowerShell customerizer scripts](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#powershell-customizer), you will need to run these with the settings below. If you do not, the build will hang.
-```text
+## Tips for building Windows images 
+
+1. VM Size - the default VM size is a `Standard_D1_v2`, which is not suitable for Windows. Use a `Standard_D2_v2` or greater.
+2. The example here uses the [PowerShell customerizer scripts](../linux/image-builder-json.md). You need to them with these with these settings or the build will hang.
+1. 
+```json
   "runElevated": true,
   "runAsSystem": true,
 ```
+
 For example:
+
 ```json
   {
       "type": "PowerShell",
@@ -45,7 +49,7 @@ For example:
       "runAsSystem": true,
       "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
 ```
-3. Comment your code
+1. Comment your code
 
 The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
@@ -65,7 +69,8 @@ Please test and test your code before on a standalone VM, ensure there are no us
 
 This is being set in the optimization script, but fails the AIB build, as it disconnects the network, this is commented out. It is under investigation.
 
-## PreReqs
+## Prerequisites
+
 You must have the latest Azure PowerShell CmdLets installed, see [here](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-2.6.0) for install details.
 
 ```PowerShell
@@ -91,7 +96,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## Step 1: Set up environment and variables
 
-```powerShell
+```azurepowershell-interactive
 # Step 1: Import module
 Import-Module Az.Accounts
 
@@ -119,8 +124,10 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 
 ## Step 2 : Permissions, create user idenity and role for AIB
 
-### Create user identity
-```powerShell
+
+ Create a user identity.
+
+```azurepowershell-interactive
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
@@ -137,9 +144,9 @@ $idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageRe
 
 ```
 
-### Assign permissions for identity to distribute images
-This command will download and update the template with the parameters specified earlier.
-```powerShell
+Assign permissions to the identity to distribute images. This command will download and update the template with the parameters specified earlier.
+
+```azurepowershell-interactive
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
@@ -164,7 +171,9 @@ https://docs.microsoft.com/en-us/azure/role-based-access-control/troubleshooting
 
 ## Step 3 : Create the Shared Image Gallery 
 
-```powerShell
+If you don't already have a Shared Image Gallery, you need to create one.
+
+```azurepowershell-interactive
 $sigGalleryName= "myaibsig01"
 $imageDefName ="win10wvd"
 
@@ -176,16 +185,15 @@ New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $im
 
 ```
 
-# Configure the Image Template
+## Configure the Image Template
 For this example we have a template ready to that will download and update the template with the parameters specified earlier, it will install FsLogix, OS Optimizations, Teams and run Windows Update at the end.
 
 If you open the template you can see in the source property the image that is being used, in this example it uses a Win 10 Multi session image. 
 
-## Windows 10 images
-Two key types you should be aware of:
+### Windows 10 images
+Two key types you should be aware of: multisession and single-session.
 
-### Multi session
-These images are intend for pooled usage, below is the image details in Azure:
+Multi session images are intend for pooled usage. Here is an example of the image details in Azure:
 
 ```json
 "publisher": "MicrosoftWindowsDesktop",
@@ -194,8 +202,8 @@ These images are intend for pooled usage, below is the image details in Azure:
 "version": "latest"
 ```
 
-### Single session
-These images are intend for induvidual usage, below is the image details in Azure:
+Single session images are intend for individual usage. Here is an example of the image details in Azure:
+
 ```json
 "publisher": "MicrosoftWindowsDesktop",
 "offer": "Windows-10",
@@ -204,13 +212,16 @@ These images are intend for induvidual usage, below is the image details in Azur
 ```
 
 You can also change the Win10 images available:
-```powerShell
+
+```azurepowershell-interactive
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer windows-10
 ```
 
 ## Download template and configure
-```powerShell
 
+Now you need to download the template and configure it for your use.
+
+```azurepowershell-interactive
 $templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
 $templateFilePath = "armTemplateWVD.json"
 
@@ -227,12 +238,15 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 ((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
 
 ```
+
 Feel free to view the template, all the code is viewable.
 
 
-# Submit the template
+## Submit the template
+
 Your template must be submitted to the service, this will download any dependent artifacts (scripts etc), validate, check permissions, and store them in the staging Resource Group, prefixed, *IT_*.
-```powerShell
+
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location
 
 # Optional - if you have any errors running the above, run:
@@ -241,15 +255,15 @@ $getStatus.ProvisioningErrorCode
 $getStatus.ProvisioningErrorMessage
 ```
  
-# Build the image
-```powerShell
+## Build the image
+```azurepowershell-interactive
 Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName -NoWait
-
 ```
 
->> Note, the command will not wait for the image builder service to complete the image build, you can query the status below.
+> [!NOTE]
+> The command will not wait for the image builder service to complete the image build, you can query the status below.
 
-```powerShell
+```azurepowershell-interactive
 $getStatus=$(Get-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName)
 
 # this shows all the properties
@@ -263,16 +277,19 @@ $getStatus.LastRunStatusRunSubState
 ## Create a VM
 Now the build is finished you can build a VM from the image, use the examples from [here](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azvm?view=azps-2.5.0#examples).
 
-# Clean Up
+## Clean up
 
 Delete the resource group template first, do not just delete the entire resource group, otherwise the staging resource group (*IT_*) used by AIB will not be cleaned up.
 
-### Remove Image Template
-```powerShell
+Remove the Image Template.
+
+```azurepowershell-interactive
 Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name wvd10ImageTemplate
 ```
-### Delete role assignment
-```powerShell
+
+Delete the role assignment.
+
+```azurepowershell-interactive
 Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ## remove definitions
@@ -281,8 +298,10 @@ Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscrip
 ## delete identity
 Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
 ```
-### Delete Resource Group
-```powerShell
+
+Delete the resource group.
+
+```azurepowershell-interactive
 Remove-AzResourceGroup $imageResourceGroup -Force
 ```
 ## Next Steps
