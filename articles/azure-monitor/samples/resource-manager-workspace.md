@@ -606,7 +606,7 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
 
 ### Notes
 
-- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) with **-Kind** set to **CustomLog**.
+- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
 
   
 ### Template file
