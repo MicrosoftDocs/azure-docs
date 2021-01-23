@@ -341,7 +341,7 @@ This is possible if your code sends such data. It can also happen if variables i
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
-The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry processor](app/api-filtering-sampling.md).
+The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
 
 ### My Instrumentation Key is visible in my web page source.
 
