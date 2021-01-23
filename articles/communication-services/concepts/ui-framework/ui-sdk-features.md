@@ -25,6 +25,21 @@ state interface for developers to build their own Components on top of.
 | Group Calling Composite | Light-weight voice and video outbound calling experience for Azure Communication Services calling using Fluent UI design assets. Supports group calling using Azure Communication Services Group ID. The composite allows for one-to-one calling to be used by referencing an Azure Communication Services identity or a phone number for PSTN using a procured phone number through Azure.                                    | React | *Coming* | *Coming* |
 | Group Chat Composite    | Light-weight chat experience for Azure Communication Services using Fluent UI design assets. This experience concentrates on delivering a simple chat client that can connect to Azure Communication Services threads. It allows users to send messages and see received messages with typing indicators and read receipts. It scales from 1:1 to group chat scenarios. Supports a single chat thread.                         | React | *Coming* | *Coming* |
 
+## UI Framework Base Components
+
+| Component             | Description                                                                                                                                                                                                                                                                        | Web   | Android | iOS |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|---------|-----|
+| Calling Provider    | Core initializing component for calling. Required component to then initialize other components on top of it. Handles core logic to initialize the calling client using Azure Communication Services Access Tokens. Support Group join. | React | N/A     | N/A |
+| Call Controls   | Allows users to manage the current call by toggling mute, turning video on/off and end the call.                                                                                                                                                              | React | N/A     | N/A |
+| Participant Gallery   | Showcase all call participants in a single gallery. Gallery supports both video enabled and static participants. For video enabled participants, video is rendered.                                                                                                                | React | N/A     | N/A |
+| Microphone Settings | Pick the microphone to be used for calling. This control can be used at the start of a call or during to pick the device to be used.                                                                                                                                               | React | N/A     | N/A |
+| Camera Settings     | Pick the camera to be used for video calling. This control can be used at the start of a call or during to pick the device to be used.                                                                                                                                             | React | N/A     | N/A |
+| Device Settings     | Combines microphone and camera settings into a single component                                                                                                 | React | N/A     | N/A |
+| Chat Provider       | Core initializing component for chat. Required component to then initialize other components on top of it. Handles core logic to initialize the chat client with an Azure Communication Services access token and the thread that it will join.                                     | React | N/A     | N/A |
+| Chat Input            | Input component that allows users to send messages to the chat thread. Input supports text, hyperlinks, emojis and other Unicode characters including other alphabets.                                                                                                                         | React | N/A     | N/A |
+| Chat Thread           | Thread components shows the user both received and sent messages with their sender information. The thread supports typing indicators and read receipts. The thread is scrollable to see chat history.
+| Participant List      | Show all the participants of the call or chat thread as a list.  | React | N/A     | N/A |
+
 ## UI Framework Capabilities
 
 |                                                                     | Meeting Composite | Group Calling Composite | Group Chat Composite | Base Components |
@@ -51,21 +66,6 @@ state interface for developers to build their own Components on top of.
 | Together Mode                                                       | ✔                |                         |                      |
 | Blur Background                                                     | ✔                |                         |                      |
 | Raised Hand                                                         | ✔                |                         |                      |
-
-## UI Framework Base Components
-
-| Component             | Description                                                                                                                                                                                                                                                                        | Web   | Android | iOS |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|---------|-----|
-| Calling Provider    | Core initializing component for calling. Required component to then initialize other components on top of it. Handles core logic to initialize the calling client using Azure Communication Services Access Tokens. Support Group join. | React | N/A     | N/A |
-| Call Controls   | Allows users to manage the current call by toggling mute, turning video on/off and end the call.                                                                                                                                                              | React | N/A     | N/A |
-| Participant Gallery   | Showcase all call participants in a single gallery. Gallery supports both video enabled and static participants. For video enabled participants, video is rendered.                                                                                                                | React | N/A     | N/A |
-| Microphone Settings | Pick the microphone to be used for calling. This control can be used at the start of a call or during to pick the device to be used.                                                                                                                                               | React | N/A     | N/A |
-| Camera Settings     | Pick the camera to be used for video calling. This control can be used at the start of a call or during to pick the device to be used.                                                                                                                                             | React | N/A     | N/A |
-| Device Settings     | Combines microphone and camera settings into a single component                                                                                                 | React | N/A     | N/A |
-| Chat Provider       | Core initializing component for chat. Required component to then initialize other components on top of it. Handles core logic to initialize the chat client with an Azure Communication Services access token and the thread that it will join.                                     | React | N/A     | N/A |
-| Chat Input            | Input component that allows users to send messages to the chat thread. Input supports text, hyperlinks, emojis and other Unicode characters including other alphabets.                                                                                                                         | React | N/A     | N/A |
-| Chat Thread           | Thread components shows the user both received and sent messages with their sender information. The thread supports typing indicators and read receipts. The thread is scrollable to see chat history.
-| Participant List      | Show all the participants of the call or chat thread as a list.  | React | N/A     | N/A |
 
 ## Customization Support
 

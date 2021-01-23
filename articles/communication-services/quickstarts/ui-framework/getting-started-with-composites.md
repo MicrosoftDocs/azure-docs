@@ -23,26 +23,39 @@ Get started with Azure Communication Services by using the UI Framework to quick
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
+- A User Access Token to instantiate the call composite. Learn how to [create and manage user access tokens](../../access-tokens.md).
 
 ## Setting up
-
-### Set Up React
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
+
 mkdir ui-framework-quickstart && cd ui-framework-quickstart
+
 ```
 
-TBD
+### Install Fluent UI
+
+
+### Set Up React
+
+Install the react package and initialize a react project in the directory.
+
+```console
+
+npm i react
+
+```
 
 ### Install the package
 
 Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
 
 ```console
+
 npm install @azure/communication-ui --save
+
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
