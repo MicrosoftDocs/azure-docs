@@ -27,33 +27,64 @@ Get started with Azure Communication Services by using the UI Framework to quick
 
 ## Setting up
 
-### Set Up React
-
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
+
 mkdir ui-framework-quickstart && cd ui-framework-quickstart
+
 ```
 
-TBD
+### Set Up Fluent UI
+
+Install Fluent UI package and initialize
+
+
+```console
+
+npm i @fluentui/react
+
+```
+
+```javascript
+import {Provider} from '@fluentui/react';
+```
+
+### Set Up React
+
+Install the React package and initialize 
+
+```console
+
+npm i react
+
+```
+
+```javascript
+import React from 'react';
+```
 
 ### Install the package
 
 Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript.
 
 ```console
+
 npm install @azure/communication-ui --save
+
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Initialize Communications Provider using access token
+## Initialize Calling and Chat Providers using Azure Communication Services credentials
 
-Using the required user access token, developers can initialize the UI Framework. The UI Framework uses the given token to then initialize and provide identity to the components used. Before initializing lets first import the UI Framework package.
+Using the required user access token and user id, developers can initialize the UI Framework calling and chat provides. The UI Framework uses the given token and user id to then initialize and provide identity to the components used. 
+
+Before initializing lets first import the UI Framework package.
 
 ```javascript
 
-import {CommunicationsProvider} from "@azure/communication-ui"
+import {CallingProvider, ChatProvider} from "@azure/communication-ui"
 
 ```
 
@@ -61,84 +92,53 @@ To initialize the `CommunicationsProvider` do the following:
 
 ```javascript
 
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
+<Provider theme={/*Insert Fluent Theme*/}>
+    <CallingProvider
+    displayName={/*Insert Display Name to be used for the user*/}
+    groupId={/*Insert GUID for group call to be joined*/}
+    userId={/*Insert the Azure Communication Services user id */}
+    token={/*Insert the Azure Communication Services access token*/}
+    refreshTokenCallback={/*Insert refresh token call back function*/}
+  >
+  // Add Calling Components Here
+  </CallingProvider>
+</Provider>
 
-        {/*Insert Chat or Calling Provider code from next step*/}
-
-    </CommunicationsProvider>
+<Provider theme={/*Insert Fluent Theme*/}>
+    <ChatProvider
+    token={/*Insert the Azure Communication Services access token*/}
+    userId={/*Insert the Azure Communication Services user id*/}
+    displayName={/*Insert Display Name to be used for the user*/}
+    threadId={/*Insert id for group chat thread to be joined*/}
+    environmentUrl={/*Insert the enviornment URL for the Azure Resource used*/}
+    refreshTokenCallback={/*Insert refresh token call back function*/}
+  >
+  //  Add Chat Components Here
+  </ChatProvider>
 </Provider>
 
 ```
 
 Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together.
 
-## Initialize Chat and Calling Providers using access token
-
-Once you have initialized the `CommunicationsProvider`, we can now add the next layer before we add discrete components to build the communications experience. Depending on your need for calling or chat requirements you will need to initialize the calling and chat providers.
-
-In the snippet below we initialize both the `CallingProvider` and the `ChatProvider`. Developers can choose which one to use depending on the type of communication experience they look to build or use both when both modalities are required.
-
-```javascript
-
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            {/*Insert calling components code from next step*/}
-        </CallingProvider>
-
-        <ChatProvider chatSettings={...}>
-            {/*Insert chat components code from next step*/}
-        </ChatProvider>
-    </CommunicationsProvider>
-</Provider>
-
-```
-
-Moving forward in this quickstart, we will only use the `CallingProvider` to build a calling experience.
-
-## Defining callSettings to start or join a call
-
-In order to start or join a call, `callSettings` must be passed to the `CallingProvider` for it to correct initialize the calling experience. You will either need to provide a user you want to start a call with (either a Phone Number or Azure Communication Identity).
-
-```javascript
-
-callSettings = {
-    userToCall = ["IDENTITY","PHONE_NUMBER"], // Supports both Azure Communication Services Identities or PSTN numbers if PSTN is enabled
-    groupId = "GROUP_ID", // Azure Communication Services Group ID
-}
-
-```
-
-Now that the call is fully configured, the necessary UI Framework components can be added.
-
 ## Add UI Framework Components to your application
 
-We will build a basic calling experience using one of our Composite Components. This composites are end to end experiences that are built using Base Components. In this case, we will use the Group Calling Composite that includes a participant gallery, action bar and configuration pane.
+User Base Components for calling and chat to build your own communication experiences. See examples below:
 
 ```javascript
 
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            <Group-Calling settings={...} />
-        </CallingProvider>
-    </CommunicationsProvider>
+<Provider theme={/*Insert Fluent Theme*/}>
+    <CallingProvider>
+        <ParticipantGallery />
+        <CallControls />
+    </CallingProvider>
 </Provider>
 
-```
-
-Alternatively, you can build your own experience using Base Components, for example here:
-
-```javascript
-
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            <Action-Bar settings={} />
-            <Participant-Gallery settings={} />
-        </CallingProvider>
-    </CommunicationsProvider>
+<Provider theme={/*Insert Fluent Theme*/}>
+    <ChatProvider >
+        <ChatThread />
+        <ChatInput />
+    </ChatProvider>
 </Provider>
 
 ```
