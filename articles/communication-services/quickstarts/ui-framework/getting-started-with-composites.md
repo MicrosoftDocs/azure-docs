@@ -91,7 +91,7 @@ import {CallingProvider, ChatProvider} from "@azure/communication-ui"
         displayName, //Required, Display name for the user entering the call
         userId, //Required, Azure Communication Services user id retrieved from authentication service
         token, // Required, Azure Communication Services access token retrieved from authentication service
-        refreshTokenCallback, //Required, Callback to refresh the token in case it expires
+        refreshTokenCallback, //Optional, Callback to refresh the token in case it expires
         groupId, //Required, Id for group call that will be joined. (GUID)
     }}
     onEndCall = { () => {
