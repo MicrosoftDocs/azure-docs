@@ -29,7 +29,7 @@ This information applies to both the StorSimple 8000 series physical device and 
 This article also describes the tools for troubleshooting StorSimple deployments and provides a step-by-step troubleshooting example.
 
 ## First-time deployment issues
-If you run into an issue when deploying your device for the first time, consider the following:
+If you run into an issue when deploying your device for the first time, consider the following guidance:
 
 * If you are troubleshooting a physical device, make sure that the hardware has been installed and configured as described in [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 * Check prerequisites for deployment. Make sure that you have all the information described in the [deployment configuration checklist](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
@@ -43,7 +43,7 @@ The following sections can help you resolve issues that you encounter when you c
 The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md).
 
 1. Run the [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) cmdlet to start the setup wizard that will guide you through the remaining steps. 
-2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. These settings include the following:
+2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. The following settings are included:
    * Virtual IP (VIP), subnet mask, and gateway – The [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) cmdlet is executed in the background. It configures the IP address, subnet mask, and gateway for the DATA 0 network interface on your StorSimple device.
    * Primary DNS server – The [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) cmdlet is executed in the background. It configures the DNS settings for your StorSimple solution.
    * NTP server – The [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) cmdlet is executed in the background. It configures the NTP server settings for your StorSimple solution.
@@ -89,8 +89,8 @@ The default device administrator password is **Password1**. This password expire
 
 Make sure that your passwords meet the following requirements:
 
-* Your device administrator password should be between 8 and 15 characters long.
-* Passwords should contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. 
+* Your device administrator password should be from 8 to 15 characters long.
+* Passwords should contain three of the following character types: lowercase, uppercase, numeric, and special. 
 * Your password cannot be the same as the last 24 passwords.
 
 In addition, keep in mind that passwords expire every year, and can be changed only after you successfully register the device. If the registration fails for any reason, the passwords will not be changed.
@@ -135,10 +135,10 @@ You use the StorSimple Device Manager service running in Microsoft Azure to regi
 | 9 |Warning: Could not activate the device. Your device administrator and StorSimple Snapshot Manager passwords have not been changed. |If the registration fails, the device administrator and StorSimple Snapshot Manager passwords are not changed. | |
 
 ## Tools for troubleshooting StorSimple deployments
-StorSimple includes several tools that you can use to troubleshoot your StorSimple solution. These include:
+StorSimple includes several tools that you can use to troubleshoot your StorSimple solution. These tools include:
 
 * Support packages and device logs.
-* Cmdlets specifically designed for troubleshooting.
+* Cmdlets designed for troubleshooting.
 
 ## Support packages and device logs available for troubleshooting
 A support package contains all the relevant logs that can assist the Microsoft Support team with troubleshooting device issues. You can use Windows PowerShell for StorSimple to generate an encrypted support package that you can then share with support personnel.
@@ -149,7 +149,7 @@ A support package contains all the relevant logs that can assist the Microsoft S
 3. Use this [step-by-step procedure](storsimple-8000-create-manage-support-package.md#edit-a-support-package) to open and decrypt the support package.
 4. The decrypted support package logs are in etw/etvx format. You can perform the following steps to view these files in Windows Event Viewer:
    
-   1. Run the **eventvwr** command on your Windows client. This will start the Event Viewer.
+   1. Run the **eventvwr** command on your Windows client to start the Event Viewer.
    2. In the **Actions** pane, click **Open Saved Log** and point to the log files in etvx/etw format (the support package). You can now view the file. After you open the file, you can right-click and save the file as text.
       
       > [!IMPORTANT]
@@ -202,7 +202,7 @@ Controller 1 was the active controller, and was configured as follows:
 
 **Sample output – controller 0**
 
-The following is the output from controller 0 (the passive controller). DATA 1, DATA 2, and DATA 3 are not connected. DATA 4 and DATA 5 are not listed because they are not present on the device.
+The following sample data is the output from controller 0 (the passive controller). DATA 1, DATA 2, and DATA 3 are not connected. DATA 4 and DATA 5 are not listed because they are not present on the device.
 
 ```output
 Controller0>Get-NetAdapter
@@ -237,7 +237,7 @@ DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPre
 ## Troubleshoot with the Test-Connection cmdlet
 You can use the `Test-Connection` cmdlet to determine whether your StorSimple device can connect to the outside network. If all the networking parameters, including the DNS, are configured correctly in the setup wizard, you can use the `Test-Connection` cmdlet to ping a known address outside of the network, such as outlook.com.
 
-You should enable ping to troubleshoot connectivity issues with this cmdlet if ping is disabled.
+If the ping cmdlet is disabled, you should enable ping for use in troubleshooting connectivity issues.
 
 See the following samples of output from the `Test-Connection` cmdlet.
 
@@ -246,7 +246,7 @@ See the following samples of output from the `Test-Connection` cmdlet.
 
 **Sample output – incorrect DNS**
 
-In the following sample, there is no output for the IPV4 and IPV6 addresses, which indicates that the DNS is not resolved. This means that there is no connectivity to the outside network and a correct DNS needs to be supplied.
+In the following sample, there is no output for the IPV4 and IPV6 addresses, which indicates the DNS is not resolved. This means there is no connectivity to the outside network, and a correct DNS needs to be supplied.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -259,7 +259,7 @@ HCSNODE0      outlook.com
 
 **Sample output – correct DNS**
 
-In the following sample, the DNS returns the IPV4 address, indicating that the DNS is configured correctly. This confirms that there is connectivity to the outside network.
+In the following sample, the DNS returns the IPV4 address, indicating that the DNS is configured correctly. The output confirms that there is connectivity to the outside network.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -277,29 +277,29 @@ Use the `Test-HcsmConnection` cmdlet for a device that is already connected to a
 1. Make sure that the device is registered.
 2. Check the device status. If the device is deactivated, in maintenance mode, or offline, you might see one of the following errors:
    
-   * ErrorCode.CiSDeviceDecommissioned – this indicates that the device is deactivated.
-   * ErrorCode.DeviceNotReady – this indicates that the device is in maintenance mode.
-   * ErrorCode.DeviceNotReady – this indicates that the device is not online.
+   * ErrorCode.CiSDeviceDecommissioned: Indicates the device is deactivated.
+   * ErrorCode.DeviceNotReady: Indicates the device is in maintenance mode.
+   * ErrorCode.DeviceNotReady: Indicates the device is not online.
 3. Verify that the StorSimple Device Manager service is running (use the [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) cmdlet). If the service is not running, you might see the following errors:
    
    * ErrorCode.CiSApplianceAgentNotOnline
-   * ErrorCode.CisPowershellScriptHcsError – this indicates that there was an exception when you ran Get-ClusterResource.
+   * ErrorCode.CisPowershellScriptHcsError: Indicates that there was an exception when you ran Get-ClusterResource.
 4. Check the Access Control Service (ACS) token. If it throws a web exception, it might be the result of a gateway problem, a missing proxy authentication, an incorrect DNS, or an authentication failure. You might see the following errors:
    
-   * ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: the name resolver service could not resolve the host name.
-   * ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server.
-   * ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
-   * ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
+   * ErrorCode.CiSApplianceGateway: Indicates an HttpStatusCode.BadGateway exception: the name resolver service could not resolve the host name.
+   * ErrorCode.CiSApplianceProxy: Indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server.
+   * ErrorCode.CiSApplianceDNSError: Indicates a WebExceptionStatus.NameResolutionFailure exception: The name resolver service could not resolve the host name.
+   * ErrorCode.CiSApplianceACSError: Indicates that the service returned an authentication error, but there is connectivity.
      
-     If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure. This indicates that the appliance failed.
+     If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure, which indicates the appliance failed.
 5. Check the cloud service connectivity. If the service throws a web exception, you might see the following errors:
    
-   * ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: an intermediate proxy server received a bad request from another proxy or from the original server.
-   * ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server.
-   * ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
-   * ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
+   * ErrorCode.CiSApplianceGateway: Indicates an HttpStatusCode.BadGateway exception: an intermediate proxy server received a bad request from another proxy or from the original server.
+   * ErrorCode.CiSApplianceProxy: Indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server.
+   * ErrorCode.CiSApplianceDNSError: Indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
+   * ErrorCode.CiSApplianceACSError: Indicates the service returned an authentication error, but there is connectivity.
      
-     If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError. This indicates a problem with the StorSimple Device Manager service.
+     If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError, which indicates a problem with the StorSimple Device Manager service.
 6. Check Azure Service Bus connectivity. ErrorCode.CiSApplianceServiceBusError indicates that the device cannot connect to the Service Bus.
 
 The log files CiSCommandletLog0Curr.errlog and CiSAgentsvc0Curr.errlog will have more information, such as exception details.
@@ -353,7 +353,7 @@ Device is registered successfully
 Checking connectivity from device to SaaS.. Failure
 ```
 
-The device could not connect using the current web proxy configuration. This could be an issue with the web proxy configuration or a network connectivity problem. In this case, you should make sure that your web proxy settings are correct and your web proxy servers are online and reachable.
+The device could not connect using the current web proxy configuration. There could be an issue with the web proxy configuration or a network connectivity problem. In this case, you should make sure that your web proxy settings are correct and your web proxy servers are online and reachable.
 
 ## Troubleshoot with the Sync-HcsTime cmdlet
 Use this cmdlet to display the device time. If the device time has an offset with the NTP server, you can then use this cmdlet to force-synchronize the time with your NTP server.
@@ -415,7 +415,7 @@ Trace complete.
 ## Troubleshoot with the Get-HcsRoutingTable cmdlet
 Use this cmdlet to view the routing table for your StorSimple device. A routing table is a set of rules that can help determine where data packets traveling over an Internet Protocol (IP) network will be directed.
 
-The routing table shows the interfaces and the gateway that routes the data to the specified networks. It also gives the routing metric which is the decision maker for the path taken to reach a particular destination. The lower the routing metric, the higher the preference.
+The routing table shows the interfaces and the gateway that routes the data to the specified networks. It also gives the routing metric, which is the decision maker for the path taken to reach a particular destination. The lower the routing metric, the higher the preference.
 
 For example, if you have 2 network interfaces, DATA 2 and DATA 3, connected to the Internet. If the routing metrics for DATA 2 and DATA 3 are 15 and 261 respectively, then DATA 2 with the lower routing metric is the preferred interface used to reach the Internet.
 
@@ -500,7 +500,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
 ```
 
-The error could be caused by any of the following:
+The error could be caused by any of the following issues:
 
 * Incorrect hardware installation
 * Faulty network interface(s)
@@ -522,9 +522,10 @@ The error could be caused by any of the following:
 3. Verify the health of the network interface:
    
    * Use the Get-NetAdapter cmdlet to detect the health of the network interfaces for DATA 0. 
-   * If the link isn't functioning, the **ifindex** status will indicate that the interface is down. You will then need to check the network connection of the port to the appliance and to the switch. You will also need to rule out bad cables. 
-   * If you suspect that the DATA 0 port on the active controller has failed, you can confirm this by connecting to the DATA 0 port on controller 1. To confirm this, disconnect the network cable from the back of the device from controller 0, connect the cable to controller 1, and then run the Get-NetAdapter cmdlet again.
-     If the DATA 0 port on a controller fails, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) for next steps. You might need to replace the controller on your system.
+   * If the link isn't functioning, the `ifindex` status will indicate that the interface is down. You will then need to check the network connection of the port to the appliance and to the switch. You will also need to rule out bad cables. 
+   * If you suspect that the DATA 0 port on the active controller has failed, you can confirm this by connecting to the DATA 0 port on controller 1. Disconnect the network cable from the back of the device from controller 0, connect the cable to controller 1, and then run the Get-NetAdapter cmdlet again.
+   
+     If DATA 0 port on a controller fails, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) for next steps. You might need to replace the controller on your system.
 4. Verify the connectivity to the switch:
    
    * Make sure that DATA 0 network interfaces on controller 0 and controller 1 in your primary enclosure are on the same subnet. 
@@ -540,7 +541,7 @@ The error could be caused by any of the following:
      > 
      > 
 6. Use the Test-Connection cmdlet to verify that you have connectivity to the outside network. For more information, go to [Troubleshoot with the Test-Connection cmdlet](#troubleshoot-with-the-test-connection-cmdlet).
-7. Check for firewall interference. If you have verified that the virtual IP (VIP), subnet, gateway, and DNS settings are all correct, and you still see connectivity issues, then it is possible that your firewall is blocking communication between your device and the outside network. You need to ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see [Networking requirements for your StorSimple device](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
+7. Check for firewall interference. If you have verified that the virtual IP (VIP), subnet, gateway, and DNS settings are all correct, and you still see connectivity issues, it's possible that your firewall is blocking communication between your device and the outside network. You need to ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see [Networking requirements for your StorSimple device](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 8. Look at the logs. Go to [Support packages and device logs available for troubleshooting](#support-packages-and-device-logs-available-for-troubleshooting).
 9. If the preceding steps do not solve the problem, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) for assistance.
 
