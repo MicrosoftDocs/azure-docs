@@ -323,7 +323,7 @@ In this section, you'll find the IP address of the private endpoint that corresp
 
 ## Clean up resources
 
-When you're done using the Private Link service, delete the resource group to clean up the resources used in this quickstart.
+When you're done using the private link service, delete the resource group to clean up the resources used in this quickstart.
 
 1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal, and select **CreatePrivLinkService-rg** from the search results.
 1. Select **Delete resource group**.
