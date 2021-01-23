@@ -71,7 +71,7 @@ To collect your Windows security events in Azure Sentinel:
     >
     > For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/platform/gateway.md).
 
-    For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/platform/agent-windows.md).
+    For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
 
 1. Select which event set ([All, Common, or Minimal](#event-sets)) you want to stream.
 

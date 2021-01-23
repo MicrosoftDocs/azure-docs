@@ -78,7 +78,7 @@ Enabling audit log collection lets you view user and admin activity related to W
 -   [Azure Activity Log](../azure-monitor/platform/activity-log.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/platform/agent-windows.md)
+-   [Session hosts](../azure-monitor/agents/agent-windows.md)
 -   [Windows Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 

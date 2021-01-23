@@ -127,11 +127,11 @@ An action rule allows you to modify the behavior of a set of alerts that match a
 ## Agents
 
 ### Does Azure Monitor require an agent?
-An agent is only required to collect data from the operating system and workloads in virtual machines. The virtual machines can be located in Azure, another cloud environment, or on-premises. See [Overview of the Azure Monitor agents](platform/agents-overview.md).
+An agent is only required to collect data from the operating system and workloads in virtual machines. The virtual machines can be located in Azure, another cloud environment, or on-premises. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
 
 
 ### What's the difference between the Azure Monitor agents?
-Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](platform/agents-overview.md).
+Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
 
 
 ### Does my agent traffic use my ExpressRoute connection?

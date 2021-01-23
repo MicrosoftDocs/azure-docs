@@ -130,7 +130,7 @@ The following issues are possible causes:
 #### Resolution
 
 ##### Mistyped workspace ID or key
-To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/platform/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/platform/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
+To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/agents/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/agents/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
 
 ##### Configuration not downloaded
 
@@ -224,7 +224,7 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 

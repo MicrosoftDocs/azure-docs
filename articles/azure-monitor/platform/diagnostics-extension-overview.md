@@ -10,10 +10,10 @@ ms.date: 02/14/2020
 ---
 
 # Azure Diagnostics extension overview
-Azure Diagnostics extension is an [agent in Azure Monitor](agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and options for installation and configuration. 
+Azure Diagnostics extension is an [agent in Azure Monitor](../agents/agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article provides an overview of Azure Diagnostics extension including specific functionality that it supports and options for installation and configuration. 
 
 > [!NOTE]
-> Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
+> Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](../agents/agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
 ## Primary scenarios
 The primary scenarios addressed by the diagnostics extension are:
@@ -24,7 +24,7 @@ The primary scenarios addressed by the diagnostics extension are:
 
 
 ## Comparison to Log Analytics agent
-The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
+The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](../agents/agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
 
 The key differences to consider are:
 

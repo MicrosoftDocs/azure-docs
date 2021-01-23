@@ -13,12 +13,12 @@ ms.date: 10/21/2020
 Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Azure Monitor can collect performance counters from Log Analytics agents at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
 > [!IMPORTANT]
-> This article covers collecting performance data with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
+> This article covers collecting performance data with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
+Configure Performance counters from the [Data menu in Advanced Settings](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
 
 When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 

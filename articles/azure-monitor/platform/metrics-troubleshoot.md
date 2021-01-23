@@ -80,7 +80,7 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 ## Cannot pick Guest OS namespace and metrics
 
-Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS (classic)** metrics that are collected by the [monitoring agent](agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
+Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest OS (classic)** metrics that are collected by the [monitoring agent](../agents/agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](diagnostics-extension-overview.md).
 
 By default, Guest OS metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest OS metrics aren't collected or metrics explorer cannot access them, you will only see the **Virtual Machine Host** metric namespace:
 
@@ -90,7 +90,7 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
 
 1. Confirm that [Azure Diagnostic Extension](diagnostics-extension-overview.md) is enabled and configured to collect metrics.
     > [!WARNING]
-    > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
+    > You cannot use [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
 
 1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 

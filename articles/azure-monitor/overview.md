@@ -59,7 +59,7 @@ Azure Monitor can collect data from a [variety of sources](monitor-reference.md)
 
 As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity logs](platform/platform-logs-overview.md) record when resources are created or modified. [Metrics](platform/data-platform.md) tell you how the resource is performing and the resources that it's consuming. 
 
-[Enable diagnostics](platform/platform-logs-overview.md) to extend the data you're collecting into the internal operation of the resources.  [Add an agent](platform/agents-overview.md) to compute resources to collect telemetry from their guest operating systems. 
+[Enable diagnostics](platform/platform-logs-overview.md) to extend the data you're collecting into the internal operation of the resources.  [Add an agent](agents/agents-overview.md) to compute resources to collect telemetry from their guest operating systems. 
 
 Enable monitoring for your application with [Application Insights](app/app-insights-overview.md) to collect detailed information including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](app/monitor-web-app-availability.md) to simulate user traffic.
 

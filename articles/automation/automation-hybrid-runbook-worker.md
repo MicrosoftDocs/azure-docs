@@ -48,7 +48,7 @@ The recommended installation method for a Windows machine is to use an Azure Aut
 
 ## <a name="network-planning"></a>Network planning
 
-For both a system and user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for Log Analytics agent](../azure-monitor/platform/agent-windows.md) to connect to the Azure Monitor Log Analytics workspace.
+For both a system and user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for Log Analytics agent](../azure-monitor/agents/agent-windows.md) to connect to the Azure Monitor Log Analytics workspace.
 
 The following port and URLs are required for the Hybrid Runbook Worker:
 

@@ -12,7 +12,7 @@ ms.date: 08/19/2020
 
 Data Collection Rules (DCR) define data coming into Azure Monitor and specify where it should be sent. This article describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 
-For a complete description of data collection rules, see [Data collection rules in Azure Monitor (preview)](data-collection-rule-overview.md).
+For a complete description of data collection rules, see [Data collection rules in Azure Monitor (preview)](../platform/data-collection-rule-overview.md).
 
 > [!NOTE]
 > This article describes how to configure data for virtual machines with the Azure Monitor agent which is currently in preview. See [Overview of Azure Monitor agents](agents-overview.md) for a description of agents that are generally available and how to use them to collect data.
@@ -51,7 +51,7 @@ On the **Collect and deliver** tab, click **Add data source** to add a data sour
 [![Data source basic](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-To specify other logs and performance counters from the [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule) for examples.
+To specify other logs and performance counters from the [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](../platform/data-collection-rule-overview.md#sample-data-collection-rule) for examples.
 
 [![Data source custom](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
@@ -69,7 +69,7 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 
 Follow the steps below to create a data collection rule and associations using the REST API.
 
-1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
+1. Manually create the DCR file using the JSON format shown in [Sample DCR](../platform/data-collection-rule-overview.md#sample-data-collection-rule).
 
 2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
 
@@ -83,4 +83,4 @@ You cannot create a data collection rule using a Resource Manager template, but 
 ## Next steps
 
 - Learn more about the [Azure Monitor Agent](azure-monitor-agent-overview.md).
-- Learn more about [data collection rules](data-collection-rule-overview.md).
+- Learn more about [data collection rules](../platform/data-collection-rule-overview.md).

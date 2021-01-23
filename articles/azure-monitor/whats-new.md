@@ -19,7 +19,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Agents
 - [Cross-resource query Azure Data Explorer by using Azure Monitor](platform/azure-monitor-data-explorer-proxy.md) - New article.
-- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added Oracle 8 support.
+- [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added Oracle 8 support.
 
 ### Alerts
 - [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added troubleshooting for dynamic thresholds.
@@ -75,9 +75,9 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Monitor service limits](service-limits.md) - Updated for Azure Arc support.
 
 ### Agents
-- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Updated for Azure Arc support.
-- [Install the Azure Monitor agent](platform/azure-monitor-agent-install.md) - New article.
-- [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - Updated for Azure Arc support.
+- [Overview of the Azure monitoring agents](agents/agents-overview.md) - Updated for Azure Arc support.
+- [Install the Azure Monitor agent](agents/azure-monitor-agent-install.md) - New article.
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md) - Updated for Azure Arc support.
 - [Resource Manager template samples for agents](samples/resource-manager-agent.md) - Updated for Azure Arc support.
 
 ### Alerts
@@ -93,7 +93,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to a different region.
 
 ### Data collection
-- [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
+- [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
 - [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Updated for Azure Arc support.
 - [Resource Manager template samples for data collection rules](samples/resource-manager-data-collection-rules.md) - New article.
 
@@ -194,8 +194,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Azure Monitor FAQ](faq.md) - Added section on OpenTelemetry.
 
 ### Agents
-- [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - Added decision factors for switching to new agent.
-- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added support for Windows 10.
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md) - Added decision factors for switching to new agent.
+- [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added support for Windows 10.
 
 ### Alerts
 - [Create a log alert with Azure Resource Manager template](platform/alerts-log-create-templates.md) - New article.
@@ -263,15 +263,15 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 
 ### Agents
-- [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - New article.
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md) - New article.
 - [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md) - Updated dependency agent version.
-- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added Azure Monitor agent and consolidated OS support table.
+- [Overview of the Azure monitoring agents](agents/agents-overview.md) - Added Azure Monitor agent and consolidated OS support table.
 
 
 #### New and updated articles from restructure of agent content
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
-- [Install Log Analytics agent on Linux computers](platform/agent-linux.md)
-- [Install Log Analytics agent on Windows computers](platform/agent-windows.md)
+- [Install Log Analytics agent on Linux computers](agents/agent-linux.md)
+- [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
 - [Log Analytics agent overview](platform/log-analytics-agent.md)
 
 ### Application Insights
@@ -289,7 +289,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healthy instances for App Service.
 
 ### Data collection
-- [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - New article.
+- [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - New article.
 - [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - New article.
 
 
@@ -362,7 +362,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 - [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
 - [Configure Log Analytics workspace for Azure Monitor for VMs](insights/vminsights-configure-workspace.md)
-- [Connect Linux computers to Azure Monitor](platform/agent-linux.md)
+- [Connect Linux computers to Azure Monitor](agents/agent-linux.md)
 - [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md)
 - [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](insights/vminsights-enable-portal.md)
 - [Enable Azure Monitor for VMs by using Azure Policy](./insights/vminsights-enable-policy.md)
@@ -669,7 +669,7 @@ General updates for general availability of Azure Monitor for VMs
 
 Multiple updates as part of rewrite of diagnostics extension content.
 
-- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
+- [Overview of the Azure monitoring agents](agents/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
 - [Azure Diagnostics extension overview](platform/diagnostics-extension-overview.md) - Complete rewrite.
 - [Use blob storage for IIS and table storage for events in Azure Monitor](platform/diagnostics-extension-logs.md) - General rewrite for update and clarity.
 - [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - New article. 
@@ -780,7 +780,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Agents
 
-- [Connect Linux computers to Azure Monitor](platform/agent-linux.md) - New article.
+- [Connect Linux computers to Azure Monitor](agents/agent-linux.md) - New article.
 
 ### Alerts
 

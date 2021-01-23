@@ -40,7 +40,7 @@ The computer that runs the Log Analytics gateway requires the Log Analytics Wind
 
 A gateway can be multihomed to up to four workspaces. This is the total number of workspaces a Windows agent supports.  
 
-Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller. Linux computers that are behind a gateway server cannot use the [wrapper script installation](agent-linux.md#install-the-agent-using-wrapper-script) method to install the Log Analytics agent for Linux. The agent must be downloaded manually, copied to the computer, and installed manually because the gateway only supports communicating with the Azure services mentioned earlier.
+Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller. Linux computers that are behind a gateway server cannot use the [wrapper script installation](../agents/agent-linux.md#install-the-agent-using-wrapper-script) method to install the Log Analytics agent for Linux. The agent must be downloaded manually, copied to the computer, and installed manually because the gateway only supports communicating with the Azure services mentioned earlier.
 
 The following diagram shows data flowing from direct agents, through the gateway, to Azure Automation and Log Analytics. The agent proxy configuration must match the port that the Log Analytics gateway is configured with.  
 
@@ -58,7 +58,7 @@ Computers designated to run the Log Analytics gateway must have the following co
 * Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008
 * Microsoft .NET Framework 4.5
 * At least a 4-core processor and 8 GB of memory 
-* A [Log Analytics agent for Windows](agent-windows.md) that is configured to report to the same workspace as the agents that communicate through the gateway
+* A [Log Analytics agent for Windows](../agents/agent-windows.md) that is configured to report to the same workspace as the agents that communicate through the gateway
 
 ### Language availability
 
@@ -220,7 +220,7 @@ In this section, you'll see how to configure directly connected Log Analytics ag
 When configuring the Log Analytics agent, replace the proxy server value with the IP address of the Log Analytics gateway server and its port number. If you have deployed multiple gateway servers behind a load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the load balancer.  
 
 >[!NOTE]
->To install the Log Analytics agent on the gateway and Windows computers that directly connect to Log Analytics, see [Connect Windows computers to the Log Analytics service in Azure](agent-windows.md). To connect Linux computers, see [Connect Linux computers to Azure Monitor](agent-linux.md). 
+>To install the Log Analytics agent on the gateway and Windows computers that directly connect to Log Analytics, see [Connect Windows computers to the Log Analytics service in Azure](../agents/agent-windows.md). To connect Linux computers, see [Connect Linux computers to Azure Monitor](../agents/agent-linux.md). 
 >
 
 After you install the agent on the gateway server, configure it to report to the workspace or workspace agents that communicate with the gateway. If the Log Analytics Windows agent is not installed on the gateway, event 300 is written to the OMS Gateway event log, indicating that the agent needs to be installed. If the agent is installed but not configured to report to the same workspace as the agents that communicate through it, event 105 is written to the same log, indicating that the agent on the gateway needs to be configured to report to the same workspace as the agents that communicate with the gateway.
@@ -388,4 +388,4 @@ To get help, select the question mark icon in the upper-right corner of the port
 
 ## Next steps
 
-[Add data sources](./agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.
+[Add data sources](./../agents/agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.

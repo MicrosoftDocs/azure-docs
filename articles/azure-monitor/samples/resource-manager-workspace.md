@@ -822,4 +822,4 @@ The following sample adds collection of [IIS logs](../platform/data-sources-iis-
 
 * [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 * [Learn more about Log Analytics workspaces](../learn/quick-create-workspace.md).
-* [Learn more about agent data sources](../platform/agent-data-sources.md).
+* [Learn more about agent data sources](../agents/agent-data-sources.md).

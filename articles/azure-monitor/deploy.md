@@ -78,7 +78,7 @@ See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of av
 > [!NOTE]
 > See [Monitoring Azure virtual machines with Azure Monitor](insights/monitor-vm-azure.md) for a complete guide on monitoring virtual machines with Azure Monitor. 
 
-Virtual machines generate similar data as other Azure resources, but you need an agent to collect data from the guest operating system. See [Overview of Azure Monitor agents](platform/agents-overview.md) for a comparison of the agents used by Azure Monitor. 
+Virtual machines generate similar data as other Azure resources, but you need an agent to collect data from the guest operating system. See [Overview of Azure Monitor agents](agents/agents-overview.md) for a comparison of the agents used by Azure Monitor. 
 
 [Azure Monitor for VMs](insights/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
 
@@ -99,7 +99,7 @@ See [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.
 ### Configure workspace to collect events
 Azure Monitor for VMs will collect performance data and the details and dependencies of processes from the guest operating system of each virtual machine. The Log Analytics agent can also collect logs from the guest including the event log from Windows and syslog from Linux. It retrieves the configuration for these logs from the Log Analytics workspace it's connected to. You only need to configure the workspace once, and each time an agent connects, it will download any configuration changes. 
 
-See [Agent data sources in Azure Monitor](platform/agent-data-sources.md) for details on configuring your Log Analytics workspace to collect additional data from your agent virtual machines.
+See [Agent data sources in Azure Monitor](agents/agent-data-sources.md) for details on configuring your Log Analytics workspace to collect additional data from your agent virtual machines.
 
 > [!NOTE]
 > You can also configure the workspace to collect performance counters, but this will most likely be redundant with performance data collected by Azure Monitor for VMs. Performance data collected by the workspace will be stored in the *Perf* table, while performance data collected by Azure Monitor for VMs is stored in the *InsightsMetrics* table. Configure performance collection in the workspace only if you require counters that aren't already collected by Azure Monitor for VMs.

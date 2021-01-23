@@ -314,7 +314,7 @@
     - name: Agent data sources
       items:
       - name: Overview
-        href: platform/agent-data-sources.md
+        href: agents/agent-data-sources.md
       - name: Windows events
         href: platform/data-sources-windows-events.md
       - name: Custom JSON data
@@ -354,28 +354,28 @@
   - name: Agents
     items:
     - name: Overview
-      href: platform/agents-overview.md
+      href: agents/agents-overview.md
     - name: FAQ
       href: faq.md#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
         displayname: Azure Monitor agent
-        href: platform/azure-monitor-agent-overview.md
+        href: agents/azure-monitor-agent-overview.md
       - name: Install
         displayname: Azure Monitor agent
-        href: platform/azure-monitor-agent-install.md
+        href: agents/azure-monitor-agent-install.md
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
-        href: platform/data-collection-rule-azure-monitor-agent.md
+        href: agents/data-collection-rule-azure-monitor-agent.md
     - name: Log Analytics agent
       items:
       - name: Overview
         href: platform/log-analytics-agent.md
       - name: Windows agents
-        href: platform/agent-windows.md
+        href: agents/agent-windows.md
       - name: Linux agents
-        href: platform/agent-linux.md
+        href: agents/agent-linux.md
       - name: VM Extension for Windows
         href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
       - name: VM Extension for Linux
@@ -383,7 +383,7 @@
       - name: Log Analytics gateway
         href: platform/gateway.md
       - name: Agent management
-        href: platform/agent-manage.md
+        href: agents/agent-manage.md
       - name: Agent Health
         href: insights/solution-agenthealth.md
     - name: Azure Diagnostics extension
@@ -435,10 +435,10 @@
         href: platform/vmext-troubleshoot.md
       - name: Log Analytics Windows agent
         displayname: troubleshoot, troubleshooting
-        href: platform/agent-windows-troubleshoot.md
+        href: agents/agent-windows-troubleshoot.md
       - name: Log Analytics Linux agent
         displayname: troubleshoot, troubleshooting
-        href: platform/agent-linux-troubleshoot.md
+        href: agents/agent-linux-troubleshoot.md
   - name: Autoscale
     items:
     - name: Overview
@@ -1434,3 +1434,4 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
