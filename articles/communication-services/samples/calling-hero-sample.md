@@ -15,8 +15,6 @@ zone_pivot_groups: acs-web-ios
 
 # Get started with the group calling hero sample
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 ::: zone pivot="platform-web"
 [!INCLUDE [Web Calling Hero Sample](./includes/web-calling-hero.md)]
 ::: zone-end

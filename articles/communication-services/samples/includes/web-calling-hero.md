@@ -1,9 +1,12 @@
-> [!IMPORTANT]
-> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web client library can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
+
+## Download Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## Overview
 

@@ -1,9 +1,12 @@
-> [!IMPORTANT]
-> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience.
 
 In this Sample quickstart, you will learn how to set up and run the sample. An overview of the sample is also provided for context.
+
+## Download Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
 
 ## Overview
 
