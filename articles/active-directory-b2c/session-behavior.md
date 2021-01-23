@@ -118,9 +118,14 @@ You can enable the KMSI feature for users of your web and native applications wh
 
 ::: zone pivot="b2c-user-flow"
 
-KMSI is configured at the policy level, and is supported with the "Recommended" versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have "Standard," or "Legacy preview - v2" versions of these user flows and want to enable KMSI, you'll need to create new "Recommended" versions of these user flows. KMSI is not supported with password reset or sign-up user flows. If you have multiple policies and want to apply KMSI to all applications in your tenant, we recommend you enable KMSI for all policies. Moving from a policy that has KMSI enabled to a policy that doesn't will remove the KMSI cookie from the session. We don't recommend enabling the KMSI option on public computers.
+KMSI is configurable at the individual user flow level. Before enabling KMSI for your user flows, consider the following:
 
-### Configure policy for KMSI
+- KMSI is supported only for the **Recommended** versions of sign-up and sign-in (SUSI), sign-in, and profile editing user flows. If you currently have **Standard** or **Legacy preview - v2** versions of these user flows and want to enable KMSI, you'll need to create new, **Recommended** versions of these user flows.
+- KMSI is not supported with password reset or sign-up user flows.
+- If you want to enable KMSI for all applications in your tenant, we recommend that you enable KMSI for all user flows in your tenant. Because a user can be presented with multiple policies during a session, it's possible they could encounter one that doesn't have KMSI enabled, which would remove the KMSI cookie from the session.
+- KMSI should not be enabled on public computers.
+
+### Configure KMSI for a user flow
 
 To enable KMSI for your user flow:
 
