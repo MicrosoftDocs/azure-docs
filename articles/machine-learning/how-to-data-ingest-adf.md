@@ -107,8 +107,7 @@ Since datasets support versioning, and each run from the pipeline creates a new 
 ### Read data directly from storage
 If you only need a specific version of the data or are testing a script and don't want to create a pipeline workflow, you can read the data directly from the storage account where your prepared data is saved. 
 
-
-The following code demonstrates how to create a datastore that connects to Azure DataLake Generation 2 storage. [Learn more about datastores](how-to-access-data.md#create-and-register-datastores).
+The following Python code demonstrates how to create a datastore that connects to Azure DataLake Generation 2 storage. [Learn more about datastores](how-to-access-data.md#create-and-register-datastores).
 
 ```python
 ws = Workspace.from_config()
