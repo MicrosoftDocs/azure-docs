@@ -215,12 +215,12 @@ In this section, you'll create a Private Link service behind a standard load bal
 
 12. Select **Create** in the **Review + create** tab.
 
-Your private link service is created and is ready to receive traffic. We haven't configured the load balancer backend pools or any application on the backend pools to listen to the traffic. If you want to see end to end traffic flows, configure your application behind your standard load balancer.
+Your private link service is created and can receive traffic. If you want to see traffic flows, configure your application behind your standard load balancer.
 
 
 ## Create private endpoint
 
-In this section you;ll map the private link service to a private endpoint. A separate virtual network contains the private endpoint for the private link service. This virtual network contains the resources that will access your private link service.
+In this section, you'll map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that will access your private link service.
 
 ### Create private endpoint virtual network
 
@@ -308,9 +308,9 @@ In this section you;ll map the private link service to a private endpoint. A sep
 
 ### IP address of private endpoint
 
-In this section you will find the IP address of the private endpoint that corresponds with the load balancer and private link service.
+In this section, you'll find the IP address of the private endpoint that corresponds with the load balancer and private link service.
 
-1. In the left hand column of the Azure portal, select **Resource groups**.
+1. In the left-hand column of the Azure portal, select **Resource groups**.
 
 2. Select the **CreatePrivLinkService-rg** resource group.
 
