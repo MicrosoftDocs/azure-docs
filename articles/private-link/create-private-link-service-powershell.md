@@ -185,7 +185,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 $subnet = @{
     Name = 'mySubnetPE'
     AddressPrefix = '11.1.0.0/24'
-    PrivateLinkServiceNetworkPolicies = 'Disabled'
+    PrivateEndpointNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -198,10 +198,6 @@ $net = @{
     Subnet = $subnetConfig
 }
 $vnetpe = New-AzVirtualNetwork @net
-
-## Disable private endpoint network policy ##
-$vnetpe.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled"
-$vnetpe | Set-AzVirtualNetwork
 
 ```
 
