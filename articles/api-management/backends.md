@@ -12,7 +12,7 @@ ms.date: 01/21/2021
 ms.author: apimpm
 ---
 
-# Set up an API Management backend using the Azure portal
+# Set up a Service Fabric backend using the Azure portal
 
 You can create and manage backends for API Management using the Azure portal, Azure REST APIs, or other Azure tools.
 
@@ -22,13 +22,11 @@ This article shows how to configure a Service Fabric service as a custom backend
 
 A *backend* (or *backend API*) in API Management is an HTTP service that implements your front-end API and its operations.
 
-When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing an [OpenAPI specification](import-api-from-oas.md), [SOAP API](import-soap-api.md), or certain Azure resources directly such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
+When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend when importing an [OpenAPI specification](import-api-from-oas.md), [SOAP API](import-soap-api.md), or Azure resources such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
 
-API Management also supports using other Azure resources such as a [Service Fabric cluster](../service-fabric/service-fabric-api-management-overview.md) or custom services as an API backend. Using these backends requires extra configuration, for example, to authorize credentials of requests to the backend service and to create API operations.
+API Management also supports using other Azure resources such as a [Service Fabric cluster](../service-fabric/service-fabric-api-management-overview.md) or custom services as an API backend. Using these backends requires extra configuration, for example, to authorize credentials of requests to the backend service and to define API operations.
 
-After creating a backend, you can reference the backend URL in your API Management instance:
-* [Manually add a blank API](add-api-manually.md) pointing to the backend URL. Then, add API operations mapping to the backend service. 
-* Reference the backend URL from the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy, to redirect an incoming request to a different backend than the one specified in the API settings for that operation.
+After creating a backend, you can reference the backend URL in your API Management instance. Use the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to redirect an incoming API request to the Service Fabric backend instead of the default backend for that API.
 
 ## Prerequisites
 
@@ -46,7 +44,7 @@ Prerequisites to configure a sample service in a Service Fabric cluster running 
 
 * **API Management instance** - An existing or new API Management instance in the **Premium** or  **Developer** tier and in the same region as the Service Fabric cluster. If you need one, [create an API Management instance](get-started-create-service-instance.md).
 
-* **Virtual network** - Add your API Management instance to the virtual network you created for your Service Fabric cluster. Choose the same subnet as the cluster.
+* **Virtual network** - Add your API Management instance to the virtual network you created for your Service Fabric cluster. You must use a dedicated subnet for API Management.
 
   For steps to enable virtual network connectivity for the API Management instance, see [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md).
 
