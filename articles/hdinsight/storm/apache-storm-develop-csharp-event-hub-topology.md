@@ -96,7 +96,7 @@ You can download a complete version of the project created in this article from 
 
 * An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
-* An [Azure event hub](../../event-hubs/event-hubs-create.md).
+* An [Azure Event Hub](../../event-hubs/event-hubs-create.md).
 
 * The [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
