@@ -216,31 +216,31 @@ Choosing a primary metric for automated machine learning to optimize depends on 
 
 #### Classification
 
-| Metric | Task(s) |
+| Metric | Example use case(s) |
 | ------ | ------- |
-| accuracy | image classification, sentiment analysis |
-| AUC_weighted | fraud detection, image classification, Anomaly detection/spam detection |
-| average_precision_score_weighted | sentiment analysis |
-| norm_macro_recall |  |
+| accuracy | Image classification, Sentiment analysis, Churn prediction |
+| AUC_weighted | Fraud detection, Image classification, Anomaly detection/spam detection |
+| average_precision_score_weighted | Sentiment analysis |
+| norm_macro_recall | Churn prediction |
 | precision_score_weighted |  |
 
 Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are very small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.1. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
 
 #### Regression
 
-| Metric | Task(s) |
+| Metric | Example use case(s) |
 | ------ | ------- |
 | spearman_correlation | |
-| normalized_root_mean_squared_error |  |
-| r2_score |  |
-| normalized_mean_absolute_error | |
+| normalized_root_mean_squared_error | Price prediction (house/product/tip), Review score prediction |
+| r2_score | Airline delay |
+| normalized_mean_absolute_error | Salary estimation, Bug resolution time |
 
 #### Time series forecasting
 
-| Metric | Task(s) |
+| Metric | Example use case(s) |
 | ------ | ------- |
 | spearman_correlation | |
-| normalized_root_mean_squared_error | Price prediction(forecasting), Inventory optimization, Demand forecasting |
+| normalized_root_mean_squared_error | Price prediction (forecasting), Inventory optimization, Demand forecasting |
 | r2_score | Price prediction(forecasting), Inventory optimization, Demand forecasting |
 | normalized_mean_absolute_error | |
 
