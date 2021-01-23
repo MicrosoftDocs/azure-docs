@@ -287,15 +287,13 @@ $par1 = @{
 }
 $pe = Get-AzPrivateEndpoint @par1
 
-```
-
-```azurepowershell-interactive
 ## Display the IP address by expanding the variable. ##
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
+```
 
+```bash
 ❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 11.1.0.4
-
 ```
 
 ## Clean up resources
