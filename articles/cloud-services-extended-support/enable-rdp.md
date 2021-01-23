@@ -1,5 +1,5 @@
 ---
-title: Enable Remote Desktop in Cloud Services (extended support) 
+title: Apply the Remote Desktop in Cloud Services (extended support) 
 description: Enable Remote Desktop for Cloud Services (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
@@ -10,10 +10,11 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Configure remote desktop from the Azure portal
+# Apply the Remote Desktop extension to Azure Cloud Services (extended support)
 
 The Azure portal uses the remote desktop extension to enable remote desktop even after the application is deployed. The remote desktop settings for your Cloud Service allows you to enable remote desktop, update the local administrator account, select the certificates used in authentication and set the expiration date for those certificates. 
 
+## Apply Remote Desktop  extension
 1. Navigate to the Cloud Service you want to enable remote desktop for and select **"Remote Desktop"** in the left navigation pane.
 
     :::image type="content" source="media/remote-desktop-1.png" alt-text="Image shows selecting the Remote Desktop option in the Azure portal":::
