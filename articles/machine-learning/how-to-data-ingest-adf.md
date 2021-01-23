@@ -91,7 +91,7 @@ The transformed data from the ADF pipeline is saved to data storage (such as Azu
 
 This method is recommended for Machine Learning Operations (MLOps) workflows like automation of the ML lifecycle. If you are not looking to automate your ML model lifecycle at this time, see [Read data directly from storage](#read-data-directly-from-storage).
 
-Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create a datastore and dataset using the data location. Learn more in [Execute Azure Machine Learning pielines in ADF](../data-factory/transform-data-machine-learning-service.md).
+Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create a datastore and dataset using the data location. Learn more in [Execute Azure Machine Learning pipelines in ADF](../data-factory/transform-data-machine-learning-service.md).
 
 ![Diagram shows an Azure Data Factory pipeline and an Azure Machine Learning pipeline and how they interact with raw data and prepared data. The Data Factory pipeline feeds data to the Prepared Data database, which feeds a data store, which feeds datasets in the Machine Learning workspace.](media/how-to-data-ingest-adf/aml-dataset.png)
 
