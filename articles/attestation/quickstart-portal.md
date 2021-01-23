@@ -47,7 +47,7 @@ In this section, you'll create an attestation provider and configure it with eit
    - **Resource Group**: select an existing resource group or choose **Create new** and enter a resource group name.
    - **Name**: enter a unique name.
    - **Location**: choose a location.
-   - **Policy signer certificates file**: upload the policy signer certificates file to configure the attestation provider with signed policies. Look at some [examples of policy signer certificates](/azure/attestation/policy-signer-examples) for more information.
+   - **Policy signer certificates file**: upload the policy signer certificates file to configure the attestation provider with signed policies. Look at some [examples of policy signer certificates](./policy-signer-examples.md) for more information.
 
 6. After you provide the required inputs, select **Review+Create**.
 7. If there are validation issues, fix them and select **Create**.
@@ -92,7 +92,7 @@ a.	Verify the certificates count and certs downloaded.
 3.	Select the attestation provider and navigate to overview page
 4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
 5.	Click **Add** in the top menu (The button will be disabled for the attestation providers created without policy signing requirement)
-6.	Upload policy signer certificate file and click **Add**. See examples [here](/azure/attestation/policy-signer-examples)
+6.	Upload policy signer certificate file and click **Add**. See examples [here](./policy-signer-examples.md)
 
 ### Delete policy signer certificate
 
@@ -101,7 +101,7 @@ a.	Verify the certificates count and certs downloaded.
 3.	Select the attestation provider and navigate to overview page
 4.	Click **Policy signer certificates** in left-side resource menu or in the bottom pane
 5.	Click **Delete** in the top menu (The button will be disabled for the attestation providers created without policy signing requirement)
-6.	Upload policy signer certificate file and click **Delete**. See examples [here](/azure/attestation/policy-signer-examples) 
+6.	Upload policy signer certificate file and click **Delete**. See examples [here](./policy-signer-examples.md) 
 
 ## Attestation policy
 
@@ -126,7 +126,7 @@ a.	Verify the certificates count and certs downloaded.
 5.	Click **Configure** in the top menu
 6.	When the attestation provider is created without policy signing requirement, user can upload a policy in **JWT** or **Text** format
 7.	Select **Policy Format** as **JWT**
-8.	Upload policy file with policy content in an **unsigned/signed JWT** format and click **Save**. See examples [here](/azure/attestation/policy-examples)
+8.	Upload policy file with policy content in an **unsigned/signed JWT** format and click **Save**. See examples [here](./policy-examples.md)
 	
 	For file upload option, policy preview will be shown in text format and policy preview is not editable.
 
@@ -141,7 +141,7 @@ a.	Verify the certificates count and certs downloaded.
 5.	Click **Configure** in the top menu
 6.	When the attestation provider is created without policy signing requirement, user can upload a policy in **JWT** or **Text** format
 7.	Select **Policy Format** as **Text**
-8.	Upload policy file with content in **Text** format or enter policy content in text area and click **Save**. See examples [here](/azure/attestation/policy-examples)
+8.	Upload policy file with content in **Text** format or enter policy content in text area and click **Save**. See examples [here](./policy-examples.md)
 
 	For file upload option, policy preview will be shown in text format and policy preview is not editable.
 
@@ -157,20 +157,9 @@ a.	Verify the certificates count and certs downloaded.
 4.	Click **Policy** in left-side resource menu or in the bottom pane
 5.	Click **Configure** in the top menu
 6.	When the attestation provider is created with policy signing requirement, user can upload a policy only in **signed JWT format**
-7.	Upload policy file is **signed JWT format** and click **Save**. See examples [here](/azure/attestation/policy-examples)
+7.	Upload policy file is **signed JWT format** and click **Save**. See examples [here](./policy-examples.md)
 
 	For file upload option, policy preview will be shown in text format and policy preview is not editable.
 	
 8.	Click **Refresh** to view the configured policy
-
- 
-
-
-
-
-
-
-
-
-
 
