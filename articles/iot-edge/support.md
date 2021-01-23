@@ -62,7 +62,6 @@ IoT Edge for Linux on Windows is currently in public preview, but is the recomme
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview  |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview |
 | Windows 10 Pro | Public preview |  |  |
 | Windows 10 Enterprise | Public preview |  |  |
@@ -71,6 +70,9 @@ IoT Edge for Linux on Windows is currently in public preview, but is the recomme
 
 All Windows operating systems must be version 1809 (build 17763) or later.
 
+>[!NOTE]
+>Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1
+
 #### Windows containers
 
 Modules built as Windows containers can be deployed only to Windows devices.
@@ -78,13 +80,13 @@ Modules built as Windows containers can be deployed only to Windows devices.
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Windows 10 IoT Enterprise | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT Core<sup>1</sup><br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server IoT 2019<br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
-
-<sup>1</sup> Windows 10 IoT Core will not be supported after version 1.0.10
+| Windows Server IoT 2019 | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
 
 All Windows operating systems must be version 1809 (build 17763). The specific build of Windows is required for IoT Edge on Windows because the version of the Windows containers must exactly match the version of the host Windows device. Windows containers currently only use build 17763.
+
+>[!NOTE]
+>Windows 10 IoT Core support ended with the release of IoT Edge version 1.1
 
 ### Tier 2
 
@@ -116,21 +118,26 @@ IoT Edge components can be installed or updated individually, and are backwards 
 
 | Release | Security daemon | Edge hub<br>Edge agent | Libiothsm | Moby |
 |--|--|--|--|--|
-| **1.0.10** | 1.0.10 | 1.0.10 | 1.0.10 |  |
+| **1.1 LTS**<sup>1</sup> | 1.1 | 1.1 | 1.1 |   |
+| **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
 | **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
 | **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
+<sup>1</sup>IoT Edge 1.1 is the first long-term support (LTS) release. This version introduced no new features, but will receive bug fixes and security patches for two years.
+
 IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](/dotnet/api/overview/azure/iot/client). The following list shows the version of the client SDK that each release is tested against:
 
-* **IoT Edge 1.0.10**: Client SDK 1.28.0
-* **IoT Edge 1.0.9**: Client SDK 1.21.1
-* **IoT Edge 1.0.8**: Client SDK 1.20.3
-* **IoT Edge 1.0.7**: Client SDK 1.20.1
-* **IoT Edge 1.0.6**: Client SDK 1.17.1
-* **IoT Edge 1.0.5**: Client SDK 1.17.1
+| IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
+|------------------|--------------------------------------------|
+| 1.0.10           | 1.28.0                                     |
+| 1.0.9            | 1.21.1                                     |
+| 1.0.8            | 1.20.3                                     |
+| 1.0.7            | 1.20.1                                     |
+| 1.0.6            | 1.17.1                                     |
+| 1.0.5            | 1.17.1                                     |
 
 ## Virtual Machines
 
