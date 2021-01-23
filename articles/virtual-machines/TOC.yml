@@ -1632,7 +1632,7 @@
       - name: Linux agents
         href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
       - name: Log Analytics gateway
-        href: ../azure-monitor/agents/gateway.md?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
       - name: Agent management
         href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
       - name: Agent Health
