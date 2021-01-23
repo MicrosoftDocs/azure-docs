@@ -1,21 +1,17 @@
 ---
-title: Azure Automation Network Configuration details
-description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, 
-keywords: azure
-services: automation
-ms.service: automation
-ms.subservice: dsc
+title: Azure Automation network configuration details
+description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, Update Management, and Change Tracking and Inventory
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ---
-# Azure Automation Network Configuration details
+# Azure Automation network configuration details
 
 This page provides networking details that are required for [Hybrid Runbook Worker and State Configuration](#hybrid-runbook-worker-and-state-configuration), and for [Update Management and Change Tracking and Inventory](#update-management-and-change-tracking-and-inventory).
 
 ## Hybrid Runbook Worker and State Configuration
 
-The following port and URLs are required for the Hybrid Runbook Worker, and for [Desired State Configurations (DSCs)](/powershell/scripting/dsc/configurations/configurations) to communicate with Azure Automation.
+The following port and URLs are required for the Hybrid Runbook Worker, and for [Automation State Configuration](automation-dsc-overview.md) to communicate with Azure Automation.
 
 * Port: Only 443 required for outbound internet access
 * Global URL: `*.azure-automation.net`

@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/18/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
 ---
 # Hybrid Runbook Worker overview
@@ -48,7 +48,7 @@ The recommended installation method for a Windows machine is to use an Azure Aut
 
 ## <a name="network-planning"></a>Network planning
 
-You'll need to set up a port and several URLs on the network for your Hybrid Runbook Worker to run correctly. These are documented in [Azure Automation Network Configuration](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker).
+Check [Azure Automation Network Configuration](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker) for detailed information on the ports, URLs, and other networking details required for the Hybrid Runbook Worker.
 
 ### Proxy server use
 

@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -179,7 +179,7 @@ The average data usage by Azure Monitor logs for a machine using Update Manageme
 
 ## <a name="ports"></a>Network planning
 
-You'll need to set up a port and several URLs on the network for Change Tracking and Inventory to run correctly. These are documented in [Azure Automation Network Configuration](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration).
+Check [Azure Automation Network Configuration](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) for detailed information on the ports, URLs, and other networking details required for Update Management.
 
 For Windows machines, you must also allow traffic to any endpoints required by Windows Update. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -217,7 +217,7 @@ The next table defines the supported classifications for Linux updates.
 >* Azure US Government
 >* 21Vianet in China
 >
-> Instead of being classified,  updates are reported under the **Other updates** category.
+> Instead of being classified, updates are reported under the **Other updates** category.
 >
 > Update Management uses data published by the supported distributions, specifically their released [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) files. Because internet access is restricted from these national clouds, Update Management cannot access the files.
 

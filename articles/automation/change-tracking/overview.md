@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
 ---
 
@@ -69,7 +69,7 @@ The python2 executable must be aliased to *python*.
 
 ## Network requirements
 
-You'll need to set up a port and several URLs on the network for Change Tracking and Inventory to run correctly. These are documented in [Azure Automation Network Configuration](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
+Check [Azure Automation Network Configuration](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) for detailed information on the ports, URLs, and other networking details required for Change Tracking and Inventory.
 
 ## Enable Change Tracking and Inventory
 

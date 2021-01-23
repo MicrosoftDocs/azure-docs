@@ -7,7 +7,7 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/18/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -86,7 +86,7 @@ is installed when machines are enabled.
 
 ### <a name="network-planning"></a>Configuration of private networks
 
-If your nodes are located in a private network, you'll need to set up a port and several URLs for your Azure Automation State Configuration to run correctly. These are documented in [Azure Automation Network Configuration](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration).
+Check [Azure Automation Network Configuration](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) for detailed information on the ports, URLs, and other networking details required for nodes on a private network.
 
 #### Proxy support
 
