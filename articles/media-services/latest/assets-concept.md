@@ -46,4 +46,4 @@ The names of files/blobs within an asset must follow both the [blob name require
 
 ## See also
 
-[Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)
+[Differences between Media Services v2 and v3](migrate-v-2-v-3-migration-introduction.md)
