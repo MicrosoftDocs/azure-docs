@@ -9,12 +9,12 @@ ms.date: 01/19/2021
 ---
 
 # Getting started with Azure IoT embedded device development
-This getting started guide is a set of quickstarts that shows embedded device developers how to start working with Microsoft Azure RTOS. Each quickstart in the series follows the same pattern in which you take a device, flash the device with Azure RTOS sample code and configuration settings, and connect the device to Azure IoT.
+This getting started guide contains a set of quickstarts that shows you how to start working with embedded devices and Azure IoT. Each quickstart follows the same pattern in which you take a device, flash the device with Azure RTOS sample code and configuration settings, and connect the device to Azure IoT.
 
-In each quickstart, you complete the same basic tasks regardless which device you're using:
+In each quickstart, you complete the following basic tasks:
 * Install a set of embedded development tools for programming a specific device in C
-* Build an image that includes Azure RTOS components and samples, and flash a device
-* Use the Azure IoT Central application portal to securely connect a device to Azure IoT
+* Build an image that includes Azure RTOS components and samples, and then flash a device
+* Securely connect a device to Azure IoT
 * View device telemetry, view properties, and invoke cloud-to-device methods
 
 ## Quickstarts
@@ -30,12 +30,6 @@ The following tutorials are included in the getting started guide:
 |[Getting started with the MXChip AZ3166 IoT DevKit](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) |[MXChip AZ3166 IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)|
 |[Getting started with the Renesas Starter Kit+ for RX65N-2MB](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RSK_RX65N_2MB) |[Renesas Starter Kit+ for RX65N-2MB](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb)|
 
-## Azure RTOS components
-Each quickstart in the guide includes a step to build an image. The build process installs a common set of Azure RTOS components, sample code, and device-specific information.
-
-The build script adds the following Azure RTOS components to the image for each device:
-
-|Component|Description|
-|---------------|-----|
-|[Azure ThreadX](https://docs.microsoft.com/azure/rtos/threadx/overview-threadx) | Provides the core real-time operating system components for devices |
-|[Azure NetX Duo](https://docs.microsoft.com/azure/rtos/netx-duo/overview-netx-duo) | Provides a full TCP/IP IPv4 and IPv6 network stack, and networking support integrated with ThreadX |
+## Next steps
+After you complete a device-specific quickstart in this guide, explore the other device-specific articles and samples in the Azure RTOS getting started repo:
+* [Getting started with Azure RTOS and Azure IoT](https://github.com/azure-rtos/getting-started)
