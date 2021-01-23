@@ -250,7 +250,7 @@ New-AzPrivateEndpoint @par4 -ByManualRequest
 
 ### Approve the private endpoint connection
 
-In this section you'll approve the connection you setup in the previous steps.
+In this section, you'll approve the connection you created in the previous steps.
 
 * Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnnection) to approve the connection.
 
