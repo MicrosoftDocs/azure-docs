@@ -1,0 +1,54 @@
+---
+title: Azure Cloud Services (extended support)
+description: Learn about the child elements of the Network Configuration element of the service configuration file, which specifies Virtual Network and DNS values.
+ms.topic: article
+ms.service: cloud-services-extended-support
+author: gachandw
+ms.author: gachandw
+ms.reviewer: mimckitt
+ms.date: 10/13/2020
+ms.custom: 
+---
+  
+# Azure Cloud Services (extended support) overview
+
+
+Cloud Services (extended support) is a new [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) based deployment model for the [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product. The primary benefit of Cloud Services (extended support) is providing regional resiliency along with feature parity for Cloud Services in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Cloud Services (extended support) also offers capabilities such as Role-based Access and Control (RBAC), tags and deployment templates. With this change, Azure Service Manager based deployment model for Cloud Services will be renamed as [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). 
+
+## Changes in deployment model
+
+Minimal changes are required to .cscfg and .csdef files to deploy Cloud Services (extended support). No changes are required to runtime code however, deployment scripts will need to be updated to call new Azure Resource Manager based APIs. 
+
+:::image type="content" source="media/overview-image-1.png" alt-text="Image shows classic cloud service configuration with addition of template section. ":::
+
+- The Azure Resource Manager templates need to be maintained and kept consistent with the .cscfg and .csdef files for Cloud Services (extended support) deployments.
+- Cloud Services (extended support) does not have a concept of hosted service. Each deployment is a separate Cloud Service.
+- The concept of staging and production slots do not exist for Cloud Services (extended support).
+- Assigning a [DNS label](https://docs.microsoft.com/azure/dns/dns-zones-records) to the Cloud Service is optional and the DNS label is tied to the public IP resource associated with the Cloud Service.
+- VIP Swap is currently unsupported for Cloud Services (extended support).
+- Cloud Services (extended support) requires [Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to manage certificates. The cscfg file and templates require referencing the Key Vault to obtain the certificate information. 
+- [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) are required to deploy Cloud Services (extended support).
+- The Network Configuration File (netcfg) does not exist in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). Virtual networks and subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs and referenced in the cscfg within the `NetworkConfiguration` section.
+
+## What does not change 
+- You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.
+- Cloud Services (extended support) also supports two types of roles, web and worker. 
+- The three components, the service definition (.csdef), the service config (.cscfg), and a service package (.cspkg) of a cloud service are carried forward and there is no change in the their formats. 
+- No changes are required to runtime code as data plane is the same and control plane is only changing. 
+
+## Migration to Azure Resource Manager
+
+Cloud Services (extended support) provides two paths for you to migrate from Azure Service Manager to Azure Resource Manager. 
+1) Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in ASM after thorough validation. 
+2) In-place migration supports the ability to migrate Cloud Services (classic) with minimal to no downtime. 
+
+### Additional migration options
+
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support) you may want to investigate additional Azure services such as: [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [App Service](https://docs.microsoft.com/azure/app-service/overview), [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes), and [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview). These services will continue to feature additional capabilities, while Cloud Services (extended support) will primarily maintain feature parity with Cloud Services (classic.) 
+
+Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application is not evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements. 
+
+## Next steps
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

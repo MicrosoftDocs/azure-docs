@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 
 ms.author: justinha
 author: justinha
@@ -28,6 +28,8 @@ One of the main features of an identity platform is to verify, or *authenticate*
 * Passwordless authentication
 
 Take a look at our short video to learn more about these authentication components.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## Improve the end-user experience
 
