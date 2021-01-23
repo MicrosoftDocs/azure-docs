@@ -51,7 +51,7 @@ You can also connect your on-premises application to SQL Managed Instance. SQL M
 
 There are two options for how to connect on-premises to an Azure virtual network:
 
-- Site-to-site VPN connection ([Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Site-to-site VPN connection ([Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) connection  
 
 If you've established an on-premises to Azure connection successfully and you can't establish a connection to SQL Managed Instance, check if your firewall has an open outbound connection on SQL port 1433 as well as the 11000-11999 range of ports for redirection.
