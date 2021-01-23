@@ -9,8 +9,6 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: 
 ---
-  
-# About Azure Cloud Services (extended support)
 
 > [!IMPORTANT]
 > Cloud Services (extended support) is currently in public preview.
