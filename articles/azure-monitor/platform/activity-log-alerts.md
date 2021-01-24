@@ -15,7 +15,7 @@ Activity log alerts are alerts that activate when a new [activity log event](act
 
 > [!NOTE]
 > * Alerts **cannot** be created for events in Alert category of activity log.
-> * Activity Log Alerts with the category of Security can be defined also in a [new upgraded flow](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) to [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
+> * Activity Log Alerts with the category of Security can be defined also in a [new upgraded flow](../../security-center/continuous-export.md?tabs=azure-portal) to [ServiceNow](../../security-center/export-to-siem.md)
 
 Typically, you create activity log alerts to receive notifications when:
 

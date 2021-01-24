@@ -16,26 +16,26 @@ In the Azure portal, switch to **Access keys** tab of the **Event Grid Topic** o
 :::image type="content" source="./media/get-access-keys/azure-portal.png" alt-text="Access keys page":::
 
 ## Azure PowerShell
-Use the [Get-AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey?view=azps-4.3.0) command to get access keys for topics. 
+Use the [Get-AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey) command to get access keys for topics. 
 
 ```azurepowershell-interactive
 Get-AzEventGridTopicKey -ResourceGroup <RESOURCE GROUP NAME> -Name <TOPIC NAME>
 ```
 
-Use [Get-AzEventGridDomainKey](/powershell/module/az.eventgrid/get-azeventgriddomainkey?view=azps-4.3.0) command to get access keys for domains. 
+Use [Get-AzEventGridDomainKey](/powershell/module/az.eventgrid/get-azeventgriddomainkey) command to get access keys for domains. 
 
 ```azurepowershell-interactive
 Get-AzEventGridDomainKey -ResourceGroup <RESOURCE GROUP NAME> -Name <DOMAIN NAME>
 ```
 
 ## Azure CLI
-Use the [az eventgrid topic key list](/cli/azure/eventgrid/topic/key?view=azure-cli-latest#az-eventgrid-topic-key-list) to get access keys for topics. 
+Use the [az eventgrid topic key list](/cli/azure/eventgrid/topic/key#az-eventgrid-topic-key-list) to get access keys for topics. 
 
 ```azurecli-interactive
 az eventgrid topic key list --resource-group <RESOURCE GROUP NAME> --name <TOPIC NAME>
 ```
 
-Use [az eventgrid domain key list](/cli/azure/eventgrid/domain/key?view=azure-cli-latest#az-eventgrid-domain-key-list) to get access keys for domains. 
+Use [az eventgrid domain key list](/cli/azure/eventgrid/domain/key#az-eventgrid-domain-key-list) to get access keys for domains. 
 
 ```azurecli-interactive
 az eventgrid domain key list --resource-group <RESOURCE GROUP NAME> --name <DOMAIN NAME>

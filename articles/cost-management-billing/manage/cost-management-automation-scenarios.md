@@ -98,7 +98,7 @@ The following APIs are for Enterprise only:
 ### What's the difference between the Enterprise Reporting APIs and the Consumption APIs? When should I use each?
 These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. But they target different audiences:
 
-- Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated monetary commitments and custom pricing. The APIs require a key that you can get from the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](enterprise-api.md).
+- Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated Azure Prepayment (previously called monetary commitment) and custom pricing. The APIs require a key that you can get from the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](enterprise-api.md).
 
 - Consumption APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](consumption-api-overview.md) and the [Azure Consumption API reference](/rest/api/consumption/). We recommend the provided APIs as the solution for the latest development scenarios.
 
@@ -107,7 +107,7 @@ These APIs provide fundamentally different data:
 
 - The [Usage Details API](/rest/api/consumption/usagedetails) provides Azure usage and cost information per meter instance. The provided data has already passed through the cost metering system in Azure and had cost applied to it, along with other possible changes:
 
-   - Changes to account for the use of prepaid monetary commitments
+   - Changes to account for the use of prepaid Azure Prepayment
    - Changes to account for usage discrepancies discovered by Azure
 
 - The [Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) provides raw Azure usage information before it passes through the cost metering system in Azure. This data might not have any correlation with the usage or charge amount that's seen after the Azure charge metering system.
