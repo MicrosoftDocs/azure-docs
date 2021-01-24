@@ -122,7 +122,7 @@ To request elevated permissions from your global administrator:
 
 1. Select **Request access**.
 
-    An email is sent to the global administrator. The email contains a link to Security Center where they can approve/reject the request.
+    An email is sent to the global administrator. The email contains a link to Security Center where they can approve or reject the request.
 
     :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions":::
 
