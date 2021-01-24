@@ -37,6 +37,7 @@ Updates in January include:
 - [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
 - [Multi-cloud connectors are released for General Availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Exempt entire recommendations from your secure score for subscriptions and management groups](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
+- [Users can now request tenant-wide visibility from their global administrator](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
 - [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
 - ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
@@ -142,6 +143,17 @@ With this preview feature, you can now create an exemption for a recommendation 
 - **Exempt a subscription or management group** to ensure that the recommendation doesn't impact your secure score and won't be shown for the subscription or management group in the future. This relates to existing resources and any you create in the future. The recommendation will be marked with the specific justification you select for the scope that you selected.
 
 Learn more in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+
+
+
+### Users can now request tenant-wide visibility from their global administrator
+
+If a user doesn't have permissions to see Security Center data, they'll now see a link request permissions from their organization's global administrator. The request includes the role they'd like and the justification for why it's necessary.
+
+:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
+
+Learn more in [Request tenant-wide visibility when you have insufficient permissions](security-center-management-groups.md#request-tenant-wide-visibility-when-you-have-insufficient-permissions).
+
 
 ### CSV export of filtered list of recommendations 
 
