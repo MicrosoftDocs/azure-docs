@@ -146,7 +146,7 @@ datastore_path = [(datastore, '/data/prepared-data.csv')]
         
 prepared_dataset = Dataset.Tabular.from_delimited_files(path=datastore_path)
 ```
-From here, use `prepared_dataset` to reference your prepared data, like in your training scripts.Learn how to [Train models with datasets in Azure Machine Learning](./how-to-train-with-datasets.md).
+From here, use `prepared_dataset` to reference your prepared data, like in your training scripts. Learn how to [Train models with datasets in Azure Machine Learning](./how-to-train-with-datasets.md).
 
 ## Next steps
 
