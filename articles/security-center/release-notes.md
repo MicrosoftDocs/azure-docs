@@ -55,6 +55,8 @@ If you're using Security Center's regulatory compliance dashboard, you'll see tw
 
 :::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Azure Security Center's regulatory compliance dashboard showing the Azure Security Benchmark":::
 
+Existing recommendations are unaffected and as the benchmark grows, changes will automatically be reflected within Security Center. 
+
 To learn more, see the following pages:
 
 - [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)

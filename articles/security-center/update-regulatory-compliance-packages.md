@@ -35,7 +35,7 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-You can also add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0. Additional standards will be supported in the dashboard as they become available. 
+You can also add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0. Standards are added to the dashboard as they become available.
 
 
 ## Add a regulatory standard to your dashboard
@@ -43,7 +43,7 @@ You can also add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK O
 The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 
 > [!NOTE]
-> Only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
+> To add standards to your dashboard, the subscription must have Azure Defender enabled. Also, only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
 
 1. From Security Center's sidebar, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 
@@ -56,7 +56,7 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. To add the standards relevant to your organization, click **Add more standards**. 
 
-1. From the **Add regulatory compliance standards** page, you can search for packages for any of the available standards. Some of the standards available are:
+1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, incluing:
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
@@ -64,7 +64,7 @@ The following steps explain how to add a package to monitor your compliance with
     - **UKO and UK NHS**
     - **Canada PBMM**
     
-    ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Adding regulatory standards to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
@@ -104,9 +104,9 @@ To remove a standard:
 
 ## Next steps
 
-In this article, you learned how to **add compliance packages** to monitor your compliance with additional standards. 
+In this article, you learned how to **add compliance standards** to monitor your compliance with additional standards.
 
-For other related material, see the following articles: 
+For related material, see the following pages:
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md)
