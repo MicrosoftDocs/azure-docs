@@ -108,6 +108,11 @@ To assign yourself tenant-level permissions:
 
 If you login to Security Center and see a banner telling you that your view is limited, you can click through to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
 
+It's the global administrator's decision whether to accept or reject these requests. 
+
+> [!IMPORTANT]
+> If a user's request is rejected, they must wait seven before submitting another request.
+
 To request elevated permissions from your global administrator:
 
 1. From the Azure portal, open Azure Security Center.
@@ -126,6 +131,7 @@ To request elevated permissions from your global administrator:
 
     :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions":::
 
+    After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user. 
 
 ## Assign Azure roles to other users
 
