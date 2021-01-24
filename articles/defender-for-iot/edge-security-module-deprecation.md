@@ -1,5 +1,5 @@
 ---
-title: Defender for IoT C, C#, and Edge security module deprecation
+title: Feature support and retirement
 description: Defender for IoT will continue to support C, C#, and Edge until March 1, 2022. 
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,11 @@ ms.service: azure
 ms.topic: how-to
 ---
 
-# Defender for IoT C, C#, and Edge security module deprecation
+# Feature support and retirement
+
+This article describes Azure Defender for IoT features and support for different capabilities within Defender for IoT.
+
+## Defender for IoT C, C#, and Edge security module deprecation
 
 The new micro agent will replace the current C, C#, and Edge security module.  
 
@@ -23,14 +27,16 @@ The new micro agent is based on the knowledge, and experience gathered from the 
 
 - **Easy to deploy**: The micro agent supports different distribution models, through source code, and as a binary package. 
 
-## Timeline 
+### Timeline 
 
 Defender for IoT will continue to support C, C#, and Edge until March 1, 2022. 
 
-## Customer feedback 
+### Customer feedback 
 
 We would like to hear from customers regarding their specific deployments, and difficulties adopting the new micro agent. 
 
 Send your comments to <security_module_deprecation@microsoft.com>.
 
-Next steps
+## Micro agent preview support
+
+During the preview the micro agent may experience breaking changes without notice.

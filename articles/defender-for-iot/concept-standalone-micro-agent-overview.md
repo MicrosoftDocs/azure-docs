@@ -1,5 +1,5 @@
 ---
-title: Standalone micro agent overview 
+title: Standalone micro agent overview (Preview)
 description: The Azure Defender for IoT security agents allows you to build security directly into your new IoT devices and Azure IoT projects.
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-# Standalone micro agent overview 
+# Standalone micro agent overview (Preview)
 
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements. 
 

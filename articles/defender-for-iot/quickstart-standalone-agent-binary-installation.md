@@ -1,5 +1,5 @@
 ---
-title: Standalone agent binary installation
+title: Install Defender for IoT micro agent (Preview)
 description: Learn how to install, and authenticate the Defender Micro Agent.
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure
 ---
 
-# Installing the Defender Micro Agent 
+# Install Defender for IoT micro agent (Preview)
 
 This article provides an explanation of how to install, and authenticate the Defender micro agent.
 
@@ -19,14 +19,24 @@ Prior to installing the Defender for IoT module you must create a module identit
 
 ## Installing the package 
 
-Install, and configure the Microsoft package repository by following [these instructions](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+Install, and configure the Microsoft package repository by following [these instructions](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
-For Debian-based Linux distributions, you must install the Defender micro agent package using the following code:
+For Debian9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
+
+```azurecli
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - 
+
+sudo apt-add-repository https://packages.microsoft.com/debian/9/prod 
+
+sudo apt-get update
+```
+
+For Debian-based Linux distributions, you must install the Defender micro agent package. This can be accomplished by using the following commands:
 
 ```azurecli
 sudo apt-get update 
 
-sudo apt-get install <TBD: the name of the package> (microsoft-defender-iot-micro-agent?) 
+sudo apt-get install defender-iot-micro-agent 
 ```
 
 ## Micro Agent Authentication Methods 
@@ -48,10 +58,12 @@ To authenticate using a connection string:
 1. Restart the service using this command:  
 
     ```azurecli
-    sudo systemctl restart <service name> 
+    sudo systemctl restart defender-iot-micro-agent.service 
     ```
 
 To authentication using a certificate:
+
+1. Procure a certificate by following [these instructions](../iot-hub/iot-hub-security-x509-get-started.md).
 
 1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`. 
 
@@ -64,16 +76,42 @@ To authentication using a certificate:
 1. Restart the service using the following command:  
 
     ```azurecli
-    sudo systemctl restart <service name>
+    sudo systemctl restart defender-iot-micro-agent.service
     ```
 
 1. Making sure the micro agent is running properly with the following command:  
 
     ```azurecli
-    systemctl status <service name> 
+    systemctl status defender-iot-micro-agent.service
     ```
 1. Ensure that the service is stable by making sure it is `active` and that the uptime of the process is appropriate
 
-    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your sercixe is stable and active.":::
+    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
+
+## Testing the system end-to-end 
+
+You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation. 
+
+Create a file on the file system with the following command,
+
+```azurecli
+sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
+```
+A baseline validation failure recommendation will occur in the hub, with a `CceId` of CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0: 
+
+:::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub.":::
+
+The recommendation may take up to one hour to appear in the hub. Please allow up to 1 hour for the recommendation to appear in the hub. 
+
+## Micro Agent Versioning 
+
+To install a specific version of the Defender IoT micro agent, run the following command: 
+
+```azurecli
+sudo apt-get install defender-iot-micro-agent=<version>
+```
+ 
 
 ## Next Steps
+
+[Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
