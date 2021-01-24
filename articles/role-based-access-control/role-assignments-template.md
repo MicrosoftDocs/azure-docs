@@ -5,15 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2020
+ms.date: 01/21/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ---
 # Add Azure role assignments using Azure Resource Manager templates
 
@@ -347,7 +343,6 @@ To use the template, you must specify the following inputs:
             "properties": {
                 "roleDefinitionId": "[variables('contributorRoleDefinitionId')]",
                 "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName')), '2018-11-30').principalId]",
-                "scope": "[resourceGroup().id]",
                 "principalType": "ServicePrincipal"
             }
         }
