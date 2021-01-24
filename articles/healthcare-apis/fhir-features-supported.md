@@ -142,12 +142,14 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you are performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
 
-| # of RUs | Resources/sec |
-|----------|---------------|
-| 400      | 5-10          |
-| 1,000    | 100-150       |
-| 10,000   | 225-400       |
-| 100,000  | 2,500-4,000   |
+| # of RUs | Resources/sec |    Max Storage (GB)*    |
+|----------|---------------|--------|                 
+| 400      | 5-10          |     40   |
+| 1,000    | 100-150       |      100  |
+| 10,000   | 225-400       |      1,000  |
+| 100,000  | 2,500-4,000   |      10,000  |
+
+Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 10 RU/s per GB of storage. For more information, check out [Cosmos DB service quotas](../cosmos-db/concepts-limits.md).
 
 ## Next steps
 
