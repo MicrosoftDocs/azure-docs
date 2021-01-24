@@ -63,7 +63,7 @@ You can also create an  availability set in your proximity placement group. Use 
 
 ## Scale sets
 
-You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss#az_vmss_create) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 
