@@ -104,7 +104,7 @@ To assign yourself tenant-level permissions:
 1. Once you have elevated access, open or refresh Azure Security Center to verify you have visibility into all subscriptions under your Azure AD tenant. 
 
 
-## Request tenant-wide visibility when you have insufficient permissions
+## Request tenant-wide permissions when yours are insufficient
 
 If you login to Security Center and see a banner telling you that your view is limited, you can click through to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
 

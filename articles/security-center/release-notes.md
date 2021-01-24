@@ -152,7 +152,7 @@ If a user doesn't have permissions to see Security Center data, they'll now see 
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
 
-Learn more in [Request tenant-wide visibility when you have insufficient permissions](security-center-management-groups.md#request-tenant-wide-visibility-when-you-have-insufficient-permissions).
+Learn more in [Request tenant-wide permissions when yours are insufficient](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient).
 
 
 ### CSV export of filtered list of recommendations 
