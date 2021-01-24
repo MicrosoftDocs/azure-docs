@@ -30,7 +30,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 - [Kubernetes workload protection recommendations will soon be released for General Availability (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
-- [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
 
 ### Kubernetes workload protection recommendations will soon be released for General Availability (GA)
@@ -85,35 +84,6 @@ The current version of the recommendation **Sensitive data in your SQL databases
 - The recommendation will no longer affect your secure score
 - The security control ("Apply data classification") will no longer affect your secure score
 - The recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59)
-
-
-### 35 preview recommendations being added to increase coverage of Azure Security Benchmark
-
-**Estimated date for change:** January 2021
-
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
-
-The following 35 preview recommendations will be added to Security Center to increase the coverage of this benchmark.
-
-Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
-
-| Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Enable encryption at rest            | - Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest<br>- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)<br>- Bring your own key data protection should be enabled for MySQL servers<br>- Bring your own key data protection should be enabled for PostgreSQL servers<br>- Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)<br>- Container registries should be encrypted with a customer-managed key (CMK)<br>- SQL managed instances should use customer-managed keys to encrypt data at rest<br>- SQL servers should use customer-managed keys to encrypt data at rest<br>- Storage accounts should use customer-managed key (CMK) for encryption                                                                                                                                                              |
-| Implement security best practices    | - Subscriptions should have a contact email address for security issues<br> - Auto provisioning of the Log Analytics agent should be enabled on your subscription<br> - Email notification for high severity alerts should be enabled<br> - Email notification to subscription owner for high severity alerts should be enabled<br> - Key vaults should have purge protection enabled<br> - Key vaults should have soft delete enabled |
-| Manage access and permissions        | - Function apps should have 'Client Certificates (Incoming client certificates)' enabled |
-| Protect applications against DDoS attacks | - Web Application Firewall (WAF) should be enabled for Application Gateway<br> - Web Application Firewall (WAF) should be enabled for Azure Front Door Service service |
-| Restrict unauthorized network access | - Firewall should be enabled on Key Vault<br> - Private endpoint should be configured for Key Vault<br> - App Configuration should use private link<br> - Azure Cache for Redis should reside within a virtual network<br> - Azure Event Grid domains should use private link<br> - Azure Event Grid topics should use private link<br> - Azure Machine Learning workspaces should use private link<br> - Azure SignalR Service should use private link<br> - Azure Spring Cloud should use network injection<br> - Container registries should not allow unrestricted network access<br> - Container registries should use private link<br> - Public network access should be disabled for MariaDB servers<br> - Public network access should be disabled for MySQL servers<br> - Public network access should be disabled for PostgreSQL servers<br> - Storage account should use a private link connection<br> - Storage accounts should restrict network access using virtual network rules<br> - VM Image Builder templates should use private link|
-|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-
-Related links:
-
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
-- [Learn more about Azure Database for MySQL](../mysql/overview.md)
-- [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
-
-
 
 
 
