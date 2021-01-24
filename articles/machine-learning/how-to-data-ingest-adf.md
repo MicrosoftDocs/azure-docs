@@ -87,9 +87,9 @@ The transformed data from the ADF pipeline is saved to data storage (such as Azu
 * Invoke an Azure Machine Learning pipeline from your ADF pipeline.<br>**OR**
 * Access the data directly from the storage location with an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores) and [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
-### Invoke ML pipeline 
+### Invoke Azure Machine Learning pipeline 
 
-This method is recommended for Machine Learning Operations (MLOps) workflows like automation of the ML lifecycle. If you are not looking to automate your ML model lifecycle at this time, see [Read data directly from storage](#read-data-directly-from-storage).
+This method is recommended for [Machine Learning Operations (MLOps) workflows](concept-model-management-and-deployment.md#what-is-mlops). If you don't want to set up an Azure Machine Learning pipeline, see [Read data directly from storage](#read-data-directly-from-storage).
 
 Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create a datastore and dataset using the data location. Learn more in [Execute Azure Machine Learning pipelines in ADF](../data-factory/transform-data-machine-learning-service.md).
 
@@ -105,7 +105,7 @@ Once the data is accessible through a datastore or dataset, you can use it to tr
 Since datasets support versioning, and each run from the pipeline creates a new version, it's easy to understand which version of the data was used to train a model.
 
 ### Read data directly from storage
-If you only need a specific version of the data or are testing a script and don't want to create a pipeline workflow, you can read the data directly from the storage account where your prepared data is saved. 
+If you don't want to create a ML pipeline, you can access the data directly from the storage account where your prepared data is saved with an Azure Machine Learning datastore and dataset. 
 
 The following Python code demonstrates how to create a datastore that connects to Azure DataLake Generation 2 storage. [Learn more about datastores](how-to-access-data.md#create-and-register-datastores).
 
@@ -131,7 +131,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(
 ```
 Next, create a dataset to reference the file(s) you want to use in your machine learning task. 
 
-The following code creates a TabularDataset from parquet files. Learn more about [dataset types and accepted file formats](how-to-create-register-datasets.md#dataset-types). 
+The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](how-to-create-register-datasets.md#dataset-types). 
 
 ```python
 from azureml.core import Workspace, Datastore, Dataset
@@ -142,14 +142,15 @@ datastore_name = '<ADLS gen2 storage account alias>'
     
 # retrieve data via AML datastore
 datastore = Datastore.get(ws, datastore_name)
-datastore_path = [(datastore, '/data/*.snappy.parquet')]
+datastore_path = [(datastore, '/data/prepared-data.csv')]
         
-nyc_green = Dataset.Tabular.from_parquet_files(path=datastore_path)
+prepared_dataset = Dataset.Tabular.from_delimited_files(path=datastore_path)
 ```
+From here, use `prepared_dataset` to reference your prepared data, like in your training scripts.Learn how to [Train models with datasets in Azure Machine Learning](./how-to-train-with-datasets.md).
 
 ## Next steps
 
 * [Run a Databricks notebook in Azure Data Factory](../data-factory/transform-data-using-databricks-notebook.md)
 * [Access data in Azure storage services](./how-to-access-data.md#create-and-register-datastores)
-* [Train models with datasets in Azure Machine Learning](./how-to-train-with-datasets.md)
+* 
 * [DevOps for a data ingestion pipeline](./how-to-cicd-data-ingestion.md)
