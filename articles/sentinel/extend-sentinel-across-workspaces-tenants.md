@@ -90,11 +90,11 @@ A function can also simplify a commonly used union. For example, you can save th
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
-#### Scheduled alerts
+#### Analytics rules <a name="scheduled-alerts"></a>
 
-Cross-workspace queries can now be included in scheduled alerts in analytics rules, subject to the following limitations:
+Cross-workspace queries can now be included in scheduled analytics rules, subject to the following limitations:
 
-- Up to 10 workspaces can be included in a single query.
+- Up to 15 workspaces can be included in a single query.
 - Azure Sentinel must be deployed on every workspace referenced in the query.
 
 > [!NOTE] 
