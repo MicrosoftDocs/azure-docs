@@ -115,7 +115,7 @@ Learn more:
 
 Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
 
-Security Center performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../security/benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
+Security Center performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
 
 Security Center helps you optimize and monitor the security of your Azure resources by:
 
