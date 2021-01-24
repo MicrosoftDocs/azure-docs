@@ -87,11 +87,11 @@ The transformed data from the ADF pipeline is saved to data storage (such as Azu
 * Invoke an Azure Machine Learning pipeline from your ADF pipeline.<br>**OR**
 * Access the data directly from the storage location with an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores) and [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
-### Invoke Azure Machine Learning pipeline 
+### Invoke Azure Machine Learning pipeline from ADF
 
 This method is recommended for [Machine Learning Operations (MLOps) workflows](concept-model-management-and-deployment.md#what-is-mlops). If you don't want to set up an Azure Machine Learning pipeline, see [Read data directly from storage](#read-data-directly-from-storage).
 
-Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create a datastore and dataset using the data location. Learn more in [Execute Azure Machine Learning pipelines in ADF](../data-factory/transform-data-machine-learning-service.md).
+Each time the ADF pipeline runs, the data is saved to a different location in storage. To pass the location to Azure Machine Learning, the ADF pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. The ML pipeline can then create an Azure Machine Learning datastore and dataset with the data location. Learn more in [Execute Azure Machine Learning pipelines in ADF](../data-factory/transform-data-machine-learning-service.md).
 
 ![Diagram shows an Azure Data Factory pipeline and an Azure Machine Learning pipeline and how they interact with raw data and prepared data. The Data Factory pipeline feeds data to the Prepared Data database, which feeds a data store, which feeds datasets in the Machine Learning workspace.](media/how-to-data-ingest-adf/aml-dataset.png)
 
