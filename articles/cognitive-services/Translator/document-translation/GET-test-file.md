@@ -104,33 +104,6 @@ axios(config)
 
 ```
 
-### [Java](#tab/java)  
-
-```java
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
-public class DocTranslationGet {
-
-private static String subscriptionKey = "YOUR-TRANSLATOR-SUBSCRIPTION-KEY";
-private static String endpoint = "https://YOUR-TRANSLATOR-SERVICE-ENDPOINT/batches";
-
-OkHttpClient client = new OkHttpClient().newBuilder()
-  .build();
-Request request = new Request.Builder()
-  .url(endpoint)
-  .method("GET", null)
-  .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-  .addHeader("Ocp-Apim-Subscription-Region": location)
-  .build();
-Response response = client.newCall(request).execute();
-}
-```
-
 ### [Python](#tab/python)  
 
 ```python
@@ -158,4 +131,78 @@ print(response.text)
 
 ```
 
+### [Java](#tab/java)  
+
+```java
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class DocTranslationGet {
+
+private static String subscriptionKey = "YOUR-TRANSLATOR-SUBSCRIPTION-KEY";
+private static String endpoint = "https://YOUR-TRANSLATOR-SERVICE-ENDPOINT/batches";
+
+OkHttpClient client = new OkHttpClient().newBuilder()
+  .build();
+Request request = new Request.Builder()
+  .url(endpoint)
+  .method("GET", null)
+  .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+  .addHeader("Ocp-Apim-Subscription-Region": location)
+  .build();
+Response response = client.newCall(request).execute();
+}
+```
+
 ### [Go](#tab/go)
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  subscriptionKey := "YOUR-TRANSLATOR-SUBSCRIPTION-KEY"
+  endpoint := "https://YOUR-TRANSLATOR-SERVICE-ENDPOINT"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    location := "YOUR_TRANSLATOR-RESOURCE_LOCATION";
+
+  url := endpoint
+  method := "GET"
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, nil)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Region", location)
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```

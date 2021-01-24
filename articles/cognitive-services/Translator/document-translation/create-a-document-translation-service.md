@@ -203,72 +203,105 @@ Content-Length: 954
 ### [C#](#tab/csharp)
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Windows.Web.Http
-using Newtonsoft.Json;
 
-class Program {
 
-  private static readonly string subscriptionKey = "YOUR-TRANSLATOR-SUBSCRIPTION-KEY";
-  private static readonly string endpoint = "https://YOUR-TRANSLATOR-SERVICE-ENDPOINT/batches";
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using System.Text;
+    using Newtonsoft.Json;
 
-  // Add your location, also known as region. The default is global.
-  // This is required if using a Cognitive Services resource.
-  private static readonly string location = "YOUR_TRANSLATOR-RESOURCE_LOCATION";
+    class Program
+    {
 
-  static async Task Main(string[] args) {
+        private static readonly string subscriptionKey = "6d9013264d0746b68b9d61ab0c638c46";
 
-    using(HttpStringContent jsonString = new HttpStringContent("{\r\n  \"inputs\": [\r\n  {\r\n  \"source\": {\r\n  \"sourceUrl\": \"https://YOUR-UPLOADED-DOCUMENTS-CONTAINER-URL\",\r\n  \"storageSource\": \"AzureBlob\",\r\n  \"filter\": {\r\n  \"prefix\":  \"News\",\r\n  \"suffix\": \".txt\"\r\n  },\r\n  \"language\": \"en\"\r\n},\r\n  \"targets\": [\r\n  {\r\n  \"targetUrl\": \"https://YOUR-TRANSLATED-DOCUMENTS-CONTAINER-URL\",\r\n  \"storageSource\": \"AzureBlob\",\r\n  \"category\": \"general\",\r\n  \"language\": \"de\"\r\n }\r\n ]  \r\n     }\r\n]  \r\n}", UnicodeEncoding.Uff8, "application/json");)
+        private static readonly string endpoint = "https://kdoss-cs-mt-global.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches";
 
-    using(HttpClient client = new HttpClient())
-    using(HttpRequestMessage request = new HttpRequestMessage()) {
-      // Create the request
-      request.Method = HttpMethod.Post;
-      request.RequestUri = new Uri(endpoint); 
-      request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-      request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-      request.Content = jsonString;
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://kdossblob.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-01-22T02%3A48%3A41Z&se=2021-02-06T02%3A48%3A00Z&sr=c&sp=rl&sig=FSDuKgTb6PsKmofXgeoyl%2B8X6x8F7kY0HB%2BCuey7kDI%3D\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://kdossblob.blob.core.windows.net/target-es?sv=2019-12-12&st=2021-01-24T03%3A50%3A18Z&se=2021-02-06T03%3A50%3A00Z&sr=c&sp=wl&sig=lMWFWcbVej%2B9ZElii1KqyRxsUeIF5kr7bzaIS5mP8%2Bs%3D\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        
+        // Add your location, also known as region. The default is global.
+        // This is required if using a Cognitive Services resource.
+        //private static readonly string location = "YOUR_TRANSLATOR-RESOURCE_LOCATION";
 
-      // Send the request and get response.
-      HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-      // Read response as a string.
-      string result = await response.Content.ReadAsStringAsync();
-      Console.WriteLine(result);
+        static async Task Main(string[] args)
+        {
+
+            using HttpClient client = new HttpClient();
+            using HttpRequestMessage request = new HttpRequestMessage();
+            {
+            
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                // Create the request
+                request.Method = HttpMethod.Post;
+                request.RequestUri = new Uri(endpoint);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Content = content;
+                //request.Headers.Add("Ocp-Apim-Subscription-Region", location);
+
+                // Send the request and get response.
+                //HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+                //// Read response as a string.
+                //string result = await response.Content.ReadAsStringAsync();
+
+                var response = await client.SendAsync(request);
+                string result = response.Content.ReadAsStringAsync().Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Status code: {response.StatusCode}");
+                    Console.WriteLine();
+                    Console.WriteLine($"Response Headers:"); 
+                    Console.WriteLine(response.Headers);
+                }
+                else
+                    Console.Write("Error");
+
+            }
+
+        }
 
     }
-
-  }
-
 }
 ```
 
 ### [Node.js](#tab/javascript)
 
 ```javascript
-const axios = require('axios');
+const axios = require('axios').default;
 
-let  subscriptionKey = "YOUR-TRANSLATOR-SUBSCRIPTION-KEY";
-let endpoint = "https://YOUR-TRANSLATOR-SERVICE-ENDPOINT/batches";
+let subscriptionKey = "6d9013264d0746b68b9d61ab0c638c46";
+let endpoint = "https://kdoss-cs-mt-global.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches";
 
-let data = JSON.stringify({"inputs":[{"source":{"sourceUrl":"https://YOUR-UPLOADED-DOCUMENTS-CONTAINER-URL","storageSource":"AzureBlob","filter":{"prefix":"News","suffix":".txt"},"language":"en"},"targets":[{"targetUrl":"https://YOUR-TRANSLATED-DOCUMENTS-CONTAINER-URL","storageSource":"AzureBlob","category":"general","language":"de"}]}]});
+let data = JSON.stringify({"inputs": [
+  {
+      "source": {
+          "sourceUrl": "https://kdossblob.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-01-22T02%3A48%3A41Z&se=2021-02-06T02%3A48%3A00Z&sr=c&sp=rl&sig=FSDuKgTb6PsKmofXgeoyl%2B8X6x8F7kY0HB%2BCuey7kDI%3D",
+          "storageSource": "AzureBlob",
+          "language": "en",
+          "filter":{
+              "prefix": "Demo_1/"
+          }
+      },
+      "targets": [
+          {
+              "targetUrl": "https://kdossblob.blob.core.windows.net/target-es?sv=2019-12-12&st=2021-01-24T03%3A50%3A18Z&se=2021-02-06T03%3A50%3A00Z&sr=c&sp=wl&sig=lMWFWcbVej%2B9ZElii1KqyRxsUeIF5kr7bzaIS5mP8%2Bs%3D",
+              "storageSource": "AzureBlob",
+              "category": "general",
+              "language": "es"}]}]});
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-let location = "YOUR_RESOURCE_LOCATION";
+//let location = "YOUR_RESOURCE_LOCATION";
 
 let config = {
   method: 'post',
-  url: endpoint,
-  headers: { 
-    'Ocp-Apim-Subscription-Key': 'YOUR-TRANSLATOR-SUBSCRIPTION-KEY', 
+  baseURL: endpoint,
+  headers: {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-Type': 'application/json'
-    'Ocp-Apim-Subscription-Region': location,
+    //'Ocp-Apim-Subscription-Region': location,
   },
-  data : data
+  data: data
 };
 
 axios(config)
@@ -362,7 +395,7 @@ func main() {
     // This is required if using a Cognitive Services resource.
     location := "YOUR_TRANSLATOR-RESOURCE_LOCATION";
 
-  url := endpoint"
+  url := endpoint
   method := "POST"
 
   payload := strings.NewReader(`{`+"
