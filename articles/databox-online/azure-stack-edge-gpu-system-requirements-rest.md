@@ -21,7 +21,7 @@ We recommend that you review the information carefully before you connect to the
 |     Feature                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Azure File storage                                   |    Cloud-based SMB file shares supported              |    Not supported      |
-|    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
+|    Storage account type                                 |    General-purpose and Azure Blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
 |    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Stack Edge|
 |    Page blob maximum size                               |    8 TB                                               |    1 TB                   |
