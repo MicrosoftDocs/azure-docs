@@ -68,11 +68,43 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="queries with watchlist fields" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. You can query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="queries against watchlist as lookup":::
+
 ## Use watchlists in analytics rules
 
 To use watchlists in analytics rules, from the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Analytics**, and create a rule using the `_GetWatchlist('<watchlist>')` function in the query.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="use watchlists in analytics rules" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. In this example, create a watchlist called “ipwatchlist” with the following values:
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="list of four items for watchlist":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="create watchlist with four items":::
+
+1. Next, create the analytics rule.  In this example, we only include events from IP addresses in the watchlist:
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="use watchlists in analytics rules":::
 
 ## View list of watchlists aliases
 
