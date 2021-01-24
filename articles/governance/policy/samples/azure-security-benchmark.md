@@ -1,20 +1,20 @@
 ---
-title: Regulatory Compliance details for Azure Security Benchmark
-description: Details of the Azure Security Benchmark Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/08/2021
+title: Regulatory Compliance details for Azure Security Benchmark v1
+description: Details of the Azure Security Benchmark v1 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 01/21/2021
 ms.topic: sample
 ms.custom: generated
 ---
-# Details of the Azure Security Benchmark Regulatory Compliance built-in initiative
+# Details of the Azure Security Benchmark v1 Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in Azure Security Benchmark.
+definition maps to **compliance domains** and **controls** in Azure Security Benchmark v1.
 For more information about this compliance standard, see
-[Azure Security Benchmark](../../../security/benchmarks/overview.md). To understand
+[Azure Security Benchmark v1](../../../security/benchmarks/overview.md). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
-The following mappings are to the **Azure Security Benchmark** controls. Use the
+The following mappings are to the **Azure Security Benchmark v1** controls. Use the
 navigation on the right to jump directly to a specific **compliance domain**. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
@@ -22,7 +22,7 @@ Then, find and select the **Azure Security Benchmark v1** Regulatory Compliance 
 initiative definition.
 
 This built-in initiative is deployed as part of the 
-[Azure Security Benchmark blueprint sample](../../blueprints/samples/azure-security-benchmark.md).
+[Azure Security Benchmark v1 blueprint sample](../../blueprints/samples/azure-security-benchmark.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
