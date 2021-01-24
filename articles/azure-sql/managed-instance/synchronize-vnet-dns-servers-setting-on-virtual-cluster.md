@@ -38,18 +38,34 @@ User synchronizing DNS server configuration will need to have one of the followi
 
 Get virtual network where DNS servers setting has been updated.
 
-```powershell
+```PowerShell
 $ResourceGroup = 'enter resource group of virtual network'
 $VirtualNetworkName = 'enter virtual network name'
-$virtualNetwork = Get-AzVirtualNetwork -$ResourceGroup $ResourceGrou -Name $VirtualNetworkName
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroup $ResourceGroup -Name $VirtualNetworkName
 ```
 Use PowerShell command [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) to synchronize DNS servers configuration for all the virtual clusters in the subnet.
 
-```powershell
+```PowerShell
 Get-AzSqlVirtualCluster `
     | where SubnetId -match $virtualNetwork.Id `
     | select Id `
     | Invoke-AzResourceAction -Action updateManagedInstanceDnsServers -Force
+```
+### Using Azure CLI
+
+Get virtual network where DNS servers setting has been updated.
+
+```Azure CLI
+resourceGroup="auto-failover-group"
+virtualNetworkName="vnet-fog-eastus"
+virtualNetwork=$(az network vnet show -g $resourceGroup -n $virtualNetworkName --query "id" -otsv)
+```
+
+Use Azure CLI command [az resource invoke-action](/cli/azure/resource?view=azure-cli-latest#az_resource_invoke_action) to synchronize DNS servers configuration for all the virtual clusters in the subnet.
+
+```Azure CLI
+az sql virtual-cluster list --query "[? contains(subnetId,'$virtualNetwork')].id" -o tsv \
+	| az resource invoke-action --action updateManagedInstanceDnsServers --ids @-
 ```
 ## Next steps
 
