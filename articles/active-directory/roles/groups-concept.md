@@ -48,8 +48,6 @@ We designed how groups are assigned to roles to prevent that sort of potential b
 
 The following scenarios are not supported right now:  
 
-- Assign cloud groups to Azure AD custom roles
-- Assign cloud groups to Azure AD roles (built-in or custom) over an administrative unit or application scope.
 - Assign on-premises groups to Azure AD roles (built-in or custom)
 
 ## Known issues

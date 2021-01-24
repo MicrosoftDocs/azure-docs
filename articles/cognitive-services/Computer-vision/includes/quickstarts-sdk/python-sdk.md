@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 12/05/2019
+ms.date: 12/15/2020
 ms.author: pafarley
 ---
 
@@ -36,6 +36,12 @@ You can install the client library with:
 
 ```console
 pip install --upgrade azure-cognitiveservices-vision-computervision
+```
+
+Also install the Pillow library.
+
+```console
+pip install pillow
 ```
 
 ### Create a new Python application

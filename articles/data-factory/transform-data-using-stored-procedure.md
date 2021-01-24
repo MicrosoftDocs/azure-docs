@@ -84,9 +84,7 @@ The data type you specify for the parameter is the Azure Data Factory type that 
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## Error info
 
-When a stored procedure fails and returns error details, you can't capture the error info directly in the activity output. However, Data Factory pumps all of its activity run events to Azure Monitor. Among the events that Data Factory pumps to Azure Monitor, it pushes error details there. You can, for example, set up email alerts from those events. For more info, see [Alert and Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md).
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 

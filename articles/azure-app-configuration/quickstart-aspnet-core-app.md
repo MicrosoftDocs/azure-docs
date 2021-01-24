@@ -6,7 +6,7 @@ author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: "devx-track-csharp, contperfq1"
+ms.custom: "devx-track-csharp, contperf-fy21q1"
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
@@ -67,7 +67,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
+    > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
     Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), use the **Connection Strings** application setting in App Service instead of Secret Manager to store the connection string.
 

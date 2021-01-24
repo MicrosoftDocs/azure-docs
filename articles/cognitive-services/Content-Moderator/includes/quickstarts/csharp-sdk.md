@@ -20,9 +20,9 @@ Content Moderator is an AI service that lets you handle content that is potentia
 
 Use the Content Moderator client library for .NET to:
 
-* [Moderate text](#moderate-text)
-* [Moderate images](#moderate-images)
-* [Create a review](#create-a-review)
+* Moderate text
+* Moderate images
+* Create a review
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Samples](../../samples-dotnet.md)
 

@@ -1,7 +1,7 @@
 ---
 title: Use brokers with Xamarin iOS & Android | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to setup Xamarin iOS applications that can use Microsoft Authenticator and Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn how to setup Xamarin iOS applications that can use the Microsoft Authenticator and the Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 
@@ -180,7 +180,7 @@ Add the redirect URI to the app's registration in the [Azure portal](https://por
 
 **To generate the redirect URI:**
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Select **Azure Active Directory** > **App registrations** > your registered app
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**.

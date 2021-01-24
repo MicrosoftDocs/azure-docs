@@ -1,7 +1,7 @@
 ---
 title: Client assertions (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about signed client assertions support for confidential client applications in Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about signed client assertions support for confidential client applications in the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG

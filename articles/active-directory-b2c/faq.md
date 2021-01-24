@@ -120,7 +120,7 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 
-Yes, see [language customization](user-flow-language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
+Yes, see [language customization](language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 

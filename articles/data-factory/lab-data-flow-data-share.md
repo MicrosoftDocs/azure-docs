@@ -67,7 +67,7 @@ In Azure Data Factory linked services define the connection information to exter
     ![Portal configure 3](media/lab-data-flow-data-share/configure3.png)
 1. The first linked service you'll configure is an Azure SQL DB. You can use the search bar to filter the data store list. Click on the **Azure SQL Database** tile and click continue.
 
-    ![Portal configure 4](media/lab-data-flow-data-share/configure4.png)
+    ![Portal configure 4](media/lab-data-flow-data-share/configure-4.png)
 1. In the SQL DB configuration pane, enter 'SQLDB' as your linked service name. Enter in your credentials to allow data factory to connect to your database. If you're using SQL authentication, enter in the server name, the database, your user name and password. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
     ![Portal configure 5](media/lab-data-flow-data-share/configure5.png)
@@ -76,10 +76,10 @@ In Azure Data Factory linked services define the connection information to exter
 
 1. Repeat the same process to add an Azure Synapse Analytics linked service. In the connections tab, click **New**. Select the **Azure Synapse Analytics** tile and click continue.
 
-    ![Portal configure 6](media/lab-data-flow-data-share/configure6.png)
+    ![Portal configure 6](media/lab-data-flow-data-share/configure-6.png)
 1. In the linked service configuration pane, enter 'SQLDW' as your linked service name. Enter in your credentials to allow data factory to connect to your database. If you're using SQL authentication, enter in the server name, the database, your user name and password. You can verify your connection information is correct by clicking **Test connection**. Click **Create** when finished.
 
-    ![Portal configure 7](media/lab-data-flow-data-share/configure7.png)
+    ![Portal configure 7](media/lab-data-flow-data-share/configure-7.png)
 
 ### Create an Azure Data Lake Storage Gen2 linked service
 
@@ -123,7 +123,7 @@ In Azure Data Factory, a pipeline is a logical grouping of activities that toget
     ![Portal copy 4](media/lab-data-flow-data-share/copy4.png)
 1. Search for **Azure SQL Database** and click continue.
 
-    ![Portal copy 5](media/lab-data-flow-data-share/copy5.png)
+    ![Portal copy 5](media/lab-data-flow-data-share/copy-5.png)
 1. Call your dataset 'TripData'. Select 'SQLDB' as your linked service. Select table name 'dbo.TripData' from the table name dropdown. Import the schema **From connection/store**. Click OK when finished.
 
     ![Portal copy 6](media/lab-data-flow-data-share/copy6.png)
@@ -206,7 +206,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     ![Portal data flow 9](media/lab-data-flow-data-share/dataflow9.png)
 1. Select the **Azure SQL Database** tile and click continue. *Note: You may notice many of the connectors in data factory are not supported in mapping data flow. To transform data from one of these sources, ingest it into a supported source using the copy activity*.
 
-    ![Portal data flow 10](media/lab-data-flow-data-share/dataflow10.png)
+    ![Portal data flow 10](media/lab-data-flow-data-share/dataflow-10.png)
 1. Call your dataset 'TripFares'. Select 'SQLDB' as your linked service. Select table name 'dbo.TripFares' from the table name dropdown. Import the schema **From connection/store**. Click OK when finished.
 
     ![Portal data flow 11](media/lab-data-flow-data-share/dataflow11.png)
@@ -271,7 +271,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
 1. Select the **Azure Synapse Analytics** tile and click continue.
 
-    ![Portal sink 3](media/lab-data-flow-data-share/sink3.png)
+    ![Portal sink 3](media/lab-data-flow-data-share/sink-3.png)
 1. Call your dataset 'AggregatedTaxiData'. Select 'SQLDW' as your linked service. Select **Create new table** and name the new table dbo.AggregateTaxiData. Click OK when finished
 
     ![Portal sink 4](media/lab-data-flow-data-share/sink4.png)

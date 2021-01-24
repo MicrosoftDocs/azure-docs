@@ -140,7 +140,8 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
    ```HTTP
    https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={subscription-key}
-
+   ```
+   
 7. When the **GET** HTTP request completes successfully, it returns a `resourceLocation`. The `resourceLocation` contains the unique `udid` for the uploaded content. Copy this `udid` for later use in this tutorial.
 
       ```json

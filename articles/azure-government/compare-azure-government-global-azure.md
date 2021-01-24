@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/09/2020
+ms.date: 01/18/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -412,6 +412,9 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Azure AD Join:
     - Enterprise state roaming for Windows 10 devices is not available
+    
+- Limitaitons with Azure AD SSPR:
+    - Azure AD SSPR from Windows 10 login screen is not available
 
 
 
@@ -454,7 +457,7 @@ Azure Security Center is deployed on Azure Government regions but not DoD region
 ### [Azure Sentinel](../sentinel/overview.md)
 The following **features have known limitations** in Azure Government:
 - Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
+    - The Office 365 data connector can be used only for [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc), [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod), and [Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
 - AWS CloudTrail data connector
     - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
 
@@ -494,7 +497,7 @@ When you're deploying the StorSimple Manager service, use the [https://portal.az
 ### [Azure Import/Export](../storage/common/storage-import-export-service.md)
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
 
-For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](./documentation-government-impact-level-5.md#azure-importexport).
+For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](./documentation-government-impact-level-5.md#azure-importexport-service).
 
 For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 

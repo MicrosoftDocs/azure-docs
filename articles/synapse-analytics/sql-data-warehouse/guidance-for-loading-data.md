@@ -42,7 +42,7 @@ This example creates a loading user classified to a specific workload group. The
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connect to the dedicated SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Then it classifies the user to the DataLoads workload group with maximum resources. 
+Connect to the dedicated SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Then it classifies the user to the DataLoads workload group with maximum resources. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -55,7 +55,7 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
    
    CREATE WORKLOAD GROUP DataLoads
    WITH ( 
-   	  MIN_PERCENTAGE_RESOURCE = 100
+       MIN_PERCENTAGE_RESOURCE = 100
        ,CAP_PERCENTAGE_RESOURCE = 100
        ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
 	);
@@ -66,6 +66,9 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
        ,MEMBERNAME = 'loader'
    );
 ```
+<br><br>
+>[!IMPORTANT] 
+>This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balanace resources across your workloads. 
 
 To run a load with resources for the loading workload group, sign in as loader and run the load.
 
@@ -171,5 +174,5 @@ No other changes to underlying external data sources are needed.
 ## Next steps
 
 - To learn more about the COPY statement or PolyBase when designing an Extract, Load, and Transform (ELT) process, see [Design ELT for Azure Synapse Analytics](design-elt-data-loading.md).
-- For a loading tutorial, [Use the COPY statement to load data from Azure blob storage to Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- For a loading tutorial, [Use the COPY statement to load data from Azure blob storage to Synapse SQL](./load-data-from-azure-blob-storage-using-copy.md).
 - To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).

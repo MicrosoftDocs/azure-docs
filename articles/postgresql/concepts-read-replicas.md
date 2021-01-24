@@ -67,6 +67,8 @@ The read replica feature uses PostgreSQL physical replication, not logical repli
 
 Learn how to [create a read replica in the Azure portal](howto-read-replicas-portal.md).
 
+If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations.
+
 ## Connect to a replica
 When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the primary server. These rules must be set up independently for the replica.
 

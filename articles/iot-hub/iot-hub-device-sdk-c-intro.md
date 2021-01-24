@@ -34,9 +34,9 @@ This article introduces you to the architecture of the Azure IoT device SDK for 
 
 You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](/azure/iot-hub/iot-c-sdk-ref/).
 
-The latest version of the libraries can be found in the **master** branch of the repository:
+The latest version of the libraries can be found in the **main** branch of the repository:
 
-  ![Screenshot of the master branch of the repository](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
+  ![Screenshot of the main branch of the repository](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
 * The core implementation of the SDK is in the **iothub\_client** folder that contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub and receiving messages from IoT Hub. When using this library, you are responsible for implementing message serialization, but other details of communicating with IoT Hub are handled for you.
 
@@ -63,7 +63,7 @@ Before you can run the samples in the Azure IoT device SDK for C, you must [crea
 
 Packages are provided for common platforms (such as NuGet for Windows or apt_get for Debian and Ubuntu) and the samples use these packages when available. In some cases, you need to compile the SDK for or on your device. If you need to compile the SDK, see [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the GitHub repository.
 
-To obtain the sample application code, download a copy of the SDK from GitHub. Get your copy of the source from the **master** branch of the [GitHub repository](https://github.com/Azure/azure-iot-sdk-c).
+To obtain the sample application code, download a copy of the SDK from GitHub. Get your copy of the source from the **main** branch of the [GitHub repository](https://github.com/Azure/azure-iot-sdk-c).
 
 
 ### Obtain the device credentials

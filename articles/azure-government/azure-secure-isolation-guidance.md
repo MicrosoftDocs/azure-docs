@@ -112,7 +112,7 @@ With Azure Key Vault, customers can [import or generate encryption keys](../key-
 
 **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents do not see or extract customer cryptographic keys.**
 
-Azure Key Vault provides features for a robust solution for encryption key and certificate lifecycle management.  Upon creation, every key vault is automatically associated with the Azure Active Directory (Azure AD) tenant that owns the subscription.  Anyone trying to manage or retrieve content from a key vault must be authenticated by Azure AD, as described in Azure Key Vault [security overview](../key-vault/general/overview-security.md):
+Azure Key Vault provides features for a robust solution for encryption key and certificate lifecycle management. Upon creation, every key vault is automatically associated with the Azure Active Directory (Azure AD) tenant that owns the subscription.  Anyone trying to manage or retrieve content from a key vault must be authenticated by Azure AD, as described in Azure Key Vault [security overview](../key-vault/general/security-overview.md):
 
 - Authentication establishes the identity of the caller (user or application).
 - Authorization determines which operations the caller can perform, based on a combination of Azure role-based access control (Azure RBAC) and Azure Key Vault policies.

@@ -17,7 +17,10 @@ ms.collection: M365-identity-device-management
 ---
 # Advanced configuration options for the NPS extension for Multi-Factor Authentication
 
-The Network Policy Server (NPS) extension extends your cloud-based Azure AD Multi-Factor Authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for you needs. 
+The Network Policy Server (NPS) extension extends your cloud-based Azure AD Multi-Factor Authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for you needs.
+
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Alternate login ID
 
