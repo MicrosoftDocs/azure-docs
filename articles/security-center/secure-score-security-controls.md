@@ -60,9 +60,9 @@ To recap, your secure score is shown in the following locations in Security Cent
 
 - In the dedicated **Secure score** page you can see the secure score for your subscription and your management groups:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score for subscriptions on Security Center's secure score page":::
 
-    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score on Security Center's secure score page":::
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="The secure score for management groups on Security Center's secure score page":::
 
     > [!NOTE]
     > Any management groups for which you don't have sufficient permissions, will show their score as “Restricted.” 
