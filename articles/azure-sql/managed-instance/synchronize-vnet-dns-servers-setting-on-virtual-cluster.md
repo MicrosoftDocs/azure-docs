@@ -14,7 +14,7 @@ ms.date: 01/17/2021
 
 This article explains when and how to synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster.
 
-## When do you need to synchronize DNS server settings on SQL Managed Instance virtual cluster
+## When to synchronize the DNS setting
 
 There are a few scenarios (for example, db mail, linked servers to other SQL Server instances in your cloud or hybrid environment) that require private host names to be resolved from SQL Managed Instance. In this case, you need to configure a custom DNS inside Azure. See [Configure a custom DNS for Azure SQL Managed Instance](custom-dns-configure.md) for details.
 
@@ -23,7 +23,7 @@ If this change is implemented after [virtual cluster](connectivity-architecture-
 > [!IMPORTANT]
 > Synchronizing DNS servers setting will affect all of the Managed Instances hosted in the virtual cluster.
 
-## How to synchronize DNS servers setting on SQL Managed Instance virtual cluster
+## How to synchronize the DNS setting
 
 ### Azure RBAC permissions required
 
@@ -34,7 +34,7 @@ User synchronizing DNS server configuration will need to have one of the followi
 - Custom role with the following permission:
   - `Microsoft.Sql/virtualClusters/updateManagedInstanceDnsServers/action`
 
-### Using PowerShell
+### Use Azure PowerShell
 
 Get virtual network where DNS servers setting has been updated.
 
@@ -51,7 +51,7 @@ Get-AzSqlVirtualCluster `
     | select Id `
     | Invoke-AzResourceAction -Action updateManagedInstanceDnsServers -Force
 ```
-### Using Azure CLI
+### Use the Azure CLI
 
 Get virtual network where DNS servers setting has been updated.
 
