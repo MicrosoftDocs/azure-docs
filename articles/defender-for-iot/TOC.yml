@@ -45,7 +45,7 @@
   - name: Agent-based solution for Device Builders
     items:
     - name: Agent portfolio overview and OS support                      
-      items: concept-agent-portfolio-overview-os-support.md
+      href: concept-agent-portfolio-overview-os-support.md
     - name: Standalone micro agent overview (Preview) 
       href: concept-standalone-micro-agent-overview.md
     - name: Security agent authentication
