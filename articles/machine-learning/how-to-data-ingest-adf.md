@@ -9,7 +9,7 @@ ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/22/2021
+ms.date: 01/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
 
@@ -19,7 +19,7 @@ ms.custom: how-to, devx-track-python, data4ml
 
 # Data ingestion with Azure Data Factory
 
-In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory (ADF)](../data-factory/introduction.md). This pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models.
+In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory (ADF)](../data-factory/introduction.md). This ADF pipeline is used to ingest data for use with [Azure Machine Learning](overview-what-is-azure-ml.md). Azure Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models in Azure Machine Learning.
 
 Simple data transformation can be handled with native ADF activities and instruments such as [data flow](../data-factory/control-flow-execute-data-flow-activity.md). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
 
@@ -152,5 +152,5 @@ From here, use `prepared_dataset` to reference your prepared data, like in your 
 
 * [Run a Databricks notebook in Azure Data Factory](../data-factory/transform-data-using-databricks-notebook.md)
 * [Access data in Azure storage services](./how-to-access-data.md#create-and-register-datastores)
-* 
+* [Train models with datasets in Azure Machine Learning](./how-to-train-with-datasets.md).
 * [DevOps for a data ingestion pipeline](./how-to-cicd-data-ingestion.md)
