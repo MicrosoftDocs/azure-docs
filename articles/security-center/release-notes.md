@@ -36,13 +36,14 @@ Updates in January include:
 - [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
 - [Multi-cloud connectors are released for General Availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Exempt entire recommendations from your secure score for subscriptions and management groups](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
 - ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
 
 ### Azure Security Benchmark is now the default policy initiative for Azure Security Center
 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the Center for Internet Security (CIS) controls with a focus on cloud centric security.
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
 In recent months, Security Center's list of built-in security recommendations has grown significantly to expand our coverage of this  benchmark.
 
@@ -126,7 +127,19 @@ Learn more in:
 - [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
 
 
+### Exempt entire recommendations from your secure score for subscriptions and management groups
 
+We're expanding the exemption capability to include entire recommendations. Providing further options to fine-tune the security recommendations that Security Center makes for your subscriptions, management group, or resources.
+
+Occasionally, a resource will be listed as unhealthy when you know the issue has been resolved by a third-party tool which Security Center hasn't detected. Or a recommendation will show in a scope where you feel it doesn't belong. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has simply decided to accept the risks related to the specific resource or recommendation.
+
+With this preview feature, you can now create an exemption for a recommendation to:
+
+- **Exempt a resource** to ensure it isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
+
+- **Exempt a subscription or management group** to ensure that the recommendation doesn't impact your secure score and won't be shown for the subscription or management group in the future. This relates to existing resources and any you create in the future. The recommendation will be marked with the specific justification you select for the scope that you selected.
+
+Learn more in [Exempting resources and recommendations from your secure score](exempt-resource.md).
 
 ### CSV export of filtered list of recommendations 
 
