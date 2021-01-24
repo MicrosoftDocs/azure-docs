@@ -55,21 +55,29 @@ To create an exemption rule:
 1. In the **Exempt** pane:
     1. Select the scope for this exemption rule:
         - If you select a management group, the recommendation will be exempted from all subscriptions within that group
-        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources"" and select the relevant ones from the list. 
+        - If you're creating this rule to exempt one or more resources from the recommendation, choose "Selected resources"" and select the relevant ones from the list
 
     1. Enter a name for this exemption rule.
     1. Optionally, set an expiration date.
     1. Select the category for the exemption:
-        - **Resolved through 3rd party (mitigated)** – if you're using a third-party service that Security Center hasn't identified
+        - **Resolved through 3rd party (mitigated)** – if you're using a third-party service that Security Center hasn't identified. 
+
+            > [!NOTE]
+            > When you exempt a recommendation as mitigated, you aren't given points towards your secure score. But because points aren't *removed* for the unhealthy resources, the result is that your score will increase.
+
         - **Risk accepted (waiver)** – if you’ve decided to accept the risk of not mitigating this recommendation
     1. Optionally, enter a description.
     1. Select **Create**.
 
     :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group":::
 
-    After a while (it might take up to 30 minutes):
+    When the exemption takes effect (it might take up to 30 minutes):
     - The recommendation or resources won't impact your secure score.
     - If you've exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.
+    - If you've exempted a recommendation, it will be hidden by default on Security Center's recommendations page. This is because the default options of the **Recommendation status** filter on that page are to exclude **Not applicable** recommendations. The same is true if you exempt all recommendations in a security control.
+
+        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Default filters on Azure Security Center's recommendations page hide the not applicable recommendations and security controls":::
+
     - The information strip at the top of the recommendation details page updates the number of exempted resources:
         
         :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources":::
