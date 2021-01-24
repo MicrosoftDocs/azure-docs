@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
@@ -27,10 +27,40 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
+- [Kubernetes workload protection recommendations will soon be released for General Availability (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
 - [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
+
+### Kubernetes workload protection recommendations will soon be released for General Availability (GA)
+
+**Estimated date for change:** January 2021
+
+The Kubernetes workload protection recommendations described in [Protect your Kubernetes workloads](kubernetes-workload-protections.md) are currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy, and isn't included in the calculations of your secure score.
+
+These recommendations will soon be released for General Availability (GA) and so *will* be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score.
+
+Remediate them wherever possible (learn how in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md)).
+
+The Kubernetes workload protection recommendations are:
+
+- Azure Policy add-on for Kubernetes should be installed and enabled on your clusters
+- Container CPU and memory limits should be enforced
+- Privileged containers should be avoided
+- Immutable (read-only) root filesystem should be enforced for containers
+- Container with privilege escalation should be avoided
+- Running containers as root user should be avoided
+- Containers sharing sensitive host namespaces should be avoided
+- Least privileged Linux capabilities should be enforced for containers
+- Usage of pod HostPath volume mounts should be restricted to a known list
+- Containers should listen on allowed ports only
+- Services should listen on allowed ports only
+- Usage of host networking and ports should be restricted
+- Overriding or disabling of containers AppArmor profile should be restricted
+- Container images should be deployed only from trusted registries             
+
+Learn more about these recommendations in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
 
 ### Two recommendations from "Apply system updates" security control being deprecated 
 
