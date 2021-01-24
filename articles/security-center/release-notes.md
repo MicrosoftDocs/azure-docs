@@ -43,9 +43,9 @@ Updates in January include:
 
 ### Azure Security Benchmark is now the default policy initiative for Azure Security Center
 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
-In recent months, Security Center's list of built-in security recommendations has grown significantly to expand our coverage of this  benchmark.
+In recent months, Security Center's list of built-in security recommendations has grown significantly to expand our coverage of this benchmark.
 
 From this release, the benchmark is the foundation for Security Center’s recommendations and fully integrated as the default policy initiative. 
 
