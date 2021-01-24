@@ -8,8 +8,7 @@
   - name: What's new?
     href: release-notes.md
   - name: Quickstarts
-  expanded: true
-  items:
+    expanded: true
   - name: Agentless Solution for Organizations
     items:
     - name: System prerequisites
