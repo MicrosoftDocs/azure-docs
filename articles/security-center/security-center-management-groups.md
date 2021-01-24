@@ -111,7 +111,7 @@ If you login to Security Center and see a banner telling you that your view is l
 It's the global administrator's decision whether to accept or reject these requests. 
 
 > [!IMPORTANT]
-> If a user's request is rejected, they must wait seven before submitting another request.
+> You can only submit one request every seven days.
 
 To request elevated permissions from your global administrator:
 
