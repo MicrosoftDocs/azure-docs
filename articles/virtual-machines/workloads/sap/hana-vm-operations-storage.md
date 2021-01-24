@@ -13,7 +13,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -63,6 +63,18 @@ Some guiding principles in selecting your storage configuration for HANA can be 
 
 > [!IMPORTANT]
 > The suggestions for the storage configurations are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you are not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
+
+
+## Stripe sets versus SAP HANA data volume partitioning
+Using Azure premium storage you may hit the best price/performance ratio when you stripe the /hana/data or /hana/log volume across multiple Azure disks, instead of deploying larger disk volumes that provide the more on IOPS or throughput needed. So far this was accomplished with LVM and MDADM volume managers which are part of Linux. The method of striping disks that was is decades old and well known. As beneficial as those volume managers are to get to volumes with the IOPS or throughput capabilities you may need, those add complexities around managing those striped volumes. Especially in cases when those need to get extended in capacity. At least for HANA data, SAP introduced an alternative method that achieves the same goal as stiping single Azure disks. Since SAP HANA 2.0 SPS03, the HANA indexserver is able to stripe its I/O activity across multiple HANA data files which are located on different Azure disks. The advantage is that you don't have to take care on creating and managing a striped volume across different Azure disks. The SAP HANA functionality of data volume partitioning is described in detail in:
+
+- [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Reading through the details, it is apparent that leveraging this functionality takes away complexities of volume manager based stripe sets. You also realize that the HANA data partitioning is not only working for Azure block storage, like Azure premium storage. But you can use this functionality as well to stripe across NFS shares in case these shares have IOPS or throughput limitations.  
+
 
 ## Linux I/O Scheduler mode
 Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **mq-deadline** or **kyber** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode. Details are referenced in [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
