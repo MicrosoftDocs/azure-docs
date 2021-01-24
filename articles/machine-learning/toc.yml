@@ -70,10 +70,6 @@
         - name: Label image data
           displayName: tag, tagging, images
           href: tutorial-labeling.md
-    - name: R SDK
-      items: 
-        - name: Create first ML experiment (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items: 
         - name: Train & deploy with CLI
@@ -408,8 +404,8 @@
           displayName: log, monitor, deploy, metrics, databricks
           href: how-to-use-mlflow-azure-databricks.md              
         - name: Deploy MLflow models
-          displayName: log, monitor, deploy, metrics, databricks
-          href: how-to-deploy-models-with-mlflow.md              
+          displayName: log, monitor, deploy, metrics, databricks, aci, aks
+          href: how-to-deploy-mlflow-models.md              
     - name: Automated machine learning
       displayName: automl, auto ml
       items: 

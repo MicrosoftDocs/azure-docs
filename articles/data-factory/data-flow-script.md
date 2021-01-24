@@ -243,7 +243,7 @@ derive(each(match(type=='string'), $$ = 'string'),
 ```
 
 ### Fill down
-Here is how to implement the common "Fill Down" problem with data sets when you want to replace NULL values with the value from the previous non-NULL value in the sequence. Note that this operation can be negative performance implications because you must creat a synthetic window across your entire data set with a "dummy" category value. Additional, you must sort by a value to create the proper data sequence to find the previous non-NULL value. This snippet below creates the synthetic category as "dummy" and sorts by a surrogate key. You can remove the surrogate key and use your own data-specific sort key. This code snippet assumes you've already added a Source transformation called ```source1```
+Here is how to implement the common "Fill Down" problem with data sets when you want to replace NULL values with the value from the previous non-NULL value in the sequence. Note that this operation can have negative performance implications because you must create a synthetic window across your entire data set with a "dummy" category value. Additionally, you must sort by a value to create the proper data sequence to find the previous non-NULL value. This snippet below creates the synthetic category as "dummy" and sorts by a surrogate key. You can remove the surrogate key and use your own data-specific sort key. This code snippet assumes you've already added a Source transformation called ```source1```
 
 ```
 source1 derive(dummy = 1) ~> DerivedColumn

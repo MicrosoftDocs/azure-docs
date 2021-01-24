@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 09/30/2020
+ms.date: 01/15/2021
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ The [serverless compute tier](serverless-tier-overview.md) auto-scales compute r
 
 ## Hardware generations
 
-Hardware generation options in the vCore model include Gen 4/5, M-series, and Fsv2-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+Hardware generation options in the vCore model include Gen 4/5, M-series, Fsv2-series, and DC-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
 ### Gen4/Gen5
 
@@ -78,7 +78,6 @@ For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5
 - Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
 Fsv2-series in only supported in the General Purpose tier. For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series-1).
-
 
 ### M-series
 
@@ -95,6 +94,22 @@ To access M-series, the subscription must be a paid offer type including Pay-As-
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
 
+### DC-series
+
+> [!NOTE]
+> DC-series is currently in **public preview**.
+
+- DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
+- DC-series is required for [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
+- DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
+- DC-series hardware provides balanced compute and memory resources.
+
+DC-series is only supported for the Provisioned compute (Serverless is not supported) and it does not support zone redundancy. For regions where DC-series is available, see [DC-series availability](#dc-series-1).
+
+#### Azure offer types supported by DC-series
+
+To access DC-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported by DC-series, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
+
 ### Compute and memory specifications
 
 
@@ -104,6 +119,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Gen5     |**Provisioned compute**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz, Intel® SP-8160 (Skylake)\*, and Intel® 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz and Intel® SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
 |Fsv2-series     |- Intel® 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
 |M-series     |- Intel® E7-8890 v3 2.5 GHz and Intel® 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
+|DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 4.5 GB per vCore |
 
 \* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel® SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel® 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
@@ -221,6 +237,15 @@ On the **Details** page, provide the following:
 
 Approved support requests are typically fulfilled within 5 business days.
 -->
+
+#### DC-series
+
+> [!NOTE]
+> DC-series is currently in **public preview**.
+
+DC-series is available in the following regions: Canada Central, Canada East, East US, North Europe, UK South, West Europe, West US.
+
+If you need DC-series in a currently unsupported region, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the instructions in [Request quota increases for Azure SQL Database and SQL Managed Instance](quota-increase-request.md).
 
 ## Next steps
 

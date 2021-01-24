@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
@@ -432,7 +432,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### [Node.js](#tab/nodejs)
 
-This example sends the query to the query acceleration API, and then streams the results back.
+This example sends the query to the query acceleration API, and then streams the results back. The `blob` object passed into the `queryHemingway` helper function is of type [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient). To learn more about how to get a [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) object, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)
