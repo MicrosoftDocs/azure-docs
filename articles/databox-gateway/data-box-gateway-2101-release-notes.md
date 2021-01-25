@@ -19,7 +19,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to the software versions:
 
-- **Data Box Gateway 2101 (1.6.1475.2528)** - KB 1.6.1475.2528
+- **Data Box Gateway 2101 (1.6.1475.2528)** - KB 4603462
 
 > [!NOTE]
 > Update 2101 can be applied only to all devices that are running general availability (GA) versions of the software or later.

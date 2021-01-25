@@ -18,7 +18,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to software version:
 
-- **Azure Stack Edge 2101 (1.6.1475.2528)** - KB 1.6.1475.2528
+- **Azure Stack Edge 2101 (1.6.1475.2528)** - KB 4599267
 
 > [!NOTE]
 > Update 2101 can be applied only to devices that are running general availability (GA) versions of the software or later.
