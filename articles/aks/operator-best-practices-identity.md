@@ -103,7 +103,7 @@ To see how to granularly give permissions to the Kubernetes API using Azure RBAC
 
 When pods need access to other Azure services, such as Cosmos DB, Key Vault, or Blob Storage, the pod needs access credentials. These access credentials could be defined with the container image or injected as a Kubernetes secret, but need to be manually created and assigned. Often, the credentials are reused across pods, and aren't regularly rotated.
 
-Pod-managed identities for Azure resources lets you automatically request access to services through Azure AD. Pod-managed identities is now currently in preview for Azure Kubernetes Service. Please refer to the [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity) documentation to get started. With Pod-managed identities, you do not manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, there are two components that handle the operations to allow pods to use managed identities:
+Pod-managed identities for Azure resources lets you automatically request access to services through Azure AD. Pod-managed identities is now currently in preview for Azure Kubernetes Service. Please refer to the [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) documentation to get started. With Pod-managed identities, you do not manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, there are two components that handle the operations to allow pods to use managed identities:
 
 * **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster. The NMI server listens for pod requests to Azure services.
 * **The Azure Resource Provider** queries the Kubernetes API server and checks for an Azure identity mapping that corresponds to a pod.
@@ -122,14 +122,14 @@ In the following example, a developer creates a pod that uses a managed identity
 > [!NOTE]
 > Pod-managed identities is currently in preview status.
 
-To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity).
+To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity).
 
 ## Next steps
 
 This best practices article focused on authentication and authorization for your cluster and resources. To implement some of these best practices, see the following articles:
 
 * [Integrate Azure Active Directory with AKS][aks-aad]
-* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity)
+* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
 
 For more information about cluster operations in AKS, see the following best practices:
 
