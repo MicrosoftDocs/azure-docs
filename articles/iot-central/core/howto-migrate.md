@@ -89,6 +89,8 @@ Select **Move all devices** to start moving your devices. This step could take s
 
 :::image type="content" source="media/howto-migrate/movedevices.png" alt-text="Screenshot that shows the application migration wizard with the move devices option":::
 
+After the move is complete, restart all your devices to ensure they connect to the new V3 application.
+
 > [!WARNING]
 > Don't delete your V3 application as your V2 application is now inoperable.
 
