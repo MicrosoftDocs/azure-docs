@@ -42,11 +42,11 @@ The following are the common URI parameters for all watchlist API commands:
 This command retrieves all watchlists associated with a workspace, without their items.
 
 ### Request URI
-(URI is a single line, broken up for easy readability) - TEST WITH SPACE
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| GET | https://management.azure.com/subscriptions/ {{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists?api-version={{**api-version**}} |
+| GET | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists?api-version={{api-version}}` |
 |
 
 ### Responses
@@ -62,11 +62,11 @@ This command retrieves all watchlists associated with a workspace, without their
 This command retrieves a specific watchlist associated with a workspace, without its items.
 
 ### Request URI
-(URI is a single line, broken up for easy readability) - TEST WITH NO BOLD
+(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
-| GET | https://management.azure.com/subscriptions/{{subscriptionId}}/<br>resourceGroups/{{resourceGroupName}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{workspaceName}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{watchlistAlias}}?api-version={{api-version}} |
+| GET | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
 
 ### Responses
@@ -87,7 +87,7 @@ This command creates a watchlist and adds items to it. It takes two calls to thi
 
 | Method | Request URI |
 |-|-|
-| PUT | https://management.azure.com/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
+| PUT | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
 
 ### Request body
@@ -125,7 +125,7 @@ This command deletes a watchlist and its items.
 
 | Method | Request URI |
 |-|-|
-| DELETE | https://management.azure.com/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
+| DELETE | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
 
 ### Responses
@@ -146,7 +146,7 @@ When this command is run on an existing *watchlisItemId* (a GUID), it will updat
 
 | Method | Request URI |
 |-|-|
-| PUT | https://management.azure.com/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}/<br>watchlistitems/{{**watchlistItemId**}}?api-version={{**api-version**}} |
+| PUT | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}/`<br>`watchlistitems/{{watchlistItemId}}?api-version={{api-version}}` |
 |
 
 ### Request body
@@ -185,7 +185,7 @@ This command deletes an existing watchlist item.
 
 | Method | Request URI |
 |-|-|
-| DELETE | https://management.azure.com/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}/<br>watchlistitems/{{**watchlistItemId**}}?api-version={{**api-version**}} |
+| DELETE | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}/`<br>`watchlistitems/{{watchlistItemId}}?api-version={{api-version}}` |
 |
 
 ### Responses
