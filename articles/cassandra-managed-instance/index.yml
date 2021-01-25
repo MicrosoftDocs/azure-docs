@@ -46,7 +46,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Hybrid Deployments with VNET injection
+          - text: Hybrid Deployments with VNET peering
             url: cassandra-mi-vnet-injection.md
           - text: Scaling Your cluster
             url: cassandra-mi-scale.md     
