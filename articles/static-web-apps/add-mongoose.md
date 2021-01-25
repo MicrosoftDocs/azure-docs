@@ -82,7 +82,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
     - App location: **/public**
     - Api location: **api**
     - App artifact location: *leave blank*
-    ![Completed Azure Static Web Apps form](media/add-mongoose/aswa.png)
+    :::image type="content" source="media/add-mongoose/aswa.png" alt-text="Completed Azure Static Web Apps form":::
 11. Click **Review and create**
 12. Click **Create**
 
