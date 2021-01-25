@@ -23,8 +23,8 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 2. Install the Azure Compute SDK NuGet package and initialize the client using a standard authentication mechanism.
 
-    ```xml
-    public class CustomLoginCredentials : ServiceClientCredentials
+    ```csharp
+        public class CustomLoginCredentials : ServiceClientCredentials
     {
         private string AuthenticationToken { get; set; }
         public override void InitializeServiceClient<T>(ServiceClient<T> client)
@@ -59,7 +59,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 3. Create a new resource group by installing the Azure Resource Manager NuGet package. A resource group is a logical container into which Azure resources are deployed and managed. 
 
-    ```xml 
+    ```csharp 
     var resourceGroups = m_ResourcesClient.ResourceGroups;
     var m_location = “East US”;
     var resourceGroupName = "ContosoRG";//provide existing resource group name, if created already
@@ -69,7 +69,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the Azure Storage NuGet package. This step is optional if using an existing storage account. Note: You must use a unique name for storage account name.
 
-    ```xml
+    ```csharp
     string storageAccountName = “ContosoSAS”
     var stoInput = new StorageAccountCreateParameters
        {
@@ -105,7 +105,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 5. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be Shared Access Signature (SAS) URI from any storage account.
 
-    ```xml
+    ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
     cspkgblockBlob.UploadFromFileAsync(“./ContosoApp/ContosoApp.cspkg”). Wait();
     
@@ -118,7 +118,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 6. Upload your cloud service configuration (.cscfg) to the storage account. Service Configuration can be specified either as string XML or URL format.
 
-    ```xml
+    ```csharp
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
     cscfgblockBlob.UploadFromFileAsync(“./ContosoApp/ContosoApp.cscfg”). Wait();
     
@@ -131,7 +131,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 7. Create a virtual network and subnet. Install the Azure Network NuGet package. This step is optional if using an existing network and subnet. This example uses a single virtual network and subnet.
 
-    ```xml
+    ```csharp
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
        { 
             AddressSpace = new AddressSpace 
@@ -152,7 +152,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 8. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a static IP, it needs to referenced as a Reserved IP in Service Configuration file.
 
-    ```xml
+    ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
        { 
             Location = m_location, 
@@ -167,7 +167,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 9. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer.
 
-    ```xml
+    ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
         { 
             Name = “ContosoFe”, 
@@ -227,7 +227,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 13. Create an OS Profile object. OS Profile specifies the certificates, which are associated to cloud service roles. This will be the same certificate created in the previous step.
 
-    ```xml
+    ```csharp
     CloudServiceOsProfile cloudServiceOsProfile = 
         new CloudServiceOsProfile 
            { 
@@ -243,7 +243,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 14. Create a Role Profile object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
 
-    ```xml
+    ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
        {
             Roles = new List<CloudServiceRoleProfileProperties>();
@@ -277,7 +277,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 15. (Optional) Create an Extension Profile object that you want to add to your cloud service. For this example we will add RDP extension.
 
-    ```xml
+    ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
         "<UserName>adminRdpTest</UserName>" +
         "<Expiration>2021-10-27T23:59:59</Expiration>" +
@@ -309,7 +309,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 16. Create Cloud Service deployment using its properties
 
-    ```xml
+    ```csharp
     CloudService cloudService = new CloudService
         {
             Properties = new CloudServiceProperties
