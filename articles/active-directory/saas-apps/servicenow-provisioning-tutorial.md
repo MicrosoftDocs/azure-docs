@@ -154,7 +154,7 @@ After you've configured provisioning, use the following resources to monitor you
 
   If you still can't resolve your problem, contact ServiceNow support and ask them to turn on SOAP debugging to help troubleshoot. 
 
-* The Azure AD provisioning service currently operates under particular [IP ranges](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges). If required, you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application. That technique will allow traffic flow from the Azure AD provisioning service to your application.
+* The Azure AD provisioning service currently operates under particular [IP ranges](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges). If necessary, you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application. That technique will allow traffic flow from the Azure AD provisioning service to your application.
 
 ## Additional resources
 
