@@ -1,5 +1,5 @@
 ---
-title: Security agent overview
+title: Security agents overview
 description: Understand security agent architecture for the agents used in the Azure Defender for IoT service.
 services: defender-for-iot
 ms.service: defender-for-iot

@@ -5,8 +5,10 @@
   items:
   - name: What's new?
     href: release-notes.md
-  - name: Solution architecture
+  - name: Agentless solution architecture
     href: architecture.md
+  - name: Agent-based solution architecture 
+    href: architecture-agent-based.md
 - name: Quickstarts
   expanded: true
   items:
@@ -32,7 +34,7 @@
       href: quickstart-configure-your-solution.md
     - name: Classic
       items:
-      - name: Security agents
+      - name: Security agent overview
         href: security-agent-architecture.md
       - name: Create an azureiotsecurity module twin
         href: quickstart-create-security-twin.md  

@@ -1,5 +1,5 @@
 ---
-title: Security agent overview
+title: Security agents
 description: Get started with understanding, configuring, deploying and using Azure Defender for IoT security service agents on your IoT devices.
 services: defender-for-iot
 ms.service: defender-for-iot
