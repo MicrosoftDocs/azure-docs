@@ -122,7 +122,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 ## Create cluster
 
 Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned, while a single identity can be defined in a cluster depending on your scenario. 
-- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant the cluster access to your Key Vault. 
+- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
   
   Identity settings in cluster for System-assigned managed identity
   ```json
@@ -133,7 +133,7 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
   }
   ```
 
-- If you want to configure Customer-managed key at cluster creation, you should have a key and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the resource ID of the identity.
+- If you want to configure Customer-managed key at cluster creation, you should have a key and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the *resource ID* of your identity.
 
   Identity settings in cluster for User-assigned managed identity
   ```json
@@ -147,27 +147,7 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
   ```
 
 > [!IMPORTANT]
-> You can't use Customer-managed key with User-assigned managed identity if your Key Vault is  in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
-
-```json
-{
-  "identity": {
-    "type": "SystemAssigned"
-}
-```
- 
-With:
-
-```json
-{
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
-      }
-}
-```
-
+> You can't use User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 

@@ -31,7 +31,7 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 New-AzResourceGroup -Name 'CreatePrivLinkService-rg' -Location 'eastus2'
 
 ```
----
+
 ## Create an internal load balancer
 
 In this section, you'll create a virtual network and an internal Azure Load Balancer.
@@ -248,7 +248,7 @@ New-AzPrivateEndpoint @par4 -ByManualRequest
 
 In this section, you'll approve the connection you created in the previous steps.
 
-* Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnnection) to approve the connection.
+* Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) to approve the connection.
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##
@@ -309,5 +309,5 @@ In this quickstart, you:
 
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Private Endpoint using Azure powershell](create-private-endpoint-powershell.md)
+> [Quickstart: Create a Private Endpoint using Azure Powershell](create-private-endpoint-powershell.md)
 

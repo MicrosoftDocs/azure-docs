@@ -50540,6 +50540,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/msal-logging.md",
+      "redirect_url": "/azure/active-directory/develop/msal-logging-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
       "redirect_document_id": true
