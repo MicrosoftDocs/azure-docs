@@ -38,12 +38,12 @@ CloudServices           Microsoft.Compute    Registered
 ## Required Service Configuration (.cscfg) file updates
 
 ### 1) Virtual Network
-Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) under the `NetworkConfiguration` section. 
+Cloud Service (extended support) deployments must be in a virtual network. Virtual network can be created through [Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) or [ARM Template](https://docs.microsoft.com/azure/virtual-network/quick-create-template). The virtual network and subnets must also be referenced in the Service Configuration (.cscfg) under the [NetworkConfiguration](schema-cscfg-networkconfiguration.md) section. 
 
 For a virtual networks belonging to the same resource group as the cloud service, referencing only the virtual network name in the Service Configuration (.cscfg) file is sufficient. If the virtual network and cloud service are in two different resource groups, then the complete Azure Resource Manager ID of the virtual network needs to be specified in the Service Configuration (.cscfg) file.
  
 #### Virtual Network located in same resource group
-```json
+```xml
 <VirtualNetworkSite name="<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
@@ -54,8 +54,8 @@ For a virtual networks belonging to the same resource group as the cloud service
 ```
 
 #### Virtual network located in different resource group
-```json
-“/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
+```xml
+<VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
 <Subnets> 
