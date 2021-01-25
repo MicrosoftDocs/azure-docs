@@ -282,6 +282,6 @@ For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabr
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md
