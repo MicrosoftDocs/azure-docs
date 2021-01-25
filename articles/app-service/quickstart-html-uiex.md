@@ -46,15 +46,29 @@ cd html-docs-hello-world
 az webapp up --location westeurope --name <app_name> --html
 ```
 
-The `az webapp up` command does the following actions:
+<details>
+<summary>How do I use the command?</summary>
+<ul>
+<li>If the <code>az</code> command isn't recognized, be sure you have the Azure CLI installed as described in <a href="#1-set-up-your-initial-environment">Set up your initial environment</a>.</li>
+<li>Replace <code>&lt;app-name&gt;</code> with a name that's unique across all of Azure (<em>valid characters are <code>a-z</code>, <code>0-9</code>, and <code>-</code></em>). A good pattern is to use a combination of your company name and an app identifier.</li>
+<li>The <code>--sku F1</code> argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.</li>
+<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> command.</li>
+</ul>
+</details>
 
-- Create a default resource group.
+The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
-- Create a default app service plan.
-
-- Create an app with the specified name.
-
-- [Zip deploy](./deploy-zip.md) files from the current working directory to the web app.
+<details>
+<summary>What's <code>az webapp up</code> doing?</summary>
+<p>The <code>az webapp up</code> command does the following actions:</p>
+<ul>
+<li>Create a default <abbr title="Contains all of the Azure resources for the service.">resource group</abbr>.</li>
+<li>Create a default <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
+<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
+<li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
+<li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
+</ul>
+</details>
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 
