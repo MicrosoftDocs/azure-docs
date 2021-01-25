@@ -27,13 +27,13 @@ Azure Cosmos DB is a multi-model database service that lets you quickly create a
 
 You will learn how to use the MongoDB Rust driver to interact with Azure Cosmos DB's API for MongoDB by exploring CRUD (create, read, update, delete) operations implemented in the sample code. Finally, you can run the application locally to see it in action.
 
-## Pre-requisites
+## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - [Rust](https://www.rust-lang.org/tools/install) (version 1.39 or above)
 - [Git](https://git-scm.com/downloads)
 
-## Setup Azure Cosmos DB
+## Set up Azure Cosmos DB
 
 To set up an Azure Cosmos DB account, follow the [instructions here](create-mongodb-dotnet.md). The application will need the MongoDB connection string which you can fetch using the Azure portal. For details, see [Get the MongoDB connection string to customize](connect-mongodb-account.md#get-the-mongodb-connection-string-to-customize).
 
@@ -83,8 +83,8 @@ export MONGODB_URL="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMO
 
 For the `MONGODB_URL` environment variable, replace the placeholders for `<COSMOSDB_ACCOUNT_NAME>` and `<COSMOSDB_PASSWORD>`
 
-1. `<COSMOSDB_ACCOUNT_NAME>`: The name of the Azure Cosmos DB account you created
-2. `<COSMOSDB_PASSWORD>`: The database key extracted in the previous step
+- `<COSMOSDB_ACCOUNT_NAME>`: The name of the Azure Cosmos DB account you created
+- `<COSMOSDB_PASSWORD>`: The database key extracted in the previous step
 
 ```bash
 export MONGODB_DATABASE=todos_db
