@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Use Azure Blob Storage for model conversion
 
-The [model conversion](model-conversion.md) service requires access to Azure blob storage so it can retrieve input data and store output data. This article describes how to do the most common steps.
+The [model conversion](model-conversion.md) service requires access to Azure Blob Storage so it can retrieve input data and store output data. This article describes how to do the most common steps.
 
 ## Prepare Azure Storage accounts
 

@@ -15,9 +15,9 @@ Teams that want to continue using their existing source control practices can us
 &nbsp;&nbsp;&nbsp;&nbsp;•	Updating configuration without redeploying your entire app <br>
 &nbsp;&nbsp;&nbsp;&nbsp;•	Integration with services like Azure App Service and Functions. 
 
-A GitHub Actions [workflow](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository. The *Azure App Configuration Sync* Action triggers updates to an App Configuration instance when changes are made to the source repository. It uses a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
+A GitHub Actions [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository. The *Azure App Configuration Sync* Action triggers updates to an App Configuration instance when changes are made to the source repository. It uses a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
 
-The GitHub [documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) provides in-depth view of GitHub workflows and actions. 
+The GitHub [documentation](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) provides in-depth view of GitHub workflows and actions. 
 
 ## Enable GitHub Actions in your repository
 To start using this GitHub action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
@@ -30,7 +30,7 @@ To start using this GitHub action, go to your repository and select the **Action
 ## Sync configuration files after a push
 This action syncs Azure App Configuration files when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the App Configuration Sync action updates the App Configuration instance with the new values.
 
-The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) about creating and using encrypted secrets.
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/actions/reference/encrypted-secrets) about creating and using encrypted secrets.
 
 ```json
 on: 
@@ -297,7 +297,7 @@ Given a depth of 2, the example above now returns the following key-value pair:
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## Understand action inputs
-Input parameters specify data used by the action during runtime.  The following table contains input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, see  GitHub's [documentation](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs).
+Input parameters specify data used by the action during runtime.  The following table contains input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, see  GitHub's [documentation](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs).
 
 > [!Note]
 > Input IDs are case insensitive.
