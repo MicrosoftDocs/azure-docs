@@ -75,9 +75,9 @@ The **Allow deletes** action will delete the objects that triggered the accident
 ### Rejecting deletions
 
 If you do not want to allow the deletions, you need to do the following:
-	- investigate the source of the deletions
-	- fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
-	- Run **Restart sync** on the agent configuration
+- investigate the source of the deletions
+- fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
+- Run **Restart sync** on the agent configuration
 
 ## Next steps 
 
