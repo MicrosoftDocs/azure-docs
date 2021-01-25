@@ -29,7 +29,7 @@ To configure FastPath, the virtual network gateway must be either:
 * Ultra Performance
 * ErGw3AZ
 
-## Supported features
+## Limitations
 
 While FastPath supports most configurations, it does not support the following features:
 

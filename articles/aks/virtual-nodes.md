@@ -43,6 +43,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. In additi
 * Virtual nodes with Private clusters.
 * Using api server authorized ip ranges for AKS.
 * Volume mounting Azure Files share support [General-purpose V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Follow the instructions for mounting [a volume with Azure Files share](azure-files-volume.md)
+* Using IPv6 is not supported.
 
 ## Next steps
 

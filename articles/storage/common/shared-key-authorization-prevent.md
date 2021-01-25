@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -235,8 +235,6 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 ## About the preview
 
 The preview for disallowing Shared Key authorization is available in the Azure public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
-
-To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only.

@@ -20,18 +20,18 @@ In this article, you will learn how to install and configure PostgreSQL on an Az
 ## Install PostgreSQL
 > [!NOTE]
 > You must already have an Azure virtual machine running Linux in order to complete this tutorial. To create and set up a Linux VM before proceeding, see the
-> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Azure Linux VM tutorial](quick-create-cli.md).
 > 
 > 
 
 In this case, use port 1999 as the PostgreSQL port.  
 
-Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to learn how to use PuTTY to connect to a Linux VM.
+Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md) to learn how to use PuTTY to connect to a Linux VM.
 
 1. Run the following command to switch to the root (admin):
 
     ```console
-    # sudo su -
+    sudo su -
     ```
 
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
@@ -39,27 +39,27 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
    * Red Hat base Linux:
 
         ```console
-        # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
+        yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
         ```
 
    * Debian base Linux:
 
         ```console
-        # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y
+        apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y
         ```
 
    * SUSE Linux:
 
         ```console
-        # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
+        zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
         ```
 
 3. Download PostgreSQL into the root directory, and then unzip the package:
 
     ```console
-    # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
+    wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
 
-    # tar jxvf  postgresql-9.3.5.tar.bz2
+    tar jxvf  postgresql-9.3.5.tar.bz2
     ```
 
     The above is an example. You can find the more detailed download address in the [Index of /pub/source/](https://ftp.postgresql.org/pub/source/).
@@ -67,15 +67,15 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 4. To start the build, run these commands:
 
     ```console
-    # cd postgresql-9.3.5
+    cd postgresql-9.3.5
 
-    # ./configure --prefix=/opt/postgresql-9.3.5
+    ./configure --prefix=/opt/postgresql-9.3.5
     ```
 
 5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (`contrib`), run the following command instead:
 
     ```console
-    # gmake install-world
+    gmake install-world
     ```
 
     You should receive the following confirmation message:
@@ -88,23 +88,23 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 1. (Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:
 
     ```console
-    # ln -s /opt/postgresql-9.3.5 /opt/pgsql
+    ln -s /opt/postgresql-9.3.5 /opt/pgsql
     ```
 
 2. Create a directory for the database:
 
     ```console
-    # mkdir -p /opt/pgsql_data
+    mkdir -p /opt/pgsql_data
     ```
 
 3. Create a non-root user and modify that user’s profile. Then, switch to this new user (called *postgres* in our example):
 
     ```console
-    # useradd postgres
+    useradd postgres
    
-    # chown -R postgres.postgres /opt/pgsql_data
+    chown -R postgres.postgres /opt/pgsql_data
    
-    # su - postgres
+    su - postgres
     ```
    
    > [!NOTE]
@@ -131,13 +131,13 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 5. Execute the *bash_profile* file:
 
     ```console
-    $ source .bash_profile
+    source .bash_profile
     ```
 
 6. Validate your installation by using the following command:
 
     ```console
-    $ which psql
+    which psql
     ```
 
     If your installation is successful, you will see the following response:
@@ -149,13 +149,13 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 7. You can also check the PostgreSQL version:
 
     ```sql
-    $ psql -V
+    psql -V
     ```
 
 8. Initialize the database:
 
     ```console
-    $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
+    initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
     ```
 
     You should receive the following output:
@@ -168,17 +168,17 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 Run the following commands:
 
 ```console
-# cd /root/postgresql-9.3.5/contrib/start-scripts
+cd /root/postgresql-9.3.5/contrib/start-scripts
 
-# cp linux /etc/init.d/postgresql
+cp linux /etc/init.d/postgresql
 ```
 
 Modify two variables in the /etc/init.d/postgresql file. The prefix is set to the installation path of PostgreSQL: **/opt/pgsql**. PGDATA is set to the data storage path of PostgreSQL: **/opt/pgsql_data**.
 
 ```config
-# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
+sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
-# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
+sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 ```
 
 ![Screenshot that shows the installation prefix and the data directory.](./media/postgresql-install/no2.png)
@@ -186,19 +186,19 @@ Modify two variables in the /etc/init.d/postgresql file. The prefix is set to th
 Change the file to make it executable:
 
 ```console
-# chmod +x /etc/init.d/postgresql
+chmod +x /etc/init.d/postgresql
 ```
 
 Start PostgreSQL:
 
 ```console
-# /etc/init.d/postgresql start
+/etc/init.d/postgresql start
 ```
 
 Check if the endpoint of PostgreSQL is on:
 
 ```console
-# netstat -tunlp|grep 1999
+netstat -tunlp|grep 1999
 ```
 
 You should see the following output:
@@ -209,19 +209,19 @@ You should see the following output:
 Switch to the postgres user once again:
 
 ```console
-# su - postgres
+su - postgres
 ```
 
 Create a Postgres database:
 
 ```console
-$ createdb events
+createdb events
 ```
 
 Connect to the events database that you just created:
 
 ```console
-$ psql -d events
+psql -d events
 ```
 
 ## Create and delete a Postgres table

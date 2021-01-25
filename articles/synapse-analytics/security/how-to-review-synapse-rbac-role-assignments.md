@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 
 # How to review Synapse RBAC role assignments
 
-Synapse RBAC roles are used to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources.  [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306)
+Synapse RBAC roles are used to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources.  [Learn more](./synapse-workspace-synapse-rbac.md)
 
 This article explains how to review the current role assignments for a workspace.
 
