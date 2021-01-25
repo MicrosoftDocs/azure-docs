@@ -16,6 +16,8 @@
     href: deploy-powershell.md
   - name: Deploy a Cloud Service - Template
     href: deploy-template.md
+  - name: Deploy a Cloud Service - SDK
+    href: deploy-sdk.md
   - name: Deploy a Cloud Service - Visual Studio
     href: deploy-visual-studio.md
   expanded: true

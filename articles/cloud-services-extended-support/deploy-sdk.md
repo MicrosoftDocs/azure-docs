@@ -24,18 +24,18 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 2. Install the Azure Compute SDK nuget package and initialize the client using a standard authentication mechanism.
 
     ```xml
-      public class CustomLoginCredentials : ServiceClientCredentials
+    public class CustomLoginCredentials : ServiceClientCredentials
     {
         private string AuthenticationToken { get; set; }
         public override void InitializeServiceClient<T>(ServiceClient<T> client)
            {
                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
                var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
-                var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
-                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
-                AuthenticationToken = result.Result.AccessToken;
+               var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
+               if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
+               AuthenticationToken = result.Result.AccessToken;
            }
-           public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
            {
                 if (request == null) throw new ArgumentNullException("request");
                 if (AuthenticationToken == null) throw new InvalidOperationException("Token Provider Cannot Be Null");
@@ -46,15 +46,15 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
             }
     
         var creds = new CustomLoginCredentials();
-    m_subId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-    ResourceManagementClient m_ResourcesClient = new ResourceManagementClient(creds);
-           NetworkManagementClient m_NrpClient = new NetworkManagementClient(creds);
-           ComputeManagementClient m_CrpClient = new ComputeManagementClient(creds);
-           StorageManagementClient m_SrpClient = new StorageManagementClient(creds);
-    m_ResourcesClient.SubscriptionId = m_subId;
-           m_NrpClient.SubscriptionId = m_subId;
-           m_CrpClient.SubscriptionId = m_subId;
-           m_SrpClient.SubscriptionId = m_subId;
+        m_subId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
+        ResourceManagementClient m_ResourcesClient = new ResourceManagementClient(creds);
+        NetworkManagementClient m_NrpClient = new NetworkManagementClient(creds);
+        ComputeManagementClient m_CrpClient = new ComputeManagementClient(creds);
+        StorageManagementClient m_SrpClient = new StorageManagementClient(creds);
+        m_ResourcesClient.SubscriptionId = m_subId;
+        m_NrpClient.SubscriptionId = m_subId;
+        m_CrpClient.SubscriptionId = m_subId;
+        m_SrpClient.SubscriptionId = m_subId;
     ```
 
 3. Create a new resource group by installing the Azure Resource Manager nuget package. A resource group is a logical container into which Azure resources are deployed and managed. 
@@ -70,74 +70,74 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the Azure Storage nuget package. This step is optional if using an existing storage account. Note: You must use a unique name for storage account name.
 
     ```xml
-        string storageAccountName = “ContosoSAS”
-        var stoInput = new StorageAccountCreateParameters
-                        {
-                            Location = m_location,
-                            Kind = Microsoft.Azure.Management.Storage.Models.Kind.StorageV2,
-                            Sku = new Microsoft.Azure.Management.Storage.Models.Sku(SkuName.StandardRAGRS),
-                        };
-                        StorageAccount storageAccountOutput = m_SrpClient.StorageAccounts.Create(rgName,
-                            storageAccountName, stoInput);
-                        bool created = false;
-                        while (!created)
-                        {
-                            Thread.Sleep(600);
-                            var stos = m_SrpClient.StorageAccounts.ListByResourceGroup(rgName);
-                            created =
-                                stos.Any(
-                                    t =>
-                                        StringComparer.OrdinalIgnoreCase.Equals(t.Name, storageAccountName));
-                        }
+    string storageAccountName = “ContosoSAS”
+    var stoInput = new StorageAccountCreateParameters
+       {
+            Location = m_location,
+            Kind = Microsoft.Azure.Management.Storage.Models.Kind.StorageV2,
+            Sku = new Microsoft.Azure.Management.Storage.Models.Sku(SkuName.StandardRAGRS),
+        };
+            StorageAccount storageAccountOutput = m_SrpClient.StorageAccounts.Create(rgName,
+            storageAccountName, stoInput);
+            bool created = false;
+            while (!created)
+               {
+                    Thread.Sleep(600);
+                    var stos = m_SrpClient.StorageAccounts.ListByResourceGroup(rgName);
+                    created =
+                    stos.Any(
+                        t =>
+                        StringComparer.OrdinalIgnoreCase.Equals(t.Name, storageAccountName));
+                }
         
-                    StorageAccount storageAccountOutput = m_SrpClient.StorageAccounts.GetProperties(rgName, storageAccountName);.
-                    var accountKeyResult = m_SrpClient.StorageAccounts.ListKeysWithHttpMessagesAsync(rgName, storageAccountName).Result;
-                    CloudStorageAccount storageAccount = new CloudStorageAccount(new StorageCredentials(storageAccountName, accountKeyResult.Body.Keys.FirstOrDefault(). Value), useHttps: true);
+    StorageAccount storageAccountOutput = m_SrpClient.StorageAccounts.GetProperties(rgName, storageAccountName);.
+    var accountKeyResult = m_SrpClient.StorageAccounts.ListKeysWithHttpMessagesAsync(rgName, storageAccountName).Result;
+    CloudStorageAccount storageAccount = new CloudStorageAccount(new StorageCredentials(storageAccountName, accountKeyResult.Body.Keys.FirstOrDefault(). Value), useHttps: true);
         
-                    var blobClient = storageAccount.CreateCloudBlobClient();
-                    CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
-                    container.CreateIfNotExistsAsync().Wait();
-                    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
-                    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddDays(-1);
-                    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddDays(2);
-                    sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
+    var blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
+    container.CreateIfNotExistsAsync().Wait();
+    sharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddDays(-1);
+    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddDays(2);
+    sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-5. Upload the Cloud Service package (.cspkg) file to the storage account.  The package URL can be Shared Access Signature (SAS) URI from any storage account
+5. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be Shared Access Signature (SAS) URI from any storage account.
 
     ```xml
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
-                cspkgblockBlob.UploadFromFileAsync(“./ContosoApp/ContosoApp.cspkg”). Wait();
+    cspkgblockBlob.UploadFromFileAsync(“./ContosoApp/ContosoApp.cspkg”). Wait();
     
-                //Generate the shared access signature on the blob, setting the constraints directly on the signature.
-                string cspkgsasContainerToken = cspkgblockBlob.GetSharedAccessSignature(sasConstraints);
+    //Generate the shared access signature on the blob, setting the constraints directly on the signature.
+    string cspkgsasContainerToken = cspkgblockBlob.GetSharedAccessSignature(sasConstraints);
     
-                //Return the URI string for the container, including the SAS token.
-                string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
+    //Return the URI string for the container, including the SAS token.
+    string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
     ```
 
-6. Upload your cloud service configuration (.cscfg) to the storage account. Service Configuration can be specified either as string XML or URL format 
+6. Upload your cloud service configuration (.cscfg) to the storage account. Service Configuration can be specified either as string XML or URL format.
 
     ```xml
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
-                cscfgblockBlob.UploadFromFileAsync(“./ContosoApp/ContosoApp.cscfg”). Wait();
-                //Generate the shared access signature on the blob, setting the constraints directly on the signature.
-                string sasCscfgContainerToken = cscfgblockBlob.GetSharedAccessSignature(sasConstraints);
+    cscfgblockBlob.UploadFromFileAsync(“./ContosoApp/ContosoApp.cscfg”). Wait();
     
-                //Return the URI string for the container, including the SAS token.
-                string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
+    //Generate the shared access signature on the blob, setting the constraints directly on the signature.
+    string sasCscfgContainerToken = cscfgblockBlob.GetSharedAccessSignature(sasConstraints);
+    
+    //Return the URI string for the container, including the SAS token.
+    string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-7. Create a virtual network and subnet. Install the Azure Network nuget package. This step is optional if using an existing network and subnet. 
-This example uses a single virtual network and subnet 
+7. Create a virtual network and subnet. Install the Azure Network nuget package. This step is optional if using an existing network and subnet. This example uses a single virtual network and subnet.
 
     ```xml
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
-                { 
-                    AddressSpace = new AddressSpace 
-                    { 
-                        AddressPrefixes = new List<string> { "10.0.0.0/16" } 
-                    }, 
+       { 
+            AddressSpace = new AddressSpace 
+               { 
+                    AddressPrefixes = new List<string> { "10.0.0.0/16" } 
+               }, 
                     Subnets = new List<Subnet> 
                     { 
                         new Subnet(name: subnetName) 
@@ -146,7 +146,7 @@ This example uses a single virtual network and subnet
                         } 
                     }, 
                     Location = m_location 
-                }; 
+               }; 
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
@@ -154,14 +154,14 @@ This example uses a single virtual network and subnet
 
     ```xml
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
-                { 
-                    Location = m_location, 
-                    PublicIPAllocationMethod = IPAllocationMethod.Dynamic, 
-                    DnsSettings = new PublicIPAddressDnsSettings() 
-                    { 
-                        DomainNameLabel = “contosoappdns” 
-                    } 
-                }; 
+       { 
+            Location = m_location, 
+            PublicIPAllocationMethod = IPAllocationMethod.Dynamic, 
+            DnsSettings = new PublicIPAddressDnsSettings() 
+               { 
+                    DomainNameLabel = “contosoappdns” 
+               } 
+       }; 
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
@@ -169,34 +169,34 @@ This example uses a single virtual network and subnet
 
     ```xml
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
-    { 
-                        Name = “ContosoFe”, 
-                        Properties = new LoadBalancerFrontendIPConfigurationProperties() 
-                        { 
-                            PublicIPAddress = new CM.SubResource() 
-                            { 
-                                Id = $"/subscriptions/{m_subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIPAddressName}", 
-                            } 
-                        } 
-                    }; 
+        { 
+            Name = “ContosoFe”, 
+            Properties = new LoadBalancerFrontendIPConfigurationProperties() 
+                { 
+                PublicIPAddress = new CM.SubResource() 
+                    { 
+                        Id = $"/subscriptions/{m_subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIPAddressName}", 
+                    } 
+                } 
+        }; 
     
     CloudServiceNetworkProfile cloudServiceNetworkProfile = new CloudServiceNetworkProfile() 
+        { 
+            LoadBalancerConfigurations = new List<LoadBalancerConfiguration>() 
                 { 
-                    LoadBalancerConfigurations = new List<LoadBalancerConfiguration>() 
-                    { 
-                        new LoadBalancerConfiguration() 
-                        { 
-                            Name  = 'ContosoLB', 
-                            Properties = new LoadBalancerConfigurationProperties() 
+                    new LoadBalancerConfiguration() 
+                       { 
+                        Name  = 'ContosoLB', 
+                        Properties = new LoadBalancerConfigurationProperties() 
                             { 
-                                FrontendIPConfigurations = new List<LoadBalancerFrontendIPConfiguration>() 
+                            FrontendIPConfigurations = new List<LoadBalancerFrontendIPConfiguration>() 
                                 { 
-                                    feipConfig 
+                                feipConfig 
                                 } 
                             } 
                         } 
-                    } 
-                }; 
+                } 
+        }; 
     
     ```
 
@@ -229,28 +229,27 @@ This example uses a single virtual network and subnet
 
     ```xml
     CloudServiceOsProfile cloudServiceOsProfile = 
-                        new CloudServiceOsProfile 
-                        { 
-                            Secrets = new List<CloudServiceVaultSecretGroup> 
-                            { 
-                                New CloudServiceVaultSecretGroup { 
-    SourceVault = <sourceVault>, 
-    VaultCertificates = <vaultCertificates> 
-    } 
-                            } 
-                        };
+        new CloudServiceOsProfile 
+           { 
+                Secrets = new List<CloudServiceVaultSecretGroup> 
+                   { 
+                        New CloudServiceVaultSecretGroup { 
+                        SourceVault = <sourceVault>, 
+                        VaultCertificates = <vaultCertificates> 
+                        } 
+                   } 
+           };
     ```
 
 14. Create a Role Profile object. Role profile defines a roles sku specific properties such as name, capacity and tier. For this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
 
     ```xml
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
-                        {
-                            Roles = new List<CloudServiceRoleProfileProperties>();
-    
+       {
+            Roles = new List<CloudServiceRoleProfileProperties>();
+            
                 // foreach role in cloudService
-                
-                    roles.Add(new CloudServiceRoleProfileProperties()
+                roles.Add(new CloudServiceRoleProfileProperties()
                     {
                         Name = 'ContosoFrontend',
                         Sku = new CloudServiceRoleSku
@@ -261,7 +260,7 @@ This example uses a single virtual network and subnet
                         }
                     );
     
-     roles.Add(new CloudServiceRoleProfileProperties()
+                roles.Add(new CloudServiceRoleProfileProperties()
                     {
                         Name = 'ContosoBackend',
                         Sku = new CloudServiceRoleSku
@@ -272,22 +271,22 @@ This example uses a single virtual network and subnet
                         }
                     );
     
-                }
-                        }
+                    }
+                    }
     ```
 
 15. (Optional) Create a Extension Profile object that you want to add to your cloud service. For this example we will add RDP extension.
 
     ```xml
     string rdpExtensionPublicConfig = "<PublicConfig>" +
-                                                            "<UserName>adminRdpTest</UserName>" +
-                                                            "<Expiration>2021-10-27T23:59:59</Expiration>" +
-                                                         "</PublicConfig>";
-                        string rdpExtensionPrivateConfig = "<PrivateConfig>" +
-                                                              "<Password>VsmrdpTest!</Password>" +
-                                                           "</PrivateConfig>";
+        "<UserName>adminRdpTest</UserName>" +
+        "<Expiration>2021-10-27T23:59:59</Expiration>" +
+        "</PublicConfig>";
+        string rdpExtensionPrivateConfig = "<PrivateConfig>" +
+        "<Password>VsmrdpTest!</Password>" +
+        "</PrivateConfig>";
     
-                        Extension rdpExtension = new Extension
+        Extension rdpExtension = new Extension
                 {
                     Name = name,
                     Properties = new CloudServiceExtensionProperties
@@ -303,28 +302,27 @@ This example uses a single virtual network and subnet
                 };
                         
     CloudServiceExtensionProfile cloudServiceExtensionProfile = new CloudServiceExtensionProfile
-                    {
-                        Extensions = rdpExtension
-                    };
+        {
+            Extensions = rdpExtension
+        };
     ```
 
 16. Create Cloud Service deployment using its properties
 
     ```xml
     CloudService cloudService = new CloudService
+        {
+            Properties = new CloudServiceProperties
                 {
-                
-                    Properties = new CloudServiceProperties
-                    {
-                        RoleProfile = cloudServiceRoleProfile
-                        Configuration = < Add Cscfg xml content here>,
-    // ConfigurationUrl = <Add you configuration URL here>,
-                        PackageUrl = <Add cspkg SAS url here>,
-          ExtensionProfile = cloudServiceExtensionProfile,
-          OsProfile= cloudServiceOsProfile,
-          NetworkProfile = cloudServiceNetworkProfile,
-          UpgradeMode = 'Auto'
-                    },
+                    RoleProfile = cloudServiceRoleProfile
+                    Configuration = < Add Cscfg xml content here>,
+                    // ConfigurationUrl = <Add you configuration URL here>,
+                    PackageUrl = <Add cspkg SAS url here>,
+                    ExtensionProfile = cloudServiceExtensionProfile,
+                    OsProfile= cloudServiceOsProfile,
+                    NetworkProfile = cloudServiceNetworkProfile,
+                    UpgradeMode = 'Auto'
+                },
                     Location = m_location
                 };
     
@@ -332,3 +330,5 @@ This example uses a single virtual network and subnet
     ```
 
 ## Next steps
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
