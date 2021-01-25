@@ -252,6 +252,7 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
        },
    ```
+
    If you’re using *http* with Storage Explorer, change the URI to an *http* URI.
 
 3. Provide a unique image name. This image is used to create VM in the later steps. 
@@ -275,6 +276,7 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
       }
     }
     ```
+
 5. Save the parameters file.
 
 
