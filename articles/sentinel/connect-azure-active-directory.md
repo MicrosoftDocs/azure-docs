@@ -40,12 +40,12 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 1. Mark the check boxes next to the log types you want to stream into Azure Sentinel, and click **Connect**. These are the log types you can choose from:
 
-    - Sign-in logs
-    - Audit logs
-    - Non-interactive user sign-in logs
-    - Service principal sign-in logs
-    - Managed Identity sign-in logs
-    - Provisioning logs
+    - **Sign-in logs**: Information about the usage of managed applications and user sign-in activities.
+    - **Audit logs**: System activity information about user and group management, managed applications, and directory activities.
+    - **Non-interactive user sign-in logs**: Information about sign-ins performed by a client on behalf of a user, which don't require any interaction or authentication factor from the user.
+    - **Service principal sign-in logs**: Information about sign-ins by apps and service principals that do not involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources.
+    - **Managed Identity sign-in logs**: Sign-ins by Azure resources that have secrets managed by Azure.
+    - **Provisioning logs**: System activity information about users, groups, and roles provisioned by the Azure AD provisioning service.
 
 ## Find your data
 
