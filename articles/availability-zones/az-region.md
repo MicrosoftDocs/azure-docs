@@ -164,7 +164,7 @@ To learn more about Availability Zones and available services support in these r
 
 <sup>2</sup>  Available from Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Japan East, Southeast Asia
 
-<sup>3</sup>Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Germany West Central, Japan East, Southeast Asia, Australia East
+<sup>3</sup>  Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Germany West Central, Japan East, Southeast Asia, Australia East
 
 <sup>4</sup>  Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Japan East, Southeast Asia, Australia East
 
