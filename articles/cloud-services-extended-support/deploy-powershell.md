@@ -143,7 +143,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 19. Create Cloud Service deployment using profile objects & SAS URLs.
 
     ```powershell
-    $cloudService = New-AzCloudServic ` 
+    $cloudService = New-AzCloudService ` 
     -Name “ContosoCS” ` 
     -ResourceGroupName “ContosOrg” ` 
     -Location “East US” ` 
