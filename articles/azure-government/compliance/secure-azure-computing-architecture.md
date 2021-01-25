@@ -111,7 +111,7 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
       - Use integrated IPS or bring-your-own IPS.
 
 #### Which network virtual appliance vendor will you use for VDSS?
-As mentioned earlier, you can build this SACA reference by using a variety of appliances and Azure services. Microsoft has automated solution templates to deploy the SACA architecture with Palo Alto, F5, and Citrix. These solutions are covered in the following section.
+As mentioned earlier, you can build this SACA reference by using a variety of appliances and Azure services. Microsoft has automated solution templates to deploy the SACA architecture with Palo Alto Networks, F5, and Citrix. These solutions are covered in the following section.
 
 #### Which Azure services will you use?
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft Azure DoD regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
@@ -169,14 +169,14 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 - Network security groups
     - They're used to control which types of traffic can traverse to certain endpoints.
 
-### Palo Alto SACA deployment
+### Palo Alto Networks SACA deployment
 
-The Palo Alto deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one-tier, VDSS-compliant architecture. This architecture meets the requirements of SCCA. 
+The Palo Alto Networks deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one-tier, VDSS-compliant architecture. This architecture meets the requirements of SCCA. 
 
 ![Palo Alto SACA diagram](media/pansaca.png)
 
 
-For the Palo Alto documentation and deployment script, see [this GitHub link](https://github.com/PaloAltoNetworks/Palo-Azure-SACA).
+For the Palo Alto Networks documentation and deployment script, see [this GitHub link](https://github.com/PaloAltoNetworks/Palo-Azure-SACA).
 
 
  ### F5 SACA deployment

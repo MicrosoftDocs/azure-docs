@@ -22,7 +22,7 @@ Consider the following information when configuring scaling of your Cloud Servic
 
 ## Configure and manage scaling
 
-1. Sign in to the Azure portal. 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Select the Cloud Service (extended support) deployment you want to configure scaling on. 
 3. Select the **Scale** blade. 
 
@@ -56,5 +56,7 @@ Consider the following information when configuring scaling of your Cloud Servic
 
 	:::image type="content" source="media/enable-scaling-5.png" alt-text="Image shows adjusting an existing scaling rule in the Azure portal":::
 
-## Next steps
-For more information, see [Frequently asked questions about Cloud services (extended support)](faq.md)
+## Next steps 
+- Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
