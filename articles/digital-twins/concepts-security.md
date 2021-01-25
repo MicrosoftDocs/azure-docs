@@ -90,13 +90,15 @@ The following list describes the levels at which you can scope access to Azure D
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
 
-## Managed identity in Azure Digital Twins for accessing other resources
+## Managed identity for accessing other resources
 
-A managed identity from Azure Active Directory (Azure AD) allows Azure Digital Twins instance to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **managed identity** for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [*Managed identities for Azure resources*](../active-directory/managed-identities-azure-resources/overview.md). 
 
-Azure support two types of managed identities: System-assigned and User-assigned. Currently, Azure Digital Twins supports only System-assigned identity. This means that you can use the System-assigned identity for your Azure Digital Instance to authenticate to [custom-defined endpoint](concepts-route-events.md#create-an-endpoint).  
+Azure supports two types of managed identities: system-assigned and user-assigned. Currently, Azure Digital Twins supports only **system-assigned identities**. 
 
-Azure Digital Twins supports System-assigned identity based authentication to your customer-defined endpoints for EventHub and ServiceBus destinations, and Azure Storage Container endpoint for dead-letter events. EventGrid is currently not supported.   
+You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hub](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
+
+For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [*How-to: Route events using managed identities*](how-to-route-managed-identities.md).
 
 ## Service tags
 
