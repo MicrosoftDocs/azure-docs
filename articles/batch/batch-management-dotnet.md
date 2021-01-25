@@ -75,12 +75,12 @@ Azure subscriptions and the individual Azure services like Batch all have defaul
 
 Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.
 
-In the code snippet below, we first use [BatchManagementClient.Account.ListAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.listasync) to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
+In the code snippet below, we first use [BatchAccountOperationsExtensions.ListAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.listasync) to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [LocationOperationsExtensions.GetQuotasAsync](/dotnet/api/microsoft.azure.management.batch.locationoperationsextensions.getquotasasync) to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
 BatchAccountListResponse listResponse =
-        await batchManagementClient.Account.ListAsync(new AccountListParameters());
+        await batchManagementClient.BatchAccount.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
 Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
     creds.SubscriptionId,
@@ -91,7 +91,7 @@ string region = "westus";
 int accountsInRegion = accounts.Count(o => o.Location == region);
 
 // Get the account quota for the specified region
-SubscriptionQuotasGetResponse quotaResponse = await batchManagementClient.Subscriptions.GetSubscriptionQuotasAsync(region);
+SubscriptionQuotasGetResponse quotaResponse = await batchManagementClient.Location.GetQuotasAsync(region);
 Console.WriteLine("Account quota for {0} region: {1}", region, quotaResponse.AccountQuota);
 
 // Determine how many accounts can be created in the target region
@@ -99,7 +99,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-In the snippet above, `creds` is an instance of [TokenCloudCredentials][azure_tokencreds]. To see an example of creating this object, see the [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) code sample on GitHub.
+In the snippet above, `creds` is an instance of **TokenCredentials**. To see an example of creating this object, see the [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) code sample on GitHub.
 
 ### Check a Batch account for compute resource quotas
 
@@ -148,9 +148,5 @@ To run the sample application successfully, you must first register it with your
 
 ## Next steps
 
-
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, using Azure Storage for workload file staging and retrieval.git pus
-
-[azure_tokencreds]: /previous-versions/azure/reference/mt167728(v=azure.100)
-[net_mgmt_subscriptions]: /previous-versions/azure/mt592937(v=azure.100)
