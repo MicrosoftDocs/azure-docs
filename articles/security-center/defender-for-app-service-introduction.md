@@ -36,7 +36,7 @@ When you enable Azure Defender for App Service, you immediately benefit from the
 - **Detect** - Azure Defender detects a multitude of threats to your App Service resources by monitoring:
     - the VM instance in which your App Service is running, and its management interface
     - the requests and responses sent to and from your App Service apps
-    - the underlying sandboxes and VMs (App Service on Windows only)
+    - the underlying sandboxes and VMs
     - App Service internal logs - available thanks to the visibility that Azure has as a cloud provider
 
 As a cloud-native solution, Azure Defender can identify attack methodologies applying to multiple targets. For example, from a single host it would be difficult to identify a distributed attack from a small subset of IPs, crawling to similar endpoints on multiple hosts.
