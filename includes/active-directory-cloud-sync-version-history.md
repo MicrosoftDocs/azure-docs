@@ -7,11 +7,11 @@ Microsoft provides direct support for the latest agent version and one version b
 January 20, 2021: Released for download
 
 ### New features and improvements
-- Wizard UI flow changes for GMSA configuration to reduce entering of duplicate admin credentials and make KDS validation optional
-- Agent Wizard now supports using a pre-created custom GMSA account
-- Added [PS cmdlets](../articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md) to set permissions on a pre-created custom GMSA account
-- Added support for [Command Line Installation of the Agent](../articles/active-directory/cloud-sync/how-to-install-pshell.md)
-- Added more diagnostics information for agent sourced quarantine issues eg. AD DC can’t be accessed
+- Improvement to GMSA experience including support for pre-custom created GMSA Account
+- [PowerShell cmdlets](../articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md) support for GMSA setup
+- [CLI support](../articles/active-directory/cloud-sync/how-to-install-pshell.md) for agent install (silent installation)
+- Additional diagnostics for agent source quarantine issues
+- Bug fixes that include reducing of memory usage of OU scoping filters, running PHS only for in-scope users, handling of nested objects in OU when using OU scoping etc. 
 
 
 ### Fixed issues
