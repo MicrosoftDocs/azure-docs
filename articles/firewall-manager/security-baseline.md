@@ -336,9 +336,9 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 **Guidance**: Remove Azure Firewall Manager resources when they are no longer needed to minimize attack surface. Users can manage their Azure Firewall Manager resources via the Azure portal, CLI, or REST APIs.
 
-- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?amp;preserve-view=true&view=azure-cli-latest)
+- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
 
-- [Azure network CLI](/powershell/module/az.network/?amp;preserve-view=true&view=azps-5.1.0#networking)
+- [Azure network CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -435,7 +435,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 - [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storagesend-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -556,7 +556,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 - [Azure Firewall Policy template reference](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?amp;preserve-view=true&view=azure-cli-latest)
+- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
 
 - [Illustration of guardrails implementation in enterprise-scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 
@@ -664,11 +664,11 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?amp;bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-asset-management.md)
 
