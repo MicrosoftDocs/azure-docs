@@ -248,7 +248,7 @@ New-AzPrivateEndpoint @par4 -ByManualRequest
 
 In this section, you'll approve the connection you created in the previous steps.
 
-* Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnnection) to approve the connection.
+* Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) to approve the connection.
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##
