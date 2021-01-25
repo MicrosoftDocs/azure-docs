@@ -348,7 +348,9 @@ Verify that the Windows 10 PC you are using to initiate the remote desktop conne
 > [!NOTE]
 > Windows 10 Build 20H1 added support for an Azure AD registered PC to initiate RDP connection to your VM. When using an Azure AD registered (not Azure AD joined or hybrid Azure AD joined) PC as the RDP client to initiate connections to your VM, you must enter credentials in the format AzureAD\UPn (e.g. AzureAD\john@contoso.com).
 
-Also, verify the AADLoginForWindows extension has not been uninstalled after Azure AD join has completed.
+Verify that the AADLoginForWindows extension was not uninstalled after the Azure AD join finished.
+
+Also, make sure that the security policy “Network security: Allow PKU2U authentication requests to this computer to use online identities” is enabled on both the server *and* the client.
  
 #### MFA sign-in method required
 
