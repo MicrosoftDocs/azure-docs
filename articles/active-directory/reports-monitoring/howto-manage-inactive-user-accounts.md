@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -62,7 +62,7 @@ No.
 
 ### What edition of Azure AD do I need to access the property?
 
-You can access this property in all editions of Azure AD.
+You can access this property in Azure AD Premium.
 
 ### What permission do I need to read the property?
 
