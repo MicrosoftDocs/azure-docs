@@ -23,7 +23,7 @@
   items: 
   - name: Available VM sizes
     href: available-sizes.md
-  - name: Extensions Overview
+  - name: Extensions
     href: extensions.md
   - name: Frequently Asked Questions
     href: faq.md
