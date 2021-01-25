@@ -3,7 +3,7 @@ title: Configure customer-managed keys for your Azure Batch account with Azure K
 description: Learn how to encrypt Batch data using customer-managed keys. 
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 01/25/2021
 ms.author: peshultz
 
 ---
