@@ -1459,7 +1459,7 @@ Azure service: [Azure Data Box](../databox/index.yml)
 
 ### Microsoft.ImportExport
 
-Azure service: [Azure Import/Export](../storage/common/storage-import-export-service.md)
+Azure service: [Azure Import/Export](../import-export/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

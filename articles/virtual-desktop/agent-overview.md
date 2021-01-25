@@ -38,5 +38,4 @@ This update installation normally lasts 2-3 minutes on a new VM and shouldn't ca
 
 Now that you have a better understanding of the Windows Virtual Desktop agent, here are some resources that might help you:
 
-- Check out the [Windows Virtual Desktop Agent updates](whats-new.md) section to see information about what the new agent update entails each month.
 - If you're experiencing agent or connectivity-related issues, check out the [Windows Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).

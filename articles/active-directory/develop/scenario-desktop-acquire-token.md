@@ -1178,7 +1178,7 @@ The customization of token cache serialization to share the SSO state between AD
 
 ### Simple token cache serialization (MSAL only)
 
-The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a per user per app folder in the case where the app is a [packaged desktop application](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). For the full code, see the following sample: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a per user per app folder in the case where the app is a [packaged desktop application](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). For the full code, see the following sample: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` and passing the application `UserTokenCache`.
 
