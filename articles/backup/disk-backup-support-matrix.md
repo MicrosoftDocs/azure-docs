@@ -17,7 +17,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This ar
 
 ## Supported regions
 
-Azure Disk Backup is available in preview in the following regions: West Central US. 
+Azure Disk Backup is available in preview in the following regions: West Central US, Korea Central, Korea South. 
 
 More regions will be announced when they become available.
 

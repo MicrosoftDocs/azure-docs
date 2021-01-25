@@ -12,12 +12,13 @@ ms.custom:
 
 # Create a Cloud Service (extended support) using ARM templates
 
+This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+
 > [!IMPORTANT]
 > Cloud Services (extended support) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This tutorial explains how to create a Cloud Service (extended support) deployment using [ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 ## Before you begin
 1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 

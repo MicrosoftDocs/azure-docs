@@ -489,8 +489,8 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
   + **azureml-train-automl-runtime**
     + Improved console output when best model explanations fail.
-    + Renamed "backlist_models" input parameter to "blocked_models".
-      + Renamed "whitelist_models" input parameter to "allowed_models".
+    + Renamed input parameter to "blocked_models" to remove a sensitive term.
+      + Renamed input parameter to "allowed_models" to remove a sensitive term.
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
 
   
