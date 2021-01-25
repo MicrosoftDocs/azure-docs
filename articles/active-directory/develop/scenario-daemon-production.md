@@ -52,8 +52,7 @@ You'll need to explain to your customers how to perform these operations. For mo
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-
-
+---
 
 ## Next steps
 

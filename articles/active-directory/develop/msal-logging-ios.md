@@ -174,7 +174,7 @@ For example:
 
 Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
 
-
+---
 
 ## Next steps
 
