@@ -28,7 +28,7 @@ For each device onboarded to Defender for IoT in the IoT Hub, a security module 
 
 ## Authentication methods
 
-The two methods for the AzureIoTSecurity agent to perform authentication:
+The two methods for the Defender for IoT AzureIoTSecurity agent to perform authentication:
 
 - **SecurityModule** authentication mode<br>
 The agent is authenticated using the security module identity independently of the device identity.
