@@ -4,7 +4,7 @@ description: This article describes how to use emergency access accounts to help
 services: active-directory 
 author: markwahl-msft
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
