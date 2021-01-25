@@ -96,8 +96,8 @@ A database that you [add to an autoprotected instance](backup-sql-server-databas
 
   ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
 
-## Can I protect databases on Virtual Machines that have Azure Disk Encryption (ADE) enabled?
-Yes
+## Can I protect databases on virtual machines that have Azure Disk Encryption (ADE) enabled?
+Yes, you can protect databases on virtual machines that have Azure Disk Encryption (ADE) enabled.
 
 ## Can I protect databases that have TDE (Transparent Data Encryption) turned on and will the database stay encrypted through the entire backup process?
 
