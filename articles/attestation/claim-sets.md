@@ -131,11 +131,10 @@ Claims issued by Azure Attestation for VBS attestation is in addition to the cla
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave
 
-### Default Outgoing claims for TPM and VBS attestation
+### Outgoing claims specific to TPM and VBS attestation
 
 - **cnf (Confirmation)**: The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517)
 - **rp_data (relying party data)**: Relying party data, if any, specified in the request, used by the relying party as a nonce to guarantee freshness of the report. rp_data is only added if there is rp_data
-- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
 
 ### Property claims
 
