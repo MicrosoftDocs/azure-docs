@@ -1,6 +1,6 @@
 ---
 title: Azure Defender for App Service - the benefits and features
-description: Learn about the benefits and features of Azure Defender for App Service.
+description: Learn about the capabilities of Azure Defender for App Service and how to enable it on your subscription
 author: memildin
 ms.author: memildin
 ms.date: 01/25/2021
@@ -63,6 +63,8 @@ Azure Defender for App Service also identifies any DNS entries remaining in your
 Subdomain takeovers are a common, high-severity threat for organizations. When a threat actor detects a dangling DNS entry, they create their own site at the destination address. The traffic intended for the organization’s domain is then directed to the threat actor's site, and they can use that traffic for a wide range of malicious activity. 
 
 Dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
+
+:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="An example of an Azure Defender alert about a discovered dangling DNS entry. Enable Azure Defender for App Service to receive this and other alerts for your environment." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png"::::::
 
 Learn more about dangling DNS and the threat of subdomain takeover, in [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
