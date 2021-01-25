@@ -113,6 +113,8 @@ To generate a benign Microsoft Defender for Endpoint test alert:
 1. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
+    > [!TIP]
+    > The alert is triggered with **Informational** severity.
 
 ## FAQ for Security Center's integrated Microsoft Defender for Endpoint
 
