@@ -58,7 +58,7 @@ landingContent:
         links:
           - text: Build a Grafana dashboard using hosted prometheus metrics
             url: cassandra-mi-grafana-setup.md
-          - text: Managed Apache Spark
+          - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
             url: cassandra-mi-databricks.md
       - linkListType: how-to-guide
         links:
