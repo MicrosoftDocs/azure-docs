@@ -34,15 +34,9 @@ To learn more, see the other performance best practices articles:
 - Configure read-only cache for data files and disable cache for the log file. Stop the SQL Server service when changing the cache settings your disk.
 - For workloads requiring IO latencies < 1-ms, enable write accelerator for the M series and consider using Ultra SSD disks for the Es and DS series virtual machines.
 - Stripe multiple Azure data disks using Storage Spaces to gain increased storage throughput up to the largest target virtual machine's IOPs and throughput limits.
-- Place tempdb on the local SSD D:\ drive for most SQL Server workloads after choosing the correct VM size. SQL Server VMs created from the Azure marketplace are already configured with TempDB using the ephemeral disk. 
+- Place tempdb on the local SSD D:\ drive for most SQL Server workloads after choosing the correct VM size. SQL Server VMs created from the Azure marketplace are already configured with tempdb using the local ephemeral D:\ drive. 
    - If the capacity of the local drive is not enough for your tempdb size, then place tempdb on a storage pool striped on premium SSD disks with read-only caching.
-   - Alternatively, consider placing tempdb on a separate data drive with read-caching enabled to prevent overconsmuption of the local Azure cache. 
-   
-   Consider placing tempdb on a separate data drive with read-cahc
-   
-   Consider placing Tempdb on a separate data drive and not on the ephemeral disk D:\ when read-caching is enabled to prevent overconsumption of the local Azure cache.
-
-If you create the VM from the Azure marketplace image, TempDB will already be targeted to leverage the ephemeral disk following the best practices for tempdb.
+   - If utilization of the local Azure cache is a concern, consider placing tempdb on a separate data drive with read-caching enabled to prevent overconsmuption of the local cache.  
 
 
 ## Design and Considerations

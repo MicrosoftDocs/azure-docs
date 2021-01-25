@@ -70,8 +70,14 @@ Collect the target workload's performance characteristics and use them to determ
 - Do not enable caching on disk(s) hosting the log file. 
 - Stripe multiple Azure data disks using Storage Spaces to gain increased storage throughput up to the largest target virtual machine’s IOPs and throughput limits
 
+If you enabled read-cache on your ephemeral drive, then consider moving tempdb to a separate drive to prevent overconsumption of the local Azure cache. 
+
+If you want to prevent overconsumption of the local Azure cache, then move your tempdb to a separate drive, and enable read-cache. 
+
+
 - Format with documented allocation sizes
 - Place Tempdb on the local SSD D:\ drive for most SQL Server workloads after choosing correct VM size. If you create the VM from the Azure marketplace images, tempdb will already be targeted to leverage ephemeral disk following the best practices for tempdb.
+  - 
 
 > [!NOTE] 
 >	If the capacity of the local drive is not enough for your tempdb size, then place tempdb on a storage pool striped on premium SSD disks with read-only caching.
