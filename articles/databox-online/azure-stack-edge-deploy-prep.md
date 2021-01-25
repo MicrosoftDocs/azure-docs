@@ -185,6 +185,7 @@ az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1
 ```
 
 After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
+
 ---
 
 ## Get the activation key
