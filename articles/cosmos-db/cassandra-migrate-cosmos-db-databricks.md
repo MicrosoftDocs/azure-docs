@@ -109,7 +109,15 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> The `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important for avoiding [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Cosmos DB exceed provisioned throughput ([request units](./request-units.md)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
+> The `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important for avoiding [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Cosmos DB exceed provisioned throughput ([request units](./request-units.md)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
+
+## Troubleshooting
+
+### Rate limiting (429 error)
+You may see an error code of 429 or `request rate is large` error text, despite reducing the above mentioned settings to the minimum, in a few scenarios:
+
+- Throughput allocated to the table is less than 6000 [request units](./request-units.md). Even at minimum settings, Spark will be able to execute writes at a rate of around 6000 request units or more. If you have provisioned a table in a shared keyspace, it is possible that this table has less than 6000 RUs available at runtime. Ensure the table you are migrating to has at least 6000 RUs available to it when running the migration, and if necessary allocated dedicated request units to that table. 
+- Excessive data skew + large data volume. If you have a large amount of data (table rows) to migrate into a given table, but have significant skew in the data (i.e. a large number of records being written for the same partition key value), then you may still experience rate limiting even if you have a large amount of [request units](./request-units.md) provisioned in your table. This is because [request units](./request-units.md) in Azure Cosmos DB are divided equally among physical partitions, and heavy data skew can result in a bottleneck of requests to a single partition, causing rate limiting. In this scenario, it is advisable to reduce to minimal throughput settings in Spark to avoid rate limiting and force the migration to run slowly. This scenario can be more common when mograting reference or control tables, where access is less frequent but skew can be high. However, if significant skew is present in any other type of table, it may also be advisable to review your data model to ensure that the data skew does not result in hot partition issues for your workload during steady state operations. 
 
 ## Next steps
 

@@ -15,18 +15,39 @@ ms.author: thvankra
 
 Cassandra API in Azure Cosmos DB is a compatibility layer, which provides [wire protocol support](cassandra-support.md) for the popular open-source Apache Cassandra database, and is powered by [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). As a fully managed cloud-native service, Azure Cosmos DB provides [guarantees on availability, throughput, and consistency](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for Cassandra API. These guarantees are not possible in legacy implementations of Apache Cassandra. Cassandra API also facilitates zero-maintenance platform operations, and zero-downtime patching. As such, many of it's backend operations are different from Apache Cassandra, so we recommend particular settings and approaches to avoid common errors. 
 
-This article describes common errors and solutions for applications consuming Azure Cosmos DB Cassandra API.
+This article describes common errors and solutions for applications consuming Azure Cosmos DB Cassandra API. If your error is not listed below, and you are experiencing an error when executing a [supported operation in Cassandra API](cassandra-support.md), where the error is *not present when using native Apache Cassandra*, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
-## Common errors and solutions
+## NoNodeAvailableException
+This is a top-level wrapper exception with a large number of possible causes and inner exceptions, many of which can be client related. 
+### Solution
+Some popular causes and solutions are as follows: 
+- Idle timeout of Azure LoadBalancers: This may also manifest as `ClosedConnectionException`. To resolve this, set keep alive setting in driver (see [below](#enable-keep-alive-for-java-driver)) and increase keep-alive settings in operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). 
+- Client application resource exhaustion: ensure that client machines have sufficient resources to complete the request.
 
-| Error               |  Description             | Solution  |
-|---------------------|--------------------------|-----------|
-| OverloadedException (Java) | The total number of request units consumed is more than the request-units provisioned on the keyspace or table. So the requests are throttled. | Consider scaling the throughput assigned to a keyspace or table from the Azure portal (see [here](manage-scale-cassandra.md) for scaling operations in Cassandra API) or you can implement a retry policy. For Java, see retry samples for [v3.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [v4.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). See also [Azure Cosmos Cassandra Extensions for Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) |
-| OverloadedException (Java) even with sufficient throughput | The system appears to be throttling requests despite sufficient throughput being provisioned for request volume and/or consumed request unit cost  | Cassandra API implements a system throughput budget for schema-level operations (CREATE TABLE, ALTER TABLE, DROP TABLE). This budget should be enough for schema operations in a production system. However, if you have a high number of schema-level operations, it is possible you are exceeding this limit. As this budget is not user controlled, you will need to consider lowering the number of schema operations being run. If taking this action does not resolve the issue, or it is not feasible for your workload, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).|
-| ClosedConnectionException (Java) | After a period of idle time following successful connections, application is unable to connect| This error could be due to idle timeout of Azure LoadBalancers, which is 4 minutes. Set keep alive setting in driver (see below) and increase keep-alive settings in operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). |
-| Other intermittent connectivity errors (Java) | Connection drops or times out unexpectedly | The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance (see also the examples below).|
+## OverloadedException (Java)
+The total number of request units consumed is more than the request-units provisioned on the keyspace or table. So the requests are throttled.
+### Solution
+Consider scaling the throughput assigned to a keyspace or table from the Azure portal (see [here](manage-scale-cassandra.md) for scaling operations in Cassandra API) or you can implement a retry policy. For Java, see retry samples for [v3.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [v4.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). See also [Azure Cosmos Cassandra Extensions for Java](https://github.com/Azure/azure-cosmos-cassandra-extensions)
 
-If your error is not listed above, and you are experiencing an error when executing a [supported operation in Cassandra API](cassandra-support.md), where the error is *not present when using native Apache Cassandra*, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+### OverloadedException even with sufficient throughput 
+The system appears to be throttling requests despite sufficient throughput being provisioned for request volume and/or consumed request unit cost. There are two possible causes of unexpected rate limiting:
+- Schema level operations: Cassandra API implements a system throughput budget for schema-level operations (CREATE TABLE, ALTER TABLE, DROP TABLE). This budget should be enough for schema operations in a production system. However, if you have a high number of schema-level operations, it is possible you are exceeding this limit. As this budget is not user controlled, you will need to consider lowering the number of schema operations being run. If taking this action does not resolve the issue, or it is not feasible for your workload, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- Data skew: when throughput is provisioned in Cassandra API, it is divided equally among physical partitions, and each phsyical partition has an upper limit. If you have a high amount of data being inserted, or read from, one particular partition, it is possible to be rate limited despite provisioning a large amount of overall throughput (request units) for that table. Review your data model and ensure you do not have excessive skew that could be causing hot partitions. 
+
+## Intermittent connectivity errors (Java) 
+Connection drops or times out unexpectedly
+
+### Solution 
+The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance see also [Configuring ReconnectionPolicy for Java Driver](#configuring-reconnectionpolicy-for-java-driver) examples below.
+
+## Count fails on large table
+When running `select count(*) from table` or similar for a very large number of rows, the server times out.
+
+### Solution 
+If using a local CQLSH client you can try to change the `--connect-timeout` or `--request-timeout` settings (see more details [here](https://cassandra.apache.org/doc/latest/tools/cqlsh.html)). If this is not sufficient and count still times out, you can get a count of records from the Azure Cosmos DB backend telemetry by going to metrics tab in Azure portal, selecting the metric `document count`, then adding a filter for the database or collection (the analogue of table in Azure Cosmos DB). You can the hover over the resulting graph for the point in time at which you want a count of the number of records.
+
+:::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="metrics":::
+
 
 ## Configuring ReconnectionPolicy for Java Driver
 
