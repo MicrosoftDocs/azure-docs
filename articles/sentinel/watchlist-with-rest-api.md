@@ -42,11 +42,11 @@ The following are the common URI parameters for all watchlist API commands:
 This command retrieves all watchlists associated with a workspace, without their items.
 
 ### Request URI
-(URI is a single line, broken up for easy readability)
+(URI is a single line, broken up for easy readability) - TEST WITH SPACE
 
 | Method | Request URI |
 |-|-|
-| GET | https://management.azure.com/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists?api-version={{**api-version**}} |
+| GET | https://management.azure.com/subscriptions/ {{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists?api-version={{**api-version**}} |
 |
 
 ### Responses
@@ -62,11 +62,11 @@ This command retrieves all watchlists associated with a workspace, without their
 This command retrieves a specific watchlist associated with a workspace, without its items.
 
 ### Request URI
-(URI is a single line, broken up for easy readability)
+(URI is a single line, broken up for easy readability) - TEST WITH NO BOLD
 
 | Method | Request URI |
 |-|-|
-| GET | https://management.azure.com/subscriptions/{{**subscriptionId**}}/<br>resourceGroups/{{**resourceGroupName**}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{**workspaceName**}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{**watchlistAlias**}}?api-version={{**api-version**}} |
+| GET | https://management.azure.com/subscriptions/{{subscriptionId}}/<br>resourceGroups/{{resourceGroupName}}/<br>providers/Microsoft.OperationalInsights/<br>workspaces/{{workspaceName}}/<br>providers/Microsoft.SecurityInsights/<br>watchlists/{{watchlistAlias}}?api-version={{api-version}} |
 |
 
 ### Responses
