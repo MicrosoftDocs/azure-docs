@@ -18,9 +18,10 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive), or fails to respond to the ping, the system determines it's unhealthy and removes it.
+- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
 - After removal, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
+- Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
 > Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
@@ -28,16 +29,16 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 
 ## Enable Health Check
 
-> [!CAUTION]
-> Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
->
-
 ![Health check navigation in Azure Portal][3]
 
 - To enable Health check, browse to the Azure Portal and select your App Service app.
 - Under **Monitoring**, select **Health check**.
 - Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
 - Click **Save**.
+
+> [!CAUTION]
+> Health check configuration changes restart your app. To minimize impact to production apps, we recommend [configuring staging slots](deploy-staging-slots.md) and swapping to production.
+>
 
 ### Configuration
 
