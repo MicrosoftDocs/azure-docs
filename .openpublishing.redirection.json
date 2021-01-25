@@ -7950,7 +7950,7 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources.md",
-      "redirect_url": "/azure/azure-monitor/platform/agent-data-sources",
+      "redirect_url": "/azure/azure-monitor/agents/agent-data-sources",
       "redirect_document_id": true
     },
     {
@@ -7960,12 +7960,12 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-agent-linux-support.md",
-      "redirect_url": "/azure/azure-monitor/platform/agent-linux-troubleshoot",
+      "redirect_url": "/azure/azure-monitor/agents/agent-linux-troubleshoot",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-agent-manage.md",
-      "redirect_url": "/azure/azure-monitor/platform/agent-manage",
+      "redirect_url": "/azure/azure-monitor/agents/agent-manage",
       "redirect_document_id": true
     },
     {
@@ -7975,7 +7975,7 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-agent-windows.md",
-      "redirect_url": "/azure/azure-monitor/platform/agent-windows",
+      "redirect_url": "/azure/azure-monitor/agents/agent-windows",
       "redirect_document_id": true
     },
     {
@@ -13063,11 +13063,11 @@
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
-      "redirect_document_id": false
-    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
+      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/backup/backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",

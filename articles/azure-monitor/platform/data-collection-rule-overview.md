@@ -15,7 +15,7 @@ Data Collection Rules (DCR) define data coming into Azure Monitor and specify wh
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md).
+- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 
@@ -51,7 +51,7 @@ For limits that apply to each data collection rule, see [Azure Monitor service l
 ## Create a DCR
 You can currently use any of the following methods to create a DCR:
 
-- [Use the Azure portal](data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
+- [Use the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
 - Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).
 - Create DCR and associations with [Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
 - Create DCR and associations with Azure PowerShell.
@@ -192,4 +192,4 @@ The sample data collection rule below is for virtual machines with Azure Managem
 
 ## Next steps
 
-- [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.

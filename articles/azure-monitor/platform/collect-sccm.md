@@ -57,7 +57,7 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 
 ## Download and install the agent
 
-Review the article [Connect Windows computers to Azure Monitor in Azure](agent-windows.md) to understand the methods available for installing the Log Analytics agent for Windows on the computer hosting the Configuration Manager service connection point site system role.  
+Review the article [Connect Windows computers to Azure Monitor in Azure](../agents/agent-windows.md) to understand the methods available for installing the Log Analytics agent for Windows on the computer hosting the Configuration Manager service connection point site system role.  
 
 ## Connect Configuration Manager to Log Analytics workspace
 

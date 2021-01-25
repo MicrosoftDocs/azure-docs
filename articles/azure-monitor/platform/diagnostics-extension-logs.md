@@ -10,10 +10,10 @@ ms.date: 02/14/2020
 ---
 
 # Collect data from Azure diagnostics extension to Azure Monitor Logs
-Azure diagnostics extension is an [agent in Azure Monitor](agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article describes how to collect data collected by the diagnostics extension from Azure Storage to Azure Monitor Logs.
+Azure diagnostics extension is an [agent in Azure Monitor](../agents/agents-overview.md) that collects monitoring data from the guest operating system of Azure compute resources including virtual machines. This article describes how to collect data collected by the diagnostics extension from Azure Storage to Azure Monitor Logs.
 
 > [!NOTE]
-> The Log Analytics agent in Azure Monitor is typically the preferred method to collect data from the guest operating system into Azure Monitor Logs. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the agents.
+> The Log Analytics agent in Azure Monitor is typically the preferred method to collect data from the guest operating system into Azure Monitor Logs. See [Overview of the Azure Monitor agents](../agents/agents-overview.md) for a detailed comparison of the agents.
 
 ## Supported data types
 Azure diagnostics extension stores data in an Azure Storage account. For Azure Monitor Logs to collect this data, it must be in the following locations:

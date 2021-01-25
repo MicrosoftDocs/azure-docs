@@ -16,7 +16,7 @@ This article provides details on installing the Log Analytics agent on Windows c
 * [Azure Automation Desired State Configuration (DSC)](#install-agent-using-dsc-in-azure-automation). 
 
 >[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](../platform/log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
 > [!NOTE]
 > If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
@@ -38,12 +38,12 @@ The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020
 4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
 ## Network requirements
-See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
+See [Log Analytics agent overview](../platform/log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
 
 
    
 ## Configure Agent to use TLS 1.2
-[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensure the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](data-security.md#sending-data-securely-using-tls-12), then you should configure TLS 1.2 using the steps below.
+[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensure the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](../platform/data-security.md#sending-data-securely-using-tls-12), then you should configure TLS 1.2 using the steps below.
 
 1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Create a subkey under **Protocols** for TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**

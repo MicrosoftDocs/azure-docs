@@ -606,7 +606,7 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
 
 ### Notes
 
-- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) with **-Kind** set to **CustomLog**.
+- The configuration of delimiters and extractions can be complex. For help, you can define a custom log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
 
   
 ### Template file
@@ -822,4 +822,4 @@ The following sample adds collection of [IIS logs](../platform/data-sources-iis-
 
 * [Get other sample templates for Azure Monitor](resource-manager-samples.md).
 * [Learn more about Log Analytics workspaces](../learn/quick-create-workspace.md).
-* [Learn more about agent data sources](../platform/agent-data-sources.md).
+* [Learn more about agent data sources](../agents/agent-data-sources.md).

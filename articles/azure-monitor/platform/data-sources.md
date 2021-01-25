@@ -126,7 +126,7 @@ Install the Log Analytics agent for comprehensive monitoring and management of y
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](om-agents.md) |
+| Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](../agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](om-agents.md) |
 | VM Storage | Azure Monitor for VMs uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
 
 

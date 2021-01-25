@@ -2,14 +2,14 @@
 title: Assign Azure AD admin roles with Microsoft Graph API | Microsoft Docs
 description: Assign and remove Azure AD administrator roles with Graph API in Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

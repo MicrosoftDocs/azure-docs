@@ -56,4 +56,4 @@ For more information, see [troubleshooting Linux extensions](../../virtual-machi
 
 ## Next steps
 
-For additional troubleshooting guidance related to the Log Analytics agent for Linux hosted on computers outside of Azure, see [Troubleshoot Azure Log Analytics Linux Agent](agent-linux-troubleshoot.md).
+For additional troubleshooting guidance related to the Log Analytics agent for Linux hosted on computers outside of Azure, see [Troubleshoot Azure Log Analytics Linux Agent](../agents/agent-linux-troubleshoot.md).

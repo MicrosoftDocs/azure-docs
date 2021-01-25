@@ -589,7 +589,7 @@ If your Dependency agent installation succeeded, but you don't see your machine 
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics agent is operating correctly and communicating with the workspace. If not, check the agent on your machine: [Log Analytics agent for Windows troubleshooting](../platform/agent-windows-troubleshoot.md) or [Log Analytics agent for Linux troubleshooting](../platform/agent-linux-troubleshoot.md).
+Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics agent is operating correctly and communicating with the workspace. If not, check the agent on your machine: [Log Analytics agent for Windows troubleshooting](../agents/agent-windows-troubleshoot.md) or [Log Analytics agent for Linux troubleshooting](../agents/agent-linux-troubleshoot.md).
 
 #### Server appears in Service Map but has no processes
 

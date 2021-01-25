@@ -17,7 +17,7 @@ The Azure Log Analytics agent collects telemetry from Windows and Linux virtual 
 > You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
 
 ## Comparison to Azure diagnostics extension
-The [Azure diagnostics extension](diagnostics-extension-overview.md) in Azure Monitor can also be used to collect monitoring data from the guest operating system of Azure virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
+The [Azure diagnostics extension](diagnostics-extension-overview.md) in Azure Monitor can also be used to collect monitoring data from the guest operating system of Azure virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](../agents/agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
 
 The key differences to consider are:
 
@@ -31,7 +31,7 @@ There is no cost for Log Analytics agent, but you may incur charges for the data
 
 ## Supported operating systems
 
- See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are supported by the Log Analytics agent. 
+ See [Supported operating systems](../agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are supported by the Log Analytics agent. 
 
 ## Data collected
 
@@ -55,14 +55,14 @@ The agent for Linux and Windows isn't only for connecting to Azure Monitor. Othe
 
 ## Workspace and management group limitations
 
-See [Configure agent to report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) for details on connecting an agent to an Operations Manager management group.
+See [Configure agent to report to an Operations Manager management group](../agents/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) for details on connecting an agent to an Operations Manager management group.
 
 * Windows agents can connect to up to four workspaces, even if they are connected to a System Center Operations Manager management group.
 * The Linux agent does not support multi-homing and can only connect to a single workspace or management group.
 
 ## Security limitations
 
-* The Windows and Linux agents support the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), but [other types of hardening may not be supported](agent-linux.md#supported-linux-hardening).
+* The Windows and Linux agents support the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), but [other types of hardening may not be supported](../agents/agent-linux.md#supported-linux-hardening).
 
 ## Installation options
 
@@ -81,8 +81,8 @@ There are multiple methods to install the Log Analytics agent and connect your m
 ### Windows virtual machine on-premises or in another cloud
 
 - Use [Azure Arc enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension.
-- [Manually install](agent-windows.md) the agent from the command line.
-- Automate the installation with [Azure Automation DSC](agent-windows.md#install-agent-using-dsc-in-azure-automation).
+- [Manually install](../agents/agent-windows.md) the agent from the command line.
+- Automate the installation with [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation).
 - Use a [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win)
 
 ### Linux virtual machine on-premises or in another cloud
@@ -124,9 +124,9 @@ If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and 
 
 ### Proxy configuration
 
-The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
+The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](../agents/agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 
-For the Linux agent, the proxy server is specified during installation or [after installation](agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file. The Linux agent proxy configuration value has the following syntax:
+For the Linux agent, the proxy server is specified during installation or [after installation](../agents/agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file. The Linux agent proxy configuration value has the following syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
@@ -146,6 +146,6 @@ For example:
 
 ## Next steps
 
-* Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
+* Review [data sources](../agents/agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.

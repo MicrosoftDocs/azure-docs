@@ -169,11 +169,11 @@ The following table lists Azure services and the data they collect into Azure Mo
 ## Virtual machine agents
 The following table lists the agents that can collect data from the guest operating system of virtual machines and send data to Monitor. Each agent can collect different data and send it to either Metrics or Logs in Azure Monitor. 
 
-See [Overview of Azure Monitor agents](platform/agents-overview.md) for details on the data that each agent can collect.
+See [Overview of Azure Monitor agents](agents/agents-overview.md) for details on the data that each agent can collect.
 
 | Agent |  Metrics | Logs |
 |:---|:---|:---|:---|
-| [Azure Monitor agent (preview)](platform/azure-monitor-agent-overview.md) | Yes | Yes |
+| [Azure Monitor agent (preview)](agents/azure-monitor-agent-overview.md) | Yes | Yes |
 | [Log Analytics agent](platform/log-analytics-agent.md) | No | Yes|
 | [Diagnostic extension](platform/diagnostics-extension-overview.md) | Yes | No |
 | [Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md) | Yes | No |
@@ -229,7 +229,7 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 | Resource | Method |
 |:---|:---|
 | Applications | Monitor web applications outside of Azure using Application Insights. See [What is Application Insights?](./app/app-insights-overview.md). |
-| Virtual machines | Use agents to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Overview of Azure Monitor agents](platform/agents-overview.md). |
+| Virtual machines | Use agents to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Overview of Azure Monitor agents](agents/agents-overview.md). |
 | REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](platform/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](platform/metrics-store-custom-rest-api.md) for Metrics. |
 
 

@@ -40,14 +40,14 @@ Azure Monitor for VMs is available for Azure Arc enabled servers in regions wher
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../platform/agents-overview.md#supported-operating-systems). |
+| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../agents/agents-overview.md#supported-operating-systems). |
 | Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |
 
 ## Supported operating systems
 
 Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
-](../platform/agents-overview.md#supported-operating-systems) for a complete list.
+](../agents/agents-overview.md#supported-operating-systems) for a complete list.
 
 > [!IMPORTANT]
 > The Azure Monitor for VMs guest health feature has more limited operating system support while it's in public preview. See [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for a detailed list.

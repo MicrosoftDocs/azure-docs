@@ -49,14 +49,14 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 ## Azure Monitor agent (preview)
 
-The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent and Telegraf agent for both Windows and Linux machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent and Telegraf agent for both Windows and Linux machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](../platform/data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
 Use the Azure Monitor agent if you need to:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
 - Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
 - Send data to Azure Storage for archiving.
-- Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Send data to third-party tools using [Azure Event Hubs](../platform/diagnostics-extension-stream-event-hubs.md).
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Not available in preview.)
 
 Limitations of the Azure Monitor agent include:
@@ -65,7 +65,7 @@ Limitations of the Azure Monitor agent include:
 
 ## Log Analytics agent
 
-The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
+The [Log Analytics agent](../platform/log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises machines. It sends data to a Log Analytics workspace. The Log Analytics agent is the same agent used by System Center Operations Manager, and you can multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain insights in Azure Monitor and other services in Azure.
 
 > [!NOTE]
 > The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
@@ -73,7 +73,7 @@ The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from 
 Use the Log Analytics agent if you need to:
 
 * Collect logs and performance data from Azure virtual machines or hybrid machines hosted outside of Azure.
-* Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](data-platform-logs.md) such as [log queries](../log-query/log-query-overview.md).
+* Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](../platform/data-platform-logs.md) such as [log queries](../log-query/log-query-overview.md).
 * Use [Azure Monitor for VMs](../insights/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 * Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
@@ -87,13 +87,13 @@ Limitations of the Log Analytics agent include:
 
 ## Azure diagnostics extension
 
-The [Azure Diagnostics extension](diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. It primarily collects data into Azure Storage but also allows you to define data sinks to also send data to other destinations such as Azure Monitor Metrics and Azure Event Hubs.
+The [Azure Diagnostics extension](../platform/diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. It primarily collects data into Azure Storage but also allows you to define data sinks to also send data to other destinations such as Azure Monitor Metrics and Azure Event Hubs.
 
 Use Azure diagnostic extension if you need to:
 
 - Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Send data to [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](./alerts-metric-overview.md) and [autoscale](autoscale-overview.md) (Windows only).
-- Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Send data to [Azure Monitor Metrics](../platform/data-platform-metrics.md) to analyze it with [metrics explorer](../platform/metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](./../platform/alerts-metric-overview.md) and [autoscale](../platform/autoscale-overview.md) (Windows only).
+- Send data to third-party tools using [Azure Event Hubs](../platform/diagnostics-extension-stream-event-hubs.md).
 - Collect [Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md) to investigate VM boot issues.
 
 Limitations of Azure diagnostics extension include:
@@ -103,11 +103,11 @@ Limitations of Azure diagnostics extension include:
 
 ## Telegraf agent
 
-The [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) is used to collect performance data from Linux computers to Azure Monitor Metrics.
+The [InfluxData Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) is used to collect performance data from Linux computers to Azure Monitor Metrics.
 
 Use Telegraf agent if you need to:
 
-* Send data to [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](./alerts-metric-overview.md) and [autoscale](autoscale-overview.md) (Linux only).
+* Send data to [Azure Monitor Metrics](../platform/data-platform-metrics.md) to analyze it with [metrics explorer](../platform/metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](./../platform/alerts-metric-overview.md) and [autoscale](../platform/autoscale-overview.md) (Linux only).
 
 ## Dependency agent
 
@@ -214,6 +214,6 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 
 Get more details on each of the agents at the following:
 
-- [Overview of the Log Analytics agent](log-analytics-agent.md)
-- [Azure Diagnostics extension overview](diagnostics-extension-overview.md)
-- [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md)
+- [Overview of the Log Analytics agent](../platform/log-analytics-agent.md)
+- [Azure Diagnostics extension overview](../platform/diagnostics-extension-overview.md)
+- [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md)

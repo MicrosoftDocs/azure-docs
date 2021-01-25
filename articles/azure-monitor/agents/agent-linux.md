@@ -13,10 +13,10 @@ ms.date: 08/21/2020
 This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
-* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](gateway.md). 
+* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](../platform/gateway.md). 
 
 >[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](../platform/log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
 
 
@@ -96,7 +96,7 @@ The following table highlights the packages required for [supported Linux distro
 >Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ## Network requirements
-See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
+See [Log Analytics agent overview](../platform/log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
 
 ## Agent install package
 
@@ -118,7 +118,7 @@ After installing the Log Analytics agent for Linux packages, the following addit
 
 * A non-privileged user named: `omsagent` is created. The daemon runs under this credential. 
 * A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives are not supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
-* The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](data-sources-syslog.md).
+* The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](../platform/data-sources-syslog.md).
 
 On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is the Log Analytics agent for Linux configuration agent that looks for new portal side configuration every 5 minutes. The new and updated configuration is applied to the agent configuration files located at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
 

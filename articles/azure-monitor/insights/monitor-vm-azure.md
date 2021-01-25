@@ -38,11 +38,11 @@ Virtual machines in Azure generate the following data for the virtual machine ho
 
 
 ### Guest operating system
-To collect data from the guest operating system of a virtual machine, you require an agent, which runs locally on each virtual machine and sends data to Azure Monitor. Multiple agents are available for Azure Monitor with each collecting different data and writing data to different locations. Get a detailed comparison of the different agents at [Overview of the Azure Monitor agents](../platform/agents-overview.md). 
+To collect data from the guest operating system of a virtual machine, you require an agent, which runs locally on each virtual machine and sends data to Azure Monitor. Multiple agents are available for Azure Monitor with each collecting different data and writing data to different locations. Get a detailed comparison of the different agents at [Overview of the Azure Monitor agents](../agents/agents-overview.md). 
 
-- [Log Analytics agent](../platform/agents-overview.md#log-analytics-agent) - Available for virtual machines in Azure, other cloud environments, and on-premises. Collects data to Azure Monitor Logs. Supports Azure Monitor for VMs and monitoring solutions. This is the same agent used for System Center Operations Manager.
-- [Dependency agent](../platform/agents-overview.md#dependency-agent) - Collects data about the processes running on the virtual machine and their dependencies. Relies on the Log Analytics agent to transmit data into Azure and supports Azure Monitor for VMs, Service Map, and Wire Data 2.0 solutions.
-- [Azure Diagnostic extension](../platform/agents-overview.md#azure-diagnostics-extension) - Available for Azure Monitor virtual machines only. Can collect data to multiple locations but primarily used to collect guest performance data into Azure Monitor Metrics for Windows virtual machines.
+- [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent) - Available for virtual machines in Azure, other cloud environments, and on-premises. Collects data to Azure Monitor Logs. Supports Azure Monitor for VMs and monitoring solutions. This is the same agent used for System Center Operations Manager.
+- [Dependency agent](../agents/agents-overview.md#dependency-agent) - Collects data about the processes running on the virtual machine and their dependencies. Relies on the Log Analytics agent to transmit data into Azure and supports Azure Monitor for VMs, Service Map, and Wire Data 2.0 solutions.
+- [Azure Diagnostic extension](../agents/agents-overview.md#azure-diagnostics-extension) - Available for Azure Monitor virtual machines only. Can collect data to multiple locations but primarily used to collect guest performance data into Azure Monitor Metrics for Windows virtual machines.
 - [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) - Collect performance data from Linux VMs into Azure Monitor Metrics.
 
 
@@ -82,7 +82,7 @@ You can access the configuration for the workspace directly from Azure Monitor f
 
 ![Workspace configuration](media/monitor-vm-azure/workspace-configuration.png)
 
-Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../platform/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
+Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
 
 ![Configure events](media/monitor-vm-azure/configure-events.png)
 

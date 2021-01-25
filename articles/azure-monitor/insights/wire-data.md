@@ -52,7 +52,7 @@ Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agen
 
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
-| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../platform/agent-windows.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../agents/agent-windows.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../learn/quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../platform/om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Azure Monitor is required. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
@@ -178,7 +178,7 @@ The Dependency agent is installed on computers running Windows through InstallDe
 
 Use the following steps to install the Dependency agent on each computer running Windows:
 
-1. Install the Log Analytics agent following the steps in [Collect data from Windows computers hosted in your environment](../platform/agent-windows.md).
+1. Install the Log Analytics agent following the steps in [Collect data from Windows computers hosted in your environment](../agents/agent-windows.md).
 2. Download the Windows Dependency agent using the link in the previous section and then run it by using the following command: `InstallDependencyAgent-Windows.exe`
 3. Follow the wizard to install the agent.
 4. If the Dependency agent fails to start, check the logs for detailed error information. For Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs.
