@@ -12,16 +12,14 @@ ms.custom:
 
 # Deploy a Cloud Services (extended support) using SDK
 
-This article shows how to use the Azure SDK to deploy Cloud Services (extended support) that has multiple roles (WebRole and WorkerRole) and remote desktop extension. 
+This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to deploy Cloud Services (extended support) that has multiple roles (WebRole and WorkerRole) and the remote desktop extension. 
 
 > [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cloud Services (extended support) is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
 
-2. Install the Azure Compute SDK NuGet package and initialize the client using a standard authentication mechanism.
+2. Install the [Azure Compute SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) and initialize the client using a standard authentication mechanism.
 
     ```csharp
         public class CustomLoginCredentials : ServiceClientCredentials
@@ -57,7 +55,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
         m_SrpClient.SubscriptionId = m_subId;
     ```
 
-3. Create a new resource group by installing the Azure Resource Manager NuGet package. A resource group is a logical container into which Azure resources are deployed and managed. 
+3. Create a new resource group by installing the Azure Resource Manager NuGet package.
 
     ```csharp 
     var resourceGroups = m_ResourcesClient.ResourceGroups;
@@ -67,7 +65,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the Azure Storage NuGet package. This step is optional if using an existing storage account. Note: You must use a unique name for storage account name.
+4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if using an existing storage account. The storage account name must be unique.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -103,7 +101,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-5. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be Shared Access Signature (SAS) URI from any storage account.
+5. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be a Shared Access Signature (SAS) URI from any storage account.
 
     ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
@@ -129,7 +127,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-7. Create a virtual network and subnet. Install the Azure Network NuGet package. This step is optional if using an existing network and subnet. This example uses a single virtual network and subnet.
+7. Create a virtual network and subnet. Install the [Azure Network NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.Network/). This step is optional if using an existing network and subnet.
 
     ```csharp
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
@@ -200,7 +198,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     
     ```
 
-10. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see Use certificates with Azure Cloud Services (extended support).
+10. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [Use certificates with Azure Cloud Services (extended support)](certifcates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
@@ -275,7 +273,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
                     }
     ```
 
-15. (Optional) Create an Extension Profile object that you want to add to your cloud service. For this example we will add RDP extension.
+15. (Optional) Create an Extension Profile object that you want to add to your cloud service. In this example we will add RDP extension.
 
     ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
@@ -307,7 +305,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
         };
     ```
 
-16. Create Cloud Service deployment using its properties
+16. Create Cloud Service deployment.
 
     ```csharp
     CloudService cloudService = new CloudService
