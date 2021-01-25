@@ -41,8 +41,7 @@ Below are some guidelines for choosing address pools. Note that point-to-site VP
 1. A single address pool is only assigned to a single gateway instance by Virtual WAN.
 1. Address pools must be distinct. There can be no overlap between address pools.
 
-> [!NOTE] If an address pool is associated to a gateway instance that is undergoing maintenance, the address pool cannot be re-assigned to Instance2 or Instance3.
-
+> [!NOTE] If an address pool is associated to a gateway instance that is undergoing maintenance, the address pool cannot be re-assigned.
 
 ### Example 
 
