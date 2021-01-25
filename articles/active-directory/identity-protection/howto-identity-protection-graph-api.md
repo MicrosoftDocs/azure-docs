@@ -46,7 +46,7 @@ Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
    1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API).
    1. Under **Supported account types**, select the type of accounts that will use the APIs.
    1. Select **Register**.
-1. Take note of the **Application (client) ID** and **Directory (tenant) ID** as you will need these later.
+1. Take note of the **Application (client) ID** and **Directory (tenant) ID** as you will need these items later.
 
 ### Configure API permissions
 
@@ -66,11 +66,11 @@ Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 1. Under **certificates**, select **Upload certificate**.
    1. Select the previously exported certificate from the window that opens.
    1. Select **Add**.
-1. Take note of the **Thumbprint** of the certificate as you will need this in the next step.
+1. Take note of the **Thumbprint** of the certificate as you will need this information in the next step.
 
 ## List risky users using PowerShell
 
-To enable the ability to query Microsoft Graph we need to install the Microsoft.Graph module in our PowerShell window using the `Install-Module Microsoft.Graph` command.
+To enable the ability to query Microsoft Graph, we need to install the `Microsoft.Graph` module in our PowerShell window, using the `Install-Module Microsoft.Graph` command.
 
 Modify the following variables to include the information generated in the previous steps, then run them as a whole to get risky user details using PowerShell.
 
