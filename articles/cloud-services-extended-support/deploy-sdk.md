@@ -19,7 +19,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Review the [deployment prerequisites](deployment-prerequisite.md) for Cloud Services (extended support) and create associated resources.
+1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
 
 2. Install the Azure Compute SDK nuget package and initialize the client using a standard authentication mechanism.
 
