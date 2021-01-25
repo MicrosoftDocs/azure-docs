@@ -43,7 +43,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Connect to an App Configuration store
 
-This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection). It adds Azure App Configuration as an extra configuration source where your feature flags are stored.
+This project will use [dependency injection in .NET Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md). It adds Azure App Configuration as an extra configuration source where your feature flags are stored.
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add following NuGet packages to your project.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) version 4.1.0 or later

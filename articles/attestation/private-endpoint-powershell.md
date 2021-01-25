@@ -18,8 +18,8 @@ In this quickstart, you'll create a private endpoint for Azure Attestation and d
 
 ## Prerequisites
 
-* Learn about [Azure Private Link](/azure/private-link/private-link-overview)
-* [Set up Azure Attestation with Azure PowerShell](/azure/attestation/quickstart-powershell)
+* Learn about [Azure Private Link](../private-link/private-link-overview.md)
+* [Set up Azure Attestation with Azure PowerShell](./quickstart-powershell.md)
 
 ## Create a resource group
 
@@ -203,4 +203,3 @@ In this section, you'll use the virtual machine you created in the previous step
 	Non-authoritative answer:
 	Name:    myattestationprovider.eastus.test.attest.azure.net
 	```
-

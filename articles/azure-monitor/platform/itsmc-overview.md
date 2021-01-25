@@ -28,7 +28,7 @@ ITSMC supports connections with the following ITSM tools:
 -	Cherwell
 
    >[!NOTE]
-> We propose our Cherwell and Provance customers to use [Webhook action](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) to Cherwell and Provance endpoint as another solution to the integration.
+> We propose our Cherwell and Provance customers to use [Webhook action](./action-groups.md#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 With ITSMC, you can:
 
