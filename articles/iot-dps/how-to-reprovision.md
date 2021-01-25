@@ -11,9 +11,9 @@ services: iot-dps
 
 # How to reprovision devices
 
-During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. This topic is written to assist solution operators configuring re-provisioning policies.
+During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. This topic is written to assist solution operators configuring reprovisioning policies.
 
-For more a more detailed overview of re-provisioning scenarios, see [IoT Hub Device re-provisioning concepts](concepts-device-reprovision.md).
+For more a more detailed overview of reprovisioning scenarios, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
 
 
 ## Configure the enrollment allocation policy
