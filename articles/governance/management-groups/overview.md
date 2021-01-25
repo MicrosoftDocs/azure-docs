@@ -1,9 +1,9 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 11/17/2020
+ms.date: 01/22/2021
 ms.topic: overview
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 # What are Azure management groups?
 
@@ -235,8 +235,8 @@ There are a couple different options to fix this scenario:
 - Change the assignable scope within the role definition. In the above example, you can update the
   assignable scopes from Marketing to Root Management Group so that the definition can be reached by
   both branches of the hierarchy.  
-- Create an additional Custom Role that will be defined in the other branch. This new role will
-  require the role assignment to be changed on the subscription also.  
+- Create another Custom Role that is defined in the other branch. This new role requires the role
+  assignment to be changed on the subscription also.  
 
 ### Limitations  
 
@@ -246,13 +246,15 @@ There are limitations that exist when using custom roles on management groups.
    is in place to reduce the number of situations where role definitions and role assignments are
    disconnected. This situation happens when a subscription or management group with a role
    assignment moves to a different parent that doesn't have the role definition.  
- - Resource provider data plane actions can't be defined in management group custom roles. This restriction is in
-   place as there's a latency issue with updating the data plane resource providers.
-   This latency issue is being worked on and these actions will be disabled from the role definition
-   to reduce any risks.
+ - Resource provider data plane actions can't be defined in management group custom roles. This
+   restriction is in place as there's a latency issue with updating the data plane resource
+   providers. This latency issue is being worked on and these actions will be disabled from the role
+   definition to reduce any risks.
  - The Azure Resource Manager doesn't validate the management group's existence in the role
    definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
-   role definition will still be created.
+   role definition is still created.
+ - Role assignment for a role with _dataActions_ aren't supported. Create the role assignment at the
+   subscription scope instead.
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview. This preview version is

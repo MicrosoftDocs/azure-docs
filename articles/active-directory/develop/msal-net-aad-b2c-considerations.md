@@ -133,7 +133,7 @@ By using username/password in an ROPC flow, you sacrifice several things:
 
 ### Configure the ROPC flow in Azure AD B2C
 
-In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC** to enable ROPC for the user flow. For more information, see [Configure the resource owner password credentials flow](../../active-directory-b2c/configure-ropc.md).
+In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC** to enable ROPC for the user flow. For more information, see [Configure the resource owner password credentials flow](../../active-directory-b2c/add-ropc-policy.md).
 
 `IPublicClientApplication` contains the `AcquireTokenByUsernamePassword` method:
 

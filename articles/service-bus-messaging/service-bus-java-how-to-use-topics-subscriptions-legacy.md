@@ -63,14 +63,14 @@ public class MyServiceBusTopicClient {
 
     static final Gson GSON = new Gson();
     
-	public static void main(String[] args) throws Exception, ServiceBusException {
-		// TODO Auto-generated method stub
+    public static void main(String[] args) throws Exception, ServiceBusException {
+        // TODO Auto-generated method stub
 
-		TopicClient sendClient;
-		String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
+        TopicClient sendClient;
+        String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
         sendClient = new TopicClient(new ConnectionStringBuilder(connectionString, "BasicTopic"));       
         sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
-	}
+    }
 
     static CompletableFuture<Void> sendMessagesAsync(TopicClient sendClient) {
         List<HashMap<String, String>> data =
@@ -128,9 +128,9 @@ import java.util.concurrent.*;
 public class MyServiceBusSubscriptionClient {
     static final Gson GSON = new Gson();
     
-	public static void main(String[] args) throws Exception, ServiceBusException {
-		String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
-		
+    public static void main(String[] args) throws Exception, ServiceBusException {
+        String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
+        
         SubscriptionClient subscription1Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription1"), ReceiveMode.PEEKLOCK);
         SubscriptionClient subscription2Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription2"), ReceiveMode.PEEKLOCK);
         SubscriptionClient subscription3Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription3"), ReceiveMode.PEEKLOCK);        
@@ -140,7 +140,7 @@ public class MyServiceBusSubscriptionClient {
         registerMessageHandlerOnClient(subscription2Client, executorService);
         registerMessageHandlerOnClient(subscription3Client, executorService);
     }
-	
+    
     static void registerMessageHandlerOnClient(SubscriptionClient receiveClient, ExecutorService executorService) throws Exception {
         // register the RegisterMessageHandler callback
         receiveClient.registerMessageHandler(
@@ -197,256 +197,256 @@ Message sending: Id = 6
 Message sending: Id = 7
 Message sending: Id = 8
 Message sending: Id = 9
-	Message acknowledged: Id = 0
-	Message acknowledged: Id = 9
-	Message acknowledged: Id = 7
-	Message acknowledged: Id = 8
-	Message acknowledged: Id = 5
-	Message acknowledged: Id = 6
-	Message acknowledged: Id = 3
-	Message acknowledged: Id = 2
-	Message acknowledged: Id = 4
-	Message acknowledged: Id = 1
+    Message acknowledged: Id = 0
+    Message acknowledged: Id = 9
+    Message acknowledged: Id = 7
+    Message acknowledged: Id = 8
+    Message acknowledged: Id = 5
+    Message acknowledged: Id = 6
+    Message acknowledged: Id = 3
+    Message acknowledged: Id = 2
+    Message acknowledged: Id = 4
+    Message acknowledged: Id = 1
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 0, 
-						SequenceNumber = 11, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Albert, name = Einstein ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 0, 
+                        SequenceNumber = 11, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Albert, name = Einstein ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 0, 
-						SequenceNumber = 11, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Albert, name = Einstein ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 0, 
+                        SequenceNumber = 11, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Albert, name = Einstein ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 9, 
-						SequenceNumber = 12, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Nikolaus, name = Kopernikus ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 9, 
+                        SequenceNumber = 12, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Nikolaus, name = Kopernikus ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 8, 
-						SequenceNumber = 13, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Johannes, name = Kepler ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 8, 
+                        SequenceNumber = 13, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Johannes, name = Kepler ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 0, 
-						SequenceNumber = 11, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Albert, name = Einstein ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 0, 
+                        SequenceNumber = 11, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Albert, name = Einstein ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 9, 
-						SequenceNumber = 12, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Nikolaus, name = Kopernikus ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 9, 
+                        SequenceNumber = 12, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Nikolaus, name = Kopernikus ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 7, 
-						SequenceNumber = 14, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Galileo, name = Galilei ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 7, 
+                        SequenceNumber = 14, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Galileo, name = Galilei ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 9, 
-						SequenceNumber = 12, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Nikolaus, name = Kopernikus ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 9, 
+                        SequenceNumber = 12, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Nikolaus, name = Kopernikus ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 8, 
-						SequenceNumber = 13, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Johannes, name = Kepler ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 8, 
+                        SequenceNumber = 13, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Johannes, name = Kepler ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 6, 
-						SequenceNumber = 15, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Michael, name = Faraday ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 6, 
+                        SequenceNumber = 15, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Michael, name = Faraday ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 8, 
-						SequenceNumber = 13, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Johannes, name = Kepler ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 8, 
+                        SequenceNumber = 13, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Johannes, name = Kepler ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 7, 
-						SequenceNumber = 14, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Galileo, name = Galilei ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 7, 
+                        SequenceNumber = 14, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Galileo, name = Galilei ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 5, 
-						SequenceNumber = 16, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Niels, name = Bohr ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 5, 
+                        SequenceNumber = 16, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Niels, name = Bohr ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 7, 
-						SequenceNumber = 14, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Galileo, name = Galilei ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 7, 
+                        SequenceNumber = 14, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Galileo, name = Galilei ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 6, 
-						SequenceNumber = 15, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Michael, name = Faraday ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 6, 
+                        SequenceNumber = 15, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Michael, name = Faraday ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 4, 
-						SequenceNumber = 17, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Isaac, name = Newton ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 4, 
+                        SequenceNumber = 17, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Isaac, name = Newton ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 6, 
-						SequenceNumber = 15, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Michael, name = Faraday ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 6, 
+                        SequenceNumber = 15, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Michael, name = Faraday ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 5, 
-						SequenceNumber = 16, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Niels, name = Bohr ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 5, 
+                        SequenceNumber = 16, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Niels, name = Bohr ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 3, 
-						SequenceNumber = 18, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Steven, name = Hawking ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 3, 
+                        SequenceNumber = 18, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Steven, name = Hawking ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 5, 
-						SequenceNumber = 16, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Niels, name = Bohr ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 5, 
+                        SequenceNumber = 16, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Niels, name = Bohr ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 4, 
-						SequenceNumber = 17, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Isaac, name = Newton ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 4, 
+                        SequenceNumber = 17, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Isaac, name = Newton ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 2, 
-						SequenceNumber = 19, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Marie, name = Curie ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 2, 
+                        SequenceNumber = 19, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Marie, name = Curie ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 4, 
-						SequenceNumber = 17, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Isaac, name = Newton ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 4, 
+                        SequenceNumber = 17, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Isaac, name = Newton ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 3, 
-						SequenceNumber = 18, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Steven, name = Hawking ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 3, 
+                        SequenceNumber = 18, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Steven, name = Hawking ]
 
-				BasicTopic/subscriptions/Subscription1 Message received: 
-						MessageId = 1, 
-						SequenceNumber = 20, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Werner, name = Heisenberg ]
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 1, 
+                        SequenceNumber = 20, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Werner, name = Heisenberg ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 2, 
-						SequenceNumber = 19, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Marie, name = Curie ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 2, 
+                        SequenceNumber = 19, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Marie, name = Curie ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 3, 
-						SequenceNumber = 18, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Steven, name = Hawking ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 3, 
+                        SequenceNumber = 18, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Steven, name = Hawking ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 2, 
-						SequenceNumber = 19, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Marie, name = Curie ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 2, 
+                        SequenceNumber = 19, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Marie, name = Curie ]
 
-				BasicTopic/subscriptions/Subscription2 Message received: 
-						MessageId = 1, 
-						SequenceNumber = 20, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Werner, name = Heisenberg ]
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 1, 
+                        SequenceNumber = 20, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Werner, name = Heisenberg ]
 
-				BasicTopic/subscriptions/Subscription3 Message received: 
-						MessageId = 1, 
-						SequenceNumber = 20, 
-						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
-						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
-						ContentType = "application/json",  
-						Content: [ firstName = Werner, name = Heisenberg ]
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 1, 
+                        SequenceNumber = 20, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
 > [!NOTE]

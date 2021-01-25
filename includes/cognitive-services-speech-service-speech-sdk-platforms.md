@@ -19,7 +19,7 @@ ms.author: dapine
 
 <sup>2 The Java Speech SDK is also available as part of the [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md).</sup>
 
-[net-sdk]: /dotnet/api/microsoft.cognitiveservices.speech
+[net-sdk]: /dotnet/api/overview/azure/cognitiveservices/client/speechservice
 [cpp-sdk]: /cpp/cognitive-services/speech/
 [javasdk]: /java/api/com.microsoft.cognitiveservices.speech
 [ecmasdk]: /javascript/api/microsoft-cognitiveservices-speech-sdk/

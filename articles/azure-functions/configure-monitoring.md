@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: "contperfq2, devx-track-azurecli"
+ms.custom: "contperf-fy21q2"
 # Customer intent: As a developer, I want to understand how to correctly configure monitoring for my functions so I can collect the data that I need.
 ---
 
@@ -193,7 +193,7 @@ To learn more, see [Sampling in Application Insights](../azure-monitor/app/sampl
 
 _This feature is in preview._ 
 
-You can have the [Azure Functions scale controller](./functions-scale.md#runtime-scaling) emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
+You can have the [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
 
 To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. The value of this setting must be of the format `<DESTINATION>:<VERBOSITY>`, based on the following:
 
@@ -229,7 +229,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-When you create your function app [in the Azure portal](functions-create-first-azure-function.md), from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md), or by using [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
+When you create your function app [in the Azure portal](./functions-get-started.md), from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md), or by using [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
 ### New function app in the portal
 

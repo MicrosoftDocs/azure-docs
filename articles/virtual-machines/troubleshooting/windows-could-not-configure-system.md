@@ -36,4 +36,7 @@ This error is caused when the operating system (OS) is unable to complete the [S
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 To fix this issue, follow the [Azure guidance on preparing/capturing an image](../windows/upload-generalized-managed.md) and prepare a new generalized image.
