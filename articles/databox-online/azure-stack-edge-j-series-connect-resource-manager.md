@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
@@ -135,7 +135,7 @@ Your Windows client must meet the following prerequisites:
 
     Compare the **Major** version and ensure that it is 5.0 or later.
 
-    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6preserve-view=true#upgrading-existing-windows-powershell).
+    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
     If you don\'t have PowerShell 5.0, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
@@ -324,7 +324,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge Pro device.
 
