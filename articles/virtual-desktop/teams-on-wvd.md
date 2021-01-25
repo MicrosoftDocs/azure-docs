@@ -10,7 +10,7 @@ manager: lizross
 # Use Microsoft Teams on Windows Virtual desktop
 
 >[!IMPORTANT]
->Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for GCC-High or DoD.
+>Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.
 
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
