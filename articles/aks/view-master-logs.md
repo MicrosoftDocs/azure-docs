@@ -22,12 +22,14 @@ To help collect and review data from multiple sources, Azure Monitor logs provid
 Azure Monitor logs are enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, open the Azure portal in a web browser and complete the following steps:
 
 1. Select the resource group for your AKS cluster, such as *myResourceGroup*. Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_eastus*.
-1. On the left-hand side, choose **Diagnostic settings**.
-1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Add diagnostic setting**.
-1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics**.
-1. Select an existing workspace or create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
-1. In the list of available logs, select the logs you wish to enable. For this example, enable the *kube-audit* and *kube-audit-admin* logs. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
-1. When ready, select **Save** to enable collection of the selected logs.
+2. On the left-hand side, choose **Diagnostic settings**.
+3. Select your AKS cluster, such as *myAKSCluster*, then choose to **Add diagnostic setting**.
+  :::image type="content" source="media\view-master-logs\select-add-diagnostic-setting.PNG" alt-text="{alt-text}":::
+4. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics workspace**.
+5. Select an existing workspace or create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
+6. In the list of available logs, select the logs you wish to enable. For this example, enable the *kube-audit* and *kube-audit-admin* logs. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
+7. When ready, select **Save** to enable collection of the selected logs.
+  :::image type="content" source="media\view-master-logs\settings-selected.PNG" alt-text="{alt-text}":::
 
 ## Log categories
 
