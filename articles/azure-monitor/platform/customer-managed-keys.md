@@ -121,11 +121,33 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ## Create cluster
 
-> [!NOTE]
-> Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned and each can be based depending your scenario. System-assigned managed identity is simpler and it's created automatically with the cluster creation when identity `type` is set as "*SystemAssigned*" -- this identity can be used later to grant the cluster access to your Key Vault. If you want to create a cluster while Customer-managed key is defined at cluster creation time, you should have a key defined and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the identity's resource ID and `keyVaultProperties` with key details.
+Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned, while a single identity can be defined in a cluster depending on your scenario. 
+- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations. 
+  
+  Identity settings in cluster for System-assigned managed identity
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- If you want to configure Customer-managed key at cluster creation, you should have a key and User-assigned identity granted in your Key Vault beforehand, then create the cluster with these settings: identity `type` as "*UserAssigned*", `UserAssignedIdentities` with the *resource ID* of your identity.
+
+  Identity settings in cluster for User-assigned managed identity
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet) and you can use System-assigned managed identity in this case.
+> You can't use User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -240,15 +262,13 @@ Follow the procedure illustrated in [Dedicated Clusters article](../log-query/lo
 
 ## Key revocation
 
-You can revoke access to data by disabling your key, or deleting the cluster's access policy in your Key Vault. 
-
 > [!IMPORTANT]
-> - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn't applied to System-assigned managed identity.
-> - The recommended key revocation action is by disabling your key in your Key Vault.
+> - The recommended way to revoke access to your data is by disabling your key, or deleting access policy in your Key Vault.
+> - Setting the cluster's `identity` `type` to "None" also revokes access to your data, but this approach isn't recommended since you can't revert the revocation when restating the `identity` in the cluster without opening support request.
 
-The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible as well.
+The cluster storage will always respect changes in key permissions within an hour or sooner and storage will become unavailable. Any new data ingested to workspaces linked with your cluster gets dropped and won't be recoverable, data becomes inaccessible and queries on these workspaces fail. Previously ingested data remains in storage as long as your cluster and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible.
 
-The cluster's storage periodically polls your Key Vault to attempt to unwrap the encryption key and once accessed, data ingestion and query resume within 30 minutes.
+The cluster's storage periodically checks your Key Vault to attempt to unwrap the encryption key and once accessed, data ingestion and query are resumed within 30 minutes.
 
 ## Key rotation
 
@@ -256,7 +276,7 @@ Customer-managed key rotation requires an explicit update to the cluster with th
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## Customer-managed key for queries
+## Customer-managed key for saved queries
 
 The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
@@ -407,7 +427,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
   - If your cluster is set with User-assigned managed identity, setting `UserAssignedIdentities` with `None` suspends the cluster and prevents access to your data, but you can't revert the revocation and activate the cluster without opening support request. This limitation isn' applied to System-assigned managed identity.
 
-  - Currently you can't defined Customer-managed key with User-assigned managed identity if your Key Vault is located in Private-Link (vNet) and you can use System-assigned managed identity in this case.
+  - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is  in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
 ## Troubleshooting
 

@@ -31,6 +31,8 @@ For example, you can:
 
 To use data export features, you must have a [V3 application](howto-get-app-info.md), and you must have the [Data export](howto-manage-users-roles.md) permission.
 
+If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
+
 ## Set up export destination
 
 Your export destination must exist before you configure your data export. The following destination types are currently available:
