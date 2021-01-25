@@ -58,7 +58,7 @@ Azure Defender monitors for many threats to your App Service resources. The aler
 
 ### Dangling DNS detection
 
-Azure Defender for App Service also identifies any dangling DNS entries created in your DNS table when an App Service website is decommissioned. At this moment, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. 
+Azure Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. At this moment, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. 
 
 Subdomain takeovers are a common, high-severity threat for organizations. When a threat actor detects a dangling DNS entry, they create their own site at the destination address. The traffic intended for the organization’s domain is now directed to the threat actor's site, and they can use that traffic for a wide range of malicious activity. 
 
