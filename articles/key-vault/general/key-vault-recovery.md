@@ -26,7 +26,7 @@ For more information about Key Vault, see
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 * The user will need the following permissions (at subscription level) to perform operations on soft-deleted vaults:
 
-  |   |   |
+  | Permission | Description |
   |---|---|
   |Microsoft.KeyVault/locations/deletedVaults/read|View the properties of a soft deleted key vault|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
