@@ -32,11 +32,11 @@ Device agents, and other applications use the **Azure send security message SDK*
 
 Once the Defender for IoT service is enabled, in addition to the forwarded data, IoT hub also sends out all of its internal data for analysis by Defender for IoT. This data includes device-cloud operation logs, device identities, and hub configuration. All of this information helps to create the Defender for IoT analytics pipeline.
 
-Defender for IoT analytics pipeline also receives additional threat intelligence streams from various sources within Microsoft and Microsoft partners. The Defender for IoT entire analytics pipeline works with every customer configuration made on the service (such as custom alerts and use of the send security message SDK).
+Defender for IoT analytics pipeline also receives other threat intelligence streams from various sources within Microsoft and Microsoft partners. The Defender for IoT entire analytics pipeline works with every customer configuration made on the service (such as custom alerts and use of the send security message SDK).
 
 Using the analytics pipeline, Defender for IoT combines all of the streams of information to generate actionable recommendations and alerts. The pipeline contains both custom rules created by security researchers and experts as well as   machine learning models searching for deviation from standard device behavior and risk analysis.
 
-Defender for IoT recommendations and alerts (analytics pipeline output) is written to the Log Analytics workspace of each customer. Including the raw events in the workspace as well as the alerts and recommendations enables deep dive investigations and queries using the exact details of the suspicious activities detected.
+Defender for IoT recommendations and alerts (analytics pipeline output) is written to the Log Analytics workspace of each customer. Including the raw events in the workspace and the alerts and recommendations enables deep dive investigations and queries using the exact details of the suspicious activities detected.
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="The micro agent architecture.":::
 

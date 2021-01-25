@@ -101,7 +101,7 @@ A baseline validation failure recommendation will occur in the hub, with a `CceI
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub.":::
 
-The recommendation may take up to one hour to appear in the hub. Please allow up to 1 hour for the recommendation to appear in the hub. 
+The recommendation may take up to one hour to appear in the hub. Allow up to 1 hour for the recommendation to appear in the hub. 
 
 ## Micro Agent Versioning 
 

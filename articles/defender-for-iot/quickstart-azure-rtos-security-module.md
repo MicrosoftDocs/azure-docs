@@ -43,7 +43,7 @@ An IoT Hub connection is required to get started.
 1. Select **Create**.
 1. Copy the IoT connection string to the [configuration file](how-to-azure-rtos-security-module.md).
 
-The connections credentials are taken from the user application configuration **HOST_NAME**, **DEVICE_ID**,and **DEVICE_SYMMETRIC_KEY**.
+The connections credentials are taken from the user application configuration **HOST_NAME**, **DEVICE_ID**, and **DEVICE_SYMMETRIC_KEY**.
 
 The Security Module for Azure RTOS uses Azure IoT Middleware connections based on the **MQTT** protocol.
 

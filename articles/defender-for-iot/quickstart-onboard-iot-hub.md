@@ -28,7 +28,7 @@ This article provides an explanation of how to enable the Defender for IoT servi
 
 - Log Analytics workspace
   - Two types of information are stored by default in your Log Analytics workspace by Defender for IoT; **security alerts** and **recommendations**.
-  - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs.
+  - You can choose to add storage of an additional information type, **raw events**. Storing **raw events** in Log Analytics carries extra storage costs.
 - IoT Hub (standard tier)
 - Meet all [System prerequisites](quickstart-system-prerequisites.md).
 
@@ -37,7 +37,7 @@ This article provides an explanation of how to enable the Defender for IoT servi
 To enable security on your IoT Hub:
 
 1. Open your **IoT Hub** in Azure portal.
-1. Under the **Security** menu, click **Secure your IoT solution**.
+1. Under the **Security** menu, select **Secure your IoT solution**.
 
 Congratulations! You've completed enabling Defender for IoT on your IoT Hub.
 

@@ -1,6 +1,6 @@
 ---
 title: Security agents
-description: Get started with understanding, configuring, deploying and using Azure Defender for IoT security service agents on your IoT devices.
+description: Get started with understanding, configuring, deploying, and using Azure Defender for IoT security service agents on your IoT devices.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -19,9 +19,9 @@ ms.author: shhazam
 
 # Get started with Azure Defender for IoT device micro agents
 
-Defender for IoT security agents offer enhanced security capabilities, such as monitoring operating system configuration best practices. Take control of your device field threat protection and security posture with a single service.
+Defender for IoT security agents offers enhanced security capabilities, such as monitoring operating system configuration best practices. Take control of your device field threat protection and security posture with a single service.
 
-The Defender for IoT security agents handle raw event collection from the device operating system, event aggregation to reduce cost, and configuration through a device module twin. Security messages are sent through your IoT Hub, into Defender for IoT analytics services.
+The Defenders for IoT security agents handle raw event collection from the device operating system, event aggregation to reduce cost, and configuration through a device module twin. Security messages are sent through your IoT Hub, into Defender for IoT analytics services.
 
 Use the following workflow to deploy and test your Defender for IoT security agents:
 
