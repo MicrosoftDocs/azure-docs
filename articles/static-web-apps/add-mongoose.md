@@ -49,7 +49,7 @@ Begin by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosm
     - Capacity mode: **Serverless (preview)**
     - Version: **3.6**
     - Availability Zones: **Disable**
-    ![Completed Cosmos DB provisioning form](media/add-mongoose/cosmosdb.png)
+:::image type="content" source="media/add-mongoose/cosmosdb.png" alt-text="Create new Cosmos DB instance":::
 7. Click **Review + create**
 8. Click **Create**
 
