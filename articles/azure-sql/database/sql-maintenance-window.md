@@ -1,6 +1,6 @@
 ---
 title: SQL Maintenance Window
-description: Understand how Azure SQL Database and Managed Instance maintenance windows can be configured.
+description: Understand how the Azure SQL Database and Managed Instance maintenance window can be configured.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -15,7 +15,7 @@ ms.date: 01/19/2021
 # SQL Maintenance Window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-SQL Maintenance Windows allow for the configuration of predictable maintenance window schedules for [Azure SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). 
+The SQL Maintenance Window feature allows for the configuration of predictable maintenance window schedules for [Azure SQL Database](sql-database-paas-overview.md) and [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). 
 
 > [!Note]
 > For more information on maintenance events, see [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md).
@@ -28,7 +28,7 @@ The SQL Maintenance Window is intended for business workloads that are sensitive
 
 SQL Maintenance Window can be configured using the Azure portal PowerShell, or CLI on creation, or for existing Azure SQL Database and SQL Managed Instances.
 
-### Gain more predictability with SQL maintenance windows
+### Gain more predictability with SQL maintenance window
 
 By default, all SQL Azure databases and Managed Instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional SQL Maintenance Window slots:
 
@@ -43,7 +43,7 @@ Once the maintenance window selection is made, all planned maintenance updates w
 
 ### Supported service level objectives
 
-SQL Maintenance Windows are available on all Azure SQL Database and SQL Managed Instance SLOs except for:
+The SQL Maintenance Window feature is available on all Azure SQL Database and SQL Managed Instance SLOs except for:
 * Hyperscale 
 * Legacy Gen4 vCore
 * DTU S0 and S1 
@@ -54,7 +54,7 @@ SQL Maintenance Window is free of charge to all customers with [subscription typ
 
 ## Notifications
 
-Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. 
+Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [SQL Maintenance Window Notifications](maintenance-notifications.md).
 
 ## Availability
 
@@ -69,4 +69,19 @@ The SQL Maintenance Window is available in the following regions:
 - UK South
 - West Europe
 - West US 2
+
+## Next steps
+
+* [SQL Maintenance Window walkthrough](sql-maintenance-window-configure.md)
+* [SQL Maintenance Window Notifications walkthrough](maintenance-notifications.md)
+
+## Learn more
+
+* [SQL Maintenance Window FAQ](sql-maintenance-window-faq.yml)
+* [Azure SQL Database](sql-database-paas-overview.md) 
+* [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)
+* [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)
+
+
+
 
