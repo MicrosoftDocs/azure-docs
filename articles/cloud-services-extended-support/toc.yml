@@ -21,12 +21,10 @@
   expanded: true
 - name: Concepts
   items: 
-  - name: Available VM sizes
-    href: available-sizes.md
   - name: Extensions
     href: extensions.md
-  - name: Frequently Asked Questions
-    href: faq.md
+  - name: Available VM sizes
+    href: available-sizes.md
   - name: Guest OS patches
     href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
   - name: Guest OS retirement
@@ -51,6 +49,8 @@
       href: schema-cscfg-role.md
     - name: NetworkConfiguration schema
       href: schema-cscfg-networkconfiguration.md
+  - name: Frequently Asked Questions
+    href: faq.md
 - name: How To
   items:
   - name: Apply Remote Desktop extension
