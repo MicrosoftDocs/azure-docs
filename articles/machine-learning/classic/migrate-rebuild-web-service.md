@@ -6,30 +6,60 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 
-author: zhanxia
-ms.author: zhanixa
+author: xiaoharper
+ms.author: zhanxia
 ms.date: 1/19/2020
 ---
 
-# Rebuild web services
+# Rebuild web services in Azure Machine Learning
 
+In this article, you learn how to rebuild a Studio (classic) web service in Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
-In ML Studio(classic), there are three types of web service: request/respond web service, batch web service, and retraining web service. The mapping in Azure Machine Learning is summarized in below table.
+Studio (classic) web services have been replaced by **endpoints** in Azure Machine Learning. The following table shows the mapping between web service types and their endpoint replacements:
 
-|ML Studio(classic) web service|Azure Machine Learning endpoint|
+|Studio (classic) web service| Azure Machine Learning replacement
 |---|---|
-|Request/respond web service (for real-time prediction)|Real-time endpoint|
-|Batch web service (for batch prediction)|Pipeline endpoint|
-|Retraining web service (for retraining purpose)|Pipeline endpoint| 
+|Request/respond web service (real-time prediction)|Real-time endpoint|
+|Batch web service (batch prediction)|Pipeline endpoint|
+|Retraining web service (retraining)|Pipeline endpoint| 
+
+This article shows you how to recreate web services using both [real-time endpoints](#deploy-realtime-endpoint-for-realtime-prediction) and [pipeline endpoints](#publish-pipeline-endpoint-for-batch-prediction-or-retraining).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- Complete part one of migrating experiments from Studio (classic): [Rebuild your experiment](migrate-rebuild-experiment.md).
+
+## Deploy a real time endpoint
+
+In Studio (classic), you use a REQUEST/RESPOND web service to deploy a model for real-time predictions. In Azure Machine Learning, you use a **real-time endpoint**.
+
+There are multiple ways to deploy a model in Azure Machine Learning. However, one of the simplest ways is to use the designer to deploy a model from an existing training pipeline.
+
+1. Run your completed training pipeline at least once.
+1. After the run completes, at the top .of the canvas, select **Create inference pipeline** > **Real-time inference pipeline** 
+
+    ![create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
+        
+    The designer converts the training pipeline into a real-time inference pipeline. This conversion is the same as the conversion that occurs in Studio (classic) when you create a web service. 
+
+    In Azure Machine Learning designer, this step also registers your trained model to your Azure Machine Learing workspace.
+
+1. At the top of your inference pipeline, select **Submit** to run the real-time inference pipeline to make sure it works as expected.
+
+1. After you have verified the inference pipeline, select **Deploy**.
+1. Choose compute target and set deployment settings.
+
+    If you choose to deploy to Azure Kubernetes Service, make sure you have an ASK cluster in your workspace. See section [create-aks-in-studio](../how-to-create-attach-compute-studio.md#inference-clusters) for how to create AKS cluster.
+
+    If you choose to deploy to ACI, just select ACI in the dialog then Azure Machine Learning will create an ACI and deploy the model on it.
+    ![set up realtime endpoint](./media/migrate-to-AML/deploy-realtime-endpoint.png)
+1. Test the resulting endpoint.
     
-This article will cover how to recreate the web service by:
-- [Deploy real time endpoint for real time prediction](#deploy-realtime-endpoint-for-realtime-prediction) 
-- [Publish pipeline endpoint for batch prediction or retraining](#publish-pipeline-endpoint-for-batch-prediction-or-retraining)   
-
-
-## Deploy real time endpoint for real time prediction
-
-In ML Studio(classic), the REQUEST/RESPOND endpoint is used for real-time inference. In Azure Machine Learning, it's done by real-time endpoint. 
+    After deploy finish, you will see the deployed real-time endpoint in Endpoints tab in Azure Machine Learning Studio. And you can test the endpoint by click the endpoint name to enter endpoint detail page, then click **Test** tab.
+    
+    ![test-realtime-endpoint](./media/migrate-to-AML/test-realtime-endpoint.png)
 
 [This article](../how-to-deploy-and-where.md) explains how model deployment works in Azure Machine Learning. The deployment workflow can be summarized as:
 1. Register the model.
@@ -48,28 +78,7 @@ Designer further simplifies the process by doing register model, prepare inferen
 
 In short, deploy real-time endpoint in designer have following steps:
 
-1. Convert training pipeline (already finish a run) to real-time inference pipeline. 
-    ![create realtime inference pipeline](./media/migrate-to-AML/create-realtime-inference-pipeline.png)
-        
-    After click **Create Real-time inference pipeline**, designer will convert the training pipeline to a real-time inference pipeline. This conversion is same with Studio(classic)'s training experiment to predictive experiment conversion. Under the hood, it will:
-    - Save the model you've trained and replace training modules
-    - Remove modules that only needed for training
-    - Define where the web service will accept input and where it generates the output.  
-1. Run the real-time inference pipeline to make sure it works as expected.
 
-    The steps to run a real-time inference pipeline is same with run a training pipeline, which is described in section [submit a run and check result](#submit-a-run-and-check-result).
-
-1. Deploy. Choose compute target and set deployment settings.
-
-    If you choose to deploy to Azure Kubernetes Service, make sure you have an ASK cluster in your workspace. See section [create-aks-in-studio](../how-to-create-attach-compute-studio.md#inference-clusters) for how to create AKS cluster.
-
-    If you choose to deploy to ACI, just select ACI in the dialog then Azure Machine Learning will create an ACI and deploy the model on it.
-    ![set up realtime endpoint](./media/migrate-to-AML/deploy-realtime-endpoint.png)
-1. Test the resulting endpoint.
-    
-    After deploy finish, you will see the deployed real-time endpoint in Endpoints tab in Azure Machine Learning Studio. And you can test the endpoint by click the endpoint name to enter endpoint detail page, then click **Test** tab.
-    
-    ![test-realtime-endpoint](./media/migrate-to-AML/test-realtime-endpoint.png)
     
 
 [This tutorial](../tutorial-designer-automobile-price-deploy.md) has more detailed step-by-step guidance on how to deploy a model in designer.  
