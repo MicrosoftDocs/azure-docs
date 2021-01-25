@@ -148,15 +148,9 @@ To run the sample application successfully, you must first register it with your
 
 ## Next steps
 
-- Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
-- Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, using Azure Storage for workload file staging and retrieval.
 
+- Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+- Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, using Azure Storage for workload file staging and retrieval.git pus
 
 [azure_tokencreds]: /previous-versions/azure/reference/mt167728(v=azure.100)
-[net_list_keys]: /previous-versions/azure/mt463199(v=azure.100)
-[net_create]: /previous-versions/azure/mt463210(v=azure.100)
-[net_delete]: /previous-versions/azure/mt463128(v=azure.100)
-[net_regenerate_keys]: /previous-versions/azure/mt463213(v=azure.100)
 [net_mgmt_subscriptions]: /previous-versions/azure/mt592937(v=azure.100)
-[net_mgmt_listaccounts]: /previous-versions/azure/mt463134(v=azure.100)
-[resman_api]: /previous-versions/azure/mt463134(v=azure.100)
