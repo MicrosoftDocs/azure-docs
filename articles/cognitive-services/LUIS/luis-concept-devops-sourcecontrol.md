@@ -14,7 +14,7 @@ Software engineers who are developing a Language Understanding (LUIS) app can ap
 
 ## Source control and branch strategies for LUIS
 
-One of the key factors that the success of DevOps depends upon is [source control](/azure/devops/user-guide/source-control?view=azure-devops). A source control system allows developers to collaborate on code and to track changes. The use of branches allows developers to switch between different versions of the code base, and to work independently from other members of the team. When developers raise a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to propose updates from one branch to another, or when changes are merged, these can be the trigger for [automated builds](luis-concept-devops-automation.md) to build and continuously test code.
+One of the key factors that the success of DevOps depends upon is [source control](/azure/devops/user-guide/source-control). A source control system allows developers to collaborate on code and to track changes. The use of branches allows developers to switch between different versions of the code base, and to work independently from other members of the team. When developers raise a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to propose updates from one branch to another, or when changes are merged, these can be the trigger for [automated builds](luis-concept-devops-automation.md) to build and continuously test code.
 
 By using the concepts and guidance that are described in this document, you can develop a LUIS app while tracking changes in a source control system, and follow these software engineering best practices:
 
@@ -77,7 +77,7 @@ Do not include subscription keys or similar confidential values in files that yo
 - LUIS Authoring and Prediction keys
 - LUIS Authoring and Prediction endpoints
 - Azure subscription keys
-- Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp?view=azure-cli-latest) used for automation authentication
+- Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp) used for automation authentication
 
 #### Strategies for securely managing secrets
 
