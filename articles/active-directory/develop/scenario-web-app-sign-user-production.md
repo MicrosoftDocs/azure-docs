@@ -1,5 +1,6 @@
 ---
-title: Move web app that signs in users to production - Microsoft identity platform | Azure
+title: Move web app that signs in users to production | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that signs in users (move to production)
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
 # Web app that signs in users: Move to production
