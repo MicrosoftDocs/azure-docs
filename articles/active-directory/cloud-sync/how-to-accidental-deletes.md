@@ -19,7 +19,7 @@ The following document describes the accidental deletion feature for Azure AD Co
 
 - configure the ability to prevent accidental deletes automatically. 
 - Set the # of objects (threshold) beyond which the configuration will take effect 
-- setup a notification email address so they can get an email notification once the sync job in question is put in quarantine for this scenario 
+- set up a notification email address so they can get an email notification once the sync job in question is put in quarantine for this scenario 
 
 To use this feature, you set the threshold for the number of objects that, if deleted, synchronization should stop.  So if this number is reached, the synchronization will stop and a notification will be sent to the email that is specified.  This allows you to investigate what is going on.
 
@@ -48,7 +48,7 @@ By clicking on **Delete threshold exceeded**, you will see the sync status info.
  
  ![Sync status](media/how-to-accidental-deletes/delete-2.png)
 
-By right-clicking on the elipses you will get the following options:
+By right-clicking on the ellipses, you will get the following options:
  - View provisioning log
  - View agent
  - Allow deletes
@@ -59,17 +59,23 @@ Using **View provisioning log**, you can see the **StagedDelete** entries and re
  
  ![Provisioning logs](media/how-to-accidental-deletes/delete-7.png)
 
+### Allowing deletes
 
-Using **Allow deletes** will mark the objects to be deleted and remove them on the next cycle.  Click **Yes** on the confirmation to allow the deletes.
+**Allow deletes** will mark the objects to be deleted and remove them on the next cycle.  Use the following procedure to accept the deletes.  
+
+1. Right-click on the ellipses and select **Allow deletes**.
+2. Click **Yes** on the confirmation to allow the deletions.
  
  ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
 
-You will see confirmation that the deletes were accepted and the status will return to healthy with the next cycle. 
+3. You will see confirmation that the deletions were accepted and the status will return to healthy with the next cycle. 
  
  ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
 
-If you do not want to allow the deletes, you need to do the following:
-	- investigate the source of the deletes
+### Rejecting deletions
+
+If you do not want to allow the deletions, you need to do the following:
+	- investigate the source of the deletions
 	- fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
 	- Run **Restart sync** on the agent configuration
 
