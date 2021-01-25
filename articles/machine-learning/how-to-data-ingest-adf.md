@@ -23,6 +23,7 @@ In this article, you learn about the available options for building a data inges
 
 Simple data transformation can be handled with native Data Factory activities and instruments such as [data flow](../data-factory/control-flow-execute-data-flow-activity.md). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
 
+## Compare Azure Data Factory data ingestion pipelines 
 There are several common techniques of using Data Factory to transform data during ingestion. Each technique has advantages and disadvantages that help determine if it is a good fit for a specific use case:
 
 | Technique | Advantages | Disadvantages |
