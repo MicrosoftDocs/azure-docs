@@ -89,5 +89,5 @@ additionalContent: |
  ## See Also
  - [SQL Maintenance Window](sql-maintenance-window.md)
  - [SQL Maintenance Window walkthrough](sql-maintenance-window-configure.md)
- - [SQL Maintenance Window Notifications walkthrough](maintenance-notifications.md)
+ - [SQL Maintenance Window Notifications walkthrough](advance-notifications.md)
  - [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)

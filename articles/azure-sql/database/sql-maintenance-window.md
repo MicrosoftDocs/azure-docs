@@ -54,7 +54,7 @@ SQL Maintenance Window is free of charge to all customers with [subscription typ
 
 ## Notifications
 
-Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [SQL Maintenance Window Notifications](maintenance-notifications.md).
+Maintenance Notifications can be configured to alert customers on upcoming planned maintenance events 24 hours in advance, at the time of maintenance, and when the maintenance window is complete. For more information, see [SQL Maintenance Window Notifications](advance-notifications.md).
 
 ## Availability
 
@@ -73,7 +73,7 @@ The SQL Maintenance Window is available in the following regions:
 ## Next steps
 
 * [SQL Maintenance Window walkthrough](sql-maintenance-window-configure.md)
-* [SQL Maintenance Window Notifications walkthrough](maintenance-notifications.md)
+* [SQL Maintenance Window Notifications walkthrough](advance-notifications.md)
 
 ## Learn more
 

@@ -168,5 +168,5 @@ landingContent:
           - text: Maintenance Window
             url: ../database/sql-maintenance-window-configure.md
           - text: Maintenance Window Notifications
-            url: ../database/maintenance-notifications.md
+            url: ../database/advance-notifications.md
  
