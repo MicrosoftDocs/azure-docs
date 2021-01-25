@@ -18,15 +18,9 @@ ms.custom: aaddev
 
 # Single-page application: Move to production
 
-Now that you know how to acquire a token to call web APIs, learn how to move to production.
+Now that you know how to acquire a token to call web APIs, here are some things to consider when moving your application to production.
 
-## Improve your app
-
-[Enable logging](msal-logging.md) to make your app production ready.
-
-## Test your integration
-
-Test your integration by following the [Microsoft identity platform integration checklist](identity-platform-integration-checklist.md).
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Deploy your app
 
