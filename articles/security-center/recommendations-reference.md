@@ -1,10 +1,10 @@
 ---
 title: Reference table for all Azure Security Center recommendations 
-description: This article lists Azure Security Center's security recommendations that help you protect your resources.
+description: This article lists Azure Security Center's security recommendations that help you harden and protect your resources.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 01-25-2021
 ms.author: memildin
 ms.custom: generated
 ---
