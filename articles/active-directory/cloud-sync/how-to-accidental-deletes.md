@@ -55,12 +55,12 @@ By right-clicking on the elipses you will get the following options:
 
  ![Right click](media/how-to-accidental-deletes/delete-3.png)
 
-By viewing the provisioning logs, you can see the **StagedDelete** entries and review the information provided on the users that have been deleted.
+Using **View provisioning log**, you can see the **StagedDelete** entries and review the information provided on the users that have been deleted.
  
  ![Provisioning logs](media/how-to-accidental-deletes/delete-7.png)
 
 
-By allowing the deletes, click **Yes** on the confirmation to allow the deletes.
+Using **Allow deletes** will mark the objects to be deleted and remove them on the next cycle.  Click **Yes** on the confirmation to allow the deletes.
  
  ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
 
@@ -68,9 +68,14 @@ You will see confirmation that the deletes were accepted and the status will ret
  
  ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
 
+If you do not want to allow the deletes, you need to do the following:
+	- investigate the source of the deletes
+	- fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
+	- Run **Restart sync** on the agent configuration
+
 ## Next steps 
 
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
-- [How to install Azure AD Connect cloud sync](how-to-install.md)
+- [Azure AD Connect cloud sync troubleshooting?](how-to-troubleshoot.md)
+- [Azure AD Connect cloud sync error codes](reference-error-codes.md)
  
 
