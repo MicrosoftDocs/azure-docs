@@ -21,7 +21,7 @@ The following document describes the accidental deletion feature for Azure AD Co
 - Set the # of objects (threshold) beyond which the configuration will take effect 
 - set up a notification email address so they can get an email notification once the sync job in question is put in quarantine for this scenario 
 
-To use this feature, you set the threshold for the number of objects that, if deleted, synchronization should stop.  So if this number is reached, the synchronization will stop and a notification will be sent to the email that is specified.  This allows you to investigate what is going on.
+To use this feature, you set the threshold for the number of objects that, if deleted, synchronization should stop.  So if this number is reached, the synchronization will stop and a notification will be sent to the email that is specified.  This notification will allow you to investigate what is going on.
 
 
 ## Configure accidental delete prevention
@@ -35,7 +35,7 @@ To use the new feature, follow the steps below.
 5. Under **Settings** fill in the following:
 	- **Notification email** - email used for notifications
 	- **Prevent accidental deletions** - check this box to enable the feature
-	- **Accidental deletion threshold** - enter a number of objects to trigger synchronization stop and notification
+	- **Accidental deletion threshold** - enter the number of objects to stop synchronization and send a notification
 
 ![Accidental deletes](media/how-to-accidental-deletes/accident-1.png)
 
@@ -61,7 +61,7 @@ Using **View provisioning log**, you can see the **StagedDelete** entries and re
 
 ### Allowing deletes
 
-**Allow deletes** will mark the objects to be deleted and remove them on the next cycle.  Use the following procedure to accept the deletes.  
+The **Allow deletes** action will delete the objects that triggered the accidental delete threshold.  Use the following procedure to accept the deletes.  
 
 1. Right-click on the ellipses and select **Allow deletes**.
 2. Click **Yes** on the confirmation to allow the deletions.
