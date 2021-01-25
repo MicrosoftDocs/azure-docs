@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2020
+ms.date: 01/25/2021
 tags: connectors
 ---
 
