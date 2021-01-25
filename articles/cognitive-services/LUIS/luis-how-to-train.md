@@ -41,7 +41,7 @@ Training uses a small percentage of negative sampling. If you want to use all da
 
    ![In Azure portal, enable.diable non deterministic training.](./media//non-determinstic-training.png)
 
-### Version settings API use of UseAllTrainingData
+### Using the version settings API
 
 Use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn off this feature.
 
