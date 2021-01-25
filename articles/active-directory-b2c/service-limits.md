@@ -45,11 +45,11 @@ The following table lists the administrative configuration limits in the Azure A
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 
-<sup>1</sup> See also [Azure AD service limits and restrictions](https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/directory-service-limits-restrictions).
+<sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions).
 
 ## Next steps
 
-- Learn about [Microsoft Graph’s throttling guidance](../graph/throttling.md) 
+- Learn about [Microsoft Graph’s throttling guidance](/graph/throttling.md) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
 
 
