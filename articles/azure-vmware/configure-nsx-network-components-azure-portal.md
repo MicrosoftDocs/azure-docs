@@ -114,7 +114,7 @@ In this step, you'll define a profile for the source and destination VM groups' 
 You'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
 
 >[!TIP]
->You can also use [NSX-T Manager to configure a DNS forwarder](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-A0172881-BB25-4992-A499-14F9BE3BE7F2.html).
+>You can also use the [NSX-T Manager console to configure a DNS forwarder](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-A0172881-BB25-4992-A499-14F9BE3BE7F2.html).
 
 To set up a DNS forwarder in the Azure VMware Solution console, you'll:
 
