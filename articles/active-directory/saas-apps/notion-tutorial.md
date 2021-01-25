@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, enter the following URL:
-    `https://www.notion.so`
+    `https://www.notion.so/login`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
