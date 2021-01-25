@@ -249,8 +249,8 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
 
     ```json
     "imageUri": {
-              "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-            },
+        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+        },
     ```
 
     If you’re using *http* with Storage Explorer, change the URI to an *http* URI.
