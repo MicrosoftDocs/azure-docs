@@ -12,7 +12,7 @@ manager: rkarlin
 
 # Exempting resources and recommendations from your secure score 
 
-A core priority of every security team is trying to ensure the analysts can focus on the tasks and incidents that matter to the organization. Security Center has many features for customizing the information you prioritize the most and making sure your secure score is a valid reflection of your organization's security decisions. The **exempt** option is one such feature.
+A core priority of every security team is to ensure analysts can focus on the tasks and incidents that matter to the organization. Security Center has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The **exempt** option is one such feature.
 
 When you investigate your security recommendations in Azure Security Center, one of the first pieces of information you review is the list of affected resources.
 
@@ -104,7 +104,7 @@ To create an exemption rule:
 
 As explained earlier on this page, exemption rules are a powerful tool providing granular control over the recommendations affecting resources in your subscriptions and management groups. 
 
-To keep track of how your users are exercising this capability, we've created an ARM template that deploys a Logic App Playbook and all necessary API connections to notify you when an exemption has been created.
+To keep track of how your users are exercising this capability, we've created an Azure Resource Manager (ARM) template that deploys a Logic App Playbook and all necessary API connections to notify you when an exemption has been created.
 
 - To learn more about the playbook, see this post in the [tech community blogs](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - You'll find the ARM template in the [Azure Security Center GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)

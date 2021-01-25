@@ -28,14 +28,22 @@ To see compliance data mapped as assessments in your dashboard, add a compliance
 
 When you've assigned a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been assigned.
 
-Microsoft tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
+Microsoft tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative, it will appear automatically in your dashboard as new policies mapped to controls in the standard.
 
 
 ## What regulatory compliance standards are available in Security Center?
 
 By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-You can also add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0. Standards are added to the dashboard as they become available.
+You can also add standards such as:
+
+- NIST SP 800-53 R4
+- SWIFT CSP CSCF-v2020
+- UK Official and UK NHS
+- Canada Federal PBMM
+- Azure CIS 1.1.0
+
+Standards are added to the dashboard as they become available.
 
 
 ## Add a regulatory standard to your dashboard
@@ -56,7 +64,7 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. To add the standards relevant to your organization, click **Add more standards**. 
 
-1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, incluing:
+1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, including:
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
@@ -80,7 +88,7 @@ The following steps explain how to add a package to monitor your compliance with
 
 ## Removing a standard from your dashboard
 
-If any of the supplied regulatory standards isn't relevant to your organization, it's a simple process to simply remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you.
+If any of the supplied regulatory standards isn't relevant to your organization, it's a simple process to remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you.
 
 To remove a standard:
 
@@ -104,7 +112,7 @@ To remove a standard:
 
 ## Next steps
 
-In this article, you learned how to **add compliance standards** to monitor your compliance with additional standards.
+In this article, you learned how to **add compliance standards** to monitor your compliance with regulatory and industry standards.
 
 For related material, see the following pages:
 
