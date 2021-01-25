@@ -116,7 +116,7 @@ Java functions can also be triggered when a message is added to a Service Bus to
 
 # [JavaScript](#tab/javascript)
 
-The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message. 
+The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
 Here's the binding data in the *function.json* file:
 
@@ -149,7 +149,32 @@ module.exports = function(context, myQueueItem) {
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The following example shows a Service Bus trigger binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md) that uses the binding. 
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "mySbMsg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "mytopic",
+      "subscriptionName": "mysubscription",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+Here's the function that runs when a Service Bus message is sent.
+
+```powershell
+param([string] $mySbMsg, $TriggerMetadata)
+
+Write-Host "PowerShell ServiceBus queue trigger function processed message: $mySbMsg"
+```
 
 # [Python](#tab/python)
 
@@ -349,7 +374,7 @@ Access the queue or topic message by using `context.bindings.<name from function
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The Service Bus instance is available via the parameter configured in the *function.json* file's name property.
 
 # [Python](#tab/python)
 

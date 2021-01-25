@@ -172,7 +172,36 @@ module.exports = function (context, myTimer) {
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The following example shows a Service Bus output binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md) that uses the binding. 
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "outputSbMsg",
+      "queueName": "outqueue",
+      "topicName": "outtopic"
+    }
+  ]
+}
+```
+
+Here's the PowerShell that creates a message as the function's output.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name outputSbMsg -Value @{ 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
 
 # [Python](#tab/python)
 
@@ -344,7 +373,7 @@ Access the queue or topic by using `context.bindings.<name from function.json>`.
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
 
 # [Python](#tab/python)
 
