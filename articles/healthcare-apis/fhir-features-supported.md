@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/25/2021
+ms.date: 1/21/2021
 ms.author: cavoeg
 ---
 
@@ -22,7 +22,7 @@ Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
-| API                            | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment        |
+| API                            | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | read                           | Yes       | Yes       | Yes       |                                                     |
 | vread                          | Yes       | Yes       | Yes       |                                                     |
@@ -33,11 +33,11 @@ Previous versions also currently supported include: `3.0.2`
 | delete                         | Yes       | Yes       | Yes       |                                                     |
 | delete (conditional)           | No        | No        | No        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
-| create                         | Yes       | Yes       | Yes       | Support both `POST`/`PUT`                           |
+| create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
-| chained search                 | No        | Yes       | No        |                                                     |
-| reverse chained search         | No        | Yes       | No        |                                                     |
+| chained search                 | No        | Yes       | No        |                                           |
+| reverse chained search         | No        | No        | No        |                                            |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -67,41 +67,41 @@ All search parameter types are supported.
 |`:exact`               | Yes       | Yes       | Yes       |         |
 |`:contains`            | Yes       | Yes       | Yes       |         |
 |`:text`                | Yes       | Yes       | Yes       |         |
-|`:not`                 | Yes       | Yes       | Yes       |         |
-|`:[type]` (reference)  | Yes       | Yes       | Yes       |         |
-|`:below` (uri)         | Yes       | Yes       | Yes       |         |
-|`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` (token)          | No        | No        | No        |         |
 |`:below` (token)       | No        | No        | No        |         |
 |`:above` (token)       | No        | No        | No        |         |
 |`:not-in` (token)      | No        | No        | No        |         |
+|`:[type]` (reference)  | No        | No        | No        |         |
+|`:below` (uri)         | Yes       | Yes       | Yes       |         |
+|`:not`                 | No        | No        | No        |         |
+|`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Common search parameter | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Yes       | Yes       | Yes       |         |
 | `_lastUpdated`          | Yes       | Yes       | Yes       |         |
 | `_tag`                  | Yes       | Yes       | Yes       |         |
+| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
 | `_security`             | Yes       | Yes       | Yes       |         |
-| `_type`                 | Yes       | Yes       | Yes       |         |
-| `_list`                 | Yes       | Yes       | Yes       |         |
-| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3|
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
+| `_list`                 | Yes       | Yes       | Yes       |         |
 | `_has`                  | No        | No        | No        |         |
+| `_type`                 | Yes       | Yes       | Yes       |         |
 | `_query`                | No        | No        | No        |         |
 | `_filter`               | No        | No        | No        |         |
 
 | Search result parameters | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated` is supported       |
+| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
 | `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
-| `_include`              | Yes       | Yes       | Yes       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB does not include :iterate support.|
-| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB does not include :iterate support.|
+| `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
+| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
-| `_total`                | Partial   | Partial   | Partial   | `_total=none` and `_total=accurate`      |
+| `_total`                | Partial   | Partial   | Partial   | _total=non and _total=accurate      |
 | `_elements`             | Yes       | Yes       | Yes       |         |
 | `_contained`            | No        | No        | No        |         |
-| `_containedType`        | No        | No        | No        |         |
+| `containedType`         | No        | No        | No        |         |
 | `_score`                | No        | No        | No        |         |
 
 ## Extended Operations
@@ -113,7 +113,6 @@ All the operations that are supported that extend the RESTful API.
 | $export (whole system) | Yes       | Yes       | Yes       |         |
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
-| $everything            | No        | No        | No        | See the [FAQ](fhir-faq.md) for details on how to accomplish $everything with two API calls |
 
 ## Persistence
 
@@ -131,7 +130,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have your RUs increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
 * **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
