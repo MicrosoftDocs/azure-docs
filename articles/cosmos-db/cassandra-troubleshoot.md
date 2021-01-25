@@ -46,7 +46,7 @@ When running `select count(*) from table` or similar for a very large number of 
 ### Solution 
 If using a local CQLSH client you can try to change the `--connect-timeout` or `--request-timeout` settings (see more details [here](https://cassandra.apache.org/doc/latest/tools/cqlsh.html)). If this is not sufficient and count still times out, you can get a count of records from the Azure Cosmos DB backend telemetry by going to metrics tab in Azure portal, selecting the metric `document count`, then adding a filter for the database or collection (the analogue of table in Azure Cosmos DB). You can the hover over the resulting graph for the point in time at which you want a count of the number of records.
 
-:::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="metrics":::
+:::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="metrics view":::
 
 
 ## Configuring ReconnectionPolicy for Java Driver
