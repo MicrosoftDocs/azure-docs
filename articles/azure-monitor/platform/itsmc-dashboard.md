@@ -1,6 +1,6 @@
 ---
-title: Investigate errors by using the dashboard
-description: This document contains information about errors on the ITSMC dashboard.
+title: Investigate errors by using the Dashboard
+description: This document contains information about errors on the ITSMC Dashboard.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
@@ -9,13 +9,13 @@ ms.date: 01/15/2021
 
 ---
 
-# Investigate errors by using the dashboard
+# Investigate errors by using the ITSMC Dashboard
 
-This article contains information about the IT Service Management Connector (ITSMC) dashboard. The dashboard helps you investigate the status of ITSMC.
+This article contains information about the IT Service Management Connector (ITSMC) Dashboard. The Dashboard helps you investigate the status of ITSMC.
 
-## View the dashboard
+## View the Dashboard
 
-Follow these steps to open the dashboard.
+Follow these steps to open the Dashboard.
 
 1. Select **All resources**, and then find **ServiceDesk(*your workspace name*)**.
 
@@ -29,18 +29,18 @@ Follow these steps to open the dashboard.
 
     ![Screenshot that shows the View Summary option in the Summary section.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
 
-1. Select the graph in the **Summary** section to open the dashboard.
+1. Select the graph in the **Summary** section to open the Dashboard.
 
     ![Screenshot that shows selecting the Summary graph.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
 
-1. Review the dashboard for status and any errors in your connector.
-    ![Screenshot that shows the dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
+1. Review the Dashboard for status and any errors in your connector.
+    ![Screenshot that shows the Dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
-## Understand dashboard elements
+## Understand Dashboard elements
 
-The dashboard contains information on the alerts that were sent into the ITSM tool by using this connector.
+The Dashboard contains information on the alerts that were sent into the ITSM tool by using this connector.
 
-The dashboard is split into four sections:
+The Dashboard is split into four sections:
 
 - **Work items created**: The graph and table show the number of the work items by type. Select the graph or the table to learn more about your work items.
       ![Screenshot that shows the work items created section.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
