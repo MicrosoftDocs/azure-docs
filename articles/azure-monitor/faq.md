@@ -27,7 +27,7 @@ In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Applicat
 Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs are provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 ### How do I enable Azure Monitor?
-Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./platform/platform-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](platform/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide additional analysis on collected data for particular services. 
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./platform/platform-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](platform/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide additional analysis on collected data for particular services. 
 
 ### How do I access Azure Monitor?
 Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for a variety of scenarios using CLI, PowerShell, and a REST API.
@@ -61,7 +61,7 @@ Insights and solutions provide a custom experience for working with data stored 
 ## Solutions and insights
 
 ### What is an insight in Azure Monitor?
-Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect additional data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](insights/insights-overview.md).
+Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect additional data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](./monitor-reference.md).
 
 To view insights in the Azure portal, see the **Insights** section of the **Monitor** menu or the **Monitoring** section of the service's menu.
 
@@ -73,7 +73,7 @@ To view solutions in the Azure portal, click **More** in the **Insights** sectio
 ## Logs
 
 ### What's the difference between Azure Monitor Logs and Azure Data Explorer?
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Monitor Logs is built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL) with some minor differences. See [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Monitor Logs is built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL) with some minor differences. See [Azure Monitor log query language differences](/azure/data-explorer/kusto/query/).
 
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
@@ -220,7 +220,7 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Node.js apps](app/nodejs.md)
 * [Web apps on Azure](app/azure-web-apps.md)
 * [Cloud Services on Azure](app/cloudservices.md)
-* [App servers running in Docker](app/docker.md)
+* [App servers running in Docker](./azure-monitor-app-hub.yml)
 * [Single-page web apps](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Windows desktop app](app/windows-desktop.md)
@@ -264,6 +264,10 @@ See the [release notes](app/release-notes.md) for the SDK appropriate to your ty
 
 ### <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
+
+### Do new Azure regions require the use of connection strings?
+
+New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ### Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
 
@@ -337,7 +341,9 @@ This is possible if your code sends such data. It can also happen if variables i
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
-### My Instrumentation Key is visible in my web page source. 
+The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
+
+### My Instrumentation Key is visible in my web page source.
 
 * This is common practice in monitoring solutions.
 * It can't be used to steal your data.
@@ -397,7 +403,7 @@ Each item that is transmitted carries an `itemCount` property that shows how man
 
 Moving existing Application Insights resources from one region to another is **currently not supported**. Historical data that you have collected **cannot be migrated** to a new region. The only partial workaround is to:
 
-1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](/azure/azure-monitor/app/create-workspace-resource)) in the new region.
+1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](./app/create-workspace-resource.md)) in the new region.
 2. Recreate all unique customizations specific to the original resource in the new resource.
 3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).  
 4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource. 
@@ -410,7 +416,7 @@ Unique customizations that commonly need to be manually recreated or updated for
 - Recreate availability alerts.
 - Recreate any custom Azure role-based access control (Azure RBAC) settings that are required for your users to access the new resource. 
 - Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
-- Any integration that relies on API keys such as [release annotations](/azure/azure-monitor/app/annotations), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
+- Any integration that relies on API keys such as [release annotations](./app/annotations.md), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
 - Continuous export in classic resources would need to be configured again.
 - Diagnostic settings in workspace-based resources would need to be configured again.
 

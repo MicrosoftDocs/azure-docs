@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Tutorial: Add identity providers to your applications in Azure Active Directory B2C
@@ -95,19 +96,21 @@ After you create the application for the identity provider that you want to add,
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Contoso Azure AD*.
-1. For **Metadata url**, enter the following URL replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant:
+1. For **Metadata url**, enter the following URL replacing `{tenant}` with the domain name of your Azure AD tenant:
 
     ```
-    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
+    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
     ```
 
-    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    For example, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.
-1. Leave the default values for **Scope**, **Response type**, and **Response mode**.
-1. (Optional) Enter a value for **Domain_hint**. For example, *ContosoAD*. [Domain hints](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
-1. Under **Identity provider claims mapping**, enter the following claims mapping values:
+1. For the **Scope**, enter the `openid profile`.
+1. Leave the default values for **Response type**, and **Response mode**.
+1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Under **Identity provider claims mapping**, select the following claims:
 
     * **User ID**: *oid*
     * **Display name**: *name*

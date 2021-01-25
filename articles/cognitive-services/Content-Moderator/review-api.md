@@ -23,7 +23,7 @@ Content Moderator combines machine-assisted moderation with human-in-the-loop ca
 In a review, content is uploaded to the Review tool. You can view it by clicking its content type under **Review** tab on the dashboard. From the review screen, you can alter the applied tags and apply your own custom tags as appropriate. When you submit a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 > [!div class="mx-imgBorder"]
-> ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-tab.png)
+> ![The Review drop-down menu is highlighted. It shows these content types: Image, Text, and Video.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### Manage reviews
 
@@ -37,9 +37,9 @@ The three-dot **Actions** button on each review lets you go to the review screen
 Use the **Search** toolbar to sort the reviews by a variety of categories such as review state, tags, content type, subteams, assigned users, and created/modified date.
 
 > [!div class="mx-imgBorder"]
-> ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-search.png)
+> ![The Search toolbar is shown. It has various combo boxes for entering search criteria, such as Review State and Tags.](./Review-Tool-user-Guide/images/review-search.png)
 
-See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [REST API guide](./try-review-api-review.md) to learn how to do so programmatically.
+See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [API console guide](./try-review-api-review.md) to learn how to do so programmatically.
 
 ## Workflows
 
@@ -77,13 +77,13 @@ Workflows are defined as JSON strings, which makes them accessible programmatica
 }
 ```
 
-See the [Review tool guide](./review-tool-user-guide/workflows.md) to get started creating and using workflows, or see the [REST API guide](./try-review-api-workflow.md) to learn how to do so programmatically.
+See the [Review tool guide](./review-tool-user-guide/workflows.md) to get started creating and using workflows, or see the [API console guide](./try-review-api-workflow.md) to learn how to do so programmatically.
 
 ## Jobs
 
 A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows, and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](./review-tool-user-guide/human-in-the-loop.md). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
 
-See the [REST API guide](./try-review-api-job.md) to get started using jobs.
+See the [API console guide](./try-review-api-job.md) to get started using jobs.
 
 ## Next steps
 

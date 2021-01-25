@@ -3,13 +3,14 @@ title: Revoke user access in an emergency in Azure Active Directory | Microsoft 
 description: How to revoke all access for a user in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -54,13 +55,13 @@ For a hybrid environment with on-premises Active Directory synchronized with Azu
 
 As an admin in the Active Directory, connect to your on-premises network, open PowerShell, and take the following actions:
 
-1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
 
     > [!NOTE]
     > The reason for changing a user’s password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.
@@ -77,18 +78,18 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
 As an administrator in Azure Active Directory, open PowerShell, run ``Connect-AzureAD``, and take the following actions:
 
-1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false

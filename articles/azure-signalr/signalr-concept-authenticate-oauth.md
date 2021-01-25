@@ -39,11 +39,11 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must have the following prerequisites:
 
-* An account created on [GitHub](https://github.com/)
-* [Git](https://git-scm.com/)
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configured](../cloud-shell/quickstart.md)
-* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
+- An account created on [GitHub](https://github.com/)
+- [Git](https://git-scm.com/)
+- [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) configured for the bash environment.
+- Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 ## Create an OAuth app
 
@@ -378,17 +378,13 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
     Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, you should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Deploy the app to Azure
 
-In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+Prepare your environment for the Azure CLI:
 
-The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI:
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```azurecli-interactive
-az extension add -n signalr
-```
+In this section, you will use the Azure command-line interface (CLI) to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the group name recommended in previous tutorials, *SignalRTestResources*.
 
@@ -535,7 +531,7 @@ To deploy your code, execute the following commands in a Git shell.
 4. Deploy your code to the web app in Azure.
 
     ```bash
-    git push Azure master
+    git push Azure main
     ```
 
     You will be prompted to authenticate in order to deploy the code to Azure. Enter the user name and password of the deployment user you created above.

@@ -46,16 +46,13 @@ To change the ownership of a resource, you can take one of these actions:
 * Transfer the [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
 * Export the LUIS app as a file, and then import the app on a different subscription. Export is available on the **My apps** page in the LUIS portal.
 
-
 ## Resource limits
 
 ### Authoring key creation limits
 
-You can create as many as 10 authoring keys per region, per subscription.
+You can create as many as 10 authoring keys per region, per subscription. Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located. For information on how authoring regions map to publishing regions, see [Authoring and publishing regions](luis-reference-regions.md). 
 
-For more information, see [key limits](luis-limits.md#key-limits) and [Azure regions](luis-reference-regions.md).
-
-Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located.
+For more information on key limits, see [key limits](luis-limits.md#key-limits).
 
 ### Errors for key usage limits
 

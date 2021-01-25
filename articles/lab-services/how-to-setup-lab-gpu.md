@@ -32,7 +32,7 @@ The *visualization* GPU sizes are intended for graphics-intensive applications. 
 | Size | Cores | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Small GPU (Visualization) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
-| Medium GPU (Visualization) | -&nbsp;12&nbsp;cores<br>-&nbsp;112&nbsp;GB&nbsp;RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Medium GPU (Visualization) | -&nbsp;12&nbsp;cores<br>-&nbsp;112&nbsp;GB&nbsp;RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
 > [!NOTE]
 > You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab account creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available. For availability of VMs, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -71,7 +71,7 @@ To manually install drivers for the compute GPU size, do the following:
 1. After you've installed the drivers and other software that are required for your class, select **Publish** to create your students' VMs.
 
 > [!NOTE]
-> If you're using a Linux image, after you've downloaded the installer, install the drivers by following the instructions in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
+> If you're using a Linux image, after you've downloaded the installer, install the drivers by following the instructions in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### Install the visualization GPU drivers
 
@@ -81,7 +81,7 @@ To manually install drivers for the visualization GPU size, do the following:
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
    -  [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
-   -  [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
+   -  [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.
 1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section.
@@ -110,6 +110,6 @@ Follow the instructions in the "Verify driver installation" section of [Install 
 ## Next steps
 See the following articles:
 
-- [Create and manage classroom labs](how-to-manage-classroom-labs.md)
+- [Create and manage labs](how-to-manage-classroom-labs.md)
 - [SOLIDWORKS computer-aided design (CAD) class type](class-type-solidworks.md)
 - [MATLAB (matrix laboratory) class type](class-type-matlab.md)

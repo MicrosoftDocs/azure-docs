@@ -1,13 +1,16 @@
 ---
 title: Create and manage Azure Migrate projects
 description: Find, create, manage, and delete projects in Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ---
 
 # Create and manage Azure Migrate projects
 
-This article describes how to create, manage, and delete [Azure Migrate](migrate-services-overview.md) projects.
+This article describes how to create, manage, and delete [Azure Migrate](migrate-services-overview.md) projects. If you're using Classic Azure Migrate projects, please delete those projects and follow the steps to create a new Azure Migrate project. You can't upgrade Classic Azure Migrate projects or components to the Azure Migrate. View [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
 
 An Azure Migrate project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project you can track discovered assets, create assessments, and orchestrate migrations to Azure.  
 
@@ -51,8 +54,7 @@ In the portal, you can select the geography in which you want to create the proj
 
 ```rest
 PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
-``````
-
+```
 
 ## Create additional projects
 

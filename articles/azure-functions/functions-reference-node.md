@@ -15,7 +15,7 @@ As an Express.js, Node.js, or JavaScript developer, if you are new to Azure Func
 
 | Getting started | Concepts| Guided learning |
 | -- | -- | -- | 
-| <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## JavaScript function basics
 
@@ -488,7 +488,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
 
 ## Scaling and concurrency
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes.
 
@@ -562,7 +562,7 @@ Add your own environment variables to a function app, in both your local and clo
 
 ### In local development environment
 
-When running locally, your functions project includes a [`local.settings.json` file](/functions-run-local.md?tabs=node#local-settings-file), where you store your environment variables in the `Values` object. 
+When running locally, your functions project includes a [`local.settings.json` file](./functions-run-local.md), where you store your environment variables in the `Values` object. 
 
 ```json
 {

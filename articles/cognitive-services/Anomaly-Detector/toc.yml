@@ -12,14 +12,6 @@
       items:
         - name: Anomaly Detector client libraries
           href: ./quickstarts/client-libraries.md
-    - name: REST API
-      items:
-        - name: Using C#
-          href: quickstarts/detect-data-anomalies-csharp.md
-        - name: Using Java
-          href: quickstarts/detect-data-anomalies-java.md
-        - name: Using Python
-          href: quickstarts/detect-data-anomalies-python.md
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI
@@ -30,6 +22,8 @@
   items:
     - name: Identify anomalies in your data
       href: how-to/identify-anomalies.md
+    - name: Deploy to IoT Edge
+      href: how-to/deploy-anomaly-detection-on-iot-edge.md
     - name: Use containers
       items:
       - name: Install and run containers
@@ -44,7 +38,7 @@
         href: ../containers/index.yml
 - name: Concepts
   items: 
-    - name: Anomaly Detection API best practices
+    - name: Anomaly Detector API best practices
       href: concepts/anomaly-detection-best-practices.md
 - name: Reference
   items:

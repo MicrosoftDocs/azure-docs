@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 01/21/2021
 ms.author: tisande
 ---
 
@@ -30,6 +30,17 @@ Azure Cosmos DB supports two indexing modes:
 > Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
+
+## <a id="index-size"></a>Index size
+
+In Azure Cosmos DB, the total consumed storage is the combination of both the Data size and Index size. The following are some features of index size:
+
+* The index size depends on the indexing policy. If all the properties are indexed, then the index size can be larger than the data size.
+* When data is deleted, indexes are compacted on a near continuous basis. However, for small data deletions, you may not immediately observe a decrease in index size.
+* The Index size can grow on the following cases:
+
+  * Partition split duration- The index space is released after the partition split is completed.
+  * When a partition is splitting, index space will temporarily increase during the partition split. 
 
 ## <a id="include-exclude-paths"></a>Including and excluding property paths
 
@@ -130,7 +141,7 @@ Azure Cosmos DB, by default, will not create any spatial indexes. If you would l
 
 ## Composite indexes
 
-Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
+Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-index) as needed.
 
 Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value and this is the only value that is included in the composite index.
 
@@ -196,6 +207,7 @@ The following considerations are used when creating composite indexes for querie
 - When creating a composite index to optimize queries with multiple filters, the `ORDER` of the composite index will have no impact on the results. This property is optional.
 - If you do not define a composite index for a query with filters on multiple properties, the query will still succeed. However, the RU cost of the query can be reduced with a composite index.
 - Queries with both aggregates (for example, COUNT or SUM) and filters also benefit from composite indexes.
+- Filter expressions can use multiple composite indexes.
 
 Consider the following examples where a composite index is defined on properties name, age, and timestamp:
 
@@ -208,6 +220,7 @@ Consider the following examples where a composite index is defined on properties
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### Queries with a filter as well as an ORDER BY clause
 

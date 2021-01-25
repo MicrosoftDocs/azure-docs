@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Create a commercial marketplace account in Partner Center
@@ -109,7 +109,7 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 >
 >Individual accounts are for developers who are working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality.
 >
-> To ascertain that you're authorized to set up the account for your company, we require additional verification of company accounts after you've registered. This verification can take from a few days to a couple of weeks, and it often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more information, see [Account types, locations, and fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+> To ascertain that you're authorized to set up the account for your company, we require additional verification of company accounts after you've registered. This verification can take from a few days to a couple of weeks, and it often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more information, see [Account types, locations, and fees](/windows/uwp/publish/account-types-locations-and-fees).
 
 When you register for the commercial marketplace program with the same account as your developer program, you can see all of your existing program enrollments in the left pane of Partner Center.
 

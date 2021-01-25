@@ -2,7 +2,7 @@
 title: Query exported data from Azure Monitor using Azure Data Explorer (preview)
 description: Use Azure Data Explorer to query data that was exported from your Log Analytics workspace to an Azure storage account.
 ms.subservice: logs
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
@@ -118,7 +118,7 @@ The following image shows and example of the output.
 
 >[!TIP]
 >* Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
->* If you want to use all of the data inside the container you can alter the script and change the URL to be 'https://your.blob.core.windows.net/containername;SecKey'
+>* To use all of the data inside the container, alter the script and change the URL to be 'https://your.blob.core.windows.net/containername;SecKey'
 
 ## Query the exported data from Azure Data Explorer 
 
@@ -132,4 +132,4 @@ external_table("HBTest","map") | take 10000
 
 ## Next steps
 
-- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Learn to [write queries in Azure Data Explorer](/azure/data-explorer/write-queries)

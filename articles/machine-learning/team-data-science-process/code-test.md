@@ -75,11 +75,11 @@ Use the following steps to set up and run code testing and an automated build by
 
 1. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new datasets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
 
-	* Check prediction levels:
-	
-	  ![Code for checking prediction levels](./media/code-test/check_prediction_levels.PNG)
+    * Check prediction levels:
+    
+      ![Code for checking prediction levels](./media/code-test/check_prediction_levels.PNG)
 
-	* Check the distribution of prediction values:
+    * Check the distribution of prediction values:
 
       ![Code for checking prediction values](./media/code-test/check_prediction_values.PNG)
 

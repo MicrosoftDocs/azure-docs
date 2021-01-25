@@ -178,7 +178,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 **Guidance:** Use privileged access workstations (PAWs) with MFA configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)  
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)  
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 
 **Azure Security Center monitoring:** N/A
@@ -374,7 +374,7 @@ Microsoft performs vulnerability management on the underlying resources that sup
 ### 5.2: Deploy automated operating system patch management solution
 **Guidance:** Use Azure Update Management to ensure the most recent security updates are installed on your Windows and Linux VMs hosted within DevTest Labs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically. This setting isn't currently available to configure through DevTest Labs, however lab admin/subscription admin can configure this setting on the underlying compute VMs in their subscription. 
 
-- [How to configure Update Management for VMs in Azure](../automation/update-management/update-mgmt-overview.md)
+- [How to configure Update Management for VMs in Azure](../automation/update-management/overview.md)
 - [Understand Azure security policies monitored by Security Center](../security-center/policy-reference.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -388,8 +388,8 @@ Learn more about [DevTest Labs Image Factory](image-factory-create.md), which is
 
 As a subscription admin, you can also use the Azure Update Management solution to manage updates and patches for DevTest Labs VMs. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-- [Update Management solution in Azure](../automation/update-management/update-mgmt-overview.md)
-- [Manage updates and patches for your VMs](../automation/update-management/update-mgmt-overview.md)
+- [Update Management solution in Azure](../automation/update-management/overview.md)
+- [Manage updates and patches for your VMs](../automation/update-management/overview.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -615,7 +615,7 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Azure Automation State Configuration overview](../automation/automation-dsc-overview.md)
-- [Sample script to upload a VHD to Azure and create a new VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 - [How to create an image factory in DevTest Labs](image-factory-create.md)
 
 **Azure Security Center monitoring:** Yes

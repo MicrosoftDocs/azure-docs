@@ -1,93 +1,106 @@
 ---
-title: Trusted Internet Connections guidance for Azure
-description: Learn about Trusted Internet Connections (TIC) guidance for Azure and software-as-a-service (SaaS) services.
-services: azure-government
-author: femila
-
-ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
+title: Trusted Internet Connections guidance
+description: Learn about Trusted Internet Connections (TIC) guidance for Azure IaaS and PaaS services
+author: stevevi
+ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: femila
+ms.date: 12/01/2020
 ---
 
 # Trusted Internet Connections guidance
 
-This article covers how government agencies can use Microsoft Azure Government to help achieve compliance with the Trusted Internet Connections (TIC) initiative. The article describes how to use Azure Government across Azure infrastructure as a service (IaaS) and Azure platform as a service (PaaS) offerings.
+This article explains how U.S. government agencies can use security features in Azure cloud services to help achieve compliance with the Trusted Internet Connections (TIC) initiative.  It applies to both Azure and Azure Government cloud service environments and covers TIC implications for Azure infrastructure as a service (IaaS) and Azure platform as a service (PaaS) cloud service models.
 
 ## Trusted Internet Connections overview
 
-The purpose of the TIC initiative is to optimize and standardize the security of individual external network connections that are used by federal agencies. The policy is outlined in the [Office of Management and Budget (OMB) Memorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf).
+The purpose of the TIC initiative is to enhance network security across the U.S. federal government.  This objective was initially realized by consolidating external connections and routing all network traffic through approved devices at TIC access points.  In the intervening years, cloud computing became well established, paving the way for modern security architectures and a shift away from the primary focus on perimeter security.  Accordingly, the TIC initiative evolved to provide federal agencies with increased flexibility to use modern security capabilities.
 
-In November 2007, the OMB established the TIC program to improve federal network perimeter security and incident response functions. TIC is designed to perform network analysis of all inbound and outbound .gov traffic to identify specific signatures and pattern-based data. TIC uncovers behavioral anomalies, such as botnet activity. Agencies are mandated to consolidate their external network connections and route all traffic through intrusion detection and prevention devices known as EINSTEIN. The devices are hosted at a limited number of network endpoints, which are referred to as _trusted internet connections_.
+### TIC 2.0 guidance
+
+The TIC initiative was originally outlined in the Office of Management and Budget (OMB) [Memorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf) released in November 2007, and referred to in this article as TIC 2.0 guidance.  The TIC program was envisioned to improve federal network perimeter security and incident response functions.  TIC was originally designed to perform network analysis of all inbound and outbound .gov traffic to identify specific patterns in network data flows and uncover behavioral anomalies, such as botnet activity.  Agencies were mandated to consolidate their external network connections and route all traffic through intrusion detection and prevention devices known as EINSTEIN.  The devices are hosted at a limited number of network endpoints, which are referred to as *trusted internet connections*.
 
 The objective of TIC is for agencies to know:
+
 - Who is on my network (authorized or unauthorized)?
 - When is my network accessed and why?
 - What resources are accessed?
 
-All agency external connections must currently route through an OMB-approved TIC. Federal agencies are required to participate in the TIC program as a TIC Access Provider (TICAP), or by contracting services with one of the major tier 1 internet service providers. These providers are referred to as Managed Trusted Internet Protocol Service (MTIPS) providers. TIC includes mandatory critical capabilities that are performed by the agency and MTIPS provider. In the current version of TIC, the EINSTEIN version 2 intrusion detection and EINSTEIN version 3 accelerated (3A) intrusion prevention devices are deployed at each TICAP and MTIPS. The agency establishes a "Memorandum of Understanding" with the Department of Homeland Security (DHS) to deploy EINSTEIN capabilities to federal systems.
+Under TIC 2.0, all agency external connections must route through an OMB-approved TIC. Federal agencies are required to participate in the TIC program as a TIC Access Provider (TICAP), or by contracting services with one of the major Tier 1 internet service providers. These providers are referred to as Managed Trusted Internet Protocol Service (MTIPS) providers. TIC 2.0 includes mandatory critical capabilities that are performed by the agency and MTIPS provider. In TIC 2.0, the EINSTEIN version 2 intrusion detection and EINSTEIN version 3 accelerated (3A) intrusion prevention devices are deployed at each TICAP and MTIPS. The agency establishes a *Memorandum of Understanding* with the Department of Homeland Security (DHS) to deploy EINSTEIN capabilities to federal systems.
 
-As part of its responsibility to protect the .gov network, DHS requires the raw data feeds of agency net flow data to correlate incidents across the federal enterprise and perform analyses by using specialized tools. DHS routers provide the ability to collect IP network traffic as it enters or exits an interface. Network administrators can analyze the net flow data to determine the source and destination of traffic, the class of service, and so on. Net flow data is considered to be "non-content data" similar to the header, source IP, destination IP, and so on. Non-content data allows DHS to learn about the content: who was doing what and for how long.
+As part of its responsibility to protect the .gov network, DHS requires the raw data feeds of agency net flow data to correlate incidents across the federal enterprise and perform analyses by using specialized tools. DHS routers provide the ability to collect IP network traffic as it enters or exits an interface. Network administrators can analyze the net flow data to determine the source and destination of traffic, the class of service, and other parameters. Net flow data is considered to be "non-content data" similar to the header, source IP, destination IP, and so on. Non-content data allows DHS to learn about the content: who was doing what and for how long.
 
-The initiative also includes security policies, guidelines, and frameworks that assume on-premises infrastructure. As government agencies move to the cloud to achieve cost savings, operational efficiency, and innovation, the implementation requirements of TIC can slow down network traffic. The speed and agility with which government users can access their cloud-based data is limited as a result.
+The TIC 2.0 initiative also includes security policies, guidelines, and frameworks that assume an on-premises infrastructure. As government agencies move to the cloud to achieve cost savings, operational efficiency, and innovation, the implementation requirements of TIC 2.0 can slow down network traffic. The speed and agility with which government users can access their cloud-based data is limited as a result.
+
+### TIC 3.0 guidance
+
+In September 2019, OMB released [Memorandum M-19-26](https://www.whitehouse.gov/wp-content/uploads/2019/09/M-19-26.pdf) that rescinded prior TIC-related memorandums and introduced [TIC 3.0 guidance](https://www.cisa.gov/trusted-internet-connections).  The previous OMB memorandums required agency traffic to flow through a physical TIC access point, which has proven to be an obstacle to the adoption of cloud-based infrastructure.  For example, TIC 2.0 focused exclusively on perimeter security by channeling all incoming and outgoing agency data through a TIC access point.  In contrast, TIC 3.0 recognizes the need to account for multiple and diverse security architectures rather than a single perimeter security approach.  This flexibility allows agencies to choose how to implement security capabilities in a way that fits best into their overall network architecture, risk management approach, and more.
+
+To enable this flexibility, the Cybersecurity & Infrastructure Security Agency (CISA) works with federal agencies to conduct pilots in diverse agency environments, which results in the development of TIC 3.0 use cases.  For TIC 3.0 implementations, CISA encourages agencies to leverage [TIC 3.0 Core Guidance Documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents) in conjunction with the National Institute of Standards and Technology (NIST) [Cybersecurity Framework](https://www.nist.gov/cyberframework) (CSF) and [NIST SP 800-53](https://nvd.nist.gov/800-53/Rev4) *Security and Privacy Controls for Federal Information Systems and Organizations*.  These documents can help agencies design a secure network architecture and determine appropriate requirements from cloud service providers.
+
+TIC 3.0 complements other federal initiatives focused on cloud adoption such as the Federal Risk and Authorization Management Program (FedRAMP), which is based on the NIST SP 800-53 standard augmented by FedRAMP controls and control enhancements.  Agencies can leverage existing Azure and Azure Government FedRAMP High provisional authorizations (P-ATO) issued by the FedRAMP Joint Authorization Board, as well as Azure and Azure Government support for the NIST CSF, as described in [Azure compliance documentation](../../compliance/index.yml).  To assist agencies with TIC 3.0 implementation when selecting cloud-based security capabilities, CISA has mapped TIC capabilities to the NIST CSF and NIST SP 800-53.  For example, TIC 3.0 security objectives can be mapped to the five functions of the NIST CSF, including Identify, Protect, Detect, Respond, and Recover.  The TIC security capabilities are mapped to the NIST CSF in the TIC 3.0 Security Capabilities Catalog available from [TIC 3.0 Core Guidance Documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents).  
+
+TIC 3.0 is non-prescriptive cybersecurity guidance developed to provide agencies with flexibility to implement security capabilities that match their specific risk tolerance levels.  While the guidance requires agencies to comply with all applicable telemetry requirements such as the National Cybersecurity Protection System (NCPS) and Continuous Diagnosis and Mitigation (CDM), TIC 3.0 currently only requires agencies to self-attest on their adherence to the TIC guidance.
+
+With TIC 3.0, agencies have the option to maintain the legacy TIC 2.0 implementation that uses TIC access points while adopting TIC 3.0 capabilities.  CISA provided guidance on how to implement the traditional TIC model in TIC 3.0, known as the [Traditional TIC Use Case](https://www.cisa.gov/publication/tic-30-core-guidance-documents).
+
+The rest of this article provides customer guidance that is pertinent to Azure capabilities needed for legacy TIC 2.0 implementations; however, some of this guidance is also useful for TIC 3.0 requirements.
 
 ## Azure networking options
 
-There are three main options to connect to Azure services:
+There are four main options to connect to Azure services:
 
-- Direct internet connection: Connect to Azure services directly through an open internet connection. The medium and the connection are public. Application and transport level encryption are relied upon to ensure privacy. Bandwidth is limited by a site's connectivity to the internet. Use more than one active provider to ensure resiliency.
-- Virtual private network (VPN): Connect to your Azure virtual network privately by using a VPN gateway.
-The medium is public because it traverses a site's standard internet connection, but the connection is encrypted in a tunnel to ensure privacy. Bandwidth is limited depending on the VPN devices and the configuration chosen. Azure point-to-site connections are typically limited to 100 Mbps and site-to-site connections are limited to 1.25 Gbps.
-- Azure ExpressRoute: ExpressRoute is a direct connection to Microsoft services. Because connectivity is through an isolated fiber channel, the connection can be public or private depending on the configuration that's used. The bandwidth is typically limited to a maximum of 10 Gbps.
+- **Direct internet connection:** Connect to Azure services directly through an open internet connection. The medium and the connection are public. Application and transport-level encryption are relied on to ensure privacy. Bandwidth is limited by a site's connectivity to the internet. Use more than one active provider to ensure resiliency.
+- **Virtual Private Network (VPN):** Connect to your Azure virtual network privately by using a VPN gateway. The medium is public because it traverses a site's standard internet connection, but the connection is encrypted in a tunnel to ensure privacy. Bandwidth is limited depending on the VPN devices and the configuration you choose. Azure point-to-site connections usually are limited to 100 Mbps. Site-to-site connections range from 100 Mbps to 10 Gbps.
+- **Azure ExpressRoute:** ExpressRoute is a direct connection to Microsoft services. ExpressRoute uses a provider at a peering location to connect to Microsoft Enterprise edge routers. ExpressRoute uses different peering types for IaaS and PaaS/SaaS services, private peering and Microsoft peering. Bandwidth ranges from 50 Mbps to 10 Gbps.
+- **Azure ExpressRoute Direct:** ExpressRoute Direct allows for direct fiber connections from your edge to the Microsoft Enterprise edge routers at the peering location. ExpressRoute Direct removes a third-party connectivity provider from the required hops. Bandwidth ranges from 10 Gbps to 100 Gbps. 
 
-There are several ways to meet the TIC Appendix H (Cloud Considerations) requirements, as specified in the Department of Homeland Security's, "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0." In this article, DHS TIC guidance is referred to as **TIC 2.0**.
+To enable the connection from the *agency* to Azure or Microsoft 365, without routing traffic through the agency TIC, the agency must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure that connectivity to the agency cloud assets isn't offered via the public Internet for direct agency personnel access.
 
-To enable the connection from the **Department or Agency (D/A)** to Azure or Microsoft 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
+For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the Internet.
 
-Microsoft 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](../../expressroute/expressroute-circuit-peerings.md) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Microsoft 365 is blocked and routes through the agency. The D/A can also connect to Microsoft 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
+Microsoft 365 is compliant with TIC guidance by using either [ExpressRoute with Microsoft Peering](../../expressroute/expressroute-circuit-peerings.md) enabled or an Internet connection that encrypts all traffic by using the Transport Layer Security (TLS) 1.2. Agency end users on the agency network can connect via their agency network and TIC infrastructure through the Internet. All remote Internet access to Microsoft 365 is blocked and routes through the agency.
 
-For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the internet.
+:::image type="content" source="./media/tic-diagram-a.png" alt-text="Azure networking options for TIC compliance" border="false":::
 
-![Microsoft trusted internet connection (TIC)](media/tic-diagram-a.png)
-
-## Azure infrastructure as a service offerings
+## Azure IaaS offerings
 
 Compliance with TIC policy by using Azure IaaS is relatively simple because Azure customers manage their own virtual network routing.
 
-The main requirement to help assure compliance with the TIC reference architecture is to ensure your virtual network is a private extension of the D/A network. To be a _private_ extension, the policy requires no traffic leave your network except via the on-premises TIC network connection. This process is known as _force tunneling_. For TIC compliance, the process routes all traffic from any system in the CSP environment through an on-premises gateway on an organization's network out to the internet through the TIC.
+The main requirement to help assure compliance with the TIC 2.0 reference architecture is to ensure your virtual network is a private extension of the agency network. To be a *private* extension, the policy requires that no traffic leave your network except via the on-premises TIC network connection. This process is known as *forced tunneling*. For TIC 2.0 compliance, the process routes all traffic from any system in the CSP environment through an on-premises gateway on an organization's network out to the Internet through the TIC.
 
 Azure IaaS TIC compliance is divided into two major steps:
 
-- Step 1: Configuration.
-- Step 2: Auditing.
+- Step 1: Configuration
+- Step 2: Auditing
 
 ### Azure IaaS TIC compliance: Configuration
 
-To configure a TIC-compliant architecture with Azure, you must first prevent direct internet access to your virtual network and then force internet traffic through the on-premises network.
+To configure a TIC-compliant architecture with Azure, you must first prevent direct Internet access to your virtual network and then force Internet traffic through the on-premises network.
 
-#### Prevent direct internet access
+#### Prevent direct Internet access
 
-Azure IaaS networking is conducted via virtual networks that are composed of subnets to which the network interface controllers (NICs) of virtual machines are associated.
+Azure IaaS networking is conducted via virtual networks that are composed of subnets to which the network interface cards (NICs) of virtual machines are associated.
 
-The simplest scenario to support TIC compliance is to assure that a virtual machine, or a collection of virtual machines, can't connect to any external resources. Assure the disconnection from external networks by using network security groups (NSGs). Use NSGs to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. You can change the rules of an NSG at any time, and changes are applied to all associated instances. To learn more about how to create an NSG, see [Filter network traffic with a network security group](../../virtual-network/tutorial-filter-network-traffic.md).
+The simplest scenario to support TIC compliance is to assure that a virtual machine, or a collection of virtual machines, can't connect to any external resources. You can assure the disconnection from external networks by using network security groups. Use network security groups to control traffic to one or more NICs or subnets in your virtual network. A network security group contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. You can change the rules of a network security group at any time, and changes are applied to all associated instances. To learn more about how to create a network security group, see [Filter network traffic with a network security group](../../virtual-network/tutorial-filter-network-traffic.md).
 
-#### Force internet traffic through an on-premises network
+#### Force Internet traffic through an on-premises network
 
-Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create or remove system routes, but you can override some system routes with custom routes. Azure creates default system routes for each subnet. Azure adds optional default routes to specific subnets, or every subnet, when you use specific Azure capabilities. This type of routing ensures:
+Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create or remove system routes, but you can override system routes with custom routes. Azure creates default system routes for each subnet. Azure adds optional default routes to specific subnets, or every subnet, when you use specific Azure capabilities. This type of routing ensures:
+
 - Traffic that's destined within the virtual network stays within the virtual network.
-- IANA-designated private address spaces like 10.0.0.0/8 are dropped, unless they're included in the virtual network address space.
-- "Last-resort" routing of 0.0.0.0/0 to the virtual network internet endpoint.
+- Internet Assigned Numbers Authority (IANA)-designated private address spaces like 10.0.0.0/8 are dropped, unless they're included in the virtual network address space.
+- *Last-resort* routing of 0.0.0.0/0 to the virtual network Internet endpoint.
 
-![TIC force tunneling](media/tic-diagram-c.png)
+:::image type="content" source="./media/tic-diagram-c.png" alt-text="TIC force tunneling" border="false":::
 
-All traffic that leaves the virtual network needs to route through the on-premises connection, to ensure that all traffic traverses the D/A TIC. You create custom routes by creating user-defined routes, or by exchanging Border Gateway Protocol (BGP) routes between your on-premises network gateway and an Azure VPN gateway. For more information about user-defined routes, see [Virtual network traffic routing: User-defined routes](../../virtual-network/virtual-networks-udr-overview.md#user-defined). For more information about the BGP, see [Virtual network traffic routing: Border Gateway Protocol](../../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).
+All traffic that leaves the virtual network needs to route through the on-premises connection, to ensure that all traffic traverses the agency TIC. You create custom routes by creating user-defined routes, or by exchanging Border Gateway Protocol (BGP) routes between your on-premises network gateway and an Azure VPN gateway. For more information about user-defined routes, see [Virtual network traffic routing: User-defined routes](../../virtual-network/virtual-networks-udr-overview.md#user-defined). For more information about the BGP, see [Virtual network traffic routing: Border Gateway Protocol](../../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).
 
 #### Add user-defined routes
 
-If you use a route-based virtual network gateway, you can force tunneling in Azure. Add a user-defined route (UDR) that sets 0.0.0.0/0 traffic to route to a **next hop** of your virtual network gateway. Azure prioritizes user-defined routes over system-defined routes. All non-virtual network traffic is sent to your virtual network gateway, which can then route the traffic to on-premises. After you define the UDR, associate the route with existing subnets or new subnets within all virtual networks in your Azure environment.
+If you use a route-based virtual network gateway, you can use forced tunneling in Azure. Add a user-defined route that sets 0.0.0.0/0 traffic to route to a **next hop** of your virtual network gateway. Azure prioritizes user-defined routes over system-defined routes. All non-virtual network traffic is sent to your virtual network gateway, which can then route the traffic to on-premises. After you define the user-defined route, associate the route with existing subnets or new subnets within all virtual networks in your Azure environment.
 
-![User-defined routes and TIC](media/tic-diagram-d.png)
+:::image type="content" source="./media/tic-diagram-d.png" alt-text="User-defined routes and TIC" border="false":::
 
 #### Use the Border Gateway Protocol
 
@@ -99,99 +112,71 @@ Azure offers several ways to audit TIC compliance.
 
 #### View effective routes
 
-Confirm that your default route is propagated by observing the _effective routes_ for a particular virtual machine, a specific NIC, or a user-defined route table in [the Azure portal](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-azure-portal) or in [Azure PowerShell](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-powershell). The **Effective Routes** show the relevant user-defined routes, BGP advertised routes, and system routes that apply to the relevant entity, as shown in the following figure:
+Confirm that your default route is propagated by observing the *effective routes* for a particular virtual machine, a specific NIC, or a user-defined route table in the [Azure portal](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-azure-portal) or in [Azure PowerShell](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-powershell). The **Effective Routes** show the relevant user-defined routes, BGP advertised routes, and system routes that apply to the relevant entity, as shown in the following figure:
 
-![Effective routes](media/tic-screen-1.png)
+:::image type="content" source="./media/tic-screen-1.png" alt-text="Effective routes" border="false":::
 
 > [!NOTE]
 > You can't view the effective routes for a NIC, unless the NIC is associated with a running virtual machine.
 
 #### Use Azure Network Watcher
 
-Azure Network Watcher offers several tools to audit TIC compliance. For more information, see [this overview about Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
+Network Watcher offers several tools to audit TIC compliance. For more information, see [Azure Network Watcher overview](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ##### Capture network security group flow logs 
 
 Use Network Watcher to capture network flow logs that indicate the metadata that surrounds IP traffic. The network flow logs contain the source and destination addresses of targets, and other data. You can use this data with logs from the virtual network gateway, on-premises edge devices, or the TIC, to monitor that all traffic routes on-premises. 
 
-## Azure platform as a service offerings
+## Azure PaaS offerings
 
-Azure PaaS services, such as Azure Storage, are accessible through an internet-reachable URL. Anyone with approved credentials can access the resource, such as a storage account, from any location without traversing a TIC. For this reason, many government customers incorrectly conclude that Azure PaaS services aren't compliant with TIC policies. Many Azure PaaS services can be compliant with TIC policy. A service is compliant when the architecture is the same as the TIC-compliant IaaS environment ([as previously described](#azure-infrastructure-as-a-service-offerings)) and the service is attached to an Azure virtual network.
+Azure PaaS services, such as Azure Storage, are accessible through an internet-reachable URL. Anyone with approved credentials can access the resource, such as a storage account, from any location without traversing a TIC. For this reason, many government customers incorrectly conclude that Azure PaaS services aren't compliant with TIC 2.0 policies. However, many Azure PaaS services can be compliant with TIC 2.0 policy. A service is compliant when the architecture is the same as the TIC-compliant IaaS environment ([as previously described](#azure-iaas-offerings)) and the service is attached to an Azure virtual network.
 
-When Azure PaaS services are integrated with a virtual network, the service is privately accessible from that virtual network. You can apply custom routing for 0.0.0.0/0 via user-defined routes or BGP. Custom routing ensures that all internet-bound traffic routes on-premises to traverse the TIC. Integrate Azure services into virtual networks by using the following patterns:
+When Azure PaaS services are integrated with a virtual network, the service is privately accessible from that virtual network. You can apply custom routing for 0.0.0.0/0 via user-defined routes or BGP. Custom routing ensures that all Internet-bound traffic routes on-premises to traverse the TIC. Integrate Azure services into virtual networks by using the following patterns:
 
-- **Deploy a dedicated instance of a service**: An increasing number of PaaS services are deployable as dedicated instances with virtual network-attached endpoints. You can deploy an App Service Environment for PowerApps in "Isolated" mode to allow the network endpoint to be constrained to a virtual network. The App Service Environment can then host many Azure PaaS services, such as Azure Web Apps, Azure API Management, and Azure Functions.
-- **Use virtual network service endpoints**: An increasing number of PaaS services allow the option to move their endpoint to a virtual network private IP instead of a public address.
-
-Services that support deployment of dedicated instances into a virtual network or use of service endpoints, as of May 2018, are listed in the following tables.
-
-> [!Note]
-> The availability status corresponds to the Azure services that are commercially available. The availability status for Azure services in Azure Government is pending.
-
-### Support for service endpoints
-
-|Service                        |Availability      |
-|-------------------------------|------------------|
-|Azure Key Vault                | Private preview  |
-|Azure Cosmos DB                | Private preview  |
-|Identity services              | Private preview  |
-|Azure Data Lake                | Private preview  |
-|Azure Database for PostgreSQL  | Private preview  |
-|Azure Database for MySQL       | Private preview  |
-|Azure Synapse Analytics       | Public preview   |
-|Azure SQL Database             | General availability (GA) |
-|Azure Storage                  | GA               |
-
-### Support for virtual network injection
-
-|Service                               |Availability      |
-|--------------------------------------|------------------|
-|Azure SQL Managed Instance   | Public preview   |
-|Azure Kubernetes Service (AKS)        | Public preview   |
-|Azure Service Fabric                  | GA               |
-|Azure API Management                  | GA               |
-|Azure Active Directory                | GA               |
-|Azure Batch                           | GA               |
-|App Service Environment               | GA               |
-|Azure Cache for Redis                     | GA               |
-|Azure HDInsight                       | GA               |
-|Virtual machine scale set             | GA               |
-|Azure Cloud Services                  | GA               |
-
+- **Deploy a dedicated instance of a service:** An increasing number of PaaS services are deployable as dedicated instances with virtual network-attached endpoints, sometimes called *VNet injection*. You can deploy an App Service Environment in *isolated mode* to allow the network endpoint to be constrained to a virtual network. The App Service Environment can then host many Azure PaaS services, such as Azure Web Apps, Azure API Management, and Azure Functions.  For more information, see [Deploy dedicated Azure services into virtual networks](../../virtual-network/virtual-network-for-azure-services.md).
+- **Use virtual network service endpoints:** An increasing number of PaaS services allow the option to move their endpoint to a virtual network private IP instead of a public address.  For more information, see [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
+- **Use Azure Private Link:** Provide a shared service with a private endpoint in your virtual network.  Traffic between your virtual network and the service travels across the Microsoft backbone network and does not traverse the public Internet.  For more information, see [Azure Private Link](../../private-link/private-link-overview.md).
 
 ### Virtual network integration details
 
-The following diagram shows the general network flow for access to PaaS services. Access is shown from both virtual network injection and virtual network service tunneling. For more information about network service gateways, virtual networks, and service tags, see [Network and application security groups: Service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
+The following diagram shows the general network flow for access to Azure PaaS services. Access is shown from both virtual network injection and virtual network service tunneling. For more information about network service gateways, virtual networks, and service tags, see [Virtual network service tags](../../virtual-network/service-tags-overview.md).
 
-![PaaS connectivity options for TIC](media/tic-diagram-e.png)
+:::image type="content" source="./media/tic-diagram-e.png" alt-text="PaaS connectivity options for TIC" border="false":::
 
 1. A private connection is made to Azure by using ExpressRoute. ExpressRoute private peering with forced tunneling is used to force all customer virtual network traffic over ExpressRoute and back to on-premises. Microsoft Peering isn't required.
 2. Azure VPN Gateway, when used in conjunction with ExpressRoute and Microsoft Peering, can overlay end-to-end IPSec encryption between the customer virtual network and the on-premises edge. 
-3. Network connectivity to the customer virtual network is controlled by using NSGs that allow customers to permit/deny based on IP, port, and protocol.
-4. The customer virtual network extends to the PaaS service by creating a service endpoint for the customer's service.
-5. The PaaS service endpoint is secured to **default deny all** and to only allow access from specified subnets within the customer virtual network. The default denies also includes connections that originate from the internet.
-6. Other Azure services that need to access resources within the customer virtual network should either be:  
-   - Directly deployed into the virtual network.
-   - Selectively allowed, based on the guidance from the respective Azure service.
+3. Network connectivity to the customer virtual network is controlled by using network security groups that allow customers to permit/deny traffic based on IP, port, and protocol.
+4. Traffic to and from the customer private virtual network is monitored through Azure Network Watcher and data is analyzed using Log Analytics and Azure Security Center.
+5. The customer virtual network extends to the PaaS service by creating a service endpoint for the customer's service.
+6. The PaaS service endpoint is secured to **default deny all** and to only allow access from specified subnets within the customer virtual network.  Securing service resources to a virtual network provides improved security by fully removing public Internet access to resources and allowing traffic only from your virtual network.
+7. Other Azure services that need to access resources within the customer virtual network should either be:  
+   - Deployed directly into the virtual network, or
+   - Allowed selectively based on the guidance from the respective Azure service.
 
 #### Option A: Deploy a dedicated instance of a service (virtual network injection)
 
-Virtual network injection enables customers to selectively deploy dedicated instances of a given Azure service, such as HDInsight, into their own virtual network. Service instances are deployed into a dedicated subnet in a customer's virtual network. Virtual network injection allows access to service resources through the non-internet routable addresses. On-premises instances use ExpressRoute or a site-to-site VPN to directly access service instances via virtual network address space, instead of opening a firewall to public internet address space. When a dedicated instance is attached to an endpoint, you can use the same strategies as for IaaS TIC compliance. Default routing ensures internet-bound traffic is redirected to a virtual network gateway that's bound for on-premises. You can further control inbound and outbound access through NSGs for the given subnet.
+Virtual network injection enables customers to selectively deploy dedicated instances of a given Azure service, such as HDInsight, into their own virtual network. Service instances are deployed into a dedicated subnet in a customer's virtual network. Virtual network injection allows access to service resources through the non-internet routable addresses. On-premises instances use ExpressRoute or a site-to-site VPN to directly access service instances via virtual network address space, instead of opening a firewall to public internet address space. When a dedicated instance is attached to an endpoint, you can use the same strategies as for IaaS TIC compliance. Default routing ensures Internet-bound traffic is redirected to a virtual network gateway that's bound for on-premises. You can further control inbound and outbound access through network security groups for the given subnet.
 
-![Virtual network injection overview](media/tic-diagram-f.png)
+:::image type="content" source="./media/tic-diagram-f.png" alt-text="Virtual network injection overview" border="false":::
 
 #### Option B: Use virtual network service endpoints (service tunnel)
 
-An increasing number of Azure multitenant services offer "service endpoints." Service endpoints are an alternate method for integrating to Azure virtual networks. Virtual network service endpoints extend your virtual network IP address space and the identity of your virtual network to the service over a direct connection. Traffic from the virtual network to the Azure service always stays within the Azure backbone network. 
+An increasing number of Azure multitenant services offer *service endpoints*. Service endpoints are an alternate method for integrating to Azure virtual networks. Virtual network service endpoints extend your virtual network IP address space and the identity of your virtual network to the service over a direct connection. Traffic from the virtual network to the Azure service always stays within the Azure backbone network. 
 
 After you enable a service endpoint for a service, use policies exposed by the service
 to restrict connections for the service to that virtual network. Access checks are enforced in the platform by the Azure service. Access to a locked resource is granted only if the request originates from the allowed virtual network or subnet, or from the two IPs that are used to identify your on-premises traffic if you use ExpressRoute. Use this method to effectively prevent inbound/outbound traffic from directly leaving the PaaS service.
 
-![Service endpoints overview](media/tic-diagram-g.png)
+:::image type="content" source="./media/tic-diagram-g.png" alt-text="Service endpoints overview" border="false":::
 
-## Cloud-native tools for network situational awareness
+#### Option C: Use Azure Private Link
 
-Azure provides cloud-native tools to help ensure that you have the situational awareness that's required to understand the traffic flows of your network. The tools aren't required for compliance with TIC policy. The tools can vastly improve your security capabilities.
+Customers can use [Azure Private Link](../../private-link/private-link-overview.md) to access Azure PaaS services and Azure-hosted customer/partner services over a [private endpoint](../../private-link/private-endpoint-overview.md) in their virtual network, ensuring that traffic between their virtual network and the service travels across the Microsoft global backbone network.  This approach eliminates the need to expose the service to the public Internet.  Customers can also create their own [private link service](../../private-link/private-link-service-overview.md) in their own virtual network and deliver it to their customers.
+
+Azure private endpoint is a network interface that connects customers privately and securely to a service powered by Azure Private Link.  Private endpoint uses a private IP address from customer’s virtual network, effectively bringing the service into customer’s virtual network.
+
+## Tools for network situational awareness
+
+Azure provides cloud-native tools to help ensure that you have the situational awareness that's required to understand the traffic flows of your network. The tools aren't required for compliance with TIC policy. However, the tools can vastly improve your security capabilities.
 
 ### Azure Policy
 
@@ -208,51 +193,24 @@ Along with many [built-in policy definitions](../../governance/policy/samples/bu
 
 ### Network Watcher traffic analytics
 
-Network Watcher [traffic analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) consume flow log data and other logs to provide a high-level overview of network traffic. The data is useful for auditing TIC compliance and to identify trouble spots. You can use the high-level dashboard to rapidly screen the virtual machines that are communicating with the internet and get a focused list for TIC routing.
+Network Watcher [traffic analytics](../../network-watcher/traffic-analytics.md) consume flow log data and other logs to provide a high-level overview of network traffic. The data is useful for auditing TIC compliance and identifying trouble spots. You can use the high-level dashboard to rapidly screen the virtual machines that are communicating with the Internet and get a focused list for TIC routing.
 
-![Traffic analytics](media/tic-traffic-analytics-1.png)
+:::image type="content" source="./media/tic-traffic-analytics-1.png" alt-text="Network Watcher traffic analytics" border="false":::
 
-Use the **Geo Map** to quickly identify the probable physical destinations of internet traffic for your virtual machines. You can identify and triage suspicious locations or pattern changes:
+Use the **Geo Map** to quickly identify the probable physical destinations of Internet traffic for your virtual machines. You can identify and triage suspicious locations or pattern changes:
 
-![Geo map](media/tic-traffic-analytics-2.png)
+:::image type="content" source="./media/tic-traffic-analytics-2.png" alt-text="Geo map" border="false":::
 
 Use the **Virtual Networks Topology** to rapidly survey existing virtual networks:
 
-![Network topology map](media/tic-traffic-analytics-3.png)
+:::image type="content" source="./media/tic-traffic-analytics-3.png" alt-text="Network topology map" border="false":::
 
 ### Network Watcher next hop tests
 
-Networks in regions that are monitored by Network Watcher can conduct next hop tests. In the Azure portal, you can enter a source and destination for a sample network flow for Network Watcher to resolve the next hop destination. Run this test against virtual machines and sample internet addresses to ensure the next hop destination is the expected network virtual gateway.
+Networks in regions that are monitored by Network Watcher can conduct next hop tests. In the Azure portal, you can enter a source and destination for a sample network flow for Network Watcher to resolve the next hop destination. Run this test against virtual machines and sample Internet addresses to ensure the next hop destination is the expected network virtual gateway.
 
-![Next hop tests](media/tic-network-watcher.png)
+:::image type="content" source="./media/tic-network-watcher.png" alt-text="Next hop tests" border="false":::
 
 ## Conclusions
 
-You can easily configure access for Microsoft Azure, Microsoft 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
-
-## Appendix: Trusted Internet Connections patterns for common workloads
-
-| Category | Workload | IaaS | Dedicated PaaS / Virtual network injection  | Service endpoints  |
-|---------|---------|---------|---------|--------|
-| Compute | Azure Linux virtual machines | Yes | | |
-| Compute | Azure Windows virtual machines | Yes | | |
-| Compute | Virtual machine scale sets | Yes | | |
-| Compute | Azure Functions | | App Service Environment | |
-| Web and mobile | Internal web application | | App Service Environment| |
-| Web and mobile | Internal mobile application | | App Service Environment | |
-| Web and mobile | API applications | | App Service Environment | |
-| Containers | Azure Container Service | | | Yes |
-| Containers | Azure Kubernetes Service (AKS) \* | | | Yes |
-| Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
-| Database | Azure Database for MySQL | | | Yes |
-| Database | Azure Database for PostgreSQL | | | Yes |
-| Database | Azure Synapse Analytics | | | Yes |
-| Database | Azure Cosmos DB | | | Yes |
-| Database | Azure Cache for Redis | | Yes | |
-| Storage | Azure Blob storage | Yes | | |
-| Storage | Azure Files | Yes | | |
-| Storage | Azure Queue storage | Yes | | |
-| Storage | Azure Table storage | Yes | | |
-| Storage | Azure Disk storage | Yes | | |
-
-\* Public preview in Azure Government, May 2018.
+You can easily configure network access to help comply with TIC 2.0 guidance, as well as leverage Azure support for the NIST CSF and NIST SP 800-53 to address TIC 3.0 requirements.

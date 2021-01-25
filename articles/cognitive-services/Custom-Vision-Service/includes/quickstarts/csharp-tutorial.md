@@ -91,7 +91,7 @@ In the application's **Main** method, create variables for your resource's key a
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get both your training and prediction keys.
+> Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get both your training and prediction keys, along with the training resources' endpoint.
 >
 > Remember to remove the keys from your code when you're done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
@@ -142,6 +142,9 @@ This method defines the tags that you will train the model on.
 ## Upload and tag images
 
 First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
+
+> [!NOTE]
+> Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) to learn more.
 
 Then define a helper method to upload the images in this directory. You may need to edit the **GetFiles** argument to point to the location where your images are saved.
 
@@ -207,6 +210,8 @@ Making a prediction:
 ```
 
 You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. Press any key to exit the application. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+
+## Clean up resources
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

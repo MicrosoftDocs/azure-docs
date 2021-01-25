@@ -307,7 +307,7 @@ situation.
 | Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
+| Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
 | Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### Reduce your attack surface

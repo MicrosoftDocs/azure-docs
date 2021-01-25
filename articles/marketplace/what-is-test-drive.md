@@ -19,7 +19,7 @@ Your customers benefit from a test drive as well. By allowing them to try your p
 
 Test drives are managed instances that launch your solution or application on-demand for customers who request it. Once a test drive instance is assigned, it is available for use by that customer for a set period. After the period has ended, it is then deleted to create room for another customer.
 
-As a publisher, you manage and configure the test drive settings in Partner Center. Technical configuration details vary depending on the type of offer. For detailed guidance, see the [Test drive technical configuration](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+As a publisher, you manage and configure the test drive settings in Partner Center. Technical configuration details vary depending on the type of offer. For detailed guidance, see the [Test drive technical configuration](./test-drive-technical-configuration.md).
 
 Potential customers discover your test drive as a CTA on your offer on [AppSource](https://appsource.microsoft.com/en-US/). They provide their contact information and agree to your offer's terms and privacy policy, then gain access to your pre-configured environment to try it for a fixed period. Customers receive a hands-on, self-guided trial of your product's key features and benefits and you receive a valuable lead.
 
@@ -38,7 +38,7 @@ There are different test drives available on the commercial marketplace for sele
 - Logic app (in support mode only)
 - Power BI
 
-For details on configuring one of these test drives, see [Test drive technical configuration](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
+For details on configuring one of these test drives, see [Test drive technical configuration](./test-drive-technical-configuration.md). 
 
 ### Azure Resource Manager test drive
 
@@ -60,7 +60,7 @@ A hosted test drive removes the complexity of setup by letting Microsoft host an
 
 ### Logic app test drive
 
-This type of test drive is not hosted by Microsoft and uses Azure Resource Manager (ARM) templates for Dynamics AX/CRM offer types. You will need to run the ARM template to create required resources in your Azure subscription. Logic App Test Drive is currently on support mode only and is not recommended by Microsoft For details on configuring a Logic App Test Drive, see [Test drive technical configuration](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+This type of test drive is not hosted by Microsoft and uses Azure Resource Manager (ARM) templates for Dynamics AX/CRM offer types. You will need to run the ARM template to create required resources in your Azure subscription. Logic App Test Drive is currently on support mode only and is not recommended by Microsoft For details on configuring a Logic App Test Drive, see [Test drive technical configuration](./test-drive-technical-configuration.md).
 
 ### Power BI test drive
 

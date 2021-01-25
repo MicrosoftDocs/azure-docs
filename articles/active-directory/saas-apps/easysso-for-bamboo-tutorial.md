@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 12/21/2020
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate EasySSO for Bamboo with Azure Ac
 * Control in Azure AD who has access to Bamboo.
 * Enable your users to be automatically signed-in to Bamboo with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,13 +34,12 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * EasySSO for Bamboo supports **SP and IDP** initiated SSO
 * EasySSO for Bamboo supports **Just In Time** user provisioning
-* Once you configure EasySSO for Bamboo you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding EasySSO for Bamboo from the gallery
 
 To configure the integration of EasySSO for Bamboo into Azure AD, you need to add EasySSO for Bamboo from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
@@ -50,11 +47,11 @@ To configure the integration of EasySSO for Bamboo into Azure AD, you need to ad
 1. Select **EasySSO for Bamboo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for EasySSO for Bamboo
+## Configure and test Azure AD SSO for EasySSO for Bamboo
 
 Configure and test Azure AD SSO with EasySSO for Bamboo using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EasySSO for Bamboo.
 
-To configure and test Azure AD SSO with EasySSO for Bamboo, complete the following building blocks:
+To configure and test Azure AD SSO with EasySSO for Bamboo, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -67,7 +64,7 @@ To configure and test Azure AD SSO with EasySSO for Bamboo, complete the followi
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **EasySSO for Bamboo** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **EasySSO for Bamboo** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -131,19 +128,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **EasySSO for Bamboo**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure EasySSO for Bamboo SSO
 
-1. Sign into your Atlassian Bamboo instance with Administrator privileges and navigate to the **Manage Apps** section. 
+1. To automate the configuration within Zoom, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Zoom** will direct you to the Zoom application. From there, provide the admin credentials to sign into Zoom. The browser extension will automatically configure the application for you and automate steps 3-10.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Zoom manually, in a different web browser window, sign in to your Zoom company site as an administrator.
+
+1. Navigate to the **Manage Apps** section. 
 
     ![Manage Apps](./media/easysso-for-bamboo-tutorial/bamboo-admin-1.png)
 
@@ -173,7 +176,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
 6. Click **Save** button on the bottom of the page. You will see the content of the Metadata or Certificate files is parsed into the configuration fields. EasySSO for Bamboo configuration is complete.
 
-7. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Bamboo login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, colour and translation for production mode, too.
+7. For the best testing experience, navigate to **Look & Feel** tab and check the **SAML Login Button** option on. This will enable separate button on the Bamboo login screen specifically to test your Azure AD SAML integration end to end. You can leave this button on and configure its placement, color, and translation for production mode, too.
 
     ![Look & Feel](./media/easysso-for-bamboo-tutorial/bamboo-admin-5.png)
 
@@ -192,9 +195,9 @@ However, if you do not wish to enable automatic user provisioning on the user fi
 
 ### IdP-initiated workflow
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration using the My Apps.
 
-When you click the EasySSO for Bamboo tile in the Access Panel, you should be automatically signed in to the Bamboo instance for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the EasySSO for Bamboo tile in the My Apps, you should be automatically signed in to the Bamboo instance for which you set up SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ### SP-initiated workflow
 
@@ -212,16 +215,6 @@ In this case you have to follow the [instructions on this page]( https://techtim
 
 Should you have any issues digesting the log messages, please contact [EasySSO support team](mailto:support@techtime.co.nz).
 
-## Additional resources
+## Next steps
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
-
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try EasySSO for Bamboo with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect EasySSO for Bamboo with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure EasySSO for Bamboo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

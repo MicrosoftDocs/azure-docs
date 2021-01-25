@@ -39,7 +39,7 @@ Examples of recommendations you might see in these two controls on Security Cent
 - Deprecated accounts should be removed from your subscription (Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
 > [!TIP]
-> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
+> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identityandaccess).
 
 ### Limitations
 
@@ -47,7 +47,7 @@ There are some limitations to Security Center's identity and access protections:
 
 - Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
-- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you may see inaccurate results in the **Manage access and permissions** control.
+- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
 
 ## Multi-factor authentication (MFA) and Azure Active Directory 
 

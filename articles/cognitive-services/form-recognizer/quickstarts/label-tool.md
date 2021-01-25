@@ -102,7 +102,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
-> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
+> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Set up input data
 
@@ -133,7 +133,9 @@ Fill in the fields with the following values:
 
 * **Display Name** - The connection display name.
 * **Description** - Your project description.
-* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Set the expiry time to some time after you'll have used the service. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
 
@@ -219,7 +221,7 @@ Follow the steps above to label at least five of your forms.
 
 ### Specify tag value types
 
-Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
+Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. Value type information is saved in the *fields.json* file in the same path as your label files.
 
 > [!div class="mx-imgBorder"]
 > ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
@@ -262,7 +264,7 @@ The following value types and variations are currently supported:
 
 Click the Train icon on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./curl-train-extract.md) or [client library](./client-library.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./client-library.md?pivots=programming-language-rest-api) or [client library](./client-library.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -272,7 +274,7 @@ Click the Train icon on the left pane to open the Training page. Then click the 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
 > [!TIP]
-> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
+> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Compose trained models
 
@@ -296,7 +298,7 @@ Click on the "Compose" button. In the pop up, name your new composed model and c
 Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 > [!TIP]
-> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
+> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Improve results
 
@@ -323,7 +325,7 @@ Finally, go to the main page (house icon) and click Open Cloud Project. Then sel
 In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
-> [Train with labels using Python](./python-labeled-data.md)
+> [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](../overview.md)
-* [Form Recognizer client library quickstarts](client-library.md)
+* [Form Recognizer quickstart](client-library.md)

@@ -2,7 +2,7 @@
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom:
 ---
 
@@ -40,9 +40,6 @@ When you configure registry encryption with a customer-managed key, you have two
 * **Automatically update the key version** - To automatically update a customer-managed key when a new version is available in Azure Key Vault, omit the key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a non-versioned key, Azure Container Registry regularly checks the key vault for a new key version and updates the customer-managed key within 1 hour. Azure Container Registry automatically uses the latest version of the key.
 
 * **Manually update the key version** - To use a specific version of a key for registry encryption, specify that key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key.
-
-> [!NOTE]
-> Currently you can only use the Azure CLI to configure the registry to automatically update the customer-managed key version. When using the portal to enable encryption, you must manually update the key version.
 
 For details, see [Choose key ID with or without key version](#choose-key-id-with-or-without-key-version) and [Update key version](#update-key-version), later in this article.
 
@@ -107,7 +104,7 @@ az keyvault create --name <key-vault-name> \
   --enable-purge-protection
 ```
 
-For use in later steps, get the resource Id of the key vault:
+For use in later steps, get the resource ID of the key vault:
 
 ```azurecli
 keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
@@ -247,7 +244,7 @@ You use the identity's name in later steps.
 
 ### Create a key vault
 
-For steps to create a key vault, see [Quickstart: Create an Azure Key Vault with the Azure portal](../key-vault/general/quick-create-portal.md).
+For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 
 When creating a key vault for a customer-managed key, in the **Basics** tab, enable the **Purge protection** setting. This setting helps prevent data loss caused by accidental key or key vault deletions.
 
@@ -274,13 +271,15 @@ Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md
     1. Assign access to **User assigned managed identity**.
     1. Select the resource name of your user-assigned managed identity, and select **Save**.
 
-### Create key
+### Create key (optional)
+
+Optionally create a key in the key vault for use to encrypt the registry. Follow these steps if you want to select a specific key version as a customer-managed key. 
 
 1. Navigate to your key vault.
 1. Select **Settings** > **Keys**.
 1. Select **+Generate/Import** and enter a unique name for the key.
 1. Accept the remaining default values and select **Create**.
-1. After creation, select the key and take note of the current key version.
+1. After creation, select the key and then select the current version. Copy the **Key identifier** for the key version.
 
 ### Create Azure container registry
 
@@ -288,10 +287,11 @@ Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md
 1. In the **Basics** tab, select or create a resource group, and enter a registry name. In **SKU**, select **Premium**.
 1. In the **Encryption** tab, in **Customer-managed key**, select **Enabled**.
 1. In **Identity**, select the managed identity you created.
-1. In **Encryption**, select **Select from Key Vault**.
-1. In the **Select key from Azure Key Vault** window, select the key vault, key, and version you created in the preceding section.
+1. In **Encryption**, choose either of the following:
+    * Select **Select from Key Vault**, and select an existing key vault and key, or **Create new**. The key you select is non-versioned and enables automatic key rotation.
+    * Select **Enter key URI**, and provide a key identifier directly. You can provide either a versioned key URI (for a key that must be rotated manually) or a non-versioned key URI (which enables automatic key rotation). 
 1. In the **Encryption** tab, select **Review + create**.
-1. Select **Create** to create the registry instance.
+1. Select **Create** to deploy the registry instance.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Create encrypted registry in the Azure portal":::
 
@@ -493,11 +493,11 @@ For example, to configure a new key:
 
 1. In the portal, navigate to your registry.
 1. Under **Settings**, select  **Encryption** > **Change key**.
-1. Select **Select key**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Rotate key in the Azure portal":::
-1. In the **Select key from Azure Key Vault** window, select the key vault and key you configured previously, and in **Version**, select **Create new**.
-1. In the **Create a key** window, select **Generate**, and then **Create**.
+1. In **Encryption**, choose one of the following:
+    * Select **Select from Key Vault**, and select an existing key vault and key, or **Create new**. The key you select is non-versioned and enables automatic key rotation.
+    * Select **Enter key URI**, and provide a key identifier directly. You can provide either a versioned key URI (for a key that must be rotated manually) or a non-versioned key URI (which enables automatic key rotation).
 1. Complete the key selection and select **Save**.
 
 ## Revoke key

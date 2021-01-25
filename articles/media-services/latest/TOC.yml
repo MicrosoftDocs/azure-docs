@@ -44,7 +44,11 @@
     - name: Use portal to upload, encode, and stream content 
       href: manage-assets-quickstart.md
     - name: Use portal to encrypt content
-      href: encrypt-content-quickstart.md       
+      href: encrypt-content-quickstart.md
+  - name: Use an ARM template
+    items:
+    - name: Create an account with ARM
+      href: quickstart-arm-template-account.md     
 - name: Tutorials
   items:
   - name: .NET
@@ -236,6 +240,9 @@
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
+  - name: Media Services architectures
+    displayName: architectures
+    href: architectures-concept.md
   - name: Troubleshooting
     items:
     - name: Frequently asked questions
@@ -251,14 +258,49 @@
         href: job-error-codes.md
     - name: Reset account credentials
       href: cli-reset-account-credentials.md       
-  - name: Migration from v2 to v3
+  - name: Migration guide
+    displayName: migration
     items:
-    - name: v2 vs v3
-      displayName: migrate, v2 to v3
-      href: media-services-v2-vs-v3.md
-    - name: Migration guidance
-      href: migrate-from-v2-to-v3.md 
-      displayName: naming      
+    - name: Migration guide introduction
+      href: migrate-v-2-v-3-migration-introduction.md
+      displayName: migration
+    - name: Step 1 - Benefits
+      href: migrate-v-2-v-3-migration-benefits.md
+      displayName: migration, benefits
+    - name: Step 2 - Differences
+      items:
+      - name: API access
+        href: migrate-v-2-v-3-differences-api-access.md
+        displayName: migration, api
+      - name: Feature gaps
+        href: migrate-v-2-v-3-differences-feature-gaps.md
+        displayName: migration, features
+      - name: Terminology and entity changes
+        href: migrate-v-2-v-3-differences-terminology.md
+        displayName: migration, entity, api
+    - name: Step 3 - SDK setup
+      href: migrate-v-2-v-3-migration-setup.md
+      displayName: migration, SDK`
+    - name: Step 4 - Scenario-based migration guidance
+      items:
+      - name: Encoding
+        href: migrate-v-2-v-3-migration-scenario-based-encoding.md
+        displayName: migration, encoding
+      - name: Live streaming
+        href: migrate-v-2-v-3-migration-scenario-based-live-streaming.md
+        displayName: migration, live streaming
+      - name: Packaging and delivery
+        href: migrate-v-2-v-3-migration-scenario-based-publishing.md
+        displayName: migration, packaging, delivery, publishing
+      - name: Content protection
+        href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
+        displayName: migration, content protection, DRM, digital rights management
+      - name: Media Reserved Units (MRU)
+        href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
+        displayName: migration, media reserved units
+    - name: Samples comparison
+      href: migrate-v-2-v-3-migration-samples.md
+      displayName: migration, samples    
 - name: How-to guides
   items:
   - name: Create assets and upload media

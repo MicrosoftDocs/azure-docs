@@ -8,11 +8,9 @@
   expanded: true
   items:
   - name: Create and manage a VPN gateway
-    items:
-    - name: Azure portal
-      href: tutorial-create-gateway-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-tutorial-create-gateway-powershell.md
+    href: tutorial-create-gateway-portal.md
+  - name: Configure a site-to-site connection
+    href: tutorial-site-to-site-portal.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -88,7 +86,7 @@
     - name: Configure S2S connections
       items:
       - name: Azure portal
-        href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+        href: tutorial-site-to-site-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
@@ -103,6 +101,8 @@
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: VPN over private peering
       href: site-to-site-vpn-private-peering.md
+  - name: Site-to-Site connection between Azure and AWS
+    href: create-vpn-azure-aws-managed-solutions.md
   - name: VNet-to-VNet connections
     items:
     - name: Configure VNet-to-VNet connections

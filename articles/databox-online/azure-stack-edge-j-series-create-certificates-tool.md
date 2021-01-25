@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ This article describes how to create certificates for your Azure Stack Edge Pro 
 
 ## Using Azure Stack Hub Readiness Checker tool
 
-Use the Azure Stack Hub Readiness Checker tool to create Certificate Signing Requests (CSRs) for an Azure Stack Edge Pro device deployment. You can create these requests after placing an order for the Azure Stack Edge Pro device and waiting for the device to arrive. 
+Use the Azure Stack Hub Readiness Checker tool to create Certificate Signing Requests (CSRs) for an Azure Stack Edge Pro device deployment. You can create these requests after you place an order for the Azure Stack Edge Pro device and wait for the device to arrive.
 
 > [!NOTE]
 > Use this tool only for test or development purposes and not for production devices. 
@@ -55,27 +55,27 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    To verify the installed version, type:  
+    To get the installed version, type:  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. Create a directory for all the certificates if it does not exist. Type: 
+3. Create a directory for all the certificates if you don't already have one. Type: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. To create a certificate request, provide the following information. If you are generating a VPN certificate, some of these inputs do not apply. 
+4. To create a certificate request, provide the following information. If you are generating a VPN certificate, some of these inputs do not apply.
     
     |Input |Description  |
     |---------|---------|
     |`OutputRequestPath`|The file path on your local client where you want the certificate requests to be created.        |
-    |`DeviceName`|The name of your device in the **Devices** page in the local web UI of your device. <br> This field is not required for a VPN certificate.         |
-    |`NodeSerialNumber`|The serial number of the device node in the **Network** page in the local web UI of your device. <br> This field is not required for a VPN certificate.       |
+    |`DeviceName`|The name of your device in the **Devices** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
+    |`NodeSerialNumber`|The serial number of the device node in the **Network** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
     |`ExternalFQDN`|The DNSDomain value in the **Devices** page in the local web UI of your device.         |
-    |`RequestType`|The request type can be for `MultipleCSR` - different certificates for the various endpoints, or `SingleCSR` - a single certificate for all the endpoints. <br> This field is not required for a VPN certificate.     |
+    |`RequestType`|The request type can be for `MultipleCSR` - different certificates for the various endpoints, or `SingleCSR` - a single certificate for all the endpoints. <br> This field isn't required for a VPN certificate.     |
 
     For all the certificates except the VPN certificate, type: 
     
@@ -103,7 +103,7 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     ```
 
     
-5. You will find the certificate request files under the directory you specified in the OutputRequestPath parameter above. When using the `MultipleCSR` parameter, you will see 4 files with the `.req` extension. The files are as follows:
+5. You will find the certificate request files in the directory you specified in the OutputRequestPath parameter above. When using the `MultipleCSR` parameter, you'll see the following four files with the `.req` extension:
 
     
     |File names  |Type of certificate request  |
@@ -111,17 +111,17 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     |Starting with your `DeviceName`     |Local web UI certificate request      |
     |Starting with your `NodeSerialNumber`     |Node certificate request         |
     |Starting with `login`     |Azure Resource Manager Endpoint certificate request       |
-    |Starting with `wildcard`     |Blob storage certificate request; it contains a wildcard because it covers all the storage accounts that you may create on the device.          |
+    |Starting with `wildcard`     |Blob storage certificate request. It contains a wildcard because it covers all the storage accounts that you may create on the device.          |
     |Starting with `AzureStackEdgeVPNCertificate`     |VPN client certificate request.         |
 
-    You also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
+    You'll also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
 
 
-6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates using your generated request that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## Prepare certificates for deployment
 
-The certificate files that you obtain from your certificate authority (CA) must be imported and exported with properties that match Azure Stack Edge Pro device's certificate requirements. Complete the following steps on the same system where you generated the certificate signing requests.
+The certificate files that you get from your certificate authority (CA) must be imported and exported with properties that match the certificate requirements of the Azure Stack Edge Pro device. Complete the following steps on the same system where you generated the certificate signing requests.
 
 - To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 

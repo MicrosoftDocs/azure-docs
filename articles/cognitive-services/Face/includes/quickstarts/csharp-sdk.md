@@ -89,7 +89,7 @@ In the application's **Program** class, create variables for your resource's key
 
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the [Product name] resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+> Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
@@ -256,7 +256,7 @@ Define the deletion method with the following code:
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face client library for .NET to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face client library for .NET to do basic facial recognition tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 > [Face API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

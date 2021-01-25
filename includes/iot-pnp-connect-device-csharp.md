@@ -21,7 +21,7 @@ To complete this quickstart on Windows, you need the following software installe
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Samples for C# repository.
 
-Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for c# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git

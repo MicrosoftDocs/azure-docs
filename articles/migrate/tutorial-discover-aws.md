@@ -1,6 +1,9 @@
 ---
 title: Discover AWS instances with Azure Migrate Server Assessment 
 description: Learn how to discover AWS instances with Azure Migrate Server Assessment.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
@@ -33,15 +36,15 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Appliance** | You need an EC2 VM on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed. Running the appliance on a machine with Windows Server 2019 isn't supported.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
+**Appliance** | You need an EC2 VM on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed.<br/> _Running the appliance on a machine with Windows Server 2019 isn't supported_.<br/><br/> - 16 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
 **Windows instances** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
-**Linux instances** | Allow inbound connections on port 22 (TCP).
+**Linux instances** | Allow inbound connections on port 22 (TCP).<br/><br/> The instances should use `bash` as the default shell, otherwise discovery will fail.
 
 ## Prepare an Azure user account
 
 To create an Azure Migrate project and register the Azure Migrate appliance, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Azure Active Directory (AAD) apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -60,18 +63,20 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Opens the Add Role assignment page to assign a role to the account](./media/tutorial-discover-aws/assign-role.png)
 
-7. In the portal, search for users, and under **Services**, select **Users**.
-8. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
+1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-aws/register-apps.png)
 
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare AWS instances
 
 Set up an account that the appliance can use to access AWS instances.
 
-- For Windows servers, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
- - For Linux servers, you need a root account on the Linux servers that you want to discover.
+- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
+ - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#physical-server-requirements) for an alternative.
 - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows machines, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux machines:
@@ -98,11 +103,12 @@ Set up a new Azure Migrate project.
    ![Boxes for project name and region](./media/tutorial-discover-aws/new-project.png)
 
 7. Select **Create**.
-8. Wait a few minutes for the Azure Migrate project to deploy.
-
-The **Azure Migrate: Server Assessment** tool is added by default to the new project.
+8. Wait a few minutes for the Azure Migrate project to deploy. The **Azure Migrate: Server Assessment** tool is added by default to the new project.
 
 ![Page showing Server Assessment tool added by default](./media/tutorial-discover-aws/added-tool.png)
+
+> [!NOTE]
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Set up the appliance
 
@@ -113,17 +119,14 @@ The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Se
 
 [Learn more](migrate-appliance.md) about the Azure Migrate appliance.
 
-
-## Appliance deployment steps
-
 To set up the appliance you:
-- Provide an appliance name and generate an Azure Migrate project key in the portal.
-- Download a zipped file with Azure Migrate installer script from the Azure portal.
-- Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
-- Execute the PowerShell script to launch the appliance web application.
-- Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
+1. Provide an appliance name and generate an Azure Migrate project key in the portal.
+1. Download a zipped file with Azure Migrate installer script from the Azure portal.
+1. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
+1. Execute the PowerShell script to launch the appliance web application.
+1. Configure the appliance for the first time, and register it with the Azure Migrate project using the Azure Migrate project key.
 
-### Generate the Azure Migrate project key
+### 1. Generate the Azure Migrate project key
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
@@ -132,10 +135,9 @@ To set up the appliance you:
 1. After the successful creation of the Azure resources, an **Azure Migrate project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
-### Download the installer script
+### 2. Download the installer script
 
 In **2: Download Azure Migrate appliance**, click on **Download**.
-
 
 ### Verify security
 
@@ -160,7 +162,7 @@ Check that the zipped file is secure, before you deploy it.
         Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  
 
-### Run the Azure Migrate installer script
+### 3. Run the Azure Migrate installer script
 The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
@@ -189,13 +191,11 @@ Run the script as follows:
 
 If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
-
-
 ### Verify appliance access to Azure
 
 Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
-### Configure the appliance
+### 4. Configure the appliance
 
 Set up the appliance for the first time.
 
@@ -215,11 +215,16 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, sign in by using your Azure username and password.
+1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+
+    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+
+1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. On the new tab, paste the device code and sign in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
-3. After you successfully logged in, go back to the web app. 
+3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
+1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
@@ -228,7 +233,19 @@ Set up the appliance for the first time.
 
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
-1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, click on **Add credentials** to specify a friendly name for credentials, add **Username** and **Password** for a Windows or Linux server. Click on **Save**.
+1. In **Step 1: Provide credentials for discovery of Windows and Linux physical or virtual servers​**, click on **Add credentials**.
+1. For Windows server, select the source type as **Windows Server**, specify a friendly name for credentials, add the username and password.Click on **Save**.
+1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password.Click on **Save**.
+1. If you are using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse and select the SSH private key file. Click on **Save**.
+
+    - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA and ed25519 algorithms.
+    - Currently Azure Migrate does not support passphrase based SSH key. Please use an SSH key without a passphrase.
+    - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
+    - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
+    
+    ![SSH private key supported format](./media/tutorial-discover-physical/key-format.png)
+
+
 1. If you want to add multiple credentials at once,click on **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
 1. In **Step 2:Provide physical or virtual server details​**, click on **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.

@@ -17,7 +17,7 @@ When you author a runbook to run on a Hybrid Runbook Worker, you should edit and
 
 Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs run in Azure sandboxes. If you have a long-running runbook, make sure that it's resilient to possible restart. For details of the job behavior, see [Hybrid Runbook Worker jobs](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Jobs for Hybrid Runbook Workers run under the local **System** account on Windows, or the **nxautomation** account on Linux. For Linux, verify the **nxautomation** account has access to the location where the runbook modules are stored. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify AllUsers for the `Scope` parameter to ensure that the **nxautomation** account has access. For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms).
+Jobs for Hybrid Runbook Workers run under the local **System** account on Windows, or the **nxautomation** account on Linux. For Linux, verify the **nxautomation** account has access to the location where the runbook modules are stored. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify AllUsers for the `Scope` parameter to ensure that the **nxautomation** account has access. For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
 
 ## Configure runbook permissions
 

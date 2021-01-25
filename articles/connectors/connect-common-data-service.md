@@ -1,17 +1,20 @@
 ---
-title: Connect to Common Data Service
-description: Create and manage Common Data Service records by using Azure Logic Apps
+title: Connect to Common Data Service (Microsoft Dataverse)
+description: Create and manage Common Data Service (Microsoft Dataverse) records by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
 ---
 
-# Create and manage records in Common Data Service by using Azure Logic Apps
+# Create and manage records in Common Data Service (Microsoft Dataverse) by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
+> [!NOTE]
+> In November 2020, Common Data Service was renamed to Microsoft Dataverse.
+
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service, now Microsoft Dataverse](/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
 
 This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
 

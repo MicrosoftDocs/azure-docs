@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # CETAS with Synapse SQL
 
-You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) in dedicated SQL pool or serverless SQL pool (preview) to complete the following tasks:  
+You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) in dedicated SQL pool or serverless SQL pool to complete the following tasks:  
 
 - Create an external table
 - Export, in parallel, the results of a Transact-SQL SELECT statement to:

@@ -8,7 +8,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Use the Shared Image Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Shared Image Gallery image](../virtual-machines/windows/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Shared Image Gallery image](../virtual-machines/shared-image-galleries.md).
 
 ## Benefits of the Shared Image Gallery
 
@@ -26,7 +26,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 - **Grow pools to larger sizes.** With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
 - **Better performance than using just a managed image as a custom image.** For a Shared Image custom image pool, the time to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
-- **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ In Azure, you can prepare a shared image from a managed image, which can be crea
 - A generalized on-premises VHD uploaded to the cloud
 
 > [!NOTE]
-> Currently, Batch only supports generalized Shared Images. You can't create a custom image pool from a specialized Shared Image at this time.
+> Batch only supports generalized Shared Images; a specialized Shared Image can't be used to create a pool.
 
 The following steps show how to prepare a VM, take a snapshot, and create an image from the snapshot.
 
@@ -221,4 +221,4 @@ If you plan to create a pool with hundreds or thousands of VMs or more using a S
 ## Next steps
 
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).
-- Learn about the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+- Learn about the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).

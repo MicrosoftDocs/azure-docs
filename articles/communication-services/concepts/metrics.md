@@ -25,7 +25,7 @@ There are two types of requests that are represented within Communication Servic
 
 Both Chat and SMS API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
 
-More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
+More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#aggregation)
 
 - **Operation** - All operations or routes that can be called on the ACS Chat gateway.
 - **Status Code** - The status code response sent after the request.
@@ -71,6 +71,17 @@ The following operations are available on SMS API request metrics:
 
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
+
+### Authentication API requests
+
+The following operations are available on Authentication API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity       | Creates an identity representing a single user. |
+| DeleteIdentity       | Deletes an identity. |
+| CreateToken          | Creates an access token. |
+| RevokeToken          | Revokes all access tokens created for an identity before a time given. |
 
 ## Next Steps
 

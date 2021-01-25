@@ -190,9 +190,7 @@ You can add properties to the indexing policy at any time, with no effect on wri
 
 ### Understand which system functions use the index
 
-If an expression can be translated into a range of string values, it can use the index. Otherwise, it can't.
-
-Here's the list of some common string functions that can use the index:
+Most system functions use indexes. Here's a list of some common string functions that use indexes:
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -208,7 +206,26 @@ Following are some common system functions that don't use the index and must loa
 
 ------
 
-Other parts of the query might still use the index even though the system functions don't.
+If a system function uses indexes and still has a high RU charge, you can try adding `ORDER BY` to the query. In some cases, adding `ORDER BY` can improve system function index utilization, particularly if the query is long-running or spans multiple pages.
+
+For example, consider the below query with `CONTAINS`. `CONTAINS` should use an index but let's imagine that, after adding the relevant index, you still observe a very high RU charge when running the below query:
+
+Original query:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Updated query with `ORDER BY`:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### Understand which aggregate queries use the index
 

@@ -49,6 +49,8 @@ kind: Pod
 metadata:
   name: nginx
 spec:
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
   containers:
   - name: mypod
     image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
@@ -158,7 +160,7 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
-[analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
+[analyze-log-analytics]: ../azure-monitor/log-query/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

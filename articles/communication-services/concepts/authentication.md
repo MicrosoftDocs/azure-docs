@@ -53,9 +53,9 @@ If you're not using a client library to make HTTP requests to the Azure Communic
     URLPathAndQuery + "\n"
     DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
     ```
-1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your storage account key. Use the following format (shown as pseudo code):
+1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your access key. Use the following format (shown as pseudo code):
     ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_azure_storage_account_shared_key>)))
+    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
     ```
 1. Specify the Authorization header as follows:
     ```

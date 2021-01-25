@@ -112,7 +112,7 @@ Hyperscale supports all SQL Server workloads, but it is primarily optimized for 
 
 If you are currently running interactive analytics queries using SQL Server as a data warehouse, Hyperscale is a great option because you can host small and mid-size data warehouses (such as a few TB up to 100 TB) at a lower cost, and you can migrate your SQL Server data warehouse workloads to Hyperscale with minimal T-SQL code changes.
 
-If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or  using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, Azure Synapse Analytics (formerly SQL Data Warehouse) may be the best choice.
+If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or  using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, Azure Synapse Analytics may be the best choice.
   
 ## Hyperscale compute questions
 

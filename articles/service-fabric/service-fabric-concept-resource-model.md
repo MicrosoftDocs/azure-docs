@@ -3,7 +3,6 @@ title: Azure Service Fabric application resource model
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
 ms.date: 10/21/2019
-ms.custom: sfrev
 ---
 
 # Service Fabric application resource model
@@ -167,13 +166,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
 
 To delete an application that was deployed by using the application resource model in Resource Manager:
 
-1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet to get the resource ID for the application:
+1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID for the application:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet to delete the application resources:
+1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

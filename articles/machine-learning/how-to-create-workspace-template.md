@@ -39,7 +39,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 ## Limitations
 
-* When creating a new workspace, you can either allow the workspace to create the Azure services it requires automatically or provide existing services. When providing existing services, these services must all be in the same Azure subscription as the workspace.
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## Workspace Resource Manager template
 
