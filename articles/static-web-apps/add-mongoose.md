@@ -5,7 +5,7 @@ author: GeekTrainer
 ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 01/25/2021
 ---
 
 # Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
