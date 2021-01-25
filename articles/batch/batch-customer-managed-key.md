@@ -135,7 +135,7 @@ EncryptionProperties encryptionProperties = new EncryptionProperties()
     KeySource = KeySource.MicrosoftKeyVault,
     KeyVaultProperties = new KeyVaultProperties()
     {
-        KeyIdentifier = "Your Key ARM Resource ID"
+        KeyIdentifier = "Your Key Azure Resource Manager Resource ID"
     }
 };
 
@@ -144,7 +144,7 @@ BatchAccountIdentity identity = new BatchAccountIdentity()
     Type = ResourceIdentityType.UserAssigned,
     UserAssignedIdentities = new Dictionary<string, BatchAccountIdentityUserAssignedIdentitiesValue>
     {
-            ["Your Identity ARM ResourceId"] = new BatchAccountIdentityUserAssignedIdentitiesValue()
+            ["Your Identity Azure Resource Manager ResourceId"] = new BatchAccountIdentityUserAssignedIdentitiesValue()
     }
 };
 var parameters = new BatchAccountCreateParameters(TestConfiguration.ManagementRegion, encryption:encryptionProperties, identity: identity);
