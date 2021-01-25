@@ -27,10 +27,12 @@ Alternatively, you can also manage endpoints and routes with the [Azure portal](
 
 ## Prerequisites
 
-* You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md). Have the following values from setup handy to use later in this article:
+- You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+- You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
     
 ## Create an endpoint for Azure Digital Twins
 
@@ -45,7 +47,7 @@ To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or 
 
 ### Create an Event Grid endpoint
 
-The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+The following example shows how to create an event grid-type endpoint using the Azure CLI.
 
 First, create an event grid topic. You can use the following command, or view the steps in more detail by visiting [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
 
@@ -126,17 +128,8 @@ To create an endpoint that has dead-lettering enabled, you'll need to create the
 
 1. Next, add a `deadLetterSecret` field to the properties object in the **body** of the request. Set this value according to the template below, which crafts a URL from the storage account name, container name, and SAS token value that you gathered in the [previous section](#set-up-storage-resources).
       
-    ```json
-    {
-      "properties": {
-        "endpointType": "EventGrid",
-        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-        "accessKey1": "xxxxxxxxxxx",
-        "accessKey2": "xxxxxxxxxxx",
-        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-      }
-    }
-    ```
+  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+
 1. Send the request to create the endpoint.
 
 For more information on structuring this request, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
@@ -205,11 +198,7 @@ One route should allow multiple notifications and event types to be selected.
 
 `CreateOrReplaceEventRouteAsync` is the SDK call that is used to add an event route. Here is an example of its usage:
 
-```csharp
-string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
-var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
-await client.CreateOrReplaceEventRouteAsync("routeName", er);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
     
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -217,35 +206,8 @@ await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ### Event route sample code
 
 The following sample method shows how to create, list, and delete an event route:
-```csharp
-private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
-{
-  try
-  {
-    Console.WriteLine("Create a route: testRoute1");
-            
-    // Make a filter that passes everything
-    er.Filter = "true";
-    await client.CreateOrReplaceEventRouteAsync(routeName, er);
-    Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
-    foreach (DigitalTwinsEventRoute r in result)
-    {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
-    }
-    Console.WriteLine("Deleting routes:");
-    foreach (DigitalTwinsEventRoute r in result)
-    {
-        Console.WriteLine($"Deleting route {r.Id}:");
-        client.DeleteEventRoute(r.Id);
-    }
-  }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-    }
-  }
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
 
 ## Filter events
 
@@ -258,12 +220,8 @@ You can restrict the events being sent by adding a **filter** for an endpoint to
 
 To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* with the following body:
 
-```json  
-{
-    "endpointName": "<endpoint-name>",
-    "filter": "<filter-text>"
-}
-``` 
+:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
+
 Here are the supported route filters. Use the detail in the *Filter text schema* column to replace the `<filter-text>` placeholder in the request body above.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

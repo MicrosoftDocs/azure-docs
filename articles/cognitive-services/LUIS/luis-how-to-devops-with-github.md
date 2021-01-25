@@ -24,7 +24,7 @@ The [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Tem
 * **Clone the template repo** - Copy the template to your own GitHub repository.
 * **Configure LUIS resources** - Create the [LUIS authoring and prediction resources in Azure](./luis-how-to-azure-subscription.md) that will be used by the continuous integration workflows.
 * **Configure the CI/CD workflows** - Configure parameters for the CI/CD workflows and store them in [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-* **Walks through the ["dev inner loop"](https://mitchdenny.com/the-inner-loop/)** - The developer makes updates to a sample LUIS app while working in a development branch, tests the updates and then raises a pull request to propose changes and to seek review approval.
+* **Walks through the ["dev inner loop"](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)** - The developer makes updates to a sample LUIS app while working in a development branch, tests the updates and then raises a pull request to propose changes and to seek review approval.
 * **Execute CI/CD workflows** - Execute [continuous integration workflows to build and test a LUIS app](luis-concept-devops-automation.md) using GitHub Actions.
 * **Perform automated testing** - Perform [automated batch testing for a LUIS app](luis-concept-devops-testing.md) to evaluate the quality of the app.
 * **Deploy the LUIS app** - Execute a [continuous delivery (CD) job](luis-concept-devops-automation.md#continuous-delivery-cd) to publish the LUIS app.

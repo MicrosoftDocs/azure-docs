@@ -22,34 +22,32 @@ This feature can only be set at cluster creation or node pool creation time.
 ### Prerequisites
 
 - Ensure you have the `aks-preview` CLI extension v0.4.55 or higher installed
-- Ensure you have the `EncryptionAtHost` feature flag under `Microsoft.Compute` enabled.
 - Ensure you have the `EnableEncryptionAtHostPreview` feature flag under `Microsoft.ContainerService` enabled.
 
+In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
+
 ### Register `EncryptionAtHost`  preview features
+
+> [!IMPORTANT]
+> You must email encryptionAtHost@microsoft .com with your subscription Ids to get the feature enabled for compute resources. You cannot enable it yourself for those resources. You can enable it yourself on the container service.
 
 To create an AKS cluster that uses host-based encryption, you must enable the `EnableEncryptionAtHostPreview` and `EncryptionAtHost` feature flags on your subscription.
 
 Register the `EncryptionAtHost` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
-
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the `Microsoft.ContainerService` and `Microsoft.Compute` resource providers using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
 az provider register --namespace Microsoft.ContainerService
 ```
 
