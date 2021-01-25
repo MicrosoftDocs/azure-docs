@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 12/16/2020
+ms.date: 01/25/2021
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -138,6 +138,7 @@ You will not be able to see the same output with GP service tier as the one abov
 > - There could be one (1) failover initiated on the same Managed Instance every **15 minutes**.
 > - For BC instances there must exist quorum of replicas for the failover request to be accepted.
 > - For BC instances it is not possible to specify which readable secondary replica to initiate the failover on.
+> - Failover will not be allowed until the first full backup for a new database is completed by automated backup systems.
 
 ## Next steps
 
