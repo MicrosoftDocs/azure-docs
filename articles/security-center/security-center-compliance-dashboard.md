@@ -11,13 +11,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2020
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
 # Tutorial: Improve your regulatory compliance
 
-Azure Security Center helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. In the dashboard, Security Center provides insights into your compliance posture based on continuous assessments of your Azure environment. Security Center analyzes risk factors in your hybrid cloud environment according to security best practices. These assessments are mapped to compliance controls from a supported set of standards. In the regulatory compliance dashboard, you can see the status of all the assessments within your environment in the context of a particular standard or regulation. As you act on the recommendations and reduce risk factors in your environment, your compliance posture improves.
+Azure Security Center helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. 
+
+Security Center performs continuous assessments of your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
+
+When you enable Security Center on an Azure subscription it is automatically assigned the [Azure Security Benchmark](../security/benchmarks/introduction.md). This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+
+In the regulatory compliance dashboard, you can see the status of all the assessments within your environment in the context of a particular standard or regulation. As you act on the recommendations and reduce risk factors in your environment, your compliance posture improves.
 
 In this tutorial you'll learn how to:
 
@@ -36,17 +42,13 @@ To step through the features covered in this tutorial:
 
 ##  Assess your regulatory compliance
 
-Security Center continuously assesses the configuration of your resources to identify security issues and vulnerabilities. These assessments are presented as recommendations, which focus on improving your security hygiene. In the regulatory compliance dashboard, you can view a set of compliance standards with all their requirements, where supported requirements are mapped to applicable security assessments. This enables you to  view your compliance posture with respect to the standard, based on the status of these assessments.
+The regulatory compliance dashboard shows your selected compliance standards with all their requirements, where supported requirements are mapped to applicable security assessments. The status of these assessments reflects your compliance with the standard.
 
-The regulatory compliance dashboard view can help focus your attention on the gaps in compliance with a standard or regulation that is important to you. This focused view also enables you to continuously monitor your compliance score over time within dynamic cloud and hybrid environments.
+Use the regulatory compliance dashboard to help focus your attention on the gaps in compliance with the standards and regulations that matter to you. This focused view also enables you to continuously monitor your compliance over time within dynamic cloud and hybrid environments.
 
->[!NOTE]
-> By default, Security Center supports the following regulatory standards: Azure CIS, PCI DSS 3.2, ISO 27001, and SOC TSP. 
->
-> The [dynamic compliance packages (preview)](update-regulatory-compliance-packages.md) feature allows you to upgrade the standards shown in your regulatory compliance dashboard to the new *dynamic* packages. You can also use the same preview feature to add new compliance packages and monitor your compliance with additional standards. 
+1. From Security Center's menu, select **Regulatory compliance**.
 
-1. From Security Center's menu, select **Regulatory compliance**. <br>
-At the top of the screen, you see a dashboard with an overview of your compliance status with the set of supported compliance regulations. You can see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
+    At the top of the screen is a dashboard with an overview of your compliance status with the set of supported compliance regulations. You can see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard":::
 
@@ -54,7 +56,7 @@ At the top of the screen, you see a dashboard with an overview of your complianc
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard":::
 
-1. To generate and download a PDF report summarizing your current compliance status for a particular standard, click **Download report**.
+1. To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
 
     The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data, and is organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
@@ -66,7 +68,7 @@ Given the information in the regulatory compliance dashboard, you can improve yo
 
 1.  Click through any of the failing assessments that appear in the dashboard to view the details for that recommendation. Each recommendation includes a set of remediation steps that should be followed to resolve the issue.
 
-1.  You can select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS 1.1.0 (New) standard**, you can select the recommendation **Disk encryption should be applied on virtual machines**.
+1.  You can select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS 1.1.0** standard, you can select the recommendation **Disk encryption should be applied on virtual machines**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Selecting a recommendation from a standard leads directly to the recommendation details page":::
 

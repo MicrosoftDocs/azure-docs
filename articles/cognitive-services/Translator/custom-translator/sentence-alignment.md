@@ -20,12 +20,7 @@ able to pair as the Aligned Sentences in each of the data sets.
 
 ## Pairing and alignment process
 
-Custom Translator learns translations of sentences one sentence at a time. It readings a
-sentence from source, and then the translation of this sentence from target. Then it aligns words and phrases
-in these two sentences to each other. This process enables it to create a map of the
-words and phrases in one sentence to the equivalent words and phrases in the
-translation of this sentence. Alignment tries to ensure that the system trains
-on sentences that are translations of each other.
+Custom Translator learns translations of sentences one sentence at a time. It reads a sentence from the source text , and then the translation of this sentence from the target text. Then it aligns words and phrases in these two sentences to each other. This process enables it to create a map of the words and phrases in one sentence to the equivalent words and phrases in the translation of his sentence. Alignment tries to ensure that the system trains on sentences that are translations of each other.
 
 ## Pre-aligned documents
 

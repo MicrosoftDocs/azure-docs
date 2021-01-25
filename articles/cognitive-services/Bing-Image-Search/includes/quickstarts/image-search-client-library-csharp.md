@@ -32,8 +32,6 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 First, create a new C# console application.
 
-## Create a console project
-
 # [Visual Studio](#tab/visualstudio)
 
 1. Create a new console solution named *BingImageSearch* in Visual Studio.

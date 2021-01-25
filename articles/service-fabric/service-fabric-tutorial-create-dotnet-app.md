@@ -143,17 +143,17 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                 </div>
                 <div class="row top-buffer" ng-repeat="vote in votes.data">
                     <div class="col-xs-8">
-                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.Key)">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
                             <span class="pull-left">
-                                {{vote.Key}}
+                                {{vote.key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.Value}} Votes
+                                {{vote.value}} Votes
                             </span>
                         </button>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.Key)">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             Remove
                         </button>

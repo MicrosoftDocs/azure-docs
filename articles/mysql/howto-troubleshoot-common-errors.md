@@ -13,6 +13,23 @@ ms.date: 8/20/2020
 
 Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you will see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL service for the first time.
 
+## Common Connection Errors
+
+#### ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+The above error occurs after successful login but before executing any command when session is established. The above message indicates you have set an incorrect value of init_connect server parameter which is causing the session initialization to fail.
+
+There are some server parameters like require_secure_transport that are not supported at the session level and hence trying to change the values of these parameters using init_connect can result in Error 1184 while connecting to the MySQL server as shown below
+
+mysql> show databases;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    64897
+Current database: *** NONE ***
+ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+
+**Resolution** : You should reset init_connect value in Server parameters tab in Azure portal and set only the supported server parameters using init_connect parameter. 
+
+
 ## Errors due to lack of SUPER privilege and DBA role
 
 The SUPER privilege and DBA role are not supported on the service. As a result, you may encounter some common errors listed below:
@@ -78,9 +95,7 @@ The above error occurs if:
 
 * The username does not exists
 * The user username was deleted
-* its password is changed or reset
-
-The resolution for the error is 
+* its password is changed or reset.
 
 **Resolution**: 
 * Validate if "username" exists as a valid user in the server or is accidentally deleted. You can execute the following query by logging into the Azure Database for MySQL user:

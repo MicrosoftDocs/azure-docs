@@ -20,15 +20,7 @@ ms.author: baanders
 
 Note that you can add multiple filters to a request like this: 
 
-```json  
-{
-    "endpointName": "dt-endpoint", 
-    "filter": "true", 
-    "filter": "source = 'ADT-resource.api.wus2.digitaltwins.azure.net/myFloorID'", 
-    "filter": "type = 'Microsoft.DigitalTwins.Twin.Delete'", 
-    "filter": "specversion = '1.0'"
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
 
 The following data types are supported as values returned by references to the data above:
 

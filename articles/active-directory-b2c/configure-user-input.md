@@ -10,6 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -124,7 +125,7 @@ The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order fo
 ::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
-> This sample uses the built-in claim 'city'. Instead, you can choose one of the supported [Azure AD B2C built-in attributes](user-profile-attributes.md) or a custom attribute. To use a custom attribute, [enable custom attributes in your policy](custom-policy-custom-attributes.md). To use a different built-in or custom attribute, replace 'city' with the attribute of your choice, for example the built-in attribute *jobTitle* or a custom attribute like *extension_loyaltyId*.  
+> This sample uses the built-in claim 'city'. Instead, you can choose one of the supported [Azure AD B2C built-in attributes](user-profile-attributes.md) or a custom attribute. To use a custom attribute, [enable custom attributes](user-flow-custom-attributes.md). To use a different built-in or custom attribute, replace 'city' with the attribute of your choice, for example the built-in attribute *jobTitle* or a custom attribute like *extension_loyaltyId*.  
 
 You can gather initial data from your users by using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its [self-asserted technical profile](self-asserted-technical-profile.md). In this sample, you:
 
@@ -337,6 +338,6 @@ The token sent back to your application includes the `city` claim.
 ## Next steps
 
 - Learn more about the [ClaimsSchema](claimsschema.md) element in the IEF reference.
-- Learn how to [use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md).
+- Learn how to [use custom attributes in Azure AD B2C](user-flow-custom-attributes.md).
 
 ::: zone-end

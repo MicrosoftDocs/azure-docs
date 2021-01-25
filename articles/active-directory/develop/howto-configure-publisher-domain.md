@@ -44,7 +44,7 @@ If your app was registered before May 21, 2019, your application's consent promp
 
 To set your app's publisher domain, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> using either a work or school account, or a personal Microsoft account.
 
 1. If your account is present in more than one Azure AD tenant:
    1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.

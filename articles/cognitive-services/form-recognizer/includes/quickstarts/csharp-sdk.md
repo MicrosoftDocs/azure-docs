@@ -53,17 +53,24 @@ Build succeeded.
 
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
-#### [version 3.1 preview](#tab/preview)
+> [!NOTE]
+> The Form Recognizer 3.0.0 SDK reflects API version 2.0
+
+#### [version 2.1 preview](#tab/preview)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
+
+> [!NOTE]
+> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
+
 ---
 
 > [!TIP]
@@ -84,9 +91,9 @@ In the application's **Program** class, create variables for your resource's key
 
 In the application's **Main** method, add a call to the asynchronous tasks used in this quickstart. You will implement them later.
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
 ---
@@ -101,8 +108,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 `FormRecognizerClient` provides operations for:
 
  - Recognizing form fields and content, using custom models trained to recognize your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
- - Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Recognize form content](#recognize-form-content).
- - Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service. These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Recognize receipts](#recognize-receipts).
+ - Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Analyze layout](#analyze-layout).
+ - Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service. These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Analyze receipts](#analyze-receipts).
 
 ### FormTrainingClient
 
@@ -122,22 +129,22 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form content](#recognize-form-content)
-* [Recognize receipts](#recognize-receipts)
-* [Recognize business cards](#recognize-business-cards)
-* [Recognize invoices](#recognize-invoices)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Analyze business cards](#analyze-business-cards)
+* [Analyze invoices](#analyze-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -163,19 +170,21 @@ Repeat the steps above for a new method that authenticates a training client.
 
 You'll also need to add references to the URLs for your training and testing data. Add these to the root of your **Program** class.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
 * Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). 
 
-#### [version 3.0](#tab/ga)
+#### [version 2.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.1 preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
 ---
 
 
-## Recognize form content
+## Analyze layout
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. 
 
@@ -225,7 +234,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## Recognize receipts
+## Analyze receipts
 
 This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model.
 
@@ -284,11 +293,15 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-#### [version 3.0](#tab/ga)
+## Analyze business cards
 
-#### [version 3.1 preview](#tab/preview)
+#### [version 2.0](#tab/ga)
 
-## Recognize business cards
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
+
 
 This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model.
 
@@ -303,7 +316,16 @@ The returned value is a collection of `RecognizedForm` objects: one for each car
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
-## Recognize invoices
+---
+
+## Analyze invoices
+
+#### [version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+#### [version 2.1 preview](#tab/preview)
 
 This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model.
 

@@ -9,6 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -99,7 +100,7 @@ The user info UserJourney specifies:
 
 1. The outputClaims section within the UserInfoIssuer technical profile specifies the attributes you want to return. The UserInfoIssuer technical profile is called at the end of the user journey. 
 1. The UserInfoAuthorization technical profile validates the signature, issuer name, and token audience, and extracts the claim from the inbound token. Change following metadata to reflect your environment:
-    1. **issuer** - This value must be identical to the `iss` claim within the access token claim. Tokens issued by Azure AD B2C use an issuer in the format `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/`. Learn more about [token customization](configure-tokens-custom-policy.md).
+    1. **issuer** - This value must be identical to the `iss` claim within the access token claim. Tokens issued by Azure AD B2C use an issuer in the format `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/`. Learn more about [token customization](configure-tokens.md).
     1. **IdTokenAudience** - Must be identical to the `aud` claim within the access token claim. In Azure AD B2C the `aud` claim is the ID of your relying party application. This value is a collection and supports multiple values using a comma delimiter.
 
 In the following access token, the `iss` claim value is `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/`. The `aud` claim value is `22222222-2222-2222-2222-222222222222`.

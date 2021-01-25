@@ -62,9 +62,7 @@ Add **`queryType=full`** to invoke the full query syntax, overriding the default
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 {
-    "count": true,
-    "queryType": "full",
-    "search": "*"
+    "queryType": "full"
 }
 ```
 

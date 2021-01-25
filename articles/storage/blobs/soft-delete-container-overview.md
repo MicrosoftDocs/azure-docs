@@ -7,10 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions
 ---
 
 # Soft delete for containers (preview)
@@ -49,11 +49,9 @@ Version 2019-12-12 and higher of the Azure Storage REST API supports container s
 
 Container soft delete is available for the following types of storage accounts:
 
-- General-purpose v2 storage accounts
+- General-purpose v2 and v1 storage accounts
 - Block blob storage accounts
 - Blob storage accounts
-
-If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are also supported.
 

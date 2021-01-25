@@ -37,7 +37,7 @@ To complete this article, you need:
 
 ## Prepare a PowerShell script
 
-You can use inline PowerShell script or a script file.  This tutorial shows how to use a script file. A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+You can use an inline PowerShell script or a script file. This tutorial shows how to use a script file. A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,22 +100,22 @@ Add a virtual machine extension resource to the existing template with the follo
 
 For more information about this resource definition, see the [extension reference](/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
-* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
-* **dependsOn**: Create the extension resource after you've created the virtual machine.
-* **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
-* **commandToExecute**: This command invokes the script.
+* `name`: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
+* `dependsOn`: Create the extension resource after you've created the virtual machine.
+* `fileUris`: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
+* `commandToExecute`: This command invokes the script.
 
-To use inline script, remove **fileUris**, and update **commandToExecute** to:
+To use an inline script, remove `fileUris`, and update `commandToExecute` to:
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-This inline script also update the iisstart.html content.
+This inline script also updates the _iisstart.html_ content.
 
-You must also open the HTTP port so that you would be able to access the web server.
+You must also open the HTTP port so that you can access the web server.
 
-1. Find **securityRules** in the template.
+1. Find `securityRules` in the template.
 1. Add the following rule next to **default-allow-3389**.
 
     ```json
@@ -136,7 +136,7 @@ You must also open the HTTP port so that you would be able to access the web ser
 
 ## Deploy the template
 
-For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
+For the deployment procedure, see the **Deploy the template** section of [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
 
 From the Cloud Shell, run the following command to retrieve the public IP address of the VM:
 
