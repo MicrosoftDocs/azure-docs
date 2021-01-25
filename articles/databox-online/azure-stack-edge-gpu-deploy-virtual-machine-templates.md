@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -249,10 +249,11 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
 
     ```json
     "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
+            "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+            },
     ```
-    If you’re using *http* with Storage Explorer, change the URI to an *http* URI.
+
+   If you’re using *http* with Storage Explorer, change the URI to an *http* URI.
 
 3. Provide a unique image name. This image is used to create VM in the later steps. 
 
