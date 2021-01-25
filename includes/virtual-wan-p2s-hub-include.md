@@ -26,7 +26,7 @@
 
    * **Gateway scale units** - which represents the aggregate capacity of the User VPN gateway.
    * **Point to site configuration** - which you created in the previous step.
-   * **Client Address Pool** -  for the remote users. For help on allocating client address pools, please see the following [section](virtual-wan-allocating-p2s-pools.md)
+   * **Client Address Pool** -  for the remote users.
    * **Custom DNS Server IP**.
 
    :::image type="content" source="media/virtual-wan-p2s-hub/hub-with-p2s.png" alt-text="hub with point-to-site":::
