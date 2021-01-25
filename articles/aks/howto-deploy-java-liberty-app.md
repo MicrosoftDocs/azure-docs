@@ -11,7 +11,7 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 
 # Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service cluster
 
-This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime and then deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Open Liberty Operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime and then deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Open Liberty Operator. The Open Liberty Operator simplifies the deployment and management of applications running on Open Liberty Kubernetes clusters. You can also perform more advanced operations such as gathering traces and dumps using the operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,9 +40,17 @@ Use the [az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#
 az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
 ```
 
+After a short time, you should see a JSON output that contains:
+
+```text
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": "Enabled",
+  "resourceGroup": "java-liberty-project",
+```
+
 ### Connect to the ACR
 
-To push image to the ACR, you need to log into it first. Run the following commands to verify the connection:
+To push an image to the ACR, you need to log into it first. Run the following commands to verify the connection:
 
 ```azurecli-interactive
 REGISTRY_NAME=youruniqueacrname
@@ -53,23 +61,38 @@ PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value'
 docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 ```
 
-You should see `Login Succeeded` at the end of command output if you log into the ACR successfully.
+You should see `Login Succeeded` at the end of command output if you have logged into the ACR successfully.
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node, and attaches the ACR created before. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node, and accesses the ACR created before. This will take several minutes to complete.
 
 1. Follow [Quickstart: Check access for a user to Azure resources](../role-based-access-control/check-access.md) to check your access level for the subscription.
 1. If your role is **Owner**:
    ```azurecli-interactive
    az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --attach-acr youruniqueacrname
    ```
-1. If your role is **Contributor**, ask the owner of the subscription to give you an Azure service principal with **Contributor** role assignment of the subscription, or create a new one by following [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Use the service principal to create the AKS cluster:
-   ```azurecli-interactive
-   az aks create --resource-group java-liberty-project --name myAKSCluster --service-principal <client-id> --client-secret <client-secret> --node-count 1 --generate-ssh-keys --attach-acr youruniqueacrname
-   ```
+1. If your role is **Contributor**:
+   1. Ask the owner of the subscription to give you an Azure service principal with **Contributor** role assignment of the subscription, or create a new one by following [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+   1. Ask the owner of the subscription to grant `pull` permission of the ACR to the service principal:
+      
+      ```azurecli-interactive
+      az role assignment create --assignee-object-id <service-principal-object-id> --scope $(az acr show --name youruniqueacrname --query id --output tsv) --role acrpull
+      ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+   1. Use the service principal to create the AKS cluster:
+      ```azurecli-interactive
+      az aks create --resource-group java-liberty-project --name myAKSCluster --service-principal <client-id> --client-secret <client-secret> --node-count 1 --generate-ssh-keys
+      ```
+
+After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following:
+
+```text
+  "nodeResourceGroup": "MC_java-liberty-project_myAKSCluster_eastus",
+  "privateFqdn": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "java-liberty-project",
+```
 
 ### Connect to the cluster
 
@@ -203,9 +226,6 @@ To avoid Azure charges, you should clean up unneeded resources.  When the cluste
 ```azurecli-interactive
 az group delete --name java-liberty-project --yes --no-wait
 ```
-
-> [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
