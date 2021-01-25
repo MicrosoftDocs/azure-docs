@@ -310,16 +310,15 @@ Tags                 : {}
 You must create one virtual network and associate a virtual network interface before you create and deploy the VM.
 
 > [!IMPORTANT]
-> While creating virtual network and virtual network interface, the following rules apply:
-> - Only one Vnet can be created (even across resource groups) and it must match exactly with the logical network in terms of the address space.
-> -   Only one subnet will be allowed in the Vnet. The subnet must be the exact same address space as the Vnet.
-> -   Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
+> In doing this, the following rules apply:
+> - You can only create one virtual network, even across resource groups, and its address space must exactly match that of the logical network.
+> - Only one subnet is allowed in the virtual network. The subnet must be the exact same address space as the virtual network.
+> - You can only use the static allocation method. The user needs to provide a private IP address.
 
- 
-**Query the automatically created Vnet**
+### Query the automatically created virtual network
 
-When you enable compute from the local UI of your device, a Vnet `ASEVNET` is created automatically under `ASERG` resource group. 
-Use the following command to query the existing Vnet:
+When you enable compute from the local UI of your device, a virtual network called `ASEVNET` is created automatically, under the `ASERG` resource group. 
+Use the following command to query the existing virtual network:
 
 ```powershell
 $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
@@ -330,7 +329,9 @@ $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPref
 $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
 ```-->
 
-**Create a Vnic using the Vnet subnet ID**
+### Create a virtual network interface card
+
+Here's the command to create a virtual network interface card by using the virtual network subnet ID:
 
 ```powershell
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id -PrivateIpAddress <Private IP>
@@ -399,7 +400,7 @@ Primary                     : True
 MacAddress                  : 00155D18E432                :
 ```
 
-Optionally, while creating a Vnic for a VM, you can pass the public IP. In this instance, the public IP will return the private IP. 
+Optionally, while creating a virtual network interface card for a VM, you can pass the public IP. In this instance, the public IP returns the private IP. 
 
 ```powershell
 New-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
@@ -407,8 +408,7 @@ $publicIP = (Get-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <Re
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddressId $publicIP -SubnetId $subNetId
 ```
 
-
-**Create a VM**
+### Create a VM
 
 You can now use the VM image to create a VM and attach it to the virtual network that you created earlier.
 
@@ -452,7 +452,7 @@ Follow these steps to connect to a Windows VM.
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
 
-<!--Connect to the VM using the private IP that you passed during the VM creation.
+<!--Connect to the VM by using the private IP that you passed during the VM creation.
 
 Open an SSH session to connect with the IP address.
 
@@ -460,7 +460,7 @@ Open an SSH session to connect with the IP address.
 
 When prompted, provide the password that you used when creating the VM.
 
-If you need to provide the SSH key, use this command.
+If you need to provide the SSH key, use this command:
 
 ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
@@ -469,16 +469,16 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
+The public IP in this case is the same as the private IP that you passed during the virtual network interface creation.-->
 
 
-## Manage VM
+## Manage the VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
+The following sections describe some of the common operations that you can create on your Azure Stack Edge Pro device.
 
 ### List VMs running on the device
 
-To return a list of all the VMs running on your Azure Stack Edge Pro device, run the following command.
+To return a list of all the VMs running on your Azure Stack Edge device, run this command:
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -486,29 +486,24 @@ To return a list of all the VMs running on your Azure Stack Edge Pro device, run
 
 ### Turn on the VM
 
-Run the following cmdlet to turn on a virtual machine running on your device:
+Run the following cmdlet to turn on a virtual machine that's running on your device:
 
 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-For more information on this cmdlet, go to [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
-
 ### Suspend or shut down the VM
 
-Run the following cmdlet to stop or shut down a virtual machine running on your device:
+Run the following cmdlet to stop or shut down a virtual machine that's running on your device:
 
 
 ```powershell
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-
-For more information on this cmdlet, go to [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
-
 ### Add a data disk
 
-If the workload requirements on your VM increase, then you may need to add a data disk.
+If the workload requirements on your VM increase, then you might need to add a data disk.
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso.blob.core.windows.net/vhds/diskstandard03.vhd" -LUN 0 -Caching ReadOnly -DiskSizeinGB 1 -CreateOption Empty 
@@ -524,10 +519,7 @@ Run the following cmdlet to remove a virtual machine from your device:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
-
-
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/)
