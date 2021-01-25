@@ -27,7 +27,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for backup of VMs with up to 32 disks (general availability)](#support-for-backup-of-vms-with-up-to-32-disks)
   - [Simplified backup configuration experience for SQL in Azure VMs](#simpler-backup-configuration-for-sql-in-azure-vms)
   - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
-  - [Zone redundant storage (ZRS) for backup data](#zone-redundant-storage-zrs-for-backup-data)
+  - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
 ## Azure Disk Backup (in preview)
@@ -100,7 +100,7 @@ Azure Backup is the native backup solution for Azure and is BackInt certified by
 
 For more information, see the [SAP HANA database backup scenario support matrix](sap-hana-backup-support-matrix.md#scenario-support).
 
-## Zone redundant storage (ZRS) for backup data
+## Zone redundant storage (ZRS) for backup data (in preview)
 
 Azure Storage provides a great balance of high performance, high availability, and high data resiliency with its varied redundancy options. Azure Backup allows you to extend these benefits to backup data as well, with options to store your backups in locally redundant storage (LRS) and geo-redundant storage (GRS). Now, there are additional durability options with the added support for zone redundant storage (ZRS).
 
