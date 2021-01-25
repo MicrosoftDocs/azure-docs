@@ -1096,7 +1096,7 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 ## Reference docs
 
 * [ASP.NET reference](/dotnet/api/overview/azure/insights)
-* [Java reference](/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [Java reference](/java/api/overview/azure/appinsights)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## SDK code
