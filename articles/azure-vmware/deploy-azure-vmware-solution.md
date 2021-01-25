@@ -38,7 +38,7 @@ After you deploy Azure VMware Solution, you'll create the virtual network's jump
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-To create a virtual machine (VM) in the virtual network you [identified or created as part of the deployment process](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), follow these instructions: 
+To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), follow these instructions: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 

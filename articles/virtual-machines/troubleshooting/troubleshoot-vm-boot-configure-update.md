@@ -37,6 +37,9 @@ Usually this issue occurs when the server is doing the final reboot after the co
 
 ## Collect an OS memory dump
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 If the issue does not resolve after waiting for the changes to process, you would need to collect a memory dump file and contact support. To collect the Dump file, follow these steps:
 
 ### Attach the OS disk to a recovery VM

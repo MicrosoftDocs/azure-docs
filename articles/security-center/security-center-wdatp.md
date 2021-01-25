@@ -66,7 +66,7 @@ By integrating Defender for Endpoint with Security Center, you'll benefit from t
 
 When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. 
 
-After you've configured the location, you can't change it. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
+After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
 ## Enabling the Microsoft Defender for Endpoint integration
@@ -113,6 +113,8 @@ To generate a benign Microsoft Defender for Endpoint test alert:
 1. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
+    > [!TIP]
+    > The alert is triggered with **Informational** severity.
 
 ## FAQ for Security Center's integrated Microsoft Defender for Endpoint
 
@@ -126,7 +128,7 @@ Defender for Endpoint is included at no additional cost with **Azure Defender fo
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
 If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
 
-To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information.
+To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
