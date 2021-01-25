@@ -35,6 +35,7 @@ Updates in January include:
 - [Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Dangling DNS protections added to Azure Defender for App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
 - [Multi-cloud connectors are released for General Availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Exempt entire recommendations from your secure score for subscriptions and management groups](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Users can now request tenant-wide visibility from their global administrator](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
@@ -101,6 +102,21 @@ You can now access your score via the [secure score API](/rest/api/securitycente
 For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
 Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+
+### Dangling DNS protections added to Azure Defender for App Service
+
+Subdomain takeovers are a common, high-severity threat for organizations. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned web site. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. 
+
+Subdomain takeovers enable threat actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
+
+Azure Defender for App Service now detects dangling DNS entries when a App Service website is decommissioned. This is the moment at which the DNS entry is pointing at a non-existent resource and your website is vulnerable to a subdomain takeover. These protection are available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
+
+Learn more:
+
+- [App Service alert reference table](alerts-reference.md#alerts-azureappserv) - Includes two new Azure Defender alerts that trigger when a dangling DNS entry is detected
+- [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md) - Learn about the threat of subdomain takeover and the dangling DNS aspect
+- [Introduction to Azure Defender for App Service](defender-for-app-service-introduction.md)
 
 
 ### Multi-cloud connectors are released for General Availability (GA)
