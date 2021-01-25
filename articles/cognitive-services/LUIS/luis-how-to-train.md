@@ -43,8 +43,7 @@ Training uses a small percentage of negative sampling. You can use all available
 
 Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select **Manage** at the top of the screen, then select **Settings** and enable or disable the **use-deterministic training** option. When disabled, training will use all available data.
 
-![A button for enabling or disabling non deterministic training](./media//non-determinstic-training.png)
-![In Azure portal, enable.diable non deterministic training.](./media//non-determinstic-training.png)
+![A button for enabling or disabling non deterministic training](./media/non-determinstic-training.png)
 
 ### Using the version settings API
 
