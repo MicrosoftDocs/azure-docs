@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
+ms.date: 01/22/2021
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
@@ -289,6 +289,29 @@ In `rfcTableOptions`, you can use the following common SAP query operators to fi
     }
 ]
 ```
+
+## Join SAP tables
+
+Currently SAP Table connector only supports one single table with the default function module we are using. To get the joined data of multiple tables, you can leverage the
+
+customRfcReadTableFunctionModule property in the SAP Table connector with the steps as below:
+
+Write a custom Function Module which could receive some custom queries as the option property inputs with their own logic
+Input the custom Function Module Name as the custom Function Module property Value.
+SapTableJoin.png
+
+Reference:
+
+https://docs.microsoft.com/en-us/azure/data-factory/connector-sap-table#copy-activity-properties 
+
+https://supportability.visualstudio.com/AzureDataFactory/_wiki/wikis/AzureDataFactory/420669/-SAP-Table-Create-Custom-Function-Module
+
+Some Other Additional Tips:
+
+They can also consider to have the joined data aggregated in the VIEW which could be supported by SAP Table connector
+They can also try to extract the related tables to get onboard onto Azure(e.g. storage, SQL DB), then use Data Flow to proceed with the further join or filter.
+
+## Create custom function module
 
 ## Data type mappings for an SAP table
 
