@@ -39,7 +39,7 @@ Here are the general steps in a typical SGX enclave attestation workflow (using 
 
 Here are the general steps in a typical TPM enclave attestation workflow (using Azure Attestation):
 
-1.	On device/platform boot, various boot loaders and boot services measure events which backed by the TPM and are securely stored(TCG log).
+1.	On device/platform boot, various boot loaders and boot services measure events which backed by the TPM and are securely stored (TCG log).
 2.	Client collects the TCG logs from the device and TPM quote, which acts the evidence for attestation.
 3.	The client has an URI which refers to an instance of Azure Attestation. The client sends evidence to Azure Attestation. Exact information submitted to the provider depends on the platform.
 4.	Azure Attestation validates the submitted information and evaluates it against a configured policy. If the verification succeeds, Azure Attestation issues an attestation token and returns it to the client. If this step fails, Azure Attestation reports an error to the client. The communication between the client and attestation service is dictated by the Azure attestation TPM protocol.
