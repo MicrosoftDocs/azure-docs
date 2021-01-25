@@ -20,7 +20,6 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-
 ## Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
@@ -62,11 +61,11 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name mySubnet \
-    --subnet-prefixes 10.1.0.0/24 \
-    --disable-private-link-service-network-policies true
+    --subnet-prefixes 10.1.0.0/24
+
 ```
 
-You created the virtual network with the network policy disabled.  To update the subnet to disable private endpoint network policies after creation use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -163,7 +162,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 ## Create a private link service
 
-In this section, create a private link service that uses the Standard Azure Load Balancer created in the previous step.
+In this section, create a private link service that uses the Azure Load Balancer created in the previous step.
 
 Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
@@ -200,7 +199,6 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 * Subnet prefix of **11.1.0.0/24**.
 * In the **CreatePrivLinkService-rg** resource group.
 * Location of **eastus2**.
-* Disable the network policy for private link endpoint on the subnet.
 
 ```azurecli-interactive
   az network vnet create \
@@ -209,7 +207,16 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --name myVNetPE \
     --address-prefixes 11.1.0.0/16 \
     --subnet-name mySubnetPE \
-    --subnet-prefixes 11.1.0.0/24 \
+    --subnet-prefixes 11.1.0.0/24
+```
+
+To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+
+```azurecli-interactive
+az network vnet subnet update \
+    --name mySubnetPE \
+    --resource-group CreatePrivLinkService-rg \
+    --vnet-name myVNetPE \
     --disable-private-endpoint-network-policies true
 ```
 
@@ -226,28 +233,22 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 * In virtual network **myVNetPE** and subnet **mySubnetPE**.
 
 ```azurecli-interactive
-  export resource-id=$(az network private-link-service show \
+  export resourceid=$(az network private-link-service show \
     --name myPrivateLinkService \
     --resource-group CreatePrivLinkService-rg \
-    --query [] \
-    --tsv)
+    --query id \
+    --output tsv)
 
   az network private-endpoint create \
     --connection-name myPEconnectiontoPLS \
     --name myPrivateEndpoint \
-    --private-connection-resource-id $resource-id
+    --private-connection-resource-id $resourceid \
     --resource-group CreatePrivLinkService-rg \
     --subnet mySubnetPE \
     --manual-request false \
     --vnet-name myVNetPE 
 
 ```
-
-### IP address of private endpoint
-
-In this section, you'll find the IP address of the private endpoint that corresponds with the load balancer and private link service.
-
-
 
 ## Clean up resources
 
