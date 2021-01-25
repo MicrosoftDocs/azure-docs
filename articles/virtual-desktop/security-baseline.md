@@ -4,7 +4,7 @@ description: The Windows Virtual Desktop security baseline provides procedural g
 author: msmbaldwin
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,23 +14,17 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Windows Virtual Desktop
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](overview.md) to Windows Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Desktop. **Controls** not applicable to Windows Virtual Desktop have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Windows Virtual Desktop. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Windows Virtual Desktop. **Controls** not applicable to Windows Virtual Desktop have been excluded.
 
-Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the [security baseline for storage](../../storage/common/security-baseline.md). The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow [security recommendations for compute](../../virtual-machines/windows/security-baseline.md)
+Windows Virtual Desktop service includes the service itself, the Windows 10 Enterprise for multi-session virtual sku as well as FSLogix. For FSLogix-related security recommendations, see the [security baseline for storage](../storage/common/security-baseline.md). The service has an agent running on virtual machines but since the virtual machines are under full control of the customer, follow [security recommendations for compute](../virtual-machines/windows/security-baseline.md)
 
 To see how Windows Virtual Desktop completely maps to the Azure Security Benchmark, see the [full Windows Virtual Desktop security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
-
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
 ### NS-1: Implement security for internal traffic
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40794).
 
 **Guidance**: You must create or use an existing virtual network when you deploy virtual machines to be registered to Windows Virtual Desktop. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
 
@@ -40,17 +34,17 @@ Based on your applications and enterprise segmentation strategy, restrict or all
 
 For the network security groups associated with your virtual machine (that are part of Windows Virtual Desktop) subnets, you must allow outgoing traffic to specific endpoints. 
 
-- [Find out what URLs are required to be allowed access for Windows Virtual Desktop](../../virtual-desktop/safe-url-list.md)
+- [Find out what URLs are required to be allowed access for Windows Virtual Desktop](safe-url-list.md)
 
-- [Adaptive Network Hardening in Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md) 
+- [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md) 
 
-- [Azure Firewall for Windows Virtual Desktop ](../../firewall/protect-windows-virtual-desktop.md)
+- [Azure Firewall for Windows Virtual Desktop ](../firewall/protect-windows-virtual-desktop.md)
 
-- [How to create a network security group with security rules](../../virtual-network/tutorial-filter-network-traffic.md)
+- [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md)
 
  
 
-- [How to deploy and configure Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
+- [How to deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -58,18 +52,15 @@ For the network security groups associated with your virtual machine (that are p
 
 ### NS-2: Connect private networks together
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40795).
-
 **Guidance**: Use Azure ExpressRoute or Azure virtual private network to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, offer more reliability, faster speeds and lower latencies than typical internet connections. 
 
 For point-to-site and site-to-site virtual private networks, you can connect on-premises devices or networks to a virtual network using any combination of virtual private network options and Azure ExpressRoute.
 
 Use virtual network peering to connect two or more virtual networks together in Azure. Network traffic between peered virtual networks is private and stays on the Azure backbone network.
 
-- [What are the ExpressRoute connectivity models](../../expressroute/expressroute-connectivity-models.md) 
+- [What are the ExpressRoute connectivity models](../expressroute/expressroute-connectivity-models.md) 
 
-- [Azure VPN overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 
+- [Azure VPN overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) 
 
 - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overvie)
 
@@ -77,24 +68,7 @@ Use virtual network peering to connect two or more virtual networks together in 
 
 **Responsibility**: Customer
 
-### NS-3: Establish private network access to Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40796).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Windows Virtual Desktop does not allow for its resources to be secured to a private network via the Private Link service or Service Endpoints.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### NS-4: Protect applications and services from external network attacks
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40797).
 
 **Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Windows Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure Virtual Networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
@@ -104,7 +78,7 @@ Note that Windows Virtual Desktop is not intended to run web applications, and d
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
 
-- [Azure Security Center recommendations](../../security-center/recommendations-reference.md#recs-network)
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -112,14 +86,11 @@ Note that Windows Virtual Desktop is not intended to run web applications, and d
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40798).
-
 **Guidance**: Use Azure Firewall with threat intelligence based filtering to alert on and optionally block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. When payload inspection is required, you can deploy a third-party intrusion detection or prevention solution from the Azure Marketplace. 
 
 Note that If you have a regulatory or other requirement for intrusion detection or prevention solution usage, ensure that it is always tuned to provide high-quality alerts to your security information and event management (SIEM) solution.
 
-- [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md) 
+- [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md) 
 
 - [Azure Marketplace includes 3rd party IDS capabilities](https://azuremarketplace.microsoft.com/marketplace?search=IDS) 
 
@@ -131,41 +102,21 @@ Note that If you have a regulatory or other requirement for intrusion detection 
 
 ### NS-6: Simplify network security rules
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40799).
-
 **Guidance**: Use Azure Virtual Network service tags to define network access controls on network security groups or an Azure Firewall configured for your Windows Virtual Desktop resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: WindowsVirtualDesktop) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Understand and using Service Tags](../../virtual-network/service-tags-overview.md)
+- [Understand and using Service Tags](../virtual-network/service-tags-overview.md)
 
-- [Learn more about what is covered by the Windows Virtual Desktop Service Tag here ](../../virtual-desktop/safe-url-list.md)
+- [Learn more about what is covered by the Windows Virtual Desktop Service Tag here ](safe-url-list.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
-
-### NS-7: Secure Domain Name Service (DNS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40800).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Windows Virtual Desktop does not expose its underlying Domain Name Service (DNS) configurations, these settings are maintained by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ## Identity Management
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40780).
 
 **Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
 
@@ -177,13 +128,13 @@ Securing Azure AD should be a high priority in your organization’s cloud secur
 
 Note that Azure AD supports external identities which allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
 
-- [Tenancy in Azure AD](../../active-directory/develop/single-and-multi-tenant-apps.md)
+- [Tenancy in Azure AD](../active-directory/develop/single-and-multi-tenant-apps.md)
 
 - [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
 
-- [What is the identity secure score in Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
+- [What is the identity secure score in Azure AD](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Specific roles that you need to operate Windows Virtual Desktop ](../../virtual-desktop/faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Specific roles that you need to operate Windows Virtual Desktop ](faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -191,20 +142,17 @@ Note that Azure AD supports external identities which allow users without a Micr
 
 ### IM-2: Manage application identities securely and automatically
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40781).
-
 **Guidance**: Windows Virtual Desktop supports Azure managed identities for non-human accounts such as services or automation. It is recommended to use Azure managed identity feature instead of creating a more powerful human account to access or execute your resources. 
 
 Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to create a service principal with restricted permissions at the resource level to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used to in conjunction with Azure managed identities, so that the runtime environment (such as, an Azure Function) can retrieve the credential from the key vault.
 
-- [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
+- [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 - [Azure service principal](/powershell/azure/create-azure-service-principal-azureps) 
 
-- [Create a service principal with certificates](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) 
+- [Create a service principal with certificates](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 
 
-- [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md)
+- [Use Azure Key Vault for security principal registration](../key-vault/general/authentication.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -212,21 +160,15 @@ Windows Virtual Desktop recommends using Azure Active Directory (Azure AD) to cr
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40782).
-
 **Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to Azure AD for seamless secure access with greater visibility and control.
 
-- [Understand Application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40783).
 
 **Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication and strong passwordless methods.
 
@@ -240,20 +182,17 @@ Note: Authentication based on password credentials alone is susceptible to popul
 
 For administrator and privileged users, ensure the highest level of strong authentication methods are used, followed by rolling out the appropriate strong authentication policy to other users.
 
-- [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md) 
+- [Introduction to passwordless authentication options for Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md) 
 
-- [Azure AD default password policy](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts) 
+- [Azure AD default password policy](../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts) 
 
-- [Eliminate bad passwords using Azure Active Directory Password Protection](../../active-directory/authentication/concept-password-ban-bad.md)
+- [Eliminate bad passwords using Azure Active Directory Password Protection](../active-directory/authentication/concept-password-ban-bad.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40784).
 
 **Guidance**: Windows Virtual Desktop is integrated with Azure Active Directory (Azure AD) which provides the following data sources:
 
@@ -267,13 +206,13 @@ For administrator and privileged users, ensure the highest level of strong authe
 
 These data sources can be integrated with Azure Monitor, Azure Sentinel or a third-party security information and event management (SIEM) systems. Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
 
-- [Audit activity reports in the Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Audit activity reports in the Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [Alerts in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md)
+- [Alerts in Azure Security Center's threat intelligence protection module](../security-center/alerts-reference.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -281,78 +220,27 @@ These data sources can be integrated with Azure Monitor, Azure Sentinel or a thi
 
 ### IM-6: Restrict Azure resource access based on conditions
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40785).
-
 **Guidance**: Windows Virtual Desktop supports conditional access with Azure Active Directory (Azure AD) for a granular access-control based on user-defined conditions. For example, user logins from certain IP ranges could be required to use multifactor authentication for access. 
 
 Additionally, granular authentication session management policy can also be used for different use cases.
 
-- [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
+- [Azure conditional access overview](../active-directory/conditional-access/overview.md) 
 
-- [Common conditional access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
+- [Common conditional access policies](../active-directory/conditional-access/concept-conditional-access-policy-common.md) 
 
-- [Configure authentication session management with conditional access](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md) 
+- [Configure authentication session management with conditional access](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md) 
 
-- [Windows Virtual Desktop specific conditional access setup info can be found here](../../virtual-desktop/set-up-mfa.md)
+- [Windows Virtual Desktop specific conditional access setup info can be found here](set-up-mfa.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### IM-7: Eliminate unintended credential exposure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40786).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Windows Virtual Desktop does not directly allow customers to deploy or run {code, configurations or persisted data} potentially with identities/secrets. 
-Customers can include parameters while adding apps to an appgroup. They can inadvertently include plain text passwords in the parameters, and should be reviewed before publishing the apps. 
-
-It is generally recommended to never include passwords in the custom command line parameters for applications (while adding them to an application group) when they are published to users.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### IM-8: Secure user access to legacy applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40822).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Windows Virtual Desktop does not access any legacy applications
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Privileged Access
 
 *For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
-### PA-1: Protect and limit highly privileged users
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40787).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Windows Virtual Desktop does not use any privileged accounts.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PA-2: Restrict administrative access to business-critical systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40788).
 
 **Guidance**: Windows Virtual Desktop uses Azure role-based access-control (Azure RBAC) to isolate access to business-critical systems. Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business-critical systems. Attackers who compromise these management and security systems can potentially immediately weaponize them to compromise business critical assets.
 
@@ -360,20 +248,17 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
 
-- [Management Group Access](../../governance/management-groups/overview.md#management-group-access) 
+- [Management Group Access](../governance/management-groups/overview.md#management-group-access) 
 
-- [Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md)
+- [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Minimum admin permissions needed to manage Windows Virtual Desktop](../../virtual-desktop/faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Minimum admin permissions needed to manage Windows Virtual Desktop](faq.md#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### PA-3: Review and reconcile user access regularly
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40789).
 
 **Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid.
 
@@ -383,20 +268,17 @@ In addition, Azure Privileged Identity Management can also be configured to aler
 
 Note that some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
-- [Built-in roles for Windows Virtual Desktop](../../virtual-desktop/rbac.md)
+- [Built-in roles for Windows Virtual Desktop](rbac.md)
 
-- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
+- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
 
-- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### PA-4: Set up emergency access in Azure AD
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40790).
 
 **Guidance**: Windows Virtual Desktop uses Azure Active Directory (Azure AD) to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
@@ -410,23 +292,17 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-5: Automate entitlement management 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40791).
-
 **Guidance**: Windows Virtual Desktop is integrated with Azure Active Directory (Azure AD) to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expirations. In additional, dual or multi-stage approvals are also supported.
 
-- [What are Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) 
+- [What are Azure AD access reviews](../active-directory/governance/access-reviews-overview.md) 
 
-- [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
+- [What is Azure AD entitlement management](../active-directory/governance/entitlement-management-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### PA-6: Use privileged access workstations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40792).
 
 **Guidance**: Secured and isolated workstations are critically important for the security of sensitive roles, such as, administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. 
 
@@ -442,22 +318,19 @@ Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protec
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40793).
-
 **Guidance**: Windows Virtual Desktop is integrated with Azure role-based access-control (Azure RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. 
 
 The privileges you assign to resources with Azure RBAC should always be limited to the ones as required by the roles. This complements the just in time (JIT) approach of Privileged Identity Management (PIM), with Azure Active Directory (Azure AD), and should be reviewed periodically.
 
 Additionally, use built-in roles to allocate permissions and only create custom roles when required.
 
-- [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
+- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
+- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
-- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Built-in roles for Windows Virtual Desktop](../../virtual-desktop/rbac.md)
+- [Built-in roles for Windows Virtual Desktop](rbac.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -465,12 +338,9 @@ Additionally, use built-in roles to allocate permissions and only create custom 
 
 ### PA-8: Choose approval process for Microsoft support  
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40849).
-
 **Guidance**: In support scenarios where Microsoft needs to access customer data, Windows Virtual Desktop supports Customer Lockbox to provide an interface for you to review and approve or reject customer data access requests.
 
-- [Understand Customer Lockbox](../fundamentals/customer-lockbox-overview.md)
+- [Understand Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -481,9 +351,6 @@ Additionally, use built-in roles to allocate permissions and only create custom 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
 ### DP-1: Discovery, classify and label sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40801).
 
 **Guidance**: Discover, classify, and label your sensitive data so that you can design the appropriate controls. This is to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems.
 
@@ -501,27 +368,21 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 ### DP-2: Protect sensitive data
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40802).
-
 **Guidance**: Protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases).
 
 To ensure consistent access control, all types of access control should be aligned to your enterprise segmentation strategy. The enterprise segmentation strategy should also be informed by the location of sensitive or business critical data and systems.
 
 Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
-- [Azure Role Based Access Control (RBAC)](../../role-based-access-control/overview.md) 
+- [Azure Role Based Access Control (RBAC)](../role-based-access-control/overview.md) 
 
-- [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40803).
 
 **Guidance**: Monitor for unauthorized transfer of data to locations outside of enterprise visibility and control. This typically involves monitoring for anomalous activities (large or unusual transfers) that could indicate unauthorized data exfiltration.
 
@@ -531,7 +392,7 @@ Azure Information protection (AIP) provides monitoring capabilities for informat
 
 Use data loss prevention solutions, such as the host-based ones, to enforce detective and/or preventative controls to prevent data exfiltration.
 
-- [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md) 
+- [Enable Azure SQL ATP](../azure-sql/database/threat-detection-overview.md) 
 
 - [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
 
@@ -539,56 +400,11 @@ Use data loss prevention solutions, such as the host-based ones, to enforce dete
 
 **Responsibility**: Customer
 
-### DP-4: Encrypt sensitive information in transit
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40804).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: To complement access controls, data in-transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
-
-Windows Virtual Desktop supports data encryption in-transit with transport layer security (TLS) v1.2 or greater. While this is optional on private networks, it is critical for traffic on external and public networks. For HTTP traffic, ensure that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater. Any remote management, tasks should be performed over secure shell (SSH) for Linux or with Remote Desktop Protocol (RDP) over TLS (for Windows) instead of an unencrypted protocol. 
-
-Any obsolete SSL, TLS, and SSH versions and protocols, and weak ciphers should be disabled. By default, Azure provides encryption for data in transit between Azure data centers.
-
-- [Understand encryption in transit with Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
-
-- [Information on TLS Security](/security/engineering/solving-tls1-problem) 
-
-- [Double encryption for Azure data in transit](../fundamentals/double-encryption.md#data-in-transit)
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Microsoft
-
-### DP-5: Encrypt sensitive data at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40805).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: To complement access controls, Windows Virtual Desktop encrypts data-at-rest to protect against ‘out of band’ attacks, such as accessing underlying storage. This helps ensure that attackers cannot easily read or modify the data.
-
-- [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
-
-- [Data at rest double encryption in Azure](../fundamentals/double-encryption.md#data-at-rest)
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Microsoft
-
 ## Asset Management
 
 *For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40823).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -598,9 +414,9 @@ Security Reader permissions can be applied broadly to an entire tenant (Root Man
 
 Note that additional permissions might be required for visibility into workloads and services. 
 
-- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
+- [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
+- [Overview of Azure Management Groups](../governance/management-groups/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -608,20 +424,17 @@ Note that additional permissions might be required for visibility into workloads
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40824).
-
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
 Use Azure Virtual Machine Inventory to automate the collection of information about software on Virtual Machines. Software Name, Version, publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
-- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
+- [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
 
 - [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-- [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
+- [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -629,25 +442,19 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 ### AM-3: Use only approved Azure services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40825).
-
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
-- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general) 
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general) 
 
-- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### AM-4: Ensure security of asset lifecycle management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40826).
 
 **Guidance**: Not applicable. Windows Virtual Desktop cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
 
@@ -659,12 +466,9 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40827).
-
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -672,12 +476,9 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### AM-6: Use only approved applications in compute resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40828).
-
 **Guidance**: Use Azure virtual machine Inventory to automate the collection of information about all software on virtual machines. Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
-- [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
+- [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -689,18 +490,15 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### LT-1: Enable threat detection for Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40806).
-
 **Guidance**: Use the Azure Security Center built-in threat detection capability and enable Azure Defender (Formally Azure Advanced Threat Protection) for your Windows Virtual Desktop resources. Azure Defender for Windows Virtual Desktop provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your Windows Virtual Desktop resources.
 
 Forward any logs from Windows Virtual Desktop to your security information event management (SIEM) solution which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection) 
 
-- [Azure Security Center security alerts reference guide](../../security-center/alerts-reference.md)
+- [Azure Security Center security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Create custom analytics rules to detect threats](../../sentinel/tutorial-detect-threats-custom.md) 
+- [Create custom analytics rules to detect threats](../sentinel/tutorial-detect-threats-custom.md) 
 
 - [Cyber threat intelligence with Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
@@ -709,9 +507,6 @@ Forward any logs from Windows Virtual Desktop to your security information event
 **Responsibility**: Customer
 
 ### LT-2: Enable threat detection for Azure identity and access management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40807).
 
 **Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other security information and event management (SIEM) or monitoring tools for further sophisticated monitoring and analytics use cases:
 
@@ -725,9 +520,9 @@ Forward any logs from Windows Virtual Desktop to your security information event
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, the Threat Protection module in Azure Security Center  can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you to have visibility on account anomalies inside the individual resources.
 
-- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
+- [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
+- [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
@@ -737,20 +532,17 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 ### LT-3: Enable logging for Azure network activities
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40808).
-
 **Guidance**: Windows Virtual Desktop does not produce or process domain name service (DNS) query logs. However resources that are registered to the service can produce flow logs.
 
 Enable and collect network security group resource and flow logs, Azure Firewall logs and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
 
-- [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
 - [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics) 
 
-- [How to enable and use Traffic Analytics](../../network-watcher/traffic-analytics.md) 
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md) 
 
-- [Azure networking monitoring solutions in Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md)
+- [Azure networking monitoring solutions in Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -758,14 +550,11 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 
 ### LT-4: Enable logging for Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40809).
-
 **Guidance**: Activity logs, which are automatically enabled, contain all write operations (PUT, POST, DELETE) for your Windows Virtual Desktop resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -773,59 +562,25 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 
 ### LT-5: Centralize security log management and analysis
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40810).
-
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, the tools used to process and access the data, and data retention requirements.
 
 Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
 In addition, enable and onboard data to Azure Sentinel or a third-party security information event management (SIEM). Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
-
-### LT-6: Configure log storage retention
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40811).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Windows Virtual Desktop does not currently produce any security-related logs, and the customer is unable to set any log retention.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### LT-7: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40812).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Windows Virtual Desktop does not support configuring your own time synchronization sources. The Windows Virtual Desktop service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ## Incident Response
 
 *For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
 ### IR-1: Preparation – update incident response process for Azure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40813).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -839,21 +594,15 @@ In addition, enable and onboard data to Azure Sentinel or a third-party security
 
 ### IR-2: Preparation – setup incident notification
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40814).
-
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40815).
 
 **Guidance**: Ensure you have a process to create high-quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
@@ -863,18 +612,15 @@ Azure Security Center provides high-quality alerts across many Azure assets. You
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-- [How to configure export](../../security-center/continuous-export.md)
+- [How to configure export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### IR-4: Detection and analysis – investigate an incident
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40816).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -892,13 +638,13 @@ The data sources for investigation include the centralized logging sources that 
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [Snapshot a Windows machine's disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Snapshot a Linux machine's disk](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+- [Investigate incidents with Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -906,16 +652,13 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40817).
-
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -925,17 +668,14 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40818).
-
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
+- [Configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
-- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+- [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -945,57 +685,23 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 *For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
 
-### PV-1: Establish secure configurations for Azure services 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40833).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Windows Virtual Desktop does not offer any security configuration features.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-2: Sustain secure configurations for Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40834).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Windows Virtual Desktop does not offer features to sustain security configurations.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PV-3: Establish secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40835).
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
 
 You can use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
 
-- [How to monitor Azure Security Center recommendations](../../security-center/security-center-recommendations.md) 
+- [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md) 
 
-- [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md) 
+- [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md) 
 
-- [Windows Virtual Desktop environment](../../virtual-desktop/environment-setup.md)
+- [Windows Virtual Desktop environment](environment-setup.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### PV-4: Sustain secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40836).
 
 **Guidance**: Use Azure Security Center and Azure Policy to regularly assess and remediate configuration risks on your Azure compute resources including virtual machines, containers, and others. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements.
 
@@ -1005,11 +711,11 @@ Azure Security Center can also scan vulnerabilities in container image and perfo
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
 
-- [How to create an Azure Virtual Machine from an ARM template](../../virtual-machines/windows/ps-template.md) 
+- [How to create an Azure Virtual Machine from an ARM template](../virtual-machines/windows/ps-template.md) 
 
-- [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md) 
+- [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md) 
 
-- [Container security in Security Center](../../security-center/container-security.md)
+- [Container security in Security Center](../security-center/container-security.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1017,14 +723,11 @@ Azure Security Center can also scan vulnerabilities in container image and perfo
 
 ### PV-5: Securely store custom operating system and container images
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40837).
-
 **Guidance**: Windows Virtual Desktop allows customers to manage operating system images. Use Azure role-based access control (Azure RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Active Directory groups within your organization. Store container images in Azure Container Registry and use RBAC to ensure that only authorized users have access.
 
-- [Understand Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md) 
+- [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md) 
 
-- [How to configure Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md) 
 
 - [Shared Image Gallery overview](/azure/virtual-machines/windows/shared-image-galleries)
 
@@ -1033,9 +736,6 @@ Azure Security Center can also scan vulnerabilities in container image and perfo
 **Responsibility**: Customer
 
 ### PV-6: Perform software vulnerability assessments
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40838).
 
 **Guidance**: Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service as well as have SQL database running in the environment.
 
@@ -1050,16 +750,13 @@ As required, export scan results at consistent intervals and compare the results
 - [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
 
 - [Integrated vulnerability scanner for virtual machines](/azure/security-center/built-in-vulnerability-assessment) 
-- [SQL vulnerability assessment](../../azure-sql/database/sql-vulnerability-assessment.md)
+- [SQL vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40839).
 
 **Guidance**: Windows Virtual Desktop doesn't use or require any third-party software. However, Windows Virtual Desktop allows you to deploy your own virtual machines and register them to the service.
 
@@ -1071,16 +768,13 @@ Use a third-party patch management solution for third-party software or System C
 
 - [Manage updates and patches for your Azure VMs](/azure/automation/automation-tutorial-update-management)
 
-- [Configure Microsoft Endpoint Configuration Manager for Windows Virtual Desktop](../../virtual-desktop/configure-automatic-updates.md)
+- [Configure Microsoft Endpoint Configuration Manager for Windows Virtual Desktop](configure-automatic-updates.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### PV-8: Conduct regular attack simulation
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40840).
 
 **Guidance**: Windows Virtual Desktop does not allow customers to perform their own penetration testing on their Windows Virtual Desktop resources.
 
@@ -1093,9 +787,6 @@ Use a third-party patch management solution for third-party software or System C
 *For more information, see the [Azure Security Benchmark: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40819).
 
 **Guidance**: Windows Virtual Desktop does not provide any specific capabilities for endpoint detection and response (EDR) processes. However resources registered to the service can benefit from endpoint detection and response capabilities. 
 
@@ -1117,16 +808,13 @@ Advanced Threat Protection from Microsoft Defender provides Endpoint Detection a
 
 ### ES-2: Use centrally managed modern anti-malware software
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40820).
-
 **Guidance**: Protect your Windows Virtual Desktop resources with a centrally managed and modern endpoint anti-malware solution capable of real time and periodic scanning.
 
 Azure Security Center can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations.
 
 Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). Also, you can use Threat detection with Azure Security Center for data services to detect malware uploaded to Azure Storage accounts.
 
-- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../fundamentals/antimalware.md) 
+- [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) 
 
 - [Supported endpoint protection solutions](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions)
 
@@ -1136,18 +824,15 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40821).
-
 **Guidance**: Ensure anti-malware signatures are updated rapidly and consistently.
 
 Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all virtual machines and/or containers are up to date with the latest signatures.
 
 Microsoft Antimalware will automatically install the latest signatures and engine updates by default.
 
-- [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../fundamentals/antimalware.md) 
+- [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) 
 
-- [Endpoint protection assessment and recommendations in Azure Security Center](../../security-center/security-center-endpoint-protection.md)
+- [Endpoint protection assessment and recommendations in Azure Security Center](../security-center/security-center-endpoint-protection.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1158,9 +843,6 @@ Microsoft Antimalware will automatically install the latest signatures and engin
 *For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
 
 ### BR-1: Ensure regular automated backups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40829).
 
 **Guidance**: Ensure you are backing up systems and data to maintain business continuity after an unexpected event. This should be guidance by any objectives for Recovery Point Objective (RPO) and Recovery Time Objective (RTO).
 
@@ -1174,16 +856,13 @@ For a higher level of redundancy, you can enable geo-redundant storage option to
 
 - [How to enable cross region restore](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore) 
 
-- [How to set up a business continuity and disaster recovery plan in Windows Virtual Desktop](../../virtual-desktop/disaster-recovery.md)
+- [How to set up a business continuity and disaster recovery plan in Windows Virtual Desktop](disaster-recovery.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
 ### BR-2: Encrypt backup data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40830).
 
 **Guidance**: Ensure your backups are protect against attacks. This should include encryption of the backups to protect against loss of confidentiality.
 
@@ -1205,9 +884,6 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 
 ### BR-3: Validate all backups including customer-managed keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40831).
-
 **Guidance**: It is recommended to validate data integrity on backup media on a regular basis by performing a data restoration process to ensure that the backup is properly working.
 
 - [How to recover files from Azure Virtual Machine backup](/azure/backup/backup-azure-restore-files-from-vm)
@@ -1218,28 +894,11 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 
 **Responsibility**: Customer
 
-### BR-4: Mitigate risk of lost keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40832).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Windows Virtual Desktop doesn't manage any keys.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Governance and Strategy
 
 *For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
 ### GS-1: Define asset management and data protection strategy 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40841).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1264,7 +923,7 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
-- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
@@ -1277,9 +936,6 @@ For more information, see the following references:
 **Responsibility**: Customer
 
 ### GS-2: Define enterprise segmentation strategy 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40848).
 
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
@@ -1299,9 +955,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40842).
-
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
@@ -1311,9 +964,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40843).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1328,9 +978,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-5: Define network security strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40844).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1353,7 +1000,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
-- [Azure network security overview](../fundamentals/network-overview.md)
+- [Azure network security overview](../security/fundamentals/network-overview.md)
 
 - [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
@@ -1362,9 +1009,6 @@ For more information, see the following references:
 **Responsibility**: Customer
 
 ### GS-6: Define identity and privileged access strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40845).
 
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
@@ -1388,16 +1032,13 @@ For more information, see the following references:
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure identity management security overview](../fundamentals/identity-management-overview.md)
+- [Azure identity management security overview](../security/fundamentals/identity-management-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### GS-7: Define logging and threat response strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40846).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high-quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
