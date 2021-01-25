@@ -100,6 +100,20 @@ You can use a system-assigned managed identity for your Azure Digital Instance t
 
 For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [*How-to: Route events using managed identities*](how-to-route-managed-identities.md).
 
+## Enable private network access with Azure Private Link 
+
+[Azure Private Link](../private-link/private-link-overview.md) is a service that enables you to access Azure resources (like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md), and [Azure Cosmos DB](../cosmos-db/introduction.md)) and Azure-hosted customer and partner services over a private endpoint in your virtual network. 
+
+Similarly, you can use private endpoints for your Azure Digital Twin instance to allow clients located in your virtual network to securely access the instance over Private Link. 
+
+The private endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Azure Digital Twins instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet. Here is a visual representation of this system:
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="A diagram showing a network for a PowerGrid company that is a protected VNET with no internet/public cloud access, connecting through Private Link to an Azure Digital Twins instance called CityOfTwins.":::
+
+Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
+
+For instructions on how to set up Private Link for Azure Digital Twins, see [*How-to: Enable private access with Private Link*](how-to-enable-private-link.md).
+
 ## Service tags
 
 A **service tag** represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [*Virtual network tags*](../virtual-network/service-tags-overview.md). 

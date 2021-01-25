@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: Private access with Private Link
+title: Enable private access with Private Link
 titleSuffix: Azure Digital Twins
-description: Understand how to enable private access for Azure Digital Twins solutions with Private Link
+description: See how to enable private access for Azure Digital Twins solutions with Private Link
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/22/2021
-ms.topic: conceptual
+ms.date: 1/25/2021
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
