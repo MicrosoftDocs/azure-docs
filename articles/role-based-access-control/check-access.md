@@ -35,7 +35,7 @@ Follow these steps to open the set of Azure resources that you want to check acc
 
     The following shows an example resource group.
 
-    ![Resource group overview](./media/check-access/rg-overview.png)
+    ![Resource group overview](./media/shared/rg-overview.png)
 
 ## Step 2: Check access for a user
 
@@ -45,7 +45,7 @@ Follow these steps to check the access for a single user, group, service princip
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Resource group access control - Check access tab](./media/check-access/rg-access-control.png)
+    ![Resource group access control - Check access tab](./media/shared/rg-access-control.png)
 
 1. On the **Check access** tab, in the **Find** list, select the user, group, service principal, or managed identity you want to check access for.
 

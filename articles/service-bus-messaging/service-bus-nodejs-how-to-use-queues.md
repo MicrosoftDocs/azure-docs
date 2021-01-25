@@ -69,7 +69,7 @@ The following sample code shows you how to send a message to a queue.
     		// create a batch object
     		let batch = await sender.createMessageBatch(); 
     		for (let i = 0; i < messages.length; i++) {
-    			// for each message in the arry			
+    			// for each message in the array			
     
     			// try to add the message to the batch
     			if (!batch.tryAddMessage(messages[i])) {			
@@ -78,7 +78,7 @@ The following sample code shows you how to send a message to a queue.
     				await sender.sendMessages(batch);
     
     				// then, create a new batch 
-    				batch = await sender.createBatch();
+    				batch = await sender.createMessageBatch();
      
     				// now, add the message failed to be added to the previous batch to this batch
     				if (!batch.tryAddMessage(messages[i])) {

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro GPU 
@@ -35,12 +35,12 @@ Do the following steps in the Azure portal to add a schedule.
 
     ![Select Bandwidth](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-1.png)
 
-3. In the **Add schedule**: 
+3. In the **Add schedule**:
 
    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule.
    2. Check the **All day** option if this schedule should run all day.
    3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 20 and 2,147,483,647 for this field.
-   4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download.
+   4. Select **Unlimited bandwidth** if you do not want to throttle the date upload and download.
    5. Select **Add**.
 
       ![Add schedule](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-2.png)
@@ -53,9 +53,10 @@ Do the following steps in the Azure portal to add a schedule.
 
 Do the following steps to edit a bandwidth schedule.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**. 
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**.
 2. From the list of bandwidth schedules, select a schedule that you want to modify.
-    ![Select bandwidth schedule](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
+
+   ![Select bandwidth schedule](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. Make the desired changes and save the changes.
 

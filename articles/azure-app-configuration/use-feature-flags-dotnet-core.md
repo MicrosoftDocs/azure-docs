@@ -35,7 +35,6 @@ In this tutorial, you will learn how to:
 ## Set up feature management
 
 Add a reference to the `Microsoft.FeatureManagement.AspNetCore` and `Microsoft.FeatureManagement` NuGet packages to utilize the .NET Core feature manager.
-    
 The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. `IFeatureManager` relies on .NET Core dependency injection. You can register the feature management services by using standard conventions:
 
 ```csharp
@@ -104,16 +103,23 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
               .UseStartup<Startup>();
    ```
 
-2. Open *Startup.cs* and update the `Configure` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+2. Open *Startup.cs* and update the `Configure` and `ConfigureServices` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
 
    ```csharp
-   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
        app.UseAzureAppConfiguration();
        app.UseMvc();
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 Feature flag values are expected to change over time. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes in the `options.UseFeatureFlags()` call.
 
 ```csharp
@@ -187,6 +193,8 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection:
 
 ```csharp
+using Microsoft.FeatureManagement;
+
 public class HomeController : Controller
 {
     private readonly IFeatureManager _featureManager;

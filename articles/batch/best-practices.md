@@ -21,6 +21,9 @@ This article discusses a collection of best practices and useful tips for using 
 - **Pool allocation mode**
     When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable an important, but small subset of scenarios. You can read more about user subscription mode at [Additional configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
+- **'cloudServiceConfiguration' or 'virtualMachineConfiguration'.**
+    'virtualMachineConfiguration' should be used. All Batch features are supported by 'virtualMachineConfiguration' pools. Not all features are supported for 'cloudServiceConfiguration' pools and no new capabilities are being planned.
+
 - **Consider job and task run time when determining job to pool mapping.**
     If you have jobs comprised primarily of short-running tasks, and the expected total task counts are small, so that the overall expected run time of the job is not long, do not allocate a new pool for each job. The allocation time of the nodes will diminish the run time of the job.
 
@@ -145,7 +148,7 @@ Just as with other tasks, the node [start task](jobs-and-tasks.md#start-task) sh
 
 ### Isolated nodes
 
-Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
 
 ### Manage long-running services via the operating system services interface
 

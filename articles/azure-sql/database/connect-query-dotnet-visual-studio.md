@@ -28,19 +28,6 @@ To complete this quickstart, you need:
 
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
-## Get server connection information
-
-Get the connection information you need to connect to the database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Navigate to the **SQL databases**, **SQL Managed Instances**, or **Azure Synapse Analytics** page.
-
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
-
-> [!NOTE]
-> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
-
 ## Create code to query the database in Azure SQL Database
 
 1. In Visual Studio, create a new project. 
@@ -60,9 +47,6 @@ Get the connection information you need to connect to the database. You'll need 
 1. When the install completes, you can close **NuGet Package Manager**. 
    
 1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<your_server>`, `<your_username>`, `<your_password>`, and `<your_database>`.
-   
-   >[!IMPORTANT]
-   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
    
    ```csharp
    using System;
