@@ -20,7 +20,7 @@ To complete this quickstart:
 
 1. Create a [free Azure account](https://azure.microsoft.com/free/) before you begin if you don't have a subscription.
 
-2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 3. Install the [Service Fabric SDK and CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -163,7 +163,7 @@ Use the uninstall script (uninstall.sh) provided in the template to delete the a
 
 The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
+Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group).
 
 ```azurecli
 az login
