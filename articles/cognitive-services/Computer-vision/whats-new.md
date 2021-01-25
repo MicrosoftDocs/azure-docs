@@ -86,7 +86,7 @@ You now have the option to use version 3.0 of the Read API to extract printed or
 * Confidence score for each extracted word
 * Support for both Spanish and English languages with the additional language parameter
 
-Follow an [Extract text quickstart](./quickstarts/csharp-hand-text.md?tabs=version-3) to get starting using the 3.0 API.
+Follow an [Extract text quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) to get starting using the 3.0 API.
 
 ## Cognitive Service updates
 
