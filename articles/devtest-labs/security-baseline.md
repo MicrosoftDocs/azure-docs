@@ -615,7 +615,7 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Azure Automation State Configuration overview](../automation/automation-dsc-overview.md)
-- [Sample script to upload a VHD to Azure and create a new VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 - [How to create an image factory in DevTest Labs](image-factory-create.md)
 
 **Azure Security Center monitoring:** Yes
