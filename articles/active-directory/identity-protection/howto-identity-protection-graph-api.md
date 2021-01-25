@@ -50,6 +50,8 @@ Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 
 ### Configure API permissions
 
+In this example we configure application permissions allowing this sample to be used unattended. If granting permissions to a user who will be logged on choose delegated permissions instead. More information about different permission types can be found in the article, [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent#permission-types).
+
 1. From the **Application** you created, select **API permissions**.
 1. On the **Configured permissions** page, in the toolbar on the top, click **Add a permission**.
 1. On the **Add API access** page, click **Select an API**.
