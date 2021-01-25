@@ -157,6 +157,8 @@
               href: howto-use-app-templates.md
             - name: Monitor application health
               href: howto-monitor-application-health.md
+            - name: Migrate V2 to V3 application
+              href: howto-migrate.md
             - name: About your application
               href: howto-get-app-info.md
             - name: Roll X.509 certificates
