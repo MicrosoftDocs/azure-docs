@@ -47,6 +47,8 @@
         href: scenario-any-to-any.md
       - name: Isolating VNets
         href: scenario-isolate-vnets.md
+      - name: Isolating Branches and VNets
+        href: scenario-isolate-vnets-branches.md
       - name: Isolating VNets - custom
         href: scenario-isolate-vnets-custom.md
       - name: Shared Services VNets
