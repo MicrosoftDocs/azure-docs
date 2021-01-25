@@ -15,6 +15,8 @@ Azure Media Player is easy to set up. It only takes a few moments to get basic p
 
 <!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
 
+Here is an example of an AMS video.
+
 > [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## Step 1: Include the JavaScript and CSS files in the head of your page ##
