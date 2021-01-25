@@ -1,7 +1,7 @@
 ---
 title: Application model | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about the process of registering your application so it can integrate with the Microsoft identity platform (v2.0).
+description: Learn about the process of registering your application so it can integrate with the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -31,7 +31,7 @@ For an identity provider to know that a user has access to a particular app, bot
 * Define scopes that define access to your web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
 * Share a secret with the Microsoft identity platform that proves the app's identity. Using a secret is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. A trusted back-end server is required to store the credentials.
 
-Once registered, the application will be given a unique identifier that the app shares with the Microsoft identity platform when it requests tokens. If the app is a [confidential client application](developer-glossary.md#client-application), it will also share the secret or the public key depending on whether certificates or secrets were used.
+After the app is registered, it's given a unique identifier that it shares with the Microsoft identity platform when it requests tokens. If the app is a [confidential client application](developer-glossary.md#client-application), it will also share the secret or the public key depending on whether certificates or secrets were used.
 
 The Microsoft identity platform represents applications by using a model that fulfills two main functions:
 
@@ -69,7 +69,7 @@ In this provisioning flow:
 1. The Microsoft identity platform uses the application object in tenant A as a blueprint for creating a service principal in tenant B.
 1. The user receives the requested token.
 
-You can repeat this process for additional tenants. Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent keep control over what the application is allowed to do via the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in the Microsoft identity platform](app-objects-and-service-principals.md).
+You can repeat this process for more tenants. Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent keep control over what the application is allowed to do via the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in the Microsoft identity platform](app-objects-and-service-principals.md).
 
 ## Next steps
 
