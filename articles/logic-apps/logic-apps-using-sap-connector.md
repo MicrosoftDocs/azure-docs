@@ -537,7 +537,7 @@ For on-premises data gateway releases from April 2020 and earlier, logs are disa
 
 ### Extended SAP logging in on-premises data gateway
 
-If you use an [on-premises data gateway for Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gatweway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
+If you use an [on-premises data gateway for Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
 
 You can [export all of your gateway's configuration and service logs](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
