@@ -21,7 +21,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 Both the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD for developers platform (v1.0) to authenticate Azure AD identities (work and school accounts) by requesting tokens using Azure AD Authentication Library (ADAL). Using MSAL:
 
-- you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) as it uses the Microsoft identity platform endpoint,
+- you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) as it uses the Microsoft identity platform,
 - your users will get the best single-sign-on experience.
 - your application can enable incremental consent, and supporting Conditional Access is easier
 - you benefit from the innovation.
@@ -32,9 +32,9 @@ This article describes the differences between the Microsoft Authentication Libr
 
 ## Differences between ADAL and MSAL apps
 
-In most cases you want to use MSAL.NET and the Microsoft identity platform endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C.
+In most cases you want to use MSAL.NET and the Microsoft identity platform, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C.
 
-If you are already familiar with the Azure AD for developers (v1.0) endpoint (and ADAL.NET), you might want to read [What's different about the Microsoft identity platform (v2.0) endpoint?](../azuread-dev/azure-ad-endpoint-comparison.md).
+If you are already familiar with the Azure AD for developers (v1.0) endpoint (and ADAL.NET), you might want to read [What's different about the Microsoft identity platform?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
@@ -264,4 +264,4 @@ You can also use this method for various integration scenarios where you have a 
 
 ## Next steps
 
-You can find more information about the scopes in [Scopes, permissions, and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md)
+You can find more information about the scopes in [Scopes, permissions, and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
