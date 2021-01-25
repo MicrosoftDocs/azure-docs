@@ -108,6 +108,10 @@ Azure Backup now supports selective disk backup and restore using the Azure Virt
 
 If [tenant changes](/azure/devops/organizations/accounts/change-azure-ad-connection) occur, you're required to disable and re-enable [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to make backups work again.
 
+### Does Azure Backup support backing up NFS files mounted from storage?
+
+Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks which are locally attached to the VM.
+
 ## Restore
 
 ### How do I decide whether to restore disks only or a full VM?
