@@ -2,7 +2,7 @@
 title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: TheJasonAndrew
-ms.author: v-anjaso@microsoft.com
+ms.author: v-anjaso
 ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
