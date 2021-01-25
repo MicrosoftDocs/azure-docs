@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 12/03/2020
+ms.date: 01/25/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -65,6 +65,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Start/Stop doesn’t work with a firewall configured in forced-tunnel mode|Start/stop doesn’t work with Azure firewall configured in forced-tunnel mode. Attempting to start Azure Firewall with forced tunneling configured results in the following error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Under investigation.<br><br>As a workaround, you can delete the existing firewall and create a new one with the same parameters.|
 |Can't add firewall policy tags using the portal|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal. The following  error is generated: *Could not save the tags for the resource*.|A fix is being investigated. Alternatively, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.|
 |IPv6 not yet supported|If you add an IPv6 address to a rule, the firewall fails.|Use only IPv4 addresses. IPv6 support is under investigation.|
+|Firewall Premium SKU availability|The Firewall Premium SKU is unsupported in Secure Hub deployments and forced tunnel configurations.|A fix is being investigated.|
 
 
 ## Next steps
