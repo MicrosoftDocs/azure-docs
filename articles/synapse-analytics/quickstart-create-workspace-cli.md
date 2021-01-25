@@ -50,12 +50,6 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
     az group create --name $SynapseResourceGroup --location $Region
     ```
 
-1. (Optional) You can always check what your ADLS Gen2 Storage Account key and endpoint are:
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
 1. Create an Azure Synapse Workspace:
     ```azurecli
     az synapse workspace create \

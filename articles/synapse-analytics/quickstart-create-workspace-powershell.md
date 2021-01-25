@@ -81,13 +81,6 @@ Install-Module -Name Az.Synapse
    New-AzResourceGroup -Name $SynapseResourceGroup -Location $Region
    ```
 
-1. (Optional) You can always check what your ADLS Gen2 Storage Account key and endpoint are:
-
-   ```azurepowershell-interactive
-   Write-Output "Storage Account Key: $StorageAccountKey"
-   Write-Output "Storage Endpoint URL: $StorageEndpointUrl"
-   ```
-
 1. Create an Azure Synapse Workspace:
 
    ```azurepowershell-interactive
