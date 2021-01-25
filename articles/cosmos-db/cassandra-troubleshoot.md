@@ -15,7 +15,7 @@ ms.author: thvankra
 
 Cassandra API in Azure Cosmos DB is a compatibility layer, which provides [wire protocol support](cassandra-support.md) for the popular open-source Apache Cassandra database, and is powered by [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). As a fully managed cloud-native service, Azure Cosmos DB provides [guarantees on availability, throughput, and consistency](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for Cassandra API. These guarantees are not possible in legacy implementations of Apache Cassandra. Cassandra API also facilitates zero-maintenance platform operations, and zero-downtime patching. As such, many of it's backend operations are different from Apache Cassandra, so we recommend particular settings and approaches to avoid common errors. 
 
-This article describes common errors and solutions for applications consuming Azure Cosmos DB Cassandra API. If your error is not listed below, and you are experiencing an error when executing a [supported operation in Cassandra API](cassandra-support.md), where the error is *not present when using native Apache Cassandra*, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+This article describes common errors and solutions for applications consuming Azure Cosmos DB Cassandra API. If your error is not listed below, and you are experiencing an error when executing a [supported operation in Cassandra API](cassandra-support.md), where the error is *not present when using native Apache Cassandra*, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## NoNodeAvailableException
 This is a top-level wrapper exception with a large number of possible causes and inner exceptions, many of which can be client-related. 
@@ -27,7 +27,7 @@ Some popular causes and solutions are as follows:
 ## OverloadedException (Java)
 The total number of request units consumed is more than the request-units provisioned on the keyspace or table. So the requests are throttled.
 ### Solution
-Consider scaling the throughput assigned to a keyspace or table from the Azure portal (see [here](manage-scale-cassandra.md) for scaling operations in Cassandra API) or you can implement a retry policy. For Java, see retry samples for [v3.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [v4.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). See also [Azure Cosmos Cassandra Extensions for Java](https://github.com/Azure/azure-cosmos-cassandra-extensions)
+Consider scaling the throughput assigned to a keyspace or table from the Azure portal (see [here](manage-scale-cassandra.md) for scaling operations in Cassandra API) or you can implement a retry policy. For Java, see retry samples for [v3.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [v4.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). See also [Azure Cosmos Cassandra Extensions for Java](https://github.com/Azure/azure-cosmos-cassandra-extensions).
 
 ### OverloadedException even with sufficient throughput 
 The system appears to be throttling requests despite sufficient throughput being provisioned for request volume and/or consumed request unit cost. There are two possible causes of unexpected rate limiting:
@@ -35,7 +35,7 @@ The system appears to be throttling requests despite sufficient throughput being
 - Data skew: when throughput is provisioned in Cassandra API, it is divided equally among physical partitions, and each phsyical partition has an upper limit. If you have a high amount of data being inserted, or read from, one particular partition, it is possible to be rate limited despite provisioning a large amount of overall throughput (request units) for that table. Review your data model and ensure you do not have excessive skew that could be causing hot partitions. 
 
 ## Intermittent connectivity errors (Java) 
-Connection drops or times out unexpectedly
+Connection drops or times out unexpectedly.
 
 ### Solution 
 The Apache Cassandra drivers for Java provide two native reconnection policies: `ExponentialReconnectionPolicy` and `ConstantReconnectionPolicy`. The default is `ExponentialReconnectionPolicy`. However, for Azure Cosmos DB Cassandra API, we recommend `ConstantReconnectionPolicy` with a delay of 2 seconds. See the [driver documentation](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  for Java v4.x driver, and [here](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) for Java 3.x guidance see also [Configuring ReconnectionPolicy for Java Driver](#configuring-reconnectionpolicy-for-java-driver) examples below.
