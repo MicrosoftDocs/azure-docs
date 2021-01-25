@@ -21,7 +21,7 @@ You can use this solution to collect and query the Apache Spark metrics data nea
 
 ## Prerequisites
 
-1.	[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+1.	[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 2.	[Helm client 3.30+](https://github.com/helm/helm/releases)
 3.	[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 4.	[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/)
@@ -66,7 +66,7 @@ The result should look like:
 
 Note down the appId, password and tenant id.
 
-![screenshot-grant-permission-srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac.png)
+![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac.png)
 
 1. Login to your [Azure Synapse Analytics workspace](https://web.azuresynapse.net/) as Synapse Administrator
 2. In Synapse Studio, on the left-side pane, select **Manage > Access control**
@@ -156,14 +156,14 @@ Grafana is open-source visualization and analytics software. It allows you to qu
 
 The "Synapse Workspace / Workspace" dashboard provides a workspace level view of all the Apache Spark pools, application counts, cpu vcores, etc.
 
-![screenshot-dashboard-workspace](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png)
+![screenshot dashboard workspace](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png)
 
 The "Synapse Workspace / Sparkpools" dashboard contains the metrics of Apache Spark applications running in the selected Apache Spark pool during the time period.
 
-![screenshot-dashboard-sparkpool](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png)
+![screenshot dashboard sparkpool](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png)
 
 The "Synapse Workspace / Spark Application" dashboard contains the selected Apache Spark application.
 
-![screenshot-dashboard-application](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png)
+![screenshot dashboard application](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png)
 
 The above dashboard templates have been open sourced in [Azure Synapse Spark application metrics](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).

@@ -56,7 +56,7 @@ Note down the appId, password and tenant id.
 
 #### 2.2 Add corresponding permissions to the service principal created in the above step.
 
-![screenshot-grant-permission-srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac.png)
+![screenshot grant permission srbac](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-grant-permission-srbac.png)
 
 1. Login to your [Azure Synapse Analytics workspace](https://web.azuresynapse.net/) as Synapse Administrator
 1. In Synapse Studio, on the left-side pane, select **Manage > Access control**
@@ -169,7 +169,7 @@ Response looks like:
 
 ### 2. List running applications in the Azure Synapse workspace
 
-To get list of spark applications for a Synapse workspace, please follow this document [Monitoring - Get Spark Job List](https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+To get list of spark applications for a Synapse workspace, please follow this document [Monitoring - Get Spark Job List](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### 3. Collect spark application metrics with the Prometheus or REST APIs
