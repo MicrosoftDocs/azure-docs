@@ -78,7 +78,7 @@ Note that Windows Virtual Desktop is not intended to run web applications, and d
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
 
-- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-networks)
 
 **Azure Security Center monitoring**: Currently not available
 
