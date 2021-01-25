@@ -77,7 +77,7 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 3. Select the operator you want to apply against the dimension (property). The default operator is = (equals)
 
-   ![Screenshot that shows the operator you can use with the filter.](./media/metrics-charts/00009.png)
+   ![Screenshot that shows the operator you can use with the filter.](./media/metrics-charts/filter-operator.png)
 
 4. Select which dimension values you want to apply to the filter when plotting the chart (this example shows filtering out the successful storage transactions):
 
@@ -108,15 +108,15 @@ You can split a metric by dimension to visualize how different segments of the m
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/00012.png)
+   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/segment-dimension.png)
    
 3. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown in the above chart. The range of limit is 1 - 50.
    
-   ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/00011.png)
+   ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/segment-dimension-limit.png)
    
 4. Choose the sort order on segments: Ascending or Descending. The default selection is descending.
    
-   ![Screenshot that shows sort order on split values.](./media/metrics-charts/00019.png)
+   ![Screenshot that shows sort order on split values.](./media/metrics-charts/segment-dimension-sort.png)
 
 5. Click away from the **Grouping Selector** to close it.
 
