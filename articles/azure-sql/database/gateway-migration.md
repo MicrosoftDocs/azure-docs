@@ -21,6 +21,13 @@ Customers will be notified via email and in the Azure portal well in advance of 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## February 2021
+New SQL Gateways are being added to the following regions:
+
+- Central US : 13.89.169.20
+
+These SQL Gateways shall start accepting customer traffic on 28 February 2021
+
 ## January 2021
 New SQL Gateways are being added to the following regions:
 
