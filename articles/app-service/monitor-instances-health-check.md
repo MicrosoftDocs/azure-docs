@@ -13,7 +13,7 @@ ms.author: msangapu
 
 ![Health check failure][2]
 
-This article uses Health check in the Azure Portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](/overview-hosting-plans) should be scaled to two or more instances to use Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
+This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](/overview-hosting-plans) should be scaled to two or more instances to use Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
 
 ## What App Service does with Health checks
 
@@ -31,7 +31,7 @@ This article uses Health check in the Azure Portal to monitor App Service instan
 
 ![Health check navigation in Azure Portal][3]
 
-- To enable Health check, browse to the Azure Portal and select your App Service app.
+- To enable Health check, browse to the Azure portal and select your App Service app.
 - Under **Monitoring**, select **Health check**.
 - Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
 - Click **Save**.
