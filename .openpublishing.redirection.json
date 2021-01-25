@@ -32204,6 +32204,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/defender-for-app-service-intro.md",
+      "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/defender-for-iot-introduction.md",
       "redirect_url": "/azure/security-center/azure-defender",
       "redirect_document_id": false
