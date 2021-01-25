@@ -24,7 +24,7 @@ The picture below shows how the connected registry can be used to support the hi
 
 ![Connected Registry and Hierarchical IoT Edge Deployments](media/connected-registry/connected-registry-iot-edge-overview.svg)
 
-In the above architecture, the black lines show the actual network flow while the blue lines show the logical communication between components and the connected registries.
+In the above architecture, the solid gray lines show the actual network flow while the dashed lines show the logical communication between components and the connected registries.
 
 In this example, the top layer of the architecture, *Layer 5: Enterprise Network*, is managed by IT and has access to the Internet. The top layer can access the container registry for Contoso in Azure cloud. The connected registry is deployed as an IoT Edge module on the IoT Edge VM and can directly communicate with the cloud registry to pull and push images and artifacts. The connected registry in the picture is show as working in a *registry* mode. Clients of this connected registry can pull and push images and artifacts to it. Pushed images will be synchronized with the cloud registry. If pushes are not required in that layer, the connected registry can be changed to operate in *mirror* mode.
 

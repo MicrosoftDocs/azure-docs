@@ -12,8 +12,8 @@ ms.date: 01/13/2021
 
 To access and manage a [connected registry](intro-connected-registry.md), currently only ACR [token-based authentication](container-registry-repository-scoped-permissions.md) is supported. As shown in the following image, two different types of tokens are used by each connected registry:
 
-* One or more *client tokens*, which on-premise clients use to authenticate with a connected registry and push or pull images and artifacts from it.
-* A *sync token* used by each connected registry to access its parent and synchronize images with it.
+* One or more *client tokens*, which on-premise clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
+* A *sync token* used by each connected registry to access its parent and synchronize images and artifacts with it.
 
 ![Connected Registry Authentication Overview](media/connected-registry/connected-registry-authentication-overview.svg)
 
@@ -36,14 +36,14 @@ Update client tokens, passwords, or scope maps as needed by using [az acr token]
 
 Each connected registry uses a *sync token* to authenticate with its parent - which could be another connected registry or the cloud registry. The connected registry automatically uses this token when synchronizing content with the parent or performing other updates. 
 
-* The *sync token* and associated passwords are generated automatically when you create the connected registry resource.
+* The *sync token* is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-install-renew-credentials] command to generate the passwords.
 * Include the *sync token* credentials in the configuration used to deploy the connected registry on premises. 
 * By default, the *sync token* is granted permission to synchronize selected repositories with its parent. You must provide existing *sync token* or one or more repositories to sync when you create the connected registry resource.
 * It also has permissions to *read* and *write* synchronization messages on a gateway used to communicate with the connected registry parent. These messages control the synchronization schedule and manage other updates between the connected registry and its parent.
 
 ### Manage sync token
 
-Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/az/acr#az_acr_token) and [az acr scope-map](/cli/az/acr#az_acr_scope-map) commands. Sync token updates are propagated automatically to the connected registry. 
+Update sync tokens, passwords, or scope maps as needed by using [az acr token](/cli/az/acr#az_acr_token) and [az acr scope-map](/cli/az/acr#az_acr_scope-map) commands. Sync token updates are propagated automatically to the connected registry. Follow the standard practices of rotating passwords when updating the sync token.
 
 > [!WARNING]
 > Take care not to delete a sync token. Doing so will permanently prevent communication with the corresponding connected registry. You can disable a connected registry by setting the status of the sync token to `disabled`. 
@@ -52,7 +52,7 @@ Update sync tokens, passwords, or scope maps as needed by using [az acr token](/
 
 Token credentials for connected registies are scoped to access specific registry endpoints. 
 
-A client token accesses the connected registry's endpoint. The connected registry endpoint is the login server URL, which is typically the IP address of the server or device that hosts it.
+A client token accesses the connected registry's endpoint. The connected registry endpoint is the login server URI, which is typically the IP address of the server or device that hosts it.
 
 A sync token accesses the endpoint of the parent registry, which is either another connected registry endpoint or the cloud registry itself. When scoped to access the cloud registry, the sync token needs to reach two registry endpoints:
 
@@ -67,6 +67,6 @@ Continue to the one of the following articles to learn about specific scenarios 
 > [Overview: Connected registry and IoT Edge][overview-connected-registry-and-iot-edge]
 
 <!-- LINKS - internal -->
+[az-acr-install-renew-credentials]: /cli/azure/acr#az-acr-install-renew-credentials
 [overview-connected-registry-and-iot-edge]:overview-connected-registry-and-iot-edge.md
 [repository-scoped-permissions]: container-registry-repository-scoped-permissions.md
-

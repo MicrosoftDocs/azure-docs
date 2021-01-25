@@ -93,10 +93,9 @@ More details about tokens and scope maps are available in [Create a token with r
 Before deploying the connected registry to the IoT Edge device, you will need to retrieve the configuration from the connected registry resource in Azure. Use the [az acr connected-registry install][az-acr-connected-registry-install] command to retrieve the configuration.
 
 ```azurecli
-az acr connected-registry install \
+az acr connected-registry install renew-credentials \
   --registry mycontainerregistry001 \
   --name myconnectedregistry \
-  --fresh-install
 ```
 
 This will return the configuration for the connected registry including the newly generated passwords.
@@ -228,6 +227,9 @@ To deploy the connected registry module using the Azure CLI, save the following 
     }
 }
 ```
+
+  > [!IMPORTANT]
+  > If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value must include the port, eg. `192.168.0.100:8080`.
 
 Use the information from the previous sections to update the relevant JSON values.
 
