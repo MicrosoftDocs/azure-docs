@@ -13,12 +13,6 @@ ms.custom: devx-track-js
 
 Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content right from your Azure Media Services account. [Samples](https://github.com/Azure-Samples/azure-media-player-samples) are also provided in the samples directory of the release.
 
-<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
-
-Here is an example of an AMS video.
-
-> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
-
 ## Step 1: Include the JavaScript and CSS files in the head of your page ##
 
 With Azure Media Player, you can access the scripts from the CDN hosted version. It's often recommended now to put JavaScript before the end body tag `<body>` instead of the `<head>`, but Azure Meia Player includes an 'HTML5 Shiv', which needs to be in the head for older IE versions to respect the video tag as a valid element.
