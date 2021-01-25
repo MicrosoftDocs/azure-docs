@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -431,13 +431,13 @@ The question now is how to differentiate between hotels with the same rating. On
 
 ## Order results based on a scoring profile
 
-The examples given in the tutorial so far show how to order on numerical values (rating and renovation date), providing an _exact_ sequence of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. Azure Cognitive Search includes the concept of _scoring_. _Scoring profiles_ can be specified for a set of data that can be used to provide more complex and qualitative comparisons, that should be most valuable when, say, comparing text-based data to decide which should be displayed first.
+The examples given in the tutorial so far show how to order on numerical values (rating and renovation date), providing an _exact_ sequence of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. For full text search queries, Cognitive Search includes the concept of _ranking_. _Scoring profiles_ can be specified to influence how results are ranked, providing more complex and qualitative comparisons.
 
 [Scoring profiles](index-add-scoring-profiles.md) are defined in the index schema. Several scoring profiles have been set up on the hotels data. Let's look at how a scoring profile is defined, then try writing code to search on them.
 
 ### How scoring profiles are defined
 
-Let's look at three examples of scoring profiles, and consider how each _should_ affect the results order. As an app developer, you do not write these profiles, they are defined in the index. However, it is helpful to look at the syntax.
+Scoring profiles are defined in a search index at design time. The read-only hotels index that's hosted by Microsoft has three scoring profiles. This section explores the scoring profiles and shows you to how to use the in code.
 
 1. Below is the default scoring profile for the hotels data set, used when you do not specify any **OrderBy** or **ScoringProfile** parameter. This profile boosts the _score_ for a hotel if the search text is present in the hotel name, description, or list of tags (amenities). Notice how the weights of the scoring favor certain fields. If the search text appears in another field, not listed below, it will have a weight of 1. Obviously, the higher the score, the higher a result appears in the view.
 
@@ -446,76 +446,76 @@ Let's look at three examples of scoring profiles, and consider how each _should_
         "name": "boostByField",
         "text": {
             "weights": {
+                "Tags": 3,
                 "HotelName": 2,
                 "Description": 1.5,
                 "Description_fr": 1.5,
-                "Tags": 3
             }
         }
     }
     ```
 
-1. The following scoring profile boosts the score significantly, if a supplied parameter includes one or more of the list of tags (which we are calling "amenities"). The key point of this profile is that a parameter _must_ be supplied, containing text. If the parameter is empty, or is not supplied, an error will be thrown.
- 
-    ```cs
-    case "boostAmenities":
-        {
-            options.ScoringProfile = model.scoring;
-
-            // Create a string list of amenities that have been clicked.
-            for (int a = 0; a < model.facetOn.Length; a++)
-            {
-                if (model.facetOn[a])
-                {
-                    parameters.Add(model.facetText[a]);
-                }
-            }
-
-            if (parameters.Count > 0)
-            {
-                options.ScoringParameters.Add($"amenities-{ string.Join(',', parameters)}");
-            }
-            else
-            {
-                // No amenities selected, so set profile back to default.
-                options.ScoringProfile = "";
-            }
-        }
-        break;
-    ```
-
-1. In this third example, the rating gives a significant boost to the score. The last renovated date will also boost the score, but only if that data falls within 730 days (2 years) of the current date.
+1. The following alternative scoring profile boosts the score significantly if a supplied parameter includes one or more of the list of tags (which we are calling "amenities"). The key point of this profile is that a parameter _must_ be supplied, containing text. If the parameter is empty, or is not supplied, an error will be thrown.
 
     ```cs
+    {
+        "name":"boostAmenities",
+        "functions":[
             {
-            "name": "renovatedAndHighlyRated",
-            "functions": [
-                {
-                    "type": "magnitude",
-                    "fieldName": "Rating",
-                    "boost": 20,
-                    "interpolation": "linear",
-                    "magnitude": {
-                        "boostingRangeStart": 0,
-                        "boostingRangeEnd": 5,
-                        "constantBoostBeyondRange": false
-                    }
-                },
-                {
-                    "type": "freshness",
-                    "fieldName": "LastRenovationDate",
-                    "boost": 10,
-                    "interpolation": "quadratic",
-                    "freshness": {
-                        "boostingDuration": "P730D"
-                    }
-                }
-            ]
-        }
-
+            "fieldName":"Tags",
+            "freshness":null,
+            "interpolation":"linear",
+            "magnitude":null,
+            "distance":null,
+            "tag":{
+                "tagsParameter":"amenities"
+            },
+            "type":"tag",
+            "boost":5
+            }
+        ],
+        "functionAggregation":0
+    },
     ```
 
-    Now, let us see if these profiles work as we think they should!
+1. In this third profile, the hotel rating gives a significant boost to the score. The last renovated date will also boost the score, but only if that data falls within 730 days (2 years) of the current date.
+
+    ```cs
+    {
+        "name":"renovatedAndHighlyRated",
+        "functions":[
+            {
+            "fieldName":"Rating",
+            "freshness":null,
+            "interpolation":"linear",
+            "magnitude":{
+                "boostingRangeStart":0,
+                "boostingRangeEnd":5,
+                "constantBoostBeyondRange":false
+            },
+            "distance":null,
+            "tag":null,
+            "type":"magnitude",
+            "boost":20
+            },
+            {
+            "fieldName":"LastRenovationDate",
+            "freshness":{
+                "boostingDuration":"P730D"
+            },
+            "interpolation":"quadratic",
+            "magnitude":null,
+            "distance":null,
+            "tag":null,
+            "type":"freshness",
+            "boost":10
+            }
+        ],
+        "functionAggregation":0
+    }
+    ```
+
+    Now, let us see if these profiles work as we think they should.
 
 ### Add code to the view to compare profiles
 
@@ -704,13 +704,11 @@ Let's look at three examples of scoring profiles, and consider how each _should_
             InitSearch();
 
             // Set up the facets call in the search parameters.
-            SearchParameters sp = new SearchParameters()
-            {
-                // Search for up to 20 amenities.
-                Facets = new List<string> { "Tags,count:20" },
-            };
+            SearchOptions options = new SearchOptions();
+            // Search for up to 20 amenities.
+            options.Facets.Add("Tags,count:20");
 
-            DocumentSearchResult<Hotel> searchResult = await _indexClient.Documents.SearchAsync<Hotel>("*", sp);
+            SearchResults<Hotel> searchResult = await _searchClient.SearchAsync<Hotel>("*", options);
 
             // Convert the results to a list that can be displayed in the client.
             List<string> facets = searchResult.Facets["Tags"].Select(x => x.Value.ToString()).ToList();
@@ -767,150 +765,147 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 1. We need to set the **OrderBy** and **ScoringProfile** parameters as necessary. Replace the existing **Index(SearchData model)** method, with the following.
 
     ```cs
-        public async Task<ActionResult> Index(SearchData model)
+    public async Task<ActionResult> Index(SearchData model)
+    {
+        try
         {
-            try
+            InitSearch();
+
+            int page;
+
+            if (model.paging != null && model.paging == "next")
             {
-                InitSearch();
+                // Recover the facet text, and the facet check box settings.
+                RecoverFacets(model, true);
 
-                int page;
+                // Increment the page.
+                page = (int)TempData["page"] + 1;
 
-                if (model.paging != null && model.paging == "next")
+                // Recover the search text.
+                model.searchText = TempData["searchfor"].ToString();
+            }
+            else
+            {
+                // First search with text. 
+                // Recover the facet text, but ignore the check box settings, and use the current model settings.
+                RecoverFacets(model, false);
+
+                // First call. Check for valid text input, and valid scoring profile.
+                if (model.searchText == null)
                 {
-                    // Recover the facet text, and the facet check box settings.
-                    RecoverFacets(model, true);
-
-                    // Increment the page.
-                    page = (int)TempData["page"] + 1;
-
-                    // Recover the search text.
-                    model.searchText = TempData["searchfor"].ToString();
+                    model.searchText = "";
                 }
-                else
+                if (model.scoring == null)
                 {
-                    // First search with text. 
-                    // Recover the facet text, but ignore the check box settings, and use the current model settings.
-                    RecoverFacets(model,false);
-
-                    // First call. Check for valid text input, and valid scoring profile.
-                    if (model.searchText == null)
-                    {
-                        model.searchText = "";
-                    }
-                    if (model.scoring == null)
-                    {
-                        model.scoring = "Default";
-                    }
-                    page = 0;
+                    model.scoring = "Default";
                 }
+                page = 0;
+            }
 
-                // Set empty defaults for ordering and scoring parameters.
-                var orderby = new List<string>();
-                string profile = "";
-                var scoringParams = new List<ScoringParameter>();
+            // Setup the search parameters.
+            var options = new SearchOptions
+            {
+                SearchMode = SearchMode.All,
 
-                // Set the ordering based on the user's radio button selection.
-                switch (model.scoring)
-                {
-                    case "RatingRenovation":
-                        orderby.Add("Rating desc");
-                        orderby.Add("LastRenovationDate desc");
-                        break;
+                // Skip past results that have already been returned.
+                Skip = page * GlobalVariables.ResultsPerPage,
 
-                    case "boostAmenities":
-                        {
-                            profile = model.scoring;
-                            var setAmenities = new List<string>();
+                // Take only the next page worth of results.
+                Size = GlobalVariables.ResultsPerPage,
 
-                            // Create a string list of amenities that have been clicked.
-                            for (int a = 0; a < model.facetOn.Length; a++)
-                            {
-                                if (model.facetOn[a])
-                                {
-                                    setAmenities.Add(model.facetText[a]);
-                                }
-                            }
-                            if (setAmenities.Count > 0)
-                            {
-                                // Only set scoring parameters if there are any.
-                                var sp = new ScoringParameter("amenities", setAmenities);
-                                scoringParams.Add(sp);
-                            }
-                            else
-                            {
-                                // No amenities selected, so set profile back to default.
-                                profile = "";
-                            }
-                        }
-                        break;
+                // Include the total number of results.
+                IncludeTotalCount = true,
+            };
+            // Select the data properties to be returned.
+            options.Select.Add("HotelName");
+            options.Select.Add("Description");
+            options.Select.Add("Tags");
+            options.Select.Add("Rooms");
+            options.Select.Add("Rating");
+            options.Select.Add("LastRenovationDate");
 
-                    case "renovatedAndHighlyRated":
-                        profile = model.scoring;
-                        break;
-
-                    default:
-                        break;
-                }
-
-                // Setup the search parameters.
-                var parameters = new SearchParameters
-                {
+            List<string> parameters = new List<string>();
+            // Set the ordering based on the user's radio button selection.
+            switch (model.scoring)
+            {
+                case "RatingRenovation":
                     // Set the ordering/scoring parameters.
-                    OrderBy = orderby,
-                    ScoringProfile = profile,
-                    ScoringParameters = scoringParams,
+                    options.OrderBy.Add("Rating desc");
+                    options.OrderBy.Add("LastRenovationDate desc");
+                    break;
 
-                    // Select the data properties to be returned.
-                    Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Rating", "LastRenovationDate" },
-                    SearchMode = SearchMode.All,
-
-                    // Skip past results that have already been returned.
-                    Skip = page * GlobalVariables.ResultsPerPage,
-
-                    // Take only the next page worth of results.
-                    Top = GlobalVariables.ResultsPerPage,
-
-                    // Include the total number of results.
-                    IncludeTotalResultCount = true,
-                };
-
-                // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
-                model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
-
-                // Ensure TempData is stored for the next call.
-                TempData["page"] = page;
-                TempData["searchfor"] = model.searchText;
-                TempData["scoring"] = model.scoring;
-                SaveFacets(model,true);
-
-                // Calculate the room rate ranges.
-                for (int n = 0; n < model.resultList.Results.Count; n++)
-                {
-                    var cheapest = 0d;
-                    var expensive = 0d;
-
-                    for (var r = 0; r < model.resultList.Results[n].Document.Rooms.Length; r++)
+                case "boostAmenities":
                     {
-                        var rate = model.resultList.Results[n].Document.Rooms[r].BaseRate;
-                        if (rate < cheapest || cheapest == 0)
+                        options.ScoringProfile = model.scoring;
+
+                        // Create a string list of amenities that have been clicked.
+                        for (int a = 0; a < model.facetOn.Length; a++)
                         {
-                            cheapest = (double)rate;
+                            if (model.facetOn[a])
+                            {
+                                parameters.Add(model.facetText[a]);
+                            }
                         }
-                        if (rate > expensive)
+
+                        if (parameters.Count > 0)
                         {
-                            expensive = (double)rate;
+                            options.ScoringParameters.Add($"amenities-{ string.Join(',', parameters)}");
+                        }
+                        else
+                        {
+                            // No amenities selected, so set profile back to default.
+                            options.ScoringProfile = "";
                         }
                     }
-                    model.resultList.Results[n].Document.cheapest = cheapest;
-                    model.resultList.Results[n].Document.expensive = expensive;
-                }
+                    break;
+
+                case "renovatedAndHighlyRated":
+                    options.ScoringProfile = model.scoring;
+                    break;
+
+                default:
+                    break;
             }
-            catch
+
+            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+            model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options);
+
+            // Ensure TempData is stored for the next call.
+            TempData["page"] = page;
+            TempData["searchfor"] = model.searchText;
+            TempData["scoring"] = model.scoring;
+            SaveFacets(model, true);
+
+            // Calculate the room rate ranges.
+            await foreach (var result in model.resultList.GetResultsAsync())
             {
-                return View("Error", new ErrorViewModel { RequestId = "1" });
+                var cheapest = 0d;
+                var expensive = 0d;
+
+                foreach (var room in result.Document.Rooms)
+                {
+                    var rate = room.BaseRate;
+                    if (rate < cheapest || cheapest == 0)
+                    {
+                        cheapest = (double)rate;
+                    }
+                    if (rate > expensive)
+                    {
+                        expensive = (double)rate;
+                    }
+                }
+
+                result.Document.cheapest = cheapest;
+                result.Document.expensive = expensive;
             }
-            return View("Index", model);
         }
+        catch
+        {
+            return View("Error", new ErrorViewModel { RequestId = "1" });
+        }
+
+        return View("Index", model);
+    }
     ```
 
     Read through the comments for each of the **switch** selections.
