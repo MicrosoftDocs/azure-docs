@@ -170,7 +170,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## Add blob URI to the host file
 
-You already added the blob URI in the **hosts** file for the client that you're using to connect to Blob storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
+You already added the blob URI in the **hosts** file for the client that you're using to connect to Blob Storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
