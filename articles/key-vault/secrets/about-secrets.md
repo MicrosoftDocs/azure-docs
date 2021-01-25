@@ -80,7 +80,7 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ## Azure Storage account key management
 
-Key Vault can manage [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) keys:
+Key Vault can manage [Azure storage account](../../storage/common/storage-account-overview.md) keys:
 
 - Internally, Key Vault can list (sync) keys with an Azure storage account. 
 - Key Vault regenerates (rotates) the keys periodically.
@@ -88,7 +88,7 @@ Key Vault can manage [Azure storage account](https://docs.microsoft.com/azure/st
 - Key Vault manages keys of both storage accounts and classic storage accounts.
 
 For more information, see:
-- [Storage account access keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
 - [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
 
 
