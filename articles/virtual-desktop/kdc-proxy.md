@@ -3,7 +3,7 @@ title: Set up KDC proxy Windows Virtual Desktop - Azure
 description: How to set up a Windows Virtual Desktop host pool to use a KDC proxy.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: helohr
 manager: lizross
 ---
