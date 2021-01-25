@@ -182,7 +182,7 @@ After custom metrics are submitted to Azure Monitor, you can browse them via the
 > See [Getting started with Azure Metrics Explorer](./metrics-getting-started.md) for more info on viewing metrics in the Azure portal.
 
 ## Supported regions
-During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. See [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) for more info on Azure regions. The azure region code used in the below endpoints is just the name of the region with whitespace removed The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
+During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. See [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) for more info on Azure regions. The Azure region code used in the below endpoints is just the name of the region with whitespace removed The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
 |Azure region |Regional endpoint prefix|
 |---|---|
