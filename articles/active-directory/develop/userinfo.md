@@ -24,7 +24,7 @@ The UserInfo endpoint is part of the [OpenID Connect standard](https://openid.ne
 
 You can programmatically discover the UserInfo endpoint using the OpenID Connect discovery document, at `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. It’s listed in the `userinfo_endpoint` field, and this pattern can be used across clouds to help point to the right endpoint.  We do not recommend hard-coding the UserInfo endpoint in your app – use the OIDC discovery document to find this endpoint at runtime instead.
 
-As part of the OpenID Connect specification, the UserInfo endpoint is often automatically called by [OIDC compliant libraries](https://openid.net/developers/certified/)  to get information about the user.  Without hosting such an endpoint, Microsoft identity platform would not be standards compliant and some libraries would fail.  From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) we produce the name claims, subject claim, and email when available and consented for.  
+As part of the OpenID Connect specification, the UserInfo endpoint is often automatically called by [OIDC compliant libraries](https://openid.net/developers/certified/)  to get information about the user.  Without hosting such an endpoint, the Microsoft identity platform would not be standards compliant and some libraries would fail.  From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) we produce the name claims, subject claim, and email when available and consented for.  
 
 ## Consider: Use an ID Token instead
 
