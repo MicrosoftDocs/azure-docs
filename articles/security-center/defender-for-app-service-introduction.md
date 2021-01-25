@@ -71,7 +71,7 @@ Learn more about dangling DNS and the threat of subdomain takeover, in [Prevent 
 For a full list of the Azure App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 
 > [!NOTE]
-> Defender might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender has never monitored traffic to your website (because there won't be logs to help identify the custom domain).
+> Defender might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender hasn't monitored traffic to your website since the dangling DNS protection was enabled (because there won't be logs to help identify the custom domain).
 
 ## How to protect your Azure App Service web apps and APIs
 

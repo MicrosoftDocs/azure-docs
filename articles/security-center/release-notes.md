@@ -402,7 +402,7 @@ Updates in November include:
 - [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
 - [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
 - [Secure score is now available in continuous export (preview)](#secure-score-is-now-available-in-continuous-export-preview)
-- ["System updates should be installed on your machines" recommendation now includes subrecommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- ["System updates should be installed on your machines" recommendation now includes subrecommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [Policy management page in the Azure portal now shows status of default policy assignments](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
