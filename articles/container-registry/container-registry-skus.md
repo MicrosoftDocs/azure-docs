@@ -1,6 +1,6 @@
 ---
 title: Registry service tiers and features
-description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
+description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
 ---
@@ -25,7 +25,9 @@ The following table details the features and registry limits of the Basic, Stand
 
 ## Changing tiers
 
-You can change a registry's service tier with the Azure CLI or in the Azure portal. You can move freely between tier as long as the tier you're switching to has the required maximum storage capacity. 
+You can change a registry's service tier with the Azure CLI or in the Azure portal. You can move freely between tiers as long as the tier you're switching to has the required maximum storage capacity. 
+
+There is no registry downtime or impact on registry operations when you move between service tiers.
 
 ### Azure CLI
 

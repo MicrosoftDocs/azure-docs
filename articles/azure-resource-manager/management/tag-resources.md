@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 12/03/2020 
+ms.date: 01/04/2021 
 ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
@@ -432,9 +432,12 @@ If your tag names or values include spaces, enclose them in double quotes.
 az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## Templates
+## ARM templates
 
-You can tag resources, resource groups, and subscriptions during deployment with a Resource Manager template.
+You can tag resources, resource groups, and subscriptions during deployment with an Azure Resource Manager template (ARM template).
+
+> [!NOTE]
+> The tags you apply through the ARM template overwrite any existing tags.
 
 ### Apply values
 
@@ -442,7 +445,7 @@ The following example deploys a storage account with three tags. Two of the tags
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -481,7 +484,7 @@ You can define an object parameter that stores several tags, and apply that obje
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -519,7 +522,7 @@ To store many values in a single tag, apply a JSON string that represents the va
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -552,7 +555,7 @@ To apply tags from a resource group to a resource, use the [resourceGroup()](../
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {

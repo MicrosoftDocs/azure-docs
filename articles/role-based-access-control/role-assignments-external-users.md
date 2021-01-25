@@ -25,9 +25,7 @@ ms.custom: it-pro
 
 ## Prerequisites
 
-To add or remove role assignments, you must have:
-
-- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## When would you invite guest users?
 

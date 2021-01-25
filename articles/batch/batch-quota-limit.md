@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 12/29/2020
 ms.custom: seodec18
 ---
 
@@ -28,7 +28,7 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ### Cores quotas in batch service mode
 
-The enforcement of dedicated core quotas is being improved, with the changes being made available in stages and completed for all Batch accounts by the end of December 2020.
+The enforcement of dedicated core quotas is being improved, with the changes being made available in stages and completed for all Batch accounts by the end of January 2021.
 
 Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. VM series quota limits can be updated with a support request, as detailed below.
 
@@ -65,7 +65,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 
 ## Other limits
 
-Additional limits set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed.
+These additional limits are set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed.
 
 | **Resource** | **Maximum Limit** |
 | --- | --- |
@@ -75,6 +75,7 @@ Additional limits set by the Batch service. Unlike [resource quotas](#resource-q
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
 | [Mounts](virtual-file-mount.md) per compute node | 10 |
+| Certificates per pool | 12 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 
@@ -86,7 +87,7 @@ To view your Batch account quotas in the [Azure portal](https://portal.azure.com
 1. Select **Quotas** on the Batch account's menu.
 1. View the quotas currently applied to the Batch account.
 
-:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch account quotas":::
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Screenshot showing Batch account quotas in the Azure portal.":::
 
 ## Increase a quota
 
@@ -95,26 +96,26 @@ You can request a quota increase for your Batch account or your subscription usi
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 1. Select **New support request** > **Basics**.
 1. In **Basics**:
-   
+
     1. **Issue Type** > **Service and subscription limits (quotas)**
-   
+
     1. Select your subscription.
-   
+
     1. **Quota type** > **Batch**
-      
+
        Select **Next**.
-    
+
 1. In **Details**:
-      
+
     1. In **Provide details**, specify the location, quota type, and Batch account.
-    
-       ![Batch quota increase][quota_increase]
+
+       :::image type="content" source="media/batch-quota-limit/quota-increase.png" alt-text="Screenshot of the Quota details screen when requesting a quota increase.":::
 
        Quota types include:
 
        * **Per Batch account**  
          Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
-        
+
        * **Per region**  
          Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
@@ -125,11 +126,11 @@ You can request a quota increase for your Batch account or your subscription usi
        Select **Next**.
 
 1. In **Contact information**:
-   
+
     1. Select a **Preferred contact method**.
-   
+
     1. Verify and enter the required contact details.
-   
+
        Select **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Quota requests may be completed within a few minutes or up to two business days.

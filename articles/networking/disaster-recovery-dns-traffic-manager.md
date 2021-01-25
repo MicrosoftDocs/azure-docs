@@ -41,7 +41,7 @@ Most enterprise customers are choosing a multi-region architecture for resilienc
     
     *Figure: Active/Passive with warm standby disaster recovery configuration*
     
-To learn more about failover and high availability, see [Disaster Recovery for Azure Applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+To learn more about failover and high availability, see [Disaster Recovery for Azure Applications](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## Planning your disaster recovery architecture
@@ -50,7 +50,7 @@ There are two technical aspects towards setting up your disaster recovery archit
 -  Using a deployment mechanism to replicate instances, data, and configurations between primary and standby environments. This type of disaster recovery can be done natively via Azure Site-Recovery via Microsoft Azure partner appliances/services like Veritas or NetApp. 
 - Developing a solution to divert network/web traffic from the primary site to the standby site. This type of disaster recovery can be achieved via Azure DNS, Azure Traffic Manager(DNS), or third-party global load balancers.
 
-This article is limited to approaches via Network and Web traffic redirection. For instructions to set up Azure Site Recovery, see [Azure Site Recovery Documentation](https://docs.microsoft.com/azure/site-recovery/).
+This article is limited to approaches via Network and Web traffic redirection. For instructions to set up Azure Site Recovery, see [Azure Site Recovery Documentation](../site-recovery/index.yml).
 DNS is one of the most efficient mechanisms to divert network traffic because DNS is often global and external to the data center and is insulated from any regional or availability zone (AZ) level failures. One can use a DNS-based failover mechanism and in Azure, two DNS services can accomplish the same in some fashion - Azure DNS (authoritative DNS) and Azure Traffic Manager (DNS-based smart traffic routing). 
 
 It is important to understand few concepts in DNS that are extensively used to discuss the solutions provided in this article:
@@ -171,12 +171,3 @@ During a disaster, the primary endpoint gets probed and the status changes to **
 ## Next steps
 - Learn more about [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 - Learn more about [Azure DNS](../dns/dns-overview.md).
-
-
-
-
-
-
-
-
-

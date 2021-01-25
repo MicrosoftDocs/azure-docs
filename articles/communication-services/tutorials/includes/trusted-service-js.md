@@ -10,6 +10,11 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ---
+
+## Download Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Trusted%20Authentication%20Service)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -107,14 +112,8 @@ module.exports = async function (context, req) {
 
     const userToken = await tokenClient.issueToken(user, ["voip"]);
 
-    const response = {
-        "User" : userToken.user,
-        "Token": userToken.token,
-        "ExpiresOn": userToken.expiresOn
-    }
-
     context.res = {
-        body: response
+        body: userToken
     };
 }
 ```
@@ -125,7 +124,7 @@ For existing Communication Services `CommunicationUser`, you can skip the creati
 
 Run the Azure Function locally using `F5`. This will initialize the Azure Function locally and make it accessible through: `http://localhost:7071/api/FUNCTION_NAME`. Check out additional documentation on [running locally](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
 
-Open the URL on your browser and you should see a response body with the Communication User Id, token and expiration for the token.
+Open the URL on your browser and you should see a response body with the Communication User ID, token and expiration for the token.
 
 :::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Screenshot showing a Response example for the created Azure Function.":::
 
