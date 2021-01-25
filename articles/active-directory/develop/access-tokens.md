@@ -288,10 +288,7 @@ A *non-password-based* login is one where the user didn't type in a password to 
 - Voice
 - PIN
 
-> [!NOTE]
-> Primary Refresh Tokens (PRT) on Windows 10 are segregated based on the credential. For example, Windows Hello and password have their respective PRTs, isolated from one another. When a user signs-in with a Hello credential (PIN or biometrics) and then changes the password, the password based PRT obtained previously will be revoked. Signing back in with a password invalidates the old PRT and requests a new one.
->
-> Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.  However, your app should discard the old one as soon as it's used and replace it with the new one, as the new token has a new expiration time in it.
+Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.
 
 ## Next steps
 

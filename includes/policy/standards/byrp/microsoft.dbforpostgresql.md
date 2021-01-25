@@ -2,12 +2,12 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
 
-## Azure Security Benchmark
+## Azure Security Benchmark v1
 
 The [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) provides
 recommendations on how you can secure your cloud solutions on Azure. To see how this service

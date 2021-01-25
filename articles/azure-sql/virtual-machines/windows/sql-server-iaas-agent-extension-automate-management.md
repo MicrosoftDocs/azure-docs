@@ -28,7 +28,7 @@ This article provides an overview of the extension. To install the SQL Server Ia
 
 ## Overview
 
-The SQL Server IaaS Agent extension provides a number of benefits for SQL Server on Azure VMs: 
+The SQL Server IaaS Agent extension allows for integration with the Azure portal, and depending on the management mode, unlocks a number of feature benefits for SQL Server on Azure VMs: 
 
 - **Feature benefits**: The extension unlocks a number of automation feature benefits, such as portal management, license flexibility, automated backup, automated patching and more. See [Feature benefits](#feature-benefits) later in this article for details. 
 
@@ -68,12 +68,13 @@ The following table details these benefits:
 
 | Feature | Description |
 | --- | --- |
-| **Portal management** | Unlocks [management in the portal](manage-sql-vm-portal.md), so that you can view all of your SQL Server VMs in one place, and so that you can enable and disable SQL specific features directly from the portal. 
-| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](frequently-asked-questions-faq.md#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). |
-| **Automated patching** |Configures a maintenance window during which important Windows and SQL Server security updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). |
-| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). |
-| **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. | 
-| **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  | 
+| **Portal management** | Unlocks [management in the portal](manage-sql-vm-portal.md), so that you can view all of your SQL Server VMs in one place, and so that you can enable and disable SQL specific features directly from the portal. <br/> Management mode: Lightweight & full|  
+| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](frequently-asked-questions-faq.md#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Management mode: Full|
+| **Automated patching** |Configures a maintenance window during which important Windows and SQL Server security updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). <br/> Management mode: Full|
+| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Management mode: Full|
+| **View disk utilization in portal** | Allows you to view a graphical representation of the disk utilization of your SQL data files in the Azure portal.  <br/> Management mode: Full | 
+| **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. <br/> Management mode: Lightweight & full| 
+| **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  <br/> Management mode: Lightweight & full| 
 
 
 ## Management modes
@@ -109,7 +110,7 @@ There are three ways to register with the extension:
 
 ### Named instance support
 
-The SQL Server IaaS Agent extension works with a named instance of SQL Server if is the only SQL Server instance available on the virtual machine. The extension fails to install on VMs that have multiple SQL Server instances. 
+The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. The extension fails to install on VMs that have multiple named SQL Server instances if there is no default instance on the VM. 
 
 To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL IaaS Extension](sql-agent-extension-manually-register-single-vm.md).
 
@@ -222,7 +223,7 @@ No. A VM must have at least one SQL Server (Database Engine) instance to success
 
 **Can I register a VM with the SQL IaaS Agent extension if there are multiple SQL Server instances?**
 
-Yes. The SQL IaaS Agent extension will register only one SQL Server (Database Engine) instance. The SQL IaaS Agent extension will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
+Yes, provided there is a default instance on the VM. The SQL IaaS Agent extension will register only one SQL Server (Database Engine) instance. The SQL IaaS Agent extension will register the default SQL Server instance in the case of multiple instances.
 
 **Can I register a SQL Server failover cluster instance with the SQL IaaS Agent extension?**
 
