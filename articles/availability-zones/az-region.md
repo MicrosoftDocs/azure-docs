@@ -60,13 +60,13 @@ To learn more about Availability Zones and available services support in these r
 :small_red_triangle:   Resilient to the zone-wide outages 
 :heavy_check_mark:    Generally Available in all regions with Availability Zones
 
-### Foundational Services
+**Foundational Services**
 
 | Products                                              | Resiliency | Availability |
 |-------------------------------------------------------|------------|--------------|
 | Storage Account                                       | :small_red_triangle:          | :heavy_check_mark:            |
 | Application Gateway (V2)                              | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Backup                                          | :small_red_triangle:          | :heavy_check_mark:            |
+| Azure Backup                                          | :small_red_triangle:          | :heavy_check_mark: <sup>1</sup> |
 | Azure Cosmos DB                                       | :small_red_triangle:          | :heavy_check_mark:            |
 | Azure Data Lake Storage Gen 2                         | :small_red_triangle:          | :heavy_check_mark:            |
 | Azure Express Route                                   | :small_red_triangle:          | :heavy_check_mark:            |
@@ -75,7 +75,7 @@ To learn more about Availability Zones and available services support in these r
 | Azure SQL Database (Premium & Business Critical Tier) | :small_red_triangle:          | :heavy_check_mark:            |
 | Disk Storage                                          | :small_red_triangle:          | :heavy_check_mark:            |
 | Event Hubs                                            | :small_red_triangle:          | :heavy_check_mark:            |
-| Key Vault                                             | :small_red_triangle:          | :heavy_check_mark:            |
+| Key Vault                                             | :small_red_triangle:          | :heavy_check_mark: <sup>2</sup> |
 | Load Balancer                                         | :small_red_triangle:          | :heavy_check_mark:            |
 | Service Bus                                           | :small_red_triangle:          | :heavy_check_mark:            |
 | Service Fabric                                        | :small_red_triangle:          | :heavy_check_mark:            |
@@ -96,7 +96,7 @@ To learn more about Availability Zones and available services support in these r
 
 
 
-### Mainstream services
+**Mainstream services**
 
 | Products                                             | Resiliency | Availability |
 |------------------------------------------------------|------------|--------------|
@@ -134,7 +134,7 @@ To learn more about Availability Zones and available services support in these r
 
 
 
-### Non-regional
+**Non-regional**
 
 | Products                             | Resiliency | Availability |
 |--------------------------------------|------------|--------------|
@@ -161,15 +161,25 @@ To learn more about Availability Zones and available services support in these r
 
 
 <sup>1</sup>  Available from South East Asia, UK South
+
 <sup>2</sup>  Available from Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Japan East, Southeast Asia
+
 <sup>3</sup>Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Germany West Central, Japan East, Southeast Asia, Australia East
+
 <sup>4</sup>  Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Japan East, Southeast Asia, Australia East
+
 <sup>5</sup>  Available from West US 2, UK South, Southeast Asia, West Europe, East US, Canada Central, Australia East, East US 2, North Europe, Japan East, Central US
+
 <sup>6</sup>  Available from West US 2, UK South, Southeast Asia, West Europe, East US, Canada Central, East US 2, Japan East, Central US
+
 <sup>7</sup>  Available from Central US, East US, East US 2, West US 2, France Central, North Europe, West Europe, Japan East, Southeast Asia, Australia East
+
 <sup>8</sup>  Available from Central US, East US, East US 2, West US 2, North Europe, UK South, Japan East, Southeast Asia, Australia East
+
 <sup>9</sup>  Available from East US, East US 2, West US 2
+
 <sup>10</sup>  Available from East US, East US 2, West US 2, France Central, North Europe, West Europe, Japan East
+
 <sup>11</sup>  Available from East US 2, Southeast Asia, UK South, West Europe, Central US, France Central, Japan East
 
 ## Pricing for VMs in Availability Zones

@@ -85,7 +85,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 - .Services are not assigned a category until General Availability (GA). For information, and a list of preview services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
-> | Foundational                          | Mainstream                                        | Specialized                                          > |
+> | Foundational                          | Mainstream                                        | Specialized                                          |
 > |---------------------------------------|---------------------------------------------------|------------------------------------------------------|
 > | Storage Accounts                      | API Management                                    | Azure API for FHIR                                   |
 > | Application Gateway                   | App Configuration                                 | Azure Analysis Services                              |
