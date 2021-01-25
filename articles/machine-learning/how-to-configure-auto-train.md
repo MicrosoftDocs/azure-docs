@@ -215,7 +215,7 @@ Choosing a primary metric for automated machine learning to optimize depends on 
 
 #### Classification
 
-Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are very small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.1. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
+Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are very small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated machine learning completes, you can choose the winning model based on the metric best suited to your business needs.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
