@@ -67,7 +67,7 @@ View deployed apps using the following procedures.
 1. In your local development environment, make a small modification to your application. Doing so lets you easily differentiate the two deployments. To build the jar package, run the following command: 
 
     ```console
-    mvn clean package
+    mvn clean package -DskipTests
     ```
 
 1. In the Azure CLI, create a new deployment, and give it the staging deployment name "green."
@@ -86,9 +86,10 @@ View deployed apps using the following procedures.
 
 ## Verify the staging deployment
 
-1. Return to the **Deployment management** page, and select your new deployment. The deployment status should show *Running*. The **Assign/Unassign domain** button should appear grayed, because the environment is a staging environment.
-
-1. In the **Overview** pane, you should see a **Test Endpoint**. Copy and paste it into a new browser window, and the new application page should be displayed.
+To verify that the green staging development is working:
+1. go to **Deployments** and click the `green` **Staging deployment**.
+1. From the **Overview** page, click the **Test endpoint**.
+1. This will open the staging build showing your changes.
 
 >[!TIP]
 > * Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly.  
@@ -103,9 +104,12 @@ View deployed apps using the following procedures.
 
 1. After you've verified your change in your staging environment, you can push it to production. Return to **Deployment management**, and select the **gateway** application check box.
 
-2. Select **Set deployment**.
-3. In the **Production Deployment** list, select **Green**, and then select **Apply**.
-4. Go to your gateway application **Overview** page. If you've already assigned a domain for your gateway application, the URL will appear in the **Overview** pane. To view the modified application page, select the URL, and go to the site.
+1. Return to the **Deployment management** page, and select your `green` deployment. The deployment status should show *Running app instance*. This is a staging environment.
+
+   [ ![Deployments set staging deployment](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+
+1. On the **Deployments** page, the `green` staging version will show as **Production deployment**. Copy and paste it into a new browser window, and the new application page should be displayed with your changes.
+1. Go to Apps/hellospring/Overview, and click the URL to see the new deployment of the staging version, now in production.
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
