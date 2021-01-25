@@ -45,23 +45,23 @@ For a virtual networks belonging to the same resource group as the cloud service
 #### Virtual Network located in same resource group
 ```xml
 <VirtualNetworkSite name="<vnet-name>"/> 
-<AddressAssignments> 
-<InstanceAddress roleName="<role-name>"> 
-<Subnets> 
-<Subnet name="<subnet-name>"/> 
-</Subnets> 
-</InstanceAddress> 
+  <AddressAssignments> 
+    <InstanceAddress roleName="<role-name>"> 
+     <Subnets> 
+       <Subnet name="<subnet-name>"/> 
+     </Subnets> 
+    </InstanceAddress> 
 ```
 
 #### Virtual network located in different resource group
 ```xml
 <VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> 
-<AddressAssignments> 
-<InstanceAddress roleName="<role-name>"> 
-<Subnets> 
-<Subnet name="<subnet-name>"/> 
-</Subnets> 
-</InstanceAddress> 
+   <AddressAssignments> 
+     <InstanceAddress roleName="<role-name>"> 
+       <Subnets> 
+        <Subnet name="<subnet-name>"/> 
+       </Subnets> 
+     </InstanceAddress> 
 ```
 ### 2) Remove the old plugins
 
