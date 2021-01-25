@@ -29,7 +29,7 @@ In this article, use the Service Fabric RM powershell or Azure CLI modules to de
 
 You can find the reference documentation for the Service Fabric modules here:
 * [Az.ServiceFabric](/powershell/module/az.servicefabric)
-* [az SF CLI module](/cli/azure/sf?view=azure-cli-latest)
+* [az SF CLI module](/cli/azure/sf)
 
 ### Sign in to Azure
 
