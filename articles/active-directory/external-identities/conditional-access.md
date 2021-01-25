@@ -31,7 +31,7 @@ The following diagram illustrates the flow:
 |--------------|-----------------------|
 | 1. | The B2B guest user requests access to a resource. The resource redirects the user to its resource tenant,  a trusted IdP.|
 | 2. | The resource tenant identifies the user as external and redirects the user to the B2B guest user’s IdP. The user performs primary authentication in the IdP.
-| 3. | The B2B guest user’s IdP issues a token to the user. The user is redirected back to the resource tenant with the token. The resource tenant validates the token and then evaluates the user against its CA policies. For example, the resource tenant could require the user to perform Multi-factor Authentication (MFA).
+| 3. | The B2B guest user’s IdP issues a token to the user. The user is redirected back to the resource tenant with the token. The resource tenant validates the token and then evaluates the user against its CA policies. For example, the resource tenant could require the user to perform Azure Active Directory (AD) Multi-Factor Authentication.
 | 4. | Once all resource tenant CA policies are satisfied, the resource tenant issues its own token and redirects the user to its resource.
 
 ## Authentication flow for B2B guest users with one time passcode
@@ -49,38 +49,39 @@ The following diagram illustrates the flow:
 >[!NOTE]
 >If the user is from an external resource tenant, it is not possible for the B2B guest user’s IdP CA policies to also be evaluated. As of today, only the resource tenant’s CA policies apply to its guests.
 
-## Multi-factor authentication for B2B users
-Organizations can enforce multiple MFA policies for their B2B guest users. These policies can be enforced at the tenant, app, or individual user level in the same way that they're enabled for full-time employees and members of the organization.
-The resource tenant is always responsible for MFA for users, even if the guest user’s organization has MFA capabilities. Here's an example-
+## Azure AD Multi-Factor Authentication for B2B users
+
+Organizations can enforce multiple Azure AD Multi-Factor Authentication policies for their B2B guest users. These policies can be enforced at the tenant, app, or individual user level in the same way that they're enabled for full-time employees and members of the organization.
+The resource tenant is always responsible for Azure AD Multi-Factor Authentication for users, even if the guest user’s organization has Multi-Factor Authentication capabilities. Here's an example-
 
 1. An admin or information worker in a company named Fabrikam invites user from another company named Contoso to use their application Woodgrove.
 
-2. The Woodgrove app in Fabrikam is configured to require MFA on access.
+2. The Woodgrove app in Fabrikam is configured to require Azure AD Multi-Factor Authentication on access.
 
-3. When the B2B guest user from Contoso attempts to access Woodgrove in the Fabrikam tenant, they're asked to complete the MFA challenge.
+3. When the B2B guest user from Contoso attempts to access Woodgrove in the Fabrikam tenant, they're asked to complete the Azure AD Multi-Factor Authentication challenge.
 
-4. The guest user can then set up their MFA with Fabrikam and select the options.
+4. The guest user can then set up their Azure AD Multi-Factor Authentication with Fabrikam and select the options.
 
 5. This scenario works for any identity – Azure AD or Personal Microsoft Account (MSA). For example, if user in Contoso authenticates using social ID.
 
-6. Fabrikam must have sufficient premium Azure AD licenses that support MFA. The user from Contoso then consumes this license from Fabrikam. See [billing model for Azure AD external identities](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) for information on the B2B licensing.
+6. Fabrikam must have sufficient premium Azure AD licenses that support Azure AD Multi-Factor Authentication. The user from Contoso then consumes this license from Fabrikam. See [billing model for Azure AD external identities](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) for information on the B2B licensing.
 
 >[!NOTE]
->MFA is done at resource tenancy to ensure predictability.
+>Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability.
 
-### Set up Azure AD Multi-factor Authentication for B2B users
+### Set up Azure AD Multi-Factor Authentication for B2B users
 
-To set up Azure AD Multi-factor Authentication for B2B collaboration users, watch this video:
+To set up Azure AD Multi-Factor Authentication for B2B collaboration users, watch this video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### B2B users Azure AD Multi-factor Authentication for offer redemption
+### B2B users Azure AD Multi-Factor Authentication for offer redemption
 
-To learn more about the Azure AD Multi-factor Authentication redemption experience, watch this video:
+To learn more about the Azure AD Multi-Factor Authentication redemption experience, watch this video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### Azure AD Multi-factor Authentication reset for B2B users
+### Azure AD Multi-Factor Authentication reset for B2B users
 
 Now, the following PowerShell cmdlets are available to proof up B2B guest users:
 
@@ -101,7 +102,7 @@ Now, the following PowerShell cmdlets are available to proof up B2B guest users:
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Reset the MFA method for a specific user to require the B2B collaboration user to set proof-up methods again. 
+3. Reset the Azure AD Multi-Factor Authentication method for a specific user to require the B2B collaboration user to set proof-up methods again. 
    Here is an example:
 
    ```
@@ -134,9 +135,9 @@ Policies can also be enforced based on **geographical locations**.
 
 ### Risk-based Conditional Access
 
-The [Sign-in risk policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) is enforced if the B2B guest user satisfies the grant control. For example, an organization could require MFA for medium or high sign-in risk. However, if a user hasn't previously registered for MFA in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own MFA credentials in the event they compromise a legitimate user’s password.
+The [Sign-in risk policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) is enforced if the B2B guest user satisfies the grant control. For example, an organization could require Azure AD Multi-Factor Authentication for medium or high sign-in risk. However, if a user hasn't previously registered for Azure AD Multi-Factor Authentication in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own Azure AD Multi-Factor Authentication credentials in the event they compromise a legitimate user’s password.
 
-The [User-risk policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) however cannot be resolved in the resource tenant. For example, if you require a password change   for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
+The [User-risk policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) however cannot be resolved in the resource tenant. For example, if you require a password change for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
 
 ### Conditional Access client apps condition
 
