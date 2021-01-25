@@ -2,14 +2,14 @@
 title: View custom role assignments in the Azure AD portal | Microsoft Docs
 description: You can now see and manage members of an Azure AD administrator role in the Azure AD admin center.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

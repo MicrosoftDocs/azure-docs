@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 01/21/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge Pro issues
@@ -21,6 +21,7 @@ In this article, you learn how to:
 > * Run diagnostics
 > * Collect Support package
 > * Use logs to troubleshoot
+> * Troubleshoot IoT Edge errors
 
 ## Run diagnostics
 
@@ -76,6 +77,10 @@ Any errors experienced during the upload and refresh processes are included in t
 3. When you see an error in this file (highlighted in the sample), note down the error code, in this case it's 16001. Look up the description of this error code against the following error reference.
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
+
+## Troubleshoot IoT Edge errors
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 ## Next steps
 

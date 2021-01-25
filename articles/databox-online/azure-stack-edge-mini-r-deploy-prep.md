@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -119,11 +119,11 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 7. Select **Next: Shipping address**.
 
-    - If you already have a device, select the combo box for **I already have a device**.
+   - If you already have a device, select the combo box for **I already have a device**.
 
      ![Create a resource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device to, and contact information.
+   - If this is the new device that you are ordering, enter the contact name, company, address to ship the device to, and contact information.
 
      ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -143,9 +143,12 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     
     ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
+After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
-   If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+> [!NOTE]
+> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.
+
+If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
 ### [Azure CLI](#tab/azure-cli)
 

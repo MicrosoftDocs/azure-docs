@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Prepare to deploy Azure Stack Edge Pro  
 
-This tutorial is the first in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy a Azure Stack Edge resource.
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -55,7 +55,7 @@ Before you begin, make sure that:
   * You should be an **Owner** at the subscription level to grant contributor access. To give contributor access to someone else, in Azure portal, go to **All Services** > **Subscriptions** > **Access control (IAM)** > **+Add** > **Add role assignment**. For more information, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
   * To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` resource provider is registered. For information on how to register a resource provider, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * To create any IoT Hub resource, make sure that Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * To create any IoT Hub resource, make sure that the Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
 * You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * You have your Microsoft Azure storage account with access credentials.
@@ -115,15 +115,15 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
     |Setting  |Value  |
     |---------|---------|
-    |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
+    |Name   | A friendly name to identify the resource.<br>The name has from 2 and 50 characters, including letters, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
     ![Project and instance details](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Select **Next: Shipping address**.
 
-    - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro device**.
-    - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
+    - If you already have a device, select the combo box for **I have an Azure Stack Edge device**.
+    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
 
     ![Shipping address for new device](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
 
@@ -135,13 +135,16 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 8. Select **Create**.
 
-The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+   The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
 ![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+> [!NOTE]
+> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -192,7 +195,7 @@ After you place an order, Microsoft reviews the order and contacts you by email 
 
 After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Pro device with the resource. You can get this key now while you are in the Azure portal.
 
-1. Go to the resource that you created and select **Overview**. You'll see a notification to the effect that your order is being processed.
+1. Go to the resource that you created, and select **Overview**. You'll see a notification to the effect that your order is being processed.
 
     ![Select Overview](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 

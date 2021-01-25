@@ -23,8 +23,7 @@ Each function app has a single inbound IP address. To find that IP address:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
-3. Select **Platform features**.
-4. Select **Properties**, and the inbound IP address appears under **Virtual IP address**.
+3. Under **Settings**, select **Properties**. The inbound IP address appears under **Virtual IP address**.
 
 ## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
