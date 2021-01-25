@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
 ---
@@ -27,11 +27,11 @@ Azure Security Center periodically analyzes the security state of your Azure res
 |-|----|--|
 | Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Azure AD-based authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
 | Enable Azure Defender for all of your storage accounts | Azure Defender for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Azure Defender for Azure Storage](../common/azure-defender-storage-configure.md). | [Yes](../../security-center/security-center-sql-service-recommendations.md) |
-| Turn on soft delete for blobs | Soft delete enables you to recover blob data after it has been deleted. For more information on soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md). | - |
-| Turn on soft delete for containers | ???. | - |
+| Turn on soft delete for blobs | Soft delete for blobs enables you to recover blob data after it has been deleted. For more information on soft delete for blobs, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md). | - |
+| Turn on soft delete for containers | Soft delete for containers enables you to recover a container after it has been deleted. For more information on soft delete for containers, see [Soft delete for containers (preview)](./soft-delete-container-overview.md). | - |
 | Lock storage account to prevent accidental account deletion | You can lock an Azure Resource Manager resources, such as a subscription, resource group, or storage account, to prevent other users in your organization from accidentally deleting or modifying it. Locking a storage account does not prevent data within that account from being deleted. It only prevents the account itself from being deleted. For more information, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 | Store business-critical data in immutable blobs | Configure legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md). | - |
-| Require secure transfer (HTTPS) to the storage account | ??? | - |
+| Require secure transfer (HTTPS) to the storage account | When you require secure transfer for a storage account, all requests to the storage account must be made over HTTPS. Any requests made over HTTP are rejected. Microsoft recommends that you always require secure transfer for all of your storage accounts. For more information, see [Require secure transfer to ensure secure connections](../common/storage-require-secure-transfer.md). | - |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
 
 ## Identity and access management
