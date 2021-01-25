@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
 ---
 
@@ -39,13 +39,13 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Packaging and features
 
-The self-hosted gateway is a containerized, functionally-equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
+The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
 - Azure Monitor logs
 - Upstream (backend side) TLS version and cipher management
-- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. To add support for custom CA, add a layer to the self-hosted gateway container image that installs the CA's root certificate.
+- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. For more information, see [Using a custom CA](#using-a-custom-ca), later in this article.
 - Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - TLS session resumption
 - Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work API consumers must present their certificates as part of the initial TLS handshake. To ensure that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
@@ -75,6 +75,25 @@ When configuration backup is turned on and connectivity to Azure is interrupted:
 -   Stopped self-hosted gateways will be able to start using a backup copy of the configuration
 
 When connectivity is restored, each self-hosted gateway affected by the outage will automatically reconnect with its associated API Management service and download all configuration updates that occurred while the gateway was "offline".
+
+## Using a custom CA
+
+When installed in its default configuration, the self-hosted gateway doesn't support validating server and client certificates using CA root certificates uploaded to an API Management instance. Clients presenting a custom certificate to the self-hosted gateway may experience slow responses, because certificate revocation list (CRL) validation can take a long time to time out on the gateway.
+ 
+### Workaround 
+ 
+As a workaround when running the gateway using the default self-hosted gateway image, you may configure the PKI IP address to point to the localhost address (127.0.0.1) instead of the API Management instance. This causes the CRL validation to fail quickly when the gateway attempts to validate the client certificate. To configure the gateway, add a DNS entry for the API Management instance to resolve to the localhost in the `/etc/hosts` file in the container. Add this entry during gateway deployment:
+ 
+* For Docker deployment - add the `--add-host <hostname>:127.0.0.1` parameter to the `docker run` command. For more information, see [Add entries to container hosts file](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* For Kubernetes deployment - Add a `hostAliases` specification to the `myGateway.yaml` configuration file. For more information, see [Adding entries to Pod /etc/hosts with Host Aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+### Update self-hosted gateway image
+
+To add support for a custom CA in the self-hosted gateway, you may build a custom gateway image that adds a CA certificate as a trusted certificate. Create a Dockerfile that specifies the existing self-hosted gateway image as a base image, and add layers that install the CA certificate as a .crt file and run `update-ca-certificates` in the container. 
+
+For information about building Docker images, see the [Docker documentation](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+
 
 ## Next steps
 
