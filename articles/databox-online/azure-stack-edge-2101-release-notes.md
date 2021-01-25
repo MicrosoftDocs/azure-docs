@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2021
+ms.date: 01/25/2021
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ The release notes are continuously updated. As critical issues that require a wo
 
 This release corresponds to software version:
 
-- **Azure Stack Edge 2101 (XXX)** - KB XXX <!--Get KB number-->
+- **Azure Stack Edge 2101 (1.6.1475.2528)** - KB 1.6.1475.2528
 
 > [!NOTE]
 > Update 2101 can be applied only to devices that are running general availability (GA) versions of the software or later.
@@ -27,7 +27,7 @@ This release corresponds to software version:
 
 This release contains the following bug fix:
 
-- **Upload issue** - This release fixes an upload problem, where upload restarts caused by a failure can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures sufficient opportunity for upload completion before restarting upload for a given file.<!--Is this Patch 7831646 (ID195692227: SR#: 120070124003931), addressed in the 2007 release notes?-->
+- **Upload issue** - This release fixes an upload problem, where upload restarts caused by a failure can slow the rate of upload completion. This problem can occur when uploading a dataset that primarily consists of files that are large relative to available bandwidth, particularly, but not limited to, when bandwidth throttling is active. This change ensures sufficient opportunity for upload completion before restarting upload for a given file.
 
 This release also contains the following updates:
 
