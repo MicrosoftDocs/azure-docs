@@ -36,23 +36,23 @@ Click on **Create Managed Instance for Apache Cassandra cluster**.
 On the **Create Managed Instance for Apache Cassandra** page, enter resource group, cluster name, number of nodes, and specify Cassandra admin password that will be created for the cluster. The click on **Next: Networking**.
 
 
-![Create Cluster](./media/quickstart/create-cluster-page.png)
+![Create Cluster Page](./media/quickstart/create-cluster-page.png)
 
 On the **Networking** page, select Virtual Network or create a new one. Then click review and create.
 
-![Create Cluster](./media/quickstart/networking.png)
+![Networking Page](./media/quickstart/networking.png)
 
 Review and click create.
 
-![Create Cluster](./media/quickstart/review-create.png)
+![Create Cluster Review Page](./media/quickstart/review-create.png)
 
 Once recources are created, the overview page should show cluster name and number of nodes.
 
-![Create Cluster](./media/quickstart/overview.png)
+![Created Cluster Overview Page](./media/quickstart/overview.png)
 
 You can review cluster nodes from within your existing or newly created VNET:
 
-![Create Cluster](./media/quickstart/resources.png)
+![View Resources](./media/quickstart/resources.png)
 
 ## Next steps
 
