@@ -100,11 +100,11 @@ maa-ehd | x-ms-sgx-ehd
 aas-ehd | x-ms-sgx-ehd
 maa-attestationcollateral | x-ms-sgx-collateral
 
-## Claims specific to Trusted Platform Module (TPM) attestation
+## Claims specific to Trusted Platform Module (TPM)/ VBS attestation
+
+### Incoming claims for TPM attestation
 
 Claims issued by Azure Attestation for TPM attestation. The availability of the claims is dependent on the evidence provided for attestation.
-
-### Incoming claims  (can also be used as outgoing claims)
 
 - **aikValidated**: Boolean value containing information if the Attestation Identity Key (AIK) cert has been validated or not
 - **aikPubHash**:  String containing the base64(SHA256(AIK public key in DER format))
@@ -117,11 +117,9 @@ Claims issued by Azure Attestation for TPM attestation. The availability of the 
 - **vbsEnabled**:  Boolean value indicating if VBS is enabled
 - **vbsReportPresent**:  Boolean value indicating if VBS enclave report is available
 
-### Incoming claims issued by Azure Attestation for VBS attestation
+### Incoming claims for VBS attestation
 
 Claims issued by Azure Attestation for VBS attestation is in addition to the claims made available for TPM attestation. The availability of the claims is dependent on the evidence provided for attestation.
-
-### Incoming claims (can also be issued as outgoing claims)
 
 - **enclaveAuthorId**:  String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave
 - **enclaveImageId**:  String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave
