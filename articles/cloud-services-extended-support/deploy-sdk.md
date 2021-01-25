@@ -21,7 +21,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
 
 1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
 
-2. Install the Azure Compute SDK nuget package and initialize the client using a standard authentication mechanism.
+2. Install the Azure Compute SDK NuGet package and initialize the client using a standard authentication mechanism.
 
     ```xml
     public class CustomLoginCredentials : ServiceClientCredentials
@@ -57,7 +57,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
         m_SrpClient.SubscriptionId = m_subId;
     ```
 
-3. Create a new resource group by installing the Azure Resource Manager nuget package. A resource group is a logical container into which Azure resources are deployed and managed. 
+3. Create a new resource group by installing the Azure Resource Manager NuGet package. A resource group is a logical container into which Azure resources are deployed and managed. 
 
     ```xml 
     var resourceGroups = m_ResourcesClient.ResourceGroups;
@@ -67,7 +67,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the Azure Storage nuget package. This step is optional if using an existing storage account. Note: You must use a unique name for storage account name.
+4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the Azure Storage NuGet package. This step is optional if using an existing storage account. Note: You must use a unique name for storage account name.
 
     ```xml
     string storageAccountName = “ContosoSAS”
@@ -129,7 +129,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-7. Create a virtual network and subnet. Install the Azure Network nuget package. This step is optional if using an existing network and subnet. This example uses a single virtual network and subnet.
+7. Create a virtual network and subnet. Install the Azure Network NuGet package. This step is optional if using an existing network and subnet. This example uses a single virtual network and subnet.
 
     ```xml
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
@@ -200,7 +200,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     
     ```
 
-10. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information see Use certificates with Azure Cloud Services (extended support).
+10. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see Use certificates with Azure Cloud Services (extended support).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
@@ -218,14 +218,14 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -		ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates 			create,get,list,delete
     ```
 
-12. For the purpose of this example we will add a self signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles.
+12. In this example we will add a self-signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles.
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -		SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -		CertificatePolicy $Policy
     ```
 
-13. Create an OS Profile object. OS Profile specifies the certificates which are associated to cloud service roles. This will be the same certificate created in the previous step.
+13. Create an OS Profile object. OS Profile specifies the certificates, which are associated to cloud service roles. This will be the same certificate created in the previous step.
 
     ```xml
     CloudServiceOsProfile cloudServiceOsProfile = 
@@ -241,7 +241,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
            };
     ```
 
-14. Create a Role Profile object. Role profile defines a roles sku specific properties such as name, capacity and tier. For this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
+14. Create a Role Profile object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
 
     ```xml
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
@@ -275,7 +275,7 @@ This article shows how to use the Azure SDK to deploy Cloud Services (extended s
                     }
     ```
 
-15. (Optional) Create a Extension Profile object that you want to add to your cloud service. For this example we will add RDP extension.
+15. (Optional) Create an Extension Profile object that you want to add to your cloud service. For this example we will add RDP extension.
 
     ```xml
     string rdpExtensionPublicConfig = "<PublicConfig>" +
