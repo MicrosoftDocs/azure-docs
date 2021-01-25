@@ -23,6 +23,8 @@
   items: 
   - name: Available VM sizes
     href: available-sizes.md
+  - name: Extensions Overview
+    href: extensions.md
   - name: Frequently Asked Questions
     href: faq.md
   - name: Guest OS patches
@@ -51,8 +53,6 @@
       href: schema-cscfg-networkconfiguration.md
 - name: How To
   items:
-  - name: Extensions Overview
-    href: extensions.md
   - name: Apply Remote Desktop extension
     href: enable-rdp.md
   - name: Apply WAD extension
@@ -83,6 +83,8 @@
     href: https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices
   - name: REST
     href: https://docs.microsoft.com/rest/api/compute/cloudservices
+  - name: SDK
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
 - name: Resources
   items:
   - name: Azure Roadmap
