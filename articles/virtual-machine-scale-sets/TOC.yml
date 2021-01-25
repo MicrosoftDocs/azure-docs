@@ -184,7 +184,7 @@
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md
     - name: Scalability targets for disks
-      href: ../virtual-machines/windows/disk-scalability-targets.md
+      href: ../virtual-machines/disks-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md

@@ -166,10 +166,17 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Be sure to replace the storage account and container names either with those from the environment file or supply your own.
+>
+> As you complete the steps described in the rest of this article, make sure that you supply valid parameters in request bodies.
 
 ### Create a transform
 
@@ -351,8 +358,9 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
     To get the hostname, you can use the following GET operation:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    and make sure that you set the `resourceGroupName` and `accountName` parameters to match the environment file. 
     
 3. A path that you got in the previous (List paths) section.  
 

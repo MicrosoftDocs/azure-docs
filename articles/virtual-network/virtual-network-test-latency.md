@@ -54,7 +54,7 @@ By using these tools, you help ensure that only TCP or UDP payload delivery time
 When you create your VM configuration, keep in mind the following recommendations:
 - Use the latest version of Windows or Linux.
 - Enable Accelerated Networking for best results.
-- Deploy VMs with an [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Deploy VMs with an [Azure proximity placement group](../virtual-machines/co-location.md).
 - Larger VMs generally perform better than smaller VMs.
 
 ### Tips for analysis
@@ -199,7 +199,7 @@ This SockPerf example uses a 350-byte message size, which is typical for an aver
 
 
 ## Next steps
-* Improve latency with an [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md).
 * Learn how to [Optimize networking for VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) for your scenario.
 * Read about [how bandwidth is allocated to virtual machines](../virtual-network/virtual-machine-network-throughput.md).
 * For more information, see [Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
