@@ -8,7 +8,7 @@ ms.custom: github-actions-azure, devx-track-azurecli
 
 # Deploy ARM templates by using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
+[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
 Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an Azure Resource Manager template (ARM template) to Azure.
 
@@ -16,7 +16,7 @@ Use the [Deploy Azure Resource Manager Template Action](https://github.com/marke
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
-    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## Workflow file overview
@@ -153,3 +153,6 @@ When your resource group and repository are no longer needed, clean up the resou
 
 > [!div class="nextstepaction"]
 > [Create your first ARM template](./template-tutorial-create-first-template.md)
+
+> [!div class="nextstepaction"]
+> [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)

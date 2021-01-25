@@ -54,7 +54,7 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 ## Restore
 
-In Azure Database for PostgreSQL, performing a restore creates a new server from the original server's backups.
+In Azure Database for PostgreSQL, performing a restore creates a new server from the original server's backups. 
 
 There are two types of restore available:
 
@@ -63,8 +63,11 @@ There are two types of restore available:
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
-> [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../azure-resource-manager/management/lock-resources.md).
+> [!NOTE] 
+> If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations. 
+
+> [!NOTE]
+> If you want to restore a deleted PostgreSQL server, follow the procedure documented [here](howto-restore-dropped-server.md).
 
 ### Point-in-time restore
 
@@ -76,11 +79,14 @@ You may need to wait for the next transaction log backup to be taken before you 
 
 ### Geo-restore
 
-You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for PostgeSQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
+You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for PostgreSQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 
 During geo-restore, the server configurations that can be changed include compute generation, vCore, backup retention period, and backup redundancy options. Changing pricing tier (Basic, General Purpose, or Memory Optimized) or storage size is not supported.
+
+> [!NOTE]
+> If your source server uses infrastructure double encryption, for restoring the server, there are limitations including available regions. Please see the [infrastructure double encryption](concepts-infrastructure-double-encryption.md) for more details.
 
 ### Perform post-restore tasks
 

@@ -467,11 +467,19 @@
     displayName: SPX
     items:
       - name: Speech CLI overview
-        displayName: What is SPX?
+        displayName: What is SPX?, spx, spx overview
         href: spx-overview.md
-      - name: Speech CLI Basics
-        displayName: SPX basics
+      - name: Speech CLI quickstart
+        displayName: spx basics, spx quickstart, spx get started, speech cli get started
         href: spx-basics.md
+      - name: How-to guides
+        items:
+        - name: Speech CLI configuration options
+          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore
+          href: spx-data-store-configuration.md
+        - name: Speech CLI batch operations
+          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+          href: spx-batch-operations.md
   - name: Speech Studio
     items:
       - name: Speech Studio overview
@@ -507,7 +515,8 @@
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
-          href: deploy-speech-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Containers FAQ
           href: speech-container-faq.md
         - name: Cognitive Services containers documentation

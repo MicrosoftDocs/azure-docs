@@ -85,7 +85,7 @@ The Data Box Gateway solution comprises of Data Box Gateway resource, Data Box G
 
 Data Box Gateway physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For a list of all the regions where the Azure Data Box Gateway resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resource availability** - For a list of all the regions where the Azure Data Box Gateway resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions.
 
@@ -97,4 +97,3 @@ Data Box Gateway physical device, Azure resource, and target storage account to 
 - Review the [Data Box Gateway system requirements](data-box-gateway-system-requirements.md).
 - Understand the [Data Box Gateway limits](data-box-gateway-limits.md).
 - Deploy [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) in Azure portal.
-

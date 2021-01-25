@@ -17,7 +17,7 @@ This article covers the differences and the different things to consider when up
 > [!div class="mx-tdCol4BreakAll"]
 > |Title|Live Video Analytics 1.0|Live Video Analytics 2.0|Description|
 > |-------------|----------|---------|---------|
-> |Container Image|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Microsoft Published docker images for Live Video Analytics on Azure IoT Edge|
+> |Container Image|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Microsoft Published docker images for Live Video Analytics on Azure IoT Edge|
 > |**MediaGraph nodes** |    |   |   |
 > |Sources|:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP Source </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub Message Source |:::image type="icon" source="./././media/upgrading-lva/check.png"::: RTSP Source </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: IoT Hub Message Source | MediaGraph nodes that act as sources for media ingestion and messages.|
 > |Processors|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Frame rate filter processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Motion detection processor </br>:::image type="icon" source="./././media/upgrading-lva/remove.png"::: **Frame rate filter processor**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Http extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Grpc extension processor </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Signal gate processor | MediaGraph nodes that enable you to format the media before sending to AI inference servers.|
@@ -165,7 +165,7 @@ With this release, Telegraf can be used to send metrics to Azure Monitor. From t
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomy of events":::
 
-You can produce a Telegraf image with a custom configuration easily using docker. Learn more about this in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-using-telegraf) page.
+You can produce a Telegraf image with a custom configuration easily using docker. Learn more about this in the [Monitoring and logging](monitoring-logging.md#azure-monitor-collection-via-telegraf) page.
 
 ## Next steps
 

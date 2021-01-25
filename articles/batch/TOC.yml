@@ -65,6 +65,8 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
+    - name: Security best practices
+      href: security-best-practices.md
   - name: Batch service workflow and resources
     displayName: developer features
     href: batch-service-workflow-features.md
@@ -135,6 +137,8 @@
       href: batch-automatic-scaling.md
     - name: Choose a VM size for compute nodes
       href: batch-pool-vm-sizes.md
+    - name: Move from Cloud Service to Virtual Machine pools
+      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
     - name: Create a pool with the Shared Image Gallery
@@ -219,14 +223,12 @@
       items:
       - name: Rendering using Azure
         href: batch-rendering-service.md
-      - name: Rendering VM images
+      - name: Batch rendering VM images
         href: batch-rendering-applications.md
       - name: Batch rendering capabilities
         href: batch-rendering-functionality.md
       - name: Using Batch rendering
         href: batch-rendering-using.md
-      - name: Using render managers
-        href: batch-rendering-render-managers.md
       - name: Rendering application reference
         href: batch-rendering-application-reference.md
       - name: Storage and data movement

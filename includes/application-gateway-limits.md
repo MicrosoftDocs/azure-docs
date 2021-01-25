@@ -26,6 +26,9 @@ ms.author: victorh
 | URL maps per listener |1 | |
 | Maximum path-based rules per URL map|100||
 | Redirect configurations |100<sup>1</sup>| |
+| Number of rewrite rule sets |400| |
+| Number of Header or URL configuration per rewrite rule set|40| |
+| Number of conditions per rewrite rule set|40| |
 | Concurrent WebSocket connections |Medium gateways 20k<br> Large gateways 50k| |
 | Maximum URL length|32KB| |
 | Maximum header size for HTTP/2 |4KB| |

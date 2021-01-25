@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/24/2019
+ms.date: 12/18/2020
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Beta
@@ -20,9 +20,6 @@ When you integrate Zscaler Beta with Azure AD, you can:
 * Control in Azure AD who has access to Zscaler Beta.
 * Allow your users to be automatically signed in to Zscaler Beta with their Azure AD accounts. This access control is called single sign-on (SSO).
 * Manage your accounts in one central location by using the Azure portal.
-
-For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -35,68 +32,47 @@ To configure Azure AD integration with Zscaler Beta, you need the following item
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Zscaler Beta supports SP-initiated SSO.
-* Zscaler Beta supports just-in-time user provisioning.
+* Zscaler Beta supports **SP** initiated SSO.
+* Zscaler Beta supports **Just In Time** user provisioning.
 
-## Add Zscaler Beta from the Azure Marketplace
+## Adding Zscaler Beta from the gallery
 
-To configure the integration of Zscaler Beta into Azure AD, add Zscaler Beta from the Azure Marketplace to your list of managed SaaS apps.
+To configure the integration of Zscaler Beta into Azure AD, you need to add Zscaler Beta from the gallery to your list of managed SaaS apps.
 
-To add Zscaler Beta from the Azure Marketplace, follow these steps.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Zscaler Beta** in the search box.
+1. Select **Zscaler Beta** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
+## Configure and test Azure AD SSO for Zscaler Beta
 
-	![Azure Active Directory button](common/select-azuread.png)
+Configure and test Azure AD SSO with Zscaler Beta using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Zscaler Beta.
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+To configure and test Azure AD SSO with Zscaler Beta, perform the following steps:
 
-	![Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, select **New application** at the top of the dialog box.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Zscaler Beta SSO](#configure-zscaler-beta-sso)** - to configure the Single Sign-On settings on application side.
+    1. **[Create Zscaler Beta test user](#create-zscaler-beta-test-user)** - to have a counterpart of B.Simon in Zscaler Beta that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	![New application button](common/add-new-app.png)
+## Configure Azure AD SSO
 
-4. In the search box, enter **Zscaler Beta**. Select **Zscaler Beta** from the result panel, and then select **Add**.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-	 ![Zscaler Beta in the results list](common/search-new-app.png)
+1. In the Azure portal, on the **Zscaler Beta** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-## Configure and test Azure AD single sign-on
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In this section, you configure and test Azure AD single sign-on with Zscaler Beta based on the test user Britta Simon.
-For single sign-on to work, establish a link relationship between an Azure AD user and the related user in Zscaler Beta.
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-To configure and test Azure AD single sign-on with Zscaler Beta, complete the following building blocks:
-
-- [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
-- [Configure Zscaler Beta single sign-on](#configure-zscaler-beta-single-sign-on) to configure the single sign-on settings on the application side.
-- [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
-- [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
-- [Create a Zscaler Beta test user](#create-a-zscaler-beta-test-user) to have a counterpart of Britta Simon in Zscaler Beta that's linked to the Azure AD representation of the user.
-- [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
-
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Zscaler Beta** application integration page, select **Single sign-on**.
-
-    ![Configure Single sign-on link](common/select-sso.png)
-
-2. In the **Select a single sign-on method** dialog box, select the **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. On the **Set up Single Sign-On with SAML** page, select **Edit** to open the **Basic SAML Configuration** dialog box.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
-
-4. In the **Basic SAML Configuration** section, follow this step:
-
-    ![Zscaler Beta domain and URLs single sign-on information](common/sp-intiated.png)
-
-    - In the **Sign on URL** box, enter the URL used by your users to sign in to your Zscaler Beta application.
+    In the **Sign on URL** box, enter the URL used by your users to sign in to your Zscaler Beta Beta application.
 
 	> [!NOTE]
 	> The value isn't real. Update the value with the actual Sign on URL value. To get the value, contact the [Zscaler Beta client support team](https://www.zscaler.com/company/contact).
@@ -113,10 +89,6 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 	a. Select **Add new claim** to open the **Manage user claims** dialog box.
 
-	![User claims dialog box](common/new-save-attribute.png)
-
-	![Manage user claims dialog box](common/new-attribute-details.png)
-
 	b. In the **Name** box, enter the attribute name shown for that row.
 
 	c. Leave the **Namespace** box blank.
@@ -129,8 +101,8 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 	g. Select **Save**.
 
-	> [!NOTE]
-	> To learn how to configure roles in Azure AD, see [Configure the role claim](../develop/active-directory-enterprise-app-role-management.md).
+    > [!NOTE]
+    > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) to know how to configure Role in Azure AD.
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)**. Save it on your computer.
 
@@ -140,11 +112,31 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	- Login URL
-	- Azure AD Identifier
-	- Logout URL
+### Create an Azure AD test user
 
-### Configure Zscaler Beta single sign-on
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Zscaler Beta.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Zscaler Beta**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Zscaler Beta SSO
 
 1. To automate the configuration within Zscaler Beta, install **My Apps Secure Sign-in browser extension** by selecting **Install the extension**.
 
@@ -223,77 +215,24 @@ To configure the proxy settings in Internet Explorer, follow these steps.
 
 6. Select **OK** to close the **Internet Options** dialog box.
 
-### Create an Azure AD test user 
-
-Create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory** > **Users** > **All users**.
-
-    ![Users and All users links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user button](common/new-user.png)
-
-3. In the **User** dialog box, follow these steps:
-
-    ![User dialog box](common/user-properties.png)
-
-    a. In the **Name** box, enter **BrittaSimon**.
-  
-    b. In the **User name** box, enter `brittasimon@yourcompanydomain.extension`. An example is BrittaSimon@contoso.com.
-
-    c. Select the **Show password** check box. Write down the value that displays in the **Password** box.
-
-    d. Select **Create**.
-
-### Assign the Azure AD test user
-
-Enable Britta Simon to use Azure single sign-on by granting access to Zscaler Beta.
-
-1. In the Azure portal, select **Enterprise applications** > **All applications** > **Zscaler Beta**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, enter and select **Zscaler Beta**.
-
-	![Zscaler Beta link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![Users and groups link](common/users-groups-blade.png)
-
-4. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
-
-    ![Add user button](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog box, select the user like **Britta Simon** from the list. Then choose **Select** at the bottom of the screen.
-
-	![Users and groups dialog box](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_users.png)
-
-6. In the **Select Role** dialog box, select the appropriate user role in the list. Then choose **Select** at the bottom of the screen.
-
-	![Select Role dialog box](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_roles.png)
-
-7. In the **Add Assignment** dialog box, select **Assign**.
-
-	![Add Assignment dialog box](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_assign.png)
-
-### Create a Zscaler Beta test user
+### Create Zscaler Beta test user
 
 In this section, the user Britta Simon is created in Zscaler Beta. Zscaler Beta supports **just-in-time user provisioning**, which is enabled by default. There's nothing for you to do in this section. If a user doesn't already exist in Zscaler Beta, a new one is created after authentication.
 
 >[!Note]
 >To create a user manually, contact the [Zscaler Beta support team](https://www.zscaler.com/company/contact).
 
-### Test single sign-on 
+## Test SSO 
 
-Test your Azure AD single sign-on configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select the Zscaler Beta tile in the Access Panel, you should be automatically signed in to the Zscaler Beta for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to Zscaler Beta Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Zscaler Beta Sign-on URL directly and initiate the login flow from there.
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+* You can use Microsoft My Apps. When you click the Zscaler Beta tile in the My Apps, this will redirect to Zscaler Beta Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+
+## Next steps
+
+Once you configure Zscaler Beta you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

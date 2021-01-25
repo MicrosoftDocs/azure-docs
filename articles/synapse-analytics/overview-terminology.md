@@ -33,7 +33,7 @@ Inside Synapse Studio, you can work with SQL pools by creating and running **SQL
 
 ## Apache Spark for Synapse
 
-To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources assosociated with that session. 
+To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources associated with that session. 
 
 There are two ways within Synapse to use Spark:
 * **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL

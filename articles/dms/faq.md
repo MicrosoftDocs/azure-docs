@@ -46,6 +46,9 @@ Azure Database Migration Service is the preferred method for database migration 
 **Q. How does Azure Database Migration Service compare to the Azure Migrate offering?**
 Azure Migrate assists with migration of on-premises virtual machines to Azure IaaS. The service assesses migration suitability and performance-based sizing, and it provides cost estimates for running your on-premises virtual machines in Azure. Azure Migrate is useful for lift-and-shift migrations of on-premises VM-based workloads to Azure IaaS VMs. However, unlike Azure Database Migration Service, Azure Migrate isn’t a specialized database migration service offering for Azure PaaS relational database platforms such as Azure SQL Database or Azure SQL Managed Instance.
 
+**Q. Does Database Migration Service store customer data?**
+No. Database Migration Service does not store customer data.
+
 ## Setup
 
 **Q. What are the prerequisites for using Azure Database Migration Service?**
@@ -101,7 +104,7 @@ During a typical, simple database migration, you:
 ## Troubleshooting and optimization
 
 **Q. I’m setting up a migration project in DMS, and I’m having difficulty connecting to my source database. What should I do?**
-If you have trouble connecting to your source database system while working on migration, create a virtual machine in the virtual network with which you set up your DMS instance. In the virtual machine, you should be able to run a connect test, such as using a UDL file to test a connection to SQL Server or downloading Robo 3T to test MongoDB connections. If the connection test succeeds, you shouldn't have an issue with connecting to your source database. If the connection test doesn't succeed, contact your network administrator.
+If you have trouble connecting to your source database system while working on migration, create a virtual machine in the same subnet of the virtual network with which you set up your DMS instance. In the virtual machine, you should be able to run a connect test, such as using a UDL file to test a connection to SQL Server or downloading Robo 3T to test MongoDB connections. If the connection test succeeds, you shouldn't have an issue with connecting to your source database. If the connection test doesn't succeed, contact your network administrator.
 
 **Q. Why is my Azure Database Migration Service unavailable or stopped?**
 If the user explicitly stops Azure Database Migration Service (DMS) or if the service is inactive for a period of 24 hours, the service will be in a stopped or auto paused state. In each case, the service will be unavailable and in a stopped status.  To resume active migrations, restart the service.
