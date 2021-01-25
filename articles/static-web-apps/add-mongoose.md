@@ -112,7 +112,8 @@ In order to allow the web app to communicate with the database, the database con
 You can now explore the static web app.
 
 1. Click **Overview**
-1. Click the URL displayed in the upper right (it will look similar to **https://calm-pond-05cb73a1e.azurestaticapps.net/**)
+1. Click the URL displayed in the upper right
+    1. It will look similar to `https://calm-pond-05fcdb.azurestaticapps.net`
 1. Create a new task by typing in a title and clicking **Add task**
 1. Confirm the task is displayed (it may take a moment)
 1. Mark the task as complete by **clicking the checkbox**
