@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/20/2020
+ms.date: 01/25/2020
 tags: connectors
 ---
 
@@ -851,7 +851,7 @@ The following example includes prefixes for the namespaces. You can declare all 
 
 #### XML samples for BAPI requests
 
-The following XML samples are for example requests to [call the BAPI method](#call-bapi-action).
+The following XML samples are example requests to [call the BAPI method](#call-bapi-action).
 
 > [!NOTE]
 > SAP makes business objects available to external systems by describing them in response to RFC `RPY_BOR_TREE_INIT`, which Logic Apps issues with no input filter. Logic Apps inspects the output table `BOR_TREE`. The `SHORT_TEXT` field is used for names of business objects. Business objects not returned by SAP in the output table aren't accessible to Logic Apps.
@@ -1145,7 +1145,7 @@ Before you start, make sure that you met the previously listed [prerequisites](#
 
 * Make sure the on-premises data gateway is installed on a computer that's in the same network as your SAP system.
 
-* For Single Sign On (SSO), the data gateway is running as a user that's mapped to an SAP user.
+* For SSO, the data gateway is running as a user that's mapped to an SAP user.
 
 * The SNC library that provides the additional security functions is installed on the same machine as the data gateway. Some examples include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM.
 
