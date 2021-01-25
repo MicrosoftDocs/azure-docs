@@ -58,21 +58,20 @@ Azure Defender monitors for many threats to your App Service resources. The aler
 
 ### Dangling DNS detection
 
-Azure Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. At this moment, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. Azure Defender doesn't scan your DNS table for *existing* dangling DNS entries; it only alerts you when a new one is created.
+Azure Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. At this moment, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. Azure Defender doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
 
 Subdomain takeovers are a common, high-severity threat for organizations. When a threat actor detects a dangling DNS entry, they create their own site at the destination address. The traffic intended for the organization’s domain is then directed to the threat actor's site, and they can use that traffic for a wide range of malicious activity. 
 
-Dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
+Dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
 
-:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="An example of an Azure Defender alert about a discovered dangling DNS entry. Enable Azure Defender for App Service to receive this and other alerts for your environment." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png"::::::
+:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="An example of an Azure Defender alert about a discovered dangling DNS entry. Enable Azure Defender for App Service to receive this and other alerts for your environment." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png":::
 
 Learn more about dangling DNS and the threat of subdomain takeover, in [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 For a full list of the Azure App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 
 > [!NOTE]
-> Defender won't trigger dangling DNS alerts if your custom domain points to a load balancer instead of App Service, or if Defender has never monitored traffic to your website (because there'll be no logs to help identify the custom domain).
-
+> Defender might not trigger dangling DNS alerts if your custom domain doesn't point directly to an App Service resource, or if Defender has never monitored traffic to your website (because there won't be logs to help identify the custom domain).
 
 ## How to protect your Azure App Service web apps and APIs
 
@@ -96,5 +95,5 @@ For related material, see the following articles:
 - To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - For a list of the Azure Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 - For more information on App Service plans, see [App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/).
-- > [!div class="nextstepaction"]
-    > [Enable Azure Defender](security-center-pricing.md)
+> [!div class="nextstepaction"]
+> [Enable Azure Defender](security-center-pricing.md)

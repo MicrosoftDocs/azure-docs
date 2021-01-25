@@ -91,7 +91,7 @@ Main capabilities:
 
 The secure score page now shows the aggregated secure scores for your management groups in addition to the subscription level. So now you can see the list of management groups in your organization and the score for each management group.
 
-:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Viewing the secure scores for you management groups.":::
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Viewing the secure scores for your management groups.":::
 
 Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
 
@@ -110,7 +110,7 @@ Subdomain takeovers are a common, high-severity threat for organizations. A subd
 
 Subdomain takeovers enable threat actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
-Azure Defender for App Service now detects dangling DNS entries when a App Service website is decommissioned. This is the moment at which the DNS entry is pointing at a non-existent resource and your website is vulnerable to a subdomain takeover. These protection are available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
+Azure Defender for App Service now detects dangling DNS entries when an App Service website is decommissioned. This is the moment at which the DNS entry is pointing at a non-existent resource and your website is vulnerable to a subdomain takeover. These protections are available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
 
 Learn more:
 
@@ -125,7 +125,7 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Connecting your AWS or GCP accounts integrates their native security tools like AWS Security Hub and GCP Security Command Centre into Azure Security Center.
+Connecting your AWS or GCP accounts integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
 
 This capability means that Security Center provides visibility and protection across all major cloud environments. Some of the benefits of this integration:
 
@@ -165,7 +165,7 @@ Learn more in [Exempting resources and recommendations from your secure score](e
 
 ### Users can now request tenant-wide visibility from their global administrator
 
-If a user doesn't have permissions to see Security Center data, they'll now see a link request permissions from their organization's global administrator. The request includes the role they'd like and the justification for why it's necessary.
+If a user doesn't have permissions to see Security Center data, they'll now see a link to request permissions from their organization's global administrator. The request includes the role they'd like and the justification for why it's necessary.
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
 
@@ -344,7 +344,7 @@ The recommendation "Web apps should request an SSL certificate for all incoming 
 
 Ensuring your web apps request a certificate certainly makes them more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-With this change, the recommendation is now a recommended best practice which does not impact your score. 
+With this change, the recommendation is now a recommended best practice that does not impact your score. 
 
 Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
@@ -382,7 +382,7 @@ These tools have been enhanced and expanded in the following ways:
 
 - **Continuous export's deployifnotexist policies enhanced**. The policies now:
 
-    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
 
     - **Support exporting security findings.** When using the Azure Policy templates, you can configure your  continuous export to include findings. This is relevant when exporting recommendations that have 'sub' recommendations, like findings from vulnerability assessment scanners or specific system updates for the 'parent' recommendation "System updates should be installed on your machines".
     
@@ -402,7 +402,7 @@ Updates in November include:
 - [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
 - [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
 - [Secure score is now available in continuous export (preview)](#secure-score-is-now-available-in-continuous-export-preview)
-- ["System updates should be installed on your machines" recommendation now includes sub-recommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- ["System updates should be installed on your machines" recommendation now includes subrecommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
 - [Policy management page in the Azure portal now shows status of default policy assignments](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
@@ -481,13 +481,13 @@ With continuous export of secure score, you can stream changes to your score in 
 Learn more about how to [Continuously export Security Center data](continuous-export.md).
 
 
-### "System updates should be installed on your machines" recommendation now includes sub-recommendations
+### "System updates should be installed on your machines" recommendation now includes subrecommendations
 
-The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes sub-recommendations for each missing update and brings the following improvements:
+The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes subrecommendations for each missing update and brings the following improvements:
 
 - A redesigned experience in the Azure Security Center pages of the Azure portal. The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the subrecommendations in the portal experience for the updated recommendation":::
 
 - Enriched data for the recommendation from Azure Resource Graph (ARG). ARG is an Azure service that's designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
 
@@ -573,7 +573,7 @@ For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](
 - Asset inventory utilizes (ARG)
 - We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
-Within ARG there are tables of data for you to use in your queries.
+Within ARG, there are tables of data for you to use in your queries.
 
 :::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer and the available tables":::
 
@@ -729,7 +729,7 @@ Learn more in [Azure Defender for Key Vault](defender-for-key-vault-introduction
 
 Support for [Azure Files](../storage/files/storage-files-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is now generally available.
 
-From 1st October 2020, we'll begin charging for protecting resources on these services.
+From 1 October 2020, we'll begin charging for protecting resources on these services.
 
 Learn more in [Azure Defender for Storage](defender-for-storage-introduction.md).
 
@@ -839,7 +839,7 @@ The following security recommendations related to network security groups have b
 
 The preview recommendation "Pod Security Policies should be defined on Kubernetes Services" is being deprecated as described in the [Azure Kubernetes Service](../aks/use-pod-security-policies.md) documentation.
 
-The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15th, 2020 in favor of Azure Policy for AKS.
+The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15, 2020 in favor of Azure Policy for AKS.
 
 After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 
@@ -986,4 +986,4 @@ The early phase of this project includes a private preview and the addition of n
 You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
 
 1. **Single Preview** – To join only this private preview. Explicitly mention “ASC Continuous Scan” as the preview you would like to join.
-1. **Ongoing Program** – To be added to this and future private previews. You will need to complete a profile and privacy agreement.
+1. **Ongoing Program** – To be added to this and future private previews. You'll need to complete a profile and privacy agreement.
