@@ -1,6 +1,6 @@
 ---
 title: Investigate errors by using the dashboard
-description: This document contains information about error investigation by using the dashboard.
+description: This document contains information about errors on the ITSMC dashboard.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
@@ -11,9 +11,9 @@ ms.date: 01/15/2021
 
 # Investigate errors by using the dashboard
 
-This page contains information about the ITSM connector dashboard. The dashboard helps you investigate the status of your ITSM connector.
+This article contains information about the IT Service Management Connector (ITSMC) dashboard. The dashboard helps you investigate the status of ITSMC.
 
-## How to view the dashboard
+## View the dashboard
 
 Follow these steps to open the dashboard.
 
@@ -36,24 +36,22 @@ Follow these steps to open the dashboard.
 1. Review the dashboard for status and any errors in your connector.
     ![Screenshot that shows the dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
-## Dashboard Elements
+## Understand dashboard elements
 
 The dashboard contains information on the alerts that were sent into the ITSM tool by using this connector.
 
 The dashboard is split into four sections:
 
-- **Work Item Created**: The graph and table show the number of the work items by type. Select the graph or the table to learn more about your work items.
-      ![Screenshot that shows work item created.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+- **Work items created**: The graph and table show the number of the work items by type. Select the graph or the table to learn more about your work items.
+      ![Screenshot that shows the work items created section.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
 - **Impacted computers**: The table contains details about the configuration items that created configuration items.
       Select rows in the tables for more details about the configuration items.
-      The table contains a limited number of rows. If you want to see the entire list, select **See all**.
-      ![Screenshot that shows impacted computers.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
-- **Connector status**: The graph and the table contain messages about the status of the connector. Select the graph and rows in the table for more details about the messages of the connector status. The table shows a limited number of rows. If you want to see the entire list, select **See all**.
-      ![Screenshot that shows connector status.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
-- **Alert rules**: The tables contain the information about the number of alert rules that were detected.
-      Select rows in the tables for more details on the rules that were detected.
-      The table contains a limited number of rows. If you want to see the entire list, select **See all**.
-      ![Screenshot that shows alert rules.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+      The table contains a limited number of rows. To see the entire list, select **See all**.
+      ![Screenshot that shows the impacted computers section.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+- **Connector status**: The graph and the table show information about the status of the connector. Select the graph or the messages in the table for more details about. The table shows a limited number of rows. To see the entire list, select **See all**.
+      ![Screenshot that shows the connector status section.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+- **Alert rules**: This section shows information about the number of alert rules that were detected. Select rows in the tables for more details on the rules that were detected. The table has a limited number of rows. To see the entire list, select **See all**.
+      ![Screenshot that shows the alert rules section.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
 
 ## Next steps
 
