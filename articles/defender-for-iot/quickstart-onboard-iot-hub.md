@@ -1,10 +1,10 @@
 ---
-title: "Quickstart: Enable the service"
+title: Onboard to Defender for IoT agent-based solution
 description: Learn how to onboard and enable the Defender for IoT security service in your Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
+ms.date: 1/20/2021
+ms.author: shhazam
 ---
 
-# Quickstart: Onboard Azure Defender for IoT service in IoT Hub
+# Onboard to Defender for IoT agent-based solution
 
 This article provides an explanation of how to enable the Defender for IoT service on your existing IoT Hub. If you don't currently have an IoT Hub, see [Create an IoT Hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) to get started.
 

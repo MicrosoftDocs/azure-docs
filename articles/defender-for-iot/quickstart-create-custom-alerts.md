@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create custom alerts"
+title: Create custom alerts
 description: Understand, create and assign custom device alerts for the Azure Defender for IoT security service.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -16,7 +16,7 @@ ms.date: 09/04/2020
 ms.author: mlottner
 ---
 
-# Quickstart: Create custom alerts
+# Create custom alerts
 
 Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution.
 

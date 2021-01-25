@@ -1,5 +1,5 @@
 ---
-title: Customizable security alerts
+title: Custom security alerts
 description: Learn about customizable security alerts and recommended remediation using Defender for IoT features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -16,7 +16,7 @@ ms.date: 03/04/2020
 ms.author: mlottner
 ---
 
-# Defender for IoT customizable security alerts
+# Defender for IoT custom security alerts
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 
