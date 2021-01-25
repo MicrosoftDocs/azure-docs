@@ -33,9 +33,7 @@ Azure Service Fabric clusters that run on versions from 5.7 to 6.3.63.* will be 
 
 #### Required action
 
-Upgrade to a supported Service Fabric version to prevent downtime or loss of functionality related to this change. Ensure that your clusters are running at least these versions to prevent issues in your environment.
-
-Supported runtime versions:
+Upgrade to a supported Service Fabric version to prevent downtime or loss of functionality related to this change. Ensure that your clusters are running at least the following versions to prevent issues in your environment.
 
 > [!Note]
 > All released versions of 7.2 include the necessary changes.
@@ -69,9 +67,7 @@ Service disruptions might include the following:
 
 To prevent downtime or loss of functionality, ensure that your clusters are running one of the following versions.
 
-Supported Service Fabric runtime versions:
-
- The versions of Service Fabric in the table contain the necessary changes to prevent loss of functionality. Make sure you're using one of these versions.  
+The versions of Service Fabric in the table contain the necessary changes to prevent loss of functionality. Make sure you're using one of these versions.  
 
 > [!Note]
 > All release versions of 7.2 include the necessary changes.
