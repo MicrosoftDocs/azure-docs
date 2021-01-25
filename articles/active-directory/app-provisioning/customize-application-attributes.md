@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 1/25/2021
 ms.author: kenwith
 ---
 
@@ -151,6 +151,7 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478"
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",
