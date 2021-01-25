@@ -98,7 +98,7 @@ All traffic that leaves the virtual network needs to route through the on-premis
 
 #### Add user-defined routes
 
-If you use a route-based virtual network gateway, you can use force tunneling in Azure. Add a user-defined route that sets 0.0.0.0/0 traffic to route to a **next hop** of your virtual network gateway. Azure prioritizes user-defined routes over system-defined routes. All non-virtual network traffic is sent to your virtual network gateway, which can then route the traffic to on-premises. After you define the user-defined route, associate the route with existing subnets or new subnets within all virtual networks in your Azure environment.
+If you use a route-based virtual network gateway, you can use forced tunneling in Azure. Add a user-defined route that sets 0.0.0.0/0 traffic to route to a **next hop** of your virtual network gateway. Azure prioritizes user-defined routes over system-defined routes. All non-virtual network traffic is sent to your virtual network gateway, which can then route the traffic to on-premises. After you define the user-defined route, associate the route with existing subnets or new subnets within all virtual networks in your Azure environment.
 
 :::image type="content" source="./media/tic-diagram-d.png" alt-text="User-defined routes and TIC" border="false":::
 
