@@ -40,14 +40,11 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image shows importing window in the Azure portal.":::
 
-5.	Add the certificate details to your role in the Service Configuration (.cscfg). Ensure the thumbprint of the certificate in the Azure portal matches the thumbprint in the .cscfg file. 
+5.	Add the certificate details to your role in the Service Configuration (.cscfg) file. Ensure the thumbprint of the certificate in the Azure portal matches the thumbprint in the Service Configuration (.cscfg) file. 
     
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
-- `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
-- `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
- 
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
