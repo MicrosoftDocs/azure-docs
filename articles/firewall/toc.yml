@@ -32,6 +32,8 @@
   items:
     - name: Azure Firewall features
       href: features.md
+    - name: Azure Firewall Premium
+      href: premium-overview.md
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -91,6 +93,8 @@
       displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
+    - name: Deploy and configure Firewall Premium
+      href: premium-deploy.md
 - name: Reference
   items:
   - name: Azure CLI
