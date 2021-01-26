@@ -104,7 +104,6 @@ We recommend the following two steps to resolve this issue:
     :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Screenshot of the Certificate Export Wizard, with a format selected." lightbox="media/java-ipa/troubleshooting/certificate-export-wizard.png":::
 
 6.	Specify the file where you want to save the SSL certificate. Then select **Next** > **Finish**. You should see a "The export was successful" message.
-7.	After you have the certificate, it's time to import the certificate into a Java keystore. Use the [preceding command](#key-terminology) to import certificates.
 
 > [!WARNING]
 > You'll need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information on the **Details** tab of the **Certificate** dialog box.
