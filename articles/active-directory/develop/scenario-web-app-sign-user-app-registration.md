@@ -52,7 +52,7 @@ You can use these links to bootstrap the creation of your web application:
    1. Select **Register**.
 1. Under **Manage**, select **Authentication** and then add the following information:
    1. In the **Web** section, add `https://localhost:44321/signin-oidc` as a **Redirect URI**.
-   1. Add `https://localhost:44321/signout-oidc` as a **Front-channel logout URL**.
+   1. In **Front-channel logout URL**, enter `https://localhost:44321/signout-oidc`.
    1. Under **Implicit grant**, select **ID tokens**.
    1. Select **Save**.
    
