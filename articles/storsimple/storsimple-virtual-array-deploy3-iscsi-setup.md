@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array – Set up as an iSCSI server via Azure portal
@@ -21,6 +21,8 @@ ms.author: alkohli
 ![iscsi setup process flow](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array. This tutorial describes how to perform the initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple Virtual Array configured as an iSCSI server. 
 
@@ -30,7 +32,7 @@ The procedures described here take approximately 30 minutes to 1 hour to complet
 
 Before you configure and set up your StorSimple Virtual Array, make sure that:
 
-* You have provisioned a virtual array and connected to it as described in [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* You have provisioned a virtual array and connected to it as described in [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * You have the service registration key from the StorSimple Device Manager service that you created to manage your StorSimple Virtual Arrays. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * If this is the second or subsequent virtual array that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see **Get the service data encryption key** in [Use the Web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -39,7 +41,7 @@ Before you configure and set up your StorSimple Virtual Array, make sure that:
 Use the following step-by-step instructions to set up and configure your StorSimple Virtual Array:
 
 * [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [Step 2: Complete the required device setup](#step-2-complete-the-required-device-setup)
+* Step 2: Complete the required device setup
 * [Step 3: Add a volume](#step-3-add-a-volume)
 * [Step 4: Mount, initialize, and format a volume](#step-4-mount-initialize-and-format-a-volume)
 
@@ -93,7 +95,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    
     On the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://host-IP address* or *FDQN:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http:\//host-IP address* or *FQDN:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If you are using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.
@@ -118,7 +120,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 11. Navigate to the **Devices** blade of your service. If you have a lot of resources, click **All resources**, click your service name (search for it if necessary), and then click **Devices**.
 12. On the **Devices** blade, verify that the device has successfully connected to the service by looking up the status. The device status should be **Ready to set up**.
     
-    ![Register device](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
+    ![Deploy device](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
 ## Step 2: Configure the device as iSCSI server
 
@@ -131,7 +133,7 @@ Perform the following steps in the Azure portal to complete the required device 
     ![Configure device as iSCSI server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
 2. Click the device and you will see a banner message indicating that the device is ready to setup.
    
-    ![Configure device as iSCSI server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
+    ![Configure device as iSCSI server 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
 3. Click **Configure** on the device command bar. This opens up the **Configure** blade. In the **Configure** blade, do the following:
    
    * The iSCSI server name is automatically populated.
@@ -139,13 +141,13 @@ Perform the following steps in the Azure portal to complete the required device 
    * Specify a 32-character encryption key and record it in a key management app for future reference.
    * Select a storage account to be used with your device. In this subscription, you can select an existing storage account, or you can click **Add** to choose an account from a different subscription.
      
-     ![Configure device as iSCSI server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
+     ![Configure device as iSCSI server 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
 4. Click **Configure** to complete setting up the iSCSI server.
    
-    ![Configure device as iSCSI server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
+    ![Configure device as iSCSI server 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
 5. You will be notified that the iSCSI server creation is in progress. After the iSCSI server is successfully created, the **Devices** blade is updated and the corresponding device status is **Online**.
    
-    ![Configure device as iSCSI server](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
+    ![Configure device as iSCSI server 5](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
 
 ## Step 3: Add a volume
 
@@ -162,17 +164,17 @@ Perform the following steps in the Azure portal to complete the required device 
      
      A tiered volume on the other hand is thinly provisioned. When you create a tiered volume, approximately 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For example, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies is that if you run out of all the local space on the device, you cannot provision a tiered share (because the 10% will not be available).
      
-     ![Add a volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
+     ![Add a volume 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
    * Click **Connected hosts**, select an access control record (ACR) corresponding to the iSCSI initiator that you want to connect to this volume, and then click **Select**. <br><br> 
 3. To add a new connected host, click **Add new**, enter a name for the host and its iSCSI Qualified Name (IQN), and then click **Add**. If you don't have the IQN, go to [Appendix A: Get the IQN of a Windows Server host](#appendix-a-get-the-iqn-of-a-windows-server-host).
    
-      ![Add a volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
+      ![Add a volume 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
 4. When you're finished configuring your volume, click **OK**. A volume will be created with the specified settings and you will see a notification. By default, monitoring and backup will be enabled for the volume.
    
-     ![Add a volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
+     ![Add a volume 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
 5. To confirm that the volume was successfully created, go to the **Volumes** blade. You should see the volume listed.
    
-   ![Add a volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
+   ![Add a volume 5](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
 ## Step 4: Mount, initialize, and format a volume
 
@@ -238,7 +240,4 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
 3. Save this string.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

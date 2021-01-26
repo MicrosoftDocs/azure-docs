@@ -1,0 +1,36 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #556a8a;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-4 {
+        fill: #2bc7f4;
+      }
+
+      .cls-5 {
+        fill: #e5e5e5;
+      }
+    </style>
+  </defs>
+  <title>i_advanced</title>
+  <rect class="cls-1" x="6" y="21.07" width="2" height="25" rx="0.5" ry="0.5"/>
+  <path class="cls-2" d="M32,35,12,26.33v15.4C12,47.3,21.16,52,32,52s20-4.7,20-10.26V26.28Z"/>
+  <path class="cls-3" d="M32,35,12,26.33v15.4C12,47.3,21.16,52,32,52s20-4.7,20-10.26V26.28Z"/>
+  <polygon class="cls-4" points="51 25.61 31.81 31.48 13 25.86 13 33 32 41.04 51 33 51 25.61"/>
+  <polygon class="cls-5" points="3 22 32 11.07 60 22 32 34 3 22"/>
+  <polygon class="cls-3" points="61 22 32 11.07 3 22 32 34.99 61 22"/>
+  <path class="cls-1" d="M5,47V43c0-2.2.72-4,1.6-4h.8C8.28,39,9,40.8,9,43v4Z"/>
+</svg>

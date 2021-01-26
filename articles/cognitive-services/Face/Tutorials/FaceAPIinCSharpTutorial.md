@@ -1,199 +1,134 @@
 ---
-title: Face API C# tutorial | Microsoft Docs
-description: Create a simple Windows app that uses the Cognitive Services Emotion API to detect faces in an image by framing the faces.
+title: "Tutorial: Detect and display face data in an image using the .NET SDK"
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, you will create a Windows app that uses the Face service to detect and frame faces in an image.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-ms.date: 02/24/2017
-ms.author: anroth
+ms.subservice: face-api
+ms.topic: tutorial
+ms.date: 11/23/2020
+ms.author: pafarley
+ms.custom: devx-track-csharp
+#Customer intent: As a developer of image management software, I want to learn how to detect faces and display face data on the UI, so that I can follow a similar process for my specific features and needs.
 ---
 
-# Getting Started with Face API in C&#35; Tutorial
+# Tutorial: Create a Windows Presentation Framework (WPF) app to display face data in an image
 
-In this tutorial, you will learn to create and develop a simple Windows application that invokes the Face API to detect faces in an image by framing the faces.
+In this tutorial, you'll learn how to use the Azure Face service, through the .NET client SDK, to detect faces in an image and then present that data in the UI. You'll create a WPF application that detects faces, draws a frame around each face, and displays a description of the face in the status bar. 
 
-![GettingStartCSharpScreenshot](../Images/GetStartedCSharp-Detected.PNG)
+This tutorial shows you how to:
 
-## <a name="Preparation"></a>Preparation
+> [!div class="checklist"]
+> - Create a WPF application
+> - Install the Face client library
+> - Use the client library to detect faces in an image
+> - Draw a frame around each detected face
+> - Display a description of the highlighted face on the status bar
 
-To use the tutorial, you will need the following prerequisites:
+![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
 
-- Make sure Visual Studio 2015 is installed.
+The complete sample code is available in the [Cognitive Face CSharp sample](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample) repository on GitHub.
 
-## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services (formerly Project Oxford) portal. See [subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both primary and secondary key can be used in this tutorial.
 
-## <a name="step2"></a>Step 2: Create the application framework
+## Prerequisites
 
-In this step you will create a Windows application project to implement the basic UI for picking up and displaying an image. Simply follow the instructions below: 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT`, respectively.
+- Any edition of [Visual Studio](https://www.visualstudio.com/downloads/).
 
-1. Open Visual Studio 2015.
-2. From the File menu, click New and then Project.
-3. In the New Project dialog box, click Visual C# &gt; Windows &gt; Classic Desktop &gt; WPF Application.
-4. Name the application _MyFirstApp_, check the 'Create directory for solution' checkbox, name the solution _MyFirstAppSln_, and then click OK. 
+## Create the Visual Studio project
 
-![GettingStartCSharpNewProject](../Images/getstarted-image002.png)
+Follow these steps to create a new WPF application project.
 
-5. Locate the Solution Explorer, right click your project (MyFirstApp in this case) and then click **Manage NuGet Packages**.
-6. In NuGet Package Manager window, select nuget.org as your Package source, search for Newtonsoft.Json and install. 
+1. In Visual Studio, open the New Project dialog. Expand **Installed**, then **Visual C#**, then select **WPF App (.NET Framework)**.
+1. Name the application **FaceTutorial**, then click **OK**.
+1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then, find and install the following package:
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.6.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)
 
-![GettingStartCSharpPackageManager](../Images/json.png)
+## Add the initial code
 
-7. Open MainWindow.xaml, and replace the existing code with the following code to create the window UI: 
+In this section, you will add the basic framework of the app without its face-specific features.
 
-        <Window x:Class="MyFirstApp.MainWindow"
-                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
-                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
-                Title="MainWindow" Height="350" Width="450">        
-            <Grid x:Name="BackPanel">    
-                <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,30"/>        
-                <Button x:Name="BrowseButton" Margin="20,5" Height="20"         
-                        VerticalAlignment="Bottom" Content="Browse..."                
-                        Click="BrowseButton_Click"/>                
-            </Grid>    
-        </Window>
+### Create the UI
 
-8. Open MainWindow.xaml.cs, and insert the following code inside the MainWindow class for the 'Browse' button: 
-        
-        private void BrowseButton_Click(object sender, RoutedEventArgs e)
-        {
-            var openDlg = new Microsoft.Win32.OpenFileDialog();
-        
-            openDlg.Filter = "JPEG Image(*.jpg)|*.jpg";
-            bool? result = openDlg.ShowDialog(this);
-        
-            if (!(bool)result)
-            {
-                return;
-            }
-        
-            string filePath = openDlg.FileName;
-        
-            Uri fileUri = new Uri(filePath);
-            BitmapImage bitmapSource = new BitmapImage();
-        
-            bitmapSource.BeginInit();
-            bitmapSource.CacheOption = BitmapCacheOption.None;
-            bitmapSource.UriSource = fileUri;
-            bitmapSource.EndInit();
-        
-            FacePhoto.Source = bitmapSource;
-        }
+Open *MainWindow.xaml* and replace the contents with the following code&mdash;this code creates the UI window. The `FacePhoto_MouseMove` and `BrowseButton_Click` methods are event handlers that you will define later on.
 
-Now your app can browse for a photo and display it in the window, similar to the image below: 
+[!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 
-![GettingStartCSharpUI](../Images/GetStartedCSharp-UI.PNG)
+### Create the main class
 
-## <a name="step3"></a>Step 3: Configure the Face API client library
+Open *MainWindow.xaml.cs* and add the client library namespaces, along with other necessary namespaces. 
 
-Face API is a cloud API which you can invoke through HTTPS requests. For a more convenient approach to using Face API in .NET platform applications, a client library is also provided to encapsulate the web requests. In this example, we use the client library to simplify our work. 
-Follow the instructions below to configure the client library: 
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_using)]
 
-1. Locate the Solution Explorer, right click your project (MyFirstApp in this case) and then click Manage NuGet Packages. 
-2. In the NuGet Package Manager window, select nuget.org as your Package source, search for Microsoft.ProjectOxford.Face and install.  
+Next, insert the following code in the **MainWindow** class. This code creates a **FaceClient** instance using the subscription key and endpoint.
 
-![GettingStartCSharpPackageManagerSDK](../Images/face.png)  
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_fields)]
 
-3. Check your project references, Microsoft.ProjectOxford.Face will be automatically added after the installation succeeds.
+Next add the **MainWindow** constructor. It checks your endpoint URL string and then associates it with the client object.
 
-![GetStartedCSharp-CheckInstrallation.png](../Images/GetStartedCSharp-CheckInstallation.png)
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_constructor)]
 
-4. Open MainWindow.xaml.cs in your MyFirstApp project, add this using directives to the beginning of the file: 
-        using System.IO;
-        using Microsoft.ProjectOxford.Face;
-        using Microsoft.ProjectOxford.Face.Contract; 
-5. Insert the following code in the MainWindow class: 
-        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("_key_"); 
-   Replace the word _key_ with the subscription key you obtained in step 1.
-6. Now you are ready to call the Face API from your application. 
+Finally, add the **BrowseButton_Click** and **FacePhoto_MouseMove** methods to the class. These methods correspond to the event handlers declared in *MainWindow.xaml*. The **BrowseButton_Click** method creates an **OpenFileDialog**, which allows the user to select a .jpg image. It then displays the image in the main window. You will insert the remaining code for **BrowseButton_Click** and **FacePhoto_MouseMove** in later steps. Also note the `faceList` reference&mdash;a list of **DetectedFace** objects. This reference is where your app will store and call the actual face data.
 
-## <a name="step4"></a>Step 4: Upload images to detect faces
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_start)]
 
-The most straightforward way to detect faces is by calling the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API by uploading the image file directly.
-When using the client library, this can be done by using the asynchronous method DetectAsync of FaceServiceClient.
-Each returned face contains a rectangle to indicate its location, combined with a series of optional face attributes.
-In this example, we only need to retrieve the face location. Here we need to insert an asynchronous function into the MainWindow class for face detection: 
-```CSharp
-private async Task<FaceRectangle[]> UploadAndDetectFaces(string imageFilePath)
-{
-    try
-    {
-        using (Stream imageFileStream = File.OpenRead(imageFilePath))
-        {
-            var faces = await faceServiceClient.DetectAsync(imageFileStream);
-            var faceRects = faces.Select(face => face.FaceRectangle);
-            return faceRects.ToArray();
-        }
-    }
-    catch (Exception)
-    {
-        return new FaceRectangle[0];
-    }
-}
-```
+<!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_end)] -->
 
-## <a name="step5"></a>Step 5: Mark faces in the image
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_start)]
 
-In this last step, we combine all the above steps and mark the detected faces in the image. First, open MainWindow.xaml.cs and add the 'async' modifier to the BrowseButton_Click method: 
-```csharp
-private async void BrowseButton_Click(object sender, RoutedEventArgs e)
-```
-Now insert the following code at the end of the BrowseButton_Click event handler: 
-```csharp
-Title = "Detecting...";
-FaceRectangle[] faceRects = await UploadAndDetectFaces(filePath);
-Title = String.Format("Detection Finished. {0} face(s) detected", faceRects.Length);
+<!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_end)] -->
 
-if (faceRects.Length > 0)
-{
-    DrawingVisual visual = new DrawingVisual();
-    DrawingContext drawingContext = visual.RenderOpen();
-    drawingContext.DrawImage(bitmapSource,
-        new Rect(0, 0, bitmapSource.Width, bitmapSource.Height));
-    double dpi = bitmapSource.DpiX;
-    double resizeFactor = 96 / dpi;
+### Try the app
 
-    foreach (var faceRect in faceRects)
-    {
-        drawingContext.DrawRectangle(
-            Brushes.Transparent,
-            new Pen(Brushes.Red, 2),
-            new Rect(
-                faceRect.Left * resizeFactor,
-                faceRect.Top * resizeFactor,
-                faceRect.Width * resizeFactor,
-                faceRect.Height * resizeFactor
-                )
-        );
-    }
+Press **Start** on the menu to test your app. When the app window opens, click **Browse** in the lower left corner. A **File Open** dialog should appear. Select an image from your filesystem and verify that it displays in the window. Then, close the app and advance to the next step.
 
-    drawingContext.Close();
-    RenderTargetBitmap faceWithRectBitmap = new RenderTargetBitmap(
-        (int)(bitmapSource.PixelWidth * resizeFactor),
-        (int)(bitmapSource.PixelHeight * resizeFactor),
-        96,
-        96,
-        PixelFormats.Pbgra32);
+![Screenshot showing unmodified image of faces](../Images/getting-started-cs-ui.png)
 
-    faceWithRectBitmap.Render(visual);
-    FacePhoto.Source = faceWithRectBitmap;
-}
-```
+## Upload image and detect faces
 
-Run this application and browse for an image containing a face. Please wait for a few seconds to allow the cloud API to respond. After that, you will get a result similar to the image below: 
+Your app will detect faces by calling the **FaceClient.Face.DetectWithStreamAsync** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API for uploading a local image.
 
-![GettingStartCSharpScreenshot](../Images/GetStartedCSharp-Detected.PNG)
+Insert the following method in the **MainWindow** class, below the **FacePhoto_MouseMove** method. This method defines a list of face attributes to retrieve and reads the submitted image file into a **Stream**. Then it passes both of these objects to the **DetectWithStreamAsync** method call.
 
-## <a name="summary"></a> Summary
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_uploaddetect)]
 
-In this tutorial, you have learned the basic process for using the Face API and created an application to display face marks in images. For more information on API details, please refer to the How-To and [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+## Draw rectangles around faces
 
-## <a name="related"></a> Related Topics
+Next, you will add the code to draw a rectangle around each detected face in the image. In the **MainWindow** class, insert the following code at the end of the **BrowseButton_Click** method, after the `FacePhoto.Source = bitmapSource` line. This code populates a list of detected faces from the call to **UploadAndDetectFaces**. Then it draws a rectangle around each face and displays the modified image in the main window.
 
-- [Getting Started with Face API in Java for Android](FaceAPIinJavaForAndroidTutorial.md)
-- [Getting Started with Face API in Python](FaceAPIinPythonTutorial.md)
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_mid)]
+
+## Describe the faces
+
+Add the following method to the **MainWindow** class, below the **UploadAndDetectFaces** method. This method converts the retrieved face attributes into a string describing the face.
+
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_facedesc)]
+
+## Display the face description
+
+Add the following code to the **FacePhoto_MouseMove** method. This event handler  displays the face description string in `faceDescriptionStatusBar` when the cursor hovers over a detected face rectangle.
+
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
+
+## Run the app
+
+Run the application and browse for an image containing a face. Wait a few seconds to allow the Face service to respond. You should see a red rectangle on each of the faces in the image. If you move the mouse over a face rectangle, the description of that face should appear in the status bar.
+
+![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
+
+
+## Next steps
+
+In this tutorial, you learned the basic process for using the Face service .NET SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
+
+> [!div class="nextstepaction"]
+> [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

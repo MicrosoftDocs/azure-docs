@@ -1,19 +1,16 @@
 ---
-title: Testing Azure VM network throughput | Microsoft Docs
-description: Learn how to test Azure virtual machine network throughput.
+title: Testing Azure VM network throughput
+titlesuffix: Azure Virtual Network
+description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
 documentationcenter: na
 author: steveesp
-manager: Gerald DeGrace
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
 
 ---
@@ -26,12 +23,12 @@ Copy the tool to two Azure VMs of the same size. One VM functions as SENDER
 and the other as RECEIVER.
 
 #### Deploying VMs for testing
-For the purposes of this test, the two VMs should be in either the same Cloud Service or the same Availability Set so that we can use their internal IPs and exclude the Load Balancers from the test. It is possible to test with the VIP but this kind of testing is outside the scope of this document.
- 
+For the purposes of this test, the two VMs should be in either the same [Proximity Placement Group](../virtual-machines/co-location.md) or the same Availability Set so that we can use their internal IPs and exclude the Load Balancers from the test. It is possible to test with the VIP but this kind of testing is outside the scope of this document.
+
 Make a note of the RECEIVER's IP address. Let's call that IP "a.b.c.r"
 
 Make a note of the number of cores on the VM. Let's call this "\#num\_cores"
- 
+
 Run the NTTTCP test for 300 seconds (or 5 minutes) on the sender VM and receiver VM.
 
 Tip: When setting up this test for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
@@ -109,7 +106,7 @@ Ubuntu - Install Git:
 ```
 Make and Install on both:
 ``` bash
- git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
  make && make install
 ```
@@ -130,6 +127,46 @@ ntttcp -s10.0.0.4 -t 300
  
 Test length defaults to 60 seconds if no time parameter is given
 
+## Testing between VMs running Windows and LINUX:
+
+On this scenarios we should enable the no-sync mode so the test can run. This is done by using the **-N flag** for Linux, and **-ns flag** for Windows.
+
+#### From Linux to Windows:
+
+Receiver \<Windows>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
+```
+
+Sender \<Linux> :
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
+```
+
+#### From Windows to Linux:
+
+Receiver \<Linux>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
+```
+
+Sender \<Windows>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
+## Testing Cloud Service Instances:
+You need to add following section into your ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
+```
+
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
+* Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md)
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

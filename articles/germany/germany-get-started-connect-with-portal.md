@@ -1,40 +1,32 @@
 ---
-title: Connect with the Azure Germany portal | Microsoft Docs
-description: Information on managing your subscription in Azure Germany by connecting via the portal
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+title: Connect to Azure Germany by using the Azure portal | Microsoft Docs
+description: Information on managing your subscription in Azure Germany by using the portal
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
-# Connecting with the Azure Germany portal
+# Connect to Azure Germany by using the Azure portal
 
-The portal is the primary way that most people connect to Azure Germany.  To connect, browse to the portal at 
-[https://portal.microsoftazure.de/](https://portal.microsoftazure.de/). 
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+The [Azure portal](https://portal.microsoftazure.de/) is the primary way that most people connect to Azure Germany. 
 
 > [!NOTE]
-> Please note that only the new (Azure Resource Manager) portal is available for Azure Germany!
+> Only the new portal (the one that uses the Azure Resource Manager deployment model) is available for Azure Germany.
 >
 
-Subscriptions can be created for your account by connecting to [https://account.windowsazure.de](https://account.windowsazure.de).
+You can create subscriptions for your account by going to the [account home page](https://account.windowsazure.de).
 
-
-### Next steps
+## Next steps
 For more information about connecting to Azure Germany, see the following resources:
 
-* [Connect to Azure Germany with PowerShell](./germany-get-started-connect-with-ps.md)
-* [Connect to Azure Germany with Azure CLI](./germany-get-started-connect-with-cli.md)
-* [Connect to Azure Germany with Visual Studio](./germany-get-started-connect-with-vs.md)
+* [Connect to Azure Germany by using PowerShell](./germany-get-started-connect-with-ps.md)
+* [Connect to Azure Germany by using Azure CLI](./germany-get-started-connect-with-cli.md)
+* [Connect to Azure Germany by using Visual Studio](./germany-get-started-connect-with-vs.md)
 
 
 

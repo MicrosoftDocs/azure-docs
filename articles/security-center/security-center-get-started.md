@@ -1,128 +1,119 @@
 ---
-title: Azure Security Center quick start guide | Microsoft Docs
-description: This article helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps.
+title: Upgrade to Azure Defender - Azure Security Center
+description: This quickstart shows you how to upgrade to Security Center's Azure Defender for additional security.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
-ms.author: terrylan
+ms.date: 12/30/2020
+ms.author: memildin
 
 ---
-# Azure Security Center quick start guide
-This article helps you quickly get started with Azure Security Center by guiding you through the security monitoring and policy management components of Security Center.
 
-> [!NOTE]
-> This article introduces the service by using an example deployment. This article is not a step-by-step guide.
->
->
+# Quickstart: Set up Azure Security Center
+
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the free features offer limited security for your Azure resources only, enabling Azure Defender extends these capabilities to on-premises and other clouds. Azure Defender helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Azure Defender at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+
+This quick start will walk you through enabling Azure Defender for added security and installing the Log Analytics agent on your machines to monitor for security vulnerabilities and threats.
+
+You'll take the following steps:
+
+> [!div class="checklist"]
+> * Enable Security Center on your Azure subscription
+> * Enable Azure Defender on your Azure subscription
+> * Enable automatic data collection
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-The Free tier of Security Center is automatically enabled with your subscription and provides visibility into the security state of your Azure resources. It provides basic security policy management, security recommendations, and integration with security products and services from Azure partners.
+To enable Azure Defender on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
-You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To learn more about the Azure portal, see the [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/).
 
-## Permissions
-In Security Center, you only see information related to an Azure resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to. See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
+## Enable Security Center on your Azure subscription
 
-## Data collection
-Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Security Center policy.
+1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 
-The following steps describe how to access and use the components of Security Center. In these steps, we show you how to turn off data collection if you choose to opt out.
+1. From the portal's menu, select **Security Center**. 
 
-## Access Security Center
-In the portal, follow these steps to access Security Center:
+    Security Center's overview page opens.
 
-1. On the **Microsoft Azure** menu, select **Security Center**.
+    :::image type="content" source="./media/security-center-get-started/overview.png" alt-text="Security Center's overview dashboard" lightbox="./media/security-center-get-started/overview.png":::
 
-   ![Azure menu][1]
-2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Launch Security Center** to open the **Security Center** blade and to enable data collection.
-   ![Welcome screen][10]
-3. After you launch Security Center from the Welcome blade or select Security Center from the Microsoft Azure menu, the **Security Center** blade opens. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (upper right).
-   ![Pin blade to dashboard option][2]
+**Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically, at no cost, enables any of your Azure subscriptions not previously onboarded by you or another subscription user.
 
-## Use Security Center
-You can configure security policies for your Azure subscriptions and resource groups. Let's configure a security policy for your subscription:
+You can view and filter the list of subscriptions by selecting the **Subscriptions** menu item. Security Center will adjust the display to reflect the security posture of the selected subscriptions. 
 
-1. On the **Security Center** blade, select the **Policy** tile.
-   ![Security policy][3]
-2. On the **Security policy - Define policy per subscription or resource group** blade, select a subscription.
-3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt out of data collection by setting **Data collection** to **Off**, but this prevents Security Center from giving you security alerts and recommendations.)
-4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group. The data that's collected is logically isolated from other customers' data for security reasons.
+Within minutes of launching Security Center the first time, you might see:
 
-   > [!NOTE]
-   > We recommend that you enable data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level, but configuration of data collection and storage account occurs at the subscription level only.
-   >
-   >
-5. On the **Security policy** blade, select **Prevention policy**. This opens the **Prevention policy** blade.
-   ![Prevention policy][4]
-6. On the **Prevention policy** blade, turn on the recommendations that you want to see as part of your security policy. Examples:
+- **Recommendations** for ways to improve the security of your connected resources.
+- An inventory of your resources that are now being assessed by Security Center, along with the security posture of each.
 
-   * Setting **System updates** to **On** scans all supported virtual machines for missing OS updates.
-   * Setting **OS vulnerabilities** to **On** scans all supported virtual machines to identify any OS configurations that might make the virtual machine more vulnerable to attack.
+To take full advantage of Security Center, you need to complete the steps below to enable Azure Defender and install the Log Analytics agent.
 
-### View recommendations
-1. Return to the **Security Center** blade and select the **Recommendations** tile. Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it shows recommendations on the **Recommendations** blade.
-   ![Recommendations in Azure Security Center][5]
-2. Select a recommendation on the **Recommendations** blade to view more information and/or to take action to resolve the issue.
+> [!TIP]
+> To enable Security Center on all subscriptions within a management group, see [Enable Security Center on multiple Azure subscriptions](onboard-management-group.md).
 
-### View the health and security state of your resources
-1. Return to the **Security Center** blade. The **Resource security health** tile contains indicators of the security state for virtual machines, networking, data, and applications.
-2. Select **Compute** to view more information. The **Compute** blade opens showing three tabs:
+## Enable Azure Defender
 
-  - **Overview** - Contains monitoring and virtual machine recommendations.
-  - **Virtual machines** - Lists all virtual machines and current security states.
-  - **Cloud services** - Lists web and worker roles monitored by Security Center.
+For the purpose of the Security Center quickstarts and tutorials you must enable Azure Defender. A free 30-day trial is available. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
-    ![The Resources health tile in Azure Security Center][6]
+1. From Security Center's sidebar, select **Getting started**.
 
-3. On the **Overview** tab, select a recommendation under **VIRTUAL MACHINES RECOMMENDATIONS** to view more information and/or take action to configure necessary controls.
-4. On the **Virtual machines** tab, select a VM to view additional details.
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page"::: 
 
-### View security alerts
-1. Return to the **Security Center** blade and select the **Security alerts** tile. The **Security alerts** blade opens and displays a list of alerts. The Security Center analysis of your security logs and network activity generates these alerts. Alerts from integrated partner solutions are included.
-   ![Security alerts in Azure Security Center][7]
+    The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
 
-   > [!NOTE]
-   > Security alerts are only available if the Standard tier of Security Center is enabled. A 60 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
-   >
-   >
-2. Select an alert to view additional information. In this example, let's select **Modified system binary discovered**. This opens blades that provide additional details about the alert.
-   ![Security alert details in Azure Security Center][8]
+1. From the **Select workspaces to enable Azure Defender on** list, select the workspaces to upgrade.
+   - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
+   - If you select a workspace that's eligible for a free trial, the next step will begin a trial.
+1. Select **Upgrade** to enable Azure Defender.
 
-### View the health of your partner solutions
-1. Return to the **Security Center** blade. The **Partner solutions** tile lets you monitor, at a glance, the health status of your partner solutions integrated with your Azure subscription.
-2. Select the **Partner solutions** tile. A blade opens and displays a list of your partner solutions connected to Security Center.
-   ![Partner solutions][9]
-3. Select a partner solution. In this example, let's select the **QualysVa1** solution.  A blade opens and shows you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+## Enable automatic data collection
+Security Center collects data from your machines to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
+
+When automatic provisioning is enabled, Security Center installs the Log Analytics agent on all supported machines and any new ones that are created. Automatic provisioning is strongly recommended.
+
+To enable automatic provisioning of the Log Analytics agent:
+
+1. From Security Center's menu, select **Pricing & settings**.
+1. Select the relevant subscription.
+1. In the **Data collection** page, set **Auto provisioning** to **On**.
+1. Select **Save**.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
+
+>[!TIP]
+> If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
+
+With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
+
+>[!NOTE]
+> Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+
+
 
 ## Next steps
-This article introduced you to the security monitoring and policy management components of Security Center. Now that you're familiar with Security Center, try the following steps:
+In this quickstart you enabled Azure Defender and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
-* Configure a security policy for your Azure subscription. To learn more, see [Setting security policies in Azure Security Center](security-center-policies.md).
-* Use the recommendations in Security Center to help you protect your Azure resources. To learn more, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
-* Review and manage your current security alerts. To learn more, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Learn more about the [advanced threat detection features](security-center-detection-capabilities.md) that come with the [Standard tier](security-center-pricing.md) of Security Center. The Standard tier is offered free for the first 60 days.
-* If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
+> [!div class="nextstepaction"]
+> [Quickstart: Onboard non-Azure machines](quickstart-onboard-machines.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/azure-menu.png
-[2]: ./media/security-center-get-started/security-center-pin.png
-[3]: ./media/security-center-get-started/security-policy.png
-[4]: ./media/security-center-get-started/prevention-policy.png
-[5]: ./media/security-center-get-started/recommendations.png
-[6]: ./media/security-center-get-started/resources-health.png
-[7]: ./media/security-center-get-started/security-alert.png
-[8]: ./media/security-center-get-started/security-alert-detail.png
-[9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/welcome.png
+[2]: ./media/security-center-get-started/overview.png
+[4]: ./media/security-center-get-started/get-started.png
+[5]: ./media/security-center-get-started/pricing.png
+[7]: ./media/security-center-get-started/security-alerts.png
+[8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

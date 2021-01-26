@@ -1,0 +1,48 @@
+﻿### YamlMime:Landing
+
+title: Azure Government documentation
+summary: Azure Government is a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Azure.
+
+metadata:
+  title: Azure Government documentation
+  description: Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture.
+  ms.service: Azure-government
+  ms.topic: landing-page
+  author: rolyon
+  ms.author: rolyon
+  ms.date: 03/05/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Government
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Government?
+            url: documentation-government-welcome.md
+          - text: Compare to global Azure
+            url: compare-azure-government-global-azure.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: video
+        links:
+          - text: Start using Azure Government
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government
+      - linkListType: quickstart
+        links:
+          - text: Connect using portal
+            url: documentation-government-get-started-connect-with-portal.md
+
+  # Card
+  - title: Deploy and manage
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy an Azure App Services app
+            url: documentation-government-howto-deploy-webandmobile.md
+          - text: Create Virtual Machines
+            url: documentation-government-quickstarts-vm.md

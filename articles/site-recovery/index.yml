@@ -1,0 +1,112 @@
+### YamlMime:Landing
+
+title: Azure Site Recovery documentation
+summary: Use Azure Site Recovery for disaster recovery of on-premises workloads, and Azure VMs. 
+
+
+metadata:
+  title: Azure Site Recovery documentation
+  description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs. 
+  ms.service: site-recovery
+  ms.topic: landing-page
+  ms.collection: collection
+  author: rayne-wiselman
+  ms.author: raynew
+  ms.date: 11/19/2019
+
+landingContent:
+  - title: About Site Recovery
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Site Recovery?
+            url: ./site-recovery-overview.md
+          - text: What's new in Site Recovery
+            url: ./site-recovery-whats-new.md
+          
+  - title: Disaster recovery for Azure VMs
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Try out disaster recovery for an Azure VM
+            url: ./azure-to-azure-quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Azure VMs
+            url: ./azure-to-azure-tutorial-enable-replication.md
+          - text: Move Azure VMs to another region
+            url: ./azure-to-azure-tutorial-migrate.md
+      - linkListType: learn
+        links:
+          - text: Azure VM disaster recovery architecture
+            url: ./azure-to-azure-architecture.md
+          - text: Azure to Azure support matrix
+            url: ./azure-to-azure-support-matrix.md
+          - text: Common questions 
+            url: ./azure-to-azure-common-questions.md
+          - text: About moving Azure VMs
+            url: ./azure-to-azure-move-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Networking for Azure VM disaster recovery
+            url: ./azure-to-azure-about-networking.md
+          - text: Disaster recovery after migration to Azure
+            url: ./azure-to-azure-replicate-after-migration.md
+
+  - title: Disaster recovery for on-premises machines
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for VMware VMs
+            url: ./tutorial-prepare-azure.md
+          - text: Disaster recovery for Hyper-V VMs
+            url: ./tutorial-prepare-azure-for-hyperv.md
+          - text: Disaster recovery for physical servers
+            url: ./physical-azure-disaster-recovery.md  
+      - linkListType: deploy
+        links:
+          - text: VMware support matrix
+            url: ./vmware-physical-azure-support-matrix.md
+          - text: Hyper-V support matrix
+            url: ./hyper-v-azure-support-matrix.md
+      - linkListType: learn
+        links:
+          - text: VMware disaster recovery architecture
+            url: ./vmware-azure-architecture.md
+          - text: VMware disaster recovery overview
+            url: ./vmware-azure-about-disaster-recovery.md
+          - text: Common questions for VMware disaster recovery
+            url: ./vmware-azure-common-questions.md   
+          - text: Hyper-V disaster recovery architecture
+            url: ./hyper-v-azure-architecture.md
+      - linkListType: how-to-guide
+        links:
+          - text: VMware disaster recovery at scale
+            url: ./vmware-physical-large-deployment.md
+          - text: Plan VMware capacity
+            url: ./site-recovery-plan-capacity-vmware.md
+          - text: Plan Hyper-V capacity
+            url: ./hyper-v-deployment-planner-overview.md
+
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Site Recovery updates
+            url: service-updates-how-to.md
+          - text: Monitor Site Recovery
+            url: site-recovery-monitor-and-troubleshoot.md
+          - text: Monitor Site Recovery with Azure Monitor logs
+            url: monitor-log-analytics.md
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request a service feature
+            url: https://feedback.azure.com/forums/256299-site-recovery
+          - text: Ask a Microsoft Q&A question
+            url: /answers/topics/azure-site-recovery.html
+          - text: Azure Tech Community
+            url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
+

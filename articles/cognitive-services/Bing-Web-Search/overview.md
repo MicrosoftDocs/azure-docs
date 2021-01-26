@@ -1,31 +1,54 @@
 ---
-title: Bing Web Search APIs overview | Microsoft Docs
-description: The Bing Web Search API can send a search query to Bing and return relevant results and combine with other Search APIs to refine searches.
+title: What is the Bing Web Search API?
+titleSuffix: Azure Cognitive Services
+description: The Bing Web Search API is a RESTful service that provides instant answers to web search queries. Configure results to include web pages, images, videos, news, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
 services: cognitive-services
-author: swhite-msft
-manager: ehansen
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: bing-web-search
-ms.topic: article
-ms.date: 01/12/2017
-ms.author: scottwhi
+ms.subservice: bing-web-search
+ms.topic: overview
+ms.date: 03/31/2020
+ms.author: aahi
+ms.custom: seodec2018
 ---
 
-# Bing Web Search API
+# What is the Bing Web Search API?
 
-The Bing Web Search API provides a similar (but not exact) experience to Bing.com/Search (overview on [MSDN](https://msdn.microsoft.com/en-us/library/mt711415.aspx)). The Bing Web Search API lets partners send a search query to Bing and get back a list of relevant search results. This includes webpages and may include images, videos, and more.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Typically, you'll call only the Web Search API, but if you need only images, videos or only news, you should call these APIs directly. Because calling the Image, Video, and News APIs directly can negatively impact relevance and performance, you should so only if you need a single type of content.
+The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Bing Web Search provides the results as JSON based on search relevance and your Bing Web Search subscriptions.
 
-If you need results from a subset of the Bing APIs, you should call the Web Search API and use the responseFilter query parameter to limit the results to only that content (for example, only Images and News).
+This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../bing-video-search/overview.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](../index.yml) for a complete list of Bing Search APIs.
 
-Note that the Web Search API may not include all of the same functionality or data that the other APIs provide. For example, the Image API includes query parameters that let you filter the images, but you may not specify the filter parameters when you call the Search API. Also, even though the Web Search API results may not include images, the Image API could return images for the same query.
+Want to see how it works? Try our [Bing Web Search API demo](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 
-To get started, read our [Getting Started](https://msdn.microsoft.com/en-US/library/mt712546.aspx) guide, which describes how you can obtain your own subscription keys and start making calls to the API. If you already have a subscription, try our API Testing Console [API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d/console) where you can easily craft API requests in a sandbox environment.
+## Features  
 
-For information that shows you how to use the Search API, see [Search Guide](https://msdn.microsoft.com/en-us/library/dn760781(v=bsynd.50).aspx).
+Bing Web Search doesn't only give you access to instant answers. It also provides additional features and functionality that allow you to customize search results for your users.
 
-For information about the programming elements that you'd use to request and consume the search results, see [Search Reference](https://msdn.microsoft.com/en-us/library/dn760794(v=bsynd.50).aspx). Note that results will include objects defined in the Search Reference section and may include objects defined in each of the other API reference sections (for example, [Image Reference](https://msdn.microsoft.com/en-us/library/dn760791(v=bsynd.50).aspx)), if relevant data exists for each.
+| Feature | Description |
+|---------|-------------|
+| [Suggest search terms in real time](../bing-autosuggest/get-suggested-search-terms.md) | Improve your application experience by using the Bing Autosuggest API to display suggested search terms as they're typed. |
+| [Filter and restrict results by content type](filter-answers.md) | Customize and refine search results with filters and query parameters for web pages, images, videos, safe search, and more. |
+| [Hit highlighting for unicode characters](hit-highlighting.md) | Identify and remove unwanted unicode characters from search results before displaying them to users with  hit highlighting. |
+| [Localize search results by country, region, and/or market](./language-support.md) | Bing Web Search supports more than three dozen countries or regions. Use this feature to refine search results for a specific country/region or market. |
+| [Analyze search metrics with Bing Statistics](bing-web-stats.md) | Bing Statistics is a paid subscription that provides analytics on call volume, top query strings, geographic distribution, and more. |
 
-For additional guide and reference content that is common to all Bing APIs, such as Paging Results and Error Codes, see [Shared Guides](https://msdn.microsoft.com/en-us/library/mt711404(v=bsynd.50).aspx) and [Shared Reference](https://msdn.microsoft.com/en-us/library/mt711403(v=bsynd.50).aspx).
+## Workflow
+
+The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the [REST API](quickstarts/python.md) or the [Bing Web Search client libraries](./quickstarts/client-libraries.md).
+
+1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/cognitive-services/).  
+2. Send a [request to the Bing Web Search API](quickstarts/python.md).
+3. Parse the JSON response.
+
+## Next steps
+
+* Use our [Python quickstart](./quickstarts/client-libraries.md?pivots=programming-language-python) to make your first call to the Bing Web Search API.  
+* [Build a single-page web app](tutorial-bing-web-search-single-page-app.md).
+* Review [Web Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation.  
+* Learn more about [use and display requirements](./use-display-requirements.md) for Bing Web Search.

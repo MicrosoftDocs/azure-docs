@@ -1,70 +1,83 @@
 ---
-title: Define and use workflows in Content Moderator | Microsoft Docs
-description: Content Moderator includes default workflows, and you can create your own based on content policies that are specific to your business.
+title: Define and use content workflows through the Review tool - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: You can use the Azure Content Moderator workflow designer to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 02/03/2017
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 04/04/2019
+ms.author: pafarley
+#Customer intent: use workflows from the Review tool
 ---
 
-# Defining and using workflows  #
+# Define and use moderation workflows
 
-In addition to default workflow used for generating reviews, you can define custom workflows and thresholds based on content policies that are specific to your business. Content Moderator allows you to use other APIs in addition to its own API as long as a connector for that API is available.
+In this guide, you'll learn how to set up and use [workflows](../review-api.md#workflows) on the [Review tool](https://contentmoderator.cognitive.microsoft.com) website. Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario.
 
-## Make sure you have valid credentials ##
+## Create a new workflow
 
-To get started on defining a workflow, make sure you have valid credentials for the API you intend to use in your workflow. Content Moderator includes a small set of Connectors by default.
+Go to the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and sign in. On the **Settings** tab, select **Workflows**.
 
-![Connectors](images/2-workflows.png)
+![Workflows setting](images/2-workflows-0.png)
 
-## Navigate to the Workflows section ##
+On the next screen, select **Add Workflow**.
 
-Select the **Workflows** option under **Settings**.
+![Add a workflow](images/2-workflows-1.png)
 
-![Connectors](images/2-workflows-0.png)
+### Assign a name and description
 
-## Start a new workflow ##
+Name your workflow, enter a description, and choose whether the workflow will handle images or text.
 
-Use the **Add Workflows** option to get started.
+![Workflow name and description](images/image-workflow-create.PNG)
 
-![Connectors](images/2-workflows-1.png)
+### Define evaluation criteria
 
-## Name your workflow ##
+On the next screen, go to the **If** section. In the top dropdown menu, choose **Condition**. This will allow you to configure the condition on which the workflow will take action. If you want to use multiple conditions, choose **Combination** instead. 
 
-Name your workflow, provide a description, and select whether you want to process images or text.
-In the screenshot below, you can see the fields and view the If-Then-Else selections that you need to make to define your custom workflows.
+Next, select a connector. This example uses **Content Moderator**. Depending on the connector you choose, you will get different options for data output. See the [Connectors](./configure.md#connectors) section of the Review tool settings guide to learn how to set up other connectors.
 
-![Connectors](images/2-Workflows-2.PNG)
+![Select workflow connector](images/image-workflow-connect-to.PNG)
 
-## Define the evaluation criteria (condition) ##
+Choose the desired output to use and set the conditions to check it against.
 
-As a first step, enter all the information needed to define your criteria for executing the workflow. As shown in the screen below, this includes selecting the API you want to get results from. When you select one of the available APIs (that you have entered your credentials for in the very first step), the next drop-down will show the available outputs from the API. The next two fields allow you to specify the check to be performed.
+![Define workflow condition](images/image-workflow-condition.PNG)
 
-![Connectors](images/2-Workflows-3.PNG)
+### Define the action
 
-## Define the action ##
+Go to the **Then** section, where you select an action. The following example creates an image review and assigns a tag. Optionally, you can add an alternative (Else) path and set an action for that as well.
 
-Once you have defined the condition, you will tell Content Moderator what action to perform if the condition is met. The example shown below creates an image review and assigns it to a subteam. It also specifies an aditional criteria that must be fulfilled for the assigned 'a' tag to be selected. In this way, you can combine multiple conditions to get the results you want.
+![Define workflow action](images/image-workflow-action.PNG)
 
-![Connectors](images/2-Workflows-5.PNG)
+### Save the workflow
 
-## Optionally, define the Else section ##
+Note the workflow name; you need the name to start a moderation job with the Workflow API (see below). Finally, save the workflow using the **Save** button at the top of the page.
 
-Optionally, expand the **Else** section to provide similar information like you did for the **If** section.
+## Test the workflow
 
-![Connectors](images/2-Workflows-6.PNG)
+Now that you have defined a custom workflow, test it with sample content. Go to **Workflows** and select the corresponding **Execute Workflow** button.
 
-## Save the workflow ##
+![Workflow test](images/image-workflow-execute.PNG)
 
-Finally, save your workflow and note the workflow name. You will need it to invoke the workflow with the Review API.
+Save this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) to your local drive. Then select **Choose File(s)** and upload the image to the workflow.
 
-![Connectors](images/2-Workflows-7.PNG)
+![A runner with a quote superimposed on the image](images/sample-text.jpg)
 
-## Use the Review API ##
+### Track progress
 
-Now that you have a custom workflow defined, use the [**Review API**](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to start a moderation job with the workflow name as one of the parameters. This should be the workflow name that you noted in the previous step.
+You can view the progress of the workflow in the next popup window.
+
+![Track workflow execution](images/image-workflow-job.PNG)
+
+### Verify workflow action
+
+Go to the **Image** tab under **Review** and verify that there is a newly created image review.
+
+![Review images](images/image-workflow-review.PNG)
+
+## Next steps
+
+In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [API console guide](../try-review-api-workflow.md) to learn how to create workflows programmatically.

@@ -1,234 +1,206 @@
 ---
-title: Send events to Azure Time Series Insights environment | Microsoft Docs
-description: This tutorial covers how to push events to your Time Series Insights environment
-keywords:
-services: time-series-insights
-documentationcenter:
-author: venkatgct
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
+title: 'Send events to an environment - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to configure an event hub, run a sample application, and send events to your Azure Time Series Insights environment.
 ms.service: time-series-insights
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+services: time-series-insights
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 04/21/2017
-ms.author: venkatja
+ms.topic: conceptual
+ms.date: 09/30/2020
+ms.custom: seodec18
 ---
-# Send events to a Time Series Insights environment via event hub
 
-This tutorial explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub that already has events in JSON format, you can skip this tutorial and view your environment in [time series explorer](https://insights.timeseries.azure.com).
+# Send events to an Azure Time Series Insights Gen1 environment by using an event hub
+
+> [!CAUTION]
+> This is a Gen1 article.
+
+This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 
 ## Configure an event hub
-1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-2. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
+1. To learn how to create an event hub, read the [Event Hubs documentation](../event-hubs/index.yml).
+1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
+1. Select your event hub.
+1. When you create an event hub, you're creating an event hub namespace. If you haven't yet created an event hub within the namespace, on the menu, under **Entities**, create an event hub.  
 
-  > [!IMPORTANT]
-  > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+    [![List of event hubs](media/send-events/tsi-connect-event-hub-namespace.png)](media/send-events/tsi-connect-event-hub-namespace.png#lightbox)
 
-  ![Select event hub consumer group](media/send-events/consumer-group.png)
+1. After you create an event hub, select it in the list of event hubs.
+1. On the menu, under **Entities**, select **Event Hubs**.
+1. Select the name of the event hub to configure it.
+1. Under **Overview**, select **Consumer groups**, and then select **Consumer Group**.
 
-3. On the event hub, create “MySendPolicy” that is used to send events in the sample below.
+    [![Create a consumer group](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
-  ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
+1. Make sure you create a consumer group that's used exclusively by your Azure Time Series Insights event source.
 
-  ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
+    > [!IMPORTANT]
+    > Make sure this consumer group isn't used by any other service, such as an Azure Stream Analytics job or another Azure Time Series Insights environment. If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
 
-## Create Time Series Insights event source
-1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source.md) to create an event source.
+1. On the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
 
-2. Specify “deviceTimestamp” as the timestamp property name – this property is used as the actual timestamp in the sample below. The timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the time at which the event was enqueued to event hub is used.
+    [![Select Shared access policies, and then select the Add button](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
-  ![Create event source](media/send-events/event-source-1.png)
+1. In the **Add new shared access policy** pane, create a shared access named **MySendPolicy**. You use this shared access policy to send events in the C# examples later in this article.
 
-## Run sample code to push events
-1. Go to the event hub policy “MySendPolicy” and copy the connection string with the policy key.
+    [![In the Policy name box, enter MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
-  ![Copy MySendPolicy connection string](media/send-events/sample-code-connection-string.png)
+1. Under **Claim**, select the **Send** check box.
 
-2. Run the following code that will send 600 events per each of the three devices. Update `eventHubConnectionString` with your connection string.
+## Add an Azure Time Series Insights instance
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using Microsoft.ServiceBus.Messaging;
+In Azure Time Series Insights Gen2, you can add contextual data to incoming telemetry using the Time Series Model (TSM). In TSM, your tags or signals are referred to as *instances,* and you can store contextual data in *instance fields.* The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is `id`. To learn more about storing data in instance fields read the [Time Series Model](./concepts-model-overview.md) overview.
 
-namespace Microsoft.Rdx.DataGenerator
-{
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-            var from = new DateTime(2017, 4, 20, 15, 0, 0, DateTimeKind.Utc);
-            Random r = new Random();
-            const int numberOfEvents = 600;
+### Create an Azure Time Series Insights event source
 
-            var deviceIds = new[] { "device1", "device2", "device3" };
+1. If you haven't created an event source, complete the steps to [create an event source](./how-to-ingest-data-event-hub.md).
 
-            var events = new List<string>();
-            for (int i = 0; i < numberOfEvents; ++i)
-            {
-                for (int device = 0; device < deviceIds.Length; ++device)
-                {
-                    // Generate event and serialize as JSON object:
-                    // { "deviceTimestamp": "utc timestamp", "deviceId": "guid", "value": 123.456 }
-                    events.Add(
-                        String.Format(
-                            CultureInfo.InvariantCulture,
-                            @"{{ ""deviceTimestamp"": ""{0}"", ""deviceId"": ""{1}"", ""value"": {2} }}",
-                            (from + TimeSpan.FromSeconds(i * 30)).ToString("o"),
-                            deviceIds[device],
-                            r.NextDouble()));
-                }
-            }
+1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, read [Time Series Models](./concepts-model-overview.md).
 
-            // Create event hub connection.
-            var eventHubConnectionString = @"Endpoint=sb://...";
-            var eventHubClient = EventHubClient.CreateFromConnectionString(eventHubConnectionString);
+### Push events to windmills sample
 
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms))
-            {
-                // Wrap events into JSON array:
-                sw.Write("[");
-                for (int i = 0; i < events.Count; ++i)
-                {
-                    if (i > 0)
-                    {
-                        sw.Write(',');
-                    }
-                    sw.Write(events[i]);
-                }
-                sw.Write("]");
+1. In the search bar, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 
-                sw.Flush();
-                ms.Position = 0;
+1. Select your event hub instance.
 
-                // Send JSON to event hub.
-                EventData eventData = new EventData(ms);
-                eventHubClient.Send(eventData);
-            }
-        }
-    }
-}
+1. Go to **Shared Access Policies** > **MySendPolicy**. Copy the value for **Connection string-primary key**.
 
-```
+    [![Copy the value for the primary key connection string](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
+
+1. Go to <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. The URL creates and runs simulated windmill devices.
+1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
+  
+    [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
+
+1. Select **Click to start**.
+
+    > [!TIP]
+    > The windmill simulator also creates JSON you can use as a payload with the [Azure Time Series Insights GA Query APIs](/rest/api/time-series-insights/gen1-query).
+
+    > [!NOTE]
+    > The simulator will continue to send data until the browser tab is closed.
+
+1. Go back to your event hub in the Azure portal. On the **Overview** page, the new events received by the event hub are displayed.
+
+    [![An event hub Overview page that shows metrics for the event hub](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
+
 ## Supported JSON shapes
-### Sample 1
 
-#### Input
+### Example one
 
-A simple JSON object.
+* **Input**: A simple JSON object.
 
-```json
-{
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
-}
-```
-#### Output - 1 event
-
-|deviceId|deviceTimestamp|
-|--------|---------------|
-|device1|2016-01-08T01:08:00Z|
-
-### Sample 2
-
-#### Input
-A JSON array with two JSON objects. Each JSON object will be converted to an event.
-```json
-[
+    ```JSON
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
-    },
-    {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     }
-]
-```
-#### Output - 2 Events
+    ```
 
-|deviceId|deviceTimestamp|
-|--------|---------------|
-|device1|2016-01-08T01:08:00Z|
-|device2|2016-01-08T01:17:00Z|
+* **Output**: One event.
 
-### Sample 3
+    |id|timestamp|
+    |--------|---------------|
+    |device1|2016-01-08T01:08:00Z|
 
-#### Input
+### Example two
 
-A JSON object with a nested JSON array containing two JSON objects.
-```json
-{
-    "location":"WestUs",
-    "events":[
+* **Input**: A JSON array with two JSON objects. Each JSON object is converted to an event.
+
+    ```JSON
+    [
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
-}
+    ```
 
-```
-#### Output - 2 Events
-Note that the property "location" is copied over to each of the event.
+* **Output**: Two events.
 
-|location|events.deviceId|events.deviceTimestamp|
-|--------|---------------|----------------------|
-|WestUs|device1|2016-01-08T01:08:00Z|
-|WestUs|device2|2016-01-08T01:17:00Z|
+    |id|timestamp|
+    |--------|---------------|
+    |device1|2016-01-08T01:08:00Z|
+    |device2|2016-01-08T01:17:00Z|
 
-### Sample 4
+### Example three
 
-#### Input
+* **Input**: A JSON object with a nested JSON array that contains two JSON objects.
 
-```json
-{
-    "location":"WestUs",
-    "manufacturerInfo":{
-        "name":"manufacturer1",
-        "location":"EastUs"
-    },
-    "events":[
-        {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
-                "type":"pressure",
-                "units":"psi",
-                "value":108.09
+    ```JSON
+    {
+        "location":"WestUs",
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z"
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z"
             }
+        ]
+    }
+    ```
+
+* **Output**: Two events. The property **location** is copied over to each event.
+
+    |location|events.id|events.timestamp|
+    |--------|---------------|----------------------|
+    |WestUs|device1|2016-01-08T01:08:00Z|
+    |WestUs|device2|2016-01-08T01:17:00Z|
+
+### Example four
+
+* **Input**: A JSON object with a nested JSON array that contains two JSON objects. This input demonstrates that global properties can be represented by the complex JSON object.
+
+    ```JSON
+    {
+        "location":"WestUs",
+        "manufacturer":{
+            "name":"manufacturer1",
+            "location":"EastUs"
         },
-        {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
-                "type":"vibration",
-                "units":"abs G",
-                "value":217.09
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z",
+                "data":{
+                    "type":"pressure",
+                    "units":"psi",
+                    "value":108.09
+                }
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z",
+                "data":{
+                    "type":"vibration",
+                    "units":"abs G",
+                    "value":217.09
+                }
             }
-        }
-    ]
-}
-```
-#### Output - 2 Events
+        ]
+    }
+    ```
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
-|---|---|---|---|---|---|---|---|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+* **Output**: Two events.
+
+    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |---|---|---|---|---|---|---|---|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
 
-* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+* [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
+
+* Read more about [IoT Hub device messages](../iot-hub/iot-hub-devguide-messages-construct.md)

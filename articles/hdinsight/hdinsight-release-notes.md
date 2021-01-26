@@ -1,109 +1,80 @@
 ---
-title: Release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Hadoop, Apache Storm, and HBase.
-services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
-
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
-ms.service: hdinsight
+title: Release notes for Azure HDInsight 
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 4/06/2017
-ms.author: nitinme
-
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 11/12/2020
 ---
-# Release notes for Hadoop components on Azure HDInsight
+# Azure HDInsight release notes
 
-This article provides information about the **most recent** Azure HDInsight release updates. For information on releases prior to that, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
+This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
+## Summary
 
-## 04/06/2017 - General availability of HDInsight 3.6
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-* With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads.
+If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-	* Hadoop v2.7.3
-	* HBase v1.1.2
-	* Storm v1.1.0
-	* Spark v2.1.0
-	* Interactive Hive v2.1.0
+## Release date: 11/18/2020
 
-* **Support for Hive View 2.0**. This should improve the user experience for Interactive Hive. For more information see, [Hortonworks documentation](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
-* **Performance enhancements with Hive LLAP**. See [Hortonworks documentation](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) for more details.
+## New features
+### Auto key rotation for customer managed key encryption at rest
+Starting from this release, customers can use Azure KeyValut version-less encryption key URLs for customer managed key encryption at rest. HDInsight will automatically rotate the keys as they expire or replaced with new versions. Learn more details [here](./disk-encryption.md).
 
-* **New features in Hive**. See [Hortonworks documentation](https://hortonworks.com/apache/hive/#section_4) for more details.
+### Ability to select different Zookeeper virtual machine sizes for Spark, Hadoop, and ML Services
+HDInsight previously didn't support customizing Zookeeper node size for Spark, Hadoop, and ML Services cluster types. It defaults to A2_v2/A2 virtual machine sizes, which are provided free of charge. From this release, you can select a Zookeeper virtual machine size that is most appropriate for your scenario. Zookeeper nodes with virtual machine size other than A2_v2/A2 will be charged. A2_v2 and A2 virtual machines are still provided free of charge.
 
-* **Hive CLI Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
-* **New features in Apache Phoenix and HBase**.
-	* Storage quota support: Commonly used in multi-tenant environments, allowing limited storage space on a per table and per namespace level.
-	* Phoenix indexing improvements: Incremental index creation and rebuild/resume indexing from previous failures.
-	* Phoenix data integrity tool: Supports validation of schema, index, and other metadata.
+## Deprecation
+### Deprecation of HDInsight 3.6 ML Services cluster
+HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't be able to create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md#available-versions).
 
+### Disabled VM sizes
+Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
-* **Issue with HBase**: While running a CSV bulk upload MapReduce job, the following syntax might result in an error.
+## Behavior changes
+### Add NSG rule checking before scaling operation
+HDInsight added network security groups (NSGs) and user-defined routes (UDRs) checking with scaling operation. The same validation is done for cluster scaling besides of cluster creation. This validation helps prevent unpredictable errors. If validation doesn't pass, scaling fails. Learn more about how to configure NSGs and UDRs correctly, refer to [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md).
 
-		HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+## Upcoming changes
+The following changes will happen in upcoming releases.
 
-	You should use the following syntax instead.
+### Default cluster VM size will be changed to Ev3 family
+Starting from next release (around end of January), default cluster VM sizes will be changed from D family to Ev3 family. This change applies to head nodes and worker nodes. To avoid this change, specify the VM sizes that you want to use in the ARM template.
 
-		HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+### Default cluster version will be changed to 4.0
+Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md#available-versions). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md)
 
+### OS version upgrade
+HDInsight is upgrading OS version from 16.04 to 18.04. The upgrade will complete before April, 2021.
 
-## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
-* Structured Streaming gets improved scalability with support for event time watermarks and Kafka 0.10 connector.
-* Spark SQL partitioning is now handled using new Scalable Partition Handling mechanism. See more details [here](http://spark.apache.org/releases/spark-release-2-1-0.html) on how to upgrade.
-* Spark 2.1 on Azure HDInsight 3.6 Preview currently does not support BI Tool connectivity using ODBC driver.
-* Azure Data Lake Store access from Spark 2.1 clusters is not supported in this Preview.
+### HDInsight 3.6 end of support on June 30 2021
+HDInsight 3.6 will be end of support. Starting form June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
+## Bug fixes
+HDInsight continues to make cluster reliability and performance improvements. 
 
-## 11/18/2016 - Release of Spark 2.0.1 on HDInsight 3.5
-Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
+## Component version change
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
 
-## 11/16/2016 - Release of R Server 9.0 on HDInsight 3.5 (Spark 2.0)
-*	R Server clusters now include the option for two versions: R Server 9.0 on HDI 3.5 (Spark 2.0) and R Server 8.0 on HDI 3.4 (Spark 1.6).
-*	R Server 9.0 on HDI 3.5 (Spark 2.0) is built on R 3.3.2 and includes new ScaleR data source functions called RxHiveData and RxParquetData for loading data from Hive and Parquet directly to Spark DataFrames for analysis by ScaleR. For more information see the inline help on these functions in R through use of the ?RxHiveData and ?RxParquetData commands.
-*	RStudio Server community edition is now installed by default (with an opt-out option) on the Cluster Configuration blade as part of the provisioning flow.
+## Known issues
+### Prevent HDInsight cluster VMs from rebooting periodically
 
-## 11/09/2016 - Release of Spark 2.0 on HDInsight
-* Spark 2.0 clusters on HDInsight 3.5 now support Livy and Jupyter services.
+Starting from mid November 2020, you may have noticed HDInsight cluster VMs getting rebooted on a regular basis. This could be caused by:
 
-## 10/26/2016 - Release of R Server on HDInsight
-* The URI for edge node access has changed to **clustername**-ed-ssh.azurehdinsight.net
-* R Server on HDInsight cluster provisioning has been streamlined.
-* R Server on HDInsight is now available as regular HDInsight "R Server" cluster type and no longer installed as a separate HDInsight application. The edge node and R Server binaries are now provisioned as part of the R Server cluster deployment. This improves speed and reliability of provisioning. Pricing model for R Server is updated accordingly.
-* R Server cluster type price is now based on Standard tier price plus R Server surcharge price. Premium tier will now be reserved for Premium features available across different cluster types and will not be used for R Server cluster type. This change doesn't affect effective pricing of R Server, it only changes how the charges are presented in the bill. All existing R Server clusters will continue to work and ARM templates will continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new ARM template.**
+1.	Clamav is enabled on your cluster. The new azsec-clamav package consumes large amount of memory that triggers node rebooting. 
+2.	A CRON job is scheduled daily that monitors for changes to the list of certificate authorities (CAs) used by Azure services. When a new CA certificate is available, the script adds the certificate to the JDK trust store and schedules a reboot.
 
-## 08/30/2016 - Release of R Server on HDInsight
-The full version numbers for Linux-based HDInsight clusters deployed with this release:
-
-| HDI | HDI cluster version | HDP | HDP Build | Ambari Build |
-| --- | --- | --- | --- | --- |
-| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
-| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
-| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
-
-The full version numbers for Windows-based HDInsight clusters deployed with this release:
-
-| HDI | HDI cluster version | HDP | HDP Build |
-| --- | --- | --- | --- |
-| 2.1 |2.1.10.1033.2559206 |1.3 |1.3.12.0-01795 |
-| 3.0 |3.0.6.1033.2559206 |2.0 |2.0.13.0-2117 |
-| 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
-| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
-| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
-
-
-
-
-
+HDInsight is deploying fixes and applying patch for all running clusters for both issues. To apply the fix immediately and avoid unexpected VMs rebooting, you can run below script actions on all cluster nodes as a persistent script action. HDInsight will post another notice after the fix and patching complete.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```

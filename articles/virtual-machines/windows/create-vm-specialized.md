@@ -1,177 +1,255 @@
-﻿---
-title: Create VM from a specialized disk in Azure | Microsoft Docs
-description: Create a new VM by attaching a specialized managed disk or unmanaged disk, in the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
+---
+title: Create a Windows VM from a specialized VHD in Azure 
+description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 author: cynthn
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 02/06/2017
+ms.topic: how-to
+ms.date: 10/10/2019
 ms.author: cynthn
 
 ---
-# Create a VM from a specialized disk
+# Create a Windows VM from a specialized disk by using PowerShell
 
-Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](../../storage/storage-managed-disks-overview.md) or a specialized unmanaged disk to create the new VM.
+Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
-## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+You have several options:
+* [Use an existing managed disk](#option-1-use-an-existing-disk). This option is useful if you have a VM that isn't working correctly. You can delete the VM and then reuse the managed disk to create a new VM. 
+* [Upload a VHD](#option-2-upload-a-specialized-vhd) 
+* [Copy an existing Azure VM by using snapshots](#option-3-copy-an-existing-azure-vm)
+
+You can also use the Azure portal to [create a new VM from a specialized VHD](create-vm-specialized-portal.md).
+
+This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> Thus, don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
+
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot. 
+
+## Option 1: Use an existing disk
+
+If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+$resourceGroupName = 'myResourceGroup'
+$osDiskName = 'myOsDisk'
+$osDisk = Get-AzDisk `
+-ResourceGroupName $resourceGroupName `
+-DiskName $osDiskName
 ```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+You can now attach this disk as the OS disk to a [new VM](#create-the-new-vm).
+
+## Option 2: Upload a specialized VHD
+
+You can upload the VHD from a specialized VM created with an on-premises virtualization tool, like Hyper-V, or a VM exported from another cloud.
+
+### Prepare the VM
+Use the VHD as-is to create a new VM. 
+  
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). **Do not** generalize the VM by using Sysprep.
+  * Remove any guest virtualization tools and agents that are installed on the VM (such as VMware tools).
+  * Make sure the VM is configured to get the IP address and DNS settings from DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
 
 
-## Create the subNet and vNet
+### Upload the VHD
 
-Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
+You can now upload a VHD straight into a managed disk. For instructions, see [Upload a VHD to Azure using Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
-1. Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
+## Option 3: Copy an existing Azure VM
+
+You can create a copy of a VM that uses managed disks by taking a snapshot of the VM, and then by using that snapshot to create a new managed disk and a new VM.
+
+If you want to copy an existing VM to another region, you might want to use azcopy to [create a copy of a disk in another region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+
+### Take a snapshot of the OS disk
+
+You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM with the [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+
+First, set some parameters. 
+
+ ```powershell
+$resourceGroupName = 'myResourceGroup' 
+$vmName = 'myVM'
+$location = 'westus' 
+$snapshotName = 'mySnapshot'  
+```
+
+Get the VM object.
+
+```powershell
+$vm = Get-AzVM -Name $vmName `
+   -ResourceGroupName $resourceGroupName
+```
+Get the OS disk name.
+
+ ```powershell
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
+   -DiskName $vm.StorageProfile.OsDisk.Name
+```
+
+Create the snapshot configuration. 
+
+ ```powershell
+$snapshotConfig =  New-AzSnapshotConfig `
+   -SourceUri $disk.Id `
+   -OsType Windows `
+   -CreateOption Copy `
+   -Location $location 
+```
+
+Take the snapshot.
+
+```powershell
+$snapShot = New-AzSnapshot `
+   -Snapshot $snapshotConfig `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName
+```
+
+
+To use this snapshot to create a VM that needs to be high-performing, add the parameter `-AccountType Premium_LRS` to the New-AzSnapshotConfig command. This parameter creates the snapshot so that it's stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard, so be sure you'll need Premium before using this parameter.
+
+### Create a new disk from the snapshot
+
+Create a managed disk from the snapshot by using [New-AzDisk](/powershell/module/az.compute/new-azdisk). This example uses *myOSDisk* for the disk name.
+
+Create a new resource group for the new VM.
+
+```powershell
+$destinationResourceGroup = 'myDestinationResourceGroup'
+New-AzResourceGroup -Location $location `
+   -Name $destinationResourceGroup
+```
+
+Set the OS disk name. 
+
+```powershell
+$osDiskName = 'myOsDisk'
+```
+
+Create the managed disk.
+
+```powershell
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig  -Location $location -CreateOption Copy `
+	-SourceResourceId $snapshot.Id) `
+    -ResourceGroupName $destinationResourceGroup
+```
+
+
+## Create the new VM 
+
+Create networking and other VM resources to be used by the new VM.
+
+### Create the subnet and virtual network
+
+Create the [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet for the VM.
+
+1. Create the subnet. This example creates a subnet named *mySubNet*, in the resource group *myDestinationResourceGroup*, and sets the subnet address prefix to *10.0.0.0/24*.
    
     ```powershell
-    $rgName = "myResourceGroup"
-    $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $subnetName = 'mySubNet'
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig `
+       -Name $subnetName `
+       -AddressPrefix 10.0.0.0/24
     ```
-2. Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
+    
+2. Create the virtual network. This example sets the virtual network name to *myVnetName*, the location to *West US*, and the address prefix for the virtual network to *10.0.0.0/16*. 
    
     ```powershell
-    $location = "West US"
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+    $vnet = New-AzVirtualNetwork `
+       -Name $vnetName -ResourceGroupName $destinationResourceGroup `
+       -Location $location `
+       -AddressPrefix 10.0.0.0/16 `
+       -Subnet $singleSubnet
     ```    
+    
 
-## Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+### Create the network security group and an RDP rule
+To be able to sign in to your VM with remote desktop protocol (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, so you can use an account that existed on the source virtual machine for RDP.
 
-1. Create the public IP. In this example, the public IP address name is set to **myIP**.
-   
-    ```powershell
-    $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. Create the NIC. In this example, the NIC name is set to **myNicName**.
-   
-    ```powershell
-    $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-	-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	```
-
-## Create the network security group and an RDP rule
-To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
-This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
+This example sets the network security group (NSG) name to *myNsg* and the RDP rule name to *myRdpRule*.
 
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -Name $nsgName -SecurityRules $rdpRule
 	
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md).
 
-## Set the VM name and size
+### Create a public IP address and NIC
+To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
-This example sets the VM name to "myVM" and the VM size to "Standard_A2".
+1. Create the public IP. In this example, the public IP address name is set to *myIP*.
+   
+    ```powershell
+    $ipName = "myIP"
+    $pip = New-AzPublicIpAddress `
+       -Name $ipName -ResourceGroupName $destinationResourceGroup `
+       -Location $location `
+       -AllocationMethod Dynamic
+    ```       
+    
+2. Create the NIC. In this example, the NIC name is set to *myNicName*.
+   
+    ```powershell
+    $nicName = "myNicName"
+    $nic = New-AzNetworkInterface -Name $nicName `
+       -ResourceGroupName $destinationResourceGroup `
+       -Location $location -SubnetId $vnet.Subnets[0].Id `
+       -PublicIpAddressId $pip.Id `
+       -NetworkSecurityGroupId $nsg.Id
+    ```
+    
+
+
+### Set the VM name and size
+
+This example sets the VM name to *myVM* and the VM size to *Standard_A2*.
+
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-## Add the NIC
+### Add the NIC
 	
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 	
-	
-## Configure the OS disk
 
-The specialised OS could be a VHD that you [uploaded to Azure](upload-image.md) or a [copy the VHD from an existing Azure VM](vhd-copy.md). 
+### Add the OS disk 
 
-You can choose one of two options:
-- **Option 1**: Create a specialized managed disk from a specialied VHD in an existing storage account to use as the OS disk.
-
-or 
-
-- **Option 2**: Use a specialized VHD stored in your own storage account (an unmanaged disk). 
-
-### Option 1: Create a managed disk from an unmanaged specialized disk
-
-1. Create a managed disk from the existing specialized VHD in your storage account. This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
-
-    ```powershell
-    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-	-AccountType StandardLRS  -Location $location -CreateOption Import `
-	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
-    -ResourceGroupName $rgName
-    ```
-
-2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
-	
-	```powershell
-	$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
-	-DiskSizeInGB 128 -CreateOption Attach -Windows
-	```
-
-Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](create-managed-disk-ps.md). 
-
+Add the OS disk to the configuration by using [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). This example sets the size of the disk to *128 GB* and attaches the managed disk as a *Windows* OS disk.
+ 
 ```powershell
-$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
+### Complete the VM 
 
-### Option 2: Attach a VHD that is in an existing storage account
-
-1. Set the URI for the VHD that you want to use. In this example, the VHD file named **myOsDisk.vhd** is kept in a storage account named **myStorageAccount** in a container named **myContainer**.
-
-    ```powershell
-    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-    ```
-2. Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
-    
-	```powershell
-    $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
-    ```
-
-Optional: If you have data disks that need to be attached to the VM, add the data disks by using the URLs of data VHDs and the appropriate Logical Unit Number (Lun).
+Create the VM by using [New-AzVM](/powershell/module/az.compute/new-azvm) with the configurations that we just created.
 
 ```powershell
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
-When using a storage account, the data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
-
-
-## Create the VM
-
-Create the VM using the configurations that we just created.
-
-```powershell
-#Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-```
-
-If this command was successful, you'll see output like this:
+If this command is successful, you'll see output like this:
 
 ```powershell
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -180,14 +258,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-## Verify that the VM was created
-You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+### Verify that the VM was created
+You should see the newly created VM either in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands.
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
 ## Next steps
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).
-
+Sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).

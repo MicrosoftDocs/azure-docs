@@ -1,37 +1,33 @@
 ---
-title: How to use Azure diagnostics (.NET) with Cloud Services | Microsoft Docs
+title: How to use Azure diagnostics (.NET) with Cloud Services (classic) | Microsoft Docs
 description: Using Azure diagnostics to gather data from Azure cloud Services for debugging, measuring performance, monitoring, traffic analysis, and more.
-services: cloud-services
-documentationcenter: .net
-author: rboucher
-manager: jwhit
-editor: ''
-
-ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/25/2016
-ms.author: robb
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enabling Azure Diagnostics in Azure Cloud Services
+# Enabling Azure Diagnostics in Azure Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Worker Role
-This walk through describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure SDKs for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.
+This walkthrough describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role, Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure SDKs for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.
 
 ### Prerequisites
 This article assumes you have an Azure subscription and are using Visual Studio with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### Step 1: Create a Worker Role
 1. Launch **Visual Studio**.
-2. Create a new **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
+2. Create an **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
 3. Select **Worker Role** and click Ok. The project will be created.
-4. In **Solution Explorer**, double-click on the **WorkerRole1** properties file.
-5. In the **Configuration** tab un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and eariler).
+4. In **Solution Explorer**, double-click the **WorkerRole1** properties file.
+5. In the **Configuration** tab, un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and earlier).
 6. Build your solution to verify that you have no errors.
 
 ### Step 2: Instrument your code
@@ -109,7 +105,7 @@ namespace WorkerRole1
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
 
             return base.OnStart();
         }
@@ -124,11 +120,11 @@ namespace WorkerRole1
 
 1. Deploy your worker role to Azure from within Visual Studio by selecting the **WadExample** project in the Solution Explorer then **Publish** from the **Build** menu.
 2. Choose your subscription.
-3. In the **Microsoft Azure Publish Settings** dialog select **Create New…**.
-4. In the **Create Cloud Service and Storage Account** dialog enter a **Name** (for example, "WadExample") and select a region or affinity group.
+3. In the **Microsoft Azure Publish Settings** dialog, select **Create New…**.
+4. In the **Create Cloud Service and Storage Account** dialog, enter a **Name** (for example, "WadExample") and select a region or affinity group.
 5. Set the **Environment** to **Staging**.
 6. Modify any other **Settings** as appropriate and click **Publish**.
-7. After deployment has completed verify in the Azure classic portal that your cloud service is in a **Running** state.
+7. After deployment has completed, verify in the Azure portal that your cloud service is in a **Running** state.
 
 ### Step 4: Create your Diagnostics configuration file and install the extension
 1. Download the public configuration file schema definition by executing the following PowerShell command:
@@ -139,7 +135,7 @@ namespace WorkerRole1
 2. Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
+3. Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
 
 4. Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
@@ -182,22 +178,22 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### Step 6: Look at your telemetry data
-In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the cloud service has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
+In the Visual Studio **Server Explorer**, navigate to the wadexample storage account. After the cloud service has been running about five (5) minutes, you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click one of the tables to view the telemetry that has been collected.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## Configuration File Schema
-The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](https://msdn.microsoft.com/library/azure/mt634524.aspx) for valid values and examples.
+The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](../azure-monitor/platform/diagnostics-extension-versions.md) for valid values and examples.
 
 ## Troubleshooting
-If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) for help with common problems.
+If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) for help with common problems.
 
 ## Next Steps
-[See a list of virtual machine related Azure Diagnostics articles](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
+[See a list of related Azure virtual-machine diagnostic articles](../azure-monitor/platform/diagnostics-extension-overview.md) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
-[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: /previous-versions/azure/gg433048(v=azure.100)
+[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/

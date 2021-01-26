@@ -1,0 +1,110 @@
+### YamlMime:Landing
+
+title: Azure Stack Edge documentation  # < 60 chars
+summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
+
+metadata:
+  title: Azure Stack Edge documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  services: databox
+  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: edge
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: alkohli #Required; your GitHub user alias, with correct capitalization.
+  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/27/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Stack Edge
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Stack Edge Pro GPU?
+            url: azure-stack-edge-gpu-overview.md  
+          - text: What is Azure Stack Edge Pro FPGA?
+            url: azure-stack-edge-overview.md
+          - text: What is Azure Stack Edge R?
+            url: azure-stack-edge-j-series-overview.md 
+          - text: What is Azure Stack Edge Mini R?
+            url: azure-stack-edge-k-series-overview.md   
+      - linkListType: architecture
+        links:
+          - text: Choose Azure data transfer options
+            url: ../storage/common/storage-choose-data-transfer-solution.md
+          - text: Use network or offline transfer
+            url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
+      - linkListType: whats-new
+        links:
+          - text: 2101 release notes
+            url: azure-stack-edge-gpu-2101-release-notes.md
+
+  # Card
+  - title: "Requirements and limits"
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Stack Edge Pro GPU requirements
+            url: azure-stack-edge-gpu-system-requirements.md
+          - text: Azure Stack Edge Pro FPGA requirements
+            url: azure-stack-edge-gpu-system-requirements.md
+          - text: Azure Stack Edge Pro limits
+            url: azure-stack-edge-limits.md
+
+
+  # Card
+  - title: "Deploy"
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: View pre-deployment checklist
+            url: azure-stack-edge-gpu-deploy-checklist.md        
+          - text: Azure Stack Edge Pro GPU
+            url: azure-stack-edge-gpu-deploy-prep.md
+          - text: GPU module via Marketplace
+            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+          - text: Kubernetes workload via IoT Edge
+            url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+
+  # Card
+  - title: Develop
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: C# Edge compute module
+            url: azure-stack-edge-create-iot-edge-module.md
+      - linkListType: download
+        links:
+          - text: "Samples - C# for Azure Stack Edge Pro GPU"
+            url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+
+  # Card
+  - title: Manage 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Stack Edge Pro shares
+            url: azure-stack-edge-manage-shares.md
+          - text: Edge compute
+            url: azure-stack-edge-manage-compute.md
+          - text: Edge storage accounts
+            url: azure-stack-edge-j-series-manage-storage-accounts.md
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Stack Edge GPU
+            url: azure-stack-edge-gpu-troubleshoot.md
+          - text: Edge compute modules
+            url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge            
+          - text: Return Azure Stack Edge GPU
+            url: azure-stack-edge-return-device.md
+          - text: Open Support ticket
+            url: azure-stack-edge-contact-microsoft-support.md

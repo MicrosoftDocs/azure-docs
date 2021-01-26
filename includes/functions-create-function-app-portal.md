@@ -1,14 +1,51 @@
+---
+title: include file
+description: include file
+services: functions
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 03/04/2020
+ms.author: glenga
+ms.custom: include file
+---
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
-2. Click **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
-   
-   * **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)**: Select **Create new** and enter a name for your new resource group. 
-   * **[Hosting plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**, which can be one of these plans: 
-     * **Consumption plan**: The default plan type for Azure Functions. When you choose a consumption plan, you must also choose the **Location**.  
-     * **App Service plan**: An App Service plan requires you to create an **App Service plan/location** or select an existing one. These settings determine the [location, features, cost, and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.  
-   * **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or [create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account). 
-     
-    ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+1. In the **New** page, select **Compute** > **Function App**.
 
-3. Click **Create** to provision and deploy the new function app.  
+1. On the **Basics** page, use the function app settings as specified in the following table.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Subscription** | Your subscription | The subscription under which this new function app is created. |
+    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
+    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    |**Publish**| Code | Option to publish code files or a Docker container. |
+    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. In-portal editing isn't currently supported for [Python development](../articles/azure-functions/functions-reference-python.md). |
+    |**Version**| Version number | Choose the version of your installed runtime. |
+    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+
+1. Select **Next : Hosting**. On the **Hosting** page, enter the following settings.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Storage account](../articles/storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
+    |**Operating system**| Windows | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. In-portal editing is only supported on Windows. |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | **Consumption (Serverless)** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption** plan, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you pay only for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md).  |
+
+1. Select **Next : Monitoring**. On the **Monitoring** page, enter the following settings.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting or selecting **Create new**, you can change the Application Insights name or choose a different region in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
+
+1. Select **Review + create** to review the app configuration selections.
+
+1. On the **Review + create** page, review your settings, and then select **Create** to provision and deploy the function app.
+
+1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+
+1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
+    ![Deployment notification](./media/functions-create-function-app-portal/function-app-create-notification2.png)

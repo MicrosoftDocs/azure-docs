@@ -1,48 +1,117 @@
 ---
-title: How to use properties in Azure API Management policies
-description: Learn how to use properties in Azure API Management policies.
+title: How to use named values in Azure API Management policies
+description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
-editor: ''
+author: vladvino
 
-ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 12/14/2020
 ms.author: apimpm
-
 ---
-# How to use properties in Azure API Management policies
-API Management policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 
 
-Each API Management service instance has a properties collection of key/value pairs that are global to the service instance. These properties can be used to manage constant string values across all API configuration and policies. Each property has the following attributes.
+# Use named values in Azure API Management policies
 
-| Attribute | Type | Description |
-| --- | --- | --- |
-| Name |string |The name of the property. It may contain only letters, digits, period, dash, and underscore characters. |
-| Value |string |The value of the property. It may not be empty or consist only of whitespace. |
-| Secret |boolean |Determines whether the value is a secret and should be encrypted or not. |
-| Tags |array of string |Optional tags that when provided can be used to filter the property list. |
+[API Management policies](api-management-howto-policies.md) are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
-Properties are configured in the publisher portal on the **Properties** tab. In the following example, three properties are configured.
+*Named values* are a global collection of name/value pairs in each API Management instance. There is no imposed limit on the number of items in the collection. Named values can be used to manage constant string values and secrets across all API configurations and policies. 
 
-![Properties][api-management-properties]
+:::image type="content" source="media/api-management-howto-properties/named-values.png" alt-text="Named values in the Azure portal":::
 
-Property values can contain literal strings and [policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx). The following table shows the previous three sample properties and their attributes. The value of `ExpressionProperty` is a policy expression that returns a string containing the current date and time. The property `ContosoHeaderValue` is marked as a secret, so its value is not displayed.
+## Value types
 
-| Name | Value | Secret | Tags |
-| --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+|Type  |Description  |
+|---------|---------|
+|Plain     |  Literal string or policy expression     |
+|Secret     |   Literal string or policy expression that is encrypted by API Management      |
+|[Key vault](#key-vault-secrets)     |  Identifier of a secret stored in an Azure key vault.      |
 
-## To use a property
-To use a property in a policy, place the property name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example.
+Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
+
+For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate).
+
+## Key vault secrets
+
+Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](../key-vault/general/overview.md). 
+
+Using key vault secrets is recommended because it helps improve API Management security:
+
+* Secrets stored in key vaults can be reused across services
+* Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
+* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. 
+
+### Prerequisites for key vault integration
+
+1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
+1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list secrets from the vault. To add the policy:
+    1. In the portal, navigate to your key vault.
+    1. Select **Settings > Access policies > +Add Access Policy**.
+    1. Select **Secret permissions**, then select **Get** and **List**.
+    1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
+1. Create or import a secret to the key vault. See [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
+
+To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-value), and specify a type of **Key vault**. Select the secret from the key vault.
+
+> [!CAUTION]
+> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
+
+If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements for using key vault secrets:
+
+* You must use the API Management instance's **system-assigned** managed identity to access the key vault.
+* In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option.
+
+If the API Management instance is deployed in a virtual network, also configure the following network settings:
+* Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
+* Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../virtual-network/service-tags-overview.md). 
+
+For details, see network configuration details in [Connect to a virtual network](api-management-using-with-vnet.md#-common-network-configuration-issues).
+
+## Add or edit a named value
+
+### Add a key vault secret
+
+See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. Under **APIs**, select **Named values** > **+Add**.
+1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
+1. In **Value type**, select **Key vault**.
+1. Enter the identifier of a key vault secret (without version), or choose **Select** to select a secret from a key vault.
+    > [!IMPORTANT]
+    > If you enter a key vault secret identifier yourself, ensure that it doesn't have version information. Otherwise, the secret won't rotate automatically in API Management after an update in the key vault.
+1. In **Client identity**, select a system-assigned or an existing user-assigned managed identity. Learn how to [add or modify managed identities in your API Management service](api-management-howto-use-managed-service-identity.md).
+    > [!NOTE]
+    > The identity needs permissions to get and list secrets from the key vault. If you haven't already configured access to the key vault, API Management prompts you so it can automatically configure the identity with the necessary permissions.
+1. Add one or more optional tags to help organize your named values, then **Save**.
+1. Select **Create**.
+
+    :::image type="content" source="media/api-management-howto-properties/add-property.png" alt-text="Add key vault secret value":::
+
+### Add a plain or secret value
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. Under **APIs**, select **Named values** > **+Add**.
+1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
+1. In **Value type**, select **Plain** or **Secret**.
+1. In **Value**, enter a string or policy expression.
+1. Add one or more optional tags to help organize your named values, then **Save**.
+1. Select **Create**.
+
+Once the named value is created, you can edit it by selecting the name. If you change the display name, any policies that reference that named value are automatically updated to use the new display name.
+
+## Use a named value
+
+The examples in this section use the named values shown in the following table.
+
+| Name               | Value                      | Secret | 
+|--------------------|----------------------------|--------|---------|
+| ContosoHeader      | `TrackingId`                 | False  | 
+| ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
+| ExpressionProperty | `@(DateTime.Now.ToString())` | False  | 
+
+To use a named value in a policy, place its display name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -50,11 +119,15 @@ To use a property in a policy, place the property name inside a double pair of b
 </set-header>
 ```
 
-In this example, `ContosoHeader` is used as the name of a header in a `set-header` policy, and `ContosoHeaderValue` is used as the value of that header. When this policy is evaluated during a request or response to the API Management gateway, `{{ContosoHeader}}` and `{{ContosoHeaderValue}}` are replaced with their respective property values.
+In this example, `ContosoHeader` is used as the name of a header in a `set-header` policy, and `ContosoHeaderValue` is used as the value of that header. When this policy is evaluated during a request or response to the API Management gateway, `{{ContosoHeader}}` and `{{ContosoHeaderValue}}` are replaced with their respective values.
 
-Properties can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Named values can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example: 
 
-Properties can also contain policy expressions. In the following example, the `ExpressionProperty` is used.
+```xml
+<set-header name = "CustomHeader{{ContosoHeader}}" ...>
+```
+
+Named values can also contain policy expressions. In the following example, the `ExpressionProperty` expression is used.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -62,90 +135,34 @@ Properties can also contain policy expressions. In the following example, the `E
 </set-header>
 ```
 
-When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value: `@(DateTime.Now.ToString())`. Since the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
+When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value, `@(DateTime.Now.ToString())`. Since the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
 
-You can test this out in the developer portal by calling an operation that has a policy with properties in scope. In the following example, an operation is called with the two previous example `set-header` policies with properties. Note that the response contains two custom headers that were configured using policies with properties.
+You can test this in the Azure portal or the [developer portal](api-management-howto-developer-portal.md) by calling an operation that has a policy with named values in scope. In the following example, an operation is called with the two previous example `set-header` policies with named values. Notice that the response contains two custom headers that were configured using policies with named values.
 
-![Developer portal][api-management-send-results]
+:::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Test API response":::
 
-If you look at the [API Inspector trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with properties, you can see the two `set-header` policies with the property values inserted as well as the policy expression evaluation for the property that contained the policy expression.
+If you look at the outbound [API trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with named values, you can see the two `set-header` policies with the named values inserted as well as the policy expression evaluation for the named value that contained the policy expression.
 
-![API Inspector trace][api-management-api-inspector-trace]
+:::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="API Inspector trace":::
 
-Note that while property values can contain policy expressions, property values can't contain other properties. If text containing a property reference is used for a property value, such as `Property value text {{MyProperty}}`, that property reference won't be replaced and will be included as part of the property value.
+> [!CAUTION]
+> If a policy references a secret in Azure Key Vault, the value from the key vault will be visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
 
-## To create a property
-To create a property, click **Add property** on the **Properties** tab.
+While named values can contain policy expressions, they can't contain other named values. If text containing a named value reference is used for a value, such as `Text: {{MyProperty}}`, that reference won't be resolved and replaced.
 
-![Add property][api-management-properties-add-property-menu]
+## Delete a named value
 
-**Name** and **Value** are required values. If this property value is a secret, check the **This is a secret** checkbox. Enter one or more optional tags to help with organizing your properties, and click **Save**.
-
-![Add property][api-management-properties-add-property]
-
-When a new property is saved, the **Search property** textbox is populated with the name of the new property and the new property is displayed. To display all properties, clear the **Search property** textbox and press enter.
-
-![Properties][api-management-properties-property-saved]
-
-For information on creating a property using the REST API, see [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
-
-## To edit a property
-To edit a property, click **Edit** beside the property to edit.
-
-![Edit property][api-management-properties-edit]
-
-Make any desired changes, and click **Save**. If you change the property name, any policies that reference that property are automatically updated to use the new name.
-
-![Edit property][api-management-properties-edit-property]
-
-For information on editing a property using the REST API, see [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
-
-## To delete a property
-To delete a property, click **Delete** beside the property to delete.
-
-![Delete property][api-management-properties-delete]
-
-Click **Yes, delete it** to confirm.
-
-![Confirm delete][api-management-delete-confirm]
+To delete a named value, select the name and then select **Delete** from the context menu (**...**).
 
 > [!IMPORTANT]
-> If the property is referenced by any policies, you will be unable to successfully delete it until you remove the property from all policies that use it.
-> 
-> 
-
-For information on deleting a property using the REST API, see [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
-
-## To search and filter properties
-The **Properties** tab includes searching and filtering capabilities to help you manage your properties. To filter the property list by property name, enter a search term in the **Search property** textbox. To display all properties, clear the **Search property** textbox and press enter.
-
-![Search][api-management-properties-search]
-
-To filter the property list by tag values, enter one or more tags into the **Filter by tags** textbox. To display all properties, clear the **Filter by tags** textbox and press enter.
-
-![Filter][api-management-properties-filter]
+> If the named value is referenced by any API Management policies, you can't delete it until you remove the named value from all policies that use it.
 
 ## Next steps
-* Learn more about working with policies
-  * [Policies in API Management](api-management-howto-policies.md)
-  * [Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## Watch a video overview
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
-> 
-> 
+-   Learn more about working with policies
+    -   [Policies in API Management](api-management-howto-policies.md)
+    -   [Policy reference](./api-management-policies.md)
+    -   [Policy expressions](./api-management-policy-expressions.md)
 
-[api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
-[api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png
-[api-management-properties-edit-property]: ./media/api-management-howto-properties/api-management-properties-edit-property.png
-[api-management-properties-add-property-menu]: ./media/api-management-howto-properties/api-management-properties-add-property-menu.png
-[api-management-properties-property-saved]: ./media/api-management-howto-properties/api-management-properties-property-saved.png
-[api-management-properties-delete]: ./media/api-management-howto-properties/api-management-properties-delete.png
-[api-management-properties-edit]: ./media/api-management-howto-properties/api-management-properties-edit.png
-[api-management-delete-confirm]: ./media/api-management-howto-properties/api-management-delete-confirm.png
-[api-management-properties-search]: ./media/api-management-howto-properties/api-management-properties-search.png
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-[api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
-[api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 

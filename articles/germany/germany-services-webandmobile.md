@@ -1,30 +1,24 @@
 ---
-title: Azure Germany Web, Mobile and API | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+title: Azure Germany web and mobile services | Microsoft Docs
+description: Provides a comparison of features and guidance on developing applications for Azure Germany
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
+
 # Azure Germany web and mobile services
-## App Services
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+## App Service
+Azure App Service is generally available in Azure Germany.
 ### Variations
-Azure App Services is generally available in Azure Germany.
+The addresses for Azure App Service apps created in Azure Germany are different from those created for global Azure:
 
-The addresses for Azure App Service apps created in Azure Germany are different from 
-those created for global Azure:
-
-| Service Type | Global Azure | Azure Germany |
+| Service type | Global Azure | Azure Germany |
 | --- | --- | --- |
 | App Service |*.azurewebsites.net |*.azurewebsites.de|
 
@@ -32,9 +26,4 @@ those created for global Azure:
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany Blog](https://blogs.msdn.microsoft.com/azuregermany/).
-
-
-
-
-
+[Azure Germany blog](/archive/blogs/azuregermany/).

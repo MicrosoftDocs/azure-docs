@@ -1,0 +1,69 @@
+### YamlMime:Landing
+
+title: Windows Virtual Desktop documentation
+summary: Deliver a virtual desktop experience and remote apps to any device. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 10 experience—with exceptional scale and reduced IT costs.
+
+metadata:
+  title: Windows Virtual Desktop documentation
+  description: Windows Virtual Desktop for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  manager: lizross
+  author: Heidilohr
+  ms.author: helohr
+  ms.date: 03/06/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Windows Virtual Desktop
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Windows Virtual Desktop?
+            url: overview.md
+
+  # Card
+  - title: Get started with Windows Virtual Desktop
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a host pool with Azure Marketplace
+            url: create-host-pools-azure-marketplace.md
+          - text: Manage app groups for Windows Virtual Desktop
+            url: manage-app-groups.md
+          - text: Create a host pool to validate service updates
+            url: create-validation-host-pool.md
+          - text: Set up service alerts
+            url: set-up-service-alerts.md
+
+  - title: Get started with Windows Virtual Desktop (classic)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a tenant in Windows Virtual Desktop
+            url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
+          - text: Create a host pool with Azure Marketplace
+            url: create-host-pools-azure-marketplace.md
+          - text: Manage app groups for Windows Virtual Desktop
+            url: manage-app-groups.md
+          - text: Create service principals and role assignments with PowerShell
+            url: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
+
+  # Card
+  - title: Connect to Windows Virtual Desktop
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Windows Desktop client
+            url: connect-windows-7-10.md
+          - text: Web client
+            url: connect-web.md
+          - text: Android client
+            url: connect-android.md
+          - text: macOS client
+            url: connect-macos.md
+          - text: iOS client
+            url: connect-ios.md

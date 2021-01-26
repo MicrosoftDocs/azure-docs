@@ -1,25 +1,55 @@
 ---
-title: Bing Video Search API | Microsoft Docs
-description: Learn how to use the Bing Video Search API in Cognitive Services. Partners can send a search query to Bing and get back a list of relevant videos.
+title: What is the Bing Video Search API?
+titleSuffix: Azure Cognitive Services
+description: Learn how to search for videos across the web, using the Bing Video Search API.
 services: cognitive-services
-author: dwlin
-manager: zhang
+author: swhite-msft
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
-ms.date: 06/21/2016
-ms.author: dwlin
+ms.subservice: bing-video-search
+ms.topic: overview
+ms.date: 12/18/2019
+ms.author: scottwhi
 ---
+# What is the Bing Video Search API?
 
-# Bing Video Search API
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-The Bing Video Search API provides a similar (but not exact) experience to Bing.com/Videos (overview on [MSDN](https://msdn.microsoft.com/en-us/library/mt711417.aspx)). The Bing Video Search API lets partners send a search query to Bing and get back a list of relevant videos.
+The Bing Video Search API makes it easy to add video searching capabilities to your services and applications. By sending user search queries with the API, you can get and display relevant and high-quality videos similar to [Bing Video](https://www.bing.com/video). Use this API for search results that only contain videos. The [Bing Web Search API](../bing-web-search/overview.md) can return other types of web content, including webpages, videos, news and images.
 
-To get started, read our [Getting Started](https://msdn.microsoft.com/en-US/library/mt712546.aspx) guide, which describes how you can obtain your own subscription keys and start making calls to the API. If you already have a subscription, try our API Testing Console [API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/56b440d2cf5ff8098cef380b/console) where you can easily craft API requests in a sandbox environment.
+## Bing Video Search API features
 
-For information that shows you how to use the API, see [Video Guide](https://msdn.microsoft.com/en-us/library/dn760782(v=bsynd.50).aspx).
+| Feature                                                                                                                                                                                 | Description                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Suggest search terms in real-time](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Improve your app experience by using the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to display suggested search terms as they're typed. |
+| [Filter and restrict video results](concepts/get-videos.md#filtering-videos)                      | Filter the videos returned by editing query parameters.                                                                                                       |
+| [Crop, resize, and display thumbnails](../bing-web-search/resize-and-crop-thumbnails.md)                                                | Edit and display thumbnail previews for the videos returned by Bing Video Search API.                                                                                      |
+| [Get trending videos](trending-videos.md) | Search for trending videos from around the world.                                                                                                          |
+| [Get video insights](video-insights.md) | Customize a search for trending videos from around the world.                                                                                                          |
 
-For information about the programming elements that you'd use to request and consume the search results, see [Video Reference](https://msdn.microsoft.com/en-us/library/dn760795(v=bsynd.50).aspx).
+## Workflow
 
-For additional guide and reference content that is common to all Bing APIs, such as Paging Results and Error Codes, see [Shared Guides](https://msdn.microsoft.com/en-us/library/mt711404(v=bsynd.50).aspx) and [Shared Reference](https://msdn.microsoft.com/en-us/library/mt711403(v=bsynd.50).aspx).
+The Bing Video Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the [REST API](./quickstarts/csharp.md), or the [SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
+
+1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+2. Send a request to the API, with a valid search query.
+3. Process the API response by parsing the returned JSON message.
+
+
+## Next steps
+
+The Bing Video Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/) shows how you can customize a search query and search the web for videos.
+
+Use the [quickstart](./quickstarts/csharp.md) to quickly get started with your first API request.
+
+## See also
+
+* The [Bing Video Search API v7](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) reference page contains the list of endpoints, headers, and query parameters used to request search results.
+
+* The [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
+
+* Visit the [Bing Search API hub page](../bing-web-search/overview.md) to explore the other available APIs.
