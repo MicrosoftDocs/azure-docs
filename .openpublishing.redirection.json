@@ -8,7 +8,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
-      "redirect_url": "/azure/backup/quick-backup-vm-portal",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-backup-vms",
       "redirect_document_id": false
     },
     {
@@ -16,21 +16,19 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/csharp-template",
       "redirect_document_id": false
     },
-    {"source_path": "articles/virtual-machines/windows/publish-web-app-from-visual-studio.md",
+    {
+      "source_path": "articles/virtual-machines/windows/publish-web-app-from-visual-studio.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-backup-vms.md",
-      "redirect_url": "/azure/backup/quick-backup-vm-portal",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-backup-vms",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/extensions/log-collector.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
       "redirect_document_id": false
@@ -7952,7 +7950,7 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources.md",
-      "redirect_url": "/azure/azure-monitor/agents/agent-data-sources",
+      "redirect_url": "/azure/azure-monitor/platform/agent-data-sources",
       "redirect_document_id": true
     },
     {
@@ -7962,12 +7960,12 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-agent-linux-support.md",
-      "redirect_url": "/azure/azure-monitor/agents/agent-linux-troubleshoot",
+      "redirect_url": "/azure/azure-monitor/platform/agent-linux-troubleshoot",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-agent-manage.md",
-      "redirect_url": "/azure/azure-monitor/agents/agent-manage",
+      "redirect_url": "/azure/azure-monitor/platform/agent-manage",
       "redirect_document_id": true
     },
     {
@@ -7977,7 +7975,7 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-agent-windows.md",
-      "redirect_url": "/azure/azure-monitor/agents/agent-windows",
+      "redirect_url": "/azure/azure-monitor/platform/agent-windows",
       "redirect_document_id": true
     },
     {
@@ -8352,7 +8350,7 @@
     },
     {
       "source_path_from_root": "/articles/monitoring/monitoring-data-sources.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources",
       "redirect_document_id": false
     },
     {
@@ -8367,7 +8365,7 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-collectd.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-collectd",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-collectd",
       "redirect_document_id": true
     },
     {
@@ -8377,37 +8375,37 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-custom-logs.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-custom-logs",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-custom-logs",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-iis-logs.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-iis-logs",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-iis-logs",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-json.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-json",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-json",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-linux-applications.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-linux-applications",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-linux-applications",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-performance-counters.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-performance-counters",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-performance-counters",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-syslog.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-syslog",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-syslog",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/log-analytics/log-analytics-data-sources-windows-events.md",
-      "redirect_url": "/azure/azure-monitor/agents/data-sources-windows-events",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-windows-events",
       "redirect_document_id": true
     },
     {
@@ -13065,11 +13063,11 @@
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
-      "redirect_document_id": false
-    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
+      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/backup/backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",
@@ -22776,21 +22774,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-dps/use-hsm-with-sdk.md",
-      "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-dps/how-to-use-sdk-tools.md",
-      "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-dps/how-to-manage-enrollments-sdks.md",
-      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509-java",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/iot-edge/how-iot-edge-works.md",
       "redirect_url": "/azure/iot-edge/about-iot-edge",
       "redirect_document_id": false
@@ -32242,7 +32225,7 @@
     },
     {
       "source_path_from_root": "/articles/security-center/security-center-app-services.md",
-      "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
+      "redirect_url": "/azure/security-center/defender-for-app-service-intro",
       "redirect_document_id": false
     },
     {
@@ -50557,11 +50540,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/msal-logging.md",
-      "redirect_url": "/azure/active-directory/develop/msal-logging-dotnet",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/develop/msal-testing.md",
       "redirect_url": "/azure/active-directory/develop/msal-overview",
       "redirect_document_id": true
@@ -61515,56 +61493,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-collection-rule-overview.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-collection-rule-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-collectd.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-collectd",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-custom-logs.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-custom-logs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-iis-logs.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-iis-logs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-json.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-json",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-linux-applications.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-linux-applications",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-performance-counters.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-performance-counters",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-syslog.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-syslog",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-windows-events.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-windows-events",
       "redirect_document_id": false
     }
   ]
