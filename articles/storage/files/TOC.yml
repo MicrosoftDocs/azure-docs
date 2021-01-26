@@ -71,7 +71,7 @@
         href: storage-sync-cloud-tiering-policy.md
       - name: Choosing your cloud tiering policies
         href: storage-sync-choosing-cloud-tiering-policies.md
-      - name: Monitoring cloud tiering
+      - name: Monitor cloud tiering
         href: storage-sync-monitoring-cloud-tiering.md
       - name: Cloud tiering FAQ
         href: storage-sync-cloud-tiering-faq.md

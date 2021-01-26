@@ -67,5 +67,8 @@ The reason for the absolute minimum is found in the way NTFS stores extremely sm
 > [!Note]
 > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
+> [!IMPORTANT]
+> You can still enable cloud tiering if you have an FSRM quota on your local volume. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting. 
+
 For questions on how to manage tiered files, please see [How to manage tiered files](storage-sync-how-to-manage-tiered-files.md).
 
