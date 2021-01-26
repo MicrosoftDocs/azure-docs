@@ -20,7 +20,9 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Download the sample
+<hr/>
+
+## 1. Download the sample
 
 In the Cloud Shell, create a quickstart directory and then change to it.
 
@@ -36,7 +38,9 @@ Next, run the following command to clone the sample app repository to your quick
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## Create a web app
+<hr/>
+
+## 2. Create a web app
 
 Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
 
@@ -56,7 +60,7 @@ az webapp up --location westeurope --name <app_name> --html
 </ul>
 </details>
 
-The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
+The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure. Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
 
 <details>
 <summary>What's <code>az webapp up</code> doing?</summary>
@@ -84,9 +88,9 @@ The command may take a few minutes to complete. It lets you know what it's doing
 </ul>
 </details>
 
-Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
+<hr/>
 
-## Browse to the app
+## 3. Browse to the app
 
 In a browser, go to the app URL: `http://<app_name>.azurewebsites.net`.
 
@@ -96,7 +100,9 @@ The page is running as an Azure App Service web app.
 
 **Congratulations!** You've deployed your first HTML app to App Service.
 
-## Update and redeploy the app
+<hr/>
+
+## 4. Update and redeploy the app
 
 In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
 
@@ -114,7 +120,9 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app home page](media/quickstart-html/hello-azure-in-browser-az.png)
 
-## Manage your new Azure app
+<hr/>
+
+## 5. Manage your new Azure app
 
 To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
@@ -130,7 +138,9 @@ You see your web app's Overview page. Here, you can perform basic management tas
 
 The left menu provides different pages for configuring your app.
 
-## Clean up resources
+<hr/>
+
+## 6. Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
@@ -140,7 +150,9 @@ az group delete --name appsvc_rg_Windows_westeurope
 
 This command may take a minute to run.
 
-## Next steps
+<hr/>
+
+## 7. Next steps
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)
