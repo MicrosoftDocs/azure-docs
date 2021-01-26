@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 09/20/2019
 ---
 
-# KeyVaultReference support for ARM-deployed Service Fabric Applications
+# KeyVaultReference support for Azure Resource Manager-deployed Service Fabric Applications
 
 A common challenge when building cloud applications is how to securely distribute secrets to your applications. For example, you might want to deploy a database key to your application without exposing the key during the pipeline or to the operator. Service Fabric KeyVaultReference support makes it easy to deploy secrets to your applications simply by referencing the URL of the secret that is stored in Key Vault. Service Fabric will handle fetching that secret on behalf of your application's Managed Identity, and activating the application with the secret.
 
@@ -20,7 +20,8 @@ A common challenge when building cloud applications is how to securely distribut
 
 - Managed Identity for Service Fabric Applications
 
-    Service Fabric KeyVaultReference support uses an application's Managed Identity to fetch secrets on behalf of the application, so your application must be deployed via ARM and assigned a managed identity. Follow this [document](concepts-managed-identity.md) to enable managed identity for your application.
+    Service Fabric KeyVaultReference support uses an application's Managed Identity to fetch secrets on behalf of the application, so your application must be deployed via 
+    and assigned a managed identity. Follow this [document](concepts-managed-identity.md) to enable managed identity for your application.
 
 - Central Secrets Store (CSS).
 
