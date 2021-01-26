@@ -42,23 +42,13 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## 2. Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
+Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. Static content is indicated by the `--html` flag.
 
 ```bash
 cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
 ```
-
-<details>
-<summary>How do I use the command?</summary>
-<ul>
-<li>If the <code>az</code> command isn't recognized, be sure you have the Azure CLI installed as described in <a href="#1-set-up-your-initial-environment">Set up your initial environment</a>.</li>
-<li>Replace <code>&lt;app-name&gt;</code> with a name that's unique across all of Azure (<em>valid characters are <code>a-z</code>, <code>0-9</code>, and <code>-</code></em>). A good pattern is to use a combination of your company name and an app identifier.</li>
-<li>The <code>--sku F1</code> argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.</li>
-<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> command.</li>
-</ul>
-</details>
 
 The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure. Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
 
