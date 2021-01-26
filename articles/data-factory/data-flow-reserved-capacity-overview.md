@@ -4,6 +4,7 @@ description: Learn how to buy Azure Data Factory data flow reserved capacity to 
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
+ms.service: datafactory
 ms.date: 01/12/2021
 ---
 # Save costs for resources with reserved capacity - Azure Data Factory data flows
@@ -40,7 +41,7 @@ For example, let's suppose that you are executing a pipeline hourly using memory
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Need help? Contact us
 
