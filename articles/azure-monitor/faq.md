@@ -377,6 +377,12 @@ Use a single resource for all the components or roles in a single business syste
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
+### How does Application Insights generate device information (Browser, OS, Language, Model)?
+
+The browser passes the User Agent string in the HTTP header of the request, and the Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
+
+Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) regexes may not include all device information or Application Insights may not have adopted the latest updates.
+
 ### <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |
 | --- | --- | --- |
