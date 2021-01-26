@@ -139,17 +139,17 @@ az aks show \
     --query apiServerAccessProfile.authorizedIpRanges'
 ```
 
-## Update, disable, and find authorized IP ranges using Azure Portal
+## Update, disable, and find authorized IP ranges using Azure portal
 
-The above operations of adding, updating, finding, and disabling authorized IP ranges can also be performed in the Azure Portal. To access, navigate to **Networking** under **Settings** in the menu blade of your cluster resource.
+The above operations of adding, updating, finding, and disabling authorized IP ranges can also be performed in the Azure portal. To access, navigate to **Networking** under **Settings** in the menu blade of your cluster resource.
 
-:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="In a browser, shows the cluster resource's networking settings Azure Portal page. The options 'set specified IP range' and 'Specified IP ranges' are highlighted.":::
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="In a browser, shows the cluster resource's networking settings Azure portal page. The options 'set specified IP range' and 'Specified IP ranges' are highlighted.":::
 
 ## How to find my IP to include in `--api-server-authorized-ip-ranges`?
 
 You must add your development machines, tooling or automation IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. 
 
-Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunnelling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
+Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunneling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
 
 Add another IP address to the approved ranges with the following command.
 
