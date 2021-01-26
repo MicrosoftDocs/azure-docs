@@ -4,7 +4,7 @@ description: QnA Maker is a cloud-based NLP service that easily creates a natura
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: "qna maker, low code chat bots, multi-turn conversations"
 ---
@@ -80,8 +80,6 @@ We offer quickstarts in most popular programming languages, each designed to tea
 
 * [Get started with QnA Maker client library](../quickstarts/quickstart-sdk.md)
 * [Get started with QnA Maker portal](../quickstarts/create-publish-knowledge-base.md)
-* [Get started with QnA Maker REST APis](../quickstarts/quickstart-rest-curl.md)
-
 
 ## Next steps
 QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base.

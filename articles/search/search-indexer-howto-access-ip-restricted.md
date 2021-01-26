@@ -26,7 +26,7 @@ Obtain the fully qualified domain name (FQDN) of your search service. This will 
 
    ![Obtain service FQDN](media\search-indexer-howto-secure-access\search-service-portal.png "Obtain service FQDN")
 
-The IP address of the search service can be obtained by performing a `nslookup` (or a `ping`) of the FQDN. In the example below, you would add "10.50.10.50" to an inbound rule on the Azure Storage firewall.
+The IP address of the search service can be obtained by performing a `nslookup` (or a `ping`) of the FQDN. In the example below, you would add "150.0.0.1" to an inbound rule on the Azure Storage firewall. It might take up to 15 minutes after the firewall settings have been updated for the search service indexer to be able to access the Azure Storage account.
 
 ```azurepowershell
 

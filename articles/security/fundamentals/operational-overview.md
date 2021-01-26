@@ -169,21 +169,21 @@ Blueprints provide a declarative way to orchestrate the deployment of various re
 
 ## DevOps
 
-Before [Developer Operations (DevOps)](https://www.visualstudio.com/learn/what-is-devops/) application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tested the program in an isolated development environment. If requirements were met, the QA team released the code for operations to deploy. The deployment teams were further fragmented into groups like networking and database. Each time a software program was “thrown over the wall” to an independent team, it added bottlenecks.
+Before [Developer Operations (DevOps)](https://azure.microsoft.com/overview/what-is-devops/) application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tested the program in an isolated development environment. If requirements were met, the QA team released the code for operations to deploy. The deployment teams were further fragmented into groups like networking and database. Each time a software program was “thrown over the wall” to an independent team, it added bottlenecks.
 
 DevOps enables teams to deliver more secure, higher-quality solutions faster and more cheaply. Customers expect a dynamic and reliable experience when consuming software and services. Teams must rapidly iterate on software updates and measure the impact of the updates. They must respond quickly with new development iterations to address issues or provide more value.  
 
 Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
 
-Mature DevOps practitioners adopt several of the following practices. These practices [involve people](https://www.visualstudio.com/learn/what-is-devops-culture/) to form strategies based on the business scenarios. Tooling can help automate the various practices.
+Mature DevOps practitioners adopt several of the following practices. These practices [involve people](/azure/devops/learn/what-is-devops-culture) to form strategies based on the business scenarios. Tooling can help automate the various practices.
 
 - [Agile planning and project management](https://www.visualstudio.com/learn/what-is-agile/) techniques are used to plan and isolate work into sprints, manage team capacity, and help teams quickly adapt to changing business needs.
-- [Version control, usually with Git](https://www.visualstudio.com/learn/what-is-git/), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
-- [Continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
-- [Continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/) of software solutions to production and testing environments helps organizations quickly fix bugs and respond to ever-changing business requirements.
-- [Monitoring](https://www.visualstudio.com/learn/what-is-monitoring/) of running applications--including production environments for application health, as well as customer usage--helps organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
-- [Infrastructure as Code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) is a practice that enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
-- [Microservices](https://www.visualstudio.com/learn/what-are-microservices/) architecture is used to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
+- [Version control, usually with Git](/azure/devops/learn/git/what-is-git), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
+- [Continuous integration](/azure/devops/learn/what-is-continuous-integration) drives the ongoing merging and testing of code, which leads to finding defects early.  Other benefits include less time wasted on fighting merge issues and rapid feedback for development teams.
+- [Continuous delivery](/azure/devops/learn/what-is-continuous-delivery) of software solutions to production and testing environments helps organizations quickly fix bugs and respond to ever-changing business requirements.
+- [Monitoring](/azure/devops/learn/what-is-monitoring) of running applications--including production environments for application health, as well as customer usage--helps organizations form a hypothesis and quickly validate or disprove strategies.  Rich data is captured and stored in various logging formats.
+- [Infrastructure as Code (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) is a practice that enables the automation and validation of creation and teardown of networks and virtual machines to help with delivering secure, stable application hosting platforms.
+- [Microservices](/azure/devops/learn/what-are-microservices) architecture is used to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
 
 ## Next steps
 
