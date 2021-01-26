@@ -34,7 +34,7 @@ rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
-For more information on available images see [Find and use Azure Marketplace VM images with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+For more information on available images see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
 
 ## Qualify for Multi-tenant hosting rights 
 To qualify for multi-tenant hosting rights and to run Windows 10 images on Azure users must have one of the following subscriptions: 
