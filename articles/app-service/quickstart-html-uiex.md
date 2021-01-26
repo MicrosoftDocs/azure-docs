@@ -60,6 +60,7 @@ The command may take a few minutes to complete. It lets you know what it's doing
 <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
 </ul>
 While running, it displays information similar to the following example:
+
 ```output
 {
   "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
@@ -73,6 +74,7 @@ While running, it displays information similar to the following example:
   &lt; JSON data removed for brevity. &gt;
 }
 ```
+
 </details>
 
 <hr/>
