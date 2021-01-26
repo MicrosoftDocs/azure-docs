@@ -128,7 +128,26 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
 
-	![Templafy SAML2 User Attributes](media/templafy-saml-2-provisioning-tutorial/user-attribute.png)
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Boolean|
+   |displayName|String|
+   |title|String|
+   |preferredLanguage|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |externalId|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Templafy**.
 
@@ -136,7 +155,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to Templafy SAML2 in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Templafy SAML2 for update operations. Select the **Save** button to commit any changes.
 
-	![Templafy SAML2 Group Attributes](media/templafy-saml-2-provisioning-tutorial/group-attribute.png)
+      |Attribute|Type|Supported for filtering|
+      |---|---|---|
+      |displayName|String|&check;|
+      |members|Reference|
+      |externalId|String|      
+
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

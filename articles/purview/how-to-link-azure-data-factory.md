@@ -93,9 +93,9 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 | Data storage system | Supported as source | Supported as sink |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (no JSON support) | Yes | Yes (non-binary copy only) |
-| ADLS Gen2 (no JSON support) | Yes | Yes |
-| Azure Blob (no JSON support) | Yes | Yes |
+| ADLS Gen1 | Yes | Yes (non-binary copy only) |
+| ADLS Gen2 | Yes | Yes |
+| Azure Blob | Yes | Yes |
 | Azure Cosmos DB (SQL API) | Yes | Yes |
 | Azure Cosmos DB (Mongo API) | Yes | Yes |
 | Azure Cognitive Search | Yes | Yes |

@@ -397,7 +397,7 @@ For more information, see [Virtual machine sizes](../../virtual-machines/sizes.m
 
 #### Disk encryption sets
 
-There's a limitation of 50 disk encryption sets per region, per subscription. For more
+There's a limitation of 1000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
 [Linux](../../virtual-machines/disk-encryption.md#restrictions) or
 [Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you
