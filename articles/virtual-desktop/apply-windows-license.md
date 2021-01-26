@@ -57,5 +57,5 @@ $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object Reso
 ```
 
 
-# Requirements if deploying Windows Server Remote Desktop Services
-If you are deploying Windows Server 2012 R2, 2016 or 2019 as Windows Virtual Desktop hosts in your deployment, you will require a Remote Desktop License Server to be accessible from those virtual machines, this could be located on-premises or in Azure. Further information is available here: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-activate-license-server
+## Requirements if deploying Windows Server Remote Desktop Services
+If you deploy Windows Server 2019, 2016, or 2012 R2 as Windows Virtual Desktop hosts in your deployment, a Remote Desktop Services license server must be accessible from those virtual machines. The Remote Desktop Services license server can be located on-premises or in Azure. For more information, see [Activate the Remote Desktop Services license server](/windows-server/remote/remote-desktop-services/rds-activate-license-server).
