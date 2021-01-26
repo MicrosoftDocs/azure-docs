@@ -601,24 +601,24 @@
       href: dedicated-hosts-portal.md
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md    
+  - name: Spot Virtual Machines
+    displayName: pre-empt, preempt, spot
+    items:
+    - name: Overview
+      href: spot-vms.md
+    - name: CLI
+      href: ./linux/spot-cli.md
+    - name: Portal
+      href: spot-portal.md
+    - name: PowerShell
+      href: ./windows/spot-powershell.md
+    - name: ARM template
+      displayName: template ARM
+      href: ./linux/spot-template.md
+    - name: Error codes
+      href: error-codes-spot.md
   - name: Purchasing options
     items:
-    - name: Spot VMs
-      displayName: pre-empt, preempt, spot
-      items:
-      - name: Overview
-        href: spot-vms.md
-      - name: CLI
-        href: ./linux/spot-cli.md
-      - name: Portal
-        href: spot-portal.md
-      - name: PowerShell
-        href: ./windows/spot-powershell.md
-      - name: ARM template
-        displayName: template ARM
-        href: ./linux/spot-template.md
-      - name: Error codes
-        href: error-codes-spot.md
     - name: Azure Hybrid Benefit
       items:
       - name: Linux
@@ -1748,7 +1748,7 @@
     - name: Pricing
       href: ../backup/azure-backup-pricing.md
     - name: FAQ
-      href: ../backup/backup-azure-vm-backup-faq.md
+      href: ../backup/backup-azure-vm-backup-faq.yml
   - name: Disaster recovery
     items:
     - name: Overview
