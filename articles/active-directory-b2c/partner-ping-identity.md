@@ -45,7 +45,7 @@ Proxies in this case will support the modern authentication protocols and use th
 Azure AD B2C has the ability to define **policies** that drives different user experiences and behaviors that are also called **user journeys** as orchestrated from the server end. Each such policy exposes a protocol endpoint that can perform the authentication as if it were an IdP. There is no special handling needed on the application side for specific policies. Application simply makes an industry standard authentication request to the protocol-specific authentication endpoint exposed by the policy of interest.  
 Azure AD B2C can be configured to share the same issuer across multiple policies or unique issuer for each policy. Each application can point to one or many of these policies by making a protocol native authentication request and drive desired user behaviors such as sign-in, sign-up, and profile edits. The diagram shows OIDC and SAML application workflows.
 
-![image shows the OIDC and SAML implementation](./media/partner-ping/azuread-idp.png)
+![image shows the OIDC and SAML implementation](./media/partner-ping/azure-ad-identity-provider.png)
 
 While the scenario mentioned works well for modernized applications, it can be challenging for the legacy applications to appropriately redirect the user as the access request to the applications may not include the context for user experience. In most cases the proxy layer or an integrated agent on the web application intercepts the access request.
 
@@ -55,7 +55,7 @@ Many customers have deployed PingAccess as the reverse proxy to play one or many
 
 PingAccess can be configured with OIDC, OAuth2, or SAML to perform authentication against an upstream authentication provider. A single upstream IdP can be configured for this purpose on the PingAccess server. The following diagram shows this configuration.
 
-![image shows the PingAccess with OIDC implementation](./media/partner-ping/oidc-authorization.png)
+![image shows the PingAccess with OIDC implementation](./media/partner-ping/authorization-flow.png)
 
 In a typical Azure AD B2C deployment where multiple policies are exposing multiple **IdPs**, it poses a challenge. Since PingAccess can only be configured with a single upstream IdP.  
 
