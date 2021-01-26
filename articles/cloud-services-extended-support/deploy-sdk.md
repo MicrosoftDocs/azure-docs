@@ -17,9 +17,12 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
 > [!IMPORTANT]
 > Cloud Services (extended support) is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
+## Before you begin
 
-2. Install the [Azure Compute SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) and initialize the client using a standard authentication mechanism.
+Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
+
+## Create a Cloud Services (extended support)
+1. Install the [Azure Compute SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) and initialize the client using a standard authentication mechanism.
 
     ```csharp
         public class CustomLoginCredentials : ServiceClientCredentials
@@ -55,7 +58,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
         m_SrpClient.SubscriptionId = m_subId;
     ```
 
-3. Create a new resource group by installing the Azure Resource Manager NuGet package.
+2. Create a new resource group by installing the Azure Resource Manager NuGet package.
 
     ```csharp 
     var resourceGroups = m_ResourcesClient.ResourceGroups;
@@ -65,7 +68,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if using an existing storage account. The storage account name must be unique.
+3. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if using an existing storage account. The storage account name must be unique.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -101,7 +104,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-5. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be a Shared Access Signature (SAS) URI from any storage account.
+4. Upload the Cloud Service package (.cspkg) file to the storage account. The package URL can be a Shared Access Signature (SAS) URI from any storage account.
 
     ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
@@ -114,7 +117,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
     ```
 
-6. Upload your cloud service configuration (.cscfg) to the storage account. Service Configuration can be specified either as string XML or URL format.
+5. Upload your cloud service configuration (.cscfg) to the storage account. Service Configuration can be specified either as string XML or URL format.
 
     ```csharp
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
@@ -127,7 +130,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-7. Create a virtual network and subnet. Install the [Azure Network NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.Network/). This step is optional if using an existing network and subnet.
+6. Create a virtual network and subnet. Install the [Azure Network NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.Network/). This step is optional if using an existing network and subnet.
 
     ```csharp
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
@@ -148,7 +151,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-8. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a static IP, it needs to referenced as a Reserved IP in Service Configuration file.
+7. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you are using a static IP, it needs to referenced as a Reserved IP in Service Configuration file.
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -163,7 +166,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-9. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer.
+8. Create Network Profile Object and associate public IP address to the frontend of the platform created load balancer.
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
@@ -198,13 +201,13 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     
     ```
 
-10. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+9. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
     ```
 
-11. Update the Key Vault access policy and grant certificate permissions to your user account.
+10. Update the Key Vault access policy and grant certificate permissions to your user account.
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg' 		-UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
@@ -216,14 +219,14 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -		ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates 			create,get,list,delete
     ```
 
-12. In this example we will add a self-signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles.
+11. In this example we will add a self-signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles.
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -		SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -		CertificatePolicy $Policy
     ```
 
-13. Create an OS Profile object. OS Profile specifies the certificates, which are associated to cloud service roles. This will be the same certificate created in the previous step.
+12. Create an OS Profile object. OS Profile specifies the certificates, which are associated to cloud service roles. This will be the same certificate created in the previous step.
 
     ```csharp
     CloudServiceOsProfile cloudServiceOsProfile = 
@@ -239,7 +242,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
            };
     ```
 
-14. Create a Role Profile object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
+13. Create a Role Profile object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
 
     ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
@@ -273,7 +276,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
                     }
     ```
 
-15. (Optional) Create an Extension Profile object that you want to add to your cloud service. In this example we will add RDP extension.
+14. (Optional) Create an Extension Profile object that you want to add to your cloud service. In this example we will add RDP extension.
 
     ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
@@ -305,7 +308,7 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
         };
     ```
 
-16. Create Cloud Service deployment.
+15. Create Cloud Service deployment.
 
     ```csharp
     CloudService cloudService = new CloudService
@@ -330,3 +333,4 @@ This article shows how to use the [Azure SDK](https://azure.microsoft.com/downlo
 ## Next steps
 - Review [frequently asked questions](faq.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
+- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

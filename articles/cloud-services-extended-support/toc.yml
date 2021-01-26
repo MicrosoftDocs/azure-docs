@@ -67,6 +67,8 @@
     href: certificates-and-key-vault.md
 - name: Samples
   items: 
+  - name: Sample Templates
+    href: https://github.com/Azure-Samples/cloud-services-extended-support
   - name: Create a new Cloud Service
     href: sample-create-cloud-service.md
   - name: Get Cloud Service details
