@@ -1617,6 +1617,32 @@ You'll receive a `200` success response, with JSON data like the following.
 }
 ```
 
+### Delete a model from the resource account
+
+You can also delete a model from your account by referencing its ID. This command deletes the model used in the previous section.
+
+1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{subscription key}` with the subscription key you copied from the previous step.
+1. Replace `{modelId}` with the ID of the custom model you want to look up.
+
+# [v2.0](#tab/v2-0)    
+
+```bash
+curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}"
+-H "Ocp-Apim-Subscription-Key: {subscription key}"
+```
+
+# [v2.1 preview](#tab/v2-1)
+
+```bash
+curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}"
+-H "Ocp-Apim-Subscription-Key: {subscription key}"
+```
+---
+
+You'll receive a `204` success response, indicating that your model is marked for deletion. Model artifacts will be removed within 48 hours.
+
+
 ## Next steps
 
 In this quickstart, you used the Form Recognizer REST API to train models and analyze forms in different ways. Next, see the reference documentation to explore the Form Recognizer API in more depth.
