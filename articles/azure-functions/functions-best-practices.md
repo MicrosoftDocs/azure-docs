@@ -61,9 +61,30 @@ If a queue item was already processed, allow your function to be a no-op.
 
 Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
-## Group functions with care
+## Function organization best practices
 
-TODO
+Often you will create multiple functions as part of a solution. You can combine multiple functions into a function app, and for all tiers except consumption, multiple function apps can share the same resources allocated to your hosting plans. Making decisions about how to group functions and apps can impact the performance, configuration, deployment, and security of your application.
+
+### Organize functions for performance
+
+Each function that you create has a memory footprint, and while it's small, having too many functions within a function app can mean that it's slower to scale your app to new instances, and the memory usage of your function app might be higher.
+
+If you deploy multiple function apps onto a single Elastic Premium or dedicated App Service plan, these will be scaled together. This might be undesirable if you have one function app that has higher memory requirements than the others, since it might use a disproportionate amount of memory resources from each instance your app is deployed to.
+
+> [!NOTE]
+> It doesn't matter if you put multiple apps on a single consumption plan, since Azure Functions will scale each app independently.
+
+You should also consider whether you want to group functions with different load profiles. For example, if you have a function that processes many thousands of queue messages, and another that is only called occasionally but has high memory requirements, you might want to separate them so they get their own sets of resources and they scale independently of each other.
+
+### Organize functions for configuration and deployment
+
+Function apps have a `host.json` file, which can be used to configure advanced behavior of function triggers and the Azure Functions runtime. Changes to the `host.json` file apply to all functions within the app, so if you have some functions that need specific custom configuration, consider moving them into their own app.
+
+Functions are deployed at the level of the function app. If you need to deploy individual functions separately, or use features like [deployment slots](./functions-deployment-slots.md) for some functions and not others, then you should consider putting functions into different function apps.
+
+### Organize functions by privilege 
+
+Connection strings and other credentials stored in application settings gives all of the functions in the function app the same set of permissions in the associated resource. Consider minimizing the number of functions with access to specific credentials by moving functions that don't use those credentials to a separate function app. You can always use techniques such as [function chaining](/learn/modules/chain-azure-functions-data-using-bindings/) to pass data between functions in different function apps.  
 
 ## Scalability best practices
 
