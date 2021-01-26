@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 01/15/2020
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -13,38 +13,57 @@ ms.topic: how-to
 
 In this tutorial, we describe how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 
-If you have already uploaded or modified media files in the managed portal, you need to follow the [[Move from managed to self-hosted]] guide instead.
+If you have already uploaded or modified media files in the managed portal, you need to follow the [Move from managed to self-hosted](dev-portal-move-managed-self-hosted.md) guide instead.
 
 ## Requirements
 
 To set up a local development environment, you need to have:
 
-- API Management instance. If you don't have one, [follow this tutorial](get-started-create-service-instance.md).
-- Storage Account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. Learn [how to create a new Storage Account in Azure](../storage/common/storage-account-create.md).
+- An API Management service instance. If you don't have one, [follow this tutorial](get-started-create-service-instance.md).
+- A Storage Account with [the static websites feature](../storage/blobs/storage-blob-static-website.md) enabled. Learn [how to create a new Storage Account in Azure](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Node.js (LTS version, `v10.15.0` or later) and npm on your machine. Follow [this tutorial](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install them.
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli-windows).
 
 ## Step 1: Setup local environment
 
-Clone the repository, switch to the latest developer portal release, and install npm packages.
+To set up your local environment, you'll have to clone the repository, switch to the latest developer portal release, and install npm packages.
 
-Before you run the code below, check the current release tag in the [Releases section of the repository](https://github.com/Azure/api-management-developer-portal/releases) and replace the sample `10.11.12` value below with it.
+1. Clone the api-management-developer-portal repo from GitHub:
 
-```sh
-git clone https://github.com/Azure/api-management-developer-portal.git
-cd api-management-developer-portal
-git checkout 10.11.12
-npm install
-```
+    ```console
+    git clone https://github.com/Azure/api-management-developer-portal.git
+    ```
+1. Go to your local copy of the repo:
 
-Note: If you wish to have the best experience with the developer portal, always use the latest [GitHub release](https://github.com/Azure/api-management-developer-portal/releases) and keep updating your fork. The `master` branch of this repository is used for daily development purposes and contains unstable version of the software.
+    ```console
+    cd api-management-developer-portal
+    ```
 
-## Step 2: Configure
+1. Check out the latest release of the portal:
+
+    Before you run the code below, check the current release tag in the [Releases section of the repository](https://github.com/Azure/api-management-developer-portal/releases) and replace <current-release-tag> value below with the latest release tag.
+    
+    ```console
+    git checkout <current-release-tag>
+    ```
+
+1. Install any available npm packages:
+
+    ```console
+    npm install
+    ```
+
+> [!NOTE]
+> If you wish to have the best experience with the developer portal, always use the latest [GitHub release](https://github.com/Azure/api-management-developer-portal/releases) and keep updating your fork. The Software Engineers use the `master` branch of this repository for daily development purposes. It contains unstable version of the software.
+
+## Step 2: Configure JSON files and Static website
 
 The developer portal requires API Management's REST API to manage the content.
 
-### File `./src/config.design.json`
+### config.design.json file
+
+Go to the `/scr/` folder and open the `config.design.json` file.
 
 ```json
 {
@@ -56,12 +75,37 @@ The developer portal requires API Management's REST API to manage the content.
 }
 ```
 
-1. Replace `<service-name>` in `"managementApiUrl": "https://<service-name>.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/<service-name>"` with the name of your API Management instance. For example: `https://contoso-api.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/contoso-api`. You don't need to replace the `xxx...x` strings.
-1. [Enable the direct REST API access](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken) to your API Management instance. Copy the generated token and place it in the `"managementApiAccessToken": "SharedAccessSignature ..."` parameter.
-1. Replace `<service-name>` in `"backendUrl": "https://<service-name>.management.azure-api.net"` with the name of your API Management instance. For example: `https://contoso-api.management.azure-api.net`.
-1. If you'd like to enable CAPTCHA in your developer portal, follow the [[Enable CAPTCHA]] tutorial.
+Configure the file:
+
+1. In the `managementApiUrl` value, replace `<service-name>` with the name of your API Management instance. For example:
+
+    ```json
+    {
+    ...
+    "managementApiUrl": "https://contoso-api.management.azure-api.net/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx/providers/Microsoft.ApiManagement/service/contoso-api"
+    {
+    ``` 
+
+    You don't need to replace the `xxx...x` strings.
+
+1. [Manually create a SAS token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken) to enable the direct REST API access to your API Management instance.
+
+1. Copy the generated token and paste it as the `managementApiAccessToken` value.
+
+1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. For example:
+
+    ```json
+    {
+    ...
+    "backendUrl": "https://contoso-api.management.azure-api.net"
+    {
+    ```
+
+1. If you'd like to enable CAPTCHA in your developer portal, follow the [Enable CAPTCHA](dev-portal-enable-captcha.md) tutorial.
 
 ### File `./src/config.publish.json`
+
+Go to the `/scr/` folder and open the `config.publish.json` file.
 
 ```json
 {
@@ -72,11 +116,19 @@ The developer portal requires API Management's REST API to manage the content.
 }
 ```
 
-1. Copy and paste the `"managementApiUrl"`, and `"managementApiAccessToken"` values from the previous configuration file.
-1. Provide the connection string to your Storage Account in the `"blobStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=..."` parameter. You can find it the *Access keys* section of your Storage Account in the Azure portal. This storage account will host your portal.
-1. If you'd like to enable CAPTCHA in your developer portal, follow the [[Enable CAPTCHA]] tutorial.
+Configure the file:
 
-### File `./src/config.runtime.json`
+1. Copy and paste the `managementApiUrl`, and `managementApiAccessToken` values from the previous configuration file.
+
+1. Provide the connection string to your Storage Account in the `"blobStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=..."` parameter.
+
+    You can find it the *Access keys* section of your Storage Account in the Azure portal. This storage account will host your portal.
+
+1. If you'd like to enable CAPTCHA in your developer portal, follow the [Enable CAPTCHA](dev-portal-enable-captcha.md) tutorial.
+
+### config.runtime.json file
+
+Go to the `/scr/` folder and open the `config.runtime.json` file.
 
 ```json
 {
@@ -86,34 +138,57 @@ The developer portal requires API Management's REST API to manage the content.
 }
 ```
 
-1. Copy and paste the `"managementApiUrl"` value from the previous configuration file.
-1. Replace `<service-name>` in `"backendUrl": "https://<service-name>.developer.azure-api.net"` with the name of your API Management instance.
+Configure the file:
 
-### Storage Account
+1. Copy and paste the `managementApiUrl` value from the previous configuration file.
+
+1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. For example:
+
+    ```json
+    {
+    ...
+    "backendUrl": "https://contoso-api.management.azure-api.net"
+    ...
+    {
+    ```
+### Configure the Static website
 
 Configure the *Static website* feature in your Storage Account by providing routes to the index and error pages:
 
-1. Navigate to your Storage Account in the Azure portal and click on *Static website* from the menu on the left.
-1. In the field *Index document name* type *index.html*.
-1. In the field *Error document path* type *404/index.html*.
-1. Click *Save*.
+1. Go to your Storage Account in the Azure portal and select **Static website** from the menu on the left.
 
-Enable CORS:
+1. On the **Static website** page, select **Enabled**.
 
-1. Navigate to your Storage Account in the Azure portal and click on *CORS* from the menu on the left.
-1. Set:
-    - *Allowed origins* to **\***
-    - *Allowed headers* to **\***
-    - *Exposed headers* to **\***
-    - *Max age* to **0**
-1. Select all the HTTP verbs in the *Allowed methods* column.
-1. Click *Save*.
+1. In the **Index document name** field, type *index.html*.
+
+1. In the **Error document path** field, type *404/index.html*.
+
+1. Select **Save**.
+
+### Enable CORS
+
+Configure the Cross-Origin Resource Sharing (CORS) settings:
+
+1. Navigate to your Storage Account in the Azure portal and select **CORS** from the menu on the left.
+
+1. Configure the rules as follows:
+
+    | Rule | Value |
+    | ---- | ----- |
+    | Allowed origins | * |
+    | Allowed methods | Select all the HTTP verbs. |
+    | Allowed headers | * |
+    | Exposed headers | * |
+    | Max age | 0 |
+
+1. Select **Save**.
 
 ## Step 3: Provision the default template
 
-API Management service does not contain any portal content by default, so you need to provision it manually. Do not run this step if you already have the portal content in your API Management service (for example, if you're migrating from the managed version).
+> [!CAUTION]
+> Skip this step if you already have the portal content in your API Management service. For example, if you're migrating from the managed version, you don't have to do this step.
 
-First, specify the following parameters in the `scripts\generate.bat` file:
+API Management service doesn't contain any portal content by default. You need to provision it manually. 
 
 ```sh
 set management_endpoint="<service-name>.management.azure-api.net"
@@ -121,20 +196,29 @@ set access_token="SharedAccessSignature ..."
 set source_folder="..."
 ```
 
-| Parameter name in `generate.bat` | Parameter description                                  | Notes                                                                                                                                                                                                               |
-|----------------------------------|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `management_endpoint`            | API Management direct API endpoint                     |                                                                                                                                                                                                                     |
-| `access_token`                   | API Management REST API access token                   | It's the same access token you used for the `./src/config.design.json` and `./src/config.publish.json` files.                                                                                                       |                                                                                                                                                                               |
-| `source_folder`                    | Location of the folder with the data and media content.| You don't need to change this value.                                                                                                                                                                                |
+Configure the file:
 
+1. Go to the `/scripts.v2/` folder and open the `generate.bat` file.
+
+1. Configure the parameters as follows:
+
+| Parameter | Parameter description | Notes |
+| --------- | --------------------- | ----- |
+| `management_endpoint` | API Management direct API endpoint | |
+| `access_token` | API Management REST API access token | It's the same access token you used for the `./src/config.design.json` and `./src/config.publish.json` files. |
+| `source_folder` | Location of the folder with the data and media content.| You don't need to change this value. |
+
+1. Save and close the file.
 
 Execute the data generation script, which will upload content through the REST API:
 
-```sh
-cd scripts.v2
-.\generate.bat
-cd ..
-```
+1. Run the batch file:
+
+    ```sh
+    cd scripts.v2
+    .\generate.bat
+    cd ..
+    ```
 
 ## Step 4: Run the portal
 
@@ -164,15 +248,19 @@ npm run publish
 
 ![API Management developer portal development - generate static files](media/dev-portal/readme-dev-generate.png)
 
-## Step 7: Upload
+## Step 7: Upload static files to a blob
 
 Use Azure CLI to upload the locally generated static files to a blob, and make them accessible to your visitors:
 
-```sh
-az storage blob upload-batch --source dist/website --destination $web --connection-string <account-connection-string>
-```
+1. Open Windows Command Prompt or PowerShell.
 
-Replace `<account-connection-string>` with the connection string of your Storage Account. You can get it from the *Access keys* section of your Storage Account, similarly to how you did it for the `./src/config.publish.json` file.
+1. Run this Azure CLI command:
+
+    ```azurecli
+    az storage blob upload-batch --source dist/website --destination $web --connection-string <account-connection-string>
+    ```
+
+1. Replace `<account-connection-string>` with the connection string of your Storage Account. You can get it from the *Access keys* section of your Storage Account.
 
 ![API Management developer portal development - publish portal](media/dev-portal/readme-dev-upload.png)
 
@@ -184,21 +272,127 @@ Your website is now live under the hostname specified in your Azure Storage prop
 
 ## Step 9: Change API Management notification templates
 
-You need to replace the developer portal URL in the API Management notification templates to point to the self-hosted portal. [This Azure documentation article](https://docs.microsoft.com/azure/api-management/api-management-howto-configure-notifications) explains how to edit them.
+You need to replace the developer portal URL in the API Management notification templates to point to the self-hosted portal. See [How to configure notifications and email templates in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-configure-notifications).
 
-In particular, we recommend the following changes to the default templates 
+In particular, carry out the following changes to the default templates:
 
-| Notification template | Original content part to modify | Example of content part modification (assuming portal hosted at `https://portal.contoso.com/`) |
-| -- | -- | -- |
-| Email change confirmation |  `<a id="confirmUrl" href="$ConfirmUrl" style="text-decoration:none"><strong>$ConfirmUrl</strong></a>` |
-| New developer account confirmation | `<a id="confirmUrl" href="$ConfirmUrl" style="text-decoration:none"><strong>$ConfirmUrl</strong></a>` | `<a id="confirmUrl" href="https://portal.contoso.com/signup?$ConfirmQuery" style="text-decoration:none"><strong>https://portal.contoso.com/signup?$ConfirmQuery</strong></a>` |
-| Invite user | `<a href="$ConfirmUrl">$ConfirmUrl</a>` | `<a href="https://portal.contoso.com/confirm-v2/identities/basic/invite?$ConfirmQuery">https://portal.contoso.com/confirm-v2/identities/basic/invite?$ConfirmQuery</a>` |
-| New subscription activated | `Visit the developer <a href="http://$DevPortalUrl/developer">profile area</a> to manage your subscription and subscription keys` | `Visit the developer <a href="https://portal.contoso.com/profile">profile area</a> to manage your subscription and subscription keys` |
-| New subscription activated | `Thank you for subscribing to the <a href="http://$DevPortalUrl/products/$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!` | `Thank you for subscribing to the <a href="https://portal.contoso.com/product#product=$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!` |
-| New subscription activated | `<a href="http://$DevPortalUrl/docs/services?product=$ProdId">Learn about the API</a>` | `<a href="https://portal.contoso.com/product#product=$ProdId">Learn about the API</a>` |
-| New subscription activated | `<p style="font-size:12pt;font-family:'Segoe UI'"><strong><a href="http://$DevPortalUrl/applications">Feature your app in the app gallery</a></strong></p><p style="font-size:12pt;font-family:'Segoe UI'">You can publish your application on our gallery for increased visibility to potential new users.</p><p style="font-size:12pt;font-family:'Segoe UI'"><strong><a href="http://$DevPortalUrl/issues">Stay in touch</a></strong></p><p style="font-size:12pt;font-family:'Segoe UI'">If you have an issue, a question, a suggestion, a request, or if you just want to tell us something, go to the <a href="http://$DevPortalUrl/issues">Issues</a> page on the developer portal and create a new topic.</p>` | (remove) |
-| Password change confirmation | `<a href="$DevPortalUrl">$DevPortalUrl</a>` | `<a href="https://portal.contoso.com/confirm-password?$ConfirmQuery">https://portal.contoso.com/confirm-password?$ConfirmQuery</a>` |
-| All templates | *Footer link pointing to the developer portal* | *Use `https://portal.contoso.com/` instead* |
+> [!NOTE]
+> The values in the **Modified content** sections assume that the portal is hosted at **https:\//portal.contoso.com/**.
+
+### Email Change Confirmation
+
+**Original content**
+
+```html
+<a id="confirmUrl" href="$ConfirmUrl" style="text-decoration:none">
+  <strong>$ConfirmUrl</strong></a>
+```
+
+**Modified content**
+
+```html
+
+```
+
+### New developer account confirmation
+
+**Original content**
+
+```html
+<a id="confirmUrl" href="$ConfirmUrl" style="text-decoration:none">
+  <strong>$ConfirmUrl</strong></a>
+```
+
+**Modified content**
+
+```html
+<a id="confirmUrl" href="https://portal.contoso.com/signup?$ConfirmQuery" style="text-decoration:none"><strong>https://portal.contoso.com/signup?$ConfirmQuery</strong></a>
+```
+
+### Invite user
+
+**Original content**
+
+```html
+<a href="$ConfirmUrl">$ConfirmUrl</a>
+```
+
+**Modified content**
+
+```html
+<a href="https://portal.contoso.com/confirm-v2/identities/basic/invite?$ConfirmQuery">https://portal.contoso.com/confirm-v2/identities/basic/invite?$ConfirmQuery</a>
+```
+
+### New subscription activated
+
+**Original content**
+
+```html
+Thank you for subscribing to the <a href="http://$DevPortalUrl/products/$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!
+...
+Visit the developer <a href="http://$DevPortalUrl/developer">profile area</a> to manage your subscription and subscription keys
+...
+<a href="http://$DevPortalUrl/docs/services?product=$ProdId">Learn about the API</a>
+...
+<p style="font-size:12pt;font-family:'Segoe UI'">
+  <strong>
+    <a href="http://$DevPortalUrl/applications">Feature your app in the app gallery</a>
+  </strong>
+</p>
+<p style="font-size:12pt;font-family:'Segoe UI'">You can publish your application on our gallery for increased visibility to potential new users.</p>
+<p style="font-size:12pt;font-family:'Segoe UI'">
+  <strong>
+    <a href="http://$DevPortalUrl/issues">Stay in touch</a>
+  </strong>
+</p>
+<p style="font-size:12pt;font-family:'Segoe UI'">
+      If you have an issue, a question, a suggestion, a request, or if you just want to tell us something, go to the <a href="http://$DevPortalUrl/issues">Issues</a> page on the developer portal and create a new topic.
+</p>
+```
+
+**Modified content**
+
+```html
+Thank you for subscribing to the <a href="https://portal.contoso.com/product#product=$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!
+...
+Visit the developer <a href="https://portal.contoso.com/profile">profile area</a> to manage your subscription and subscription keys
+...
+<a href="https://portal.contoso.com/product#product=$ProdId">Learn about the API</a>
+...
+<!--Remove corresponding content seen above: 
+    Feature your app ..., You can publish ...,
+    Stay in touch, and so on.-->
+```
+
+### Password change confirmation
+
+**Original content**
+
+```html
+<a href="$DevPortalUrl">$DevPortalUrl</a>
+```
+
+**Modified content**
+
+```html
+<a href="https://portal.contoso.com/confirm-password?$ConfirmQuery">https://portal.contoso.com/confirm-password?$ConfirmQuery</a>
+```
+
+### All templates
+
+For any template that asa link to the Dev Portal in the footer:
+
+**Original content**
+
+```html
+<a href="$DevPortalUrl">$DevPortalUrl</a>
+```
+
+**Modified content**
+
+```html
+<a href="https://portal.contoso.com/">https://portal.contoso.com/</a>
+```
 
 ## Next steps
 
