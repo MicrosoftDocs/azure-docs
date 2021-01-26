@@ -69,7 +69,7 @@ When a Purview user registers an ADF to which they have access to, the following
 
 1. The **Data Factory MSI** gets added to Purview RBAC role- **Purview Data Curator**.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
 2. The Data Factory needs to be executed again so that the lineage metadata can be pushed back into Purview.
 3. Post execution the ADF metadata is pushed into Purview.
