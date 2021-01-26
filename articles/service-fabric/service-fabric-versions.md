@@ -51,7 +51,7 @@ Upgrade to a supported Service Fabric version to prevent downtime or loss of fun
 
 ### Upgrade alert for versions later than 6.3
 
-To improve security and availability, Azure infrastructure has made a change that might affect Service Fabric customers. This change will affect all Service Fabric clusters that use [Open networking mode for containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) and run versions 6.3 to 7.0 or incompatible supported versions later than 7.0. An update to the Service Fabric runtime is available for all supported Service Fabric versions in all regions.
+To improve security and availability, Azure infrastructure has made a change that might affect Service Fabric customers. This change will affect all Service Fabric clusters that use [Open networking mode for containers](./service-fabric-networking-modes.md#set-up-open-networking-mode) and run versions 6.3 to 7.0 or incompatible supported versions later than 7.0. An update to the Service Fabric runtime is available for all supported Service Fabric versions in all regions.
 
 #### If you don't upgrade to a supported version
 

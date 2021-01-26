@@ -43,7 +43,9 @@ These are the supported types of endpoints that you can create for your instance
 
 For more information on the different endpoint types, see [*Choose between Azure messaging services*](../event-grid/compare-messaging-services.md).
 
-To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or Service Bus that you're using for the endpoint needs to exist already. 
+This section explains how to create one of these endpoints using the Azure CLI.
+
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
 ### Create an Event Grid endpoint
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 10/14/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
@@ -14,8 +14,10 @@ organization, such as:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- If you've not used Azure Blueprints before, register the resource provider through Azure CLI with
+  `az provider register --namespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
