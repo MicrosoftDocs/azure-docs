@@ -32,14 +32,21 @@ A common challenge when building cloud applications is how to securely distrute 
     
 ## Use KeyVaultReferences in your application
 KeyVaultReferences can be consumed in a number of ways
-- [As an application parameter of you Service Fabric Reliable Service](#as-an-application-parameter)
-- [Mounted as a file into your container](#mounted-as-a-file-into-your-container)
 - [As an environment variable](#as-an-environment-variable)
+- [Mounted as a file into your container](#mounted-as-a-file-into-your-container)
 - [As a reference to a container repository password](#as-a-reference-to-a-container-repository-password)
 
-### As an application parameter
+### As an environment variable
 
-[TODO]
+```xml
+<EnvironmentVariables>
+      <EnvironmentVariable Name="MySecret" Type="KeyVaultReference" Value="<KeyVaultURL>"/>
+</EnvironmentVariables>
+```
+
+```C#
+string secret =  Environment.GetEnvironmentVariable("MySecret");
+```
 
 ### Mounted as a file into your container
 
@@ -83,18 +90,6 @@ KeyVaultReferences can be consumed in a number of ways
     > [!NOTE] 
     > MountPoint controls the folder where the files containing secret values will be mounted.
 
-### As an environment variable
-
-```xml
-<EnvironmentVariables>
-      <EnvironmentVariable Name="MySecret" Type="KeyVaultReference" Value="<KeyVaultURL>"/>
-</EnvironmentVariables>
-```
-
-```C#
-string secret =  Environment.GetEnvironmentVariable("MySecret");
-```
-
 ### As a reference to a container repository password
 
 ```xml
@@ -104,8 +99,8 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
       </ContainerHostPolicies>
 ```
 
-## FAQ
-
 ## Next steps
 
 * [Azure KeyVault Documentation](../key-vault/index.yml)
+* [Learn about Central Secret Store](service-fabric-application-secret-store.md)
+* [Learn about Managed identity for Service Fabric Applications](concepts-managed-identity.md)
