@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common errors with using Azure Policy
+title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
@@ -27,7 +27,7 @@ The location of the error details depends on what aspect of Azure Policy you're 
 
 #### Issue
 
-Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Azure Resource
+An incorrect or nonexistent alias is used in a policy definition. Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Azure Resource
 Manager properties.
 
 #### Cause
@@ -84,8 +84,8 @@ or the REST API, see
 [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Ensure that the assignment parameters and assignment scope are set correctly.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
-   - The mode should be *all* for all resource types.
-   - The mode should be *indexed* if the policy definition checks for tags or location.
+   - The mode should be `all` for all resource types.
+   - The mode should be `indexed` if the policy definition checks for tags or location.
 1. Ensure that the scope of the resource isn't
    [excluded](../concepts/assignment-structure.md#excluded-scopes) or
    [exempt](../concepts/exemption-structure.md).
@@ -106,13 +106,13 @@ definition, create a support ticket under **Authoring a policy** to route the is
 #### Issue
 
 A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the
-[Azure activity log](../../../azure-monitor/platform/platform-logs-overview.md).
+[Azure Activity log](../../../azure-monitor/platform/platform-logs-overview.md).
 
 #### Cause
 
 The policy assignment has been configured for an
-[enforcementMode](../concepts/assignment-structure.md#enforcement-mode) property of _Disabled_. While
-enforcementMode is disabled, the policy effect isn't enforced, and there's no entry in the activity log.
+[**enforcementMode**](../concepts/assignment-structure.md#enforcement-mode) setting of _Disabled_. While
+**enforcementMode** is disabled, the policy effect isn't enforced, and there's no entry in the Activity log.
 
 #### Resolution
 
@@ -125,10 +125,10 @@ to become available in the Azure portal or the SDK.
 or the REST API, see
 [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Ensure that the assignment parameters and assignment scope are set correctly and that
-   enforcementMode is _Enabled_.
+   **enforcementMode** is _Enabled_.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
-   - The mode should be *all* for all resource types.
-   - The mode should be *indexed* if the policy definition checks for tags or location.
+   - The mode should be `all` for all` resource types.
+   - The mode should be `indexed` if the policy definition checks for tags or location.
 1. Ensure that the scope of the resource isn't
    [excluded](../concepts/assignment-structure.md#excluded-scopes) or
    [exempt](../concepts/exemption-structure.md).
@@ -155,7 +155,7 @@ are prevented from being created or updated.
 
 The error message from a deny policy assignment includes the policy definition and policy assignment
 IDs. If the error information in the message is missed, it's also available in the
-[activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this
+[Activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this
 information to get more details to understand the resource restrictions and adjust the resource
 properties in your request to match allowed values.
 
@@ -185,7 +185,7 @@ function into the policy definition, which allows it to be dynamic as expected. 
 
 ## Add-on for Kubernetes installation errors
 
-### Scenario: Installation by using a Helm chart fails because of a password error
+### Scenario: Installation by using a Helm Chart fails because of a password error
 
 #### Issue
 
@@ -196,14 +196,14 @@ The `helm install azure-policy-addon` command fails, and it returns one of the f
 
 #### Cause
 
-The generated password includes a comma (,), which the Helm chart is splitting on.
+The generated password includes a comma (`,`), which the Helm Chart is splitting on.
 
 #### Resolution
 
-When you run `helm install azure-policy-addon`, escape the comma (,) in the password value with a
-backslash (\\).
+When you run `helm install azure-policy-addon`, escape the comma (`,`) in the password value with a
+backslash (`\`).
 
-### Scenario: Installation by using a Helm chart fails because the name already exists
+### Scenario: Installation by using a Helm Chart fails because the name already exists
 
 #### Issue
 
@@ -213,7 +213,7 @@ The `helm install azure-policy-addon` command fails, and it returns the followin
 
 #### Cause
 
-The Helm chart with the name `azure-policy-addon` has already been installed or partially installed.
+The Helm Chart with the name `azure-policy-addon` has already been installed or partially installed.
 
 #### Resolution
 
@@ -332,12 +332,12 @@ Code="InternalServerError" Message="Encountered an internal server error.`
 
 #### Cause
 
-The *Microsoft.PolicyInsights* resource provider isn't registered. It must be registered for the
+The 'Microsoft.PolicyInsights' resource provider isn't registered. It must be registered for the
 add-on to get policy definitions and return compliance data.
 
 #### Resolution
 
-Register the *Microsoft.PolicyInsights* resource provider in the cluster subscription. For
+Register the 'Microsoft.PolicyInsights' resource provider in the cluster subscription. For
 instructions, see
 [Register a resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
