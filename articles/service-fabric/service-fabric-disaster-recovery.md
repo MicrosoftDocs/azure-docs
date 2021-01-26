@@ -97,7 +97,7 @@ For example, assume that the stateless service has an `InstanceCount` value of -
 #### Stateful services
 There are two types of stateful services:
 - Stateful with persisted state.
-- Stateful with non-persisted state. (State is stored in memory.)
+- Stateful with non-persisted state (also referred to as volatile - state is stored in memory.)
 
 Recovery from failure of a stateful service depends on the type of the stateful service, how many replicas the service had, and how many replicas failed.
 
@@ -114,7 +114,7 @@ Determining whether a disaster occurred for a stateful service and then managing
    
    Most of the time, failures are transient. Processes are restarted, nodes are restarted, virtual machines are relaunched, and network partitions heal. Sometimes, though, failures are permanent. Whether failures are permanent or not depends on whether the stateful service persists its state or whether it keeps it only in memory: 
    
-   - For services without persisted state, a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it immediately proceeds to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back. Even if they recover, the data will be lost because of the non-persisted nature of the service.
+   - For volatile services (without persisted state), a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it immediately proceeds to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back. Even if they recover, the data will be lost because of the non-persisted nature of the service.
    - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to wait for the replicas to come back and restore the quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads might still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for the quorum to be restored is *infinite*, because proceeding is a (potential) data-loss event and carries other risks. This means that Service Fabric will not proceed to the next step unless an administrator takes action to declare data loss.
 3. Determining if data is lost, and restoring from backups.
 
