@@ -496,7 +496,7 @@ You can nest linked templates in a folder hierarchy. For example:
 
 ![resource manager linked template relative path](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
 
-The `relativePath` property of `Microsoft.Resources/deployments` is used to deploy a remote linked template at a location relative to the parent. The following template shows how the mainTemplate.json deploy nestedChild.json illustrated in the previous image.
+The `relativePath` property of `Microsoft.Resources/deployments` is used to deploy a remote linked template at a location relative to the parent. The following template shows how mainTemplate.json deploys nestedChild.json illustrated in the preceding image.
 
 ```json
 {
@@ -525,24 +525,47 @@ The `relativePath` property of `Microsoft.Resources/deployments` is used to depl
 > [!NOTE]
 > `relativePath` can also be used to reference artifacts when creating a template spec with linked templates. For more information, see [Create a template spec with linked templates](./template-specs.md#create-a-template-spec-with-linked-templates).
 
-When the main template is called by using an URI, the child deployment is a combination of the parent and relativePath URIs. In the following deployment. The URI of **children/nestedChild.json** in the previous templates is **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json**.
+When the main template is called by using a URI, the child deployment is a combination of the parent and relativePath URIs. In the following deployment, the URI of the linked template in the preceding template is **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json**.
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name linkedTemplateWithRelativePath `
   -ResourceGroupName "myResourceGroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+az deployment group create \
+  --name addstorage \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+
+---
 
 To deploy linked templates with relative path stored in an Azure storage account, use the `QueryString` parameter of the `New-AzureResourceGroupDeployment` PowerShell cmdlet (or `query-string` of the `az deployment group create` CLI command) to specify the SAS token to be used with the TemplateUri parameter. The parameter is only supported by CLI version 2.18 or later and Azure PowerShell version 5.4 or later.
 
+# [PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -Name linkedTemplateWithRelativePath `
   -ResourceGroupName "myResourceGroup" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
   -QueryString $sasToken
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+az deployment group create \
+  --name addstorage \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+
+---
 
 ## Template specs
 
