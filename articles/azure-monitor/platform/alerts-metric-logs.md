@@ -18,10 +18,10 @@ Azure Monitor supports [metric alert type](./alerts-metric-near-real-time.md) wh
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premises. The supported Log Analytics solutions are listed below:
 
-- [Performance counters](./data-sources-performance-counters.md) for Windows & Linux machines
+- [Performance counters](./../agents/data-sources-performance-counters.md) for Windows & Linux machines
 - [Heartbeat records for Agent Health](../insights/solution-agenthealth.md)
 - [Update management](../../automation/update-management/overview.md) records
-- [Event data](./data-sources-windows-events.md) logs
+- [Event data](./../agents/data-sources-windows-events.md) logs
 
 There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](./alerts-log.md) in Azure; some of them are listed below:
 
@@ -50,8 +50,8 @@ Before Metric for Logs gathered on Log Analytics data works, the following must 
 
 1. **Active Log Analytics Workspace**: A valid and active Log Analytics workspace must be present. For more information, see [Create a Log Analytics Workspace in Azure portal](../learn/quick-create-workspace.md).
 2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) on-premises VMs to send data into the Log Analytics Workspace used in earlier step. For more information, see [Log Analytics - Agent Overview](./../agents/agents-overview.md).
-3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](./data-sources-performance-counters.md), [Heartbeat records for Agent Health](../insights/solution-agenthealth.md), [Update management](../../automation/update-management/overview.md), and [Event data](./data-sources-windows-events.md).
-4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](./metrics-supported.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](./data-sources-performance-counters.md) solution first.
+3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](./../agents/data-sources-performance-counters.md), [Heartbeat records for Agent Health](../insights/solution-agenthealth.md), [Update management](../../automation/update-management/overview.md), and [Event data](./../agents/data-sources-windows-events.md).
+4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](./metrics-supported.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](./../agents/data-sources-performance-counters.md) solution first.
 
 ## Configuring Metric Alert for Logs
 

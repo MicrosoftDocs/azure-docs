@@ -29,7 +29,7 @@ Details on the different latency introduced in this process are described below.
 Agents and management solutions use different strategies to collect data from a virtual machine, which may affect the latency. Some specific examples include the following:
 
 - Windows events, syslog events, and performance metrics are collected immediately. Linux performance counters are polled at 30-second intervals.
-- IIS logs and custom logs are collected once their timestamp changes. For IIS logs, this is influenced by the [rollover schedule configured on IIS](data-sources-iis-logs.md). 
+- IIS logs and custom logs are collected once their timestamp changes. For IIS logs, this is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). 
 - Active Directory Replication solution performs its assessment every five days, while the Active Directory Assessment solution performs a weekly assessment of your Active Directory infrastructure. The agent will collect these logs only when assessment is complete.
 
 ### Agent upload frequency
@@ -56,7 +56,7 @@ Refer to the documentation for each solution to determine its collection frequen
 Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
 
 ### New custom data types provisioning
-When a new type of custom data is created from a [custom log](data-sources-custom-logs.md) or the [Data Collector API](data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
+When a new type of custom data is created from a [custom log](../agents/data-sources-custom-logs.md) or the [Data Collector API](data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
 
 ### Surge protection
 The top priority of Azure Monitor is to ensure that no customer data is lost, so the system has built-in protection for data surges. This includes buffers to ensure that even under immense load, the system will keep functioning. Under normal load, these controls add less than a minute, but in extreme conditions and failures they could add significant time while ensuring data is safe.

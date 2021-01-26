@@ -103,7 +103,7 @@ There are three steps required to enable virtual machines using Azure Resource M
 > [!NOTE]
 > If you enable a virtual machine using the Azure portal, then the data collection rule described here is created for you. In this case, you do not need to perform this step.
 
-Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
+Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
 
 > [!NOTE]
 > You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md).

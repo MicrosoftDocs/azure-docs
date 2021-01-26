@@ -326,7 +326,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -462,7 +462,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring**: Not Available
 

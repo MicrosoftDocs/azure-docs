@@ -151,7 +151,7 @@ The following sample creates a new empty Log Analytics workspace.
 ```
 
 ## Collect Windows events
-The following sample adds collection of [Windows events](../platform/data-sources-windows-events.md) to an existing workspace.
+The following sample adds collection of [Windows events](../agents/data-sources-windows-events.md) to an existing workspace.
 
 ### Notes
 
@@ -246,7 +246,7 @@ The following sample adds collection of [Windows events](../platform/data-source
 ```
 
 ## Collect syslog
-The following sample adds collection of [syslog events](../platform/data-sources-syslog.md) to an existing workspace.
+The following sample adds collection of [syslog events](../agents/data-sources-syslog.md) to an existing workspace.
 
 ### Notes
 
@@ -384,7 +384,7 @@ The following sample adds collection of [syslog events](../platform/data-sources
 ```
 
 ## Collect Windows performance counters
-The following sample adds collection of [Windows performance counters](../platform/data-sources-performance-counters.md) to an existing workspace.
+The following sample adds collection of [Windows performance counters](../agents/data-sources-performance-counters.md) to an existing workspace.
 
 ### Notes
 
@@ -488,7 +488,7 @@ The following sample adds collection of [Windows performance counters](../platfo
 
 
 ## Collect Linux performance counters
-The following sample adds collection of [Linux performance counters](../platform/data-sources-performance-counters.md) to an existing workspace.
+The following sample adds collection of [Linux performance counters](../agents/data-sources-performance-counters.md) to an existing workspace.
 
 ### Notes
 
@@ -602,7 +602,7 @@ The following sample adds collection of [Linux performance counters](../platform
 
 
 ## Collect custom logs
-The following sample adds collection of [custom logs](../platform/data-sources-custom-logs.md) to an existing workspace.
+The following sample adds collection of [custom logs](../agents/data-sources-custom-logs.md) to an existing workspace.
 
 ### Notes
 
@@ -751,7 +751,7 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
 
 
 ## Collect IIS log
-The following sample adds collection of [IIS logs](../platform/data-sources-iis-logs.md) to an existing workspace.
+The following sample adds collection of [IIS logs](../agents/data-sources-iis-logs.md) to an existing workspace.
 
 ### Template file
 

@@ -58,7 +58,7 @@ For certain resources (like virtual machines), you can specify multiple resource
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](./data-sources.md). Signals include but aren't limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](./../agents/data-sources.md). Signals include but aren't limited to:
 
 - Metric values
 - Log search queries

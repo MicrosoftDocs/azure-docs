@@ -142,7 +142,7 @@ Because the cluster is a brand new cluster, the report doesn't show any activiti
 
 ## Configuring performance counters
 
-Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## Cluster auditing
 

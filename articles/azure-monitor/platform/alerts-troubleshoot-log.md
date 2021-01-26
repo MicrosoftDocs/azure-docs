@@ -107,7 +107,7 @@ When a log alert rule is created, the query is validated for correct syntax. But
 - The [query fails](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because:
     - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
     - Data stopped flowing to a table in the query for over 30 days.
-    - [Custom logs tables](data-sources-custom-logs.md) aren't yet created, since data flow hasn't started.
+    - [Custom logs tables](../agents/data-sources-custom-logs.md) aren't yet created, since data flow hasn't started.
 - Changes in [query language](/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier is no longer valid.
 
 [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the log alert rule affected. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.

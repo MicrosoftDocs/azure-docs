@@ -31,7 +31,7 @@ A data collection rule includes the following components.
 
 The following diagram shows the components of a data collection rule and their relationship
 
-[![Diagram of DCR](media/data-collection-rule/data-collection-rule-components.png)](media/data-collection-rule/data-collection-rule-components.png#lightbox)
+[![Diagram of DCR](media/data-collection-rule-overview/data-collection-rule-components.png)](media/data-collection-rule-overview/data-collection-rule-components.png#lightbox)
 
 ### Data source types
 Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown in the following table.

@@ -129,4 +129,4 @@ To maintain a familiar model between infrastructure metrics already collected by
 
 ## Next steps
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](custom-fields.md) to parse data from syslog records into individual fields.
+* Use [Custom Fields](../platform/custom-fields.md) to parse data from syslog records into individual fields.

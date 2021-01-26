@@ -146,7 +146,7 @@ Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines t
 
 - [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-- [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+- [Syslog data sources in Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 
 ## Next steps

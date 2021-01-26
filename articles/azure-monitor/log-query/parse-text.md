@@ -10,7 +10,7 @@ ms.date: 12/04/2018
 ---
 
 # Parse text data in Azure Monitor logs
-Some log data collected by Azure Monitor will include multiple pieces of information in a single property. Parsing this data into multiple properties make it easier to use in queries. A common example is a [custom log](../platform/data-sources-custom-logs.md) that collects an entire log entry with multiple values into a single property. By creating separate properties for the different values, you can search and aggregate on each.
+Some log data collected by Azure Monitor will include multiple pieces of information in a single property. Parsing this data into multiple properties make it easier to use in queries. A common example is a [custom log](../agents/data-sources-custom-logs.md) that collects an entire log entry with multiple values into a single property. By creating separate properties for the different values, you can search and aggregate on each.
 
 This article describes different options for parsing log data in Azure Monitor when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
 

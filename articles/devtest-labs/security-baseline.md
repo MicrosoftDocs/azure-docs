@@ -105,7 +105,7 @@ For more information, see the following article: [How to alert on log analytics 
 
 - [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 - [How to run custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-- [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)
+- [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring:** Yes
 
