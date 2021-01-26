@@ -11,7 +11,7 @@ description: This architecture reference is a foundation using a typical enterpr
 
 # Azure Spring Cloud Reference Architecture
 
-This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework. There are two typical uses of this architecture are for internal applications deployed in hybrid cloud environments and externally facing applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
+This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework. There are two typical uses of this architecture - for internal applications deployed in hybrid cloud environments and externally facing applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
 ### Private applications
 The architecture for private applications builds on the traditional hub and spoke design. This design ensures the application components are segregated from the shared services hub. The infrastructure requirements for a private application are in the following list:
@@ -20,7 +20,7 @@ The architecture for private applications builds on the traditional hub and spok
 * Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
-* Azure DevOps self-hosted build agents must be used
+* Self-hosted build agents must be used (e.g. Azure DevOps build agents)
 * Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
@@ -29,6 +29,7 @@ The architecture for private applications builds on the traditional hub and spok
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified
 * Subnets managed by the Azure Spring Cloud deployment must not be modified
 * A subnet must only have one instance of Azure Spring Cloud
+* If [Azure Spring Cloud Config Server][8] is used to load config properties from a git repository, the repository must be private.
 
 The components that make up the design are in the following list:
 
@@ -93,7 +94,7 @@ The components that make up the design are in the following list:
 
 The Azure services that are used in this reference architecture are in the following list:
 
-* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Spring microservices that are written in Java
+* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java based Spring microservices, and .NET based [Steeltoe][9] microservices.
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
 
@@ -213,3 +214,5 @@ The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials 
 [5]: /azure/devops/pipelines/
 [6]: /azure/application-gateway/
 [7]: /azure/web-application-firewall/
+[8]: /azure/azure/spring-cloud/spring-cloud-tutorial-config-server/
+[9]: https://steeltoe.io/
