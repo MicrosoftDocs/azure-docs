@@ -325,7 +325,7 @@ See the following invoice image and its corresponding JSON output. The output ha
 
 # [version 2.1 preview](#tab/v2-1)
 
-To start analyzing an invoice, call the **[Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing an invoice, use the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your invoice URL}` with the URL address of an invoice document.
@@ -346,7 +346,7 @@ https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeR
 
 ### Get invoice results
 
-After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** API, you call the **[Get Analyze Invoice Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{resultId}` with the operation ID from the previous step.
@@ -668,7 +668,7 @@ You'll receive a `202 (Success)` response with an **Operation-Location** header.
 
 ### Get the Analyze results
 
-Use the following API to query the results of the Analyze operation.
+Call the Get **[Analyze Form Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeFormResult)** API to query the results of the Analyze operation.
 
 1. Replace `{Endpoint}` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `{result ID}` with the ID that you received in the previous section.
@@ -1512,7 +1512,7 @@ The script will print responses to the console until the **Analyze Business Card
 
 ### Get a list of custom models
 
-Use the following command to return a list of all the custom models that belong to your subscription.
+Use the **[List Custom Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetCustomModels)** API in the following command to return a list of all the custom models that belong to your subscription.
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -1554,7 +1554,7 @@ You'll receive a `200` success response, with JSON data like the following. The 
 
 ### Get a specific model
 
-To retrieve detailed information about a specific custom model, use the following command.
+To retrieve detailed information about a specific custom model, use the **[Get Custom Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetCustomModel)** API in the following command.
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -1565,7 +1565,6 @@ To retrieve detailed information about a specific custom model, use the followin
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
---data-ascii "{body}" 
 ```
 
 # [v2.1 preview](#tab/v2-1)    
@@ -1573,7 +1572,6 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}"
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
---data-ascii "{body}" 
 ```
 ---
 
@@ -1619,7 +1617,7 @@ You'll receive a `200` success response, with JSON data like the following.
 
 ### Delete a model from the resource account
 
-You can also delete a model from your account by referencing its ID. This command deletes the model used in the previous section.
+You can also delete a model from your account by referencing its ID. This command calls the **[Delete Custom Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/DeleteCustomModel)** API to delete the model used in the previous section.
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
