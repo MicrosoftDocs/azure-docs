@@ -46,36 +46,67 @@ See the [auto-collected logging configuration](./java-standalone-config.md#auto-
 
 ## Import SSL certificates
 
-If you're using the default Java keystore, it will already have all of the CA root certificates. You shouldn't need to import more SSL certificates.
+This section helps you to troubleshoot and possibly fix the exceptions related to SSL certificates when using the Java agent.
 
-If you're using a custom Java keystore, you might need to import the Application Insights endpoint SSL certificates into it.
+There are two different paths to troubleshoot this issue.
 
-### Key terminology
-A *keystore* is a repository of certificates, public keys, and private keys. Usually, Java Development Kit distributions have an executable to manage them: `keytool`.
+### If using a default Java Keystore:
 
-The following example is a simple command to import an SSL certificate to the keystore:
+Typically the default Java keystore will already have all of the CA root certificates. However there might be some exceptions, such as the ingestion endpoint certificate might be signed a different root certificate. So we recommend the following two steps to resolve this issue.
 
-`keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+1.	First you need to check if the root certificate generated from the Application Insights endpoint url is already present in the default keystore. The trusted CA certificates, by default, are stored in `$JAVA_HOME/jre/lib/security/cacerts`. To list certificates in a Java keystore use the following command:
+    > `keytool -list -v -keystore $PATH_TO_KEYSTORE_FILE`
+ 
+    You can redirect the output to a temp file like this (will be easy to search later)
+    > `keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts > temp.txt`
 
-### Steps to download and add an SSL certificate
+2. Once you have the list of certificates please follow these [steps](#steps-to-download-ssl-certificate) to download the root certificate from the Application Insights ingestion endpoint.
+
+    Once you have the certificate downloaded, we need to generate a SHA-1 hash on the certificate using the below command:
+    > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
+ 
+    Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, indicates that the downloaded root cert is missing in default Java Keystore.
+
+
+2. Next to import the root cert to default Java keystore use the following command :
+    >   `keytool -import -file "the cert file" -alias "some meaningful name" -keystore "path to cacerts file"`
+ 
+    In this case it will be
+ 
+    > `keytool -import -file "your downloaded root cert file" -alias "some meaningful name" $JAVA_HOME/jre/lib/security/cacerts`
+
+
+### If using a custom Java Keystore:
+
+If you're using a custom Java keystore, you might need to import the Application Insights endpoint's root SSL certificates into it.
+We recommend the following two steps to resolve this issue:
+1. Please follow these [steps](#steps-to-download-ssl-certificate) to download the root certificate from the Application Insights ingestion endpoint.
+2. Use the following command to import an SSL certificate to the custom Java keystore:
+    > `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name.cer" -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+
+### Steps to download SSL certificate
 
 1.	Open your favorite browser and go to the `IngestionEndpoint` URL present in the connection string that's used to instrument your application.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Screenshot that shows an Application Insights connection string.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png" alt-text="Screenshot that shows an Application Insights connection string." lightbox="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png":::
 
 2.	Select the **View site information** (lock) icon in the browser, and then select the **Certificate** option.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Screenshot of the Certificate option in site information.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Screenshot of the Certificate option in site information." lightbox="media/java-ipa/troubleshooting/certificate-icon-capture.png":::
 
-3.	Go to the **Details** tab and select **Copy to file**.
-4.	Select the **Next** button, select **Base-64 encoded X.509 (.CER)** format, and then select **Next** again.
+3.  Instead of downloading the 'leaf' certificate you have to download the 'root' certificate as shown below. Later, you have to click on the "Certificate Path" -> Select the Root Certificate -> Click on 'View Certificate'. This will pop up a new certificate menu, and you can download the certificate, from the new menu.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Screenshot of the Certificate Export Wizard, with a format selected.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/root-certificate-selection.png" alt-text="Screenshot of how to select the root certificate." lightbox="media/java-ipa/troubleshooting/root-certificate-selection.png":::
 
-5.	Specify the file where you want to save the SSL certificate. Then select **Next** > **Finish**. You should see a "The export was successful" message.
-6.	After you have the certificate, it's time to import the certificate into a Java keystore. Use the [preceding command](#key-terminology) to import certificates.
+4.	Go to the **Details** tab and select **Copy to file**.
+5.	Select the **Next** button, select **Base-64 encoded X.509 (.CER)** format, and then select **Next** again.
+
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Screenshot of the Certificate Export Wizard, with a format selected." lightbox="media/java-ipa/troubleshooting/certificate-export-wizard.png":::
+
+6.	Specify the file where you want to save the SSL certificate. Then select **Next** > **Finish**. You should see a "The export was successful" message.
+7.	After you have the certificate, it's time to import the certificate into a Java keystore. Use the [preceding command](#key-terminology) to import certificates.
 
 > [!WARNING]
 > You'll need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information on the **Details** tab of the **Certificate** dialog box.
 >
-> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Screenshot that shows SSL certificate details.":::
+> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Screenshot that shows SSL certificate details." lightbox="media/java-ipa/troubleshooting/certificate-details.png":::
