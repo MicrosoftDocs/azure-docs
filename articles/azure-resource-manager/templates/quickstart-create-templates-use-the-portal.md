@@ -2,7 +2,7 @@
 title: Deploy template - Azure portal
 description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal, and how to deploy it.
 author: mumian
-ms.date: 06/29/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
 ms.author: jgao
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
@@ -29,9 +29,12 @@ Many experienced template developers use this method to generate templates when 
 
     ![Select Create a resource from Azure portal menu](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Select **Storage** > **Storage account**.
+1. In the search box, type **storage account**, and the press **[ENTER]**.
 
     ![Create an Azure storage account](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+
+1. Select **Create**.
+
 1. Enter the following information:
 
     |Name|Value|
