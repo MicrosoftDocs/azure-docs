@@ -217,15 +217,15 @@ To create a paid account via the Video Indexer portal:
     
 ### Create new account via the API on Azure Government
 
-To create a paid account in Azure government, follow the instructions in [Create-Paid-Account](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). This API end point only includes Government cloud regions.
+To create a paid account in Azure Government, follow the instructions in [Create-Paid-Account](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). This API end point only includes Government cloud regions.
 
 ### Limitations of Video Indexer on Azure Government
 
-1.	No manual content moderation available in Government cloud. 
+*	No manual content moderation available in Government cloud. 
 
     In the public cloud when content is deemed offensive based on a content moderation, the customer can ask for a human to look at that content and potentially revert that decision.  
-1.	No trial accounts. 
-1. Bing description - in Gov cloud we will not present a description of celebrities and named entities identified. This is a UI capability only. 
+*	No trial accounts. 
+* Bing description - in Gov cloud we will not present a description of celebrities and named entities identified. This is a UI capability only. 
 
 ## Clean up resources
 
