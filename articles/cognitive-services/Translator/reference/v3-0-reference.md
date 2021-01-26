@@ -3,13 +3,13 @@ title: Translator V3.0 Reference
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator V3.0. Version 3 of the Translator provides a modern JSON-based Web API.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator v3.0
