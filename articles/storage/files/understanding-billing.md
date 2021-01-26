@@ -35,6 +35,7 @@ Windows measures storage using the base-2 counting system but displays them as b
 ### MacOS
 
 See [How iOS and macOS report storage capacity](https://support.apple.com/HT201402) to determine which numbering system is used.
+
 ### Linux
 
 The counting system used is not uniform, a different could be used by each OS or each individual piece of software. Consult their documentation to determine how they report storage capacity.
