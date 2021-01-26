@@ -2,7 +2,7 @@
 title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/26/2021
 ms.custom: "seodec18, has-adal-ref, devx-track-csharp"
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
@@ -75,7 +75,7 @@ Azure subscriptions and the individual Azure services like Batch all have defaul
 
 Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.
 
-In the code snippet below, we first use [BatchAccountOperationsExtensions.ListAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.listasync) to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [LocationOperationsExtensions.GetQuotasAsync](/dotnet/api/microsoft.azure.management.batch.locationoperationsextensions.getquotasasync) to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
+In the code snippet below, we first use **ListAsync** to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use **GetQuotasAsync** to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
