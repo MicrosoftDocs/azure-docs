@@ -4,8 +4,8 @@ description: Reference guide to functions in expressions for Azure Logic Apps an
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 09/04/2020
+ms.topic: reference
+ms.date: 01/13/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -2614,12 +2614,19 @@ This example creates a counter variable and increments that variable by one duri
 
 ### json
 
-Return the JavaScript Object Notation (JSON)
-type value or object for a string or XML.
+Return the JavaScript Object Notation (JSON) type value, object, or array of objects for a string or XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Without an XML schema that defines the output's structure, the function might return results 
+> where the structure greatly differs from the expected format, depending on the input.
+>  
+> This behavior makes this function unsuitable for scenarios where the output must conform 
+> to a well-defined contract, for example, in critical business systems or solutions.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2628,12 +2635,12 @@ json('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. |
+| <*JSON-result*> | JSON native type, object, or array | The JSON native type value, object, or array of objects from the input string or XML. <p><p>- If you pass in XML that has a single child element in the root element, the function returns a single JSON object for that child element. <p> - If you pass in XML that has multiple child elements in the root element, the function returns an array that contains JSON objects for those child elements. <p>- If the string is null, the function returns an empty object. |
 ||||
 
 *Example 1*
 
-This example converts this string to the JSON value:
+This example converts this string into a JSON value:
 
 ```
 json('[1, 2, 3]')
@@ -2643,7 +2650,7 @@ And returns this result: `[1, 2, 3]`
 
 *Example 2*
 
-This example converts this string to JSON:
+This example converts this string into JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2651,7 +2658,7 @@ json('{"fullName": "Sophia Owen"}')
 
 And returns this result:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2659,23 +2666,53 @@ And returns this result:
 
 *Example 3*
 
-This example converts this XML to JSON:
+This example uses the `json()` and `xml()` functions to convert XML that has a single child element in the root element into a JSON object named `person` for that child element:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Example 4*
+
+This example uses the `json()` and `xml()` functions to convert XML that has multiple child elements in the root element into an array named `person` that contains JSON objects for those child elements:
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+And returns this result:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```

@@ -24,19 +24,19 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 ### Known limitations
 
-Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in Azure SQL Managed Instance.
+Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) in Azure SQL Managed Instance.
 
 ## Prerequisites
 
 - Create a new Purview account if you don't already have one.
 
-- [Configure public endpoint in Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
     > [!Note]
     > Your organization must be able to allow public endpoint as **private endpoint is not yet supported** by Purview. If you use private endpoint, the scan will not be successful.
 
 ### Setting up authentication for a scan
 
-Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Purview supports today:
+Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Purview supports today:
 
 - SQL authentication
 - Service Principal
@@ -47,7 +47,7 @@ Authentication to scan Azure SQL Database Managed Instance. If you need to creat
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database Managed Instance if you don't have this available. You will need **username** and **password** for the next steps.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database Managed Instance if you don't have this available. You will need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
@@ -81,8 +81,8 @@ To use a service principal, you can use an existing one or create a new one.
 ##### Configure Azure AD authentication in the database account
 
 The service principal or managed identity must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification.
-- [Configure and manage Azure AD authentication with Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_owner` (**recommended**) permission to the identity
 
 ##### Add service principal to key vault and Purview's credential

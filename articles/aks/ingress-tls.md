@@ -58,7 +58,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
@@ -123,13 +124,13 @@ helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # Install the cert-manager Helm chart
-helm install \
-  cert-manager \
+helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
   --version v0.16.1 \
   --set installCRDs=true \
-  --set nodeSelector."beta\.kubernetes\.io/os"=linux \
-  jetstack/cert-manager
+  --set nodeSelector."kubernetes\.io/os"=linux \
+  --set webhook.nodeSelector."kubernetes\.io/os"=linux \
+  --set cainjector.nodeSelector."kubernetes\.io/os"=linux
 ```
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
@@ -260,7 +261,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Both applications are now running on your Kubernetes cluster. However they're configured with a service of type `ClusterIP` and aren't accessible from the internet. To make them publicly available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
-In the following example, traffic to the address *hello-world-ingress.MY_CUSTOM_DOMAIN* is routed to the *aks-helloworld* service. Traffic to the address *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* is routed to the *aks-helloworld-two* service. Traffic to *hello-world-ingress.MY_CUSTOM_DOMAIN/static* is routed to the service named *aks-helloworld* for static assets.
+In the following example, traffic to the address *hello-world-ingress.MY_CUSTOM_DOMAIN* is routed to the *aks-helloworld-one* service. Traffic to the address *hello-world-ingress.MY_CUSTOM_DOMAIN/hello-world-two* is routed to the *aks-helloworld-two* service. Traffic to *hello-world-ingress.MY_CUSTOM_DOMAIN/static* is routed to the service named *aks-helloworld-one* for static assets.
 
 > [!NOTE]
 > If you configured an FQDN for the ingress controller IP address instead of a custom domain, use the FQDN instead of *hello-world-ingress.MY_CUSTOM_DOMAIN*. For example if your FQDN is *demo-aks-ingress.eastus.cloudapp.azure.com*, replace *hello-world-ingress.MY_CUSTOM_DOMAIN* with *demo-aks-ingress.eastus.cloudapp.azure.com* in `hello-world-ingress.yaml`.
