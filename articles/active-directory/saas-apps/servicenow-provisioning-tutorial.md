@@ -15,7 +15,9 @@ ms.author: jeedes
 
 # Tutorial: Configure ServiceNow for automatic user provisioning
 
-This tutorial describes the steps that you perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com/) by using the Azure AD provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps that you perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com/) by using the Azure AD provisioning service. 
+
+For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -31,7 +33,7 @@ This tutorial describes the steps that you perform in both ServiceNow and Azure 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator)
 * A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
 * A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
 * A user account in ServiceNow with the admin role
@@ -93,7 +95,7 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 
  	![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
-6. In the **Notification Email** box, enter the email address of a person or group who should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
+6. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
 	![Screenshot that shows boxes for notification email.](common/provisioning-notification-email.png)
 
@@ -140,7 +142,7 @@ After you've configured provisioning, use the following resources to monitor you
    For example, you might have two locations (Seattle, Los Angeles) and three departments (Sales, Finance, Marketing) in a certain table in ServiceNow. If you try to provision a user whose department is "Sales" and whose location is "Seattle," that user will be provisioned successfully. If you try to provision a user whose department is "Sales" and whose location is "LA," the user won't be provisioned. The location "LA" must be added to the reference table in ServiceNow, or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
 * If you get an **EntryJoiningPropertyValueIsMissing** error, review your [attribute mappings](../app-provisioning/customize-application-attributes.md) to identify the matching attribute. This value must be present on the user or group you're trying to provision. 
 * To understand any requirements or limitations (for example, the format to specify a country code for a user), review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html).
-* Provisioning requests are sent by default to https://{your-instance-name}.service-now.com/{table-name}. If you require a custom tenant URL, you can provide the entire URL as the instance name.
+* Provisioning requests are sent by default to https://{your-instance-name}.service-now.com/{table-name}. If you need a custom tenant URL, you can provide the entire URL as the instance name.
 * The **ServiceNowInstanceInvalid** error indicates a problem communicating with the ServiceNow instance. Here's the text of the error:
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
