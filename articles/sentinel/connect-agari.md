@@ -32,7 +32,7 @@ Agari can integrate and export logs directly to Azure Sentinel.
 
 1.  Ensure you have your Agari Client ID and Secret keys. Instructions can be found on the [Agari Developers Site](https://developers.agari.com/agari-platform/docs/quick-start).
 
-1. Optional - The Agari Function App has the ability to share threat intelleigence with Sentinel via the Security Graph API. To use this feature, you will need to enable the [Sentinel Threat Intelligence Platforms connector](https://docs.microsoft.com/azure/sentinel/connect-threat-intelligence) as well as register an application in Azure Active Directory.
+1. Optional - The Agari Function App has the ability to share threat intelligence with Sentinel via the Security Graph API. To use this feature, you will need to enable the [Sentinel Threat Intelligence Platforms connector](https://docs.microsoft.com/azure/sentinel/connect-threat-intelligence) as well as register an application in Azure Active Directory.
 
 1. In the Azure Sentinel portal, click Data connectors and select Agari Brand Protection and Phishing Defense and then Open connector page.
 

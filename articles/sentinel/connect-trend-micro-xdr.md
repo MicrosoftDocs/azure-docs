@@ -34,7 +34,7 @@ Trend Micro XDR can integrate and export logs directly to Azure Sentinel.
 
 1. Select Open connector Page.
 
-1. Follow the instuctions on the Trend Micro XDR page. 
+1. Follow the instructions on the Trend Micro XDR page. 
 
 ## Find your data
 
