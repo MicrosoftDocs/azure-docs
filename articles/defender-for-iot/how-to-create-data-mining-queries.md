@@ -1,124 +1,19 @@
 ---
-title: Generate reports
-description: Gain insight into network activity, risks, attacks, and trends by using Defender for IoT reporting tools.
+title: Create data mining reports
+description: generate comprehensive and granular information about your network devices at various layers, such as protocols, firmware versions, or programming commands.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/17/2020
+ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Generate reports
+# Sensor data mining queries
 
-Gain insight into network activity, risks, attacks, and trends by using Azure Defender for IoT reporting tools. Tools are available to generate reports:
+## About Sensor data mining queries
 
-- Based on activity detected by individual sensors.
-- Based on activity detected by all sensors. 
-
-These reports are generated from the on-premises management console.
-
-## Reports for sensor risk assessment
-
-Risk assessment reporting lets you generate a security score for each network device, as well as an overall network security score. The overall score represents the percentage of 100 percent security.
-
-This score is based on results from packet inspection, behavioral modeling engines, and a SCADA-specific state machine design. An extensive range of other information is available, such as:
-
-- Configuration issues
-
-- Device vulnerability prioritized by security level
-
-- Network security issues
-
-- Network operational issues
-
-- Attack vectors
-
-- Connections to ICS networks
-
-- Internet connections
-
-- Industrial malware indicators
-
-- Protocol issues
-
-  - Secure Devices: Devices with a security score above 90%.
-
-- **Secure Devices**: Devices with a security score above 90 percent.
-
-- **Vulnerable Devices**: Devices with a security score below 70 percent.
-
-- **Devices Needing Improvement**: Devices with a security score between 70 percent and 89 percent.
-
-To create a report:
-
-1. Select **Risk Assessment** on the side menu.
-2. Select a sensor from the **Select Sensor** drop-down list.
-3. Select **Generate Report**.
-4. Select **Download** from the Archived Reports section.
-
-:::image type="content" source="media/how-to-generate-reports/risk-assessment.png" alt-text="A view of the risk assessment.":::
-
-To import a company logo:
-
-To import a company logo:
-
-- Select **Import Logo**.
-
-## Reports for sensor attack vector
-
-Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices. These vulnerabilities can give an attacker access to key network devices. The Attack Vector Simulator calculates attack vectors in real time and analyzes all attack vectors for a specific target.
-
-Working with the attack vector lets you evaluate the effect of mitigation activities in the attack sequence. You can then determine, for example, if a system upgrade disrupts the attacker's path by breaking the attack chain, or if an alternate attack path remains. This information helps you prioritize remediation and mitigation activities.
-
-:::image type="content" source="media/how-to-generate-reports/control-center.png" alt-text="View your alerts in the control center.":::
-
-> [!NOTE]
-> Administrators and security analysts can perform the procedures described in this section.
-
-To create an attack vector simulation:
-
-1. Select :::image type="content" source="media/how-to-generate-reports/plus.png" alt-text="Plus sign":::on the side menu to add a Simulation.
-
- :::image type="content" source="media/how-to-generate-reports/vector.png" alt-text="The attack vector simulation.":::
-
-2. Enter simulation properties:
-
-   - **Name**: Simulation name.
-
-   - **Maximum vectors**: The maximum number of vectors in a single simulation.
-
-   - **Show in Device map**: Show the attack vector as a filter on the device map.
-
-   - **All Source devices**: The attack vector will consider all devices as an attack source.
-
-   - **Attack Source**: The attack vector will consider only the specified devices as an attack source.
-
-   - **All Target devices**: The attack vector will consider all devices as an attack target.
-
-   - **Attack Target**: The attack vector will consider only the specified devices as an attack target.
-
-   - **Exclude devices**: Specified devices will be excluded from the attack vector simulation.
-
-   - **Exclude Subnets**: Specified subnets will be excluded from the attack vector simulation.
-
-3. Select **Add Simulation**. The simulation will be added to the simulations list.
-
-   :::image type="content" source="media/how-to-generate-reports/new-simulation.png" alt-text="Add a new simulation.":::
-
-4. Select :::image type="icon" source="media/how-to-generate-reports/edit-a-simulation-icon.png" border="false"::: if you want to edit the simulation.
-
-   Select :::image type="icon" source="media/how-to-generate-reports/delete-simulation-icon.png" border="false"::: if you want to delete the simulation.
-
-   Select :::image type="icon" source="media/how-to-generate-reports/make-a-favorite-icon.png" border="false"::: if you want to mark the simulation as a favorite.
-
-5. A list of attack vectors appears and includes vector score (out of 100), attack source device, and attack target device. Select a specific attack for graphical depiction of attack vectors.
-
-   :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Attack vectors.":::
-
-## Sensor data-mining queries
-
-Data-mining tools let you generate comprehensive and granular information about your network devices at various layers. For example, you can create a query based on:
+Data mining tools let you generate comprehensive and granular information about your network devices at various layers. For example, you can create a query based on:
 
 - Time periods
 
@@ -145,13 +40,13 @@ Various tools are available to manage queries. For example, you can export and s
 
 ### Dynamic updates
 
-Data-mining queries that you create are dynamically updated each time you open them. For example:
+Data mining queries that you create are dynamically updated each time you open them. For example:
 
 - If you create a report for firmware versions on devices on June 1 and open the report again on June 10, this report will be updated with information that's accurate for June 10.
 
 - If you create a report to detect new devices discovered over the last 30 days on June 1 and open the report on June 30, the results will be displayed for the last 30 days.
 
-### Data-mining use cases
+### Data mining use cases
 
 You can use queries to handle an extensive range of security needs for various security teams:
 
@@ -163,17 +58,12 @@ You can use queries to handle an extensive range of security needs for various s
 
 - **Visibility**: Generate a report that covers all query items to view all baseline parameters of your network.
 
-### Data-mining storage
+## Data mining storage
 
 Data mining information is saved and stored continuously, except for when a device is deleted. Data mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
 
-### Data mining and reports 
 
-Regular reports, accessed from the **Reports** option, are predefined data-mining reports. They're not dynamic queries as are available in data mining, but a static representation of the data-mining query results.
-
-Data-mining query results are not available to RO users. Administrators and security analysts who want RO users to have access to the information generated by data mining queries should save the information as report.
-
-### Predefined queries
+## Predefined data mining queries
 
 The following predefined queries are available. These queries are generated in real time.
 
@@ -195,7 +85,7 @@ These reports are automatically accessible from the **Reports** screen, where RO
 
 :::image type="content" source="media/how-to-generate-reports/data-mining-screeshot-v2.png" alt-text="The data mining screen.":::
 
-### Create a data-mining report
+## Create a data mining query
 
 To create a data-mining report:
 
@@ -332,7 +222,13 @@ To perform manual changes in the CVE report:
 
 10. Enter the new score and select **OK**. The updated score appears in the CVEs that you selected.
 
-### Reports based on data mining
+
+
+## Sensor reports based on data mining
+
+Regular reports, accessed from the **Reports** option, are predefined data mining reports. They're not dynamic queries as are available in data mining, but a static representation of the data mining query results.
+
+Data mining query results are not available to Read Only users. Administrators and security analysts who want Read Only users to have access to the information generated by data mining queries should save the information as report.
 
 Reports reflect information generated by data mining query results. This includes default data mining reports, which are available in the Reports view. Administrator and security analysts can also generate custom data mining queries, and save them as reports. These reports are available for RO users as well.
 
@@ -355,59 +251,7 @@ To generate a report:
 
 :::image type="content" source="media/how-to-generate-reports/remote-access-report.png" alt-text="Remote access report generated.":::
 
-## Reports for sensor trends and statistics
-
-You can create widget graphs and pie charts to gain insight into network trends and statistics. Widgets can be grouped under user-defined dashboards.
-
-> [!NOTE]
-> Only administrators and security analysts can perform the procedures in this section.
-
-To see dashboards and widgets, select **Trends & Statistics** on the side menu.
-
-:::image type="content" source="media/how-to-generate-reports/investigation-screenshot.png" alt-text="Screenshot of an investigation.":::
-
-The dashboard consists of widgets that graphically describe the following types of information:
-
-- Traffic by port
-- Channel bandwidth
-- Total bandwidth
-- Active TCP connection
-- Devices:
-  - New devices
-  - Busy devices
-  - Devices by vendor
-  - Devices by OS
-  - Disconnected devices
-- Connectivity drop by hours
-- Alerts for incidents by type
-- Database table access
-- Protocol dissection widgets
-- Ethernet and IP address:
-  - Ethernet and IP address traffic by CIP service
-  - Ethernet and IP address traffic by CIP class
-  - Ethernet and IP address traffic by command
-- OPC:
-  - OPC top management operations
-  - OPC top I/O operations
-- Siemens S7:
-  - S7 traffic by control function
-  - S7 traffic by subfunction
-- SRTP:
-  - SRTP traffic by service code
-  - SRTP errors by day
-- SuiteLink:
-  - SuiteLink top queried tags
-  - SuiteLink numeric tag behavior
-- IEC-60870 traffic by ASDU
-- DNP3 traffic by function
-- MMS traffic by service
-- Modbus traffic by function
-- OPC-UA traffic by service
-
-> [!NOTE]
->  The time in the widgets is set according to the sensor time.
-
-## Reports for the on-premises management console
+## On-premises management console reports based on data mining reports
 
 The on-premises management console lets you generate reports for each sensor that's connected to it. Reports are based on sensor data-mining queries that are performed.
 
@@ -436,54 +280,3 @@ To generate a report:
 3. From the right drop-down list, select the report that you want to generate.
 
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
-
-## Risk assessment reports for the on-premises management console
-
-Generate a risk assessment report for each sensor that's connected to your on-premises management console. This report provides insight into each of the networks that your sensors are monitoring.
-
-Risk assessment reports let you generate a security score for each network device, as well as an overall network security score. The overall score is based on deep packet inspection, behavioral modeling engines, and a SCADA-specific state machine design. An extensive range of other information is available. For example:
-
-- Configuration issues
-
-- Device vulnerability prioritized by security level
-
-- Network security issues
-
-- Network operational issues
-
-- Attack vectors
-
-- Connections to ICS networks
-
-- Internet connections
-
-- Industrial malware indicators
-
-- Protocol issues
-
-The report provides mitigation recommendations that will help you improve your security score.
-
-- Secure devices: Devices with a security score above 90%.
-
-- **Vulnerable devices**: Devices with a security score below 70 percent.
-
-- **Devices needing improvement**: Devices with a security score between 70 percent and 89 percent.
-
-To create a report:
-
-1. Select **Risk Assessment** on the side menu.
-
-2. Select a sensor from the **Select sensor** drop-down list.
-
-3. Select **Generate Report**.
-
-4. Select **Download** from the **Archived Reports** section.
-
-To import a company logo:
-
-- Select **Import Logo**.
-
-:::image type="content" source="media/how-to-generate-reports/import-logo-screenshot.png" alt-text="Import your logo through the risk assessment view.":::
-
-## See also
-[Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
