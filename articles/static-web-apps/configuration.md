@@ -137,7 +137,9 @@ You can configure your app to use rules that implement a fallback route as shown
 
 The following outcomes are possible with this rule:
 
-- Any requested file in the */images* or */css* folders that doesn't exist returns a `404`.
+- For requests to files in the */images* or */css* folders:
+  - Existing files return the file with a `200`
+  - A `404` is returned for non-existent files
 - Any other file outside the */images* or */css* folders returns */index.html*.
 
 ## Global headers
@@ -290,7 +292,7 @@ Based on the above configuration, review the following scenarios.
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a 401 error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a 401 error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers\_contoso_ roles are served a 401 error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | As authorization with Twitter is disabled by the route rule, 404 error is returned, which falls back to serving _/index.html_ with a `200` status code. |
+| _/.auth/login/twitter_ | As authorization with Twitter is disabled by the route rule, `404` error is returned, which falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is permanently redirected to _/deals_. |
