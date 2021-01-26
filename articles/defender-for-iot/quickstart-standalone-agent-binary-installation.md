@@ -17,7 +17,7 @@ This article provides an explanation of how to install, and authenticate the Def
 
 Prior to installing the Defender for IoT module you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create an azureiotsecurity module twin](quickstart-create-security-twin.md)
 
-## Install the package 
+## Install the package
 
 Install, and configure the Microsoft package repository by following [these instructions](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
@@ -31,13 +31,9 @@ sudo apt-add-repository https://packages.microsoft.com/debian/9/prod
 sudo apt-get update
 ```
 
-For Debian-based, and Ubuntu based Linux distributions, you must install the Defender micro agent package. 
-
-To install the Defender micro agent package use the following commands:
+To install the Defender micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
 
 ```azurecli
-sudo apt-get update 
-
 sudo apt-get install defender-iot-micro-agent 
 ```
 
@@ -51,18 +47,19 @@ The two options used to authenticate the Defender for IoT micro agent are:
 
 To authenticate using a connection string:
 
-1. Place a file containing the connection string encoded in utf-8, in the defender agent directory as a file named `connection_string.txt` to the `/var/defender_iot_micro_agent` path by entering the following command:
+1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the defender agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```azurecli
     sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
+
+    The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
 1. Restart the service using this command:  
 
     ```azurecli
     sudo systemctl restart defender-iot-micro-agent.service 
     ```
-The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
 ### Authenticate using a certificate
 
@@ -115,7 +112,6 @@ To install a specific version of the Defender IoT micro agent, run the following
 ```azurecli
 sudo apt-get install defender-iot-micro-agent=<version>
 ```
- 
 
 ## Next Steps
 
