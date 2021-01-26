@@ -77,7 +77,7 @@ Because a desktop application runs on the user's desktop, it's considered a *pub
 
 | Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
-| Electron | [MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | -- | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
+| Electron | [MSAL Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | -- | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
 | Java | [MSAL4J](https://github.com/Azure-Samples/ms-identity-java-desktop/) | [Msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 | macOS (Swift/Obj-C) | [MSAL for iOS and macOS](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html) | [MSAL](https://cocoapods.org/pods/MSAL) | [Tutorial](tutorial-v2-ios.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 | UWP | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | [Tutorial](tutorial-v2-windows-uwp.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
