@@ -382,6 +382,6 @@ If you prefer to use an on-premises backup solution, backups should be performed
 ## Next steps
 * [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md)
-* [Deploy Azure Files](storage-files-deployment-guide.md)
+* [Deploy Azure Files](./storage-how-to-create-file-share.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitor Azure File Sync](storage-sync-files-monitoring.md)
