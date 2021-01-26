@@ -1,5 +1,5 @@
 ---
-title: Create a Cloud Service (extended support) - PowerShell
+title: Deploy a Cloud Service (extended support) - PowerShell
 description: Deploy a Cloud Service (extended support) using PowerShell
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Create a Cloud Service (extended support) using Azure PowerShell
+# Deploy a Cloud Service (extended support) using Azure PowerShell
 
 This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and remote desktop extension. 
 
@@ -23,7 +23,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 
-## Create a Cloud Services (extended support)
+## Deploy a Cloud Services (extended support)
 1. Install Az.CloudService PowerShell module  
 
     ```powershell
