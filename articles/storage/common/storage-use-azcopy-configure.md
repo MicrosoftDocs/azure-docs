@@ -17,7 +17,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > [!NOTE]
 > If you're looking for content to help you get started with AzCopy, see any of the following articles:
 > - [Get started with AzCopy](storage-use-azcopy-v10.md)
-> - [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-datatransfer-data)
+> - [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 > - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
