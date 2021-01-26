@@ -538,10 +538,12 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+```azurecli
 az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
 
 ---
 
@@ -559,11 +561,13 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+```azurecli
 az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
   --query-string $sasToken
+```
 
 ---
 
