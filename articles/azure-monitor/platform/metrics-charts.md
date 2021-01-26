@@ -168,8 +168,6 @@ You can split a metric by dimension to visualize how different segments of the m
    ![Screenshot that shows sort order on split values.](./media/metrics-charts/segment-dimension-sort.png)
 
 5. Click away from the **Grouping Selector** to close it.
-
-   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/032.png)
    
 
    > [!NOTE]
