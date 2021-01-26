@@ -17,11 +17,10 @@ ms.service: azure-communication-services
 Azure Communication Services UI Framework simplifies building modern communications user experiences. You can choose from
 different production-ready UI SDK options depending on your customization, performance, and feature needs:
 
-- **Composite Components** - Turn-key solutions that implement common communication scenarios. Developers can quickly add video calling or chat experiences to their applications. Composites are open-source components built using base components
-  - **Meeting Composite** - In addition to open-source composite components, we offer a closed-source composite that enables a Teams-like meeting experience that features many of the features you would expect such as blurred background and raised hand. More info: [UI Framework Meetings](./meetings.md). This experience is only available for **mobile** today.
+- **Composite Components** - Turn-key solutions that implement common communication scenarios. Developers can quickly add video calling or chat experiences to their applications. Composites are open-source components built using base components.
 - **Base Components** - These are open-source building blocks that enable developers to build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences. 
 
-These UI SDKs all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. The Meeting system is designed to match Microsoft Team's default meeting experience. Fluent UI provides a foundational layer for the UI Framework that has been battle tested across Microsoft products. They have built in customization which can be accessed directly using Fluent UI methods. More information on [How to customize components](../../quickstarts/ui-framework/how-to-customize-components.md).
+These UI SDKs all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. Fluent UI provides a foundational layer for the UI Framework that has been battle tested across Microsoft products. They have built in customization which can be accessed directly using Fluent UI methods. More information on [How to customize components](../../quickstarts/ui-framework/how-to-customize-components.md).
 
 ## **Differentiating Components and Composites**
 
@@ -37,11 +36,6 @@ an app, you simply import the chat composite component and initialize it. You do
 
 :::image type="content" source="../media/ui framework/compositeoverview.png" alt-text="Overview of composite for UI Framework":::
 
-**Meeting Composite** directly implements a Teams meeting experience while using underlying Azure Communication SDKs. Key additional features offered by this experience include:
-- Blurred Background
-- Multiple video gallery options such as large gallery, together mode, focus, pinning and spotlight
-For more information see: [UI Framework Meetings](./meetings.md)
-
 ## What UI Framework is best for my project?
 
 Understanding these requirements will help you pick the right SDK:
@@ -52,12 +46,11 @@ Understanding these requirements will help you pick the right SDK:
 
 Details about feature availability in the varied [UI SDKs is available here](ui-sdk-features.md), but key trade-offs are summarized below.
 
-|SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../voice-video-calling/teams-interop.md) | Teams Capabilities
+|SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../voice-video-calling/teams-interop.md)
 |---|---|---|---|---|---|---|
-|Meeting Composite|Low|Low|❌|❌|✔|✔
-|Open-Source Composite|Low|Low|✔|✔|Coming|❌
-|Base Components|Medium|Medium|✔|✔|Coming|❌
-|Core SDKs|High|High|✔|✔ |✔|❌
+|Open-Source Composite|Low|Low|✔|✔|Coming
+|Base Components|Medium|Medium|✔|✔|Coming
+|Core SDKs|High|High|✔|✔ |✔
 
 ## Cost
 
@@ -68,21 +61,21 @@ usage of the underlying service, using the same Calling, Chat, and PSTN meters.
 
 Calling:
 
-1.  Join Teams Meeting Call
+1.  Join Teams Meeting Call - *Coming*
 2.  Join Azure Communication Services call with Group Id
 
 Chat:
 
-1.  Join a Teams Meeting Chat
+1.  Join a Teams Meeting Chat - *Coming*
 2.  Join Azure Communication Services chat with Thread Id
 
 ## Supported identities:
 
-An ACS identity is required to initialize the UI Framework and authenticate to the service. 
+An ACS identity is required to initialize the UI Framework and authenticate to the service. For more information on authentication see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md)
 
-## Customizability
+## Customizability - Coming Soon
 
-UI Framework is built with customization in mind in terms of themes, sizing,
+UI Framework is built with customization in mind in terms of themes,
 layouts and data models:
 
 -   Themes: Change color schemes on Base and Composite Components to match your
@@ -101,7 +94,7 @@ layouts and data models:
 
 Composite and Base Components are initialized using an Azure
 Communication Services access token. Access tokens should be procured from Azure Communication Services through a
-trusted service you manage. 
+trusted service you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md)
 
 These SDKs also require the context for the call or chat they will join. Similar to user access tokens, these context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 

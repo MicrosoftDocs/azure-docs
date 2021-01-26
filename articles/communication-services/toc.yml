@@ -44,8 +44,6 @@
       href: quickstarts/ui-framework/getting-started-with-composites.md
     - name: Create your own UI Framework component
       href: quickstarts/ui-framework/create-your-own-components.md
-    - name: How to customize components
-      href: quickstarts/ui-framework/how-to-customize-components.md
 - name: Tutorials
   expanded: false
   items:
@@ -82,8 +80,6 @@
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
-      - name: UI Framework Meetings
-        href: concepts/ui-framework/meetings.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows
