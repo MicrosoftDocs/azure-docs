@@ -124,12 +124,12 @@ Learn more about how to configure the App Service [General settings](../../../ap
 ### Configure App Service Environment to host QnA Maker App Service
 The App Service Environment(ASE) can be used to host QnA Maker App service. Please follow the steps below:
 
-1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) for instructions.
+1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](../../../app-service/environment/create-external-ase.md) for instructions.
 2.  Create an App service inside the App Service Environment.
     * Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
     * Create an Azure search service.
     * Ensure Azure Search and App Settings are appropriately configured. 
-      Please follow this [tutorial](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service).
+      Please follow this [tutorial](../reference-app-service.md?tabs=v1#app-service).
 3.  Update the Network Security Group associated with the App Service Environment
     * Update pre-created Inbound Security Rules as per your requirements.
     * Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
