@@ -89,7 +89,7 @@ The Azure Cognitive Services Content Moderator service supports Impact Level 5 w
 
 Custom Vision supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Custom Vision using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/custom-vision-encryption-of-data-at-rest#customer-managed-keys-with-azure-key-vault)
+- Configure encryption at rest of content in Cognitive Services Custom Vision [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/custom-vision-encryption-of-data-at-rest#customer-managed-keys-with-azure-key-vault)
 
 ### [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)
 
@@ -107,13 +107,13 @@ The Cognitive Services Language Understanding service supports Impact Level 5 wo
 
 Personalizer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services Personalizer using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest)
 
 ### [Cognitive Services: QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/)
 
 Cognitive Services QnA Maker supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Cognitive Services QnA Maker using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/qna-maker-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/qna-maker-encryption-of-data-at-rest)
 
 ### [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 
@@ -143,8 +143,9 @@ Azure Analysis Services supports Impact Level 5 workloads in Azure Government wi
 
 Azure Databricks supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Databricks using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/databricks/security/keys/customer-managed-keys-dbfs)
-- For workloads that require isolation from other customer workloads, you can use isolated virtual machines (https://docs.microsoft.com/en-us/azure/databricks/clusters/configure#--cluster-node-type)
+- Azure Databricks can be deployed to existing storage accounts which have enabled appropriate [Storage Encryption with Key Vault Managed Keys](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-impact-level-5#storage-encryption-with-key-vault-managed-keys)
+- Leverage [Isolated Virtual Machines](https://docs.microsoft.com/en-us/azure/security/fundamentals/isolation-choices#isolated-virtual-machine-sizes) as the “Worker Type” when launching Azure Databricks clusters. Isolated VM types when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
+- Configure Customer-Managed Keys (CMK) for your [Azure Databricks Workspace](https://docs.microsoft.com/en-us/azure/databricks/security/keys/customer-managed-key-notebook) and [DBFS](https://docs.microsoft.com/en-us/azure/databricks/security/keys/customer-managed-keys-dbfs/). 
 
 ### [Azure Data Share](https://azure.microsoft.com/services/data-share/) 
 
@@ -310,7 +311,7 @@ For Databases services availability in Azure Government, see [Products available
 
 Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure API for FHIR using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/healthcare-apis/bring-your-own-key)
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/healthcare-apis/bring-your-own-key)
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
@@ -505,15 +506,15 @@ Azure Cloud Shell supports Impact Level 5 workloads in Azure Government with no 
 
 <a name="log-analytics"></a>
 
-### [Intune](/intune/what-is-intune)
-
-Intune supports Impact Level 5 workloads in Azure Government with no additional configuration required.
-
 ### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 
 Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/platform/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
 Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/platform/customer-managed-keys.md).
+
+### [Microsoft Intune](/intune/what-is-intune)
+
+Intune supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
 ## Media
 
@@ -535,7 +536,7 @@ For Migration services availability in Azure Government, see [Products available
 
 Azure Data Box supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Data Box using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/databox/data-box-customer-managed-encryption-key-portal)
+- Configure encryption at rest of content in Azure Data Box [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/databox/data-box-customer-managed-encryption-key-portal)
 
 ### [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)
 
@@ -579,6 +580,10 @@ Azure Firewall supports Impact Level 5 workloads in Azure Government with no add
 
 Azure Front Door supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
+### [Azure Peering Service](https://docs.microsoft.com/azure/peering-service/about)
+
+Microsoft Peering Service supports Impact Level 5 workloads in Azure Government with no additional configuration required.
+
 ### [Azure Private Link](https://azure.microsoft.com/services/private-link/)
 
 Azure Private Link supports Impact Level 5 workloads in Azure Government with no additional configuration required.
@@ -586,10 +591,6 @@ Azure Private Link supports Impact Level 5 workloads in Azure Government with no
 ### [Load Balancer](https://azure.microsoft.com/services/load-balancer/)
 
 Azure Load Balancer supports Impact Level 5 workloads in Azure Government with no additional configuration required.
-
-### [Microsoft Peering Service](../../peering-service/about.md)
-
-Microsoft Peering Service supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
 ### [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 
@@ -603,7 +604,7 @@ Azure Traffic Manager supports Impact Level 5 workloads in Azure Government with
 
 Azure Virtual Network supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
-### [Virtual NAT](../../virtual-network/nat-overview.md)
+### [Virtual NAT](../virtual-network/nat-overview.md) 
 
 Virtual NAT supports Impact Level 5 workloads in Azure Government with no additional configuration required.
 
@@ -627,7 +628,7 @@ Azure Dedicated HSM supports Impact Level 5 workloads in Azure Government with n
 
 Azure Information Protection supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Information Protection using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/information-protection/byok-price-restrictions)
+- Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/information-protection/byok-price-restrictions)
 
 ### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
@@ -651,7 +652,7 @@ Customer Lockbox for Microsoft Azure supports Impact Level 5 workloads in Azure 
 
 Microsoft Cloud App Security supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Microsoft Cloud App Security using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/cloud-app-security/cas-compliance-trust#security)
+- Configure encryption at rest of content in Microsoft Cloud App Security [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/cloud-app-security/cas-compliance-trust#security)
 
 ### [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
@@ -673,7 +674,7 @@ For Storage services availability in Azure Government, see [Products available b
 
 Azure HPC Cache supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure HPC Cache using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/hpc-cache/customer-keys)
+- Configure encryption at rest of content in Azure HPC Cache [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/hpc-cache/customer-keys)
 
 ### [Azure Import/Export service](../import-export/storage-import-export-service.md)
 
@@ -691,7 +692,7 @@ The target storage account for Archive Storage can be located in any Azure Gover
 
 Azure Netapp Files supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Netapp Files using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs)
+- Configure encryption at rest of content in Azure Netapp Files [using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs)
 
 ### [Storage](https://azure.microsoft.com/services/storage/)
 
