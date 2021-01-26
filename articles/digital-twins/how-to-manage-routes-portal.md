@@ -57,17 +57,29 @@ This section explains how to create one of these endpoints in the [Azure portal]
 
 Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. To create a new endpoint, go to your instance's page in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
 
-1. From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
+1. From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. This will open the *Create an endpoint* page, where you'll fill in the fields in the following steps.
 
-1. On the *Create an Endpoint* page that opens up, enter a **Name** for your endpoint and choose the **Endpoint type**.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
+
+1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
+    1. For Event Hub and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your Azure Digital Twins instance. 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-1. Finish creating your endpoint by selecting the _Save_ button.
+1. Finish creating your endpoint by selecting _Save_.
 
-You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar: 
+>[!IMPORTANT]
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events*](how-to-enable-managed-identities.md).
+
+After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
 :::row:::
     :::column:::

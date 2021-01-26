@@ -108,23 +108,24 @@ When you're finished entering the details, select **Save**.
 
 ## Create an endpoint with identity-based authorization
 
-After setting up a system-managed identity for your Azure Digital Twins instance and assigning it the appropriate role(s), you can create Azure Digital Twins [endpoints](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) that are capable of using the identity for authentication. This option is only available for Event Hub and Service Bus-type endpoints (not Event Grid).
+After setting up a system-managed identity for your Azure Digital Twins instance and assigning it the appropriate role(s), you can create Azure Digital Twins [endpoints](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) that are capable of using the identity for authentication. This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
 
 >[!NOTE]
 > You cannot edit an endpoint that has already been created with key-based identity to change to identity-based authentication. You must choose the authentication type when the endpoint is first created.
 
-enable the usage of system-assigned identity to authenticate to your Azure Digital Twins endpoints. 
+Follow the [instructions to create an Azure Digital Twins endpoint](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
 
-replaces key-based auth (well it's still an option) but identity-based is now an option
-go to Endpoints for the instance
+When you get to the step of completing the details required for your endpoint type, make sure to select **Identity-based** for the Authentication type.
 
-Create an endpoint, (remember that Event Grid isn't supported rn), so no options.
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
-If you select Event Hub or Service bus, you get options for Authentication type: Key-based or Identity-based. to leverage MSI, click identity-based
-
-Authorization rule goes away for identity-based
-
-and it shows up with Authentication type of Identity-based
+Finish setting up your endpoint and select **Save**.
 
 ## Next steps
 
