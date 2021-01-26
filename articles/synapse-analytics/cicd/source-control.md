@@ -16,7 +16,7 @@ By default, Azure Synapse Studio authors directly against the Synapse service. H
 
 - It doesn't include a temporary storage for storing your changes in default mode currently. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
 
-- In default mode, collaboration and version control are not optimized.
+- In default mode, collaboration and version control are not optimal.
 
 To provide source control capability, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
