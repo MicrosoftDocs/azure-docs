@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -383,26 +383,29 @@ When you delete a logic app, no new runs are instantiated. All in-progress and p
 
 ## Firewall configuration: IP addresses and service tags
 
-The IP addresses that Azure Logic Apps uses for inbound and outbound calls depend on the region where your logic app exists. *All* logic apps in the same region use the same IP address ranges. Some [Power Automate](/power-automate/getting-started) calls, such as **HTTP** and **HTTP + OpenAPI** requests, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about IP addresses used by Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config#ip-address-configuration).
+When your logic apps need to communicate across a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the inbound and outbound IP addresses used by the Logic Apps service or runtime in the Azure regions where your logic apps exist. If your logic apps also use [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or they use [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](#outbound) in your logic apps' Azure regions. Plus, if you use custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), that gateway also needs to allow access through the corresponding *managed connectors [outbound IP addresses](#outbound)*. *All* logic apps in the same region use the same IP address ranges.
 
-> [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use
-> [service tags](../virtual-network/service-tags-overview.md), rather than
-> specify the Logic Apps IP addresses for each region, described later in this section.
-> These tags work across the regions where the Logic Apps service is available:
->
-> * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
-> * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+For example, to support calls that logic apps in the West US region send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Logic Apps service [inbound IP addresses](#inbound) *and* [outbound IP addresses](#outbound) that exist in the West US region.
 
-* For [Azure China 21Vianet](/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and [managed connectors](../connectors/apis-list.md#managed-api-connectors), for example, Azure Storage, SQL Server, Office 365 Outlook, and so on.
+<a name="ip-setup-considerations"></a>
 
-* To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with all the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
+### Firewall IP configuration considerations
 
-* To support the calls that [managed connectors](../connectors/apis-list.md#managed-api-connectors) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
+Before you set up your firewall with IP addresses, review these considerations:
 
-* To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+* If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/flow/limits-and-config#ip-address-configuration).
 
-* If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+* For [Azure China 21Vianet](/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and for [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as Azure Storage, SQL Server, Office 365 Outlook, and so on.
+
+* If your logic apps run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), make sure that you [open these ports too](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* To help you simplify any security rules that you want to create, you can optionally use [service tags](../virtual-network/service-tags-overview.md) instead, rather than specify IP addresses for each region. These tags work across the regions where the Logic Apps service is available:
+
+  * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
+
+  * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+
+* If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various other options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
