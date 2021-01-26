@@ -1,21 +1,21 @@
 ---
 title: Self-host the portal
 titleSuffix: Azure API Management
-description: Learn how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
+description: Learn how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 author: erikadoyle
 ms.author: apimpm
-ms.date: 01/15/2020
+ms.date: 01/26/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Self-host the portal
 
-In this tutorial, we describe how to setup your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
+In this tutorial, we describe how to set up your local development environment, carry out changes in the developer portal, and publish and deploy them to an Azure Storage Account.
 
 If you have already uploaded or modified media files in the managed portal, you need to follow the [Move from managed to self-hosted](dev-portal-move-managed-self-hosted.md) guide instead.
 
-## Requirements
+## Prerequisites
 
 To set up a local development environment, you need to have:
 
@@ -27,7 +27,7 @@ To set up a local development environment, you need to have:
 
 ## Step 1: Setup local environment
 
-To set up your local environment, you'll have to clone the repository, switch to the latest developer portal release, and install npm packages.
+To set up your local environment, you'll have to clone the repository, switch to the latest release of the developer portal, and install npm packages.
 
 1. Clone the api-management-developer-portal repo from GitHub:
 
@@ -42,7 +42,7 @@ To set up your local environment, you'll have to clone the repository, switch to
 
 1. Check out the latest release of the portal:
 
-    Before you run the code below, check the current release tag in the [Releases section of the repository](https://github.com/Azure/api-management-developer-portal/releases) and replace <current-release-tag> value below with the latest release tag.
+    Before you run the code below, check the current release tag in the [Releases section of the repository](https://github.com/Azure/api-management-developer-portal/releases) and replace `<current-release-tag>` value below with the latest release tag.
     
     ```console
     git checkout <current-release-tag>
@@ -57,7 +57,7 @@ To set up your local environment, you'll have to clone the repository, switch to
 > [!NOTE]
 > If you wish to have the best experience with the developer portal, always use the latest [GitHub release](https://github.com/Azure/api-management-developer-portal/releases) and keep updating your fork. The Software Engineers use the `master` branch of this repository for daily development purposes. It contains unstable version of the software.
 
-## Step 2: Configure JSON files and Static website
+## Step 2: Configure JSON files, Static website, and CORS settings
 
 The developer portal requires API Management's REST API to manage the content.
 
@@ -103,7 +103,7 @@ Configure the file:
 
 1. If you'd like to enable CAPTCHA in your developer portal, follow the [Enable CAPTCHA](dev-portal-enable-captcha.md) tutorial.
 
-### File `./src/config.publish.json`
+### config.publish.json file
 
 Go to the `/scr/` folder and open the `config.publish.json` file.
 
@@ -165,7 +165,7 @@ Configure the *Static website* feature in your Storage Account by providing rout
 
 1. Select **Save**.
 
-### Enable CORS
+### Configure the CORS settings
 
 Configure the Cross-Origin Resource Sharing (CORS) settings:
 
@@ -188,7 +188,7 @@ Configure the Cross-Origin Resource Sharing (CORS) settings:
 > [!CAUTION]
 > Skip this step if you already have the portal content in your API Management service. For example, if you're migrating from the managed version, you don't have to do this step.
 
-API Management service doesn't contain any portal content by default. You need to provision it manually. 
+API Management service doesn't contain any portal content by default. Provision it manually. 
 
 ```sh
 set management_endpoint="<service-name>.management.azure-api.net"
@@ -234,13 +234,20 @@ It will automatically open the default browser with your local developer portal 
 
 ## Step 5: Edit through the visual editor
 
-Customize your portal, author content, organize the structure of the website, and style its appearance through the built-in visual editor. Refer to [the Azure documentation tutorial for the managed version of the portal](https://aka.ms/apimdocs/customizeportal), which covers the basics of the administrative user interface and lists recommended changes to the default content.
+Use the visual editor to carry out these tasks:
+
+- Customize your portal
+- Author content
+- Organize the structure of the website
+- Stylize its appearance
+
+See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content.
 
 ![API Management developer portal development - save content](media/dev-portal/readme-dev-save.png)
 
 ## Step 6: Publish locally
 
-The portal data is described in form of strong-typed objects. The following command will translate them into static files and place the output in the `./dist/website` directory:
+The portal data originates in the form of strong-typed objects. The following command will translate them into static files and place the output in the `./dist/website` directory:
 
 ```sh
 npm run publish
@@ -272,12 +279,12 @@ Your website is now live under the hostname specified in your Azure Storage prop
 
 ## Step 9: Change API Management notification templates
 
-You need to replace the developer portal URL in the API Management notification templates to point to the self-hosted portal. See [How to configure notifications and email templates in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-configure-notifications).
+Replace the developer portal URL in the API Management notification templates to point to the self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
 
 In particular, carry out the following changes to the default templates:
 
 > [!NOTE]
-> The values in the **Modified content** sections assume that the portal is hosted at **https:\//portal.contoso.com/**.
+> The values in the **Updated** sections assume that the you're hosting the portal at **https:\//portal.contoso.com/**.
 
 ### Email Change Confirmation
 
@@ -288,10 +295,11 @@ In particular, carry out the following changes to the default templates:
   <strong>$ConfirmUrl</strong></a>
 ```
 
-**Modified content**
+**Updated**
 
 ```html
-
+<a id="confirmUrl" href="https://portal.contoso.com/signup?$ConfirmQuery" style="text-decoration:none">
+  <strong>https://portal.contoso.com/signup?$ConfirmQuery</strong></a>
 ```
 
 ### New developer account confirmation
@@ -303,10 +311,11 @@ In particular, carry out the following changes to the default templates:
   <strong>$ConfirmUrl</strong></a>
 ```
 
-**Modified content**
+**Updated**
 
 ```html
-<a id="confirmUrl" href="https://portal.contoso.com/signup?$ConfirmQuery" style="text-decoration:none"><strong>https://portal.contoso.com/signup?$ConfirmQuery</strong></a>
+<a id="confirmUrl" href="https://portal.contoso.com/signup?$ConfirmQuery" style="text-decoration:none">
+  <strong>https://portal.contoso.com/signup?$ConfirmQuery</strong></a>
 ```
 
 ### Invite user
@@ -317,7 +326,7 @@ In particular, carry out the following changes to the default templates:
 <a href="$ConfirmUrl">$ConfirmUrl</a>
 ```
 
-**Modified content**
+**Updated**
 
 ```html
 <a href="https://portal.contoso.com/confirm-v2/identities/basic/invite?$ConfirmQuery">https://portal.contoso.com/confirm-v2/identities/basic/invite?$ConfirmQuery</a>
@@ -329,11 +338,39 @@ In particular, carry out the following changes to the default templates:
 
 ```html
 Thank you for subscribing to the <a href="http://$DevPortalUrl/products/$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!
-...
+```
+
+**Updated**
+
+```html
+Thank you for subscribing to the <a href="https://portal.contoso.com/product#product=$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!
+```
+
+**Original content**
+
+```html
 Visit the developer <a href="http://$DevPortalUrl/developer">profile area</a> to manage your subscription and subscription keys
-...
+```
+
+**Updated**
+
+```html
+Visit the developer <a href="https://portal.contoso.com/profile">profile area</a> to manage your subscription and subscription keys
+```
+
+**Original content**
+
+```html
 <a href="http://$DevPortalUrl/docs/services?product=$ProdId">Learn about the API</a>
-...
+```
+
+**Updated**
+
+<a href="https://portal.contoso.com/product#product=$ProdId">Learn about the API</a>
+
+**Original content**
+
+```html
 <p style="font-size:12pt;font-family:'Segoe UI'">
   <strong>
     <a href="http://$DevPortalUrl/applications">Feature your app in the app gallery</a>
@@ -350,15 +387,9 @@ Visit the developer <a href="http://$DevPortalUrl/developer">profile area</a> to
 </p>
 ```
 
-**Modified content**
+**Updated**
 
 ```html
-Thank you for subscribing to the <a href="https://portal.contoso.com/product#product=$ProdId"><strong>$ProdName</strong></a> and welcome to the $OrganizationName developer community. We are delighted to have you as part of the team and are looking forward to the amazing applications you will build using our API!
-...
-Visit the developer <a href="https://portal.contoso.com/profile">profile area</a> to manage your subscription and subscription keys
-...
-<a href="https://portal.contoso.com/product#product=$ProdId">Learn about the API</a>
-...
 <!--Remove corresponding content seen above: 
     Feature your app ..., You can publish ...,
     Stay in touch, and so on.-->
@@ -372,7 +403,7 @@ Visit the developer <a href="https://portal.contoso.com/profile">profile area</a
 <a href="$DevPortalUrl">$DevPortalUrl</a>
 ```
 
-**Modified content**
+**Updated**
 
 ```html
 <a href="https://portal.contoso.com/confirm-password?$ConfirmQuery">https://portal.contoso.com/confirm-password?$ConfirmQuery</a>
@@ -380,7 +411,7 @@ Visit the developer <a href="https://portal.contoso.com/profile">profile area</a
 
 ### All templates
 
-For any template that asa link to the Dev Portal in the footer:
+For any template that has a link to the Dev Portal in the footer:
 
 **Original content**
 
@@ -388,7 +419,7 @@ For any template that asa link to the Dev Portal in the footer:
 <a href="$DevPortalUrl">$DevPortalUrl</a>
 ```
 
-**Modified content**
+**Updated**
 
 ```html
 <a href="https://portal.contoso.com/">https://portal.contoso.com/</a>
