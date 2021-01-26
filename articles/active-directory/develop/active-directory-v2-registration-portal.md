@@ -23,7 +23,7 @@ This document provides context and descriptions of various features found in the
 
 ## My Applications or Converged applications
 
-This list contains all of your applications registered for use with the Microsoft identity platform (v2.0) endpoint. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the identity platform endpoint, see the [v2.0 overview](./v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
+This list contains all of your applications registered for use with the Microsoft identity platform. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the Microsoft identity platform, see the [v2.0 overview](./v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
 
 ## Azure AD only applications
 
@@ -35,7 +35,7 @@ This list contains all of your applications registered for use solely with Micro
 
 ## Application Secrets
 
-Application secrets are credentials that allow your application to perform reliable [client authentication](https://tools.ietf.org/html/rfc6749#section-2.3) with Microsoft identity platform. In OAuth & OpenID Connect, an application secret is commonly referred to as a `client_secret`. In the v2.0 protocol, any application that receives a security token at a web addressable location (using an `https` scheme) must use an application secret to identify itself to Microsoft identity platform upon redemption of that security token. Furthermore, any native client that receives tokens on a device will be forbidden from using an application secret to perform client authentication. This discourages the storage of secrets in insecure environments.
+Application secrets are credentials that allow your application to perform reliable [client authentication](https://tools.ietf.org/html/rfc6749#section-2.3) with Microsoft identity platform. In OAuth & OpenID Connect, an application secret is commonly referred to as a `client_secret`. In the v2.0 protocol, any application that receives a security token at a web addressable location (using an `https` scheme) must use an application secret to identify itself to the Microsoft identity platform upon redemption of that security token. Furthermore, any native client that receives tokens on a device will be forbidden from using an application secret to perform client authentication. This discourages the storage of secrets in insecure environments.
 
 Each app can contain two valid application secrets at any given time. By maintaining two secrets, you have the ability to perform periodic key rollover across your application's entire environment. Once you've migrated the entirety of your application to a new secret, you may delete the old secret and provision a new one.
 

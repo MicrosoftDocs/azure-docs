@@ -65,13 +65,13 @@ For other resource types, we don't currently have an Azure RBAC-related solution
 ### Recommended Azure built-in roles
 
 There are several Azure built-in roles that can provide the permissions needed to use Storage Explorer. Some of those roles are:
-- [Owner](/azure/role-based-access-control/built-in-roles#owner): Manage everything, including access to resources.
-- [Contributor](/azure/role-based-access-control/built-in-roles#contributor): Manage everything, excluding access to resources.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader): Read and list resources.
-- [Storage Account Contributor](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Full management of storage accounts.
-- [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
-- [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
-- [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
+- [Owner](../../role-based-access-control/built-in-roles.md#owner): Manage everything, including access to resources.
+- [Contributor](../../role-based-access-control/built-in-roles.md#contributor): Manage everything, excluding access to resources.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): Read and list resources.
+- [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor): Full management of storage accounts.
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
 
 > [!NOTE]
 > The Owner, Contributor, and Storage Account Contributor roles grant account key access.

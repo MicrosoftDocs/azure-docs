@@ -53,7 +53,7 @@ Microsoft provides tools and samples that can help you create a signed verificat
 > [!IMPORTANT]
 > In addition to performing proof-of-possession, the PowerShell and Bash scripts cited previously also allow you to create root certificates, intermediate certificates, and leaf certificates that can be used to authenticate and provision devices. These certificates should be used for development only. They should never be used in a production environment. 
 
-The PowerShell and Bash scripts provided in the documentation and SDKs rely on [OpenSSL](https://www.openssl.org/). You may also use OpenSSL or other third-party tools to help you do proof-of-possession. For more information about tooling provided with the SDKs, see [How to use tools provided in the SDKs](how-to-use-sdk-tools.md). 
+The PowerShell and Bash scripts provided in the documentation and SDKs rely on [OpenSSL](https://www.openssl.org/). You may also use OpenSSL or other third-party tools to help you do proof-of-possession. For an example using tooling provided with the SDKs, see [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
 ## Upload the signed verification certificate

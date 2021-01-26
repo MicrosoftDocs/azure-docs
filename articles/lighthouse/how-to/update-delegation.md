@@ -53,9 +53,9 @@ After the deployment has been completed, [confirm that it was successful](onboar
 
 ## Updating Managed Service offers
 
-If you onboarded your customer through a Managed Service offer published to Azure Marketplace, and you want to update authorizations, you can update the delegation by [publishing a new version of your offer](../../marketplace/partner-center-portal/update-existing-offer.md) with the [authorizations](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) that you want to use updated in the plan for that customer. The customer will then be able to update to the newest version in the Azure portal.
+If you onboarded your customer through a Managed Service offer published to Azure Marketplace, and you want to update authorizations, you can update the delegation by [publishing a new version of your offer](../../marketplace/partner-center-portal/update-existing-offer.md) with the [authorizations](../../marketplace/plan-managed-service-offer.md) that you want to use updated in the plan for that customer. The customer will then be able to update to the newest version in the Azure portal.
 
-If you want to change the managing tenant, you will need to [create and publish a new Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) for the customer to accept.
+If you want to change the managing tenant, you will need to [create and publish a new Managed Service offer](../../marketplace/plan-managed-service-offer.md) for the customer to accept.
 
 > [!TIP]
 > As mentioned earlier, we recommend that you don’t use multiple different offers between the same customer and managing tenant. If you do publish a new offer for the same customer which uses the same managing tenant, be sure that the earlier offer is removed before the customer accepts the newer offer.

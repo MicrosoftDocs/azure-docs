@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
 
-#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my Angular app can sign in users of personal Microsoft accounts, work accounts, or school accounts.
+#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform so that my Angular app can sign in users of personal Microsoft accounts, work accounts, or school accounts.
 ---
 
 # Quickstart: Sign in users and get an access token in an Angular single-page application

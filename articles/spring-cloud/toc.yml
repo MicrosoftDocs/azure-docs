@@ -141,7 +141,7 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
 - name: DevOps Deployment
   items:
   - name: CI/CD with Azure DevOps
