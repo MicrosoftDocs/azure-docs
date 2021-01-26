@@ -394,7 +394,7 @@
     - name: Onfido
       href: partner-onfido.md
     - name: Ping Identity
-      href: partner-ping.md
+      href: partner-ping-identity.md
     - name: Saviynt
       href: partner-saviynt.md
     - name: Strata
