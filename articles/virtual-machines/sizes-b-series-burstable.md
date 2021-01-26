@@ -23,9 +23,10 @@ The B-series comes in the following VM sizes:
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported**<br>
-<br>
+
 *B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.<br>
 **Accelerated Networking is only supported for *Standard_B12ms*, *Standard_B16ms* and *Standard_B20ms*.
+<br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
