@@ -97,6 +97,10 @@ Here are some tips for troubleshooting this error:
 
 The default length is 85 seconds. The "long" setting is 180 seconds. The timeout limit can't be extended.
 
+### Can a service principal manage Application Proxy using Powershell or Microsoft Graph APIs?
+
+No, this is currently not supported.
+
 ### How do I change the landing page my application loads?
 
 From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](./application-proxy-configure-custom-home-page.md)
