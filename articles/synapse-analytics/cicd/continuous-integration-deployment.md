@@ -136,6 +136,6 @@ If you're using Git integration with your Synapse workspace and have a CI/CD pip
 
 In Synapse, all kinds of artifacts are not ARM resources, which are different with ADF. You cannot use ARM template deployment task to deploy Synapse artifacts
  
-### use Unexpected token
+### Unexpected token error in release
 
 When your parameter file has parameter values which are not escaped, the release pipeline would fail to parse the file with the error of unexpected token. We suggest you to override parameters or KeyVault to get parameters. You could also double escape as a workaround.
