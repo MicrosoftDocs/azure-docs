@@ -17,11 +17,15 @@ ms.service: digital-twins
 
 # Enable private access with Private Link
 
-...
+This article describes the different ways to [enable Private Link with a private endpoint for an Azure Digital Twins instance](concepts-security.md# private-network-access-with-azure-private-link). Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
+
+Here are the steps that are covered in this article: 
+1. Turn on Private Link and configure a private endpoint for an Azure Digital Twins instance.
+1. Disable or enable public network access flags, to restrict API access to Private Link connections only.
 
 ## Prerequisites
 
-...
+Before you can set up a private endpoint, you'll need an [**Azure Virtual Network (VNet)**](../virtual-network/virtual-networks-overview.md) where the endpoint can be deployed. If you don't have a VNet already, you can follow one of the Azure Virtual Network [quickstarts](../virtual-network/quick-create-portal.md) to set this up.
 
 ## Add a private endpoint for an Azure Digital Twins instance 
 
@@ -131,8 +135,70 @@ Next, you'll go through the **Create a private endpoint** setup.
 
 When the endpoint is finished deploying, it should show up in the Private endpoint connections for your Azure Digital Twins instance, or in the endpoint list in Private Link Center.
 
-## Enabling / disabling public network access flags
+## Disable / Enable public network access flags
 
-...
+You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This is done through a **public network access flag**. 
+
+This policy allows you to restrict API access to Private Link connections only. When the public network access flag is set to *disabled*, all REST API calls to the Azure Digital Twins instance data plane from the public cloud should return `403, Unauthorized`. Alternatively, when the policy is set to *disabled* and a request is made through a private endpoint, the API call should succeed.
+
+You can update the value of the network flag using the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/), or the [ARMClient command tool](https://github.com/projectkudu/ARMClient).
+
+### Option 1: Using the Azure portal
+
+To disable or enable public network access in the [Azure portal](https://portal.azure.com), open the portal and navigate to your Azure Digital Twins instance.
+
+1. Select **Networking (preview)** in the left-hand menu.
+
+1. In the **Pulic access** tab, set **Allow public network access to** either **Disabled** or **All networks**. Save when finished.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the the Networking (preview) page for an Azure Digital Twins instance. The Public access tab is highlighted, and the option to choose whether to allow public network access is also highlighted.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+### Option 2: Using the Azure CLI
+
+With the Azure CLI, this is done using the `az resource update` command as shown below. The publicNetworkAccess property on an Azure Digital Twins instance can be set to either `disabled` or `enabled`.
+
+To disable the flag, use the following command, replacing the placeholders with your instance values.
+ 
+```azurecli
+az resource update --ids /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<your-Azure-Digital-Twins-instance> --set properties.publicNetworkAccess=disabled  
+```
+
+Here is a screenshot of what the output looks like.
+
+:::image type="content" source="media/how-to-enable-private-link/network-flag-cli.png" alt-text="Screenshot of a terminal window running the above Azure CLI command. The output contains details of the instance, including a property called publicNetworkAccess with a value of Disabled." lightbox="media/how-to-enable-private-link/network-flag-cli.png":::
+
+To enable the flag, use the following similar command.
+ 
+```azurecli
+az resource update --ids /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<your-Azure-Digital-Twins-instance> --set properties.publicNetworkAccess=enabled  
+```
+
+### Option 3: Using ARMClient  
+
+With the [ARMClient command tool](https://github.com/projectkudu/ARMClient), public network access is enabled or disabled using the commands below. 
+
+To disable public network access:
+  
+```cmd/sh
+armclient login 
+
+armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<your-Azure-Digital-Twins-instance>?api-version=2020-12-01 "{ 'properties': { 'publicNetworkAccess': 'disabled' } }"  
+```
+
+To enable public network access:  
+  
+```cmd/sh
+armclient login 
+
+armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<your-Azure-Digital-Twins-instance>?api-version=2020-12-01 "{ 'properties': { 'publicNetworkAccess': 'enabled' } }"  
+``` 
 
 ## Next steps
+
+Learn more about Private Link for Azure: [*What is Azure Private Link service?*](../private-link/private-link-service-overview.md)

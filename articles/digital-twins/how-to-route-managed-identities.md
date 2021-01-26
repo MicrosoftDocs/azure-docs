@@ -45,7 +45,23 @@ You can then use the bottom navigation buttons to continue with the rest of inst
 
 ### Add a system-managed identity to an existing instance
 
-...
+In this section, you'll use the [Azure portal](https://portal.azure.com) to add a system-managed identity to an Azure Digital Twins instance that already exists.
+
+1. First, navigate to the [Azure portal](https://portal.azure.com) in a browser.
+
+1. Search for the name of your instance in the portal search bar, and select it to view its details.
+
+1. Select **Identity (preview)** in the left-hand menu.
+
+1. On this page, select the **On** option to turn on this feature.
+
+1. Hit the **Save** button, and **Yes** to confirm.
+
+    :::image type="content" source="media/how-to-route-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the the Identity (preview) page for an Azure Digital Twins instance. There's a highlight around the page name in the Azure Digital Twins instance menu, the On option for Status, the Save button, and the Yes confirmation button.":::
+
+After the change is saved, additional fields will appear on this page for the new identity's **Object ID** and **Permissions**.
+
+You can copy the object ID from here if needed, and use the Permissions button to view the Azure roles that are assigned to the identity. To set up some roles, continue to the next section.
 
 ## Assign Azure roles to the identity 
 

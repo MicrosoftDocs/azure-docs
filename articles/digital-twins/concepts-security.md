@@ -100,7 +100,7 @@ You can use a system-assigned managed identity for your Azure Digital Instance t
 
 For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [*How-to: Route events using managed identities*](how-to-route-managed-identities.md).
 
-## Enable private network access with Azure Private Link 
+## Private network access with Azure Private Link 
 
 [Azure Private Link](../private-link/private-link-overview.md) is a service that enables you to access Azure resources (like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md), and [Azure Cosmos DB](../cosmos-db/introduction.md)) and Azure-hosted customer and partner services over a private endpoint in your virtual network. 
 
@@ -113,6 +113,14 @@ The private endpoint uses an IP address from your Azure VNet address space. Netw
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 
 For instructions on how to set up Private Link for Azure Digital Twins, see [*How-to: Enable private access with Private Link*](how-to-enable-private-link.md).
+
+### Limitations and design considerations 
+
+When working with Private Link for Azure Digital Twins, consider the following limitations:
+* **Pricing**: For pricing details, see [Azure Private Link pricing](../pricing/details/private-link/). 
+* **Regional availability**: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
+
+For more limits information, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
 
 ## Service tags
 
