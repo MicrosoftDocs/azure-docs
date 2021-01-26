@@ -37,4 +37,4 @@ To configure the KDC proxy:
 
 ## Next steps
 
-The RDGateway role in Remote Desktop Services includes a KDC proxy service. See [Deploy the RD Gateway role in Windows Virtual Desktop](rdgateway-role.md) for how to set one up to be a target for Windows Virtual Desktop.
+The RDGateway role in Remote Desktop Services includes a KDC proxy service. See [Deploy the RD Gateway role in Windows Virtual Desktop](rd-gateway-role.md) for how to set one up to be a target for Windows Virtual Desktop.
