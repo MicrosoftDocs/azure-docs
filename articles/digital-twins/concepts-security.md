@@ -117,7 +117,7 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [*Ho
 ### Limitations and design considerations 
 
 When working with Private Link for Azure Digital Twins, consider the following limitations:
-* **Pricing**: For pricing details, see [Azure Private Link pricing](../pricing/details/private-link/). 
+* **Pricing**: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
 * **Regional availability**: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
 
 For more limits information, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
