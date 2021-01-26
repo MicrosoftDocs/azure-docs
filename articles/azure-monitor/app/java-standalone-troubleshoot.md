@@ -52,23 +52,23 @@ There are two different paths to troubleshoot this issue.
 
 ### If using a default Java Keystore:
 
-Typically the default Java keystore will already have all of the CA root certificates. However there might be some exceptions, such as the ingestion endpoint certificate might be signed a different root certificate. So we recommend the following two steps to resolve this issue.
+Typically the default Java keystore will already have all of the CA root certificates. However there might be some exceptions, such as the ingestion endpoint certificate might be signed by a different root certificate. So we recommend the following three steps to resolve this issue:
 
-1.	First you need to check if the root certificate generated from the Application Insights endpoint url is already present in the default keystore. The trusted CA certificates, by default, are stored in `$JAVA_HOME/jre/lib/security/cacerts`. To list certificates in a Java keystore use the following command:
+1.	Check if the root certificate that was used to sign the Application Insights endpoint is already present in the default keystore. The trusted CA certificates, by default, are stored in `$JAVA_HOME/jre/lib/security/cacerts`. To list certificates in a Java keystore use the following command:
     > `keytool -list -v -keystore $PATH_TO_KEYSTORE_FILE`
  
     You can redirect the output to a temp file like this (will be easy to search later)
     > `keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts > temp.txt`
 
-2. Once you have the list of certificates please follow these [steps](#steps-to-download-ssl-certificate) to download the root certificate from the Application Insights ingestion endpoint.
+2. Once you have the list of certificates, follow these [steps](#steps-to-download-ssl-certificate) to download the root certificate that was used to sign the Application Insights endpoint.
 
-    Once you have the certificate downloaded, we need to generate a SHA-1 hash on the certificate using the below command:
+    Once you have the certificate downloaded, generate a SHA-1 hash on the certificate using the below command:
     > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
  
-    Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, indicates that the downloaded root cert is missing in default Java Keystore.
+    Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, it indicates that the downloaded root cert is missing in default Java Keystore.
 
 
-2. Next to import the root cert to default Java keystore use the following command :
+3. Import the root certificate to the default Java keystore using the following command:
     >   `keytool -import -file "the cert file" -alias "some meaningful name" -keystore "path to cacerts file"`
  
     In this case it will be
@@ -78,10 +78,10 @@ Typically the default Java keystore will already have all of the CA root certifi
 
 ### If using a custom Java Keystore:
 
-If you're using a custom Java keystore, you might need to import the Application Insights endpoint's root SSL certificates into it.
+If you are using a custom Java keystore, you may need to import the Application Insights endpoint(s) root SSL certificate(s) into it.
 We recommend the following two steps to resolve this issue:
-1. Please follow these [steps](#steps-to-download-ssl-certificate) to download the root certificate from the Application Insights ingestion endpoint.
-2. Use the following command to import an SSL certificate to the custom Java keystore:
+1. Follow these [steps](#steps-to-download-ssl-certificate) to download the root certificate from the Application Insights endpoint.
+2. Use the following command to import the root SSL certificate to the custom Java keystore:
     > `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name.cer" -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
 
 ### Steps to download SSL certificate
@@ -94,7 +94,7 @@ We recommend the following two steps to resolve this issue:
 
     :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Screenshot of the Certificate option in site information." lightbox="media/java-ipa/troubleshooting/certificate-icon-capture.png":::
 
-3.  Instead of downloading the 'leaf' certificate you have to download the 'root' certificate as shown below. Later, you have to click on the "Certificate Path" -> Select the Root Certificate -> Click on 'View Certificate'. This will pop up a new certificate menu, and you can download the certificate, from the new menu.
+3.  Instead of downloading the 'leaf' certificate you should download the 'root' certificate as shown below. Later, you have to click on the "Certificate Path" -> Select the Root Certificate -> Click on 'View Certificate'. This will pop up a new certificate menu and you can download the certificate, from the new menu.
 
     :::image type="content" source="media/java-ipa/troubleshooting/root-certificate-selection.png" alt-text="Screenshot of how to select the root certificate." lightbox="media/java-ipa/troubleshooting/root-certificate-selection.png":::
 
