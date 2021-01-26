@@ -1748,7 +1748,7 @@
     - name: Pricing
       href: ../backup/azure-backup-pricing.md
     - name: FAQ
-      href: ../backup/backup-azure-vm-backup-faq.md
+      href: ../backup/backup-azure-vm-backup-faq.yml
   - name: Disaster recovery
     items:
     - name: Overview
