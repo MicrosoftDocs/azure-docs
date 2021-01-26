@@ -743,7 +743,7 @@ The Azure AD provisioning service currently operates under the IP Ranges for Azu
 
 Now that you have designed your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM community.
 
-For guidance on how to build a SCIM endpoint including examples, see [Develop a sample SCIM endpoint](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-build-users-and-groups-endpoints).
+For guidance on how to build a SCIM endpoint including examples, see [Develop a sample SCIM endpoint](use-scim-to-build-users-and-groups-endpoints.md).
 
 The open source .NET Core [reference code example](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you have built your SCIM endpoint, you will want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](#user-operations).  
 
@@ -1129,13 +1129,13 @@ Applications that support the SCIM profile described in this article can be conn
 3. Select **+ New application** > **+ Create your own application**.
 4. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
 
-   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)<br/>
+   ![Screenshot shows the Azure AD application gallery](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
    *Azure AD application gallery*
 
    > [!NOTE]
    > If you are using the old app gallery experience, follow the screen guide below.
    
-   ![Screenshot shows the Azure AD old app gallery experience](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![Screenshot shows the Azure AD old app gallery experience](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
    *Azure AD old app gallery experience*
 
 5. In the app management screen, select **Provisioning** in the left panel.

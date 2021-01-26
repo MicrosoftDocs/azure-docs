@@ -53,7 +53,7 @@ The projects contain the following folders and files:
 |-|-|
 |**Schemas** folder| The models for the **User** and **Group** resources along with some abstract classes like Schematized for shared functionality.<br/><br/> An **Attributes** folder which contains the class definitions for complex attributes of **Users** and **Groups** such as addresses.|
 |**Service** folder | Contains logic for actions relating to the way resources are queried and updated.<br/><br/> The reference code has services to return users and groups.<br/><br/>The **controllers** folder contains the various SCIM endpoints. Resource controllers include HTTP verbs to perform CRUD operations on the resource (**GET**, **POST**, **PUT**, **PATCH**, **DELETE**). Controllers rely on services to perform the actions.|
-|**Protocol** folder|Contains logic for actions relating to the way resources are returned according to the SCIM RFC such as:<br/><ul><li>Returning multiple resources as a list.</li><li>Returning only specific resources based on a filter.</li><li>Turning a query into a list of linked lists of single filters.</li><li>Turning a PATCH request into an operation with attributes pertaining to the value path.</li></li>Defining the type of operation that can be used to apply changes to resource objects.</li></ul>|
+|**Protocol** folder|Contains logic for actions relating to the way resources are returned according to the SCIM RFC such as:<br/><ul><li>Returning multiple resources as a list.</li><li>Returning only specific resources based on a filter.</li><li>Turning a query into a list of linked lists of single filters.</li><li>Turning a PATCH request into an operation with attributes pertaining to the value path.</li><li>Defining the type of operation that can be used to apply changes to resource objects.</li></ul>|
 |`Microsoft.SystemForCrossDomainIdentityManagement`| Sample source code.|
 |`Microsoft.SCIM.WebHostSample`| Sample implementation of the SCIM library.|
 |*.gitignore*|Define what to ignore at commit time.|
@@ -95,9 +95,9 @@ The steps provided here deploy the SCIM endpoint to a service using [Visual Stud
 
 ### Open solution and deploy to Azure App Service
 
-1. Download the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from GitHub. Select **Clone or download**, then either:
-   - Select **Open in Desktop**
-   - Copy the link, open **Visual Studio**, and select **Clone or check out code** to enter copied link to make a local copy.
+1. Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from GitHub and select **Clone or download**.
+
+1. Choose to either **Open in Desktop**, or, copy the link, open **Visual Studio**, and select **Clone or check out code** to enter the copied link and make a local copy.
 
 1. In **Visual Studio**, be sure to sign into the account that has access to your hosting resources.
 
