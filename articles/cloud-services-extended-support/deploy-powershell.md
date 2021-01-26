@@ -146,17 +146,17 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 17. Create Cloud Service deployment using profile objects & SAS URLs.
 
     ```powershell
-    $cloudService = New-AzCloudService                                            	    ` 
-    -Name “ContosoCS”                                      	    ` 
-    -ResourceGroupName “ContosOrg”                     ` 
-    -Location “East US”                                           ` 
-    -PackageUrl $cspkgUrl     				    ` 
-    -ConfigurationUrl $cscfgUrl                                  	    ` 
-    -UpgradeMode 'Auto'                                           ` 
-    -RoleProfile $roleProfile                                       ` 
+    $cloudService = New-AzCloudService ` 
+    -Name “ContosoCS” ` 
+    -ResourceGroupName “ContosOrg” ` 
+    -Location “East US” ` 
+    -PackageUrl $cspkgUrl ` 
+    -ConfigurationUrl $cscfgUrl ` 
+    -UpgradeMode 'Auto' ` 
+    -RoleProfile $roleProfile ` 
     -NetworkProfile $networkProfile  ` 
     -ExtensionProfile $extensionProfile ` 
-    -OSProfile $osProfile  
+    -OSProfile $osProfile `
     -Tag $tag 
     ```
 
