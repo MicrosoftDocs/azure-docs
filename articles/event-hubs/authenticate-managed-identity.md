@@ -64,7 +64,7 @@ To assign a role to Event Hubs resources, navigate to that resource in the Azure
     Once you've assigned the role, the web application will have access to the Event Hubs resources under the defined scope. 
 
     > [!NOTE]
-    > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities).
+    > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### Test the web application
 1. Create an Event Hubs namespace and an event hub. 

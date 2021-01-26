@@ -115,7 +115,7 @@ To assign a role to a Service Bus namespace, navigate to the namespace in the Az
     Once you've assigned the role, the web application will have access to the Service Bus entities under the defined scope. 
 
     > [!NOTE]
-    > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities).
+    > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### Run the app
 Now, modify the default page of the ASP.NET application you created. You can use the web application code from [this GitHub repository](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
