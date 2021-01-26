@@ -51,14 +51,14 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
 
 1. First, change to your project directory in your terminal and then run the following `npm` commands:
 
-    ```console
+```console
     npm init -y
     npm install --save dotenv yargs axios @azure/msal-node
-    ```
+```
 
 2. Then, create a folder named *App*. Inside this folder, create a file named *index.js* that will serve as UI. Add the following code there:
 
-    ```html
+```html
     <!DOCTYPE html>
     <html lang="en">
     
@@ -131,11 +131,11 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
     </body>
     
     </html>
-    ```
+```
 
 1. Next, create file named *main.js* and add the following code:
 
-    ```JavaScript
+```JavaScript
     require('dotenv').config()
     
     const path = require('path');
@@ -216,13 +216,13 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
         mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
         mainWindow.webContents.send(IPC_MESSAGES.SET_MAIL, graphResponse);
     });
-    ```
+```
 
 In the code snippet above, we initialize an Electron main window object and create some event handlers for interactions with the Electron window. We also import configuration parameters, instantiate authProvider for handling sign-in, sign-out and token acquisition, and call Microsoft Graph API.
 
 3. In the same folder (*App*), create another file named *renderer.js* and add the following code:
 
-    ```JavaScript
+```JavaScript
     const { ipcRenderer } = require('electron');
     const { IPC_MESSAGES } = require('./constants');
     
@@ -344,11 +344,11 @@ In the code snippet above, we initialize an Electron main window object and crea
             tabContent.appendChild(contentItem);
         }
     }
-    ```
+```
 
 4. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
 
-    ```JavaScript
+```JavaScript
     const IPC_MESSAGES = {
         SHOW_WELCOME_MESSAGE: 'SHOW_WELCOME_MESSAGE',
         LOGIN: 'LOGIN',
@@ -362,7 +362,7 @@ In the code snippet above, we initialize an Electron main window object and crea
     module.exports = {
         IPC_MESSAGES: IPC_MESSAGES,
     }
-    ```
+```
 
 You now have a simple GUI and interactions for your Electron app. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
 
@@ -383,7 +383,7 @@ ElectronDesktopApp/
 
 In *App* folder, create a file named *AuthProvider.js*. This will contain an authentication provider class that will handle login, logout, token acquisition, account selection and related authentication tasks using MSAL Node. It first initializesAdd the following code there:
 
-    ```JavaScript
+```JavaScript
     const { PublicClientApplication, LogLevel, CryptoProvider } = require('@azure/msal-node');
     const { protocol } = require('electron');
     const path = require('path');
@@ -594,7 +594,7 @@ In *App* folder, create a file named *AuthProvider.js*. This will contain an aut
     }
     
     module.exports = AuthProvider;
-    ```
+```
 
 In the code snippet above, we first initialized MSAL Node `ConfidentialClientApplication` by passing a configuration object (`msalConfig`). We then exposed `login`, `logout` and `getToken` methods to be called by main module (*main.js*). In `login` and `getToken`, we acquire ID and access tokens, respectively, by first requesting an authorization code and then exchanging this with a token using MSAL Node `acquireTokenByCode` public API.
 
@@ -602,7 +602,7 @@ In the code snippet above, we first initialized MSAL Node `ConfidentialClientApp
 
 Create another file named *fetch.js*. This file will contain an Axios HTTP client for making REST calls to Microsoft Graph API.
 
-    ```JavaScript
+```JavaScript
     const axios = require('axios');
     
     /**
@@ -627,13 +627,13 @@ Create another file named *fetch.js*. This file will contain an Axios HTTP clien
     module.exports = {
         callEndpointWithToken: callEndpointWithToken,
     };
-    ```
+```
 
 ## Add app registration details
 
 Finally, create an environment file to store the app registration details that will be used when acquiring tokens. To do so, create a file named *.env* inside the root folder of the sample (*ElectronDesktopApp*), and add the following code:
 
-    ```text
+```text
     # Credentials
     CLIENT_ID=Enter_the_Application_Id_Here
     TENANT_ID=Enter_the_Tenant_Id_Here
@@ -651,7 +651,7 @@ Finally, create an environment file to store the app registration details that w
     
     # SCOPES
     GRAPH_SCOPES=User.Read Mail.Read
-    ```
+```
 
 Fill in these details with the values you obtain from Azure app registration portal:
 
