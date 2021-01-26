@@ -20,6 +20,8 @@ These sample commands demonstrate the following operations:
 * Add and upgrade new or existing disks to a scale set or to an instance of the set.
 * Add scale set to Azure Active Directory (Azure AD) authentication.
 
+
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample commands
@@ -33,7 +35,11 @@ az vmss create --resource-group MyResourceGroup --name myScaleSet --instance-cou
 
 # Attach a new managed disk to your scale set
 az vmss disk attach --resource-group MyResourceGroup --vmss-name myScaleSet --size-gb 50
+```
 
+After you add a new data disk to your virtual machine or virtual machine scale set, format and mount the disk. For Windows virtual machines, see [Attach a managed data disk to a Windows VM by using the Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md). For Linux virtual machines, see [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk).
+
+```azurecli
 # Attach an existing managed disk to a virtual machine instance in your scale set
 az vmss disk attach --resource-group MyResourceGroup --disk myDataDisk --vmss-name myScaleSet --instance-id 0
 
@@ -54,6 +60,8 @@ az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-id
 ```
 
 To use the expanded disk, expand the underlying partition. For more information, see [Expand a disk partition and filesystem](/azure/virtual-machines/linux/expand-disks#expand-a-disk-partition-and-filesystem).
+
+This example resized a data disk. You can use this same procedure to update an OS disk. For more information for a Windows virtual machine, see [How to expand the OS drive of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk). For more information for Linux virtual machines, see [Expand virtual hard disks on a Linux VM with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
 
 ```azurecli
 # Enable managed service identity on your scale set. This is required to authenticate and interact with other Azure services using bearer tokens.
