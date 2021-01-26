@@ -86,7 +86,7 @@ Layout also extracts selection marks from documents. Selection marks extracted i
 ## Next steps
 
 - Try your own layout extraction using the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/)
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started extracting layouts in the language of your choice.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started extracting layouts in the development language of your choice.
 
 ## See also
 

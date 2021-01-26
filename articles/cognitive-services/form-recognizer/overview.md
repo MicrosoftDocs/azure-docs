@@ -168,4 +168,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
