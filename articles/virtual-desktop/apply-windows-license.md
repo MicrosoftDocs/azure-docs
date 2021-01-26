@@ -55,3 +55,7 @@ Run the following cmdlet to see a list of all session host VMs that have the Win
 $vms = Get-AzVM
 $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```
+
+
+# Requirements if deploying Windows Server Remote Desktop Services
+If you are deploying Windows Server 2012 R2, 2016 or 2019 as Windows Virtual Desktop hosts in your deployment, you will require a Remote Desktop License Server to be accessible from those virtual machines, this could be located on-premises or in Azure. Further information is available here: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-activate-license-server
