@@ -379,6 +379,7 @@ When you disable a logic app, no new runs are instantiated. All in-progress and 
 
 When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
+<a name="configuration"></a>
 <a name="firewall-ip-configuration"></a>
 
 ## Firewall configuration: IP addresses and service tags
