@@ -118,7 +118,7 @@ After installing the Log Analytics agent for Linux packages, the following addit
 
 * A non-privileged user named: `omsagent` is created. The daemon runs under this credential. 
 * A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives are not supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
-* The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](../platform/data-sources-syslog.md).
+* The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](data-sources-syslog.md).
 
 On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is the Log Analytics agent for Linux configuration agent that looks for new portal side configuration every 5 minutes. The new and updated configuration is applied to the agent configuration files located at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
 

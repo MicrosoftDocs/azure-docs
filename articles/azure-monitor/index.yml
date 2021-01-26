@@ -36,7 +36,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Data sources Overview
-            url: platform/data-sources.md
+            url: agents/data-sources.md
           - text: Data platform Overview
             url: platform/data-platform.md
 

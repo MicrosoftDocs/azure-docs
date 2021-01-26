@@ -26,13 +26,13 @@ The following table lists the agent data sources that are currently available wi
 
 | Data source | Platform | Log analytics agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Custom logs](../platform/data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | on arrival |
-| [Custom logs](../platform/data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | on arrival |
-| [IIS logs](../platform/data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depends on Log File Rollover setting |
-| [Performance counters](../platform/data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |as scheduled, minimum of 10 seconds |
-| [Performance counters](../platform/data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |as scheduled, minimum of 10 seconds |
-| [Syslog](../platform/data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |from Azure storage: 10 minutes; from agent: on arrival |
-| [Windows Event logs](../platform/data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
+| [Custom logs](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | on arrival |
+| [Custom logs](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | on arrival |
+| [IIS logs](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depends on Log File Rollover setting |
+| [Performance counters](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |as scheduled, minimum of 10 seconds |
+| [Performance counters](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |as scheduled, minimum of 10 seconds |
+| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |from Azure storage: 10 minutes; from agent: on arrival |
+| [Windows Event logs](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | on arrival |
 
 
 ## Configuring data sources
