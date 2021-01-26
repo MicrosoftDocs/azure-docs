@@ -47,13 +47,15 @@ npm install @azure/communication-ui --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Initialize Communications Provider using access token
+## Initialize Calling and Chat Providers using Azure Communication Services credentials
 
-Using the required user access token, developers can initialize the UI Framework. The UI Framework uses the given token to then initialize and provide identity to the components used. Before initializing lets first import the UI Framework package.
+Using the required user access token and user id, developers can initialize the UI Framework calling and chat provides. The UI Framework uses the given token and user id to then initialize and provide identity to the components used. 
+
+Before initializing lets first import the UI Framework package.
 
 ```javascript
 
-import {CommunicationsProvider} from "@azure/communication-ui"
+import {CallingProvider, ChatProvider} from "@azure/communication-ui"
 
 ```
 
@@ -61,55 +63,35 @@ To initialize the `CommunicationsProvider` do the following:
 
 ```javascript
 
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
+<Provider theme={/*Insert Fluent Theme*/}>
+    <CallingProvider
+    displayName={/*Insert Display Name to be used for the user*/}
+    groupId={/*Insert GUID for group call to be joined*/}
+    userId={/*Insert the Azure Communication Services user id */}
+    token={/*Insert the Azure Communication Services access token*/}
+    refreshTokenCallback={/*Insert refresh token call back function*/}
+  >
+  // Add Calling Components Here
+  </CallingProvider>
+</Provider>
 
-        {/*Insert Chat or Calling Provider code from next step*/}
-
-    </CommunicationsProvider>
+<Provider theme={/*Insert Fluent Theme*/}>
+    <ChatProvider
+    token={/*Insert the Azure Communication Services access token*/}
+    userId={/*Insert the Azure Communication Services user id*/}
+    displayName={/*Insert Display Name to be used for the user*/}
+    threadId={/*Insert id for group chat thread to be joined*/}
+    environmentUrl={/*Insert the enviornment URL for the Azure Resource used*/}
+    refreshTokenCallback={/*Insert refresh token call back function*/}
+  >
+  //  Add Chat Components Here
+  </ChatProvider>
 </Provider>
 
 ```
 
 Once initialized, this provider allows developers to build their own layout using UI Framework Components as well as any additional layout logic. The provider takes care of initializing all the underlying logic and properly connecting the different components together.
 
-## Initialize Chat and Calling Providers using access token
-
-Once you have initialized the `CommunicationsProvider`, we can now add the next layer before we add discrete components to build the communications experience. Depending on your need for calling or chat requirements you will need to initialize the calling and chat providers.
-
-In the snippet below we initialize both the `CallingProvider` and the `ChatProvider`. Developers can choose which one to use depending on the type of communication experience they look to build or use both when both modalities are required.
-
-```javascript
-
-<Provider>
-    <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
-        <CallingProvider callSettings={...}>
-            {/*Insert calling components code from next step*/}
-        </CallingProvider>
-
-        <ChatProvider chatSettings={...}>
-            {/*Insert chat components code from next step*/}
-        </ChatProvider>
-    </CommunicationsProvider>
-</Provider>
-
-```
-
-Moving forward in this quickstart, we will only use the `ChatProvider` to build a chat experience.
-
-## Defining chatSettings to start or join a chat
-
-In order to join a chat, `chatSettings` must be passed to the `ChatProvider` for it to correct initialize the chat experience. A Thread ID is required to join a chat. Chat Thread ID is provided by Azure Communication Services when a chat thread is created. In order to join a thread, the identity that will join needs to be added to the participant roster for the thread. For more information on [Adding Users to Chat Thread](../chat/get-started.md#add-a-user-as-member-to-the-chat-thread)
-
-```javascript
-
-chatSettings = {
-    threadId = "THREAD_ID", //Required, Azure Communication Services Thread ID.
-}
-
-```
-
-Now that the chat is fully configured, the necessary UI Framework components can be added.
 
 ## Create a new component using provider
 
@@ -120,7 +102,8 @@ We will start by creating a new file called `customComponent.tsx` where we will 
 import  {
     connectFuncsToContext, 
     ChatMessagePropsFromContext, 
-    ChatMessageWithStatus} from "@azure/communication-ui"
+    ChatMessage,
+    MapToChatMessageProps} from "@azure/communication-ui"
 
 ```
 
@@ -128,15 +111,17 @@ Once imported, we will generate a simple thread that will connect to the Chat pr
 
 ```javascript
 
-const SimpleChatThread  = (props: ChatMessagePropsFromContext): JSX.Element => {
+const SimpleChatThread  = (props: MapToChatMessageProps): JSX.Element => {
     return(
         <div>
-            {props.chatMessages?.map((message: ChatMessageWithStatus) => (
+            {props.chatMessages?.map((message: ChatMessage) => (
                 <div key={message.id ?? message.clientMessageId}> {`${message.senderDisplayName}: ${message.content}`}</div>
             ))}
         </div>
     );
 };
+
+export default connectFuncsToContext(SimpleChatThread, MapToChatMessageProps)
 
 ```
 

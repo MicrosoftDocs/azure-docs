@@ -76,6 +76,20 @@ npm install @azure/communication-ui --save
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| Provider| The CallClient is the main entry point to the Calling client library.|
+| CallingProvider| The CallClient is the main entry point to the Calling client library.|
+| ChatProvider | The CallAgent is used to start and manage calls. |
+| ParticipantGallery | The CallAgent is used to start and manage calls. |
+| CallControls | The CallAgent is used to start and manage calls. |
+| ChatThread | The CallAgent is used to start and manage calls. |
+| ChatInput | The CallAgent is used to start and manage calls. |
+
 ## Initialize Calling and Chat Providers using Azure Communication Services credentials
 
 Using the required user access token and user id, developers can initialize the UI Framework calling and chat provides. The UI Framework uses the given token and user id to then initialize and provide identity to the components used. 
