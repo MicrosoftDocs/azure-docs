@@ -50,7 +50,7 @@ cd html-docs-hello-world
 az webapp up --location westeurope --name <app_name> --html
 ```
 
-The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure. Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
+The command may take a few minutes to complete. It lets you know what it's doing, and ends with "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure. Make a note of the `resourceGroup` value. You need it for the [clean up resources](#6-clean-up-resources) section.
 
 <details>
 <summary>What's <code>az webapp up</code> doing?</summary>
@@ -114,7 +114,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## 5. Manage your new Azure app
 
-To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
+To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
 ![Select App Services in the Azure portal](./media/quickstart-html/portal0.png)
 
@@ -132,7 +132,7 @@ The left menu provides different pages for configuring your app.
 
 ## 6. Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#2-create-a-web-app) step.
 
 ```bash
 az group delete --name appsvc_rg_Windows_westeurope
