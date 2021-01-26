@@ -145,7 +145,7 @@ Azure Databricks supports Impact Level 5 workloads in Azure Government with this
 
 - Azure Databricks can be deployed to existing storage accounts which have enabled appropriate [Storage Encryption with Key Vault Managed Keys](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5#storage-encryption-with-key-vault-managed-keys)
 - Leverage [Isolated Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices#isolated-virtual-machine-sizes) as the “Worker Type” when launching Azure Databricks clusters. Isolated VM types when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
-- Configure Customer-Managed Keys (CMK) for your [Azure Databricks Workspace](https://docs.microsoft.com/en-us/azure/databricks/security/keys/customer-managed-key-notebook) and [DBFS](https://docs.microsoft.com/en-us/azure/databricks/security/keys/customer-managed-keys-dbfs/). 
+- Configure Customer-Managed Keys (CMK) for your [Azure Databricks Workspace](https://docs.microsoft.com/azure/databricks/security/keys/customer-managed-key-notebook) and [DBFS](https://docs.microsoft.com/azure/databricks/security/keys/customer-managed-keys-dbfs/). 
 
 ### [Azure Data Share](https://azure.microsoft.com/services/data-share/) 
 
