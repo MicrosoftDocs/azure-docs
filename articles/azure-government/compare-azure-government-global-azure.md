@@ -341,7 +341,6 @@ The following Azure Migrate **features are not currently available** in Azure Go
 - Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-
 ## Networking
 This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
 
