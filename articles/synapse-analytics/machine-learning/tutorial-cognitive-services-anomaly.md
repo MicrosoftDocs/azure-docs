@@ -62,7 +62,7 @@ You need a Spark table for this tutorial.
 
 ## Provide authentication details
 
-To authenticate to Cognitive Services, you need to reference the secret for your key vault. The following inputs depend on the [prerequisite steps](tutorial-configure-cognitive-services-synapse.md) that you should have completed before this point.
+To authenticate to Cognitive Services, you need to reference the secret in your key vault. The following inputs depend on the [prerequisite steps](tutorial-configure-cognitive-services-synapse.md) that you should have completed before this point.
 
 - **Azure subscription**: Select the Azure subscription that your key vault belongs to.
 - **Cognitive Services account**: Enter the Text Analytics resource that you'll connect to.
