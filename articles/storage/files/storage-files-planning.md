@@ -126,6 +126,6 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 
 ## Next steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
-* [Deploying Azure Files](storage-files-deployment-guide.md)
+* [Deploying Azure Files](./storage-how-to-create-file-share.md)
 * [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)

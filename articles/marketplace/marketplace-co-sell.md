@@ -44,7 +44,7 @@ This table lists the steps and requirements to get your marketplace offer Co-sel
 ||Dynamics|<ul><li>You have an active enrollment in ISV Connect premium tier.</li></ul>|Business Applications Co-sell incentivized|
 |||
 
-For more information about the requirements for co-sell solution offers, see [Requirements for co-sell status](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+For more information about the requirements for co-sell solution offers, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 ## How to submit Co-sell materials in Partner Center
 
