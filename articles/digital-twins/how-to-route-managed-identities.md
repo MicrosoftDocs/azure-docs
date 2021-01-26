@@ -25,10 +25,6 @@ Here are the steps that are covered in detail in this article:
 1. Add an appropriate role or roles to the identity. For example, assign the **Azure Event Hub Data Sender** role to the identity if the endpoint is Event Hub, or **Azure Service Bus Data Sender role** if the endpoint is Service Bus.
 1. When you create custom endpoints, enable the usage of a system-assigned identity to authenticate to custom endpoints for forwarding events. 
 
-## Prerequisites
-
-...
-
 ## Enable system-managed identities for an Azure Digital Twins instance 
 
 You can enable system-managed identities for an Azure Digital Twins instance as part of the instance's initial setup, or enable it later on an instance that already exists. 
