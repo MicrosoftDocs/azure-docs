@@ -14,17 +14,17 @@ The sample is a native iOS application which uses the Azure Communication Servic
 
 Here's what the sample looks like:
 
-:::image type="content" source="./media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
+:::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
 When you press the "Start new call" button, the iOS application creates a new call and joins the call created. Alternatively, the application supports a "Join a call" flow to join an existing call on Azure Communication Services. On this route, you will be prompted to enter the id for the call you want to join.
 
 Once a call is joined, you'll be prompted to configure your client for the call including enabling/disabling the camera and microphone, and providing a display name. When enabling/disabling the camera and microphone you will be prompted to give permissions to the application to use your phone's microphone and camera. 
 
-:::image type="content" source="./media/calling/pre-call-ios.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
+:::image type="content" source="../media/calling/pre-call-ios.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
 Once you configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
 
-:::image type="content" source="./media/calling/main-app-ios.png" alt-text="Screenshot showing the main screen of the sample application.":::
+:::image type="content" source="../media/calling/main-app-ios.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main calling screen:
 

@@ -23,7 +23,7 @@ zone_pivot_groups: acs-web-ios
 [!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
 ::: zone-end
 
-## Additional reading
+### Additional reading
 
 For more information, see the following articles:
 
