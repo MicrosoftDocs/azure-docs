@@ -126,53 +126,6 @@ New-AzResourceGroupDeployment `
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
 
-## Deploy remote linked template with relative path
-
-For complex solutions, you can break your Arm template into many related templates, and then deploy them together through a main template. You can nest these templates in a folder hierarchy, such as:
-
-![resource manager linked template relative path](./media/deploy-powershell/resource-manager-linked-templates-relative-path.png)
-
-To ...
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "functions": [],
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
-      "name": "siblingLinked",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "relativePath": "children/nestedChild.json"
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "fromSibling": {
-      "type": "string",
-      "value": "[reference('siblingLinked').outputs.fromChild.value]"
-    }
-  }
-}
-```
-To deploy an linked template with relative path stored in a storage account:
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name linkedTemplateWithRelativePath `
-  -ResourceGroupName "jgaots0120rg" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json `
-  -QueryString $newSas
-```
-
-
 ## Deploy template spec
 
 Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
