@@ -6,7 +6,7 @@ ms.author: cynthn
 manager: 
 ms.date: 01/29/2021
 ms.topic: sample
-ms.service: azure-virtual-machines
+ms.service: virtual-machines
 ms.devlang: azurecli 
 ms.custom: devx-track-azurecli
 ---
@@ -21,7 +21,7 @@ This script demonstrates three operations:
 - Move the snapshot to a different subscription
 - Create a virtual machine based on that snapshot
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](/../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](/../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
