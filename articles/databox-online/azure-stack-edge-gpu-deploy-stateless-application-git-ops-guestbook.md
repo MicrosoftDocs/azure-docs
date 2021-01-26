@@ -1,27 +1,27 @@
 ---
-title: Deploy PHP Guestbook app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
-description: Describes how to deploy a PHP Guestbook stateless application with Redis using GitOps on an Arc enabled Kubernetes cluster of your Azure Stack Edge Pro device.
+title: Deploy `PHP Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to deploy a `PHP Guestbook` stateless application with Redis using GitOps on an Arc enabled Kubernetes cluster of your Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/25/2021
 ms.author: alkohli
 ---
 
-# Deploy a PHP Guestbook stateless application with Redis on Arc enabled Kubernetes cluster on Azure Stack Edge Pro GPU
+# Deploy a `PHP Guestbook` stateless application with Redis on Arc enabled Kubernetes cluster on Azure Stack Edge Pro GPU
 
 This article shows you how to build and deploy a simple, multi-tier web application using Kubernetes and Azure Arc. This example consists of the following components:
 
-- A single-instance Redis master to store guestbook entries
+- A single-instance Redis master to store `guestbook` entries
 - Multiple replicated Redis instances to serve reads
 - Multiple web frontend instances
 
 The deployment is done using GitOps on the Arc enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
+This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
 
 > [!NOTE]
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
@@ -82,18 +82,18 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
     ![Screenshot shows the Azure Arc enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. In the **Add configuration**, enter the appropriate values for the fields and select **Apply**.
+1. In **Add configuration**, enter the appropriate values for the fields, and then select **Apply**.
 
     |Parameter  |Description |
     |---------|---------|
     |Configuration name     | Name for the configuration resource.        |
     |Operator instance name     |Instance name of the operator to identify a specific configuration. Name is a string of maximum 253 characters that must be lowercase, alphanumeric, hyphen, and period only.         |
-    |Operator namespace     | Set to **demotestguestbook** as this matches the namespace specified in the deployment `yaml`. <br> The field defines the namespace where the operator is installed. Name is a string of maximum 253 characters that must be lowercase, alphanumeric, hyphen, and period only.         |
+    |Operator namespace     | Set to **demotestguestbook** to match the namespace specified in the deployment `yaml`. <br> The field defines the namespace where the operator is installed. Name is a string of maximum 253 characters that must be lowercase, alphanumeric, hyphen, and period only.         |
     |Repository URL     |<br>Path to the git repository in `http://github.com/username/repo` or `git://github.com/username/repo` format where your GitOps configuration is located.         |
-    |Operator scope     | Select **Namespace**. <br>This defines the scope at which the operator is installed. Select this as namespace. Your operator will be installed in namespace specified in the deployment yaml files.       |
-    |Operator type     | Leave at default. <br>This specifies the type of the operator, by default, set as flux.        |
-    |Operator params     | Leave this blank. <br>This field contains parameters to pass to the flux operator.        |
-    |Helm     | Set this to **Disabled**. <br>Enable this option if you will do chart based deployments.        |
+    |Operator scope     | Select **Namespace**. <br>This parameter defines the scope at which the operator is installed. Select this as namespace. Your operator will be installed in the namespace specified in the deployment yaml files.<!--It's unclear what they should select. If they are to select the value Namespace, could we substitue this sentence for the two preceding ones: "Select Namespace to install your operator in the namespace specified in the deployment yaml files."-->       |
+    |Operator type     | Leave at default. <br>This parameter specifies the type of the operator - by default, set as flux.        |
+    |Operator params     | Leave this blank. <br>This parameter contains parameters to pass to the flux operator.        |
+    |Helm     | Set this parameter to **Disabled**. <br>Enable this option if you will do chart-based deployments.        |
 
 
     ![Add configuration](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -132,7 +132,7 @@ The deployment via the GitOps configuration creates a `demotestguestbook` namesp
     [10.128.44.240]: PS>
     ```  
 
-1. In this example, the frontend service was deployed as type:LoadBalancer. You will need to find the IP address of this service to view the guestbook. Run the following command.
+1. In this example, the frontend service was deployed as type:LoadBalancer. You will need to find the IP address of this service to view the `guestbook`. Run the following command.
 
     `kubectl get service -n <your-namespace>`
     
@@ -145,13 +145,13 @@ The deployment via the GitOps configuration creates a `demotestguestbook` namesp
     redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
-1. The frontend service of `type:LoadBalancer` has an external IP address. This IP is from the IP address range that you specified for external services when configuring the Compute network settings on the device. Use this IP address to view the guestbook at URL: `https://<external-IP-address>`.
+1. The frontend service of `type:LoadBalancer` has an external IP address. This IP is from the IP address range that you specified for external services when configuring the Compute network settings on the device. Use this IP address to view the `guestbook` at URL: `https://<external-IP-address>`.
 
     ![View guestbook](media/azure-stack-edge-gpu-connect-powershell-interface/view-guestbook-1.png)
 
 ## Delete deployment
 
-To delete the deployment, you can delete the configuration from the Azure portal. This would delete the objects created including deployments and services.
+To delete the deployment, you can delete the configuration from the Azure portal. Deleting the configuration will delete the objects that were created, including deployments and services.
 
 1. In the Azure portal, go the Azure Arc resource > Configurations. 
 1. Locate the configuration you want to delete. Select the ... to invoke the context menu and select **Delete**.
