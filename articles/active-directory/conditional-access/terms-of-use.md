@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 01/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -345,7 +345,7 @@ You can delete old terms of use policies using the following procedure.
 
 By default, a deleted user in Azure AD is in a deleted state for 30 days. While in this state users may be restored by administrators. After the 30 day period deleted users are permanently deleted. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user is permanently deleted, data about that user is removed from the active ToU policy. Audit information about deleted users remains in the audit log.
 
-User acceptance records are generated:
+User acceptance records are deleted:
 
 - When the admin explicitly deletes the ToU. When this happens all the acceptance records associated with that specific TOU are also deleted.
 - When the tenant loses its AAD Premium license.
