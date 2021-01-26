@@ -50,15 +50,6 @@ landingContent:
           - text: ISV scenarios
             url: ./concepts/isv-scenarios.md
 
-  - title: Customer experiences
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View and manage service providers
-            url: ./how-to/view-manage-service-providers.md
-          - text: View service provider activity
-            url: ./how-to/view-service-provider-activity.md
-
   - title: Marketplace offers
     linkLists:
       - linkListType: how-to-guide
@@ -69,6 +60,15 @@ landingContent:
         links:
           - text: Managed Services offers in Azure Marketplace
             url: ./concepts/managed-services-offers.md
+            
+  - title: Customer experiences
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
+          - text: View service provider activity
+            url: ./how-to/view-service-provider-activity.md
 
   - title: Samples and templates
     linkLists:
