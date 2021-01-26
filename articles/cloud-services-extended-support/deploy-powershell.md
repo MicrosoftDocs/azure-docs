@@ -1,5 +1,5 @@
 ---
-title: Deploy a Cloud Service (extended support) - PowerShell
+title: Create a Cloud Service (extended support) - PowerShell
 description: Deploy a Cloud Service (extended support) using PowerShell
 ms.topic: tutorial
 ms.service: cloud-services-extended-support

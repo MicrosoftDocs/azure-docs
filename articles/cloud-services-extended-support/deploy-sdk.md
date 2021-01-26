@@ -1,5 +1,5 @@
 ---
-title: Deploy a Cloud Service (extended support) - SDK
+title: Create a Cloud Service (extended support) - SDK
 description: Deploy a Cloud Service (extended support) using the Azure SDK
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Deploy a Cloud Services (extended support) using SDK
+# Create a Cloud Services (extended support) using SDK
 
 This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to deploy Cloud Services (extended support) that has multiple roles (WebRole and WorkerRole) and the remote desktop extension. 
 
