@@ -50,4 +50,4 @@ If you have questions or need help, [create a support request](https://portal.az
 
 To learn more about Azure Reservations, see the following articles:
 
-- [Understand Azure Reservations discount](understand-reservation-charges.md)
+- [Understand Azure Reservations discount](data-flow-understand-reservation-charges.md)
