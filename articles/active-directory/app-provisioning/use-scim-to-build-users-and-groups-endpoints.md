@@ -103,24 +103,24 @@ The steps provided here deploy the SCIM endpoint to a service using [Visual Stud
 
 1. In **Solution Explorer**, open *Microsoft.SCIM.sln* and right-click the *Microsoft.SCIM.WebHostSample* file. Select **Publish**.
 
-    ![cloud publish](media/use-scim-to-build-users-and-groups-endpoints/CloudPublish.png)
+    ![cloud publish](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish.png)
 
     > [!NOTE]
     > To run this solution locally, double-click the project and select **IIS Express** to launch the project as a web page with a local host URL.
 
 1. Select **Create profile** and make sure **App Service** and **Create new** are selected.
 
-	![cloud publish 2](media/use-scim-to-build-users-and-groups-endpoints/CloudPublish2.png)
+	![cloud publish 2](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-2.png)
 
 1. Step through the dialog options and rename the app to a name of your choice. This name is used in both the app and the SCIM endpoint URL.
 
-	![cloud publish 3](media/use-scim-to-build-users-and-groups-endpoints/CloudPublish3.png)
+	![cloud publish 3](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Select the resource group to use and choose **Publish**.
 
 1. Navigate to the application in **Azure App Services** > **Configuration** and select **New application setting** to add the *Token__TokenIssuer* setting with the value `https://sts.windows.net/<tenant_id>/`. Replace `<tenant_id>` with your Azure AD tenant_id and if you're looking to test the SCIM endpoint using [Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), also add a *ASPNETCORE_ENVIRONMENT* setting with the value `Development`. 
 
-   ![appservice settings](media/use-scim-to-build-users-and-groups-endpoints/appservice_settings.png)
+   ![appservice settings](media/use-scim-to-build-users-and-groups-endpoints/app-service-settings.png)
 
    When testing your endpoint with an Enterprise Application in the Azure portal, choose to keep the environment as `Development` and provide the token generated from the `/scim/token` endpoint for testing or change the environment to `Production` and leave the token field empty in the enterprise application in the [Azure portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
@@ -172,7 +172,7 @@ The endpoints are located in the `{host}/scim/` directory and can be interacted 
 1. Download [Postman](https://www.getpostman.com/downloads/) and start application.
 1. Copy the link [https://aka.ms/ProvisioningPostman](https://aka.ms/ProvisioningPostman) and paste into Postman to import the test collection.
 
-	![postman collection](media/use-scim-to-build-users-and-groups-endpoints/postman_collection.png)
+	![postman collection](media/use-scim-to-build-users-and-groups-endpoints/postman-collection.png)
 
 1. Create a test environment with the variables below:
 
@@ -193,7 +193,7 @@ The endpoints are located in the `{host}/scim/` directory and can be interacted 
 
 1. Use **Get Key** from the Postman Collection to send a **GET** request to the token endpoint and retrieve a security token to be stored in the **token** variable for subsequent requests. 
 
-   ![postman get key](media/use-scim-to-build-users-and-groups-endpoints/postman_getkey.png)
+   ![postman get key](media/use-scim-to-build-users-and-groups-endpoints/postman-get-key.png)
 
    > [!NOTE]
    > To make a SCIM endpoints secure, you need a security token before connecting, and the tutorial uses the `{host}/scim/token` endpoint to generate a self-signed token.
