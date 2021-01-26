@@ -68,7 +68,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub.png":::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
         :::column-end:::
         :::column:::
         :::column-end:::
