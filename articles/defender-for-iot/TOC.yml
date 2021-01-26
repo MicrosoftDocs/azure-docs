@@ -54,8 +54,6 @@
       href: concept-security-agent-authentication.md
     - name: Security posture - CIS benchmark
       href: concept-security-posture.md
-    - name: Security module
-      href: concept-security-module.md
     - name: Event aggregation
       href: concept-event-aggregation.md
     - name: Security alerts
@@ -66,6 +64,8 @@
       href: concept-recommendations.md
     - name: Classic
       items:
+      - name: Security module
+        href: concept-security-module.md'
       - name: Edge security module
         href: security-edge-architecture.md
       - name: Security agents

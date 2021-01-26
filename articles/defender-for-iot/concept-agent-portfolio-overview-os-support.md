@@ -23,7 +23,7 @@ The standalone agent covers most of the Linux operating systems, which can be de
 | Ubuntu 18.04 | ✓ |  |
 | Ubuntu 20.04 | ✓ |  |
 
-For other operating systems, contact your account manager.
+For more details, operating system support, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>. 
 
 ## Azure RTOS micro agent
 

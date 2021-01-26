@@ -13,15 +13,15 @@ ms.service: azure
 
 This article provides an explanation of how to install, and authenticate the Defender micro agent.
 
-## Prerequisites to install the Defender Micro Agent:
+## Prerequisites
 
 Prior to installing the Defender for IoT module you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create an azureiotsecurity module twin](quickstart-create-security-twin.md)
 
-## Installing the package 
+## Install the package 
 
 Install, and configure the Microsoft package repository by following [these instructions](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
-For Debian9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
+For Debian 9, the instructions do not include the repository that needs to be added, use the following commands to add the repository: 
 
 ```azurecli
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - 
@@ -31,7 +31,9 @@ sudo apt-add-repository https://packages.microsoft.com/debian/9/prod
 sudo apt-get update
 ```
 
-For Debian-based Linux distributions, you must install the Defender micro agent package. This can be accomplished by using the following commands:
+For Debian-based, and Ubuntu based Linux distributions, you must install the Defender micro agent package. 
+
+To install the Defender micro agent package use the following commands:
 
 ```azurecli
 sudo apt-get update 
@@ -41,7 +43,7 @@ sudo apt-get install defender-iot-micro-agent
 
 ## Micro Agent Authentication Methods 
 
-The two options to authentication the Defender for IoT Micro Agent are: 
+The two options used to authenticate the Defender for IoT micro agent are: 
 
 - Connection string. 
 
@@ -49,7 +51,7 @@ The two options to authentication the Defender for IoT Micro Agent are:
 
 To authenticate using a connection string:
 
-1. Place a file containing the connection string encoded in utf-8, in the defender agent directory as a file named `connection_string.txt` by entering the following command:
+1. Place a file containing the connection string encoded in utf-8, in the defender agent directory as a file named `connection_string.txt` to the `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```azurecli
     echo “<connection string>” > connection_string.txt
@@ -60,8 +62,11 @@ To authenticate using a connection string:
     ```azurecli
     sudo systemctl restart defender-iot-micro-agent.service 
     ```
+The `connection_string.txt` should now be located in the following path location `/var/defender_iot_micro_agent/connection_string.txt`.
 
-To authentication using a certificate:
+### Authenticate using a certificate
+
+To authenticate using a certificate:
 
 1. Procure a certificate by following [these instructions](../iot-hub/iot-hub-security-x509-get-started.md).
 
@@ -69,7 +74,7 @@ To authentication using a certificate:
 
 1. Place the appropriate connection string in to the `connection_string.txt` file. the connection string should look like this: 
 
-    ```HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true``` 
+    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true` 
 
     This string alerts the defender agent, to expect a certificate be provided for authentication. 
 
@@ -92,7 +97,7 @@ To authentication using a certificate:
 
 You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation. 
 
-Create a file on the file system with the following command,
+Create a file on the file system with the following command:
 
 ```azurecli
 sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
@@ -101,7 +106,7 @@ A baseline validation failure recommendation will occur in the hub, with a `CceI
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub.":::
 
-The recommendation may take up to one hour to appear in the hub. Allow up to 1 hour for the recommendation to appear in the hub. 
+Allow up to one hour for the recommendation to appear in the hub. 
 
 ## Micro Agent Versioning 
 

@@ -35,7 +35,7 @@ Defender for IoT will continue to support C, C#, and Edge until March 1, 2022.
 
 We would like to hear from customers regarding their specific deployments, and difficulties adopting the new micro agent. 
 
-Send your comments to <security_module_deprecation@microsoft.com>.
+Send your comments to <defender_micro_agent@microsoft.com>.
 
 ## Micro agent preview support
 
