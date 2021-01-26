@@ -8,7 +8,7 @@ ms.date: 09/20/2019
 
 # KeyVaultReference support for ARM-deployed Service Fabric Applications
 
-A common challenge when building cloud applications is how to securely distrute secrets to your applications. For example, you might want to deploy a database key to your application without exposing the key during the pipeline or to the operator. Service Fabric KeyVaultReference support makes it easy to deploy secrets to your applications simply by referencing the URL of the secret that is stored in Key Vault. Service Fabric will handle fetching that secret on behalf of your application's Managed Identity, and activating the application with the secret.
+A common challenge when building cloud applications is how to securely distribute secrets to your applications. For example, you might want to deploy a database key to your application without exposing the key during the pipeline or to the operator. Service Fabric KeyVaultReference support makes it easy to deploy secrets to your applications simply by referencing the URL of the secret that is stored in Key Vault. Service Fabric will handle fetching that secret on behalf of your application's Managed Identity, and activating the application with the secret.
 
 > [!NOTE]
 > KeyVaultReference support for Service Fabric Applications is GA (out-of-preview) starting with Service Fabric version 7.2 CU5. It is recommended that you upgrade to this version before using this feature.
