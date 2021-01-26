@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 01/26/2021
 ms.author: victorh
 ---
 
@@ -59,9 +59,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Use the **FirewallTopology1.template.json** template to deploy the virtual network, virtual machines, firewall, Managed Identity, Key Vault, and all the other supporting resources.
 
-You can deploy custom templates using **Template deployment (deploy using custom templates)**, which can be found in the Marketplace. From the portal Home page, search for **template deployment**.
+You can deploy custom templates using **Template deployment (deploy using custom templates)**, which can be found in the Azure Marketplace. From the Marketplace, search for **template deployment**. When you start your custom deployment, select **Build your own template in the editor** to open an editor where you can paste the contents of the **FirewallTopology1.template.json** file.
 
-For the **Remote Access Address Prefix** parameter, type your own computer public IP address in CIDR notation. For example: x.x.x.x/32. This allows you to get access to the worker virtual machine from the Internet. To determine your PC's public IP address, you can use multiple services, such as https://www.whatismyip.com.
+For the **Remote Access Address Prefix** parameter, type your own computer public IP address in CIDR notation. For example: x.x.x.x/32. This allows you access to the worker virtual machine from the Internet. To determine your computer's public IP address, you can use multiple services, such as https://www.whatismyip.com.
 
 
 :::image type="content" source="media/premium-deploy/deploy-topology.png" alt-text="Deploy the template":::
@@ -92,7 +92,7 @@ An end-user must have a Root CA certificate installed on their client to ensure 
 
 :::image type="content" source="media/premium-deploy/certificate-process.png" alt-text="Certificate process":::
 
-To configure the certificates to test with, you'll do the following:
+To configure the certificates to test with, do the following:
 
 1. Generate the certificates using a bash script and configuration file.
 2. Run the **CACertificate.template.json** ARM template to place a CA certificate in the Key Vault using the Managed Identity created when you ran the **FirewallTopology1.template.json** ARM template.
@@ -110,7 +110,7 @@ You can run the bash script on any computer or virtual machine running Linux the
 
    `mkdir certs`
 
-1. Upload the `cert.sh` and `openssl.cnf` files (from the zip file) move them to the `certs` directory.
+1. Upload the `cert.sh` and `openssl.cnf` files (from the zip file) and then move them to the `certs` directory.
 
    :::image type="content" source="media/premium-deploy/cloud-shell-upload.png" alt-text="Cloud Shell upload":::
 
@@ -127,7 +127,7 @@ You can run the bash script on any computer or virtual machine running Linux the
    :::image type="content" source="media/premium-deploy/cert-script.png" alt-text="cert.sh script":::
 
 
-   You'll use the content of the interCA.pfx.base64 file as the input parameter in the CACertificate template. This a a PXF of the CA certificate without a password encoded in base64.
+   You'll use the content of the interCA.pfx.base64 file as the input parameter in the CACertificate template. This is a PXF of the CA certificate without a password encoded in base64.
 
    The rootCA.crt file is a root CA certificate that you'll install on the worker virtual machine.
 
@@ -137,8 +137,8 @@ You can run the bash script on any computer or virtual machine running Linux the
 
 Now you can install the root certificate on the worker virtual machine.
 
-1. Connect to the **WorkerVM** virtual machine.
-2. Create a folder named **C:\Certs**.
+1. Use RDP to connect to the **WorkerVM** virtual machine.
+2. Create a folder named **C:\Certs** on WorkerVM.
 3. Copy and paste the `rootCA.crt` file from your local machine to the virtual machine **C:\Certs** folder.
 4. Open an administrator Windows PowerShell window.
 5. Run the following PowerShell cmdlet to install the root certificate to the local machine trusted root certificates folder:<br>
@@ -154,7 +154,7 @@ Use the CACertificate.template.json template to deploy the CA certificate using 
 
 ## Deploy the firewall policy template
 
-The FirewallPolicy.template.json template file contains settings to enable TLS Inspection, IDPS, and URL filtering. Open the file to examine the configuration.
+The FirewallPolicy.template.json template file contains settings to enable TLS Inspection, IDPS, and URL filtering. Open the file to examine the configuration, and then deploy the template.
 
 ### TLS Inspection
 
@@ -220,8 +220,8 @@ To collect firewall logs, you need to add diagnostics settings to collect firewa
 1. Select the **DemoFirewall** and under **Monitoring**, select **Diagnostic settings**.
 2. Select **Add diagnostic setting**.
 3. For **Diagnostic setting name**, type *fw-diag*.
-4. Under **log**, select **AzureFirewallApplicationRule**.
-5. Under **Destination details**, select **Send to Log Analytics**.
+4. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule** .
+5. Under **Destination details**, select **Send to Log Analytics workspace**.
 6. Select **Save**.
 
 ### IDPS tests
@@ -242,15 +242,17 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
         </body>
    </html>
    ```
-4. Go to the Firewall logs on the Azure portal to find the an alert similar to the following message:
+4. Go to the Firewall Network rule logs on the Azure portal to find the an alert similar to the following message:
 
    :::image type="content" source="media/premium-deploy/alert-message.png" alt-text="Alert message":::
+
 5. Add a signature rule for signature 2008983:
 
    1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS(preview)**.
-   2. Under **Signature ID**, type *2008983*.
-   3. Under **State**, select **Deny**.
-   4. Select **Save**.
+   1. Select the **Signature rules** tab.
+   1. Under **Signature ID**, in the open text box type *2008983*.
+   1. Under **State**, select **Deny**.
+   1. Select **Save**.
 
 
 
@@ -265,7 +267,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 7. Go to the Monitor logs in the Azure Portal and identify the message for the blocked request.
 8. Now you can bypass the IDPS function using the **Bypass list**.
 
-   1. On the **IDPS (preview)** page, select **Bypass list**.
+   1. On the **IDPS (preview)** page, select the **Bypass list** tab.
    2. Edit **MyRule** and set **Destination** to *10.0.20.10* which is the ServerVM private IP address.
    3. Select **Save**.
 1. Run the test again: `curl -A "BlackSun" http://server.2020-private-preview.com` and now you should get the `Hello World` response and no log alert.
@@ -304,7 +306,7 @@ Let's create an application rule to allow access to sports web sites.
 
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
 2. Select **Application Rules**, and then **Add a rule collection**.
-3. For **Name**, type *GeneralWeb*, **Priority** *100*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
+3. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
 4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS inspection**, **Destination Type** select *Web categories (preview)*, **Destination** select *Sports*.
 5. Select **Add**.
 
