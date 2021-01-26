@@ -24,7 +24,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* To debug locally, you can deploy model to [Azure Machine Learning Compute Instance](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-local-container-notebook-vm) or have a working Docker installation on your local system.
+* To debug locally, you can deploy model to [Azure Machine Learning Compute Instance](./how-to-deploy-local-container-notebook-vm.md) or have a working Docker installation on your local system.
 
     To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 
