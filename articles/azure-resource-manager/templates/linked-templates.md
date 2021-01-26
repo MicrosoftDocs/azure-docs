@@ -492,7 +492,7 @@ You can't use both inline parameters and a link to a parameter file. The deploym
 
 ### Use relative path for linked templates
 
-The `relativePath` property of `Microsoft.Resources/deployments` makes it easier to author linked templates. This property can be used to deploy a remote linked template at a location relative to the parent. This feature requires all template files to be staged and available at a remote URI, such as Github or Azure storage account. When the main template is called by using a URI, the child deployment is a combination of the parent and relativePath.
+The `relativePath` property of `Microsoft.Resources/deployments` makes it easier to author linked templates. This property can be used to deploy a remote linked template at a location relative to the parent. This feature requires all template files to be staged and available at a remote URI, such as Github or Azure storage account. When the main template is called by using a URI from Azure Powershell or Azure CLI, the child deployment is a combination of the parent and relativePath.
 
 > [!NOTE]
 > When creating a templateSpec, any templates referenced by the `relativePath` property is packaged in the templateSpec resource by Azure PowerShell or Azure CLI. It do not require the files to be staged. For more information, see [Create a template spec with linked templates](./template-specs.md#create-a-template-spec-with-linked-templates).
@@ -572,6 +572,8 @@ az deployment group create \
 ```
 
 ---
+
+Make sure there is no leading "?" in QueryString. The deployment adds one when assembling the URI for the deployments.
 
 ## Template specs
 
