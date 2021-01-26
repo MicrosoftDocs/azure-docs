@@ -9,13 +9,21 @@ ms.topic: how-to
 ms.date: 11/4/2020
 ---
 
-# Migrate Default Hive Metastore to External Metastore
+# Migrate default Hive metastore DB to external metastore DB
 
-This article shows how to export a [default metastore](../hdinsight-use-external-metadata-stores.md#default-metastore) for Hive to a custom SQL Database on HDInsight. This is useful for scaling up the SQL Database or for [migrating workloads from HDInsight 3.6 to HDInsight 4.0](./apache-hive-migrate-workloads.md).
+This article shows how to migrate metadata from a [default metastore DB](../hdinsight-use-external-metadata-stores.md#default-metastore) for Hive to an external SQL Database on HDInsight. 
 
-Because the default metastore has limited compute capacity, we recommend low utilization from other jobs on the cluster while exporting metadata.
+## Why migrate to external metastore DB
 
-Source and target metastores must use the same HDInsight version and the same Storage Accounts. If upgrading HDInsight versions from 3.6 to 4.0, complete the steps in this article first. Then, follow the official upgrade steps [here](./apache-hive-migrate-workloads.md).
+1. Default metastore DB is limited to basic SKU and cannot handle production scale workloads.
+
+2. External metastore DB enables customer to horizontally scale Hive compute resources by adding new HDInsight clusters sharing the same metastore DB.
+
+3. For HDInsight 3.6 to 4.0 migration, it is mandatory to migrate metadata to external metastore DB before upgrading the Hive schema version. See [migrating workloads from HDInsight 3.6 to HDInsight 4.0](./apache-hive-migrate-workloads.md).
+
+Because the default metastore DB has limited compute capacity, we recommend low utilization from other jobs on the cluster while migrating metadata.
+
+Source and target DBs must use the same HDInsight version and the same Storage Accounts. If upgrading HDInsight versions from 3.6 to 4.0, complete the steps in this article first. Then, follow the official upgrade steps [here](./apache-hive-migrate-workloads.md).
 
 Optionally, see a separate guide for [Hive Workload Migration across Storage Accounts](./hive-migration-across-storage-accounts.md).
 
@@ -33,11 +41,11 @@ The action is similar to replacing symlinks with their full paths.
 
 ## Migrate with Export/Import using sqlpackage
 
-An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import for Hive default metastore by using `sqlpackage` for export.
+An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import for the Hive default metastore DB by using `sqlpackage`.
 
 1. Install [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download?view=sql-server-ver15#get-sqlpackage-net-core-for-linux) to the cluster.
 
-2. Export the default metastore to BACPAC file by executing the following command.
+2. Export the default metastore DB to BACPAC file by executing the following command.
 
     ```bash
     wget "https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive_metastore_tool.py"
@@ -55,24 +63,24 @@ An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import fo
 
 4. Import the BACPAC file to a new database with steps listed [here](../../azure-sql/database/database-import.md).
 
-5. The new database is ready to be [configured as external metastore on a new HDInsight cluster](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md).
+5. The new database is ready to be [configured as external metastore DB on a new HDInsight cluster](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md).
 
 ## Migrate using Hive script
 
-Clusters created before 2020-10-15 do not support export/import of the default metastore. For such clusters, this guide supports copying only Hive databases, tables, and partitions. Other metadata objects, like UDFs, must be re-created.
+Clusters created before 2020-10-15 do not support export/import of the default metastore DB. For such clusters, this guide supports copying metadata objects related to Hive databases, tables and partitions. Other metadata objects, like UDFs, must be re-created.
 
-Follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md) but not necessarily a different storage account.
+Follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore DB](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md) but not necessarily a different storage account.
 
 ### Option to "shallow" copy
-Storage consumption would double when tables are "deep" copied.
-We can, instead, "shallow" copy the tables if they are non-transactional. All Hive tables in HDInsight 3.6 are non-transactional by default, but only external tables are non-transactional in HDInsight 4.0. Follow these steps to shallow copy all tables:
+Storage consumption would double when tables are "deep" copied using the above guide.
+We can, instead, "shallow" copy the tables if they are non-transactional. All Hive tables in HDInsight 3.6 are non-transactional by default, but only external tables are non-transactional in HDInsight 4.0. Transactional tables must be deep copied. Follow these steps to shallow copy non-transactional tables:
 
-1. Execute script [hive-ddls.sh](https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-ddls.sh) on the cluster's primary headnode to generate the DDL for every Hive table.
-2. The DDL is written to a local Hive script named `/tmp/hdi_hive_ddls.hql`. Execute this on a cluster that uses an external Hive metastore.
+1. Execute script [hive-ddls.sh](https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-ddls.sh) on the source cluster's primary headnode to generate the DDL for every Hive table.
+2. The DDL is written to a local Hive script named `/tmp/hdi_hive_ddls.hql`. Execute this on the target cluster that uses an external Hive metastore DB.
 
-### Verify that all Hive tables are imported
+## Verify that all Hive tables are imported
 
-The following command uses a SQL query on the metastore to print all Hive tables and their data locations. Compare outputs between new and old clusters to verify that no tables are missing in the new metastore.
+The following command uses a SQL query on the metastore DB to print all Hive tables and their data locations. Compare outputs between new and old clusters to verify that no tables are missing in the new metastore DB.
 
 ```bash
 SCRIPT_FNAME='hive_metastore_tool.py'
@@ -83,7 +91,7 @@ QUERY="SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TB
 sudo python "$SCRIPT" --query "$QUERY" > $OUTPUT_FILE
 ```
 
-### Further Reading
+## Further Reading
 
 1) [Migrate workloads from HDInsight 3.6 to 4.0](./apache-hive-migrate-workloads.md)
 2) [Hive Workload Migration across Storage Accounts](./hive-migration-across-storage-accounts.md)
