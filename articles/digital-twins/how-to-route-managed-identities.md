@@ -17,19 +17,22 @@ ms.service: digital-twins
 
 # Route events using managed identities 
 
-This article describes how to enable a system-assigned identity for an Azure Digital Twins instance and use it to forward events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, as well as [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources) and use it to forward events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, as well as [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
-Here are the steps that are covered in detail in this article: 
+Here are the steps that are covered in this article: 
 
 1. Create an Azure Digital Twins instance with a system-assigned identity or enable system-assigned identity on an existing Azure Digital Twins instance. 
 1. Add an appropriate role or roles to the identity. For example, assign the **Azure Event Hub Data Sender** role to the identity if the endpoint is Event Hub, or **Azure Service Bus Data Sender role** if the endpoint is Service Bus.
-1. When you create custom endpoints, enable the usage of a system-assigned identity to authenticate to custom endpoints for forwarding events. 
+
+Later, when you create endpoints in Azure Digital Twins, you can enable the usage of system-assigned identities to authenticate to the endpoints for forwarding events.
 
 ## Enable system-managed identities for an Azure Digital Twins instance 
 
-You can enable system-managed identities for an Azure Digital Twins instance as part of the instance's initial setup, or enable it later on an instance that already exists. 
+When you enable a system-assigned identity on your Azure Digital Twins instance, Azure automatically creates an identity for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to Azure Digital Twins endpoints for event forwarding.
 
-Either of these creation methods will give the same configuration options and the same end result for your instance This section describes how to do both.
+You can enable system-managed identities for an Azure Digital Twins instance as part of the instance's initial setup, or enable it later on an instance that already exists.
+
+Either of these creation methods will give the same configuration options and the same end result for your instance. This section describes how to do both.
 
 ### Add a system-managed identity during instance creation
 
@@ -65,26 +68,45 @@ You can copy the object ID from here if needed, and use the Permissions button t
 
 ## Assign Azure roles to the identity 
 
-This section describes how to assign Azure role(s) to the system-assigned identity. This will allow it to authenticate to [custom endpoints](concepts-route-events.md) in your Azure Digital Twins instance for forwarding events.
+Once a system-assigned identity is created for your Azure Digital Twins instance, you'll need to assign it appropriate roles to authenticate with different types of [endpoints](concepts-route-events.md) for forwarding events to supported destinations. This section describes the role options and how to assign them to the system-assigned identity.
 
 ### Supported destinations and Azure roles 
 
-After you enable system-assigned identity on your Azure Digital Twins instance, Azure automatically creates an identity in Azure Active Directory. Assign to this identity appropriate Azure roles so that the Azure Digital Twins instance can forward events to supported destinations. For example, assign the Azure Event Hub Data Sender role to the identity if the endpoint is Event Hub. 
-
-This table also gives you the roles that the identity should be in so that the Azure Digital Twin instance can forward the events. 
+Here are the roles that should be assigned to an identity depending on the event destination. For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [*Concepts: Event routes*](concepts-route-events.md).
 
 | Destination | Azure role |
 | --- | --- |
 | Azure Event Hubs | Azure Event Hub Data Sender |
 | Service Bus | Azure Service Bus Data Sender |
-| Azure Storage Container | *to-do* |
-
+| Azure Storage Container | Storage Blob Data Contributor |
 
 ### Assign the role
 
-...
+>[!NOTE]
+> This section must be completed by an Azure user with permissions to manage user access to Azure resources (including granting and delegating permissions). Common roles that meet this requirement are *Owner*, *Account admin*, or the combination of *User Access Administrator* and *Contributor*. For more details about permission requirements for Azure Digital Twins roles, see [*How-to: Set up instance and authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+
+To assign a role to the identity, open the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance.
+
+1. Select **Access control (IAM)** in the left-hand menu.
+1. Select the **+ Add** button to add a new role assignment.
+
+    :::image type="content" source="media/how-to-route-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an Azure Digital Twins instance. The + Add button is highlighted.":::
+
+1. On the following **Add role assignment** page, fill in the values:
+    * **Role**: Select the desired role from the dropdown menu
+    * **Assign access to**: Choose **User, group or service principal**
+    * **Select**: Search for the name of this Azure Digital Twins instance. When you select the result, the instance will show up in a **Selected members** section.
+
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-route-managed-identities/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
+
+When you're finished entering the details, select **Save**.
 
 ## Next steps
 
-Read about the different types of event messages you can receive:
-* [*How-to: Interpret event data*](how-to-interpret-event-data.md)
+Learn more about managed identities in Azure AD: [*Managed identities for Azure resources*](../active-directory/managed-identities-azure-resources/overview.md)
