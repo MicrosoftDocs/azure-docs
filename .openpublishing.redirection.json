@@ -8,7 +8,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
