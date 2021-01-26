@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Move a Marketplace Azure Virtual Machine to another subscription
 
-You can't move virtual machines created from Marketplace resources with plans attached from one subscription to another. This procedure moves the OS disk to another subscription. You can create a new virtual machine from that disk.
+To move a Marketplace virtual machine to a different subscription, you must move the OS disk to that subscription and then recreate the virtual machine.
 
 This script demonstrates three operations:
 
@@ -58,13 +58,17 @@ az vm image terms show --offer $offer --plan $plan --publisher $publisher --subs
 az vm deallocate --resource-group $sourceResourceGroup --name $vmName
 
 # Get the name of the OS disk
-osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName --query 'storageProfile.osDisk.name' --output tsv)
+osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName \
+    --query 'storageProfile.osDisk.name' --output tsv)
 
 # Create a snapshot of the OS disk.
-az snapshot create --resource-group $sourceResourceGroup --name MigrationSnapshot --source "/subscriptions/$sourceSubscription/resourceGroups/$sourceResourceGroup/providers/Microsoft.Compute/disks/$osDiskName"
+az snapshot create --resource-group $sourceResourceGroup --name MigrationSnapshot \
+    --source "/subscriptions/$sourceSubscription/resourceGroups/$sourceResourceGroup/providers/Microsoft.Compute/disks/$osDiskName"
 
 # Move the snapshot to your destination resource group
-az resource move --destination-group $destinationResourceGroup --destination-subscription-id $destinationSubscription --ids "/subscriptions/$sourceSubscription/resourceGroups/$sourceResourceGroup/providers/Microsoft.Compute/snapshots/MigrationSnapshot"
+az resource move --destination-group $destinationResourceGroup \
+    --destination-subscription-id $destinationSubscription \
+    --ids "/subscriptions/$sourceSubscription/resourceGroups/$sourceResourceGroup/providers/Microsoft.Compute/snapshots/MigrationSnapshot"
 
 # Set your subscription to the destination value
 az account set --subscription $destinationSubscription
@@ -73,10 +77,14 @@ az account set --subscription $destinationSubscription
 az vm image terms accept --offer $offer --plan $plan --publisher $publisher --subscription $destinationSubscription
 
 # create disk from the snapshot 
-az disk create --resource-group $destinationResourceGroup --name DestinationDisk --source "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/snapshots/MigrationSnapshot" --os-type $osType
+az disk create --resource-group $destinationResourceGroup --name DestinationDisk 
+    --source "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/snapshots/MigrationSnapshot" \
+    --os-type $osType
 
 # create virtual machine from disk
-az vm create --resource-group $destinationResourceGroup --name $vmName --attach-os-disk "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/disks/DestinationDisk" --os-type $osType
+az vm create --resource-group $destinationResourceGroup --name $vmName \
+    --attach-os-disk "/subscriptions/$destinationSubscription/resourceGroups/$destinationResourceGroup/providers/Microsoft.Compute/disks/DestinationDisk" \
+    --os-type $osType
 ```
 
 ## Clean up resources
