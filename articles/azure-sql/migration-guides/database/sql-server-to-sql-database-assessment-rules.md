@@ -137,7 +137,7 @@ Consider migrating to Azure SQL Managed Instance that supports Database Mail.  A
 More information: [Send email from Azure SQL Database using Azure Functions script](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)
 
 
-## Database principal alias <a id="DatabasePrincipalAlias<">/a>
+## Database principal alias <a id="DatabasePrincipalAlias<"></a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
 Rule ID: DatabasePrincipalAlias (Issue)
@@ -272,7 +272,7 @@ Use ANSI join syntax.
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Next column  <a id="NextColumn<">/a>
+## Next column  <a id="NextColumn<"></a>
 
 **Title: Tables and Columns named NEXT will lead to an error In Azure SQL Database.**   
 Rule ID: NextColumn (Issue)
@@ -347,7 +347,7 @@ Use database level trigger instead. Alternatively migrate to Azure SQL Managed I
 More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
 
 
-## SQL Agent jobs  <a id="AgentJobs<">/a>
+## SQL Agent jobs  <a id="AgentJobs<"></a>
 
 **Title: SQL Server Agent jobs are not available in Azure SQL Database**   
 Rule ID: AgentJobs (Warning) 
@@ -360,7 +360,7 @@ Use elastic jobs (preview), which are the replacement for SQL Server Agent jobs 
 
 More information: [Getting started with Elastic Database jobs (Preview) ](../../database/elastic-jobs-overview.md)
 
-## SQL Database size <a id="SQLDBDatabaseSize<">/a>
+## SQL Database size <a id="SQLDBDatabaseSize<"></a>
 
 **Title: Azure SQL Database does not support database size greater than 100 TB.**   
 Rule ID: SQLDBDatabaseSize (Issue)

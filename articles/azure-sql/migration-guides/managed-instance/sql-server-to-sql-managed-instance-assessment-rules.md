@@ -31,7 +31,7 @@ Review impacted objects section to see all jobs using Analysis Service Command j
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
-## AnalysisQuery job <a id="AnalysisQueryJob<">/a>
+## AnalysisQuery job <a id="AnalysisQueryJob<"></a>
 
 **Title: AnalysisQuery job step is not supported in Azure SQL Managed Instance.**   
 Rule ID: AnalysisQueryJob (Warning) 
@@ -211,7 +211,8 @@ Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION an
 **Recommendation**   
 Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine. 
 
-More information: [Transactions across multiple servers for Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed)
+More information: [Transactions across multiple servers for Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+
 
 ## Linked server (non-SQL provider) <a id="LinkedServerWithNonSQLProvider"></a>
 
@@ -246,7 +247,7 @@ Review impacted objects section to see all jobs using Merge job step and evaluat
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## MI database size <a id="MIDatabaseSize<">/a>
+## MI database size <a id="MIDatabaseSize<"></a>
 
 **Title: Azure SQL Managed Instance does not support database size greater than 8 TB.**   
 Rule ID: MIDatabaseSize (Issue) 
@@ -261,7 +262,7 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 
 
 
-## MI instance size  <a id="MIInstanceSize<">/a>
+## MI instance size  <a id="MIInstanceSize<"></a>
 
 **Title: Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.**   
 Rule ID: MIInstanceSize (Warning)  
@@ -275,7 +276,7 @@ Consider migrating the databases to different Azure SQL Managed Instances or to 
 More information: [Hardware generation characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-generation-characteristics)
 
 
-## Multiple log files <a id="MultipleLogFiles<">/a>
+## Multiple log files <a id="MultipleLogFiles<"></a>
 
 **Title: Azure SQL Managed Instance does not support multiple log files.**   
 Rule ID: MultipleLogFiles(Issue) 
