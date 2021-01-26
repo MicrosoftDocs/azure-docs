@@ -523,10 +523,10 @@ See the following invoice document and its corresponding JSON output. The JSON c
 
 ## Train a custom model
 
-To train a custom model, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data.
+To train a custom model, you'll need a set of training data in an Azure Storage blob. You need a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data.
 
 > [!NOTE]
-> You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../../overview.md#train-with-labels) section of the overview to learn more about this feature.
+> For high-accuracy models, you can train with manually labeled data. See the [Train with labels](label-tool.md) getting started guide.
 
 To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
 
