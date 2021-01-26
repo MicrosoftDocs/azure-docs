@@ -59,11 +59,11 @@ The dashboard consists of widgets that graphically describe the following types 
 > [!NOTE]
 >  The time in the widgets is set according to the sensor time.
 
-## Create Reports
+## Create reports
 
 To see dashboards and widgets:
 
-1. Select **Trends & Statistics** on the side menu.
+Select **Trends & Statistics** on the side menu.
 
 :::image type="content" source="media/how-to-generate-reports/investigation-screenshot.png" alt-text="Screenshot of an investigation.":::
 
