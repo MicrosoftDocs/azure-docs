@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Develop a sample SCIM endpoint
 
-This tutorial descibes how to build a [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) endpoint and offers guidance on how to implement CRUD operations.  An example is included to support a user and group object with optional features such as filtering and pagination.
+No one wants to build a new endpoint from scratch, so we've created some [reference code](https://aka.ms/scimreferencecode) for you to get started with [SCIM](https://aka.ms/scimoverview). This tutorial describes how to deploy the SCIM reference code in Azure and test it using postman or by integrating with the Azure AD SCIM client. You can get your SCIM endpoint up and running with no code in just 5 minutes. This tutorial is intended for developers who are looking to get started with SCIM or others interested in testing out a SICM endpoint. 
 
 In this tutorial, learn how to:
 
@@ -122,7 +122,7 @@ The steps provided here deploy the SCIM endpoint to a service using [Visual Stud
 
    ![appservice settings](media/use-scim-to-build-users-and-groups-endpoints/appservice_settings.png)
 
-   When testing your endpoint with an Enterprise Application in the Azure Portal, choose to keep the environment as `Development` and provide the token generated from the `/scim/token` endpoint for testing or change the environment to `Production` and leave the token field empty in the enterprise application in the [Azure Portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+   When testing your endpoint with an Enterprise Application in the Azure portal, choose to keep the environment as `Development` and provide the token generated from the `/scim/token` endpoint for testing or change the environment to `Production` and leave the token field empty in the enterprise application in the [Azure portal](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 That's it! Your SCIM endpoint is now published and allows you to use the Azure App Service URL to test the SCIM endpoint.
 
