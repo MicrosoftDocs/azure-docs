@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/14/2020
+ms.date: 1/25/2021
 ms.author: allensu
 
 ---
@@ -53,7 +53,7 @@ Key scenarios that you can accomplish using Standard Load Balancer include:
 
 - Enable support for **[load-balancing](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ipv6-overview.md)**.
 
-- Standard Load Balancer provides multi-dimensional metrics through [Azure Monitor](../azure-monitor/overview.md).  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service.  Resource Health is also supported. Review **[Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md)** for more details.
+- Standard Load Balancer provides multi-dimensional metrics through [Azure Monitor](../azure-monitor/overview.md).  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer] (https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) offers a preconfigured dashboard with useful visualizations for these metrics.  Resource Health is also supported. Review **[Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md)** for more details.
 
 - Load balance services on **[multiple ports, multiple IP addresses, or both](./load-balancer-multivip-overview.md)**.
 

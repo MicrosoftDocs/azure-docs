@@ -15,7 +15,7 @@ ms.date: 12/26/2020
 ms.author: shhazam
 ---
 
-# Getting started with Defender for IoT
+# Get started with Defender for IoT
 
 This article provides an overview of the steps you'll take to set up Azure Defender for IoT. The process requires that you:
 
