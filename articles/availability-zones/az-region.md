@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/26/2021
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
