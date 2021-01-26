@@ -2,8 +2,7 @@
 title: Understand reservations discount for Azure Data Factory data flows | Microsoft Docs
 description: Learn how a reservation discount is applied to running ADF data flows. The discount is applied to these data flows on an hourly basis.
 author: kromerm
-ms.service: cost-management-billing
-ms.subservice: reservations
+ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: makromer
