@@ -61519,6 +61519,16 @@
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-manage-account-basics.md",
+      "redirect_url": "/azure/batch/accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
+      "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
+      "redirect_document_id": false
     }
   ]
 }
