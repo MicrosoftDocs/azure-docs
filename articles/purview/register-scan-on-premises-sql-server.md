@@ -30,7 +30,7 @@ SQL server on-premises data source supports:
 
 ### Known limitations
 
-Azure Purview doesn't support scanning of [views](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in SQL Server. 
+Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views) in SQL Server.
 
 ## Prerequisites
 

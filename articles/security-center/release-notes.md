@@ -1,16 +1,16 @@
 ---
 title: Release notes for Azure Security Center
-description: A description of what's new and changed in Azure Security Center.
+description: A description of what's new and changed in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: overview
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2021
+ms.date: 01/25/2021
 ms.author: memildin
 
 ---
@@ -29,11 +29,47 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 ## January 2021
 
-### Vulnerability assessment for on-premise and multi-cloud machines is generally available
+Updates in January include:
+
+- [Azure Security Benchmark is now the default policy initiative for Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
+- [Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
+- [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Dangling DNS protections added to Azure Defender for App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
+- [Multi-cloud connectors are released for General Availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Exempt entire recommendations from your secure score for subscriptions and management groups](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
+- [Users can now request tenant-wide visibility from their global administrator](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
+- [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
+- ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+
+
+### Azure Security Benchmark is now the default policy initiative for Azure Security Center
+
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+
+In recent months, Security Center's list of built-in security recommendations has grown significantly to expand our coverage of this benchmark.
+
+From this release, the benchmark is the foundation for Security Center’s recommendations and fully integrated as the default policy initiative. 
+
+All Azure services have a security baseline page in their documentation. For example, [this is Security Center's baseline](security-baseline.md). These baselines are built on Azure Security Benchmark.
+
+If you're using Security Center's regulatory compliance dashboard, you'll see two instances of the benchmark during a transition period:
+
+:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Azure Security Center's regulatory compliance dashboard showing the Azure Security Benchmark":::
+
+Existing recommendations are unaffected and as the benchmark grows, changes will automatically be reflected within Security Center. 
+
+To learn more, see the following pages:
+
+- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
+
+### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
 
 In October, we announced a preview for scanning Azure Arc enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
-It's now generally available. 
+It's now released for General Availability (GA).
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
@@ -49,6 +85,141 @@ Main capabilities:
 [Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+
+
+### Secure score for management groups is now available in preview
+
+The secure score page now shows the aggregated secure scores for your management groups in addition to the subscription level. So now you can see the list of management groups in your organization and the score for each management group.
+
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Viewing the secure scores for your management groups.":::
+
+Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+### Secure score API is released for General Availability (GA)
+
+You can now access your score via the [secure score API](/rest/api/securitycenter/securescores/). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+
+For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+
+### Dangling DNS protections added to Azure Defender for App Service
+
+Subdomain takeovers are a common, high-severity threat for organizations. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned web site. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. 
+
+Subdomain takeovers enable threat actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
+
+Azure Defender for App Service now detects dangling DNS entries when an App Service website is decommissioned. This is the moment at which the DNS entry is pointing at a non-existent resource and your website is vulnerable to a subdomain takeover. These protections are available whether your domains are managed with Azure DNS or an external domain registrar and applies to both App Service on Windows and App Service on Linux.
+
+Learn more:
+
+- [App Service alert reference table](alerts-reference.md#alerts-azureappserv) - Includes two new Azure Defender alerts that trigger when a dangling DNS entry is detected
+- [Prevent dangling DNS entries and avoid subdomain takeover](../security/fundamentals/subdomain-takeover.md) - Learn about the threat of subdomain takeover and the dangling DNS aspect
+- [Introduction to Azure Defender for App Service](defender-for-app-service-introduction.md)
+
+
+### Multi-cloud connectors are released for General Availability (GA)
+
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
+
+Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+
+Connecting your AWS or GCP accounts integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
+
+This capability means that Security Center provides visibility and protection across all major cloud environments. Some of the benefits of this integration:
+
+- Automatic agent provisioning - Security Center uses Azure Arc to deploy the Log Analytics agent to your AWS instances
+- Policy management
+- Vulnerability management
+- Embedded Endpoint Detection and Response (EDR)
+- Detection of security misconfigurations
+- A single view showing security recommendations from all cloud providers
+- Incorporate all of your resources into Security Center's secure score calculations
+- Regulatory compliance assessments of your AWS and GCP resources
+
+From Security Center's menu, select **Multi cloud connectors** and you'll see the options for creating new connectors:
+
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi cloud connectors page":::
+
+Learn more in:
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+
+
+### Exempt entire recommendations from your secure score for subscriptions and management groups
+
+We're expanding the exemption capability to include entire recommendations. Providing further options to fine-tune the security recommendations that Security Center makes for your subscriptions, management group, or resources.
+
+Occasionally, a resource will be listed as unhealthy when you know the issue has been resolved by a third-party tool which Security Center hasn't detected. Or a recommendation will show in a scope where you feel it doesn't belong. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has simply decided to accept the risks related to the specific resource or recommendation.
+
+With this preview feature, you can now create an exemption for a recommendation to:
+
+- **Exempt a resource** to ensure it isn't listed with the unhealthy resources in the future, and doesn't impact your secure score. The resource will be listed as not applicable and the reason will be shown as "exempted" with the specific justification you select.
+
+- **Exempt a subscription or management group** to ensure that the recommendation doesn't impact your secure score and won't be shown for the subscription or management group in the future. This relates to existing resources and any you create in the future. The recommendation will be marked with the specific justification you select for the scope that you selected.
+
+Learn more in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+
+
+
+### Users can now request tenant-wide visibility from their global administrator
+
+If a user doesn't have permissions to see Security Center data, they'll now see a link to request permissions from their organization's global administrator. The request includes the role they'd like and the justification for why it's necessary.
+
+:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
+
+Learn more in [Request tenant-wide permissions when yours are insufficient](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient)
+.
+
+
+### 35 preview recommendations added to increase coverage of Azure Security Benchmark
+
+Azure Security Benchmark is the default policy initiative in Azure Security Center. 
+
+To increase the coverage of this benchmark, the following 35 preview recommendations have been added to Security Center.
+
+> [!TIP]
+> Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+
+| Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Enable encryption at rest            | - Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest<br>- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)<br>- Bring your own key data protection should be enabled for MySQL servers<br>- Bring your own key data protection should be enabled for PostgreSQL servers<br>- Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)<br>- Container registries should be encrypted with a customer-managed key (CMK)<br>- SQL managed instances should use customer-managed keys to encrypt data at rest<br>- SQL servers should use customer-managed keys to encrypt data at rest<br>- Storage accounts should use customer-managed key (CMK) for encryption                                                                                                                                                              |
+| Implement security best practices    | - Subscriptions should have a contact email address for security issues<br> - Auto provisioning of the Log Analytics agent should be enabled on your subscription<br> - Email notification for high severity alerts should be enabled<br> - Email notification to subscription owner for high severity alerts should be enabled<br> - Key vaults should have purge protection enabled<br> - Key vaults should have soft delete enabled |
+| Manage access and permissions        | - Function apps should have 'Client Certificates (Incoming client certificates)' enabled |
+| Protect applications against DDoS attacks | - Web Application Firewall (WAF) should be enabled for Application Gateway<br> - Web Application Firewall (WAF) should be enabled for Azure Front Door Service service |
+| Restrict unauthorized network access | - Firewall should be enabled on Key Vault<br> - Private endpoint should be configured for Key Vault<br> - App Configuration should use private link<br> - Azure Cache for Redis should reside within a virtual network<br> - Azure Event Grid domains should use private link<br> - Azure Event Grid topics should use private link<br> - Azure Machine Learning workspaces should use private link<br> - Azure SignalR Service should use private link<br> - Azure Spring Cloud should use network injection<br> - Container registries should not allow unrestricted network access<br> - Container registries should use private link<br> - Public network access should be disabled for MariaDB servers<br> - Public network access should be disabled for MySQL servers<br> - Public network access should be disabled for PostgreSQL servers<br> - Storage account should use a private link connection<br> - Storage accounts should restrict network access using virtual network rules<br> - VM Image Builder templates should use private link|
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Related links:
+
+- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
+- [Learn more about Azure Database for MySQL](../mysql/overview.md)
+- [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
+
+
+
+
+### CSV export of filtered list of recommendations 
+
+In November 2020, we added filters to the recommendations page ([Recommendations list now includes filters](#recommendations-list-now-includes-filters)). In December, we expanded those filters ([Recommendations page has new filters for environment, severity, and available responses](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+With this announcement, we're changing the behavior of the **Download to CSV** button so that the CSV export only includes the recommendations currently displayed in the filtered list. 
+
+For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file":::
+
+Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
+
+
+### "Not applicable" resources now reported as "Compliant" in Azure Policy assessments
+
+Previously, resources that were evaluated for a recommendation and found to be **not applicable** appeared in Azure Policy as "Non-compliant". No user actions could change their state to "Compliant". With this change, they're reported as "Compliant" for improved clarity.
+
+The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
+
 
 
 ## December 2020
@@ -173,7 +344,7 @@ The recommendation "Web apps should request an SSL certificate for all incoming 
 
 Ensuring your web apps request a certificate certainly makes them more secure. However, for public-facing web apps it's irrelevant. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP. Learn more in [Configure TLS mutual authentication for Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-With this change, the recommendation is now a recommended best practice which does not impact your score. 
+With this change, the recommendation is now a recommended best practice that does not impact your score. 
 
 Learn which recommendations are in each security control in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
@@ -211,7 +382,7 @@ These tools have been enhanced and expanded in the following ways:
 
 - **Continuous export's deployifnotexist policies enhanced**. The policies now:
 
-    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
+    - **Check whether the configuration is enabled.** If it isn't, the policy will show as non-compliant and create a compliant resource. Learn more about the supplied Azure Policy templates in the "Deploy at scale with Azure Policy tab" in [Set up a continuous export](continuous-export.md#set-up-a-continuous-export).
 
     - **Support exporting security findings.** When using the Azure Policy templates, you can configure your  continuous export to include findings. This is relevant when exporting recommendations that have 'sub' recommendations, like findings from vulnerability assessment scanners or specific system updates for the 'parent' recommendation "System updates should be installed on your machines".
     
@@ -231,7 +402,7 @@ Updates in November include:
 - [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
 - [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
 - [Secure score is now available in continuous export (preview)](#secure-score-is-now-available-in-continuous-export-preview)
-- ["System updates should be installed on your machines" recommendation now includes sub-recommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- ["System updates should be installed on your machines" recommendation now includes subrecommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [Policy management page in the Azure portal now shows status of default policy assignments](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
@@ -310,13 +481,13 @@ With continuous export of secure score, you can stream changes to your score in 
 Learn more about how to [Continuously export Security Center data](continuous-export.md).
 
 
-### "System updates should be installed on your machines" recommendation now includes sub-recommendations
+### "System updates should be installed on your machines" recommendation now includes subrecommendations
 
-The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes sub-recommendations for each missing update and brings the following improvements:
+The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes subrecommendations for each missing update and brings the following improvements:
 
 - A redesigned experience in the Azure Security Center pages of the Azure portal. The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the subrecommendations in the portal experience for the updated recommendation":::
 
 - Enriched data for the recommendation from Azure Resource Graph (ARG). ARG is an Azure service that's designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
 
@@ -402,7 +573,7 @@ For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](
 - Asset inventory utilizes (ARG)
 - We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
-Within ARG there are tables of data for you to use in your queries.
+Within ARG, there are tables of data for you to use in your queries.
 
 :::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer and the available tables":::
 
@@ -558,7 +729,7 @@ Learn more in [Azure Defender for Key Vault](defender-for-key-vault-introduction
 
 Support for [Azure Files](../storage/files/storage-files-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is now generally available.
 
-From 1st October 2020, we'll begin charging for protecting resources on these services.
+From 1 October 2020, we'll begin charging for protecting resources on these services.
 
 Learn more in [Azure Defender for Storage](defender-for-storage-introduction.md).
 
@@ -668,7 +839,7 @@ The following security recommendations related to network security groups have b
 
 The preview recommendation "Pod Security Policies should be defined on Kubernetes Services" is being deprecated as described in the [Azure Kubernetes Service](../aks/use-pod-security-policies.md) documentation.
 
-The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15th, 2020 in favor of Azure Policy for AKS.
+The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15, 2020 in favor of Azure Policy for AKS.
 
 After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 
@@ -815,4 +986,4 @@ The early phase of this project includes a private preview and the addition of n
 You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
 
 1. **Single Preview** – To join only this private preview. Explicitly mention “ASC Continuous Scan” as the preview you would like to join.
-1. **Ongoing Program** – To be added to this and future private previews. You will need to complete a profile and privacy agreement.
+1. **Ongoing Program** – To be added to this and future private previews. You'll need to complete a profile and privacy agreement.

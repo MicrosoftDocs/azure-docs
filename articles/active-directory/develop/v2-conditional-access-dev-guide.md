@@ -178,6 +178,6 @@ To try out this scenario, see our [JS SPA On-behalf-of code sample](https://gith
 
 * To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../conditional-access/overview.md).
 * For more Azure AD code samples, see [samples](sample-v2-code.md).
-* For more info on the MSAL SDK's and access the reference documentation, see [Microsoft Authentication Library overview](msal-overview.md).
+* For more info on the MSAL SDK's and access the reference documentation, see the [Microsoft Authentication Library overview](msal-overview.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).
 * Learn more about [Conditional access and securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).

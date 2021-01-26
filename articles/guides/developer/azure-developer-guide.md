@@ -81,7 +81,7 @@ Rather than worrying about building out and managing a whole application or the 
 
 > **When to use**: Use Azure Functions when you have code that is triggered by other Azure services, by web-based events, or on a schedule. You can also use Functions when you don't need the overhead of a complete hosted project or when you only want to pay for the time that your code runs. To learn more, see [Azure Functions Overview](../../azure-functions/functions-overview.md).
 >
-> **Get started**: Follow the Functions quickstart tutorial to [create your first function](../../azure-functions/functions-create-first-azure-function.md) from the portal.
+> **Get started**: Follow the Functions quickstart tutorial to [create your first function](../../azure-functions/functions-get-started.md) from the portal.
 >
 > **Try it now**: Azure Functions lets you run your code without having to sign up for an Azure account. Try it now at and [create your first Azure Function](https://tryappservice.azure.com/).
 
@@ -102,6 +102,21 @@ Service Fabric supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.N
 > **When to use:** Service Fabric is a good choice when you’re creating an application or rewriting an existing application to use a microservice architecture. Use Service Fabric when you need more control over, or direct access to, the underlying infrastructure.
 >
 > **Get started:** [Create your first Azure Service Fabric application](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
+
+#### Azure Spring Cloud
+
+Azure Spring Cloud is a serverless microservices platform that enables you to build, deploy, scale and monitor your applications in the cloud. Use Spring Cloud to bring modern microservice patterns to Spring Boot apps, eliminating boilerplate code to quickly build robust Java apps.
+
+- Leverage managed versions of Spring Cloud Service Discovery and Config Server, while we ensure those critical components are running in optimum conditions.
+- Focus on building your business logic and we will take care of your service runtime with security patches, compliance standards and high availability.
+- Manage application lifecycle (e.g.: deploy, start, stop, scale) on top of Azure Kubernetes Service.
+- Easily bind connections between your apps and Azure services such as Azure Database for MySQL and Azure Cache for Redis.
+- Monitor and troubleshoot microservices and applications using enterprise-grade unified monitoring tools that offer deep insights on application dependencies and operational telemetry.
+
+> **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you’re minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
+>
+> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/spring-cloud-quickstart.md).
+
 
 ### Enhance your applications with Azure services
 

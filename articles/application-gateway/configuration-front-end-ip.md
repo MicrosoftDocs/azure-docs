@@ -20,7 +20,7 @@ Application Gateway V2 currently does not support only private IP mode. It suppo
 * Private IP address and public IP address
 * Public IP address only
 
-For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
 
 
 A public IP address isn't required for an internal endpoint that's not exposed to the Internet. That's known as an *internal load-balancer* (ILB) endpoint or private frontend IP. An application gateway ILB is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers in a multi-tier application within a security boundary that aren't exposed to the Internet but that require round-robin load distribution, session stickiness, or TLS termination.
