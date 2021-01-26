@@ -7,7 +7,7 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/22/2021
+ms.date: 01/26/2021
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -109,4 +109,4 @@ It's recommended to use the addresses listed in the [DNS records per region](how
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
