@@ -106,6 +106,10 @@ You set the scope through the `expressionEvaluationOptions` property. By default
   ...
 ```
 
+> [!NOTE]
+>
+> When scope is set to `outer`, you can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, either use `inner` scope or convert your nested template to a linked template.
+
 The following template demonstrates how template expressions are resolved according to the scope. It contains a variable named `exampleVar` that is defined in both the parent template and the nested template. It returns the value of the variable.
 
 ```json
@@ -393,10 +397,6 @@ The following excerpt shows which values are secure and which aren't secure.
   ]
 }
 ```
-
-> [!NOTE]
->
-> When scope is set to `outer`, you can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, either use `inner` scope or convert your nested template to a linked template.
 
 ## Linked template
 
