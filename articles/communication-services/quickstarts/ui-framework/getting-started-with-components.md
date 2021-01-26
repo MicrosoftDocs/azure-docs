@@ -78,17 +78,17 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services UI SDK client library:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| Provider| The CallClient is the main entry point to the Calling client library.|
-| CallingProvider| The CallClient is the main entry point to the Calling client library.|
-| ChatProvider | The CallAgent is used to start and manage calls. |
-| ParticipantGallery | The CallAgent is used to start and manage calls. |
-| CallControls | The CallAgent is used to start and manage calls. |
-| ChatThread | The CallAgent is used to start and manage calls. |
-| ChatInput | The CallAgent is used to start and manage calls. |
+| Provider| Fluent UI provider that allows developers to modify underlying Fluent UI components|
+| CallingProvider| Calling Provider to insatiate a call. Required to instantiate additional components|
+| ChatProvider | Chat Provider to insatiate a chat thread. Required to instantiate additional components|
+| ParticipantGallery | Base component that shows call participants and their remote video streams |
+| CallControls | Base component to control call including mute, video, share screen |
+| ChatThread | Base component that renders a chat thread with typing indicators, read receipts, etc. |
+| ChatInput | Base component that allows user to input messages that will be sent to the joined thread|
 
 ## Initialize Calling and Chat Providers using Azure Communication Services credentials
 

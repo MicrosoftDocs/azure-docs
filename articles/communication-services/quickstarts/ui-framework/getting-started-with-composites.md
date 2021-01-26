@@ -77,6 +77,18 @@ npm install @azure/communication-ui --save
 The `--save` option lists the library as a dependency in your **package.json** file.
 
 
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services UI SDK client library:
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| Provider| Fluent UI provider that allows developers to modify underlying Fluent UI components|
+| CallingProvider| Calling Provider to insatiate a call. Required to instantiate additional components|
+| ChatProvider | Chat Provider to insatiate a chat thread. Required to instantiate additional components|
+| GroupCall | Composite component that renders a group calling experience with participant gallery and controls. |
+| GroupChat | Composite component that renders a group chat experience with chat thread and input |
+
 ## Initialize Group Call and Group Chat Composite Components
 
 In the snippet below we initialize both the `GroupCall` and the `GroupChat` composite components. Developers can choose which one to use depending on the type of communication experience they look to build or use both when both modalities are required. To initialize the components you will require an access token retrieved from Azure Communication Services. For details on how to do this see: [create and manage user access tokens](../../access-tokens.md).
