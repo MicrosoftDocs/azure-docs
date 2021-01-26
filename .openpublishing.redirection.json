@@ -16,8 +16,7 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/csharp-template",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/virtual-machines/windows/publish-web-app-from-visual-studio.md",
+    {"source_path": "articles/virtual-machines/windows/publish-web-app-from-visual-studio.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
       "redirect_document_id": false
     },
@@ -29,6 +28,9 @@
     {
       "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/extensions/log-collector.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
       "redirect_document_id": false
