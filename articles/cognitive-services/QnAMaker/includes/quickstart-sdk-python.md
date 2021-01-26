@@ -302,7 +302,7 @@ Delete the knowledge base using the [delete](/python/api/azure-cognitiveservices
 
 ## Get status of an operation
 
-Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python) is returned. Use the operation ID from the operation to poll (with retry logic) to determine the status of the original method.
+Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)) is returned. Use the operation ID from the operation to poll (with retry logic) to determine the status of the original method.
 
 The _setTimeout_ call in the following code block is used to simulate asynchronous code. Replace this with retry logic.
 
