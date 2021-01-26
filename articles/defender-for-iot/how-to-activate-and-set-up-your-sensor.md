@@ -129,9 +129,9 @@ After your sign in, the Azure Defender for IoT console opens.
 
 ## Initial setup and learning (for administrators)
 
-After your first sign-in, the Azure Defender for IoT sensor starts to monitor your network automatically. Network assets will appear in the asset map and asset inventory sections. Azure Defender for IoT will begin to detect and alert you on all security and operational incidents that occur in your network. You can then create reports and queries based on the detected information.
+After your first sign-in, the Azure Defender for IoT sensor starts to monitor your network automatically. Network devices will appear in the device map and device inventory sections. Azure Defender for IoT will begin to detect and alert you on all security and operational incidents that occur in your network. You can then create reports and queries based on the detected information.
 
-Initially this activity is carried out in the learning mode, which instructs your sensor to learn your network's usual activity. For example, the sensor learns assets discovered in your network, protocols detected in the network, and file transfers that occur between specific assets. This activity becomes your network's baseline activity.
+Initially this activity is carried out in the learning mode, which instructs your sensor to learn your network's usual activity. For example, the sensor learns devices discovered in your network, protocols detected in the network, and file transfers that occur between specific devices. This activity becomes your network's baseline activity.
 
 ### Review and update basic system settings
 

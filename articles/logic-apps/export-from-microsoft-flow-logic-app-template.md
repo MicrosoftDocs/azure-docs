@@ -3,12 +3,14 @@ title: Export flows from Power Automate to Azure Logic Apps
 description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 01/20/2021
 ---
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
+
+> For flows created after October 2020, you can no longer export from Power Automate and deploy to Azure Logic Apps.
 
 To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 

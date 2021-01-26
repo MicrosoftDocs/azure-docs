@@ -321,9 +321,9 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Not Available | Not Available | Not Available | Not Available |
-| User assigned | [Available in supported regions](../../virtual-machines/windows/image-builder-overview.md#regions) | Not Available | Not Available | Not Available |
+| User assigned | [Available in supported regions](../../virtual-machines/image-builder-overview.md#regions) | Not Available | Not Available | Not Available |
 
-To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](../../virtual-machines/windows/image-builder-overview.md#permissions).
+To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](../../virtual-machines/image-builder-overview.md#permissions).
 ### Azure SignalR Service
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |

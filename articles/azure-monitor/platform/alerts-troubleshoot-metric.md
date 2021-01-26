@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -18,8 +18,9 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you believe a metric alert should have fired but it didn’t fire and isn't found in the Azure portal, try the following steps:
 
 1. **Configuration** - Review the metric alert rule configuration to make sure it’s properly configured:
-    - Check that the **Aggregation type**, **Aggregation granularity (period)**, and **Threshold value** or **Sensitivity** are configured as expected
-    - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated
+    - Check that the **Aggregation type** and **Aggregation granularity (period)** are configured as expected. **Aggregation type** determines how metric values are aggregated (learn more [here](./metrics-aggregation-explained.md#aggregation-types)), and **Aggregation granularity (period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs.
+    -  Check that the **Threshold value** or **Sensitivity** are configured as expected.
+    - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated.
 
        > [!NOTE] 
        > Dynamic Thresholds require at least 3 days and 30 metric samples before becoming active.

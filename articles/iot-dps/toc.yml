@@ -124,8 +124,6 @@
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
-    - name: Manage enrollments - Service SDKs
-      href: how-to-manage-enrollments-sdks.md
     - name: Configure verified CA certificates
       href: how-to-verify-certificates.md
     - name: Roll device certificates
@@ -150,10 +148,6 @@
     - name: Windows
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
-  - name: Use attestation mechanisms with SDK
-    href: use-hsm-with-sdk.md
-  - name: Use SDK tools for development
-    href: how-to-use-sdk-tools.md
   - name: How to send additional data from devices
     href: how-to-send-additional-data.md
   - name: Troubleshooting
