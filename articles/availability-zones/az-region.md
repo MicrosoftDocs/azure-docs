@@ -40,9 +40,18 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 ## Azure regions with Availability Zones
 
-|     Americas                                                                                                                               |     Europe                                                                        |     Germany                   |     Africa                         |     Asia Pacific                                                    |
-|--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|-------------------------------|------------------------------------|---------------------------------------------------------------------|
-|     Canada   Central     Central   US     East   US     East   US 2     South   Central US     US   Gov Virginia*     West   US 2          |     France   Central     North   Europe     UK   South     West   Europe          |     Germany   West Central    |     South   Africa North*          |     Japan   East     Southeast   Asia     Australia   East          |
+
+| Americas           | Europe         | Germany              | Africa              | Asia Pacific   |
+|--------------------|----------------|----------------------|---------------------|----------------|
+|                    |                |                      |                     |                |
+| Canada Central     | France Central | Germany West Central | South Africa North* | Japan East     |
+| Central US         | North Europe   |                      |                     | Southeast Asia |
+| East US            | UK South       |                      |                     | Australia Eas  |
+| East US 2          | West Europe    |                      |                     |                |
+| South   Central US |                |                      |                     |                |
+| US   Gov Virginia* |                |                      |                     |                |
+| West   US 2        |                |                      |                     |                |
+
 
 To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
@@ -57,79 +66,80 @@ To learn more about Availability Zones and available services support in these r
 ### Zone Resilient Services 
 
 :globe_with_meridians: Non-Regional Services - Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
+
 :small_red_triangle:   Resilient to the zone-wide outages 
 
 
 **Foundational Services**
 
-|     Products                                                    |     Resiliency    |
+|     Products                                                    | Resiliency|
 |-----------------------------------------------------------------|-------------------|
-|     Storage   Account                                           |     :large_blue_diamond:             |
-|     Application   Gateway (V2)                                  |     :large_blue_diamond:             |
-|     Azure Backup                                                |     :large_blue_diamond:             |
-|     Azure Cosmos   DB                                           |     :large_blue_diamond:             |
-|     Azure Data   Lake Storage Gen 2                             |     :large_blue_diamond:             |
-|     Azure Express   Route                                       |     :large_blue_diamond:             |
-|     Azure Public   IP                                           |     :large_blue_diamond:             |
-|     Azure SQL   Database (General Purpose Tier)                 |     :large_blue_diamond:             |
-|     Azure SQL   Database (Premium & Business Critical Tier)     |     :large_blue_diamond:             |
-|     Disk Storage                                                |     :large_blue_diamond:             |
-|     Event Hubs                                                  |     :large_blue_diamond:             |
-|     Key Vault                                                   |     :large_blue_diamond:             |
-|     Load Balancer                                               |     :large_blue_diamond:             |
-|     Service Bus                                                 |     :large_blue_diamond:             |
-|     Service   Fabric                                            |     :large_blue_diamond:             |
-|     Storage:   Hot/Cool Blob Storage Tiers                      |     :large_blue_diamond:             |
-|     Storage:   Managed Disks                                    |     :large_blue_diamond:             |
-|     Virtual   Machines Scale Sets                               |     :large_blue_diamond:             |
-|     Virtual   Machines                                          |     :large_blue_diamond:             |
-|     Virtual   Machines: Av2-Series                              |     :large_blue_diamond:             |
-|     Virtual   Machines: Bs-Series                               |     :large_blue_diamond:             |
-|     Virtual   Machines: DSv2-Series                             |     :large_blue_diamond:             |
-|     Virtual   Machines: DSv3-Series                             |     :large_blue_diamond:             |
-|     Virtual   Machines: Dv2-Series                              |     :large_blue_diamond:             |
-|     Virtual   Machines: Dv3-Series                              |     :large_blue_diamond:             |
-|     Virtual   Machines: ESv3-Series                             |     :large_blue_diamond:             |
-|     Virtual   Machines: Ev3-Series                              |     :large_blue_diamond:             |
-|     Virtual   Network                                           |     :large_blue_diamond:             |
-|     VPN Gateway                                                 |     :large_blue_diamond:             |
-|                                                                 |                   |
+|     Storage   Account                                           |      :large_blue_diamond:  |
+|     Application   Gateway (V2)                                  |      :large_blue_diamond:  |
+|     Azure Backup                                                |      :large_blue_diamond:  |
+|     Azure Cosmos   DB                                           |      :large_blue_diamond:  |
+|     Azure Data   Lake Storage Gen 2                             |      :large_blue_diamond:  |
+|     Azure Express   Route                                       |      :large_blue_diamond:  |
+|     Azure Public   IP                                           |      :large_blue_diamond:  |
+|     Azure SQL   Database (General Purpose Tier)                 |      :large_blue_diamond:  |
+|     Azure SQL   Database (Premium & Business Critical Tier)     |      :large_blue_diamond:  |
+|     Disk Storage                                                |      :large_blue_diamond:  |
+|     Event Hubs                                                  |      :large_blue_diamond:  |
+|     Key Vault                                                   |      :large_blue_diamond:  |
+|     Load Balancer                                               |      :large_blue_diamond:  |
+|     Service Bus                                                 |      :large_blue_diamond:  |
+|     Service   Fabric                                            |      :large_blue_diamond:  |
+|     Storage:   Hot/Cool Blob Storage Tiers                      |      :large_blue_diamond:  |
+|     Storage:   Managed Disks                                    |      :large_blue_diamond:  |
+|     Virtual   Machines Scale Sets                               |      :large_blue_diamond:  |
+|     Virtual   Machines                                          |      :large_blue_diamond:  |
+|     Virtual   Machines: Av2-Series                              |      :large_blue_diamond:  |
+|     Virtual   Machines: Bs-Series                               |      :large_blue_diamond:  |
+|     Virtual   Machines: DSv2-Series                             |      :large_blue_diamond:  |
+|     Virtual   Machines: DSv3-Series                             |      :large_blue_diamond:  |
+|     Virtual   Machines: Dv2-Series                              |      :large_blue_diamond:  |
+|     Virtual   Machines: Dv3-Series                              |      :large_blue_diamond:  |
+|     Virtual   Machines: ESv3-Series                             |      :large_blue_diamond:  |
+|     Virtual   Machines: Ev3-Series                              |      :large_blue_diamond:  |
+|     Virtual   Network                                           |      :large_blue_diamond:  |
+|     VPN Gateway                                                 |      :large_blue_diamond:  |
+
 
 **Mainstream services**
 
 | Products                                        | Resiliency |
 |-------------------------------------------------|------------|
-| App Service Environments                        | :large_blue_diamond:          |
-| Azure Active Directory Domain Services          | :large_blue_diamond:          |
-| Azure Bastion                                   | :large_blue_diamond:          |
-| Azure Cache for Redis                           | :large_blue_diamond:          |
-| Azure Cognitive Services: Text Analytics        | :large_blue_diamond:          |
-| Azure Data Explorer                             | :large_blue_diamond:          |
-| Azure Database for MySQL – Flexible Server      | :large_blue_diamond:          |
-| Azure Database for PostgreSQL – Flexible Server | :large_blue_diamond:          |
-| Azure DDoS Protection                           | :large_blue_diamond:          |
-| Azure Firewall                                  | :large_blue_diamond:          |
-| Azure Firewall Manager                          | :large_blue_diamond:          |
-| Azure Kubernetes Service (AKS)                  | :large_blue_diamond:          |
-| Azure Private Link                              | :large_blue_diamond:          |
-| Azure Red Hat OpenShift                         | :large_blue_diamond:          |
-| Azure Site Recovery                             | :large_blue_diamond:          |
-| Container Registry                              | :large_blue_diamond:          |
-| Event Grid                                      | :large_blue_diamond:          |
-| Network Watcher                                 | :large_blue_diamond:          |
-| Power BI Embedded                               | :large_blue_diamond:          |
-| Premium Blob Storage                            | :large_blue_diamond:          |
-| Virtual Machines: Ddsv4-Series                  | :large_blue_diamond:          |
-| Virtual Machines: Ddv4-Series                   | :large_blue_diamond:          |
-| Virtual Machines: Dsv4-Series                   | :large_blue_diamond:          |
-| Virtual Machines: Dv4-Series                    | :large_blue_diamond:          |
-| Virtual Machines: Edsv4-Series                  | :large_blue_diamond:          |
-| Virtual Machines: Edv4-Series                   | :large_blue_diamond:          |
-| Virtual Machines: Esv4-Series                   | :large_blue_diamond:          |
-| Virtual Machines: Ev4-Series                    | :large_blue_diamond:          |
-| Virtual Machines: Fsv2-Series                   | :large_blue_diamond:          |
-| Virtual Machines: M-Series                      | :large_blue_diamond:          |
-| Virtual WAN                                     | :large_blue_diamond:          |
+| App Service Environments                        |      :large_blue_diamond:  |
+| Azure Active Directory Domain Services          |      :large_blue_diamond:  |
+| Azure Bastion                                   |      :large_blue_diamond:  |
+| Azure Cache for Redis                           |      :large_blue_diamond:  |
+| Azure Cognitive Services: Text Analytics        |      :large_blue_diamond:  |
+| Azure Data Explorer                             |      :large_blue_diamond:  |
+| Azure Database for MySQL – Flexible Server      |      :large_blue_diamond:  |
+| Azure Database for PostgreSQL – Flexible Server |      :large_blue_diamond:  |
+| Azure DDoS Protection                           |      :large_blue_diamond:  |
+| Azure Firewall                                  |      :large_blue_diamond:  |
+| Azure Firewall Manager                          |      :large_blue_diamond:  |
+| Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
+| Azure Private Link                              |      :large_blue_diamond:  |
+| Azure Red Hat OpenShift                         |      :large_blue_diamond:  |
+| Azure Site Recovery                             |      :large_blue_diamond:  |
+| Container Registry                              |      :large_blue_diamond:  |
+| Event Grid                                      |      :large_blue_diamond:  |
+| Network Watcher                                 |      :large_blue_diamond:  |
+| Power BI Embedded                               |      :large_blue_diamond:  |
+| Premium Blob Storage                            |      :large_blue_diamond:  |
+| Virtual Machines: Ddsv4-Series                  |      :large_blue_diamond:  |
+| Virtual Machines: Ddv4-Series                   |      :large_blue_diamond:  |
+| Virtual Machines: Dsv4-Series                   |      :large_blue_diamond:  |
+| Virtual Machines: Dv4-Series                    |      :large_blue_diamond:  |
+| Virtual Machines: Edsv4-Series                  |      :large_blue_diamond:  |
+| Virtual Machines: Edv4-Series                   |      :large_blue_diamond:  |
+| Virtual Machines: Esv4-Series                   |      :large_blue_diamond:  |
+| Virtual Machines: Ev4-Series                    |      :large_blue_diamond:  |
+| Virtual Machines: Fsv2-Series                   |      :large_blue_diamond:  |
+| Virtual Machines: M-Series                      |      :large_blue_diamond:  |
+| Virtual WAN                                     |      :large_blue_diamond:  |
 
 
 **Non-regional**
