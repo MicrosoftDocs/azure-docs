@@ -109,7 +109,7 @@ Extensions | Not supported | Extensions aren't copied over to the  VM in target 
 
 ## Supported VM storage settings
 
-This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) and [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs to avoid any performance issues.
+This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
 
 > [!NOTE]
 > The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it isn't a error is issued.

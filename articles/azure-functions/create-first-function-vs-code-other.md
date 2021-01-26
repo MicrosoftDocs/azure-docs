@@ -145,6 +145,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     ```rust
     use std::collections::HashMap;
     use std::env;
+    use std::net::Ipv4Addr;
     use warp::{http::Response, Filter};
 
     #[tokio::main]
@@ -164,7 +165,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
             Err(_) => 3000,
         };
 
-        warp::serve(example1).run(([127, 0, 0, 1], port)).await
+        warp::serve(example1).run((Ipv4Addr::UNSPECIFIED, port)).await
     }
     ```
 

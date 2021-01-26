@@ -27,10 +27,12 @@ Alternatively, you can also manage endpoints and routes with the [Azure portal](
 
 ## Prerequisites
 
-* You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md). Have the following values from setup handy to use later in this article:
+- You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+- You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
     
 ## Create an endpoint for Azure Digital Twins
 
@@ -41,11 +43,13 @@ These are the supported types of endpoints that you can create for your instance
 
 For more information on the different endpoint types, see [*Choose between Azure messaging services*](../event-grid/compare-messaging-services.md).
 
-To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or Service Bus that you're using for the endpoint needs to exist already. 
+This section explains how to create one of these endpoints using the Azure CLI.
+
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
 ### Create an Event Grid endpoint
 
-The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+The following example shows how to create an event grid-type endpoint using the Azure CLI.
 
 First, create an event grid topic. You can use the following command, or view the steps in more detail by visiting [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
 

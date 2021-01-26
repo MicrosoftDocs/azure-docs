@@ -150,7 +150,7 @@ When you have completed configuring the pool, you can click 'Apply', name the po
 
 In the Azure portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
-You can use the built-in [performance monitoring](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) and [alerting tools](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal), combined with performance ratings.  Additionally, SQL Database can [emit metrics and resource logs](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) for easier monitoring.
+You can use the built-in [performance monitoring](./performance-guidance.md) and [alerting tools](./alerts-insights-configure-portal.md), combined with performance ratings.  Additionally, SQL Database can [emit metrics and resource logs](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) for easier monitoring.
 
 ## Customer case studies
 
