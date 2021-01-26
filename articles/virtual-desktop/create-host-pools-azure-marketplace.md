@@ -112,7 +112,7 @@ To set up your virtual machine within the host pool setup process:
       - Windows 10 Enterprise multi-session, Version 2004
       - Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps
 
-     If you don't see the image you want, select **Browse all images and disks**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers.
+     If you don't see the image you want, select **Browse all images and disks**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](overview.md#supported-virtual-machine-os-images).
 
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the Marketplace with a list of images from Microsoft displayed.](media/marketplace-images.png)

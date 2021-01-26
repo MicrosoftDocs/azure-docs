@@ -628,9 +628,9 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. <br><br> Can't have any special characters, such as `@`. |
 > | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
-> | servers / administrators | server |  | Must be `ActiveDirectory`. |
+> | servers / administrators | server |  | Must be `ActiveDirectory`. <br><br> Can't have any special characters, such as `@`.|
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?`<br><br>Can't end with period or space. |

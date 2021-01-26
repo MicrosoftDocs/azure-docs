@@ -113,7 +113,7 @@ We will also update our planned release dates to indicate that we take this poli
  - [**KeyVaultReference support for application secrets (Preview)**](./service-fabric-keyvault-references.md): Service Fabric applications that have enabled [Managed Identities](./concepts-managed-identity.md) can now directly reference a Key Vault secret URL as an environment variable, application parameter, or container repository credential. Service Fabric will automatically resolve the secret using the application's managed identity. 
      
 - **Improved upgrade safety for stateless services**: To guarantee availability during an application upgrade, we have introduced new 
-  configurations to define the [minimum number of instances for stateless services](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) to be considered available. Previously this value 
+  configurations to define the [minimum number of instances for stateless services](/dotnet/api/system.fabric.description.statelessservicedescription) to be considered available. Previously this value 
   was 1 for all services and was not changeable. With this new per-service safety check, you can ensure that your services retain a 
   minimum number of up instances during application upgrades, cluster upgrades, and other maintenance that relies on Service Fabric’s 
   health and safety checks.

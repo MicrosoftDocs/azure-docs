@@ -147,7 +147,7 @@ conceptualContent:
           url: speech-container-howto-on-premises.md
         - itemType: how-to-guide
           text: Speech service containers on Azure Container Instances
-          url: deploy-speech-on-container-instances.md
+          url: ../containers/azure-container-instance-recipe.md
       footerLink:
         text: More
         url: index-hosting.yml
