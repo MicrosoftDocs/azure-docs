@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Enable private access with Private Link
 
-This article describes the different ways to [enable Private Link with a private endpoint for an Azure Digital Twins instance](concepts-security.md# private-network-access-with-azure-private-link). Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
+This article describes the different ways to [enable Private Link with a private endpoint for an Azure Digital Twins instance](concepts-security.md#private-network-access-with-azure-private-link). Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
 Here are the steps that are covered in this article: 
 1. Turn on Private Link and configure a private endpoint for an Azure Digital Twins instance.
@@ -133,9 +133,9 @@ Next, you'll go through the **Create a private endpoint** setup.
 
 1. In the **Review + create** tab, review your selections and select the **Create** button. 
 
-When the endpoint is finished deploying, it should show up in the Private endpoint connections for your Azure Digital Twins instance, or in the endpoint list in Private Link Center.
+When the endpoint is finished deploying, it should show up in the Private endpoint connections for your Azure Digital Twins instance, and in the endpoint list in Private Link Center.
 
-## Disable / Enable public network access flags
+## Disable / enable public network access flags
 
 You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This is done through a **public network access flag**. 
 
@@ -149,15 +149,17 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 1. Select **Networking (preview)** in the left-hand menu.
 
-1. In the **Pulic access** tab, set **Allow public network access to** either **Disabled** or **All networks**. Save when finished.
+1. In the **Public access** tab, set **Allow public network access to** either **Disabled** or **All networks**.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the the Networking (preview) page for an Azure Digital Twins instance. The Public access tab is highlighted, and the option to choose whether to allow public network access is also highlighted.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the the Networking (preview) page for an Azure Digital Twins instance. The Public access tab is highlighted, and the option to choose whether to allow public network access is also highlighted." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
+
+    Select **Save**.
 
 ### Option 2: Using the Azure CLI
 
@@ -201,4 +203,5 @@ armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<yo
 
 ## Next steps
 
-Learn more about Private Link for Azure: [*What is Azure Private Link service?*](../private-link/private-link-service-overview.md)
+Learn more about Private Link for Azure: 
+* [*What is Azure Private Link service?*](../private-link/private-link-service-overview.md)

@@ -26,11 +26,11 @@ Here are the steps that are covered in this article:
 
 Later, when you create endpoints in Azure Digital Twins, you can enable the usage of system-assigned identities to authenticate to the endpoints for forwarding events.
 
-## Enable system-managed identities for an Azure Digital Twins instance 
+## Enable system-managed identities for an instance 
 
 When you enable a system-assigned identity on your Azure Digital Twins instance, Azure automatically creates an identity for it in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). That identity can then be used to authenticate to Azure Digital Twins endpoints for event forwarding.
 
-You can enable system-managed identities for an Azure Digital Twins instance as part of the instance's initial setup, or enable it later on an instance that already exists.
+You can enable system-managed identities for an Azure Digital Twins instance **as part of the instance's initial setup**, or **enable it later on an instance that already exists**.
 
 Either of these creation methods will give the same configuration options and the same end result for your instance. This section describes how to do both.
 
@@ -64,7 +64,7 @@ In this section, you'll use the [Azure portal](https://portal.azure.com) to add 
 
 After the change is saved, additional fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
-You can copy the object ID from here if needed, and use the Permissions button to view the Azure roles that are assigned to the identity. To set up some roles, continue to the next section.
+You can copy the **Object ID** from here if needed, and use the **Permissions** button to view the Azure roles that are assigned to the identity. To set up some roles, continue to the next section.
 
 ## Assign Azure roles to the identity 
 
@@ -90,7 +90,7 @@ To assign a role to the identity, open the [Azure portal](https://portal.azure.c
 1. Select **Access control (IAM)** in the left-hand menu.
 1. Select the **+ Add** button to add a new role assignment.
 
-    :::image type="content" source="media/how-to-route-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an Azure Digital Twins instance. The + Add button is highlighted.":::
+    :::image type="content" source="media/how-to-route-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an Azure Digital Twins instance. The + Add button is highlighted." lightbox="media/how-to-route-managed-identities/add-role-assignment-1.png":::
 
 1. On the following **Add role assignment** page, fill in the values:
     * **Role**: Select the desired role from the dropdown menu
@@ -109,4 +109,5 @@ When you're finished entering the details, select **Save**.
 
 ## Next steps
 
-Learn more about managed identities in Azure AD: [*Managed identities for Azure resources*](../active-directory/managed-identities-azure-resources/overview.md)
+Learn more about managed identities in Azure AD: 
+* [*Managed identities for Azure resources*](../active-directory/managed-identities-azure-resources/overview.md)
