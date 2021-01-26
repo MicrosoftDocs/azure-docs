@@ -61514,11 +61514,6 @@
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/agent-data-sources.md",
-      "redirectUrl": "/azure/azure-monitor/agents/agent-data-sources",
-      "redirect_document_id": false
     }
   ]
 }
