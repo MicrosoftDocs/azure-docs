@@ -4,7 +4,7 @@ description: Learn how to use Windows PowerShell for StorSimple to manage your S
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ms.author: alkohli
 
 ---
