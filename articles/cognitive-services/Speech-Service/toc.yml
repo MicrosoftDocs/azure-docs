@@ -14,8 +14,6 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Quotas and limits
     href: speech-services-quotas-and-limits.md
-  - name: What's new in docs? 
-    href: whats-new.md
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
