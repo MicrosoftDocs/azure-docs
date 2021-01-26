@@ -31,7 +31,9 @@ These sample commands demonstrate the following operations:
 az group create --name MyResourceGroup --location eastus
 
 # Create virtual machine scale set
-az vmss create --resource-group MyResourceGroup --name myScaleSet --instance-count 2 --image UbuntuLTS --upgrade-policy-mode automatic --admin-username azureuser --generate-ssh-keys
+az vmss create --resource-group MyResourceGroup --name myScaleSet --instance-count 2 \
+    --image UbuntuLTS --upgrade-policy-mode automatic --admin-username azureuser \
+    --generate-ssh-keys
 
 # Attach a new managed disk to your scale set
 az vmss disk attach --resource-group MyResourceGroup --vmss-name myScaleSet --size-gb 50
@@ -41,13 +43,15 @@ After you add a new data disk, format and mount the disk. For Windows virtual ma
 
 ```azurecli
 # Attach an existing managed disk to a virtual machine instance in your scale set
-az vmss disk attach --resource-group MyResourceGroup --disk myDataDisk --vmss-name myScaleSet --instance-id 0
+az vmss disk attach --resource-group MyResourceGroup --disk myDataDisk \
+    --vmss-name myScaleSet --instance-id 0
 
 # See the instances in your virtual machine scale set
 az vmss list-instances --resource-group MyResourceGroup --name myScaleSet --output table
 
 # See the disks for your virtual machine
-az disk list --resource-group MyResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+az disk list --resource-group MyResourceGroup \
+    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 
 # Deallocate the virtual machine
 az vmss deallocate --resource-group MyResourceGroup --name myScaleSet --instance-ids 0 
@@ -65,10 +69,12 @@ This example resized a data disk. You can use this same procedure to update an O
 
 ```azurecli
 # Enable managed service identity on your scale set. This is required to authenticate and interact with other Azure services using bearer tokens.
-az vmss identity assign --resource-group MyResourceGroup --name MyScaleSet --role Owner --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup
+az vmss identity assign --resource-group MyResourceGroup --name MyScaleSet --role Owner \
+    --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup
 
 # Connect to Azure AD authentication
-az vmss extension set --resource-group MyResourceGroup --name AADLoginForWindows --publisher Microsoft.Azure.ActiveDirectory --vmss-name myScaleSet
+az vmss extension set --resource-group MyResourceGroup --name AADLoginForWindows \
+    --publisher Microsoft.Azure.ActiveDirectory --vmss-name myScaleSet
 
 # Upgrade one instance of a scale set virtual machine
 az vmss update-instances --resource-group MyResourceGroup --name myScaleSet --instance-ids 0 
