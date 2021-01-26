@@ -209,7 +209,7 @@
       href: hunting-with-rest-api.md
   - name: Remove Azure Sentinel
     href: offboard.md
-- name: Reference (New!)
+- name: Reference
   items:
   - name: REST APIs
     href: /rest/api/securityinsights/
