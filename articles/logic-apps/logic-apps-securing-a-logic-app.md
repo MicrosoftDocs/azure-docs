@@ -864,7 +864,7 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
 * Restrict access from logic app IP addresses.
 
-  All calls to endpoints from logic apps originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+  All calls to endpoints from logic apps originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#firewall-ip-configuration).
 
 * Improve security for connections to on-premises systems.
 

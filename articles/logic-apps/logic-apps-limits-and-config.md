@@ -379,13 +379,13 @@ When you disable a logic app, no new runs are instantiated. All in-progress and 
 
 When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
-<a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## Firewall configuration: IP addresses and service tags
 
-When your logic apps need to communicate across a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the inbound and outbound IP addresses used by the Logic Apps service or runtime in the Azure regions where your logic apps exist. If your logic apps also use [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or they use [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](#outbound) in your logic apps' Azure regions. Plus, if you use custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), that gateway also needs to allow access through the corresponding *managed connectors [outbound IP addresses](#outbound)*. *All* logic apps in the same region use the same IP address ranges.
+When your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](#inbound) and [outbound](#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](#outbound) in your logic app's Azure region. Plus, if you use custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), that gateway also needs to allow access for the corresponding *managed connectors [outbound IP addresses](#outbound)*. *All* logic apps in the same region use the same IP address ranges.
 
-For example, to support calls that logic apps in the West US region send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Logic Apps service [inbound IP addresses](#inbound) *and* [outbound IP addresses](#outbound) that exist in the West US region.
+For example, to support calls that logic apps in the West US region send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Logic Apps service inbound IP addresses *and* outbound IP addresses that exist in the West US region.
 
 <a name="ip-setup-considerations"></a>
 
