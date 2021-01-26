@@ -29,11 +29,10 @@ Many experienced template developers use this method to generate templates when 
 
     ![Select Create a resource from Azure portal menu](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. In the search box, type **storage account**, and the press **[ENTER]**.
+1. In the search box, type **storage account**, and then press **[ENTER]**.
+1. Select **Create**.
 
     ![Create an Azure storage account](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-
-1. Select **Create**.
 
 1. Enter the following information:
 
