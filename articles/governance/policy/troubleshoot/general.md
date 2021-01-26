@@ -134,7 +134,7 @@ or the REST API, see
    [exempt](../concepts/exemption-structure.md).
 1. Verify that the resource payload matches the policy logic. This can be done by
    [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or reviewing the Azure Resource Manager template (ARM template) properties.
-1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-not-as-expected).
+1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -147,8 +147,8 @@ Creation or update of a resource is denied.
 
 #### Cause
 
-A policy assignment to the scope your new or updated resource is in meets the criteria of a policy
-definition with a [Deny](../concepts/effects.md#deny) effect. Resources meetings these definitions
+A policy assignment to the scope of your new or updated resource meets the criteria of a policy
+definition with a [Deny](../concepts/effects.md#deny) effect. Resources that meet these definitions
 are prevented from being created or updated.
 
 #### Resolution
