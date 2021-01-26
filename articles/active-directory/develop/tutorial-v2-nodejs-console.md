@@ -1,4 +1,3 @@
-
 ---
 title: "Tutorial: Call Microsoft Graph in a Node.js console app | Azure"
 titleSuffix: Microsoft identity platform
@@ -14,7 +13,9 @@ ms.workload: identity
 ms.date: 01/12/2021
 ms.author: v-doeris
 ---
+
 # Tutorial: Call Microsoft Graph API in a Node.js console app
+
 
 In this tutorial, you build a console app that calls Microsoft Graph API using its own identity. The console app you build uses the Microsoft Authentication Library (MSAL) for Node.
 
@@ -50,17 +51,14 @@ Create a folder to host your application, for example *NodeConsoleApp*.
 
 1. First, change to your project directory in your terminal and then run the following `npm` commands:
 
-    ```console
+```console
     npm init -y
-    npm install dotenv
-    npm install yargs
-    npm install axios
-    npm install @azure/msal-node
-    ```
+    npm install dotenv yargs axios @azure/msal-node
+```
 
 2. Next, create a folder named *bin*. Then, inside this folder, create file named *index.js* and add the following code:
 
-   ```JavaScript
+```JavaScript
     #!/usr/bin/env node
     
     // read in env settings
@@ -103,7 +101,7 @@ Create a folder to host your application, for example *NodeConsoleApp*.
     };
     
     main();
-    ```
+```
 
 This file references two other node modules: *auth.js* which contains an implementation of MSAL Node for acquiring access tokens, and *fetch.js* which contains a method for making an HTTP request to Microsoft Graph API with an the access token. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
 
@@ -121,7 +119,7 @@ NodeConsoleApp/
 
 Inside the *bin* folder, create another file named *auth.js* and add the following code for acquiring an access token to present when calling the Microsoft Graph API.
 
-    ```JavaScript
+```JavaScript
     const msal = require('@azure/msal-node');
     
     /**
@@ -169,7 +167,7 @@ Inside the *bin* folder, create another file named *auth.js* and add the followi
     	tokenRequest: tokenRequest,
     	getToken: getToken
     };
-    ```
+```
 
 In the code snippet above, we first create a configuration object (*msalConfig*) and pass it to initialize an MSAL `ConfidentialClientApplication`. Then we create a method for acquiring tokens via **client credentials** and finally expose this module to be accessed by. The configuration parameters in this module are drawn from an environment file, which we will create in the next step.
 
@@ -207,7 +205,7 @@ Fill in these details with the values you obtain from Azure app registration por
 
 Inside the *bin* folder, create another file named *fetch.js* and add the following code for making REST calls to the Microsoft Graph API:
 
-    ```javascript
+```javascript
     const axios = require('axios');
     
     /**
@@ -237,7 +235,7 @@ Inside the *bin* folder, create another file named *fetch.js* and add the follow
     module.exports = {
         callApi: callApi
     };
-    ```
+```
 
 Here, the `callApi()` method is used to make an HTTP `GET` request against a protected resource that requires an access token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. The protected resource here is the Microsoft Graph API *users* endpoint which displays the users in the tenant where this app is registered.
 
@@ -247,9 +245,9 @@ You've completed creation of the application and are now ready to test the app's
 
 1. Start the Node.js console app by running the following command from within the root of your project folder:
 
-   ```console
+```console
    node . --op getUsers
-   ```
+```
 
 This should result in some JSON response from Microsoft Graph API and you should see an array of user objects in the console.
 
