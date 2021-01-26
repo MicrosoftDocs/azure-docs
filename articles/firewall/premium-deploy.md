@@ -311,9 +311,9 @@ Let's create an application rule to allow access to sports web sites.
 5. Select **Add**.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Sports web category":::
-6. Go to  **WorkerVM** and open a web browser and browse to `https://www.nytimes.com/section/sports`.
+6. Go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
 
-You should now see the New York Times sports web page.
+You should see the NFL web page.
 
 ## Next steps
 
