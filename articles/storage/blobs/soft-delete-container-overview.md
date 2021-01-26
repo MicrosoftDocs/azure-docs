@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 01/25/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Soft delete for containers (preview)
 
-Soft delete for containers (preview) protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, any deleted container and their contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers and any blobs within them.
+Soft delete for containers (preview) protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, any deleted containers and their contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers and any blobs within them.
 
 For end to end protection for your blob data, Microsoft recommends enabling the following data protection features:
 
