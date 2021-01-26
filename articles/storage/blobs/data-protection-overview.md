@@ -53,9 +53,11 @@ After the retention period has expired, the container and its blobs are permanen
 
 #### Blob soft delete
 
+Blob soft delete protects an individual blob and its metadata from accidental or malicious deletions or corruption. When blob soft delete is enabled for a storage account, a deleted blob may be recovered during a retention interval that you specify. The retention period for a deleted blob can be between 1 and 365 days. To recover a deleted blobs, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation.
 
+:::image type="content" source="media/data-protection-overview/blob-soft-delete-diagram.png" alt-text="Diagram showing how blob soft delete protects against unintended deletion":::
 
-
+After the retention period has expired, the blob is permanently deleted.
 
 ### Blob versioning
 
