@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/06/2021
+ms.date: 01/26/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -19,6 +19,60 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## Client updates
+
+Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
+- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## FSLogix updates
+
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new.md).
+
+## January 2021
+
+Here's what changed in January 2021:
+
+### New Windows Virtual Desktop offer
+
+New customers save 30 percent on Windows Virtual Desktop computing costs for D-series and Bs-series virtual machines for up to 90 days when using the native Microsoft solution. You can redeem this offer in the Azure portal before March 31, 2021. Learn more at our [Windows Virtual Desktop offer page](https://azure.microsoft.com/services/virtual-desktop/offer/).
+
+### networkSecurityGroupRules value change 
+
+In the Azure Resource Manager nested template, we changed the default value for networkSecurityGroupRules from an object to an array. This will prevent any errors if you use managedDisks-customimagevm.json without specifying a value for networkSecurityGroupRules. This wasn't a breaking change and is backward compatible.
+
+### FSLogix hotfix update
+
+We’ve released FSLogix, version 2009 HF_01 (2.9.7654.46150) to solve issues in the previous release (2.9.7621.30127). We recommend you stop using the previous version and update FSLogix as soon as possible.
+
+For more information, see the release notes in [What's new in FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+
+### Azure portal experience improvements
+
+We've made the following improvements to the Azure portal experience:
+
+- You can now add local VM admin credentials without having to also add Active Directory domain admin credentials.
+
+- Users can now ist both Individual and Group assignments in separate tabs for individual users and groups.
+
+- The version number of the Windows Virtual Desktop Agent is now visible in the Virtual Machine overview for host pools.
+
+- Added bulk delete for host pools and application groups.
+
+- You can now enable or disable drain mode for multiple session hosts in a host pool.
+
+- Fixed an issue where changing the desktop app's display name also changed the app group's display name.
+
+- Removed the public IP field from the VM details page.
+
+### Windows Virtual Desktop agent troubleshooting
+
+We recently set up the [Windows Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
 
 ## December 2020
 
@@ -251,16 +305,6 @@ We've added a new gateway cluster in South Africa to reduce connection latency.
 We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, Windows Virtual Desktop now supports audio and visual redirection for calls. Redirection improves latency by creating direct paths between users when they call using audio or video. Less distance means fewer hops, which makes calls look and sound smoother.
 
 To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
-
-## Client updates
-
-Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
 ## Next steps
 
