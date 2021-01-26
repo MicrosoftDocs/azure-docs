@@ -31,7 +31,7 @@ In order to gain observability across your entire environment, you need to enabl
 ## Enable monitoring for your entire infrastructure
 Applications are only as reliable as their underlying infrastructure. Having monitoring enabled across your entire infrastructure will help you achieve full observability and make it easier to discover a potential root cause when something fails. Azure Monitor helps you track the health and performance of your entire hybrid infrastructure including resources such as VMs, containers, storage, and network.
 
-- You automatically get [platform metrics, activity logs and diagnostics logs](platform/data-sources.md) from most of your Azure resources with no configuration.
+- You automatically get [platform metrics, activity logs and diagnostics logs](agents/data-sources.md) from most of your Azure resources with no configuration.
 - Enable deeper monitoring for VMs with [Azure Monitor for VMs](insights/vminsights-overview.md).
 -  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](insights/container-insights-overview.md).
 - Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.

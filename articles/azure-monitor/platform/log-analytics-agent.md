@@ -39,11 +39,11 @@ The following table lists the types of data you can configure a Log Analytics wo
 
 | Data Source | Description |
 | --- | --- |
-| [Windows Event logs](data-sources-windows-events.md) | Information sent to the Windows event logging system. |
-| [Syslog](data-sources-syslog.md)                     | Information sent to the Linux event logging system. |
-| [Performance](data-sources-performance-counters.md)  | Numerical values measuring performance of different aspects of operating system and workloads. |
-| [IIS logs](data-sources-iis-logs.md)                 | Usage information for IIS web sites running on the guest operating system. |
-| [Custom logs](data-sources-custom-logs.md)           | Events from text files on both Windows and Linux computers. |
+| [Windows Event logs](../agents/data-sources-windows-events.md) | Information sent to the Windows event logging system. |
+| [Syslog](../agents/data-sources-syslog.md)                     | Information sent to the Linux event logging system. |
+| [Performance](../agents/data-sources-performance-counters.md)  | Numerical values measuring performance of different aspects of operating system and workloads. |
+| [IIS logs](../agents/data-sources-iis-logs.md)                 | Usage information for IIS web sites running on the guest operating system. |
+| [Custom logs](../agents/data-sources-custom-logs.md)           | Events from text files on both Windows and Linux computers. |
 
 ## Data destinations
 
@@ -146,6 +146,6 @@ For example:
 
 ## Next steps
 
-* Review [data sources](../agents/agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
+* Review [data sources](../agents/agent-../agents/data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.

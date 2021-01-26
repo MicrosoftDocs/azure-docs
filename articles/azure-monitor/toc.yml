@@ -112,7 +112,7 @@
   - name: Continuous monitoring
     href: continuous-monitoring.md
   - name: Data sources
-    href: platform/data-sources.md
+    href: agents/data-sources.md
   - name: Data platform
     href: platform/data-platform.md
   - name: Data security
@@ -307,7 +307,7 @@
   - name: Data collection
     items:
     - name: Data collection rules
-      href: platform/data-collection-rule-overview.md
+      href: agents/data-collection-rule-overview.md
     - name: Log data ingestion time
       displayname: latency
       href: platform/data-ingestion-time.md 
@@ -316,21 +316,21 @@
       - name: Overview
         href: agents/agent-data-sources.md
       - name: Windows events
-        href: platform/data-sources-windows-events.md
+        href: agents/data-sources-windows-events.md
       - name: Custom JSON data
-        href: platform/data-sources-json.md
+        href: agents/data-sources-json.md
       - name: CollectD performance data
-        href: platform/data-sources-collectd.md
+        href: agents/data-sources-collectd.md
       - name: Syslog
-        href: platform/data-sources-syslog.md
+        href: agents/data-sources-syslog.md
       - name: Performance counters
-        href: platform/data-sources-performance-counters.md
+        href: agents/data-sources-performance-counters.md
       - name: Linux application performance
-        href: platform/data-sources-linux-applications.md
+        href: agents/data-sources-linux-applications.md
       - name: IIS logs
-        href: platform/data-sources-iis-logs.md
+        href: agents/data-sources-iis-logs.md
       - name: Custom logs
-        href: platform/data-sources-custom-logs.md
+        href: agents/data-sources-custom-logs.md
       - name: Custom fields
         href: platform/custom-fields.md
     - name: Custom metrics
@@ -1434,4 +1434,5 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 

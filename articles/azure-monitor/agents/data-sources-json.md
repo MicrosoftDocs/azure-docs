@@ -12,7 +12,7 @@ ms.date: 11/28/2018
 # Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Custom JSON data sources can be collected into [Azure Monitor](data-platform.md) using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](https://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
+Custom JSON data sources can be collected into [Azure Monitor](../platform/data-platform.md) using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](https://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
 
 
 > [!NOTE]

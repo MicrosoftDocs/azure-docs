@@ -29,7 +29,7 @@ Just a few examples of what you can do with Azure Monitor include:
 
 ## Overview
 
-The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](platform/data-sources.md) that populate these [data stores](platform/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
+The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](agents/data-sources.md) that populate these [data stores](platform/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
 
 ![Azure Monitor overview](media/overview/overview.png)
 
@@ -142,6 +142,6 @@ Multiple APIs are available to read and write metrics and logs to and from Azure
 Learn more about:
 
 * [Metrics and logs](platform/data-platform.md) for the data collected by Azure Monitor.
-* [Data sources](platform/data-sources.md) for how the different components of your application send telemetry.
+* [Data sources](agents/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](log-query/log-query-overview.md) for analyzing collected data.
 * [Best practices](/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.

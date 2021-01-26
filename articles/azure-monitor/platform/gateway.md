@@ -388,4 +388,4 @@ To get help, select the question mark icon in the upper-right corner of the port
 
 ## Next steps
 
-[Add data sources](./../agents/agent-data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.
+[Add data sources](./../agents/agent-../agents/data-sources.md) to collect data from connected sources, and store the data in your Log Analytics workspace.

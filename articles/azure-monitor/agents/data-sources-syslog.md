@@ -13,7 +13,7 @@ ms.date: 10/21/2020
 Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to Azure Monitor where a corresponding record is created.  
 
 > [!IMPORTANT]
-> This article covers collecting Syslog events with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
+> This article covers collecting Syslog events with the [Log Analytics agent](../platform/log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
 
 > [!NOTE]
 > Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
@@ -227,6 +227,6 @@ The following table provides different examples of log queries that retrieve Sys
 
 ## Next steps
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
-* Use [Custom Fields](./custom-fields.md) to parse data from syslog records into individual fields.
+* Use [Custom Fields](./../platform/custom-fields.md) to parse data from syslog records into individual fields.
 * [Configure Linux agents](../learn/quick-collect-linux-computer.md) to collect other types of data.
 

@@ -94,7 +94,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - Updated for Azure Arc support.
-- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Updated for Azure Arc support.
+- [Data Collection Rules in Azure Monitor (preview)](agents/data-collection-rule-overview.md) - Updated for Azure Arc support.
 - [Resource Manager template samples for data collection rules](samples/resource-manager-data-collection-rules.md) - New article.
 
 ### Insights and solutions
@@ -290,7 +290,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](agents/data-collection-rule-azure-monitor-agent.md) - New article.
-- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - New article.
+- [Data Collection Rules in Azure Monitor (preview)](agents/data-collection-rule-overview.md) - New article.
 
 
 ### Containers

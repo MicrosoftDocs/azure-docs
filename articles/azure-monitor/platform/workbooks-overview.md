@@ -25,13 +25,13 @@ But the real power of workbooks is the ability to combine data from disparate so
 
 Workbooks are currently compatible with the following data sources:
 
-* [Logs](workbooks-data-sources.md#logs)
-* [Metrics](workbooks-data-sources.md#metrics)
-* [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
-* [Alerts (Preview)](workbooks-data-sources.md#alerts-preview)
-* [Workload Health](workbooks-data-sources.md#workload-health)
-* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
+* [Logs](workbooks-../agents/data-sources.md#logs)
+* [Metrics](workbooks-../agents/data-sources.md#metrics)
+* [Azure Resource Graph](workbooks-../agents/data-sources.md#azure-resource-graph)
+* [Alerts (Preview)](workbooks-../agents/data-sources.md#alerts-preview)
+* [Workload Health](workbooks-../agents/data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-../agents/data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-../agents/data-sources.md#azure-data-explorer)
 
 ## Visualizations
 

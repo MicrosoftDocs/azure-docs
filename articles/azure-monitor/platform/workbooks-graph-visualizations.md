@@ -148,4 +148,4 @@ Graphs authors can specify what content goes to the different parts of a node: t
 ## Next steps
 
 * Graphs also support Composite bar renderer. To learn more visit the [Composite Bar documentation](workbooks-composite-bar.md).
-* Learn more about the [data sources](workbooks-data-sources.md) you can use in workbooks.
+* Learn more about the [data sources](workbooks-../agents/data-sources.md) you can use in workbooks.

@@ -340,7 +340,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring**: Currently not available
 
