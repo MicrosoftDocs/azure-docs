@@ -23,11 +23,11 @@ Get started with the Form Recognizer using the development language of your choi
 Use Form Recognizer to:
 
 * [Analyze Layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Analyze business cards](#analyze-business-cards)
 * [Analyze invoices](#analyze-invoices)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Analyze receipts](#analyze-receipts)
+* [Analyze business cards](#analyze-business-cards)
 * [Manage your custom models](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"
