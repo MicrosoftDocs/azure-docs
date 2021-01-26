@@ -114,13 +114,13 @@ Configuring a private endpoint for your Azure Digital Twins instance enables you
 
 For instructions on how to set up Private Link for Azure Digital Twins, see [*How-to: Enable private access with Private Link*](how-to-enable-private-link.md).
 
-### Limitations and design considerations 
+### Design considerations 
 
-When working with Private Link for Azure Digital Twins, consider the following limitations:
+When working with Private Link for Azure Digital Twins, here are some factors you may want to consider:
 * **Pricing**: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
 * **Regional availability**: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
 
-For more limits information, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
+For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
 
 ## Service tags
 

@@ -41,7 +41,7 @@ The system-managed identity option is located in the **Advanced** tab of instanc
 
 In this tab, select the **On** option for **System managed identity** to turn on this feature.
 
-:::image type="content" source="media/how-to-route-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. There's a highlight around the tab name, the On option for System managed identity, and the navigation buttons (Review + create, Previous, Next: Advanced).":::
+:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. There's a highlight around the tab name, the On option for System managed identity, and the navigation buttons (Review + create, Previous, Next: Advanced).":::
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
 
@@ -59,7 +59,7 @@ In this section, you'll use the [Azure portal](https://portal.azure.com) to add 
 
 1. Hit the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-route-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the the Identity (preview) page for an Azure Digital Twins instance. There's a highlight around the page name in the Azure Digital Twins instance menu, the On option for Status, the Save button, and the Yes confirmation button.":::
+    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the the Identity (preview) page for an Azure Digital Twins instance. There's a highlight around the page name in the Azure Digital Twins instance menu, the On option for Status, the Save button, and the Yes confirmation button.":::
 
 After the change is saved, additional fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -71,34 +71,37 @@ Once a system-assigned identity is created for your Azure Digital Twins instance
 
 ### Supported destinations and Azure roles 
 
-Here are the roles that should be assigned to an identity depending on the event destination. For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [*Concepts: Event routes*](concepts-route-events.md).
+Here are the minimum roles that an identity needs to access an endpoint, depending on the type of destination. More permissive roles (like Data Owner roles) will also work.
 
 | Destination | Azure role |
 | --- | --- |
-| Azure Event Hubs | Azure Event Hub Data Sender |
-| Service Bus | Azure Service Bus Data Sender |
-| Azure Storage Container | Storage Blob Data Contributor |
+| Azure Event Hubs | Azure Event Hubs Data Sender |
+| Azure Service Bus | Azure Service Bus Data Sender |
+| Azure storage container | Storage Blob Data Contributor |
+
+For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [*Concepts: Event routes*](concepts-route-events.md).
 
 ### Assign the role
 
 >[!NOTE]
 > This section must be completed by an Azure user with permissions to manage user access to Azure resources (including granting and delegating permissions). Common roles that meet this requirement are *Owner*, *Account admin*, or the combination of *User Access Administrator* and *Contributor*. For more details about permission requirements for Azure Digital Twins roles, see [*How-to: Set up instance and authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
 
-To assign a role to the identity, open the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance.
+To assign a role to the identity, start by opening the [Azure portal](https://portal.azure.com).
 
+1. Navigate to your endpoint resource (your event hub, Service Bus topic, or storage container) by searching for its name in the portal search bar. 
 1. Select **Access control (IAM)** in the left-hand menu.
 1. Select the **+ Add** button to add a new role assignment.
 
-    :::image type="content" source="media/how-to-route-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an Azure Digital Twins instance. The + Add button is highlighted." lightbox="media/how-to-route-managed-identities/add-role-assignment-1.png":::
+    :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Screenshot of the Azure portal showing the Access control (IAM) page for an event hub. The + Add button is highlighted." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
 
 1. On the following **Add role assignment** page, fill in the values:
     * **Role**: Select the desired role from the dropdown menu
     * **Assign access to**: Choose **User, group or service principal**
-    * **Select**: Here, you'll select the managed identity in order to give it the role. The name of the managed identity matches the name of the instance, so search for the name of your Azure Digital Twins instance. When you select the result, the identity for the instance will show up in the **Selected members** section.
+    * **Select**: Here, you'll select the managed identity of your Azure Digital Twins instance that's being assigned the role. The name of the managed identity matches the name of the instance, so search for the name of your Azure Digital Twins instance. When you select the result, the identity for the instance will show up in the **Selected members** section.
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-route-managed-identities/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
+            :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
         :::column-end:::
         :::column:::
         :::column-end:::
