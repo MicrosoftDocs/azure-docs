@@ -120,6 +120,10 @@
     href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
+  - name: Set up the KDC proxy
+    href: key-distribution-center-proxy.md
+  - name: Set up the RD Gateway role
+    href: rd-gateway-role.md
 - name: Concepts
   items:
   - name: Built-in roles
