@@ -7,12 +7,6 @@ ms.topic: "include"
 ms.date: 01/08/2021
 ms.author: dasto
 ---
-### Quantum Workspace Limits
-
-| Resource | Limit |
-| --- | --- |
-| Quantum workspaces per subscription | X |
-| Quantum workspaces per Azure Region | Y |
 
 ### Provider Limits & Quota
 
