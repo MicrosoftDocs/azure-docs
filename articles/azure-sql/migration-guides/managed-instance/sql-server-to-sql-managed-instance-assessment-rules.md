@@ -360,7 +360,7 @@ OPENROWSET function can be used to execute queries only on SQL Server instances 
 
 More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 
-## PENROWSET (non-SQL provider) <a id="OpenRowsetWithNonSQLProvider"></a>
+## OPENROWSET (non-SQL provider) <a id="OpenRowsetWithNonSQLProvider"></a>
 
 **Title: OpenRowSet with non SQL provider is not supported in Azure SQL Managed Instance.**   
 Rule ID: OpenRowsetWithNonSQLProvider (Issue) 
