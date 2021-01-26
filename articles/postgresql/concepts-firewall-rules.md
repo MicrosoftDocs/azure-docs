@@ -15,14 +15,14 @@ To configure your firewall, you create firewall rules that specify ranges of acc
 **Firewall rules:** These rules enable clients to access your entire Azure Database for PostgreSQL Server, that is, all the databases within the same logical server. Server-level firewall rules can be configured by using the Azure portal or using Azure CLI commands. To create server-level firewall rules, you must be the subscription owner or a subscription contributor.
 
 ## Firewall overview
-All access to your Azure Database for PostgreSQL server is blocked by the firewall by default. To access your server from another computer/client or application, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify allowed IP address ranges from the internet. Access to the Azure portal website itself is not impacted by the firewall rules.
+All access to your Azure Database for PostgreSQL server is blocked by the firewall by default. To access your server from another computer/client or application, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify allowed public IP address ranges. Access to the Azure portal website itself is not impacted by the firewall rules.
 Connection attempts from the internet and Azure must first pass through the firewall before they can reach your PostgreSQL Database, as shown in the following diagram:
 
 :::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
 
 ## Connecting from the Internet
 Server-level firewall rules apply to all databases on the same Azure Database for PostgreSQL server. 
-If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted otherwise it is rejected. For example, if your application connects with JDBC driver for PostgreSQL, you may encounter this error attempting to connect when the firewall is blocking the connection.
+If the source IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted otherwise it is rejected. For example, if your application connects with JDBC driver for PostgreSQL, you may encounter this error attempting to connect when the firewall is blocking the connection.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
 
