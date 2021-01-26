@@ -1,5 +1,6 @@
 {
   "redirections": [
+
     {
       "source_path": "articles/virtual-machines/tutorial-azure-security.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
