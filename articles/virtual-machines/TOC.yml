@@ -601,9 +601,7 @@
       href: dedicated-hosts-portal.md
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md    
-  - name: Purchasing options
-    items:
-    - name: Spot VMs
+  - name: Spot Virtual Machines
       displayName: pre-empt, preempt, spot
       items:
       - name: Overview
@@ -619,6 +617,8 @@
         href: ./linux/spot-template.md
       - name: Error codes
         href: error-codes-spot.md
+  - name: Purchasing options
+    items:
     - name: Azure Hybrid Benefit
       items:
       - name: Linux
