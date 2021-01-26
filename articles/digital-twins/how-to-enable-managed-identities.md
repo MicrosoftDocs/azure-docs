@@ -23,8 +23,7 @@ Here are the steps that are covered in this article:
 
 1. Create an Azure Digital Twins instance with a system-assigned identity or enable system-assigned identity on an existing Azure Digital Twins instance. 
 1. Add an appropriate role or roles to the identity. For example, assign the **Azure Event Hub Data Sender** role to the identity if the endpoint is Event Hub, or **Azure Service Bus Data Sender role** if the endpoint is Service Bus.
-
-Later, when you create endpoints in Azure Digital Twins, you can enable the usage of system-assigned identities to authenticate to the endpoints for forwarding events.
+1. Create an endpoint in Azure Digital Twins that is able to use system-assigned identities for authentication.
 
 ## Enable system-managed identities for an instance 
 
@@ -95,7 +94,7 @@ To assign a role to the identity, open the [Azure portal](https://portal.azure.c
 1. On the following **Add role assignment** page, fill in the values:
     * **Role**: Select the desired role from the dropdown menu
     * **Assign access to**: Choose **User, group or service principal**
-    * **Select**: Search for the name of this Azure Digital Twins instance. When you select the result, the instance will show up in a **Selected members** section.
+    * **Select**: Here, you'll select the managed identity in order to give it the role. The name of the managed identity matches the name of the instance, so search for the name of your Azure Digital Twins instance. When you select the result, the identity for the instance will show up in the **Selected members** section.
 
     :::row:::
         :::column:::
@@ -106,6 +105,26 @@ To assign a role to the identity, open the [Azure portal](https://portal.azure.c
     :::row-end:::
 
 When you're finished entering the details, select **Save**.
+
+## Create an endpoint with identity-based authorization
+
+After setting up a system-managed identity for your Azure Digital Twins instance and assigning it the appropriate role(s), you can create Azure Digital Twins [endpoints](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) that are capable of using the identity for authentication. This option is only available for Event Hub and Service Bus-type endpoints (not Event Grid).
+
+>[!NOTE]
+> You cannot edit an endpoint that has already been created with key-based identity to change to identity-based authentication. You must choose the authentication type when the endpoint is first created.
+
+enable the usage of system-assigned identity to authenticate to your Azure Digital Twins endpoints. 
+
+replaces key-based auth (well it's still an option) but identity-based is now an option
+go to Endpoints for the instance
+
+Create an endpoint, (remember that Event Grid isn't supported rn), so no options.
+
+If you select Event Hub or Service bus, you get options for Authentication type: Key-based or Identity-based. to leverage MSI, click identity-based
+
+Authorization rule goes away for identity-based
+
+and it shows up with Authentication type of Identity-based
 
 ## Next steps
 

@@ -49,6 +49,8 @@ These are the supported types of endpoints that you can create for your instance
 
 For more information on the different endpoint types, see [*Choose between Azure messaging services*](../event-grid/compare-messaging-services.md).
 
+### Prerequisite: Create endpoint resources
+
 To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or Service Bus that you're using for the endpoint needs to exist already. 
 
 ### Create an Event Grid endpoint
@@ -57,13 +59,13 @@ To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or 
 
 Once you have created the topic, you can link it to Azure Digital Twins from your Azure Digital Twins instance's page in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
 
-From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
-
-On the *Create an Endpoint* page that opens up, you can create an endpoint of type _Event Grid_ by selecting the corresponding radio button. Complete the other details: enter a name for your endpoint in the _Name_ field, choose your _Subscription_ from the dropdown, and choose your pre-created  _Event Grid Topic_ from the third dropdown.
+1. From the instance menu, select _Endpoints_.
+1. From the *Endpoints* page that follows, select *+ Create an endpoint*. 
+1. On the *Create an Endpoint* page that opens up, you can create an endpoint of type _Event Grid_ by selecting the corresponding radio button. Complete the other details: enter a name for your endpoint in the _Name_ field, choose your _Subscription_ from the dropdown, and choose your pre-created  _Event Grid Topic_ from the third dropdown.
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar: 
 
