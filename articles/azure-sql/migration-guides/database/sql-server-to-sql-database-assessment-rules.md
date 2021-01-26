@@ -203,7 +203,7 @@ Azure SQL Database does not support linked server functionality. The following a
 
 More information: [Check Azure SQL Database elastic query (Preview)](../../database/elastic-query-overview.md) 
 
-## MS DTC <a id="MSDTCTransactSQL"></a
+## MS DTC <a id="MSDTCTransactSQL"></a>
 
 **Title: BEGIN DISTRIBUTED TRANSACTION is not supported in Azure SQL Database.**   
 Rule ID: MSDTCTransactSQL (Issue)>
