@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Form Recognizer client library for .NET"
-description: Use the Form Recognizer client library for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+title: "Quickstart: Form Recognizer REST API"
+description: Use the Form Recognizer REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
