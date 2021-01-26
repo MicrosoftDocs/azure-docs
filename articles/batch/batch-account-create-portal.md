@@ -24,7 +24,7 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 1. In the Search box, enter **Batch Service**. Select **Batch Service** from the results, then select **Create**.
 
 1. Enter the following details.
-1. 
+
     :::image type="content" source="media/batch-account-create-portal/batch-account-portal.png" alt-text="Screenshot of the New Batch account screen.":::
 
     a. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
@@ -35,7 +35,7 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
 
-    e. **Storage account**: An optional [Azure Storage account(accounts.md#azure-storage-accounts) that you associate with your Batch account. You can select an existing storage account, or create a new one. A general-purpose v2 storage account is recommended for the best performance.
+    e. **Storage account**: An optional [Azure Storage account](accounts.md#azure-storage-accounts) that you associate with your Batch account. You can select an existing storage account, or create a new one. A general-purpose v2 storage account is recommended for the best performance.
 
     :::image type="content" source="media/batch-account-create-portal/storage_account.png" alt-text="Screenshot of the options when creating a storage account.":::
 
@@ -76,7 +76,7 @@ When creating your first Batch account in user subscription mode, you need to re
 
     :::image type="content" source="media/batch-account-create-portal/register_provider.png" alt-text="Screenshot showing the Microsoft.Batch resource provider.":::
 
-1. Return to the the **Subscription** page, then select **Access control (IAM)** > **Role assignments** > **Add** > **Add role assignment**.
+1. Return to the **Subscription** page, then select **Access control (IAM)** > **Role assignments** > **Add** > **Add role assignment**.
 
     :::image type="content" source="media/batch-account-create-portal/subscription_iam.png" alt-text="Screenshot of the Role assignments page for a subscription.":::
 
@@ -89,9 +89,7 @@ When creating your first Batch account in user subscription mode, you need to re
 In user subscription mode, an [Azure Key Vault](../key-vault/general/overview.md) is required. The Key Vault must be in the same subscription and region as the Batch account to be created.
 
 1. From the home page of the [Azure portal](https://portal.azure.com), select **Create a resource**.
-
-In the Search box, enter **Key Vault**. Select **Key Vault** from the results and then select **Create**.
-
+1. In the Search box, enter **Key Vault**. Select **Key Vault** from the results and then select **Create**.
 1. In the **Create key vault** page, enter a name for the Key Vault, and create a new resource group in the same region you want for your Batch account. Leave the remaining settings at default values, then select **Create**.
 
 When creating the Batch account in user subscription mode, specify **User subscription** as the pool allocation mode, select the Key Vault you created, and check the box to grant Azure Batch access to the Key Vault.
