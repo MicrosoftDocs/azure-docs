@@ -43,7 +43,7 @@ Proxies in this case will support the modern authentication protocols and use th
 ### Azure AD B2C as an Identity provider
 
 Azure AD B2C has the ability to define **policies** that drives different user experiences and behaviors that are also called **user journeys** as orchestrated from the server end. Each such policy exposes a protocol endpoint that can perform the authentication as if it were an IdP. There is no special handling needed on the application side for specific policies. Application simply makes an industry standard authentication request to the protocol-specific authentication endpoint exposed by the policy of interest.  
-Azure AD B2C can be configured to share the same issuer across multiple policies or unique issuer for each policy. Each application can point to one or many of these policies by making a protocol native authentication request and drive desired user behaviors such as sign-in, sign-up, and profile edits. The diagram shows OIDC and SAML application workflows
+Azure AD B2C can be configured to share the same issuer across multiple policies or unique issuer for each policy. Each application can point to one or many of these policies by making a protocol native authentication request and drive desired user behaviors such as sign-in, sign-up, and profile edits. The diagram shows OIDC and SAML application workflows.
 
 ![image shows the OIDC and SAML implementation](./media/partner-ping/azuread-idp.png)
 
@@ -85,15 +85,15 @@ Check that the following is connected.
 
 - **PingAccess server** – Able to communicate with the PingFederate server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service and PingFederate server.
 
-- **PingFederate server** - Able to communicate with the PingAccess server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service.
+- **PingFederate server** – Able to communicate with the PingAccess server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service.
 
-- **Legacy or header-based AuthN application** - Able to communicate to and from PingAccess server.
+- **Legacy or header-based AuthN application** – Able to communicate to and from PingAccess server.
 
 - **SAML relying party application** – Able to reach the browser traffic from the client. Able to access the SAML federation metadata published by the Azure AD B2C service.
 
-- **Modern application** - Able to reach the browser traffic from the client. Able to access the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
+- **Modern application** – Able to reach the browser traffic from the client. Able to access the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
 
-- **REST API** - Able to reach the traffic from a native or web client. Able to access the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
+- **REST API** – Able to reach the traffic from a native or web client. Able to access the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
 
 ## Configure Azure AD B2C
 
@@ -120,7 +120,7 @@ See [this article](https://docs.pingidentity.com/bundle/pingaccess-61/page/zgh15
 
 A PingAccess application must be created for the target web application for header-based authentication. Follow these steps.
 
-#### Step 1 - Create a virtual host
+#### Step 1 – Create a virtual host
 
 >[!IMPORTANT]
 >To configure for this solution, virtual host need to be created for every application. For more information regarding configuration considerations and their impacts, see [Key considerations](https://docs.pingidentity.com/bundle/pingaccess-43/page/reference/pa_c_KeyConsiderations.html).
@@ -137,7 +137,7 @@ Follow these steps to create a virtual host:
 
 5. Select **Save**
 
-#### Step 2 - Create a web session
+#### Step 2 – Create a web session
 
 Follow these steps to create a web session:
 
@@ -159,7 +159,7 @@ Follow these steps to create a web session:
 
 9. Select **Save**
 
-#### Step 3 - Create identity mapping
+#### Step 3 – Create identity mapping
 
 >[!NOTE]
 >Identity mapping can be used with more than one application if more than one application is expecting the same data in the header.
@@ -176,13 +176,13 @@ Follow these steps to create identity mapping:
 
 5. In the **Attribute-Mapping** table, specify the required mappings. For example,
 
-|Attribute name | Header name |
-|-------|--------|
-|upn | x-userprinciplename |
-|email   |    x-email  |
-|oid   | x-oid  |
-|scp   |     x-scope |
-|amr    |    x-amr    |
+   Attribute name | Header name |
+   |-------|--------|
+   |upn | x-userprinciplename |
+   |email   |    x-email  |
+   |oid   | x-oid  |
+   |scp   |     x-scope |
+   |amr    |    x-amr    |
 
 6. Select **Save**
 
