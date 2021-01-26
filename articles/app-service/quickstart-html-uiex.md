@@ -66,12 +66,7 @@ The command may take a few minutes to complete. It lets you know what it's doing
 <li>Create a default <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
 <li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
-<li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
-</ul>
-</details>
-
-This command may take a few minutes to run. While running, it displays information similar to the following example:
-
+<li>While running, While running, it displays information similar to the following example:
 ```output
 {
   "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
@@ -85,6 +80,9 @@ This command may take a few minutes to run. While running, it displays informati
   &lt; JSON data removed for brevity. &gt;
 }
 ```
+</li>
+</ul>
+</details>
 
 Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
 
