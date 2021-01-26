@@ -10,9 +10,10 @@ ms.author: dasto
 
 ### Provider Limits & Quota
 
-The Azure Quantum Service supports both first and third party service providers. 
-Third party providers own their limits and quotas and users can view offers and limits in the Azure Portal when configuring third party providers in the provider blade. 
-You can find the published quota limits for Microsoft's first party Optimization Solutions provider. 
+The Azure Quantum Service supports both first and third-party service providers. 
+Third-party providers own their limits and quotas. Users can view offers and limits in the Azure Portal when configuring third-party providers in the provider blade. 
+
+You can find the published quota limits for Microsoft's first party Optimization Solutions provider below. 
 
 #### Learn & Develop SKU
 
@@ -23,7 +24,7 @@ You can find the published quota limits for Microsoft's first party Optimization
 | CPU-based solver hours | 20 hours per month  |
 | FPGA-based solver hours | 1 hour per month  |
 
-If you are using the Learn & Develop SKU you **cannot** request an increase on your quota limits. Instead you should switch to the Performance at Scale SKU.
+If you are using the Learn & Develop SKU, you **cannot** request an increase on your quota limits. Instead you should switch to the Performance at Scale SKU.
 
 #### Performance at Scale SKU
 
@@ -31,9 +32,9 @@ If you are using the Learn & Develop SKU you **cannot** request an increase on y
 | --- | --- |
 | CPU-based concurrent jobs | up to 100 concurrent jobs |
 | FPGA-based concurrent jobs | up to 10 concurrent jobs |
-| Solver hours | 50000 hours per month  |
+| Solver hours | 50,000 hours per month  |
 
 If you need to request a limit increase, please reach out to Azure Support. 
 
 For more information, please review the [Azure Quantum pricing page](https://aka.ms/AQ/Pricing).
-For information on third party offerings, please review the relevant provider page in the Azure Portal.
+For information on third-party offerings, please review the relevant provider page in the Azure Portal.
