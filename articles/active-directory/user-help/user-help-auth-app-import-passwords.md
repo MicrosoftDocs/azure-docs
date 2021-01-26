@@ -43,30 +43,23 @@ Google Chrome users on Android and Apple phones can import their passwords direc
 
 #### Open Settings page in Chrome browser
 
-1. Open Google Chrome browser on your phone. Open the menu by tapping on the ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) menu at the top right for Android phones or at bottom right for iOS
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) devices, and then tap **Settings.**
+1. Open Google Chrome browser on your phone. Open the menu by tapping on the ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) menu at the top right for Android phones or at bottom right for iOS ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) devices, and then tap **Settings.**
 
 &nbsp; | &nbsp;
 ---------- | --------
-Android | ![Google Chrome ellipsis menu location](./media/user-help-auth-app-import-passwords/android-settings-menu.png)
-iOS | ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ios-settings-menu.png)
+Android | ![Google Chrome Settings menu location](./media/user-help-auth-app-import-passwords/android-settings-menu.png)
+iOS | ![Google Chrome Settings menu icon](./media/user-help-auth-app-import-passwords/apple-settings-menu.png)
 
 #### Open Passwords
 
 In **Settings**, open **Passwords**.
 
-Android
+&nbsp; | &nbsp;
+---------- | --------
+Android | ![Google Chrome ellipsis menu location](./media/user-help-auth-app-import-passwords/android-passwords-location.png)
+iOS | ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/apple-passwords-location.png)
 
-iOS
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png)
-
- 
-
- 
-
- 
-
-Step 3: Export Passwords
+#### Export Passwords
 
 On Android devices, open the overflow menu (3-dots menu or Ellipsis, interface, mark, more, punctuation, shapes, three dots icon -Download on Iconfinder) on top right and tap on Export Passwords.
 
