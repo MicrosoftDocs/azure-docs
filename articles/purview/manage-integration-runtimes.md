@@ -13,6 +13,9 @@ ms.date: 11/16/2020
 
 This article describes how to create and manage a self-hosted integration runtime (SHIR) to assist in scanning data sources.
 
+> [!NOTE] 
+> The Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime. It needs to be installed on a separated computer. 
+
 ## Create a self-hosted integration runtime
 
 1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.
