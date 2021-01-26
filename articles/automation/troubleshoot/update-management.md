@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Update Management issues

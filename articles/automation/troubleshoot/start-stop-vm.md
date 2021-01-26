@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues arising d
 services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Start/Stop VMs during off-hours issues

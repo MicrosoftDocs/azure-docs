@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.subservice:
 ms.date: 03/12/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot shared resource issues

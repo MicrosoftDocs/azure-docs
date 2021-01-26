@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve Azure Automation
 services: automation
 ms.subservice:
 ms.date: 04/16/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Automation State Configuration issues

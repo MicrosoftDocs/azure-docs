@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues with the 
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/31/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Change Tracking and Inventory issues

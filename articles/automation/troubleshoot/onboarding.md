@@ -2,8 +2,9 @@
 title: Troubleshoot Azure Automation feature deployment issues
 description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
+ms.subservice:
 ms.date: 06/30/2020
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot feature deployment issues

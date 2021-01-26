@@ -2,7 +2,8 @@
 title: Data to collect when opening a case for Microsoft Azure Automation | Microsoft Docs
 description: This article describes the information to gather before opening a case for Azure Automation with Microsoft Azure Support.
 services: automation
-ms.topic: conceptual
+ms.subservice:
+ms.topic: troubleshooting
 ms.date: 09/23/2019
 ---
 
