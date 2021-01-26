@@ -129,3 +129,13 @@ If you're using Git integration with your Synapse workspace and have a CI/CD pip
 -   **Prepare pools before artifacts migration**. If you have SQL script or notebook attached to pools in the development workspace, the same name of pools in different environments are expected. 
 -   **Infrastructure as Code (IaC)**. Management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning as DevOps team uses for source code. 
 -   **Others**. See [best practices for ADF artifacts](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+
+## Troubleshooting artifacts deployment 
+
+### Use the Synapse workspace deployment task
+
+In Synapse, all kinds of artifacts are not ARM resources, which are different with ADF. You cannot use ARM template deployment task to deploy Synapse artifacts
+ 
+### Unexpected token error in release
+
+When your parameter file has parameter values which are not escaped, the release pipeline would fail to parse the file with the error of unexpected token. We suggest you to override parameters or KeyVault to get parameters. You could also double escape as a workaround.
