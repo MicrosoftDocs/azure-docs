@@ -29,7 +29,7 @@ ms.author: pafarley
 
 ## Analyze layout
 
-You can use Form Recognizer to recognize and extract tables, lines, and words in documents, without needing to train a model. Before you run the command, make these changes:
+You can use Form Recognizer to analyze and extract tables, lines, and words in documents, without needing to train a model. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.

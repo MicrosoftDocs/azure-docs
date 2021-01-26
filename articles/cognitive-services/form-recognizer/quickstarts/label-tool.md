@@ -172,7 +172,7 @@ It will also show which tables have been automatically extracted. Click on the t
 
 ### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
 # [v2.0](#tab/v2-0)  
 1. First, use the tags editor pane to create the tags you'd like to identify.

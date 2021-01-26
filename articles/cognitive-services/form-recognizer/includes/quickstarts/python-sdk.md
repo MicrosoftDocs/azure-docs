@@ -73,15 +73,15 @@ With Form Recognizer, you can create two different client types. The first, `for
 ### FormRecognizerClient
 `form_recognizer_client` provides operations for:
 
- * Recognizing form fields and content using custom models trained to recognize your custom forms. 
+ * Recognizing form fields and content using custom models trained to analyze your custom forms. 
  * Recognizing form content, including tables, lines and words, without the need to train a model. 
  * Recognizing common fields from receipts, using a pre-trained receipt model on the Form Recognizer service.
 
 ### FormTrainingClient
 `form_training_client` provides operations for:
 
-* Training custom models to recognize all fields and values found in your custom forms. See the [service's documentation on unlabeled model training](#train-a-model-without-labels) for a more detailed explanation of creating a training data set.
-* Training custom models to recognize specific fields and values you specify by labeling your custom forms. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
+* Training custom models to analyze all fields and values found in your custom forms. See the [service's documentation on unlabeled model training](#train-a-model-without-labels) for a more detailed explanation of creating a training data set.
+* Training custom models to analyze specific fields and values you specify by labeling your custom forms. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
@@ -134,9 +134,9 @@ You'll need to add references to the URLs for your training and testing data.
 
 ## Analyze layout
 
-You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model.
 
-To recognize the content of a file at a given URL, use the `begin_recognize_content_from_url` method. The returned value is a collection of `FormPage` objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
+To analyze the content of a file at a given URL, use the `begin_recognize_content_from_url` method. The returned value is a collection of `FormPage` objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_getcontent)]
 
@@ -168,12 +168,12 @@ Confidence score: 1.0
 
 ## Analyze receipts
 
-This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. To analyze receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
 > [!TIP]
-> You can also recognize local receipt images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_receipts`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
+> You can also analyze local receipt images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_receipts`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
 
 ### Output
 
@@ -207,12 +207,12 @@ Total: 1203.39 has confidence 0.774
 
 #### [version 2.1 preview](#tab/preview)
 
-This section demonstrates how to recognize and extract common fields from English business cards, using a pre-trained model. To recognize business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
 > [!TIP]
-> You can also recognize local business card images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_business_cards`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
+> You can also analyze local business card images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_business_cards`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
 
 ---
 
@@ -225,12 +225,12 @@ This section demonstrates how to recognize and extract common fields from Englis
 
 #### [version 2.1 preview](#tab/preview)
 
-This section demonstrates how to recognize and extract common fields from sales invoices, using a pre-trained model. To recognize invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
-> You can also recognize local invoice images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_invoices`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
+> You can also analyze local invoice images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_invoices`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
 
 ---
 
@@ -243,9 +243,9 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 ### Train a model without labels
 
-Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
+Train custom models to analyze all fields and values found in your custom forms without manually labeling the training documents.
 
-The following code uses the training client with the `begin_training` function to train a model on a given set of documents. The returned `CustomFormModel` object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
+The following code uses the training client with the `begin_training` function to train a model on a given set of documents. The returned `CustomFormModel` object contains information on the form types the model can analyze and the fields it can extract from each form type. The following code block prints this information to the console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
 
