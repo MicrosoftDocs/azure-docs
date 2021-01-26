@@ -61609,11 +61609,6 @@
       "source_path_from_root": "/articles/azure-monitor/platform/data-sources-syslog.md",
       "redirectUrl": "/azure/azure-monitor/agents/data-sources-syslog",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-windows-events.md",
-      "redirectUrl": "/azure/azure-monitor/agents/data-sources-windows-events",
-      "redirect_document_id": false
     }
   ]
 }
