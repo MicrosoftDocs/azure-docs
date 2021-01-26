@@ -3,7 +3,7 @@ title: Azure Automation network configuration details
 description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, Update Management, and Change Tracking and Inventory
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 01/26/2021
 ---
 # Azure Automation network configuration details
 
@@ -46,3 +46,10 @@ Communication to these addresses uses **port 443**.
 |\*.azure-automation.net | \*.azure-automation.us|
 
 When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tags](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](./how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+## Next steps
+
+* Learn about [Automation Update Management overview](update-management\overview.md).
+* Learn about [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+* Learn about [Change Tracking and Inventory](change-tracking\overview.md).
+* Learn about [Automation State Configuration](automation-dsc-overview.md).
