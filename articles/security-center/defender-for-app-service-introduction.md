@@ -96,4 +96,4 @@ For related material, see the following articles:
 - For a list of the Azure Defender for App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 - For more information on App Service plans, see [App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/).
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md)
+> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)
