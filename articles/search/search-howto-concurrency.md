@@ -166,7 +166,7 @@ class Program
 
 A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes.
 
-This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym C# example for Azure Cognitive Search](search-synonyms-tutorial-sdk.md).
+This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym C# example for Azure Cognitive Search](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/v10/DotNetHowToSynonyms).
 
 The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server to get the latest version.
 
@@ -205,11 +205,9 @@ private static Index AddSynonymMapsToFields(Index index)
 
 ## Next steps
 
-Review the [synonyms C# sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) for an example of safely updating an existing index using retry logic.
-
 Try modifying other samples to exercise ETags or AccessCondition objects.
 
-+ [search-dotnet-getting-started on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). This repository includes the "DotNetEtagsExplainer" project containing the code presented in this article, as well as other projects that create or update objects.
++ [search-dotnet-getting-started on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). This repository includes the "DotNetEtagsExplainer" project.
 
 + [azure-search-dotnet-samples on GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples) contains additional C# samples.
 
