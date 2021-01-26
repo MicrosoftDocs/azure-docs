@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 01/26/2021
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -492,11 +492,16 @@ You can't use both inline parameters and a link to a parameter file. The deploym
 
 ### Use relative path for linked templates
 
-You can nest linked templates in a folder hierarchy. For example:
+The `relativePath` property of `Microsoft.Resources/deployments` makes it easier to author linked templates. This property can be used to deploy a remote linked template at a location relative to the parent. This feature requires all template files to be staged and available at a remote URI, such as Github or Azure storage account. When the main template is called by using a URI, the child deployment is a combination of the parent and relativePath.
+
+> [!NOTE]
+> When creating a templateSpec, any templates referenced by the `relativePath` property is packaged in the templateSpec resource by Azure PowerShell or Azure CLI. It do not require the files to be staged. For more information, see [Create a template spec with linked templates](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Assume a folder structure like this:
 
 ![resource manager linked template relative path](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
 
-The `relativePath` property of `Microsoft.Resources/deployments` is used to deploy a remote linked template at a location relative to the parent. The following template shows how mainTemplate.json deploys nestedChild.json illustrated in the preceding image.
+The following template shows how *mainTemplate.json* deploys *nestedChild.json* illustrated in the preceding image.
 
 ```json
 {
@@ -522,10 +527,7 @@ The `relativePath` property of `Microsoft.Resources/deployments` is used to depl
 }
 ```
 
-> [!NOTE]
-> `relativePath` can also be used to reference artifacts when creating a template spec with linked templates. For more information, see [Create a template spec with linked templates](./template-specs.md#create-a-template-spec-with-linked-templates).
-
-When the main template is called by using a URI, the child deployment is a combination of the parent and relativePath URIs. In the following deployment, the URI of the linked template in the preceding template is **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json**.
+In the following deployment, the URI of the linked template in the preceding template is **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -547,7 +549,7 @@ az deployment group create \
 
 ---
 
-To deploy linked templates with relative path stored in an Azure storage account, use the `QueryString` parameter of the `New-AzureResourceGroupDeployment` PowerShell cmdlet (or `query-string` of the `az deployment group create` CLI command) to specify the SAS token to be used with the TemplateUri parameter. The parameter is only supported by CLI version 2.18 or later and Azure PowerShell version 5.4 or later.
+To deploy linked templates with relative path stored in an Azure storage account, use the `QueryString`/`query-string` parameter to specify the SAS token to be used with the TemplateUri parameter. This parameter is only supported by Azure CLI version 2.18 or later and Azure PowerShell version 5.4 or later.
 
 # [PowerShell](#tab/azure-powershell)
 
