@@ -427,7 +427,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 * [Supported IPSec parameters for Azure VPN Gateway](./network-watcher-diagnose-on-premises-connectivity.md)
 
-* [How to configure a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [How to configure a site-to-site connection in the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
