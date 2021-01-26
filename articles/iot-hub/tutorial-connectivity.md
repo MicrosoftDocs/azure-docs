@@ -58,7 +58,7 @@ Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT D
 
 ![IoT Devices tool](media/tutorial-connectivity/iot-devices-tool.png)
 
-To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**:
+To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**.
 
 ![Add new device](media/tutorial-connectivity/add-device.png)
 
