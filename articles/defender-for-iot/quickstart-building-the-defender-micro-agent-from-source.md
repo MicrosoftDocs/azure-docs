@@ -1,5 +1,5 @@
 ---
-title: Building the Defender micro agent from source code (Preview)
+title: Build the Defender micro agent from source code (Preview)
 description: Micro Agent includes an infrastructure, which can be used to customize your distribution.
 author: shhazam-ms
 manager: rkarlin
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure
 ---
 
-# Building the Defender micro agent from source code
+# Build the Defender micro agent from source code
 
 The Micro Agent includes an infrastructure, which can be used to customize your distribution. To see a list of the available configuration parameters look at the `configs/LINUX_BASE.conf` file.
 
@@ -27,7 +27,7 @@ To override the values:
 
     `set(ASC_LOW_PRIORITY_INTERVAL 60*60*24)` 
 
-1. Give the `.dis` file a reference when building. For example, 
+1. Give the `.dist` file a reference when building. For example, 
 
     `cmake -DCMAKE_BUILD_TYPE=Debug -Dlog_level=DEBUG -Dlog_level_cmdline:BOOL=ON -Ddist_target=UBUNTU1804 ..` 
 
@@ -37,7 +37,7 @@ The agent verifies the authenticity of configuration files that are placed on th
 
 You can stop this process by defining the preprocessor flag `ASC_BASELINE_CONF_SIGN_CHECK_DISABLE`.
 
-We don't recommended turning off the signature check for production environments. 
+We don't recommend turning off the signature check for production environments. 
 
 If you require a different configuration for production scenarios, contact the Defender for IoT team. 
 

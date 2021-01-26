@@ -28,7 +28,7 @@
       href: quickstart-create-micro-agent-module-twin.md
     - name: Install Defender for IoT micro agent (Preview)
       href: quickstart-standalone-agent-binary-installation.md
-    - name: Building the Defender for IoT micro agent from source code (Preview)
+    - name: Build the Defender for IoT micro agent from source code (Preview)
       href: quickstart-building-the-defender-micro-agent-from-source.md
     - name: Add Azure resources to your IoT solution
       href: quickstart-configure-your-solution.md
@@ -46,15 +46,15 @@
       href: concept-key-concepts.md    
   - name: Agent-based solution for Device Builders
     items:
-    - name: Agent portfolio overview and OS support                      
+    - name: Agent portfolio overview and OS support (Preview)                     
       href: concept-agent-portfolio-overview-os-support.md
     - name: Standalone micro agent overview (Preview) 
       href: concept-standalone-micro-agent-overview.md
-    - name: Security agent authentication
+    - name: Security agent authentication (Preview)
       href: concept-security-agent-authentication.md
     - name: Security posture - CIS benchmark
       href: concept-security-posture.md
-    - name: Event aggregation
+    - name: Event aggregation (Preview)
       href: concept-event-aggregation.md
     - name: Security alerts
       href: concept-security-alerts.md

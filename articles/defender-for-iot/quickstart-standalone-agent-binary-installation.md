@@ -54,7 +54,7 @@ To authenticate using a connection string:
 1. Place a file containing the connection string encoded in utf-8, in the defender agent directory as a file named `connection_string.txt` to the `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```azurecli
-    echo “<connection string>” > connection_string.txt
+    sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
 
 1. Restart the service using this command:  
