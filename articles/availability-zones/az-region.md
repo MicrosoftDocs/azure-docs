@@ -46,7 +46,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |                    |                |                      |                     |                |
 | Canada Central     | France Central | Germany West Central | South Africa North* | Japan East     |
 | Central US         | North Europe   |                      |                     | Southeast Asia |
-| East US            | UK South       |                      |                     | Australia Eas  |
+| East US            | UK South       |                      |                     | Australia East |
 | East US 2          | West Europe    |                      |                     |                |
 | South   Central US |                |                      |                     |                |
 | US   Gov Virginia* |                |                      |                     |                |
@@ -67,48 +67,47 @@ To learn more about Availability Zones and available services support in these r
 
 :globe_with_meridians: Non-Regional Services - Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
 
-:small_red_triangle:   Resilient to the zone-wide outages 
-
+:large_blue_diamond:   Resilient to the zone-wide outages 
 
 **Foundational Services**
 
-|     Products                                                    | Resiliency|
-|-----------------------------------------------------------------|-------------------|
-|     Storage   Account                                           |      :large_blue_diamond:  |
-|     Application   Gateway (V2)                                  |      :large_blue_diamond:  |
-|     Azure Backup                                                |      :large_blue_diamond:  |
-|     Azure Cosmos   DB                                           |      :large_blue_diamond:  |
-|     Azure Data   Lake Storage Gen 2                             |      :large_blue_diamond:  |
-|     Azure Express   Route                                       |      :large_blue_diamond:  |
-|     Azure Public   IP                                           |      :large_blue_diamond:  |
-|     Azure SQL   Database (General Purpose Tier)                 |      :large_blue_diamond:  |
-|     Azure SQL   Database (Premium & Business Critical Tier)     |      :large_blue_diamond:  |
-|     Disk Storage                                                |      :large_blue_diamond:  |
-|     Event Hubs                                                  |      :large_blue_diamond:  |
-|     Key Vault                                                   |      :large_blue_diamond:  |
-|     Load Balancer                                               |      :large_blue_diamond:  |
-|     Service Bus                                                 |      :large_blue_diamond:  |
-|     Service   Fabric                                            |      :large_blue_diamond:  |
-|     Storage:   Hot/Cool Blob Storage Tiers                      |      :large_blue_diamond:  |
-|     Storage:   Managed Disks                                    |      :large_blue_diamond:  |
-|     Virtual   Machines Scale Sets                               |      :large_blue_diamond:  |
-|     Virtual   Machines                                          |      :large_blue_diamond:  |
-|     Virtual   Machines: Av2-Series                              |      :large_blue_diamond:  |
-|     Virtual   Machines: Bs-Series                               |      :large_blue_diamond:  |
-|     Virtual   Machines: DSv2-Series                             |      :large_blue_diamond:  |
-|     Virtual   Machines: DSv3-Series                             |      :large_blue_diamond:  |
-|     Virtual   Machines: Dv2-Series                              |      :large_blue_diamond:  |
-|     Virtual   Machines: Dv3-Series                              |      :large_blue_diamond:  |
-|     Virtual   Machines: ESv3-Series                             |      :large_blue_diamond:  |
-|     Virtual   Machines: Ev3-Series                              |      :large_blue_diamond:  |
-|     Virtual   Network                                           |      :large_blue_diamond:  |
-|     VPN Gateway                                                 |      :large_blue_diamond:  |
+|     Products                                                    | Resiliency             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Storage   Account                                           | :large_blue_diamond:  |
+|     Application   Gateway (V2)                                  | :large_blue_diamond:  |
+|     Azure Backup                                                | :large_blue_diamond:  |
+|     Azure Cosmos   DB                                           | :large_blue_diamond:  |
+|     Azure Data   Lake Storage Gen 2                             | :large_blue_diamond:  |
+|     Azure Express   Route                                       | :large_blue_diamond:  |
+|     Azure Public   IP                                           | :large_blue_diamond:  |
+|     Azure SQL   Database (General Purpose Tier)                 | :large_blue_diamond:  |
+|     Azure SQL   Database (Premium & Business Critical Tier)     | :large_blue_diamond:  |
+|     Disk Storage                                                | :large_blue_diamond:  |
+|     Event Hubs                                                  | :large_blue_diamond:  |
+|     Key Vault                                                   | :large_blue_diamond:  |
+|     Load Balancer                                               | :large_blue_diamond:  |
+|     Service Bus                                                 | :large_blue_diamond:  |
+|     Service   Fabric                                            | :large_blue_diamond:  |
+|     Storage:   Hot/Cool Blob Storage Tiers                      | :large_blue_diamond:  |
+|     Storage:   Managed Disks                                    | :large_blue_diamond:  |
+|     Virtual   Machines Scale Sets                               | :large_blue_diamond:  |
+|     Virtual   Machines                                          | :large_blue_diamond:  |
+|     Virtual   Machines: Av2-Series                              | :large_blue_diamond:  |
+|     Virtual   Machines: Bs-Series                               | :large_blue_diamond:  |
+|     Virtual   Machines: DSv2-Series                             | :large_blue_diamond:  |
+|     Virtual   Machines: DSv3-Series                             | :large_blue_diamond:  |
+|     Virtual   Machines: Dv2-Series                              | :large_blue_diamond:  |
+|     Virtual   Machines: Dv3-Series                              | :large_blue_diamond:  |
+|     Virtual   Machines: ESv3-Series                             | :large_blue_diamond:  |
+|     Virtual   Machines: Ev3-Series                              | :large_blue_diamond:  |
+|     Virtual   Network                                           | :large_blue_diamond:  |
+|     VPN Gateway                                                 | :large_blue_diamond:  |
 
 
 **Mainstream services**
 
 | Products                                        | Resiliency |
-|-------------------------------------------------|------------|
+|-------------------------------------------------|:------------:|
 | App Service Environments                        |      :large_blue_diamond:  |
 | Azure Active Directory Domain Services          |      :large_blue_diamond:  |
 | Azure Bastion                                   |      :large_blue_diamond:  |
@@ -145,7 +144,7 @@ To learn more about Availability Zones and available services support in these r
 **Non-regional**
 
 |     Products                                  |     Resiliency    |
-|-----------------------------------------------|-------------------|
+|-----------------------------------------------|:-------------------:|
 |     Azure DNS                                 |     :globe_with_meridians:             |
 |     Azure Active   Directory                  |     :globe_with_meridians:             |
 |     Azure Advisor                             |     :globe_with_meridians:             |
