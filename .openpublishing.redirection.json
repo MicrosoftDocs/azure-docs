@@ -12999,7 +12999,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
+      "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
       "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
       "redirect_document_id": false
     },
