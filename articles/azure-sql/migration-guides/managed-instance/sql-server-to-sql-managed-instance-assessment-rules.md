@@ -18,7 +18,7 @@ Migration tools validate your source SQL Server instance by running a number of 
 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Database. 
 
-## AnalysisCommand job <a id="AnalysisCommandJob"></a>
+## AnalysisCommand job<a id="AnalysisCommandJob"></a>
 
 **Title: AnalysisCommand job step is not supported in Azure SQL Managed Instance.**   
 Rule ID: AnalysisCommandJob (Warning)  
@@ -31,7 +31,7 @@ Review impacted objects section to see all jobs using Analysis Service Command j
 
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
-## AnalysisQuery job <a id="AnalysisQueryJob<"></a>
+## AnalysisQuery job<a id="AnalysisQueryJob<"></a>
 
 **Title: AnalysisQuery job step is not supported in Azure SQL Managed Instance.**   
 Rule ID: AnalysisQueryJob (Warning) 
@@ -45,7 +45,7 @@ Review impacted objects section to see all jobs using Analysis Service Query job
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## Assembly from file <a id="AssemblyFromFile"></a>
+## Assembly from file<a id="AssemblyFromFile"></a>
 
 **Title: 'CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.**   
 Rule ID: AssemblyFromFile (Issue) 
@@ -58,7 +58,7 @@ You will need to convert BULK INSERT statements that use local files or file sha
 
 More information: [CLR differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#clr)
 
-## Bulk insert <a id="BulkInsert"></a>
+## Bulk insert<a id="BulkInsert"></a>
 
 **Title: BULK INSERT with non-Azure blob data source is not supported in Azure SQL Managed Instance.**   
 Rule ID: BulkInsert (Issue) 
@@ -72,7 +72,7 @@ You will need to convert BULK INSERT statements that use local files or file sha
 More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset)
 
 
-## CLR Security  <a id="ClrStrictSecurity"></a>
+## CLR Security<a id="ClrStrictSecurity"></a>
 
 **Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE** 
 Rule ID: ClrStrictSecurity (Issue) 
@@ -85,7 +85,7 @@ CLR uses Code Access Security (CAS) in the .NET Framework, which is no longer su
 
 More information: [CLR strict security](/sql/database-engine/configure-windows/clr-strict-security)
 
-## Compute clause <a id="ComputeClause"></a>
+## Compute clause<a id="ComputeClause"></a>
 
 **Title: COMPUTE clause is discontinued and has been removed.**   
 Rule ID: ComputeClause (Issue) 
@@ -112,7 +112,7 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Cryptographic provider <a id="CryptographicProvider"></a>
+## Cryptographic provider<a id="CryptographicProvider"></a>
 
 **Title: A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Managed Instance.**   
 Rule ID: CryptographicProvider (Issue) 
@@ -125,7 +125,7 @@ Review objects with 'CREATE CRYPTOGRAPHIC PROVIDER' or 'ALTER CRYPTOGRAPHIC PROV
 
 More information: [Cryptographic provider differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#cryptographic-providers)
 
-## Database compatibility <a id="DbCompatLevelLowerThan100"></a>
+## Database compatibility<a id="DbCompatLevelLowerThan100"></a>
 
 **Title: Database compatibility level below 100 is not supported** 
 Rule ID: DbCompatLevelLowerThan100 (Issue) 
@@ -138,7 +138,7 @@ Evaluate if the application functionality is intact when the database compatibil
 
 More information: [Supported compatibility levels in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#compatibility-levels)
 
-## Database principal alias <a id="DatabasePrincipalAlias"></a>
+## Database principal alias<a id="DatabasePrincipalAlias"></a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
 Rule ID: DatabasePrincipalAlias (Issue) 
