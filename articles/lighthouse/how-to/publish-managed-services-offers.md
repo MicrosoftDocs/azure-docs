@@ -13,7 +13,7 @@ In this article, you'll learn how to publish a public or private Managed Service
 
 You need to have a valid [account in Partner Center](../../marketplace/partner-center-portal/create-account.md) to create and publish offers. If you don't have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the Commercial Marketplace program.
 
-Per the [Managed Service offer certification requirements](/legal/marketplace/certification-policies#7004-business-requirements), you must have a [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer. You must also [enter a lead destination that will create a record in your CRM system](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) each time a customer deploys your offer.
+Per the [Managed Service offer certification requirements](/legal/marketplace/certification-policies#7004-business-requirements), you must have a [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer. You must also [enter a lead destination that will create a record in your CRM system](../../marketplace/plan-managed-service-offer.md#customer-leads) each time a customer deploys your offer.
 
 Your Microsoft Partner Network (MPN) ID will be [automatically associated](../../cost-management-billing/manage/link-partner-id.md) with the offers you publish to track your impact across customer engagements.
 
@@ -33,7 +33,7 @@ The following table can help determine whether to onboard customers by publishin
 
 ## Create your offer
 
-For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
+For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a Managed Service offer](../../marketplace/plan-managed-service-offer.md).
 
 To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/overview.md). You should also review the [commercial marketplace certification policies](/legal/marketplace/certification-policies), particularly the [Managed Services](/legal/marketplace/certification-policies#700-managed-services) section.
 
@@ -44,7 +44,7 @@ Once a customer adds your offer, they will be able to delegate one or more subsc
 
 ## Publish your offer
 
-Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More info about this process, can be found [here](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish). 
+Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More info about this process, can be found [here](../../marketplace/plan-managed-service-offer.md). 
 
 You can [publish an updated version of your offer](../..//marketplace/partner-center-portal/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
 
