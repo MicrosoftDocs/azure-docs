@@ -58,129 +58,104 @@ To learn more about Availability Zones and available services support in these r
 
 :globe_with_meridians: Non-Regional Services - Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages.
 :small_red_triangle:   Resilient to the zone-wide outages 
-:heavy_check_mark:    Generally Available in all regions with Availability Zones
+
 
 **Foundational Services**
 
-| Products                                              | Resiliency | Availability |
-|-------------------------------------------------------|------------|--------------|
-| Storage Account                                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Application Gateway (V2)                              | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Backup                                          | :small_red_triangle:          | :heavy_check_mark: <sup>1</sup> |
-| Azure Cosmos DB                                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Data Lake Storage Gen 2                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Express Route                                   | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Public IP                                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure SQL Database (General Purpose Tier)             | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure SQL Database (Premium & Business Critical Tier) | :small_red_triangle:          | :heavy_check_mark:            |
-| Disk Storage                                          | :small_red_triangle:          | :heavy_check_mark:            |
-| Event Hubs                                            | :small_red_triangle:          | :heavy_check_mark:            |
-| Key Vault                                             | :small_red_triangle:          | :heavy_check_mark: <sup>2</sup> |
-| Load Balancer                                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Service Bus                                           | :small_red_triangle:          | :heavy_check_mark:            |
-| Service Fabric                                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Storage: Hot/Cool Blob Storage Tiers                  | :small_red_triangle:          | :heavy_check_mark:            |
-| Storage: Managed Disks                                | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines Scale Sets                           | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines                                      | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Av2-Series                          | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Bs-Series                           | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: DSv2-Series                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: DSv3-Series                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Dv2-Series                          | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Dv3-Series                          | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: ESv3-Series                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Ev3-Series                          | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Network                                       | :small_red_triangle:          | :heavy_check_mark:            |
-| VPN Gateway                                           | :small_red_triangle:          | :heavy_check_mark:            |
-
-
+|     Products                                                    |     Resiliency    |
+|-----------------------------------------------------------------|-------------------|
+|     Storage   Account                                           |     :large_blue_diamond:             |
+|     Application   Gateway (V2)                                  |     :large_blue_diamond:             |
+|     Azure Backup                                                |     :large_blue_diamond:             |
+|     Azure Cosmos   DB                                           |     :large_blue_diamond:             |
+|     Azure Data   Lake Storage Gen 2                             |     :large_blue_diamond:             |
+|     Azure Express   Route                                       |     :large_blue_diamond:             |
+|     Azure Public   IP                                           |     :large_blue_diamond:             |
+|     Azure SQL   Database (General Purpose Tier)                 |     :large_blue_diamond:             |
+|     Azure SQL   Database (Premium & Business Critical Tier)     |     :large_blue_diamond:             |
+|     Disk Storage                                                |     :large_blue_diamond:             |
+|     Event Hubs                                                  |     :large_blue_diamond:             |
+|     Key Vault                                                   |     :large_blue_diamond:             |
+|     Load Balancer                                               |     :large_blue_diamond:             |
+|     Service Bus                                                 |     :large_blue_diamond:             |
+|     Service   Fabric                                            |     :large_blue_diamond:             |
+|     Storage:   Hot/Cool Blob Storage Tiers                      |     :large_blue_diamond:             |
+|     Storage:   Managed Disks                                    |     :large_blue_diamond:             |
+|     Virtual   Machines Scale Sets                               |     :large_blue_diamond:             |
+|     Virtual   Machines                                          |     :large_blue_diamond:             |
+|     Virtual   Machines: Av2-Series                              |     :large_blue_diamond:             |
+|     Virtual   Machines: Bs-Series                               |     :large_blue_diamond:             |
+|     Virtual   Machines: DSv2-Series                             |     :large_blue_diamond:             |
+|     Virtual   Machines: DSv3-Series                             |     :large_blue_diamond:             |
+|     Virtual   Machines: Dv2-Series                              |     :large_blue_diamond:             |
+|     Virtual   Machines: Dv3-Series                              |     :large_blue_diamond:             |
+|     Virtual   Machines: ESv3-Series                             |     :large_blue_diamond:             |
+|     Virtual   Machines: Ev3-Series                              |     :large_blue_diamond:             |
+|     Virtual   Network                                           |     :large_blue_diamond:             |
+|     VPN Gateway                                                 |     :large_blue_diamond:             |
+|                                                                 |                   |
 
 **Mainstream services**
 
-| Products                                             | Resiliency | Availability |
-|------------------------------------------------------|------------|--------------|
-| App Service Environments                             | :small_red_triangle:          | :heavy_check_mark: <sup>3</sup> |
-| Azure Active Directory Domain Services               | :small_red_triangle:          | :heavy_check_mark: <sup>4</sup> |
-| Azure Bastion                                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Cache for Redis                                | :small_red_triangle:          | :heavy_check_mark: <sup>4</sup>|
-| Azure Cognitive Services: Text Analytics             | :small_red_triangle:          | :heavy_check_mark: <sup>4</sup>|
-| Azure Data Explorer                                  | :small_red_triangle:          | :heavy_check_mark: <sup>4</sup>|
-| Azure Database for MySQL – Flexible Server           | :small_red_triangle:          | :heavy_check_mark: <sup>5</sup>  |
-| Azure Database for PostgreSQL – Flexible Server (ZR) | :small_red_triangle:          | :heavy_check_mark: <sup>6</sup>  |
-| Azure DDoS Protection                                | :small_red_triangle:          | :heavy_check_mark: <sup>7</sup>  |
-| Azure Firewall                                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Firewall Manager                               | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Kubernetes Service (AKS)                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Private Link                                   | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Red Hat OpenShift                              | :small_red_triangle:          | :heavy_check_mark:            |
-| Azure Site Recovery                                  | :small_red_triangle:          | :heavy_check_mark: <sup>8</sup> |
-| Container Registry                                   | :small_red_triangle:          | :heavy_check_mark: <sup>9</sup> |
-| Event Grid                                           | :small_red_triangle:          | :heavy_check_mark: <sup>4</sup>|
-| Network Watcher                                      | :small_red_triangle:          | :heavy_check_mark: <sup>10</sup> |
-| Power BI Embedded                                    | :small_red_triangle:          | :heavy_check_mark: <sup>11</sup>  |
-| Premium Blob Storage                                 | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Ddsv4-Series                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Ddv4-Series                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Dsv4-Series                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Dv4-Series                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Edsv4-Series                       | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Edv4-Series                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Esv4-Series                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Ev4-Series                         | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: Fsv2-Series                        | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual Machines: M-Series                           | :small_red_triangle:          | :heavy_check_mark:            |
-| Virtual WAN                                          | :small_red_triangle:          | :heavy_check_mark:            |
-
+| Products                                        | Resiliency |
+|-------------------------------------------------|------------|
+| App Service Environments                        | :large_blue_diamond:          |
+| Azure Active Directory Domain Services          | :large_blue_diamond:          |
+| Azure Bastion                                   | :large_blue_diamond:          |
+| Azure Cache for Redis                           | :large_blue_diamond:          |
+| Azure Cognitive Services: Text Analytics        | :large_blue_diamond:          |
+| Azure Data Explorer                             | :large_blue_diamond:          |
+| Azure Database for MySQL – Flexible Server      | :large_blue_diamond:          |
+| Azure Database for PostgreSQL – Flexible Server | :large_blue_diamond:          |
+| Azure DDoS Protection                           | :large_blue_diamond:          |
+| Azure Firewall                                  | :large_blue_diamond:          |
+| Azure Firewall Manager                          | :large_blue_diamond:          |
+| Azure Kubernetes Service (AKS)                  | :large_blue_diamond:          |
+| Azure Private Link                              | :large_blue_diamond:          |
+| Azure Red Hat OpenShift                         | :large_blue_diamond:          |
+| Azure Site Recovery                             | :large_blue_diamond:          |
+| Container Registry                              | :large_blue_diamond:          |
+| Event Grid                                      | :large_blue_diamond:          |
+| Network Watcher                                 | :large_blue_diamond:          |
+| Power BI Embedded                               | :large_blue_diamond:          |
+| Premium Blob Storage                            | :large_blue_diamond:          |
+| Virtual Machines: Ddsv4-Series                  | :large_blue_diamond:          |
+| Virtual Machines: Ddv4-Series                   | :large_blue_diamond:          |
+| Virtual Machines: Dsv4-Series                   | :large_blue_diamond:          |
+| Virtual Machines: Dv4-Series                    | :large_blue_diamond:          |
+| Virtual Machines: Edsv4-Series                  | :large_blue_diamond:          |
+| Virtual Machines: Edv4-Series                   | :large_blue_diamond:          |
+| Virtual Machines: Esv4-Series                   | :large_blue_diamond:          |
+| Virtual Machines: Ev4-Series                    | :large_blue_diamond:          |
+| Virtual Machines: Fsv2-Series                   | :large_blue_diamond:          |
+| Virtual Machines: M-Series                      | :large_blue_diamond:          |
+| Virtual WAN                                     | :large_blue_diamond:          |
 
 
 **Non-regional**
 
-| Products                             | Resiliency | Availability |
-|--------------------------------------|------------|--------------|
-| Azure DNS                            | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Active Directory               | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Advisor                        | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Bot Services                   | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Defender for IoT               | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Information Protection         | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Lighthouse                     | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Managed Applications           | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Maps                           | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Policy                         | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Resource Graph                 | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Stack                          | :globe_with_meridians:          | :heavy_check_mark:            |
-| Azure Stack Edge                     | :globe_with_meridians:          | :heavy_check_mark:            |
-| Cloud Shell                          | :globe_with_meridians:          | :heavy_check_mark:            |
-| Customer Lockbox for Microsoft Azure | :globe_with_meridians:          | :heavy_check_mark:            |
-| Microsoft Azure Peering Service      | :globe_with_meridians:          | :heavy_check_mark:            |
-| Microsoft Azure portal               | :globe_with_meridians:          | :heavy_check_mark:            |
-| Security Center                      | :globe_with_meridians:          | :heavy_check_mark:            |
-| Traffic Manager                      | :globe_with_meridians:          | :heavy_check_mark:            |
+|     Products                                  |     Resiliency    |
+|-----------------------------------------------|-------------------|
+|     Azure DNS                                 |     :globe_with_meridians:             |
+|     Azure Active   Directory                  |     :globe_with_meridians:             |
+|     Azure Advisor                             |     :globe_with_meridians:             |
+|     Azure Bot Services                        |     :globe_with_meridians:             |
+|     Azure   Defender for IoT                  |     :globe_with_meridians:             |
+|     Azure   Information Protection            |     :globe_with_meridians:             |
+|     Azure   Lighthouse                        |     :globe_with_meridians:             |
+|     Azure Managed   Applications              |     :globe_with_meridians:             |
+|     Azure Maps                                |     :globe_with_meridians:             |
+|     Azure Policy                              |     :globe_with_meridians:             |
+|     Azure   Resource Graph                    |     :globe_with_meridians:             |
+|     Azure Stack                               |     :globe_with_meridians:             |
+|     Azure Stack   Edge                        |     :globe_with_meridians:             |
+|     Cloud Shell                               |     :globe_with_meridians:             |
+|     Customer Lockbox   for Microsoft Azure    |     :globe_with_meridians:             |
+|     Microsoft   Azure Peering Service         |     :globe_with_meridians:             |
+|     Microsoft   Azure portal                  |     :globe_with_meridians:             |
+|     Security   Center                         |     :globe_with_meridians:             |
+|     Traffic   Manager                         |     :globe_with_meridians:             |
 
-
-
-<sup>1</sup>  Available from South East Asia, UK South
-
-<sup>2</sup>  Available from Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Japan East, Southeast Asia
-
-<sup>3</sup>  Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Germany West Central, Japan East, Southeast Asia, Australia East
-
-<sup>4</sup>  Available from Canada Central, Central US, East US, East US 2, West US 2, France Central, North Europe, UK South, West Europe, Japan East, Southeast Asia, Australia East
-
-<sup>5</sup>  Available from West US 2, UK South, Southeast Asia, West Europe, East US, Canada Central, Australia East, East US 2, North Europe, Japan East, Central US
-
-<sup>6</sup>  Available from West US 2, UK South, Southeast Asia, West Europe, East US, Canada Central, East US 2, Japan East, Central US
-
-<sup>7</sup>  Available from Central US, East US, East US 2, West US 2, France Central, North Europe, West Europe, Japan East, Southeast Asia, Australia East
-
-<sup>8</sup>  Available from Central US, East US, East US 2, West US 2, North Europe, UK South, Japan East, Southeast Asia, Australia East
-
-<sup>9</sup>  Available from East US, East US 2, West US 2
-
-<sup>10</sup>  Available from East US, East US 2, West US 2, France Central, North Europe, West Europe, Japan East
-
-<sup>11</sup>  Available from East US 2, Southeast Asia, UK South, West Europe, Central US, France Central, Japan East
 
 ## Pricing for VMs in Availability Zones
 
