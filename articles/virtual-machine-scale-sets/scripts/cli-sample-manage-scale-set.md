@@ -1,6 +1,6 @@
 ---
 title: Azure CLI sample for virtual machine scale set management
-description: This sample shows how to add disks to a virtual machine scale set, upgrade disks, and add your virtual machines to Azure AD authentication.
+description: This sample shows how to add disks to a virtual machine scale set. You can upgrade disks and add your virtual machines to Azure AD authentication.
 author: mimckitt
 ms.author: mimckitt
 ms.date: 01/15/2021
@@ -37,7 +37,7 @@ az vmss create --resource-group MyResourceGroup --name myScaleSet --instance-cou
 az vmss disk attach --resource-group MyResourceGroup --vmss-name myScaleSet --size-gb 50
 ```
 
-After you add a new data disk to your virtual machine or virtual machine scale set, format and mount the disk. For Windows virtual machines, see [Attach a managed data disk to a Windows VM by using the Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md). For Linux virtual machines, see [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk).
+After you add a new data disk, format and mount the disk. For Windows virtual machines, see [Attach a managed data disk to a Windows VM by using the Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md). For Linux virtual machines, see [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md).
 
 ```azurecli
 # Attach an existing managed disk to a virtual machine instance in your scale set
@@ -61,7 +61,7 @@ az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-id
 
 To use the expanded disk, expand the underlying partition. For more information, see [Expand a disk partition and filesystem](/azure/virtual-machines/linux/expand-disks#expand-a-disk-partition-and-filesystem).
 
-This example resized a data disk. You can use this same procedure to update an OS disk. For more information for a Windows virtual machine, see [How to expand the OS drive of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk). For more information for Linux virtual machines, see [Expand virtual hard disks on a Linux VM with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+This example resized a data disk. You can use this same procedure to update an OS disk. For more information for a Windows virtual machine, see [How to expand the OS drive of a virtual machine](../../virtual-machines/windows/expand-os-disk.md). For more information for Linux virtual machines, see [Expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md).
 
 ```azurecli
 # Enable managed service identity on your scale set. This is required to authenticate and interact with other Azure services using bearer tokens.
@@ -98,7 +98,7 @@ az group delete --name MyResourceGroup
 * [az disk update](/cli/azure/disk#az_disk_update)
 * [az group create](/cli/azure/group#az_group_create)
 * [az vmss create](/cli/azure/vmss#az_vmss_create)
-* [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate)
+* [az virtual machine scale set deallocate](/cli/azure/vmss#az_vmss_deallocate)
 * [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach)
 * [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach)
 * [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set)
