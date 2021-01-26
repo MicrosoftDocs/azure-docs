@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 # Customer responsibilities for running Azure Spring Cloud in VNET
 This document includes specifications for use of Azure Spring Cloud in a virtual network.
 
-When Azure Spring Cloud is deployed in your virtual network, it has **outbound** dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). These endpoints are required to communicate with the Azure Spring Cloud management plane and to download and install core Kubernetes cluster components and security updates.
+When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). These endpoints are required to communicate with the Azure Spring Cloud management plane and to download and install core Kubernetes cluster components and security updates.
 
 By default, Azure Spring Cloud has unrestricted outbound (egress) internet access. This level of network access allows applications you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible for maintenance tasks. The simplest solution to secure outbound addresses is use of a firewall device that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
 

@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Troubleshooting Azure Spring Cloud in virtual networks
 
-This document will help you solve various problems can arise when using Azure Spring Cloud in virtual networks.
+This document will help you solve various problems that can arise when using Azure Spring Cloud in virtual networks.
 
 ## I encountered a problem with creating an Azure Spring Cloud service instance
 
