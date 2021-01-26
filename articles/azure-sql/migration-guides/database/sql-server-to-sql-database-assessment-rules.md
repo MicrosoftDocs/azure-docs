@@ -19,7 +19,7 @@ Migration tools validate your source SQL Server instance by running a number of 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Database. 
 
 
-## Bulk insert <a id="BulkInsert"></a>
+## Bulk insert<a id="BulkInsert"></a>
 
 **Title: BULK INSERT with non Azure blob data source is not supported in Azure SQL Database.**   
 Rule ID: BulkInsert (Issue) 
@@ -30,7 +30,7 @@ Azure SQL Database cannot access file shares or Windows folders. See the "Impact
 **Recommendation**   
 You will need to convert BULK INSERT statements that use local files or file shares to use files from Azure blob storage instead, when migrating to Azure SQL Database. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
-## Compute clause <a id="ComputeClause"></a>
+## Compute clause<a id="ComputeClause"></a>
 
 **Title: COMPUTE clause is discontinued and has been removed.**   
 Rule ID: ComputeClause (Issue)
@@ -58,7 +58,7 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 More information: [Discontinued Database Engine functionality in SQL Server ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Change data capture (CDC) <a id="CDC"></a>
+## Change data capture (CDC)<a id="CDC"></a>
 
 **Title: Change Data Capture (CDC) is not supported in Azure SQL Database**   
 Rule ID: CDC (Issue)
@@ -71,7 +71,7 @@ Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Ch
 
 More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
 
-## CLR assemblies <a id="ClrAssemblies"></a>
+## CLR assemblies<a id="ClrAssemblies"></a>
 
 **Title: SQL CLR assemblies are not supported in Azure SQL Database**   
 Rule ID: ClrAssemblies (Issue)
@@ -84,7 +84,7 @@ Currently, there is no way to achieve this in Azure SQL Database. The recommende
 
 More information: [Unsupported Transact-SQL differences in SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
 
-## Cryptographic provider <a id="CryptographicProvider"></a>
+## Cryptographic provider<a id="CryptographicProvider"></a>
 
 **Title: A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Database**   
 Rule ID: CryptographicProvider (Issue)
@@ -95,7 +95,7 @@ Rule ID: CryptographicProvider (Issue)
 **Recommendation**   
 Review objects with `CREATE CRYPTOGRAPHIC PROVIDER` or `ALTER CRYPTOGRAPHIC PROVIDER`. In any such objects that are required, remove the uses of these features. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
-## Cross database references <a id="CrossDataseReferences"></a>
+## Cross database references<a id="CrossDataseReferences"></a>
 
 **Title: Cross-database queries are not supported in Azure SQL Database**   
 Rule ID: CrossDatabaseReferences (Issue)
@@ -112,7 +112,7 @@ Azure SQL Database does not support cross-database queries. The following action
 
 More information: [Check Azure SQL Database elastic database query (Preview)](../../database/elastic-query-overview.md)
 
-## Database compatibility <a id="DbCompatLevelLowerThan100"></a>
+## Database compatibility<a id="DbCompatLevelLowerThan100"></a>
 
 **Title: Azure SQL Database doesn't support compatibility levels below 100.**   
 Rule ID: DbCompatLevelLowerThan100  (Issue)
@@ -123,7 +123,7 @@ Database compatibility level is a valuable tool to assist in database modernizat
 **Recommendation**   
 Evaluate if the application functionality is intact when the database compatibility level is upgraded to 100 on Azure SQL Managed Instance. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
-## Database mail <a id="DatabaseMail"></a>
+## Database mail<a id="DatabaseMail"></a>
 
 **Title: Database Mail is not supported in Azure SQL Database.**   
 Rule ID: DatabaseMail (Warning)
@@ -137,7 +137,7 @@ Consider migrating to Azure SQL Managed Instance that supports Database Mail.  A
 More information: [Send email from Azure SQL Database using Azure Functions script](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)
 
 
-## Database principal alias <a id="DatabasePrincipalAlias<"></a>
+## Database principal alias<a id="DatabasePrincipalAlias<"></a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
 Rule ID: DatabasePrincipalAlias (Issue)
@@ -151,7 +151,7 @@ Use roles instead of aliases.
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
-## DISABLE_DEF_CNST_CHK option <a id="DisableDefCNSTCHK"></a
+## DISABLE_DEF_CNST_CHK option<a id="DisableDefCNSTCHK"></a
 
 **Title: SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed.**   
 Rule ID: DisableDefCNSTCHK  (Issue)>
@@ -161,7 +161,7 @@ SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed in Azure S
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## FASTFIRSTROW hint <a id="FastFirstRowHint"></a>
+## FASTFIRSTROW hint<a id="FastFirstRowHint"></a>
 
 **Title: FASTFIRSTROW query hint is discontinued and has been removed.**   
 Rule ID: FastFirstRowHint (Issue)
@@ -174,7 +174,7 @@ Instead of FASTFIRSTROW query hint use OPTION (FAST n).
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## FileStream <a id="FileStream"></a>
+## FileStream<a id="FileStream"></a>
 
 **Title: Filestream is not supported in Azure SQL Database**   
 Rule ID: FileStream (Issue)
@@ -188,7 +188,7 @@ Upload the unstructured files to Azure Blob storage and store metadata related t
 More information: [Streaming blobs to and from Azure SQL blog](https://azure.microsoft.com/en-us/blog/streaming-blobs-to-and-from-sql-azure/)
 
 
-## Linked server <a id="LinkedServer"></a>
+## Linked server<a id="LinkedServer"></a>
 
 **Title: Linked server functionality is not supported in Azure SQL Database**   
 Rule ID: LinkedServer (Issue)
@@ -203,7 +203,7 @@ Azure SQL Database does not support linked server functionality. The following a
 
 More information: [Check Azure SQL Database elastic query (Preview)](../../database/elastic-query-overview.md) 
 
-## MS DTC <a id="MSDTCTransactSQL"></a>
+## MS DTC<a id="MSDTCTransactSQL"></a>
 
 **Title: BEGIN DISTRIBUTED TRANSACTION is not supported in Azure SQL Database.**   
 Rule ID: MSDTCTransactSQL (Issue)>
@@ -217,7 +217,7 @@ Review impacted objects section to see all objects using BEGIN DISTRUBUTED TRANS
 More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
 
 
-## OPENROWSET (bulk) <a id="OpenRowsetWithNonBlobDataSourceBulk"></a>
+## OPENROWSET (bulk)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>
 
 **Title: OpenRowSet used in bulk operation with non Azure blob storage data source is not supported in Azure SQL Database.**   
 Rule ID: OpenRowsetWithNonBlobDataSourceBulk  (Issue) 
@@ -231,7 +231,7 @@ Azure SQL Database cannot access file shares and Windows folders, so the files m
 More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
 
 
-## OPENROWSET (provider) <a id="OpenRowsetWithSQLAndNonSQLProvider"></a>
+## OPENROWSET (provider)<a id="OpenRowsetWithSQLAndNonSQLProvider"></a>
 
 **Title: OpenRowSet with SQL or non-SQL provider is not supported in Azure SQL Database.**   
 Rule ID: OpenRowsetWithSQLAndNonSQLProvider  (Issue)
@@ -245,7 +245,7 @@ Azure SQL Database supports OPENROWSET only to import from Azure blob storage. A
 More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
 
 
-## Non ANSI left outer join <a id="NonANSILeftOuterJoinSyntax"></a>
+## Non ANSI left outer join<a id="NonANSILeftOuterJoinSyntax"></a>
 
 **Title: Non ANSI style left outer join is discontinued and has been removed.**   
 Rule ID: NonANSILeftOuterJoinSyntax (Issue)
@@ -259,7 +259,7 @@ Use ANSI join syntax.
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
-## Non ANSI right outer join <a id="NonANSIRightOuterJoinSyntax"></a>
+## Non ANSI right outer join<a id="NonANSIRightOuterJoinSyntax"></a>
 
 **Title: Non ANSI style right outer join is discontinued and has been removed.**   
 Rule ID: NonANSIRightOuterJoinSyntax (Issue)
@@ -272,7 +272,7 @@ Use ANSI join syntax.
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Next column  <a id="NextColumn<"></a>
+## Next column<a id="NextColumn<"></a>
 
 **Title: Tables and Columns named NEXT will lead to an error In Azure SQL Database.**   
 Rule ID: NextColumn (Issue)
@@ -283,7 +283,7 @@ Tables or columns named NEXT were detected. Sequences, introduced in Microsoft S
 **Recommendation**   
 Rewrite statements to include the ANSI standard AS keyword when aliasing a table or column. For example, when a column is named NEXT and that column is aliased as VALUE, the query `SELECT NEXT VALUE FROM TABLE` will cause an error and should be rewritten as SELECT NEXT AS VALUE FROM TABLE. Similarly, when a table is named NEXT and that table is aliased as VALUE, the query `SELECT Col1 FROM NEXT VALUE` will cause an error and should be rewritten as `SELECT Col1 FROM NEXT AS VALUE`.
 
-## RAISERROR <a id="RAISERROR"></a>
+## RAISERROR<a id="RAISERROR"></a>
 
 **Title: Legacy style RAISERROR calls should be replaced with modern equivalents.**   
 Rule ID: RAISERROR (Issue)
@@ -296,7 +296,7 @@ Rewrite the statement using the current RAISERROR syntax, or evaluate if the mod
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Server audits    <a id="ServerAudits"></a>
+## Server audits<a id="ServerAudits"></a>
 
 **Title: Use Azure SQL Database audit features to replace Server Audits**   
 Rule ID: ServerAudits (Warning)
@@ -309,7 +309,7 @@ Consider Azure SQL Database audit features to replace Server Audits.  Azure SQL 
 
 More information: [Auditing for Azure SQL Database ](../../database/auditing-overview.md)
 
-## Server credentials <a id="ServerCredentials"></a>
+## Server credentials<a id="ServerCredentials"></a>
 
 **Title: Server scoped credential is not supported in Azure SQL Database**   
 Rule ID: ServerCredentials (Warning)  
@@ -322,7 +322,7 @@ Azure SQL Database supports database scoped credentials. Convert server scoped c
 
 More information: [Creating database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
 
-## Service Broker <a id="ServiceBroker"></a>
+## Service Broker<a id="ServiceBroker"></a>
 
 **Title: Service Broker feature is not supported in Azure SQL Database**   
 Rule ID: ServiceBroker (Issue) 
@@ -333,7 +333,7 @@ SQL Server Service Broker provides native support for messaging and queuing appl
 **Recommendation**   
 Service Broker feature is not supported in Azure SQL Database. Consider migrating to Azure SQL Managed Instance that supports service broker within the same instance. Alternatively, migrate to SQL Server on Azure Virtual Machine. 
 
-## Server-scoped triggers <a id="ServerScopedTriggers"></a>
+## Server-scoped triggers<a id="ServerScopedTriggers"></a>
 
 **Title: Server-scoped trigger is not supported in Azure SQL Database**   
 Rule ID: ServerScopedTriggers (Warning)  
@@ -347,7 +347,7 @@ Use database level trigger instead. Alternatively migrate to Azure SQL Managed I
 More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
 
 
-## SQL Agent jobs  <a id="AgentJobs<"></a>
+## SQL Agent jobs<a id="AgentJobs<"></a>
 
 **Title: SQL Server Agent jobs are not available in Azure SQL Database**   
 Rule ID: AgentJobs (Warning) 
@@ -360,7 +360,7 @@ Use elastic jobs (preview), which are the replacement for SQL Server Agent jobs 
 
 More information: [Getting started with Elastic Database jobs (Preview) ](../../database/elastic-jobs-overview.md)
 
-## SQL Database size <a id="SQLDBDatabaseSize<"></a>
+## SQL Database size<a id="SQLDBDatabaseSize<"></a>
 
 **Title: Azure SQL Database does not support database size greater than 100 TB.**   
 Rule ID: SQLDBDatabaseSize (Issue)
@@ -373,7 +373,7 @@ Evaluate if the data can be archived or compressed or sharded into multiple data
 
 More information: [vCore resource limits](../../database/resource-limits-vcore-single-databases.md) 
 
-## SQL Mail <a id="SqlMail"></a>
+## SQL Mail<a id="SqlMail"></a>
 
 **Title: SQL Mail has been discontinued.**   
 Rule ID: SqlMail (Warning)  
@@ -386,7 +386,7 @@ Consider migrating to Azure SQL Managed Instance or SQL Server on Azure Virtual 
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## SystemProcedures110 <a id="SystemProcedures110"></a>
+## SystemProcedures110<a id="SystemProcedures110"></a>
 
 **Title: Detected statements that reference removed system stored procedures that are not available in Azure SQL Database.**   
 Rule ID: SystemProcedures110 (Warning) 
@@ -399,7 +399,7 @@ Remove references to unsupported system procedures that have been removed in Azu
 
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Trace flags <a id="TraceFlags"></a>
+## Trace flags<a id="TraceFlags"></a>
 
 **Title: Azure SQL Database does not support trace flags**   
 Rule ID: TraceFlags (Warning)  
@@ -413,7 +413,7 @@ Review impacted objects section to see all trace flags that are not supported in
 More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
 
 
-## Windows authentication <a id="WindowsAuthentication"></a>
+## Windows authentication<a id="WindowsAuthentication"></a>
 
 **Title: Database users mapped with Windows authentication (integrated security) is not supported in Azure SQL Database.**   
 Rule ID: WindowsAuthentication (Warning)  
@@ -430,7 +430,7 @@ Federate the local Active Directory with Azure Active Directory. The Windows ide
 
 More information: [SQL Database security capabilities](../../database/security-overview.md#authentication)
 
-## XP_cmdshell <a id="XpCmdshell"></a>
+## XP_cmdshell<a id="XpCmdshell"></a>
 
 **Title: xp_cmdshell is not supported in Azure SQL Database.**   
 Rule ID: XpCmdshell (Issue)
