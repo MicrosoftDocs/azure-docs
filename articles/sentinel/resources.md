@@ -86,7 +86,7 @@ We love hearing from our users!
 
 - **Post your questions** on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel. 
 
-- **Send suggestions for improvements** via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program or directly to our team at AzureSentinel@microsoft.com
+- **Send suggestions for improvements** via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program or directly to our team at [AzureSentinel@microsoft.com](mailto:AzureSentinel@microsoft.com)
 
 - **View and comment** on our Azure Sentinel blog posts:
 

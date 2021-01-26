@@ -20,7 +20,7 @@ This article lists supported Azure and 3rd party data source schemas, with links
 
 | Type                             | Data source             | logAnalytics Tablename | Schema Reference |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
-| **Azure**                            | Azure Active Directory | SigninEvents           | [Audit Log Schema](/graph/api/resources/signin?view=graph-rest-beta#properties) |
+| **Azure**                            | Azure Active Directory | SigninEvents           | [Audit Log Schema](/graph/api/resources/signin#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Audit Log Schema](/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema#field-and-property-descriptions) |
 | **Azure**                            | Azure Active Directory | AzureActivity          | [Audit Log Schema](/azure/azure-monitor/platform/activity-log-schema#property-descriptions) |
 | **Azure**                            | Office                 | OfficeActivity         | [Common Schema ](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br> [ExchangeAdmin Schema ](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>[Exchange Mailbox Schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br> [SharePoint Base Schema](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br> [SharePoint File Operation Schema](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
