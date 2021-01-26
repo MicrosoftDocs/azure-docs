@@ -4,32 +4,28 @@ The Azure Communication Services **Group Calling Hero Sample** demonstrates how 
 
 In this Sample quickstart, you will learn how to set up and run the sample. An overview of the sample is also provided for context.
 
-## Download Code
-
-Code will posted soon for public consumption. Currently in private preview.
-
 ## Overview
 
-The sample is a native iOS application which uses the Azure Communication Services iOS client SDKs to build a calling experience that features both voice and video calling. The application relies on using a server-side application that provides the necessary access tokens to initialize the Azure Communication Services SDK. To this end, the sample requires the following Azure Function to work properly: [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md)
+The sample is a native iOS application that uses the Azure Communication Services iOS client libraries to build a calling experience that features both voice and video calling. The application uses a server-side component to provision access tokens that are then used to initialize the Azure Communication Services client library. To configure this server-side component, feel free to follow the [Trusted Service with Azure Functions](../../tutorials/trusted-service-tutorial.md) tutorial.
 
 Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins the call created. Alternatively, the application supports a "Join a call" flow to join an existing call on Azure Communication Services. On this route, you will be prompted to enter the id for the call you want to join.
+When you press the "Start new call" button, the iOS application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
 
-Once a call is joined, you'll be prompted to configure your client for the call including enabling/disabling the camera and microphone, and providing a display name. When enabling/disabling the camera and microphone you will be prompted to give permissions to the application to use your phone's microphone and camera. 
+After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
 
 :::image type="content" source="../media/calling/pre-call-ios.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
-Once you configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
+Once you configure your display name and devices, you can join the call. You'll see the main call canvas where the core calling experience lives.
 
 :::image type="content" source="../media/calling/main-app-ios.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main calling screen:
 
-1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one). The gallery supports multiple participants and changes as participants are added to the call.
-2. **Action Bar**: This is where the primary call controls are located to turn video and mic on/off, share screen and leave the call.
+1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one). The gallery supports multiple participants and is updated when participants are added or removed to the call.
+2. **Action Bar**: This is where the primary call controls are located. These controls let you turn your video and microphone on/off, share your screen, and leave the call.
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -42,7 +38,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 ## Running sample locally
 
-The group calling sample can be run locally using XCode. Developers can either use their physical device or emulator to test the application.
+The group calling sample can be run locally using XCode. Developers can either use their physical device or an emulator to test the application.
 
 ### Before running the sample for the first time
 
@@ -52,13 +48,13 @@ The group calling sample can be run locally using XCode. Developers can either u
 
 ### Run sample
 
-1. Build and Run sample in XCode
+Build and Run the sample in XCode.
 
-## (Optional) Securing Authentication Endpoint
+## (Optional) Securing an authentication endpoint
 
-For simple demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an ACS token. For production scenarios, it is recommended that the ACS token is returned from a secured endpoint.  
+For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.  
 
-With additional configuration, this sample supports connecting to an **Azure Active Directory** (AAD) protected endpoint so that user login is required for the app to fetch an ACS token. See steps below:
+With additional configuration, this sample supports connecting to an **Azure Active Directory** (AAD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
 
 1. Enable Azure Active Directory authentication in your app.  
    - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-ios) 
