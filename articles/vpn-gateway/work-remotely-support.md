@@ -61,7 +61,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 4. Configure the on-premises device to connect to Azure virtual network gateway.
 5. Download the point-to-site profile from the Azure portal and distribute to clients
 
-To learn how to set up a site-to-site VPN tunnel, see [this link](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+To learn how to set up a site-to-site VPN tunnel, see [this link](./tutorial-site-to-site-portal.md).
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 
