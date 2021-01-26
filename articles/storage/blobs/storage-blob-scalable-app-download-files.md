@@ -4,7 +4,7 @@ description: Learn how to use the Azure SDK to download large amounts of random 
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 01/25/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -29,7 +29,7 @@ To complete this tutorial, you must have completed the previous Storage tutorial
 
  To create a remote desktop session with the virtual machine, use the following command on your local machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
-```
+```console
 mstsc /v:<publicIpAddress>
 ```
 
@@ -50,11 +50,11 @@ public static void Main(string[] args)
     try
     {
         // Call the UploadFilesAsync function.
-        UploadFilesAsync().GetAwaiter().GetResult();
+        await UploadFilesAsync();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
         // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files.
-        // DownloadFilesAsync().GetAwaiter().GetResult();
+        // await DownloadFilesAsync();
     }
     catch (Exception ex)
     {
@@ -67,7 +67,7 @@ public static void Main(string[] args)
         // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
-            // DeleteExistingContainersAsync().GetAwaiter().GetResult();
+            // await DeleteExistingContainersAsync();
         }
         Console.WriteLine("Press any key to exit the application");
         Console.ReadKey();
@@ -77,7 +77,7 @@ public static void Main(string[] args)
 
 After the application has been updated, you need to build the application again. Open a `Command Prompt` and navigate to `D:\git\storage-dotnet-perf-scale-app`. Rebuild the application by running `dotnet build` as seen in the following example:
 
-```
+```console
 dotnet build
 ```
 
@@ -87,7 +87,7 @@ Now that the application has been rebuilt it is time to run the application with
 
 Type `dotnet run` to run the application.
 
-```
+```console
 dotnet run
 ```
 
@@ -100,6 +100,12 @@ The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.azure.s
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| This property determines if an MD5 hash is calculated and stored.   |
 
 The `DownloadFilesAsync` task is shown in the following example:
+
+# [.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
+
+# [.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -182,12 +188,13 @@ private static async Task DownloadFilesAsync()
     Console.ReadLine();
 }
 ```
+---
 
 ### Validate the connections
 
 While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`. This command shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, over 280 connections were open when downloading the random files from the storage account.
 
-```
+```console
 C:\>netstat -a | find /c "blob:https"
 289
 

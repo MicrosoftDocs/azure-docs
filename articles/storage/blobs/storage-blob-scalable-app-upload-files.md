@@ -4,7 +4,7 @@ description: Learn how to use the Azure Storage client library to upload large a
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/08/2019
+ms.date: 01/25/2021
 ms.author: rogarana
 ms.subservice: blobs
 ---
@@ -33,7 +33,7 @@ To complete this tutorial, you must have completed the previous Storage tutorial
 
 Use the following command on your local machine to create a remote desktop session with the virtual machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials you used when creating the virtual machine.
 
-```
+```console
 mstsc /v:<publicIpAddress>
 ```
 
@@ -41,7 +41,7 @@ mstsc /v:<publicIpAddress>
 
 In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Log in to the virtual machine you created in the previous tutorial. Open a **Command Prompt** as an administrator and run the `setx` command with the `/m` switch, this command saves a machine setting environment variable. The environment variable is not available until you reload the **Command Prompt**. Replace **\<storageConnectionString\>** in the following sample:
 
-```
+```console
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
@@ -53,7 +53,7 @@ Navigate to `D:\git\storage-dotnet-perf-scale-app`.
 
 Type `dotnet run` to run the application. The first time you run `dotnet` it populates your local package cache, to improve restore speed and enable offline access. This command takes up to a minute to complete and only happens once.
 
-```
+```console
 dotnet run
 ```
 
@@ -69,6 +69,12 @@ In addition to setting the threading and connection limit settings, the [BlobReq
 | [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| 2-second backoff with 10 max retry |Determines the retry policy of requests. Connection failures are retried, in this example an [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) policy is configured with a 2-second backoff, and a maximum retry count of 10. This setting is important when your application gets close to hitting the scalability targets for Blob storage. For more information, see [Scalability and performance targets for Blob storage](../blobs/scalability-targets.md).  |
 
 The `UploadFilesAsync` task is shown in the following example:
+
+# [.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_UploadFilesAsync":::
+
+# [.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -144,10 +150,31 @@ private static async Task UploadFilesAsync()
     }
 }
 ```
+---
 
 The following example is a truncated application output running on a Windows system.
 
+# [.NET v12](#tab/dotnet)
+
+```console
+Created container 75546049-1c2f-473d-9907-ee2d88055f39
+Created container d9a0735e-3a20-4297-9ff3-728e6218dbde
+Created container 003829f9-00df-4369-ab88-2f2e5bddc883
+Created container 9c000a4a-8dbe-47ef-a1fb-859b0bd18d3a
+Created container 6df97de0-84dd-467e-9f63-5ed968534948
+Iterating in directory: C:\git\my-app\upload
+Found 5 file(s)
+Uploading C:\git\my-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.pdf to container 75546049-1c2f-473d-9907-ee2d88055f39.
+Uploading C:\git\my-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.pdf to container d9a0735e-3a20-4297-9ff3-728e6218dbde.
+Uploading C:\git\my-app\upload\38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.pdf to container 003829f9-00df-4369-ab88-2f2e5bddc883.
+Uploading C:\git\my-app\upload\45930d63-b0d0-425f-a766-cda27ff00d32.pdf to container 9c000a4a-8dbe-47ef-a1fb-859b0bd18d3a.
+Uploading C:\git\my-app\upload\5129b385-5781-43be-8bac-e2fbb7d2bd82.pdf to container 6df97de0-84dd-467e-9f63-5ed968534948.
+Upload has been completed in 22.0269826 seconds.
 ```
+
+# [.NET v11](#tab/dotnet11)
+
+```console
 Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076
 Created container https://mystorageaccount.blob.core.windows.net/bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b
 Created container https://mystorageaccount.blob.core.windows.net/9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f
@@ -163,6 +190,7 @@ Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43b
 ...
 Upload has been completed in 142.0429536 seconds. Press any key to continue
 ```
+---
 
 ### Validate the connections
 
