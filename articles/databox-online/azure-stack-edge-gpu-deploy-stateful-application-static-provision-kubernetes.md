@@ -46,7 +46,7 @@ Before you can deploy the stateful application, complete the following prerequis
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
         - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
         - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
-        - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!-- insert link-->. 
+        - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version.<!-- insert link--> 
 
 
 You are ready to deploy a stateful application on your Azure Stack Edge Pro device. 
@@ -337,7 +337,7 @@ Here's sample output of when you delete the PVC.
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
 The PV is no longer bound to the PVC as the PVC was deleted. As the PV was provisioned when the share was created, you will need to delete the share. Follow these steps:
 

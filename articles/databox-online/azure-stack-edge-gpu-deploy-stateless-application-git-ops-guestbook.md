@@ -51,12 +51,12 @@ Before you can deploy the stateless application, make sure that you have complet
     
 1. You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
     
-    - Installed `kubectl` on the client  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
+    - Installed `kubectl` on the client. <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
       - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
       - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
-      - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!--insert link-->.
+      - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version. <!--insert link-->
 
 1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). In this example, you will use the following `yaml` files to deploy on your Azure Stack Edge Pro device.
 
