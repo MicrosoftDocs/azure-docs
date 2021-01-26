@@ -21,7 +21,7 @@ Brewer's theorem defines consistency and availability as follows:
 > [!NOTE]
 > The term **partition** is used in different contexts in Event Hubs and CAP theorem. 
 > - **Event Hubs** organizes events into one or more partitions. Partitions are independent and contain their own sequence of data, they often grow at different rates. For more information, see [Partitions](event-hubs-features.md#partitions).
-> - In **CAP theorem**, a partition is a communications break within between nodes in a distributed system.
+> - In **CAP theorem**, a partition is a communications break between nodes in a distributed system.
 
 ## Partition tolerance
 Event Hubs is built on top of a partitioned data model. You can configure the number of partitions in your event hub during setup, but you cannot change this value later. Since you must use partitions with Event Hubs, you have to make a decision about availability and consistency for your application.
