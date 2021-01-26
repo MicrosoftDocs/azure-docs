@@ -21,7 +21,7 @@ This script demonstrates three operations:
 - Move the snapshot to a different subscription
 - Create a virtual machine based on that snapshot
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](/../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
