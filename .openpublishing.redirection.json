@@ -8,7 +8,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/tutorial-backup-vms.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-backup-vms",
+      "redirect_url": "/azure/backup/quick-backup-vm-portal",
       "redirect_document_id": false
     },
     {
@@ -22774,6 +22774,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/use-hsm-with-sdk.md",
+      "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/how-to-use-sdk-tools.md",
+      "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/how-to-manage-enrollments-sdks.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-edge/how-iot-edge-works.md",
       "redirect_url": "/azure/iot-edge/about-iot-edge",
       "redirect_document_id": false
@@ -32225,7 +32240,7 @@
     },
     {
       "source_path_from_root": "/articles/security-center/security-center-app-services.md",
-      "redirect_url": "/azure/security-center/defender-for-app-service-intro",
+      "redirect_url": "/azure/security-center/defender-for-app-service-introduction",
       "redirect_document_id": false
     },
     {
@@ -50537,6 +50552,11 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/msal-handling-exceptions.md",
       "redirect_url": "/azure/active-directory/develop/msal-error-handling-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/msal-logging.md",
+      "redirect_url": "/azure/active-directory/develop/msal-logging-dotnet",
       "redirect_document_id": false
     },
     {
