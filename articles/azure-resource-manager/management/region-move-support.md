@@ -1995,4 +1995,3 @@ Third-party services currently don't support the move operation.
 
 [Learn more](../../resource-mover/overview.md) about the Resource Mover service.
 
-To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
