@@ -72,9 +72,9 @@ public class Startup
 ```
 
 
-If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilters](https://docs.microsoft.com/en-us/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. The following example shows how to use a built-in feature filter called `PercentageFilter`:
+If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. The following example shows how to use a built-in feature filter called `PercentageFilter`:
 
-#### [.NET 5.x](#tab/core5x)
+
 
 ```csharp
 using Microsoft.FeatureManagement;
