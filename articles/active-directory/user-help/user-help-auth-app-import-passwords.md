@@ -46,7 +46,7 @@ Google Chrome users on Android and Apple phones can import their passwords direc
 1. Open Google Chrome browser on your phone. Open the menu by tapping on the ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) menu at the top right for Android phones or at bottom right for iOS
 ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) devices, and then tap **Settings.**
 
-Phone type | Location
+&nbsp; | &nbsp;
 ---------- | --------
 Android | ![Google Chrome ellipsis menu location](./media/user-help-auth-app-import-passwords/android-settings-menu.png)
 iOS | ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ios-settings-menu.png)
