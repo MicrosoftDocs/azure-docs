@@ -150,7 +150,7 @@ Next, you'll need to set environment variables in your function app from earlier
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
-2. In your function app, create an app setting containing your connection string:
+2. Use the *primaryConnectionString* value from the result to create an app setting in your function app that contains your connection string:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -164,7 +164,9 @@ Next, you will set up a Time Series Insights instance to receive the data from y
     1. Select the **Gen2(L1)** pricing tier.
     2. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-1.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-1.png":::
+        
+         :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-2.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-2.png":::
 
 2. Select **Next: Event Source** and select your TSI event hub information from earlier. You will also need to create a new Event Hubs consumer group.
     
