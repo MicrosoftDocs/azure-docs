@@ -18,20 +18,21 @@ This article contains supplementary reference information to help you migrate fr
 
 For more information on migrating from Studio (classic), see the [migration overview article](migrate-overview.md).
 
-In this article you learn about the following topics:
-- Import data from cloud sources to Azure Machine Learning
+In this article you learn about the following:
 - Studio (classic) and designer module mapping
-- Execute R Script migration
+- How to import data from cloud sources to Azure Machine Learning
+- Execute R Script module migration
 
 ## Studio (classic) and designer module-mapping
 
-Module for same functionality has the same name in AML designer and ML Studio(classic). See below table for the module mapping. 
-
->![Important]
-> The machine learning modules in designer are implemented with Python, using open-source packages like sklearn. The Studio(classic) machine learning modules are implemented with C# and using a Microsoft internal machine learning package. The result of the same module might have slight difference deu to the difference of underlying technology.
+The following table shows you modules you can use to rebuild Studio (classic) experiments in the designer.
 
 
-|Category|ML Studio(classic) module|AML designer module|
+> [!IMPORTANT]
+> The designer implements modules through open-source Python packages rather than C# packages like Studio (classic). Because of this difference, the results of some module may vary slightly.
+
+
+|Category|Studio (classic) module|Replacement designer module|
 |--------------|----------------|--------------------------------------|
 |Data input and output|- Enter Data Manually </br> - Export Data </br> - Import Data </br> - Load Trained Model </br> - Unpack Zipped Datasets|- Enter Data Manually </br> - Export Data </br> - Import Data|
 |Data Format Conversions|- Convert to CSV </br> - Convert to Dataset </br> - Convert to ARFF </br> - Convert to SVMLight </br> - Convert to TSV|- Convert to CSV </br> - Convert to Dataset|
@@ -57,24 +58,24 @@ Module for same functionality has the same name in AML designer and ML Studio(cl
 | Web Service | - Input </br> -   Output | - Input </br>  - Output|
 | Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
 
-Find more about how to use designer modules in [module reference](../algorithm-module-reference/module-reference.md) 
+For more information on how to use individual the designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
  
-### What if the wanted module is not in designer? 
+### What if my Studio (classic) module has no replacement?
 
-Azure Machine Learning designer builds the most popular modules in ML Studio(classic). It also added some new modules leveraging the state of art machine learning technology (for example DenseNet for image classification). We expect designer supported module will cover most of the migration scenario. If your migration is blocked by missing modules in designer, contact us by [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Azure Machine Learning designer contains the most popular modules from Studio (classic) and new modules that take advantage of the latest machine learning techniques. 
 
+If your migration is blocked by due to missing modules in the designer, contact us by [creating a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
+## Import data from cloud sources
 
-## Import Data
+In Studio (classic), you ingest data from cloud storage with the **Import Data** module. In the designer, you have the following options:
 
-In Studio (classic), ingesting data from cloud storage is done through the Import Data module. In the designer you have two options: register an Azure Machine Learning dataset, or use the Import Data module.
-
-|Designer data ingestion method|Description|
+|Ingestion method|Description|
 |---| --- | --- |
-|Register an AML dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). Registering a dataset enables advanced data features like data versioning and data monitoring.
+|Register an Azure Machine Learning dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). Registering a dataset enables advanced data features like data versioning and data monitoring.
 |Import Data module|Ingest data from online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB). The dataset is only imported to the designer.
 
-We recommend registering datasets in Azure Machine Learning to enable advanced data features. However, the Import Data module can be used when those features are not required.
+We recommend that you register datasets in Azure Machine Learning to enable advanced data features. However, the Import Data module can be used when those features are not required.
 
 >[!Note]
 > Studio (classic) users should note that the following cloud sources are not natively supported in Azure Machine Learning:
@@ -83,42 +84,56 @@ We recommend registering datasets in Azure Machine Learning to enable advanced d
 > - Azure Cosmos DB
 > - On-premises SQL Database)
 >
-> We recommend that users migrate their data to supported storage services using Azure Data Factory.  
+> We recommend that users migrate their data to a supported storage services using Azure Data Factory.  
 
-Use the following steps to ingest data from the cloud:
-1. Create a datastore, which links the cloud storage service to your Azure Machine Learning workspace. 
+### Register an Azure Machine Learning dataset
 
-    For more information on creating datastores, see [Connect to data with Azure Machine Learning studio](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores).
-2. **(Option 1)** Register a dataset and use it in the designer. 
+Use the following steps to register a dataset from a cloud service: 
 
-    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datasets) has the step-by-step guidance on how to create datasets in AML Studio. When migrating ML Studio (classic) data, select the **Tabular** dataset.
-    
-    After registering the dataset, you can find it in the designer left palette. Expand the **Datasets** section, then drag the dataset onto the canvas. 
+1. [Create a datastore](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-    ![registered-dataset](./media/migrate-to-AML/registered-dataset.png)
+1. [Register a dataset](../how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
 
-1.  **(Option 2)** Use Import Data Module in the designer 
+After you register a dataset in Azure Machine Learning, you can use it in the designer:
+ 
+1. Create a new designer pipeline draft.
+1. In the module palette to the left, expand the **Datasets** section
+1. Drag your registered dataset onto the canvas. 
 
-    After creating the datastore, you can use Import Data module to ingest data from it. Find the **Import Data module** in the left palette, and configure the settings in right panel.
+    ![Screenshot showing saved dataset in a designer pipeline draft](./media/migrate-to-AML/registered-dataset.png)
 
-     First, select datastore to import data from. Then select path or edit SQL query to identify the needed data from datastore. 
-    ![import-data](./media/migrate-to-AML/import-data.png)
+### Use the Import Data module in the designer
+
+1. [Create a datastore](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+
+After you create the datastore, you can use the **Import Data** module in the designer to ingest data from it:
+
+1. Create a new designer pipeline draft.
+1. In the module palette to the left, find the **Import Data** module and drag it to the canvas.
+1. Select the **Import Data** module, and use the settings in the right panel to configure your data source
+
+    ![Screenshot showing the Import Data module data source settings](./media/migrate-to-AML/import-data.png)
 
 ## Execute R Script
 
-Execute R Script module is a popular module in ML Studio(classic), which allows customer to do customized task using R script. Given that ML Studio(classic) is hosted on Windows platform and the Azure Machine Learning designer is running on Linux platform, it would be slightly different to install an R package in designer.
-||ML Studio(classic)|Azure Machine Learning designer|
+Azure Machine Learning designer now runs on Linux, not Windows like Studio (classic). Due to the platform change, you must adjust your R script during migration.
+
+If you are trying to migrate an **Execute R Script** module from Studio (classic), you must replace the `maml.mapInputPort` and `maml.mapOutputPort` with standard functions.
+
+The following table summarizes the changes to the R Script module:
+
+|Feature|Studio (classic)|Azure Machine Learning designer|
 |---|---|---|
-|Script Interface|maml.mapInputPort and maml.mapOutputPort|Function interface|
+|Script Interface|`maml.mapInputPort` and `maml.mapOutputPort`|Function interface|
 |Platform|Windows|Linux|
 |Internet Accessible |No|Yes|
-|Memory|14G|Depend on Compute SKU|
+|Memory|14 GB|Depend on Compute SKU|
 
-Below are the migration steps for R script.
+### How to update the R script interface
 
-**Change the R script interface**
+The following sample shows you how to update the R script interface.
 
-Here is a quick sample of R script in Azure Machine Learning Studio (classic). 
+Here are the contents of a sample **Execute R Script** module in Studio (classic):
 ```r
 # Map 1-based optional input ports to variables 
 dataset1 <- maml.mapInputPort(1) # class: data.frame 
@@ -141,7 +156,7 @@ plot(data.set);
 maml.mapOutputPort("data.set"); 
 ```
 
-Here is the upgraded version in Azure Machine Learning designer. Basically, the main change is replacing the maml.mapInputPort and maml.mapOutputPort with a normal function interface with name “azureml_main”. 
+Here is the updated version in the designer. Notice that the `maml.mapInputPort`` and maml.mapOutputPort` have been replaced with the standard function interface `azureml_main`. 
 ```r
 azureml_main <- function(dataframe1, dataframe2){ 
     # Use the parameters dataframe1 and dataframe2 directly 
@@ -165,14 +180,15 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=data.set)) 
 } 
 ```
+For more information, see the [Execute R Script designer module reference](../algorithm-module-reference/execute-r-script.md/).
 
-Learn more in designer [Execute R Script reference](../algorithm-module-reference/execute-r-script.md/).
+### Install R packages from the internet
 
- **Install R packages from Internet**
+Azure Machine Learning designer lets you install packages directly from CRAN.
 
-ML Studio(classic) runs on a sandbox environment with no internet access. To install a new R package that not in pre-installed list, customer needs to upload the package in a zip bundle and load them in script.
+Studio (classic) runs in a sandbox environment with no internet access. In Studio (classic), you have to upload scripts in a zip bundle to install more packages. 
 
-In the Azure Machine Learning, it’s allowed to install the packages from CRAN directly. Customer can install the R package with the code below.
+Use the following code to install CRAN packages:
 ```r
   if(!require(zoo)) { 
       install.packages("zoo",repos = "http://cran.us.r-project.org") 
