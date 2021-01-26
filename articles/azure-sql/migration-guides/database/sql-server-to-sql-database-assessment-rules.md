@@ -151,7 +151,7 @@ Use roles instead of aliases.
 More information: [Discontinued Database Engine functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
 
-## DISABLE_DEF_CNST_CHK option<a id="DisableDefCNSTCHK"></a
+## DISABLE_DEF_CNST_CHK option<a id="DisableDefCNSTCHK"></a>
 
 **Title: SET option DISABLE_DEF_CNST_CHK is  discontinued and has been removed.**   
 Rule ID: DisableDefCNSTCHK  (Issue)>
