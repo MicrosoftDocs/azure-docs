@@ -3,7 +3,7 @@ title: Deploy RD Gateway role Windows Virtual Desktop - Azure
 description: How to deploy the RD Gateway role in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 01/26/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -48,7 +48,7 @@ To configure the RD Gateway role:
 
 2. Go to **Servers**, right-click the name of your server, then select **RD Gateway Manager**.
 
-3 In the RD Gateway Manager, right-click the name of your gateway, then select **Properties**.
+3. In the RD Gateway Manager, right-click the name of your gateway, then select **Properties**.
 
 4. Open the **SSL Certificate** tab, select the **Import a certificate into the RD Gateway** bubble, then select **Browse and Import Certificate…**.
 
