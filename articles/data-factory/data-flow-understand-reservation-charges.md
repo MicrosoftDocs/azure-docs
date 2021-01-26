@@ -28,7 +28,7 @@ The following examples show how the ADF data flow reserved capacity discount app
 - Scenario 1: You buy an ADF data flow reserved capacity for 80 cores of memory optimized compute. You run a data flow with an Azure integration runtime set to 144 cores of memory optimized for one hour. You're charged the pay-as-you-go price for 64 cores of data flow usage for one hour. You get the reservation discount for one hour of 80 cores of memory optimized usage.
 - Scenario 2: You buy an ADF data flow reserved capacity for 32 cores of general purpose compute. You debug your data flows for 1 hour using 32 cores of general compute Azure integration runtime. You get the reservation discount for that entire hour of usage.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](understand-reserved-instance-usage-ea.md).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
 
 ## Need help? Contact us
 
