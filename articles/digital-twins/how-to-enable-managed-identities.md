@@ -71,7 +71,7 @@ Once a system-assigned identity is created for your Azure Digital Twins instance
 
 ### Supported destinations and Azure roles 
 
-Here are the minimum roles that an identity needs to access an endpoint, depending on the type of destination. More permissive roles (like Data Owner roles) will also work.
+Here are the minimum roles that an identity needs to access an endpoint, depending on the type of destination. Roles with higher permissions (like Data Owner roles) will also work.
 
 | Destination | Azure role |
 | --- | --- |
