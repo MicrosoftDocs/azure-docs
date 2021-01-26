@@ -75,7 +75,7 @@ When a Purview user registers an ADF to which they have access to, the following
 3. Post execution the ADF metadata is pushed into Purview.
 
 ### Remove data factory connections
-To remove a data factory connection, do the following:
+To remove a data factory connectiogit statusn, do the following:
 
 1. On the **Data Factory connection** page, select the **Remove** button next to one or more data factory connections.
 1. Select **Confirm** in the popup to delete the selected data factory connections.
