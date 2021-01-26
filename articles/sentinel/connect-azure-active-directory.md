@@ -24,7 +24,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 ## Prerequisites
 
-- Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
+- You must have an [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) subscription to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 
@@ -42,10 +42,6 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
     - **Sign-in logs**: Information about the usage of managed applications and user sign-in activities.
     - **Audit logs**: System activity information about user and group management, managed applications, and directory activities.
-    - **Non-interactive user sign-in logs**: Information about sign-ins performed by a client on behalf of a user, which don't require any interaction or authentication factor from the user.
-    - **Service principal sign-in logs**: Information about sign-ins by apps and service principals that do not involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources.
-    - **Managed Identity sign-in logs**: Sign-ins by Azure resources that have secrets managed by Azure.
-    - **Provisioning logs**: System activity information about users, groups, and roles provisioned by the Azure AD provisioning service.
 
 ## Find your data
 
@@ -53,10 +49,6 @@ After a successful connection is established, the data appears in **Logs**, unde
 
 - `SigninLogs`
 - `AuditLogs`
-- `AADNonInteractiveUserSignInLogs`
-- `AADServicePrincipalSignInLogs`
-- `AADManagedIdentitySignInLogs`
-- `AADProvisioningLogs`
 
 To query the Azure AD logs, enter the relevant table name at the top of the query window.
 
