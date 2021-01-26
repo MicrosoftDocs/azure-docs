@@ -27,9 +27,9 @@ When Automation executes runbook and DSC compilation jobs, it loads the modules 
 >[!NOTE]
 >Be sure to import only the modules that your runbooks and DSC configurations require. We don’t recommend importing the root Az module. It includes many other modules that you might not need, which can cause performance problems. Import individual modules, such as Az.Compute, instead.
 
-Cloud sandbox supports a maximum of 48 system calls, and restricts all other calls due to security reasons. Other functionality such as credential management and some networking is not supported in the cloud sandbox.
+Cloud sandbox supports a maximum of 48 system calls, and restricts all other calls for security reasons. Other functionality such as credential management and some networking is not supported in the cloud sandbox.
 
-Unfortunately, there is no way to know beforehand which of the cmdlets will make unsupported calls. Generally, we have seen issues with cmdlets which require elevated access, or require a Credential as a parameter, or which make network calls. Any cmdlets that perform full stack network operations are not supported in the sandbox, including Connect-AipService from the AIPService PowerShell module and Resolve-DnsName from the DNSClient module.
+Due to the number of modules and cmdlets included, it is difficult to know beforehand which of the cmdlets will make unsupported calls. Generally, we have seen issues with cmdlets which require elevated access, require a credential as a parameter, or cmdlets related to networking. Any cmdlets that perform full stack network operations are not supported in the sandbox, including [Connect-AipService](/powershell/module/aipservice/connect-aipservice) from the AIPService PowerShell module and [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) from the DNSClient module.
 
 These are known limitations with the sandbox. The only workaround is to use a hybrid worker or an alternative service such as Azure Functions.
 
