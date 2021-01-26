@@ -181,6 +181,8 @@ The following template creates a management group.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
+If your account doesn't have permission to deploy to the tenant, you can still create management groups by deploying to another scope. For more information, see [Management group](deploy-to-management-group.md#management-group).
+
 ## Assign role
 
 The following template assigns a role at the tenant scope.

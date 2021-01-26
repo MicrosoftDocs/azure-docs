@@ -138,9 +138,12 @@ The snippet uses the [*Room.json*](https://github.com/Azure-Samples/digital-twin
 Before you run the sample, do the following:
 1. Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
-    * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-    * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
 
 You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
@@ -158,7 +161,7 @@ Here is the console output of the above program:
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
-### Create a twin graph from a CSV file
+## Create graph from a CSV file
 
 In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 

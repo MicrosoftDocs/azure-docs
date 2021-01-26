@@ -72,7 +72,7 @@ VMs must be created within the availability set to make sure they're correctly d
 
 When you create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm), you use the `-AvailabilitySetName` parameter to specify the name of the availability set.
 
-First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
