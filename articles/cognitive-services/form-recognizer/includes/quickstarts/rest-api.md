@@ -86,7 +86,7 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeR
 
 You'll receive a `200 (success)` response with JSON content.
 
-See the following invoice image and its corresponding JSON output. The output has been shortened for simplicity. The `"readResults"` node contains every line of text with its respective bounding box placement on the page. The `"selectionMarks"` node (in v2.1 preview) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box and more are extracted.
+See the following invoice image and its corresponding JSON output. The output has been shortened for simplicity. The `"readResults"` node contains every line of text with its respective bounding box placement on the page. The `"selectionMarks"` node (in v2.1 preview) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
 :::image type="content" source="../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
 
