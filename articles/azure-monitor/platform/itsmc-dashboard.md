@@ -1,6 +1,6 @@
 ---
-title: Investigate errors by using the Dashboard
-description: This document contains information about errors on the ITSMC Dashboard.
+title: Investigate errors by using the dashboard
+description: This document contains information about errors on the ITSMC dashboard.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
@@ -9,13 +9,13 @@ ms.date: 01/15/2021
 
 ---
 
-# Investigate errors by using the ITSMC Dashboard
+# Investigate errors by using the ITSMC dashboard
 
-This article contains information about the IT Service Management Connector (ITSMC) Dashboard. The Dashboard helps you investigate the status of ITSMC.
+This article contains information about the IT Service Management Connector (ITSMC) dashboard. The dashboard helps you investigate the status of ITSMC.
 
-## View the Dashboard
+## View the dashboard
 
-Follow these steps to open the Dashboard.
+Follow these steps to open the dashboard.
 
 1. Select **All resources**, and then find **ServiceDesk(*your workspace name*)**.
 
@@ -29,28 +29,28 @@ Follow these steps to open the Dashboard.
 
     ![Screenshot that shows the View Summary option in the Summary section.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
 
-1. Select the graph in the **Summary** section to open the Dashboard.
+1. Select the graph in the **Summary** section to open the dashboard.
 
     ![Screenshot that shows selecting the Summary graph.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
 
-1. Review the Dashboard for status and any errors in your connector.
-    ![Screenshot that shows the Dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
+1. Review the dashboard for status and any errors in your connector.
+    ![Screenshot that shows the dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
-## Understand Dashboard elements
+## Understand dashboard elements
 
-The Dashboard contains information on the alerts that were sent into the ITSM tool by using this connector.
+The dashboard contains information on the alerts that were sent into the ITSM tool by using this connector.
 
-The Dashboard is split into four sections:
+The dashboard is split into four sections:
 
-- **Work items created**: The graph and table show the number of the work items by type. Select the graph or the table to learn more about your work items.
+- **WORK ITEMS CREATED**: The graph and table show the number of the work items by type. Select the graph or the table to learn more about your work items.
       ![Screenshot that shows the work items created section.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
-- **Impacted computers**: The table contains details about the configuration items that created configuration items.
+- **IMPACTED COMPUTERS**: The table contains details about the configuration items that created configuration items.
       Select rows in the tables for more details about the configuration items.
       The table contains a limited number of rows. To see the entire list, select **See all**.
       ![Screenshot that shows the impacted computers section.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
-- **Connector status**: The graph and the table show information about the status of the connector. Select the graph or the messages in the table for more details about. The table shows a limited number of rows. To see the entire list, select **See all**.
+- **CONNECTOR STATUS**: The graph and the table show information about the status of the connector. Select the graph or the messages in the table for more details. The table shows a limited number of rows. To see the entire list, select **See all**.
       ![Screenshot that shows the connector status section.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
-- **Alert rules**: This section shows information about the number of alert rules that were detected. Select rows in the tables for more details on the rules that were detected. The table has a limited number of rows. To see the entire list, select **See all**.
+- **ALERT RULES**: This section shows information about the number of alert rules that were detected. Select rows in the tables for more details on the rules that were detected. The table has a limited number of rows. To see the entire list, select **See all**.
       ![Screenshot that shows the alert rules section.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
 
 ## Next steps
