@@ -53,7 +53,7 @@ View deployed apps using the following procedures.
 
     [ ![Apps-overview](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
 
-1. Open the **Deployments** blade to see all deployments of the app. If the customer has assigned the public endpoint, the **URL** will show the public endpoint. The **State** in the deployment grid shows whether the deployment is production or staging.
+1. Open the **Deployments** blade to see all deployments of the app. The deployment grid shows whether the deployment is production or staging.
 
     [ ![Deployments dashboard](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
 
