@@ -81,6 +81,9 @@ The minimum and recommended CPU cores and memory to allocate for each Form Recog
 
 ## Get the container images with the docker pull command
 
+> [!CAUTION]
+> * These Docker commands are for the Form Recognizer v1.0 container is no longer supported. This article is for reference only. 
+
 Container images for both the **Form Recognizer** and **Recognize Text** offerings are available in the following container registry:
 
 | Container | Fully qualified image name |
