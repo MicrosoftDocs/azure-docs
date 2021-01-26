@@ -1,10 +1,10 @@
 ---
-author: amberz
+author: hophanms
+ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.author: amberz
 ---
 ## Creating and running a scan
 
