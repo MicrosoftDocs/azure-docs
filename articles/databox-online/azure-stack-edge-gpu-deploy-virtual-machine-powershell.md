@@ -1,20 +1,20 @@
 ---
 title: Deploy VMs on your Azure Stack Edge device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device.
+description: Describes how to create and manage virtual machines on an Azure Stack Edge device by using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
 ---
 
 # Deploy VMs on your Azure Stack Edge device via Azure PowerShell
 
-This article describes how to create and manage a VM on your Azure Stack Edge device by using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
+This article describes how to create and manage a VM on your Azure Stack Edge device by using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
 ## VM deployment workflow
 
@@ -29,10 +29,14 @@ Here's what the deployment workflow looks like:
 
 ## Query for built-in subscription on the device
 
-For Azure Resource Manager, you can only have a single, user-visible, fixed subscription. This subscription is unique per device, and you can't change the subscription name or subscription ID. This subscription contains all the resources you need to create a VM, and you use the subscription to deploy VMs. 
+For Azure Resource Manager, only a single fixed subscription that's user-visible is supported. This subscription is unique per device, and the subscription name or subscription ID can't be changed.
+
+This subscription contains all the resources that are created required for VM creation. 
 
 > [!IMPORTANT]
 > This subscription is created when you enable VMs from the Azure portal, and it lives locally on your device.
+
+This subscription is used to deploy the VMs.
 
 1.  To list this subscription, type:
 
@@ -170,7 +174,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## Add blob URI to the host file
 
-You already added the blob URI in the **hosts** file for the client that you're using to connect to Blob Storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
+You already added the blob URI in the hosts file for the client that you're using to connect to Blob Storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
@@ -249,7 +253,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Here's a sample output:
+Here's a sample output. For more information on this cmdlet, go to [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -289,7 +293,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Here's a sample output:
+Here's a sample output. For more information on this cmdlet, go to [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -310,10 +314,10 @@ Tags                 : {}
 You must create one virtual network and associate a virtual network interface before you create and deploy the VM.
 
 > [!IMPORTANT]
-> In doing this, the following rules apply:
-> - You can only create one virtual network, even across resource groups, and its address space must exactly match that of the logical network.
-> - Only one subnet is allowed in the virtual network. The subnet must be the exact same address space as the virtual network.
-> - You can only use the static allocation method. The user needs to provide a private IP address.
+> The following rules apply:
+> - You can create only one virtual network, even across resource groups. The virtual network must have exactly the same address space as the logical network.
+> - The virtual network can have only one subnet. The subnet must have exactly the same address space as the virtual network.
+> - When you create the virtual network interface card, you can use only the static allocation method. The user needs to provide a private IP address.
 
 ### Query the automatically created virtual network
 
@@ -491,6 +495,7 @@ Run the following cmdlet to turn on a virtual machine that's running on your dev
 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
+For more information on this cmdlet, go to [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### Suspend or shut down the VM
 
@@ -500,6 +505,8 @@ Run the following cmdlet to stop or shut down a virtual machine that's running o
 ```powershell
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
+
+For more information on this cmdlet, go to [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### Add a data disk
 
@@ -519,7 +526,8 @@ Run the following cmdlet to remove a virtual machine from your device:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
+For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
