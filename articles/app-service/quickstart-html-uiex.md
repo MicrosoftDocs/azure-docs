@@ -18,13 +18,11 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 <hr/>
 
 ## 1. Download the sample
 
-In the Cloud Shell, create a quickstart directory and then change to it.
+In [Cloud Shell](../cloud-shell/overview.md), create a quickstart directory and then change to it.
 
 ```bash
 mkdir quickstart
