@@ -1,8 +1,6 @@
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience.
-
-In this Sample quickstart, you will learn how to set up and run the sample. An overview of the sample is also provided for context.
+The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Overview
 
@@ -33,7 +31,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md).
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
 - Azure Function running [Trusted Service logic](../../tutorials/trusted-service-tutorial.md) to fetch access tokens
 
 ## Running sample locally
@@ -57,10 +55,12 @@ For demonstration purposes, this sample uses a publicly accessible endpoint by d
 With additional configuration, this sample supports connecting to an **Azure Active Directory** (AAD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
 
 1. Enable Azure Active Directory authentication in your app.  
-   - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-ios) 
-	- [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad)
+   - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
+	- [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
 2. Go to your registered app overview page under Azure Active Directory App Registrations. Take note of the `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
-![](./docs/images/aadOverview.png)
+
+:::image type="content" source="../media/calling/aadOverview.png" alt-text="AAD configuration on Azure Portal":::
+
 3. Open `AppSettings.plist` in Xcode, add the following key values:
    - `acsTokenFetchUrl`: the URL to request Azure Communication Services token 
    - `isAADAuthEnabled`: a boolean value to indicate if the Azure Communication Services token authentication is required or not
@@ -71,6 +71,6 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../quickstarts/create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next steps

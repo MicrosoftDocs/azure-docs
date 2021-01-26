@@ -14,15 +14,15 @@ The sample has both a client-side application and a server-side application. The
 
 Here's what the sample looks like:
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="Screenshot showing the landing page of the sample application.":::
+:::image type="content" source="../media/calling/landing-page.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
 When you press the "Start a call" button, the web application fetches a user access token from the server-side application. This token is then used to connect the client app to Azure Communication Services. Once the token is retrieved, you'll be prompted to specify the camera and microphone that you want to use. You'll be able to disable/enable your devices with toggle controls:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
+:::image type="content" source="../media/calling/pre-call.png" alt-text="Screenshot showing the pre-call screen of the sample application.":::
 
 Once you configure your display name and devices, you can join the call session. Now you will see the main call canvas where the core calling experience lives.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
+:::image type="content" source="../media/calling/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main calling screen:
 
@@ -38,7 +38,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploy the service & client applications
 
@@ -52,7 +52,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
+3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
 4. Once you get the `Connection String`, add the connection string to the **Calling/appsetting.json** file found under the Service .NET folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local Run
@@ -74,7 +74,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../quickstarts/create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
