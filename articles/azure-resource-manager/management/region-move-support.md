@@ -856,6 +856,14 @@ Jump to a resource provider namespace:
 > | iothubs | Yes. [Learn more](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
+## Microsoft.DevOps
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Region move | 
+> | ------------- | ----------- |
+> | controllers | No | 
+
+
 ## Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
@@ -881,7 +889,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- | 
-> | digitaltwinsinstances | Yes, by recreating resources in new region. [Learn more](../digital-twins/how-to-move-regions.md) |
+> | digitaltwinsinstances | Yes, by recreating resources in new region. [Learn more](../../digital-twins/how-to-move-regions.md) |
 
 ## Microsoft.DocumentDB
 
@@ -932,7 +940,7 @@ Jump to a resource provider namespace:
 > | namespaces | Yes (with template)<br/><br/> [Move an Event Hub namespace to another region](../../event-hubs/move-across-regions.md) | 
 > | sku | No |  
 
-# Microsoft.Experimentation
+## Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
@@ -1217,6 +1225,15 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | workspaces | No | 
+
+## Microsoft.Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Region move | 
+> | ------------- | ----------- |
+> | configurationassignments | Yes. [Learn more](../../virtual-machines/move-region-maintenance-configuration.md) | 
+> | maintenanceconfigurations | Yes. [Learn more](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | updates | No | 
 
 ## Microsoft.ManagedIdentity
 
@@ -1976,6 +1993,6 @@ Third-party services currently don't support the move operation.
 
 ## Next steps
 
-[Learn more](../resource-mover/overview.md) about the Resource Mover service.
+[Learn more](../../resource-mover/overview.md) about the Resource Mover service.
 
 To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
