@@ -6,26 +6,41 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 
-author: zhanxia
-ms.author: zhanixa
+author: xiaoharper
+ms.author: zhanxia
 ms.date: 1/19/2020
 ---
 
 # Integrate web service with client app
 
-Following previous steps, we already have the REST endpoint by deploying a model or publishing a pipeline. The last step of the migration is integrate the REST endpoint with client app, so you can consume the model/pipeline through REST call.  
+In this article, you learn how to integrate client applications with Azure Machine Learning endpoints. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- An [Azure Machine Learning real-time endpoint or pipeline endpoint](migrate-rebuild-web-services.md).
 
 
-## Realtime endpoint 
+## Consume a real-time endpoint 
 
-You can call the real-time endpoint to make real time predictions. In Azure Machine Learning Studio, there is sample consumption code Under **Endpoints -> Consume** tab.
+If your model is deployed as a **real-time endpoint**, you can find automatically generated sample code in C#, Python, and R:
 
-![realtime-endpoint-sample-code](./media/migrate-to-AML/realtime-sample-code.png)  
+1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
+1. Go the **Endpoints** tab.
+1. Select your real-time endpoint.
+1. Select **Consume**.
+
+Here, you can find your REST endpoint and sample code to use in your applications.
 
 
-There is Swagger URI for the real time endpoint in the **Endpoints -> Details** tab. You can refer to the swagger to understand the endpoint schema.
+![Screenshot showing real-time sample integration code](./media/migrate-to-AML/realtime-sample-code.png)  
 
-![realtime-swagger](./media/migrate-to-AML/realtime-swagger.png)
+
+> [!NOTE]
+> You can also find a Swagger URI for your real-time endpoint in the **Details** tab. You can refer to the swagger to understand the endpoint schema.
+
+![Screenshot showing the swagger URI location in the Details tab](./media/migrate-to-AML/realtime-swagger.png)
  
 
 
@@ -36,7 +51,7 @@ You can consume the pipeline endpoint for retraining or batch prediction purpose
 **REST call**
 
 After publish the pipeline, there will be a swagger as the endpoint documentation. Check the swagger to learn how to call the endpoint.
-![pipeline-endpoint-swagger](./media/migrate-to-AML/pipeline-endpoint-swagger.png) 
+![Screenshot showing the swagger URI location for pipeline endpoints](./media/migrate-to-AML/pipeline-endpoint-swagger.png) 
 
 **Integrate with Azure Data Factory**
 
