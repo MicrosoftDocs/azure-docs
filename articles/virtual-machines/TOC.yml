@@ -602,21 +602,21 @@
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md    
   - name: Spot Virtual Machines
-      displayName: pre-empt, preempt, spot
-      items:
-      - name: Overview
-        href: spot-vms.md
-      - name: CLI
-        href: ./linux/spot-cli.md
-      - name: Portal
-        href: spot-portal.md
-      - name: PowerShell
-        href: ./windows/spot-powershell.md
-      - name: ARM template
-        displayName: template ARM
-        href: ./linux/spot-template.md
-      - name: Error codes
-        href: error-codes-spot.md
+    displayName: pre-empt, preempt, spot
+    items:
+    - name: Overview
+      href: spot-vms.md
+    - name: CLI
+      href: ./linux/spot-cli.md
+    - name: Portal
+      href: spot-portal.md
+    - name: PowerShell
+      href: ./windows/spot-powershell.md
+    - name: ARM template
+      displayName: template ARM
+      href: ./linux/spot-template.md
+    - name: Error codes
+      href: error-codes-spot.md
   - name: Purchasing options
     items:
     - name: Azure Hybrid Benefit
