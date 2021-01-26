@@ -1,9 +1,9 @@
 ---
-title: How to build, deploy, and extend IoT Plug and Play bridge | Microsoft Docs
-description: Identify the IoT Plug and Play bridge components. Learn how to extend the bridge, and how to run it on IoT devices, gateways, and as an IoT Edge module.
+title: How to build and deploy IoT Plug and Play bridge | Microsoft Docs
+description: Identify the IoT Plug and Play bridge components. Learn how to run it on IoT devices, gateways, and as an IoT Edge module.
 author: usivagna
 ms.author: ugans
-ms.date: 12/11/2020
+ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,14 +11,13 @@ services: iot-pnp
 # As a device builder, I want to understand the IoT Plug and Play bridge, learn how to extend it, and learn how to run it on IoT devices, gateways, and as an IoT Edge module.
 ---
 
-# Build, deploy, and extend the IoT Plug and Play bridge
+# Build and deploy the IoT Plug and Play bridge
 
-The IoT Plug and Play bridge lets you connect the existing devices attached to a gateway to your IoT hub. You use the bridge to map IoT Plug and Play interfaces to the attached devices. An IoT Plug and Play interface defines the telemetry that a device sends, the properties synchronized between the device and the cloud, and the commands that the device responds to. You can install and configure the open-source bridge application on Windows or Linux gateways.
+The [IoT Plug and Play bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) lets you connect the existing devices attached to a gateway to your IoT hub. You use the bridge to map IoT Plug and Play interfaces to the attached devices. An IoT Plug and Play interface defines the telemetry that a device sends, the properties synchronized between the device and the cloud, and the commands that the device responds to. You can install and configure the open-source bridge application on Windows or Linux gateways. Additionally, the bridge can be run as an Azure IoT Edge runtime module.
 
 This article explains in detail how to:
 
 - Configure a bridge.
-- Extend a bridge by creating new adapters.
 - How to build and run the bridge in various environments.
 
 For a simple example that shows how to use the bridge, see [How to connect the IoT Plug and Play bridge sample that runs on Linux or Windows to IoT Hub](howto-use-iot-pnp-bridge.md).
@@ -74,97 +73,6 @@ The [configuration file schema](https://github.com/Azure/iot-plug-and-play-bridg
 ### IoT Edge module configuration
 
 When the bridge runs as an IoT Edge module on an IoT Edge runtime, the configuration file is sent from the cloud as an update to the `PnpBridgeConfig` desired property. The bridge waits for this property update before it configures the adapters and components.
-
-## Extend the bridge
-
-To extend the capabilities of the bridge, you can author your own bridge adapters.
-
-The bridge uses adapters to:
-
-- Establish a connection between a device and the cloud.
-- Enable data flow between a device and the cloud.
-- Enable device management from the cloud.
-
-Every bridge adapter must:
-
-- Create a digital twins interface.
-- Use the interface to bind device-side functionality to cloud-based capabilities such as telemetry, properties, and commands.
-- Establish control and data communication with the device hardware or firmware.
-
-Each bridge adapter interacts with a specific type of device based on how the adapter connects to and interacts with the device. Even if communication with a device uses a handshaking protocol, a bridge adapter may have multiple ways to interpret the data from the device. In this scenario, the bridge adapter uses information for the adapter in the configuration file to determine the *interface configuration* the adapter should use to parse the data.
-
-To interact with the device, a bridge adapter uses a communication protocol supported by the device and APIs provided either by the underlying operating system, or the device vendor.
-
-To interact with the cloud, a bridge adapter uses APIs provided by the Azure IoT Device C SDK to send telemetry, create digital twin interfaces, send property updates, and create callback functions for property updates and commands.
-
-### Create a bridge adapter
-
-The bridge expects a bridge adapter to implement the APIs defined in the [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296) interface:
-
-```c
-typedef struct _PNP_ADAPTER {
-  // Identity of the IoT Plug and Play adapter that is retrieved from the config
-  const char* identity;
-
-  PNPBRIDGE_ADAPTER_CREATE createAdapter;
-  PNPBRIDGE_COMPONENT_CREATE createPnpComponent;
-  PNPBRIDGE_COMPONENT_START startPnpComponent;
-  PNPBRIDGE_COMPONENT_STOP stopPnpComponent;
-  PNPBRIDGE_COMPONENT_DESTROY destroyPnpComponent;
-  PNPBRIDGE_ADAPTER_DESTOY destroyAdapter;
-} PNP_ADAPTER, * PPNP_ADAPTER;
-```
-
-In this interface:
-
-- `PNPBRIDGE_ADAPTER_CREATE` creates the adapter and sets up the interface management resources. An adapter may also rely on global adapter parameters for adapter creation. This function is called once for a single adapter.
-- `PNPBRIDGE_COMPONENT_CREATE` creates the digital twin client interfaces and binds the callback functions. The adapter initiates the communication channel to the device. The adapter may set up the resources to enable the telemetry flow but doesn't start reporting telemetry until `PNPBRIDGE_COMPONENT_START` is called. This function is called once for each interface component in the configuration file.
-- `PNPBRIDGE_COMPONENT_START` is called to let the bridge adapter start forwarding telemetry from the device to the digital twin client. This function is called once for each interface component in the configuration file.
-- `PNPBRIDGE_COMPONENT_STOP` stops the telemetry flow.
-- `PNPBRIDGE_COMPONENT_DESTROY` destroys the digital twin client and associated interface resources. This function is called once for each interface component in the configuration file when the bridge is torn down or when a fatal error occurs.
-- `PNPBRIDGE_ADAPTER_DESTROY` cleans up the bridge adapter resources.
-
-### Bridge core interaction with bridge adapters
-
-The following list outlines what happens when the bridge starts:
-
-1. When the bridge starts, the bridge adapter manager looks through each interface component defined in the configuration file and calls `PNPBRIDGE_ADAPTER_CREATE` on the appropriate adapter. The adapter may use global adapter configuration parameters to set up resources to support the various *interface configurations*.
-1. For every device in the configuration file, the bridge manager initiates interface creation by calling `PNPBRIDGE_COMPONENT_CREATE` in the appropriate bridge adapter.
-1. The adapter receives any optional adapter configuration settings for the interface component and uses this information to set up connections to the device.
-1. The adapter creates the digital twin client interfaces and binds the callback functions for property updates and commands. Establishing device connections shouldn't block the return of the callbacks after digital twin interface creation succeeds. The active device connection is independent of the active interface client the bridge creates. If a connection fails, the adapter assumes the device is inactive. The bridge adapter can choose to retry making this connection.
-1. After the bridge adapter manger creates all the interface components specified in the configuration file, it registers all the interfaces with Azure IoT Hub. Registration is a blocking, asynchronous call. When the call completes, it triggers a callback in the bridge adapter that can then start handling property and command callbacks from the cloud.
-1. The bridge adapter manager then calls `PNPBRIDGE_INTERFACE_START` on each component and the bridge adapter starts reporting telemetry to the digital twin client.
-
-### Design guidelines
-
-Follow these guidelines when you develop a new bridge adapter:
-
-- Determine which device capabilities are supported and what the interface definition of the components using this adapter looks like.
-- Determine what interface and global parameters your adapter needs defined in the configuration file.
-- Identify the low-level device communication required to support the component properties and commands.
-- Determine how the adapter should parse the raw data from the device and convert it to the telemetry types that the IoT Plug and Play interface definition specifies.
-- Implement the bridge adapter interface described previously.
-- Add the new adapter to the adapter manifest and build the bridge.
-
-### Enable a new bridge adapter
-
-You enable adapters in the bridge by adding a reference in [adapter_manifest.c](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c):
-
-```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
-```
-
-> [!IMPORTANT]
-> Bridge adapter callbacks are invoked sequentially. An adapter shouldn't block a callback because this prevents the bridge core from making progress.
-
-### Sample camera adapter
-
-The [Camera adapter readme](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) describes a sample camera adapter that you can enable.
 
 ## Build and run the bridge on an IoT device or gateway
 
@@ -301,7 +209,7 @@ To complete this section, you need a free or standard-tier Azure IoT hub. To lea
 
 The steps in this section assume you have the following development environment on a Windows 10 machine. These tools let you build and deploy an IoT Edge module to your IoT Edge device:
 
-- Windows Subsystem for Linux (WSL) 2 running Ubuntu 18.04 LTS. To learn more, see the [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+- Windows Subsystem for Linux (WSL) 2 running Ubuntu 18.04 LTS. To learn more, see the [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10).
 - Docker Desktop for Windows configured to use WSL 2. To learn more, see [Docker Desktop WSL 2 backend](https://docs.docker.com/docker-for-windows/wsl/).
 - [Visual Studio Code installed in your Windows environment](https://code.visualstudio.com/docs/setup/windows) with the following three extensions installed:
 
@@ -375,7 +283,6 @@ Launch VS Code, open the command palette, enter *Remote WSL: Open folder in WSL*
 Open the *pnpbridge\Dockerfile.amd64* file. Edit the environment variable definitions as follows:
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"

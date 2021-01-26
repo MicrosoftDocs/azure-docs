@@ -12,7 +12,7 @@ ms.custom: github-actions-azure
 
 # Deploy a custom container to App Service using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) gives you the flexibility to build an automated software development workflow. With the [Azure Web Deploy action](https://github.com/Azure/webapps-deploy), you can automate your workflow to deploy custom containers to [App Service](overview.md) using GitHub Actions.
+[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development workflow. With the [Azure Web Deploy action](https://github.com/Azure/webapps-deploy), you can automate your workflow to deploy custom containers to [App Service](overview.md) using GitHub Actions.
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that are in the workflow.
 
@@ -35,7 +35,7 @@ For an Azure App Service container workflow, the file has three sections:
 
 The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
 
-Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
+Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
 # [Publish profile](#tab/publish-profile)
 
@@ -269,7 +269,7 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Events that trigger workflows](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
 
