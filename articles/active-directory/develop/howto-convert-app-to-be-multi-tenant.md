@@ -48,7 +48,7 @@ In a single-tenant application, sign-in requests are sent to the tenant’s sign
 
 With a multi-tenant application, the application doesn’t know up front what tenant the user is from, so you can’t send requests to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`
 
-When Microsoft identity platform receives a request on the /common endpoint, it signs the user in and, as a consequence, discovers which tenant the user is from. The /common endpoint works with all of the authentication protocols supported by the Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0, and WS-Federation.
+When the Microsoft identity platform receives a request on the /common endpoint, it signs the user in and, as a consequence, discovers which tenant the user is from. The /common endpoint works with all of the authentication protocols supported by the Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0, and WS-Federation.
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the /common endpoint, the issuer value in the token corresponds to the user’s tenant.
 
@@ -106,7 +106,7 @@ For a multi-tenant application, the initial registration for the application liv
 
 ![Illustrates consent to single-tier app][Consent-Single-Tier]
 
-This consent experience is affected by the permissions requested by the application. Microsoft identity platform supports two kinds of permissions, app-only and delegated.
+This consent experience is affected by the permissions requested by the application. The Microsoft identity platform supports two kinds of permissions, app-only and delegated.
 
 * A delegated permission grants an application the ability to act as a signed in user for a subset of the things the user can do. For example, you can grant an application the delegated permission to read the signed in user’s calendar.
 * An app-only permission is granted directly to the identity of the application. For example, you can grant an application the app-only permission to read the list of users in a tenant, regardless of who is signed in to the application.

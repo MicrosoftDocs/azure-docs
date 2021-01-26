@@ -19,7 +19,7 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 
 # How to remove an application registered with the Microsoft identity platform
 
-Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
+Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with the Microsoft identity platform may need to remove an application's registration.
 
 In the following sections, you learn how to:
 

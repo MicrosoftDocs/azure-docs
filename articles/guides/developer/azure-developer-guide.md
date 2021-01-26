@@ -81,7 +81,7 @@ Rather than worrying about building out and managing a whole application or the 
 
 > **When to use**: Use Azure Functions when you have code that is triggered by other Azure services, by web-based events, or on a schedule. You can also use Functions when you don't need the overhead of a complete hosted project or when you only want to pay for the time that your code runs. To learn more, see [Azure Functions Overview](../../azure-functions/functions-overview.md).
 >
-> **Get started**: Follow the Functions quickstart tutorial to [create your first function](../../azure-functions/functions-create-first-azure-function.md) from the portal.
+> **Get started**: Follow the Functions quickstart tutorial to [create your first function](../../azure-functions/functions-get-started.md) from the portal.
 >
 > **Try it now**: Azure Functions lets you run your code without having to sign up for an Azure account. Try it now at and [create your first Azure Function](https://tryappservice.azure.com/).
 
