@@ -4,7 +4,6 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.date: 11/03/2020
 ms.topic: conceptual
-ms.service: automation
 ms.custom: has-adal-ref
 ---
 

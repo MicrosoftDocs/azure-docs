@@ -2,12 +2,9 @@
 title: Troubleshoot Azure Automation account issues
 description: This article tells how to troubleshoot and resolve issues with an Azure account.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ---
 # Troubleshoot Azure Automation account issues
 

@@ -4,8 +4,8 @@ description: This article tells how to troubleshoot and resolve issues that aris
 services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.service: automation
 ---
+
 # Troubleshoot feature deployment issues
 
 You might receive error messages when you deploy the Azure Automation Update Management feature or the Change Tracking and Inventory feature on your VMs. This article describes the errors that might occur and how to resolve them.
