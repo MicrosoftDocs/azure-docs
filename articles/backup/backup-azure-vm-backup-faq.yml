@@ -17,7 +17,7 @@ sections:
         answer: |
           When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions).
           
-      - question: Why Initial backup is taking lot of time to complete?
+      - question: Why is Initial backup taking a lot of time to complete?
         answer: |
           Initial backup is always a full backup and it will depend on the size of the data and when the backup is processed.
           
