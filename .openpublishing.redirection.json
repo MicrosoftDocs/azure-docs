@@ -61514,6 +61514,106 @@
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agent-data-sources.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agent-data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agent-linux.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agent-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agent-linux-troubleshoot.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agent-linux-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agent-manage.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agent-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agents-overview.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agents-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agent-windows.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agent-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/agent-windows-troubleshoot.md",
+      "redirectUrl": "/azure/azure-monitor/agents/agent-windows-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-agent-install.md",
+      "redirectUrl": "/azure/azure-monitor/agents/azure-monitor-agent-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-collection-rule-azure-monitor-agent.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-windows-events.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-windows-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-collection-rule-overview.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-collection-rule-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-collectd.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-collectd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-custom-logs.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-custom-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-iis-logs.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-iis-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-json.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-linux-applications.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-linux-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-performance-counters.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-performance-counters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-syslog.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-syslog",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-windows-events.md",
+      "redirectUrl": "/azure/azure-monitor/agents/data-sources-windows-events",
+      "redirect_document_id": false
     }
   ]
 }
