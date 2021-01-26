@@ -65,7 +65,7 @@
     - name: Classic
       items:
       - name: Security module
-        href: concept-security-module.md'
+        href: concept-security-module.md
       - name: Edge security module
         href: security-edge-architecture.md
       - name: Security agents
