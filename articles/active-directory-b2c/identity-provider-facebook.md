@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -56,7 +56,7 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 
 ::: zone pivot="b2c-user-flow"
 
-## Configure a Facebook account as an identity provider
+## Configure Facebook as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -66,25 +66,6 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
 1. For the **Client secret**, enter the App Secret that you recorded.
 1. Select **Save**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## Add Facebook as an identity provider
-
-1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
-
-   ```xml
-   <TechnicalProfile Id="Facebook-OAUTH">
-     <Metadata>
-     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
-       <Item Key="client_id">00000000000000</Item>
-   ```
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
 
 ## Add Facebook identity provider to a user flow 
 
@@ -99,6 +80,17 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## Configure a Facebook account as an identity provider
+
+1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
 
 ## Upload and test the policy
 

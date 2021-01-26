@@ -112,6 +112,8 @@ landingContent:
             url: /python/api/azure-mgmt-managedservices
           - text: Terraform
             url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+          - text: Ansible
+            url: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
   
   - title: Reference - Downloads
     linkLists:

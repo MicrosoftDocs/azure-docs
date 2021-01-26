@@ -154,11 +154,7 @@ az login
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
-    --enable-versioning
-
-az storage account blob-service-properties update \
-    --resource-group <resource-group> \
-    --account-name <source-storage-account> \
+    --enable-versioning \
     --enable-change-feed
 
 az storage account blob-service-properties update \

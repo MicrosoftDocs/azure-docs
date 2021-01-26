@@ -76,9 +76,9 @@ ws.delete(delete_dependent_resources=True)
 
 If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in [Azure portal](https://portal.azure.com).
 
-### Using Monetary Credit with Azure Machine Learning
+### Using Azure Prepayment credit with Azure Machine Learning
 
-You can pay for Azure Machine Learning charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
+You can pay for Azure Machine Learning charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment to pay for charges for third party products and services including those from the Azure Marketplace.
 
 
 ## Create budgets
