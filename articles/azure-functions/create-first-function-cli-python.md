@@ -30,7 +30,7 @@ Before you begin, you must have the following:
 
     + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
 
-+ [Python versions that are supported by Azure Functions](supported-languages.md#Languages-by-runtime-version)
++ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
 
 ### Prerequisite check
 

@@ -24,7 +24,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
 
-+ [Python versions that are supported by Azure Functions](supported-languages.md#Languages-by-runtime-version)
++ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-versionn)
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
