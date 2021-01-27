@@ -3,7 +3,7 @@ title: Image Builder - Create a Windows Virtual Desktop image
 description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Buider in PowerShell.
 author: danielsollondon
 ms.author: danis
-ms.date: 01/22/2021
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.subservice: imaging
@@ -32,42 +32,39 @@ This walk through is intended to be a copy and paste exercise.
 ## Tips for building Windows images 
 
 1. VM Size - the default VM size is a `Standard_D1_v2`, which is not suitable for Windows. Use a `Standard_D2_v2` or greater.
-2. The example here uses the [PowerShell customerizer scripts](../linux/image-builder-json.md). You need to them with these with these settings or the build will hang.
-1. 
-```json
-  "runElevated": true,
-  "runAsSystem": true,
-```
+2. This example uses the [PowerShell customerizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will hang.
 
-For example:
-
-```json
-  {
-      "type": "PowerShell",
-      "name": "installFsLogix",
+    ```json
       "runElevated": true,
       "runAsSystem": true,
-      "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
+    ```
+
+    For example:
+
+    ```json
+      {
+          "type": "PowerShell",
+          "name": "installFsLogix",
+          "runElevated": true,
+          "runAsSystem": true,
+          "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
 ```
-1. Comment your code
+1. Comment your code. The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
-The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
+    ```PowerShell
+     write-host 'AIB Customization: Starting OS Optimizations script'
+    ```
 
-```PowerShell
- write-host 'AIB Customization: Starting OS Optimizations script'
-```
+4. Emit Exit Codes. AIB expects all scripts to return a 0 exit code, any non zero exit code will result in AIB failing the customization and stopping the build. If you have complex scripts, add instrumentation and emit exit codes, these will be shown in the customization.log.
 
-4. Emit Exit Codes
-AIB expects all scripts to return a 0 exit code, any non zero exit code will result in AIB failing the customization and stopping the build. If you have complex scripts, add instrumentation and emit exit codes, these will be shown in the customization.log.
-```PowerShell
- Write-Host "Exit code: " $LASTEXITCODE
-```
-5. Test
-Please test and test your code before on a standalone VM, ensure there are no user prompts, you are using the right privilege etc.
+    ```PowerShell
+     Write-Host "Exit code: " $LASTEXITCODE
+    ```
+1. Test. Please test and test your code before on a standalone VM, ensure there are no user prompts, you are using the right privilege etc.
 
-6. Networking: Set-NetAdapterAdvancedProperty 
+1. Networking: Set-NetAdapterAdvancedProperty 
 
-This is being set in the optimization script, but fails the AIB build, as it disconnects the network, this is commented out. It is under investigation.
+    This is being set in the optimization script, but fails the AIB build, as it disconnects the network, this is commented out. It is under investigation.
 
 ## Prerequisites
 
@@ -78,6 +75,7 @@ You must have the latest Azure PowerShell CmdLets installed, see [here](https://
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
+
 # wait until RegistrationState is set to 'Registered'
 
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
@@ -162,12 +160,11 @@ New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
-
-### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
-https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
-
-
 ```
+
+> [!NOTE] If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see this article to resolve: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
+
+
 
 ## Step 3 : Create the Shared Image Gallery 
 
@@ -304,5 +301,7 @@ Delete the resource group.
 ```azurepowershell-interactive
 Remove-AzResourceGroup $imageResourceGroup -Force
 ```
+
 ## Next Steps
-If you loved or hated Image Builder, please go to next steps to leave feedback, contact dev team, more documentation, or try more examples [here](../quickquickstarts/nextSteps.md)]
+
+You can try more examples [here](../quickquickstarts/nextSteps.md)]
