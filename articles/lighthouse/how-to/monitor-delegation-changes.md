@@ -35,7 +35,7 @@ After you elevate your access, your account will have the User Access Administra
 Once you have elevated your access, you can assign the appropriate permissions to an account so that it can query tenant-level activity log data. This account will need to have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure built-in role assigned at the root scope of your managing tenant.
 
 > [!IMPORTANT]
-> Granting a role assignment at root scope means that the same permissions will apply to every resource in the tenant. Because this is a broad level of access, you may wish to [assign this role to a service principal account and using that account to query data](#use-a-service-principal-account-to-query-the-activity-log). You can also assign the Monitoring Reader Azure built-in role at root scope to individual users or to user groups so that they can [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
+> Granting a role assignment at root scope means that the same permissions will apply to every resource in the tenant. Because this is a broad level of access, you may wish to [assign this role to a service principal account and using that account to query data](#use-a-service-principal-account-to-query-the-activity-log). You can also assign the Monitoring Reader role at root scope to individual users or to user groups so that they can [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
 
 Use one of the following methods to make the root scope assignment.
 
@@ -61,7 +61,7 @@ After you've assigned the Monitoring Reader role at root scope to the desired ac
 
 ## View delegation changes in the Azure portal
 
-Users who has been assigned the Monitoring Reader Azure built-in role at root scope can view delegation changes directly in the Azure portal.
+Users who has been assigned the Monitoring Reader role at root scope can view delegation changes directly in the Azure portal.
 
 1. Navigate to the **My customers** page, then select **Activity log** from the left-hand navigation menu.
 1. Ensure that **Directory Activity** is selected in the filter near the top of the screen.
@@ -70,7 +70,7 @@ A list of delegation changes will appear. You can select **Edit columns** to sho
 
 ## Use a service principal account to query the activity log
 
-the Monitoring Reader Azure built-in role at root scope is a broad level of access, you may wish to assign the role to a service principal account and use that account to query data using the script below.
+Because the Monitoring Reader role at root scope is such a broad level of access, you may wish to assign the role to a service principal account and use that account to query data using the script below.
 
 > [!IMPORTANT]
 > Currently, tenants with a large amount of delegation activity may run into errors when querying this data.
