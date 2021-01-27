@@ -45,9 +45,7 @@ For details, refer to the [Azure Managed Instance for Apache Cassandra pricing d
 
 ### How can I monitor infrastructure along with throughput?
 
-### How can I get additional help with Azure Cosmos DB?
-
-### Does the Cassandra API provide full backups?
+### Does Azure Managed Instance for Apache Cassandra provide full backups?
 
 ### How can I migrate data from my existing Apache Cassandra cluster to Azure Managed Instance for Apache Cassandra?
 
