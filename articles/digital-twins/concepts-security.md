@@ -131,7 +131,7 @@ You can use service tags to define network access controls on [network securit
 
 Below are the details of the **AzureDigitalTwins** service tag.
 
-| Tag | Purpose | Can use inbound or outbound ? | Can be regional? | Can use with Azure Firewall? |
+| Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | --- | --- | --- | --- |
 | AzureDigitalTwins | Azure Digital Twins<br>Note: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for [event routes](concepts-route-events.md). | Inbound | No | Yes |
 
@@ -147,17 +147,17 @@ Here are the steps to access [event route](concepts-route-events.md) endpoints u
 
 4. Set IP filters on the external resource(s) using the IP ranges from *Step 2*.  
 
-5. Update the IP ranges periodically as required. The ranges may change over time, so it's a good idea to check these regularly and refresh them when needed. The frequency of these updates can vary, but it's a good idea to check them once a week.
+5. Update the IP ranges periodically as required. The ranges may change over time, so it's a good idea to check them regularly and refresh them when needed. The frequency of these updates can vary, but it's a good idea to check them once a week.
 
 ## Encryption of data at rest
 
-Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it. This encryption occurs using a Microsoft managed encryption key.
+Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it. This encryption occurs using a Microsoft-managed encryption key.
 
 ## Cross-Origin Resource Sharing (CORS)
 
 Azure Digital Twins doesn't currently support **Cross-Origin Resource Sharing (CORS)**. As a result, if you are calling a REST API from a browser app, an [API Management (APIM)](../api-management/api-management-key-concepts.md) interface, or a [Power Apps](/powerapps/powerapps-overview) connector, you may see a policy error.
 
-To resolve this error, you can do one of the following:
+To resolve this error, you can do one of the following actions:
 * Strip the CORS header `Access-Control-Allow-Origin` from the message. This header indicates whether the response can be shared. 
 * Alternatively, create a CORS proxy and make the Azure Digital Twins REST API request through it. 
 

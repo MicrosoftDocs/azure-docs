@@ -118,7 +118,7 @@ When the endpoint is finished deploying, it should show up in the private endpoi
 
 ## Disable / enable public network access flags
 
-You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This is done through a **public network access flag**. 
+You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This action is done with a **public network access flag**. 
 
 This policy allows you to restrict API access to Private Link connections only. When the public network access flag is set to *disabled*, all REST API calls to the Azure Digital Twins instance data plane from the public cloud will return `403, Unauthorized`. Alternatively, when the policy is set to *disabled* and a request is made through a private endpoint, the API call will succeed.
 
@@ -134,7 +134,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the the Networking (preview) page for an Azure Digital Twins instance. The Public access tab is highlighted, and the option to choose whether to allow public network access is also highlighted." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
+            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Screenshot of the Azure portal showing the Networking (preview) page for an Azure Digital Twins instance. The Public access tab is highlighted, and the option to choose whether to allow public network access is also highlighted." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -144,7 +144,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 ### Option 2: Using the Azure CLI
 
-With the Azure CLI, this is done using the `az resource update` command as shown below. The publicNetworkAccess property on an Azure Digital Twins instance can be set to either `disabled` or `enabled`.
+With the Azure CLI, this action is done using the `az resource update` command as shown below. The publicNetworkAccess property on an Azure Digital Twins instance can be set to either `disabled` or `enabled`.
 
 To disable the flag, use the following command, replacing the placeholders with your instance values.
  
