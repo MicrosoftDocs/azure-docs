@@ -20,51 +20,17 @@ Document Translation is a feature of the [Azure Translator](../translator-info-o
 1. **Apply custom translation**. You can translate documents using [custom translation models](../customization.md#custom-translator)
 1. **Utilize custom dictionaries**. You can apply custom dictionaries without creating [custom translation models](../custom-translator/what-is-dictionary.md).
 
-## Document translation process
+## Document translation overview
 
-### Step 1
+Document translation is a batch process that is accomplished thorough several different steps and resources. First, you will need the following resources in the Azure portal:
 
-* [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
+* A single-service Translator or multi-service Cognitive Services resource. _See_  [Create a Translator Resource](../translator-how-to-signup.md)
+* [An Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
+* Two [Azure blob storage containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You will need one to upload your document files, folders or  [translation memory file](dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
 
-### Step 2
+## Custom document translation overview
 
-* [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the Azure portal to upload your files.
-* Upload your documents, folders,  or [translation memory file](dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob
-* [Delegate access with a service shared access signature (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature) for your blob with  [**read-only access**](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob).  
-* *See* [Create your user delegation SAS in the Azure portal](#create-your-user-delegation-sas-in-the-azure-portal) below.
-
-### Step 3
-
-* [Create a second container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) to store your final translated documents.
-* Create a [service shared access signature (SAS)](/rest/api/storageservices/create-service-sas) for your container with  [**write-only access**](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
-* *See* [Create your user delegation SAS in the Azure portal](#create-your-user-delegation-sas-in-the-azure-portal) below.
-
-### Step 4
-
-* Invoke the service by sending an **HTTP POST** request the to your storage blob. 
-* If the request is successful, the Document Translation API returns a job id that you can poll, via an **HTTP GET** request, to find status of documents requested for translation.
-* The service uploads the translated documents to your target your container.
-* You can download the resulting blobs using any Azure Storage tool (the Portal, AzCopy, Storage Explorer, etc.).
-
-## The custom document translation process
-
-* Build custom translation models using the [Custom Translation](../custom-translator/overview.md) interface.
-* Once your custom translation model is built and deployed you will get a unique identifier.
-* This unique identifier is passed as a configuration parameter  `Category ID` while invoking service request. *See* [Create a Custom Translation project](../how-to-create-project.md#view-project-details).
-
-* Follow steps 1 - 4, above, to complete the document translation.
-
-## Create your user delegation SAS in the Azure portal
-
-* You can create an SAS for your blob in the Azure portal by navigating as follows:  
- **your storage account** → **containers** → **your container** → **your blob**
-* Select **Generate SAS** from the menu near the top of the page.
-* Select **Signing method** → **User delegation key**.
-* For your **Storage** blob, specify **Permissions** → **Read** .
-* For your **Target** blob, specify  **Permissions** → **Write**.
-* Specify the signed key **Start** and **Expiry** times.
-* The optional **Allowed IP addresses** field specifies an IP address or a range of IP addresses from which to accept requests. If the IP address from which the request originates does not match the IP address or address range specified on the SAS token, the request will not be authorized.
-* The optional **Allowed protocols** field specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
+Custom translation uses models via the [Custom Translation](../custom-translator/overview.md) interface. Once your custom translation model is built and deployed you will get a unique identifier. This unique identifier is passed as a configuration parameter  `Category ID` while invoking service request. *See* [Create a Custom Translation project](../how-to-create-project.md#view-project-details).
 
 ## Available file formats
 
