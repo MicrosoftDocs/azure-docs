@@ -63,24 +63,24 @@ Take advantage of defensive measures already provided for components you use in 
 
 ## Function organization best practices
 
-Often you will create multiple functions as part of a solution. You can combine multiple functions into a function app. For all function hosting tiers except consumption, multiple function apps can also share the same resources allocated to your hosting plans. How you group functions and apps can impact the performance, scaling, configuration, deployment, and security of your application. There aren't rules that apply to every scenario, so consider the information here and decide how they apply to your situation.
+As part of your solution, you may develop and publish multiple functions. These functions are often combined into a single function app, but they can also run in separate function apps. In Premium and dedicated (App Service) hosting plans, multiple function apps can also share the same resources by running in the same plan. How you group your functions and function apps can impact the performance, scaling, configuration, deployment, and security of your overall solution. There aren't rules that apply to every scenario, so consider the information in this section when planning and developing your functions.
 
 ### Organize functions for performance and scaling
 
-Each function that you create has a memory footprint. While this footprint is usually small, having too many functions within a function app can mean that it's slower to start your app on new instances. It also means that the overall memory usage of your function app might be higher. It's hard to say how many functions should be in a single app since it depends on your particular workload, but if you are storing a lot of data in memory then consider having fewer functions in a single app.
+Each function that you create has a memory footprint. While this footprint is usually small, having too many functions within a function app can lead to slower startup of your app on new instances. It also means that the overall memory usage of your function app might be higher. It's hard to say how many functions should be in a single app, which depends on your particular workload. However, if your function stores a lot of data in memory, consider having fewer functions in a single app.
 
-If you deploy multiple function apps onto a single Elastic Premium or dedicated App Service plan, these apps will all be scaled together. This scaling behavior might be undesirable if you have one function app that has much higher memory requirements than the others, since it might use a disproportionate amount of memory resources from each instance your app is deployed to, and leave less memory available for the other apps.
+If you run multiple function apps in a single Premium plan or dedicated (App Service) plan, these apps are all scaled together. If you have one function app that has a much higher memory requirement than the others, it uses a disproportionate amount of memory resources on each instance to which the app is deployed. Because this could leave less memory available for the other apps on each instance, you might want to run a high-memory-using function app like this in its own separate hosting plan.
 
 > [!NOTE]
 > When using the [consumption hosting plan](./functions-scale.md) it doesn't matter if you put multiple apps together into the same plan, since Azure Functions will scale each app independently.
 
-Consider whether you want to group functions with different load profiles. For example, if you have a function that processes many thousands of queue messages, and another that is only called occasionally but has high memory requirements, you might want to separate them so they get their own sets of resources and they scale independently of each other.
+Consider whether you want to group functions with different load profiles. For example, if you have a function that processes many thousands of queue messages, and another that is only called occasionally but has high memory requirements, you might want to deploy them in separate function apps so they get their own sets of resources and they scale independently of each other.
 
 ### Organize functions for configuration and deployment
 
-Function apps have a `host.json` file, which can be used to configure advanced behavior of function triggers and the Azure Functions runtime. Changes to the `host.json` file apply to all functions within the app, so if you have some functions that need specific custom configuration, consider moving them into their own app.
+Function apps have a `host.json` file, which is used to configure advanced behavior of function triggers and the Azure Functions runtime. Changes to the `host.json` file apply to all functions within the app. If you have some functions that need custom configurations, consider moving them into their own function app.
 
-All functions within a function app are deployed individually. If you need to deploy individual functions separately, or use features like [deployment slots](./functions-deployment-slots.md) for some functions and not others, then you should consider spreading the functions across different function apps.
+All functions in your local project are deployed together as a set of files to your function app in Azure. You might need to deploy individual functions separately or use features like [deployment slots](./functions-deployment-slots.md) for some functions and not others. In such cases, you should deploy these functions (in separate code projects) to different function apps.
 
 ### Organize functions by privilege 
 
