@@ -41,7 +41,7 @@ ms.custom: seodec18
 
 #### Bug fixes
 
-- **All**: Fixed a regression in version 1.14, in which too much memory was allocated by the recognizer.
+- **All** (except JavaScript): Fixed a regression in version 1.14, in which too much memory was allocated by the recognizer.
 - **C++**: Fixed a garbage collection issue with `DialogServiceConnector`, addressing [GitHub issue #794](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/794).
 - **C#**: Fixed an issue with thread shutdown that caused objects to block for about a second when disposed.
 - **C++/C#/Java**: Fixed an exception preventing an application from setting speech authorization token or activity template more than once on a `DialogServiceConnector`.
