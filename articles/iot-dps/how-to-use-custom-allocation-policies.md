@@ -73,8 +73,11 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 3. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-toasters-` in the hub name.
+    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
 
+    > [!CAUTION]
+    > The example Azure Function code for the custom allocation policy requires the substring `-toasters-` in the hub name. Make sure to use a name containing the required toasters substring.
+    
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
@@ -83,7 +86,10 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. The example code for the custom allocation policy requires `-heatpumps-` in the hub name.
+    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
+
+    > [!CAUTION]
+    > The example Azure Function code for the custom allocation policy requires the substring `-heatpumps-` in the hub name. Make sure to use a name containing the required heatpumps substring.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -93,14 +99,14 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 5. The IoT hubs must be linked to the DPS resource. 
 
-    Run the following two commands to get the connection strings for the hubs you just created:
+    Run the following two commands to get the connection strings for the hubs you just created. Replace the hub resource names with the names you chose in each command:
 
     ```azurecli-interactive 
     hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
     hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
     ```
 
-    Run the following commands to link the hubs to the DPS resource:
+    Run the following commands to link the hubs to the DPS resource. Replace the DPS resource name with the name you chose in each command:
 
     ```azurecli-interactive 
     az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
