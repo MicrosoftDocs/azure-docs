@@ -14,14 +14,14 @@ ms.author: axelg
 ---
 # Troubleshoot the Azure Linux Agent
 
-The [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) enables a virtual machine (VM) to communicate with the Fabric Controller (the underlying physical server on which the VM is hosted) on IP address 168.63.129.16.
+The [Azure Linux Agent](../extensions/agent-linux.md) enables a virtual machine (VM) to communicate with the Fabric Controller (the underlying physical server on which the VM is hosted) on IP address 168.63.129.16.
 
 >[!NOTE]
 >This IP address is a virtual public IP address that facilitates communication and should not be blocked. For more information, see [What is IP address 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Before you begin
 
-Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or see [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
+Check the agent status and version to make sure it is still supported. See [Minimum version support for virtual machine agents in Azure](/troubleshoot/azure/virtual-machines/support-extensions-agent-version) to check version support, or see [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) for steps to find the status and version.
 
 ## Troubleshoot a Not Ready status
 
@@ -58,7 +58,7 @@ Check the agent status and version to make sure it is still supported. See [Mini
    AutoUpdate.Enabled=y
    ```
 
-   For more information on how to update the Azure Linux Agent, see [How to update the Azure Linux Agent on a VM](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
+   For more information on how to update the Azure Linux Agent, see [How to update the Azure Linux Agent on a VM](../extensions/update-linux-agent.md).
 
 1. Make sure the VM can connect to the Fabric Controller. Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on ports 80, 443, and 32526. If the VM doesn't connect as expected, check whether outbound communication over ports 80, 443, and 32526 is open in your local firewall on the VM. If this IP address is blocked, the VM agent might display unexpected behavior.
 

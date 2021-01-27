@@ -156,4 +156,4 @@ In this tutorial, you secured an NGINX web server with a TLS/SSL certificate sto
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)
+> [Linux virtual machine script samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

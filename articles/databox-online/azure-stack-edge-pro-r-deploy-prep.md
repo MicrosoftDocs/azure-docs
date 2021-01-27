@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -137,15 +137,18 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 11. Select **Create**.
 
-The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
+    The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
 
-After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+    After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
+
+> [!NOTE]
+> If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 

@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
 ---
 
@@ -30,6 +30,17 @@ Azure Cosmos DB supports two indexing modes:
 > Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
+
+## <a id="index-size"></a>Index size
+
+In Azure Cosmos DB, the total consumed storage is the combination of both the Data size and Index size. The following are some features of index size:
+
+* The index size depends on the indexing policy. If all the properties are indexed, then the index size can be larger than the data size.
+* When data is deleted, indexes are compacted on a near continuous basis. However, for small data deletions, you may not immediately observe a decrease in index size.
+* The Index size can grow on the following cases:
+
+  * Partition split duration- The index space is released after the partition split is completed.
+  * When a partition is splitting, index space will temporarily increase during the partition split. 
 
 ## <a id="include-exclude-paths"></a>Including and excluding property paths
 
