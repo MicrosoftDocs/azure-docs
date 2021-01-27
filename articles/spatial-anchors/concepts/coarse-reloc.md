@@ -118,13 +118,13 @@ Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map 
 Carefully deploying bluetooth beacons is the only solution for cross-platform, large scale, indoor coarse relocalization.
 The downside of a beacon-based system is the initial deployment cost of beacons.
 
-Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. This flexibility can be problematic for Azure Spatial Anchors as it considers beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause incorrect results. For best results you should:
+Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. Azure Spatial Anchors expects beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause incorrect results. For best results you should:
 
 * assign unique UUIDs to your beacons.
 * deploy them in a way that covers your space uniformly, and so that at least 3 beacons are reachable from any point in space.
 * pass the list of unique beacon UUIDs to the sensor fingerprint provider
 
-Radio signals such as bluetooth are affected by obstacles and can interfere with other radio signals. For these reasons it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons by walking around your space with candidate devices. While testing the coverage, make sure that you can reach at least 3 beacons from any position of your space. Setting up too many beacons can result in more interference between them and will not necessarily improve coarse relocalization accuracy.
+Radio signals such as bluetooth are affected by obstacles and can interfere with other radio signals. For these reasons it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience we recommend that you manually test the coverage of your beacons. This can be done by walking around your space with candidate devices and an application showing bluetooth in range. While testing the coverage, make sure that you can reach at least 3 beacons from any strategic position of your space. Setting up too many beacons can result in more interference between them and will not necessarily improve coarse relocalization accuracy.
 
 Bluetooth beacons typically have a coverage of 80 meters if no obstacles are present in the space.
 This means that for a space that has no big obstacles, one could deploy beacons on a grid pattern every 40 meters.
