@@ -13,7 +13,13 @@ ms.date: 01/15/2021
 
 # Monitor indexing workloads in Azure Cognitive Search
 
-This article explains how to monitor the status and performance of indexing workloads.
+This article explains how to monitor the status and performance of indexing workloads. 
+
+You must enable diagnostic logging through Azure Monitor to capture indexing
+
+## Prerequisites
+
++ Azure Monitor with persistent storage (Azure Blob storage, Log Analytics, or EventHub).
 
 <!--  
 Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.

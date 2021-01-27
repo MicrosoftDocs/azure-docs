@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/26/2021
 ---
 
 # Monitor query requests in Azure Cognitive Search
@@ -112,7 +112,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 1. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range.
 
-## Identify strings used in queries
+## Return query strings entered by users
 
 When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
 
@@ -140,7 +140,7 @@ Add the duration column to get the numbers for all queries, not just those that 
 
 1. Under the Monitoring section, select **Logs** to query for log information.
 
-1. Run the following query to return queries, sorted by duration in milliseconds. The longest-running queries are at the top.
+1. Run the following basic query to return queries, sorted by duration in milliseconds. The longest-running queries are at the top.
 
    ```Kusto
    AzureDiagnostics
@@ -150,6 +150,20 @@ Add the duration column to get the numbers for all queries, not just those that 
    ```
 
    ![Sort queries by duration](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Sort queries by duration")
+
+<!-- 1. Advance to this more complex version if you want the full set of query operations, a time range, and other selection criteria.
+
+   ```kusto
+   let ['_startTime']=datetime('2021-01-26T22:28:00Z');
+   let ['_endTime']=datetime('2021-01-26T22:28:00Z');
+    
+   AzureDiagnostics
+   | where TimeGenerated between(['_startTime'] .. ['_endTime']) // Time range filtering
+   | where OperationName in ("Query.Search", "Query.Suggest", "Query.Lookup", "Query.Autocomplete")
+   | where DurationMs > 250
+   | order by DurationMs desc 
+   | take 100 -->
+   ```
 
 ## Create a metric alert
 
