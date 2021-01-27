@@ -139,10 +139,10 @@ This glossary provides a brief description of important terms and concepts for t
 | **Site Management** | The on-premises management console option that that lets you manage enterprise sensors. | - |
 | **Smart IT learning** | After the learning period is complete and the learning mode is disabled, Defender for IoT might detect an unusually high level of baseline changes that are the result of normal IT activity, such as DNS and HTTP requests. This traffic might trigger unnecessary policy violation alerts and system notifications. To reduce these alerts and notifications, you can enable Smart IT Learning. | **[Learning mode](#L)<br /><br />[Baseline](#B)** |
 | **Subnets** | To enable focus on the OT devices, IT devices are automatically aggregated by subnet in the device map. Each subnet is presented as a single entity on the map, including an interactive collapsing or expanding capability to focus in to an IT subnet and back. | **[Device map](#D)** |
-| **System notifications** | Notifications from the on-premises management console regrading:<br /><br />- Sensor connection status.<br /><br />-  Remote backup failures. | **[Notifications](##N)<br /><br />[Alert](##A)** |
+| **System notifications** | Notifications from the on-premises management console regrading:<br /><br />- Sensor connection status.<br /><br />-  Remote backup failures. | **[Notifications](#n-11)<br /><br />[Alert](#a)** |
 
 ## Z
 
 | Term | Description | Learn more |
 |--|--|--|
-| **Zone** | An area within a site in which a sensor or sensors are installed. | **[Site](##S)<br /><br />[Business unit](##B)<br /><br />[Region](##R)** |
+| **Zone** | An area within a site in which a sensor or sensors are installed. | **[Site](#s-15)<br /><br />[Business unit](#b-1)<br /><br />[Region](#r-14)** |
