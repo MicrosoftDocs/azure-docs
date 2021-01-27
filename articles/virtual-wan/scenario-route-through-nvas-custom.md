@@ -53,6 +53,9 @@ There are three distinct connectivity patterns, which translates to three route 
   * Associated route table: **Default**
   * Propagating to route tables: **RT_SHARED** and **Default**
 
+> [!NOTE] 
+> Please make sure that the spoke VNets are not propagating to the Default label. This ensures traffic from branches to spoke VNets will be forwarded to the NVAs.
+
 These static routes ensure that traffic to and from the virtual network and branch goes through the NVA in the Service VNet (VNet 4):
 
 | Description | Route table | Static route              |
