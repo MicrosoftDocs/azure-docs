@@ -14,7 +14,7 @@ ms.subservice: disks
 The following examples show how bursting works with various virtual machine and disk combinations. To make the examples easy to follow, we will focus on MB/s, but the same logic is applied independently to IOPS.
 
 
-### Non-burstable virtual machine with burstable Disks
+## Non-burstable virtual machine with burstable Disks
 **VM and disk combination:** 
 - Standard_D8as_v4 
     - Uncached MB/s: 192
@@ -37,7 +37,7 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
 
 ![Non-bursting vm bursting disk bursting](media/disks-metrics/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
-### Burstable virtual machine with non-burstable disks
+## Burstable virtual machine with non-burstable disks
 **VM and disk combination:** 
 - Standard_L8s_v2 
     - Uncached MB/s: 160
@@ -53,7 +53,7 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
 Then the application needs to process a batched job that requires 600 MB/s. The Standard_L8s_v2 bursts to meet this demand and then requests to the disks get evenly spread out to P50 disks:
 
 ![Bursting vm non-bursting disk bursting](media/disks-metrics/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
-### Burstable virtual machine with burstable Disks
+## Burstable virtual machine with burstable Disks
 **VM and disk combination:** 
 - Standard_L8s_v2 
     - Uncached MB/s: 160
