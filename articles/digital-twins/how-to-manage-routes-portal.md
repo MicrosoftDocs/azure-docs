@@ -81,7 +81,7 @@ If the endpoint creation fails, observe the error message and retry after a few 
 
 You can also view the endpoint that was created back on the *Endpoints* page for your Azure Digital Twins instance.
 
-Now the Event Grid, Event Hub, or Service Bus is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
+Now the event grid, event hub, or Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You'll typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an endpoint with dead-lettering
 
