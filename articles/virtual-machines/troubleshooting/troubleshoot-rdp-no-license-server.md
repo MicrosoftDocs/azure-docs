@@ -84,7 +84,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
     2. Use the following command to check the policies and reconfigure as needed:
 
        ```
-        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
+        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode
+
+        reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
         If the **LicensingMode** value is set to any value other than 4, per user, then set the value to 4:

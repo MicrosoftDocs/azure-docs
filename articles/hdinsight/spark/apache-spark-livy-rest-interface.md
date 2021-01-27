@@ -83,7 +83,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 Livy provides high-availability for Spark jobs running on the cluster. Here is a couple of examples.
 
 * If the Livy service goes down after you've submitted a job remotely to a Spark cluster, the job continues to run in the background. When Livy is back up, it restores the status of the job and reports it back.
-* Jupyter notebooks for HDInsight are powered by Livy in the backend. If a notebook is running a Spark job and the Livy service gets restarted, the notebook continues to run the code cells.
+* Jupyter Notebooks for HDInsight are powered by Livy in the backend. If a notebook is running a Spark job and the Livy service gets restarted, the notebook continues to run the code cells.
 
 ## Show me an example
 

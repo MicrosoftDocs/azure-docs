@@ -23,10 +23,10 @@
       href: tutorial-prioritized-routes.md
     - name: Create a store locator
       href: tutorial-create-store-locator.md
-    - name: Android SDK Tutorials
-      items:
-      - name: Load GeoJSON data into map
-        href: tutorial-load-geojson-file-android.md
+  - name: Android SDK Tutorials
+    items:
+    - name: Load GeoJSON data into map
+      href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
     - name: Create indoor maps
@@ -306,6 +306,8 @@
     items:
     - name: Data service
       href: /rest/api/maps/data
+    - name: Elevation service
+      href: /rest/api/maps/elevation
     - name: Geolocation service
       href: /rest/api/maps/geolocation
     - name: Mobility services

@@ -32,11 +32,11 @@ This section helps you determine if your data is reaching IoT Central.
 
 If you haven't already done so, install the `az cli` tool and `azure-iot` extension.
 
-To learn how to install the `az cli`, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+To learn how to install the `az cli`, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To [install](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) the `azure-iot` extension, run the following command:
+To [install](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) the `azure-iot` extension, run the following command:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -47,20 +47,20 @@ When you've installed the `azure-iot` extension, start your device to see if the
 
 Use the following commands to sign in the subscription where you have your IoT Central application:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 To monitor the telemetry your device is sending, use the following command:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 If the device has connected successfully to IoT Central, you see output similar to the following:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -79,13 +79,13 @@ Filtering on device: device-001
 
 To monitor the property updates your device is exchanging with IoT Central, use the following preview command:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 If the device successfully sends property updates, you see output similar to the following:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -103,7 +103,7 @@ If you're still not seeing any data appear on your terminal, it's likely that yo
 
 If your data is not appearing on the monitor, check the provisioning status of your device by running the following command:
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -173,13 +173,13 @@ To detect which categories your issue is in, run the most appropriate command fo
 
 - To validate telemetry, use the preview command:
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - To validate property updates, use the preview command
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -187,7 +187,7 @@ You may be prompted to install the `uamqp` library the first time you run a `val
 
 The following output shows example error and warning messages from the validate command:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
