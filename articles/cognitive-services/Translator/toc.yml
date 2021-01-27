@@ -89,9 +89,9 @@
 - name:   Document Translation
   items:
   - name: Overview
-     items:
-     name: What is Document Translation?
-     href: document-translation/doc-translation-overview.md  
+    items:
+    - name: What is Document Translation?
+      href: document-translation/doc-translation-overview.md  
 - name: Custom Translator
   items:
   - name: Overview
