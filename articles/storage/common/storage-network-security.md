@@ -13,7 +13,7 @@ ms.subservice: common
 
 # Configure Azure Storage firewalls and virtual networks
 
-Azure Storage provides a layered security model. This model enables you to secure and control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks​ used. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges or from a list of subnets in an Azure Virtual Network (VNet).
+Azure Storage provides a layered security model. This model enables you to secure and control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks or resources​ used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources can access a storage account. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges, subnets in an Azure Virtual Network (VNet), or resource instances of some Azure services.
 
 Storage accounts have a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your storage account](storage-private-endpoints.md), which assigns a private IP address from your VNet to the storage account, and secures all traffic between your VNet and the storage account over a private link. The Azure storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when using private endpoints. Your storage firewall configuration also enables select trusted Azure platform services to access the storage account securely.
 
@@ -358,11 +358,15 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ---
 
+<a id="grant-access-specific-instances"></a>
+
 ## Grant access from Azure resource instances (preview)
 
-In some cases, an application might depend on an Azure resource, such as a logic app, or a function app. These resource *instances* can access data in your account if they are deployed to a virtual network that you've included in your network rules. Otherwise, you can grant access to the resource instance directly by creating a network rule. Then, the application can use the resource instance to interact with your data. 
+In some cases, an application might depend on Azure resources that cannot be isolated through a virtual network or an IP address rule. However, you'd still like to secure and restrict storage account access to only your application's Azure resources. You can configure storage accounts to allow access to specific resource instances of some Azure services by creating a resource instance rule. 
 
 The types of operations that a resource instance can perform on storage account data is determined by the [Azure role assignments](storage-auth-aad.md#assign-azure-roles-for-access-rights) of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
+
+The list of supported Azure services appears in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article.
 
 > [!NOTE]
 > This feature is in public preview and is available in all public cloud regions. 
@@ -379,7 +383,7 @@ You can add or remove resource network rules in the Azure portal.
 
 4. In the **Resource type** drop-down list, choose the resource type of your resource instance. 
 
-5. In the **Instance name** drop-down list, choose the resource instance.
+5. In the **Instance name** drop-down list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription or resource group.
 
 6. Click **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page. 
 
@@ -433,6 +437,8 @@ $accountName = "mystorageaccount"
 
 Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
 ```
+
+You can also choose to include all resource instances in the active tenant, subscription or resource group.  
 
 #### Remove access
 
@@ -502,6 +508,8 @@ az storage account network-rule add \
     --account-name mystorageaccount
 ```
 
+You can also choose to include all resource instances in the active tenant, subscription or resource group.
+
 #### Remove access
 
 Remove a network rule that grants access from a resource instance.
@@ -538,6 +546,10 @@ Some Microsoft services operate from networks that can't be included in your net
 
 - Resources of some services can be granted explicit access to your storage account by **assigning an Azure role** to its system-assigned managed identity.
 
+<a id="trusted-access-resources-in-subscription"></a>
+
+#### Trusted access for resources registered in your subscription
+
 When you enable the **Allow trusted Microsoft services...** setting, resources of the following services that are registered in the same subscription as your storage account are granted access for a limited set of operations as described:
 
 | Service                  | Resource Provider Name     | Operations allowed                 |
@@ -554,7 +566,17 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs, including through the Network Watcher and Traffic Analytics services. [Learn more](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
-The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+<a id="trusted-access-system-assigned-managed-identity"></a>
+
+#### Trusted access based on system-assigned managed identity
+
+Alternatively, you can also grant access to the resources of these services by enabling the Allow trusted Microsoft services... setting. In this case, you must also explicitly assign an Azure role to the system-assigned managed identity for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+
+The **Allow trusted Microsoft services...** setting also grants access to the resources of services that are listed in the following table. To grant access, you must explicitly [assign an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+
+> [!TIP]
+> The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.
+
 
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -585,10 +607,6 @@ You can manage network rule exceptions through the Azure portal, PowerShell, or 
 3. Check that you've selected to allow access from **Selected networks**.
 
 4. Under **Exceptions**, select the exceptions you wish to grant.
-
-   - If you want to give access to services, blah, blah choose the blah checkbox. See the list of services here - link.
-   - If you want to enable logs blah blah, choose blah.
-   - If you want to enable logs for blah blah, choose blah.
 
 5. Click **Save** to apply your changes.
 
@@ -643,7 +661,6 @@ You can manage network rule exceptions through the Azure portal, PowerShell, or 
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or removing exceptions have no effect.
 
 ---
-
 
 ## Next steps
 
