@@ -50,7 +50,7 @@ The following table lists some of the differences between an on-premises impleme
 ### Requirements
 
 - Determine the real CPU usage, as Oracle is licensed by core, sizing the vCPU needs can be an essential exercise to cost savings. 
-- Determine the database size, backup storage and growth rate.
+- Determine the database size, backup storage, and growth rate.
 - Determine the IO requirements, which you can estimate based on Oracle Statspack and AWR reports or from OS level storage monitoring tools.
 
 ## Configuration options
@@ -64,9 +64,9 @@ There are four potential areas that you can tune to improve performance in an Az
 
 ### Generate an AWR report
 
-If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on). For those databases without the Diagnostics Pack license or for a Standard Edition database, the same important metrics can be collected with a Statspack report after manual snapshots have been collected.  The main difference between these two reporting methods is that AWR is automatically collected and provides significantly more information about the database than it's predecessor reporting option of Statspack.
+If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on). For those databases without the Diagnostics Pack license or for a Standard Edition database, the same important metrics can be collected with a Statspack report after manual snapshots have been collected.  The main difference between these two reporting methods is that AWR is automatically collected and provides more information about the database than it's predecessor reporting option of Statspack.
 
-You might consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, vs. a 24 hr run and realize that AWR does provide averages as part of its calculations in the report.  For a datacenter migration, we recommend gathering reports for sizing on the production systems and estimate remaining database copies used for user testing, test, development, etc. by percentages, (UAT equal to production, test and development 50% of production sizing, etc.)
+You might consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, vs. a 24-hr run, and realize that AWR does provide averages as part of its calculations in the report.  For a datacenter migration, we recommend gathering reports for sizing on the production systems and estimate remaining database copies used for user testing, test, development, etc. by percentages (UAT equal to production, test, and development 50% of production sizing, etc.)
 
 By default, the AWR repository retains 8 days of data and takes snapshots on hourly intervals.  To run an AWR report from the command line, the following can be performed from a terminal:
 
