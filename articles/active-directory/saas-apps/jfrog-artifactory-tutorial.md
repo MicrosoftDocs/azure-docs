@@ -108,7 +108,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. In the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  locate the **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
+	![The Certificate download link](common/certificatebase.png)
 
 6. Configure the Artifactory (SAML Service Provider Name) with the 'Identifier' field (see step 4). In the **Set up JFrog Artifactory** section, copy the appropriate URL(s) based on your requirement.
 
