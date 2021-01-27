@@ -3,13 +3,13 @@ title: Language support - Translator
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 # Language and region support for text and speech translation
 
