@@ -700,6 +700,8 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GitHub AE
+        href: github-ae-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -976,6 +978,8 @@
         href: kisi-physical-security-tutorial.md
       - name: Kiteworks
         href: kiteworks-tutorial.md
+      - name: Klaxoon SAML
+        href: klaxoon-saml-tutorial.md
       - name: Klue
         href: klue-tutorial.md
       - name: KnowBe4 Security Awareness Training
@@ -2227,6 +2231,8 @@
         href: smartfile-provisioning-tutorial.md
       - name: SpaceIQ
         href: spaceiq-provisioning-tutorial.md
+      - name: Splashtop
+        href: splashtop-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
@@ -2243,6 +2249,10 @@
         href: tic-tac-mobile-provisioning-tutorial.md
       - name: Templafy
         href: templafy-provisioning-tutorial.md
+      - name: Templafy SAML2
+        href: templafy-saml-2-provisioning-tutorial.md
+      - name: Templafy OpenID Connect
+        href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
