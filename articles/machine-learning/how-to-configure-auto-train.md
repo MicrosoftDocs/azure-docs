@@ -225,7 +225,7 @@ Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `
 | norm_macro_recall | Churn prediction |
 | precision_score_weighted |  |
 
-#### Regression
+### Primary metrics for regression scenarios
 
 Metrics like `r2_score` and `spearman_correlation` can better represent the quality of model when the scale of the value-to-predict covers many orders of magnitude. For instance salary estimation, where many people have a salary of $20k to $100k, but the scale goes very high with some salaries in the $100M range. 
 
