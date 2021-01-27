@@ -19,9 +19,9 @@ ms.custom: aaddev
 
 # Microsoft identity platform authentication libraries
 
-The following tables show the authentication and authorization scenarios that are supported by the Microsoft Authentication Library (MSAL) for several application types. They include links to each library's open-source project on GitHub and where to get the package for your app's project.
+The following tables show Microsoft authentication library support for several application types. They include links to library source code, where to get the package for your app's project, and whether the library supports user sign-in (authentication), access to protected web APIs (authorization), or both.
 
-The Microsoft identity platform has been certified by the OpenID Foundation as a [certified OpenID provider](https://openid.net/certification/). If you prefer to use a library other than MSAL, choose a library with a [certified OpenID Connect implementation](https://openid.net/developers/certified/).
+The Microsoft identity platform has been certified by the OpenID Foundation as a [certified OpenID provider](https://openid.net/certification/). If you prefer to use a library other than the Microsoft Authentication Library (MSAL) or another Microsoft-supported library, choose one with a [certified OpenID Connect implementation](https://openid.net/developers/certified/).
 
 If you choose to hand-code your own protocol-level implementation of OAuth 2.0 or OpenID Connect 1.0, pay close attention to the security considerations in each standard's specification and follow a software development lifecycle (SDL) methodology like the [Microsoft SDL][Microsoft-SDL].
 
@@ -31,7 +31,7 @@ A single-page application runs entirely on the browser surface and fetches page 
 
 Because a SPA's code runs entirely in the browser, it's considered a *public client* that's unable to store secrets securely.
 
-| Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
+| Language / framework | Project on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
 | Angular | [MSAL Angular 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular) |—| ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
 | Angular | [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/msal-angular-v1/lib/msal-angular) | [@azure/msal-angular]( https://www.npmjs.com/package/@azure/msal-angular) | [Tutorial](tutorial-v2-angular.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
@@ -50,7 +50,7 @@ A web application runs code on a server that generates and sends HTML, CSS, and 
 
 Because a web application's code runs on the web server, it's considered a *confidential client* that can store secrets securely.
 
-| Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
+| Language / framework | Project on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
 | .NET | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) |—| ![X indicating no.][n] | ![Green check mark.][y] | GA |
 | ASP.NET Core | [ASP.NET Security](/aspnet/core/security/) | [Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) |—| ![Green check mark.][y] | ![X indicating no.][n] | GA |
@@ -75,7 +75,7 @@ A desktop application is typically binary (compiled) code that surfaces a user i
 
 Because a desktop application runs on the user's desktop, it's considered a *public client* that's unable to store secrets securely.
 
-| Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
+| Language / framework | Project on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
 | Electron | [MSAL Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) |—| ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
 | Java | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) |—| ![Green check mark.][y] | ![Green check mark.][y] | GA |
@@ -95,7 +95,7 @@ A mobile application is typically binary (compiled) code that surfaces a user in
 
 Because a mobile application runs on the the user's mobile device, it's considered a *public client* that's unable to store secrets securely.
 
-| Platform | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
+| Platform | Project on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
 | Android (Java) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | [Quickstart](quickstart-v2-android.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 | Android (Kotlin) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) |—| ![Green check mark.][y] | ![Green check mark.][y] | GA |
@@ -113,7 +113,7 @@ Services and daemons are commonly used for server-to-server and other unattended
 
 A service or daemon that runs on a server is considered a *confidential client* that can store its secrets securely.
 
-| Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
+| Language / framework | Project on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
 | .NET | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Quickstart](quickstart-v2-netcore-daemon.md) | ![X indicating no.][n] | ![Green check mark.][y] | GA |
 | Java | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [msal4j](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) |—| ![X indicating no.][n] | ![Green check mark.][y] | GA |
