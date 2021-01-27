@@ -148,6 +148,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
                             options.Connect(connection).UseFeatureFlags());
                     }).UseStartup<Startup>();
     ```
+    ---
 
 2. Open *Startup.cs* and update the `Configure` and `ConfigureServices` method to add the built-in middleware called `UseAzureAppConfiguration`. This middleware allows the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
 
@@ -236,35 +237,37 @@ public class HomeController : Controller
 
 ### [.NET Core 3.x](#tab/core3x)
 
-    ```csharp
-    using Microsoft.FeatureManagement;
-    
-    public class HomeController : Controller
+```csharp
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
+{
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
     {
-        private readonly IFeatureManager _featureManager;
-    
-        public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
+        _featureManager = featureManager;
     }
-    ```
+}
+```
     
 ### [.NET Core 2.x](#tab/core2x)
 
-    ```csharp
-    using Microsoft.FeatureManagement;
-    
-    public class HomeController : Controller
+```csharp
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
+{
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(IFeatureManager featureManager)
     {
-        private readonly IFeatureManager _featureManager;
-    
-        public HomeController(IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
+        _featureManager = featureManager;
     }
-    ```
+}
+```
+
+---
 
 ## Feature flag references
 
