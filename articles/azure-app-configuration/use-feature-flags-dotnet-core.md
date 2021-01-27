@@ -221,19 +221,19 @@ For some operations, such as manually checking feature flag values, you need to 
 
 #### [.NET 5.x](#tab/core5x)
     
-    ```csharp
-    using Microsoft.FeatureManagement;
-    
-    public class HomeController : Controller
+```csharp
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
+{
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
     {
-        private readonly IFeatureManager _featureManager;
-    
-        public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
+        _featureManager = featureManager;
     }
-    ```
+}
+```
     
 #### [.NET 3.x](#tab/core3x)
     
@@ -253,19 +253,20 @@ For some operations, such as manually checking feature flag values, you need to 
     
 #### [.NET 2.x](#tab/core2x)
     
-    ```csharp
-    using Microsoft.FeatureManagement;
-    
-    public class HomeController : Controller
+```csharp
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
+{
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(IFeatureManager featureManager)
     {
-        private readonly IFeatureManager _featureManager;
-    
-        public HomeController(IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
+        _featureManager = featureManager;
     }
-    ```
+}
+```
+
 ## Feature flag references
 
 Define feature flags as `enum` variables in order to reference them from code:
