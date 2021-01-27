@@ -236,35 +236,35 @@ public class HomeController : Controller
 
 ### [.NET Core 3.x](#tab/core3x)
 
-```csharp
-using Microsoft.FeatureManagement;
-
-public class HomeController : Controller
-{
-    private readonly IFeatureManager _featureManager;
-
-    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
+    ```csharp
+    using Microsoft.FeatureManagement;
+    
+    public class HomeController : Controller
     {
-        _featureManager = featureManager;
+        private readonly IFeatureManager _featureManager;
+    
+        public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
+        {
+            _featureManager = featureManager;
+        }
     }
-}
-```
+    ```
     
 ### [.NET Core 2.x](#tab/core2x)
 
-```csharp
-using Microsoft.FeatureManagement;
-
-public class HomeController : Controller
-{
-    private readonly IFeatureManager _featureManager;
-
-    public HomeController(IFeatureManager featureManager)
+    ```csharp
+    using Microsoft.FeatureManagement;
+    
+    public class HomeController : Controller
     {
-        _featureManager = featureManager;
+        private readonly IFeatureManager _featureManager;
+    
+        public HomeController(IFeatureManager featureManager)
+        {
+            _featureManager = featureManager;
+        }
     }
-}
-```
+    ```
 
 ## Feature flag references
 
