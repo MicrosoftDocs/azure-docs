@@ -1,5 +1,5 @@
 ---
-title: API access differences between Azure Media Services V2 to v3 API access | Microsoft Docs
+title: API access differences between Azure Media Services V2 to v3 API access 
 description: This article describes the API access differences between Azure Media Services V2 to V3.
 services: media-services
 documentationcenter: na
