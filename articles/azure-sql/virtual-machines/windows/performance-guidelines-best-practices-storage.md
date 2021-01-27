@@ -66,32 +66,32 @@ IO unit sizes influence IOPS and throughput capabilities as smaller IO sizes yie
 
 ## Cache throughput
 
-Virtual machines combine premium disks to increase speed up to the virtual machine limits. Virtual machines that support premium storage caching can take advantage of an additional Azure blob cache store to extend the read IOPS and throughput capabilities of a virtual machine. Virtual machines that are enabled for both premium storage and premium storage caching have these two different storage bandwidth limits.
+Virtual machines combine premium disks to increase IOPS and throughput up to the virtual machine limits. Virtual machines that support premium storage caching can take advantage of a feature called BlobCache or host caching to extend the IOPS and throughput capabilities of a virtual machine. Virtual machines that are enabled for both premium storage and premium storage caching have these two different storage bandwidth limits.
 
 Find a virtual machine that can handle your application workload via the virtual machine's maximum uncached disk throughput limits. The maximum cached limits provide an additional buffer for reads that helps address growth and unexpected peaks.
 
 Enable premium caching whenever the option is supported to significantly improve performance for reads against the data drive. . 
 
-Reads and writes to the Azure BLOB cache (cached IOPS and throughput) do not count against the limits of the uncached IOPS of the virtual machine.
+Reads and writes to the Azure BlobCache (cached IOPS and throughput) do not count against the uncached IOPS and throughput limits of the virtual machine.
 
-### Uncached IOPS
+### Uncached throughput
 
-The max uncached disk IOPS and throughput is the default storage maximum limit that the virtual machine can handle. This limit is defined at the virtual machine level and is not a limit of the underlying disk storage.
+The max uncached disk IOPS and throughput is the maximum remote storage limit that the virtual machine can handle. This limit is defined at the virtual machine level and is not a limit of the underlying disk storage. This limit applies only to I/O against data drives attached to the VM, not local I/O against the temp drive (D drive) or the OS drive.
 
 The amount of uncached IOPS and throughput that is available for a VM can be verified in the documentation for your virtual machine.
 
-For example, the [M-series](../../../virtual-machines/m-series.md) documentation shows that the max uncached IOPS for the Standard_M8ms VM is 5000 IOPS and 125 MBps of uncached disk throughput. 
+For example, the [M-series](../../../virtual-machines/m-series.md) documentation shows that the max uncached throughput for the Standard_M8ms VM is 5000 IOPS and 125 MBps of uncached disk throughput. 
 
 ![M-series Uncached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table.png)
 
-Likewise, you can see that the Standard_M32ts supports 20000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level despite the speed of the underlying premium disk storage.
+Likewise, you can see that the Standard_M32ts supports 20000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level despite the configuration of the underlying premium disk storage.
 
 For more information, see [uncached and cached limits](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
 
 
-### Cached IOPS
+### Cached and temp storage throughput
 
-The max cached storage throughput limit is a separate limit to the uncached IOPS limit on the virtual machine, and is available only when you enable host caching - also known as Premium Storage caching. Premium Storage caching utilizes the Azure Blob Cache, which consists of a combination of the host virtual machine's random-access memory and the VM's local SSD that is applied only for caching.
+The max cached and temp storage throughput limit is a separate limit from the uncached throughput limit on the virtual machine. This limit governs the I/O against the local temp drive (D drive) and the Azure BlobCache if host caching - also known as Premium Storage caching - is enabled. The Azure BlobCache consists of a combination of the host virtual machine's random-access memory and the VM's local SSD. The local temp drive (D drive) is also hosted on this SSD.
 
 When caching is enabled on premium storage, virtual machines can scale beyond the limitations of the uncached VM IOPS and throughput limits, or the underlying disk subsystem. Only certain virtual machines support both premium storage, and premium storage caching so if this is important to your business, choose your virtual machine carefully. 
 
