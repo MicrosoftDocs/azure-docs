@@ -21,7 +21,7 @@ See [Create diagnostic settings to send platform logs and metrics to different d
 ## View the Activity log
 You can access the Activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, then the only filter will be on the subscription. If you open it from a resource's menu, then the filter will be set to that resource. You can always change the filter though to view all other entries. Click **Add Filter** to add additional properties to the filter.
 
-![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
+![View Activity Log](./media/activity-log/view-activity-log.png)
 
 For a description of Activity log categories see [Azure Activity Log event schema](activity-log-schema.md#categories).
 
@@ -29,11 +29,11 @@ For a description of Activity log categories see [Azure Activity Log event schem
 
 For some events, you can view the Change history, which shows what changes happened during that event time. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with that event.
 
-![Change history list for an event](media/activity-logs-overview/change-history-event.png)
+![Change history list for an event](media/activity-log/change-history-event.png)
 
 If there are any associated changes with the event, you'll see a list of changes that you can select. This opens up the **Change history (Preview)** page. On this page you see the changes to the resource. In the following example, you can see not only that the VM changed sizes, but what the previous VM size was before the change and what it was changed to. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
-![Change history page showing differences](media/activity-logs-overview/change-history-event-details.png)
+![Change history page showing differences](media/activity-log/change-history-event-details.png)
 
 
 ### Other methods to retrieve Activity log events
@@ -169,11 +169,11 @@ Log profiles are the legacy method for sending the Activity log to Azure storage
 1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
 3. Click **Diagnostic settings**.
 
-   ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
+   ![Diagnostic settings](media/activity-log/diagnostic-settings.png)
 
 4. Click the purple banner for the legacy experience.
 
-    ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
+    ![Legacy experience](media/activity-log/legacy-experience.png)
 
 
 
@@ -256,11 +256,11 @@ The legacy method for sending the Activity log into a Log Analytics workspace is
 1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
 1. Click the subscription you want to connect.
 
-    ![Screenshot shows Log Analytics workspace with an Azure Activity log selected.](media/activity-log-collect/workspaces.png)
+    ![Screenshot shows Log Analytics workspace with an Azure Activity log selected.](media/activity-log/workspaces.png)
 
-1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
+2. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
 
-    ![Connect Workspaces](media/activity-log-collect/connect-workspace.png)
+    ![Connect Workspaces](media/activity-log/connect-workspace.png)
 
 
 To disable the setting, perform the same procedure and click **Disconnect** to remove the subscription from the workspace.
@@ -295,12 +295,12 @@ The Azure Log Analytics monitoring solution will be deprecated soon and replaced
 ### Use the solution
 Monitoring solutions are accessed from the **Monitor** menu in the Azure portal. Select **More** in the **Insights** section to open the **Overview** page with the solution tiles. The **Azure Activity Logs** tile displays a count of the number of **AzureActivity** records in your workspace.
 
-![Azure Activity Logs tile](media/collect-activity-logs/azure-activity-logs-tile.png)
+![Azure Activity Logs tile](media/activity-log/azure-activity-logs-tile.png)
 
 
 Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view. The view includes the visualization parts in the following table. Each part lists up to 10 items matching that parts's criteria for the specified time range. You can run a log query that returns all  matching records by clicking **See all** at the bottom of the part.
 
-![Azure Activity Logs dashboard](media/collect-activity-logs/activity-log-dash.png)
+![Azure Activity Logs dashboard](media/activity-log/activity-log-dash.png)
 
 
 ### Enable the solution for new subscriptions

@@ -28,10 +28,10 @@ Each entry in the activity log has a severity level. Severity level can have one
 | Warning | Events that provide forewarning of potential problems, although not an actual error. Indicate that a resource is not in an ideal state and may degrade later into showing errors or critical events.  
 | Informational | Events that pass noncritical information to the administrator. Similar to a note that says: "For your information". 
 
-The devlopers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isloation may not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on.  
+The devlopers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isolation may not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on.  
 
 ## Categories
-Each event in the Activity Log has a particular category that are described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](./resource-logs.md#send-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](./resource-logs-schema.md) is provided in the last section of the article.
+Each event in the Activity Log has a particular category that are described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](../platform/resource-logs.md#send-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](../platform/resource-logs-schema.md) is provided in the last section of the article.
 
 | Category | Description |
 |:---|:---|
@@ -802,10 +802,10 @@ resource.
 
 
 ## Schema from storage account and event hubs
-When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](./resource-logs-schema.md). The table below provides a mapping of properties from the above schemas to the resource logs schema.
+When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](../platform/resource-logs-schema.md). The table below provides a mapping of properties from the above schemas to the resource logs schema.
 
 > [!IMPORTANT]
-> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](./resource-logs-blob-format.md) for details on this format change.
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](../platform/resource-logs-blob-format.md) for details on this format change.
 
 
 | Resource logs schema property | Activity Log REST API schema property | Notes |
