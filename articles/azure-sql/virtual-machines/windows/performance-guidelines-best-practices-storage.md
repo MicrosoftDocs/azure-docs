@@ -40,89 +40,71 @@ To learn more, see the other performance best practices articles:
 
 ## Overview
 
-In contrast to on-premises, in Azure we have Azure Managed Disks such as standard HDD disks, standard SSD, premium SSD disks, and ultra-disks. Premium storage also supports a storage cache that helps improve read and read/write performance. Finally, there are Azure virtual machine features that influence storage performance such as bursting and write acceleration. These concepts are covered in this article. 
+Azure virtual machines use Azure Managed Disks, such as standard HDD disks, standard SSD, premium SSD disks, and ultra-disks, as the underlying storage. Premium storage supports a storage cache that helps improve read and read/write performance. Finally, there are Azure virtual machine features that influence storage performance such as bursting and write acceleration. 
 
-Choosing which Azure managed disks to use is an important consideration in storage design. The type disk dictates the type of storage volume you can create, where you place the files, how the disks are formatted, and which features are supported. 
+Choosing which Azure managed disks to use is an important consideration in storage design. The disk type dictates the type of storage volume you can create, where you place the files, how the disks are formatted, and which features are supported. 
 
-It is also important to understand how a virtual machine addresses the presented storage
+It is also important to understand how a virtual machine addresses the presented storage. Virtual machine storage components such as uncached and cached managed disks and the performance levels of storage access from the virtual machine can impact the performance of your SQL Server. 
 
-Virtual machine storage components such as uncached and cached managed disks and the performance levels of storage access from the virtual machine is summarized in the article below.
+For a detailed explanation of managed disk provisioning such as disk allocation and performance, see [Managed disks overview](../../../virtual-machines/managed-disks-overview.md).
 
-
-## Design considerations
-
+Provisioning a SQL Server VM through the Azure portal helps guide you through the storage configuration process and implements storage best practices such as creating separate storage pools for your data and log files, targeting tempdb to the D:\ drive, and enabling the optimal caching policy. For more information about provisioning and configuring storage, see [SQL VM storage configuration](storage-configuration.md). 
 
 
+## Performance metrics 
 
-
-
-
-**Disk Allocation and Performance**
-
-https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#disk-allocation-and-performance 
-
-### Storage performance
-When analyzing the performance needs of your target workload it is important to understand the performance indicators of your source environment. For SQL Server workloads we measure an applications performance by the number of requests that an application can process per unit of time. We may do this by capturing the user requests, batch requests, and transactions per second. Depending on the application we may also capture concurrent users along with memory, CPU, and disk related counters. 
-
-In terms of storage, we need to recognize the differences we have in Azure versus on-prem. 
-
-## Storage Performance Indicators
+For SQL Server workloads we measure application performance by the number of requests that an application can process per unit of time. We do this by capturing the user requests, batch requests, and transactions per second. Depending on the application we may also capture concurrent users along with memory, CPU, and disk related counters. 
 
 To assess storage needs, and determine how well storage is performing, you need to understand what to measure, and what those indicators mean. 
 
 [IOPS (Input/Output per second)](../../../virtual-machines/premium-storage-performance.md#iops) is the number of requests the application is making to storage per second. Measure IOPS using Performance Monitor counters `Avg. Disk sec/read` and `Avg. Disk sec/writes`. Together these counters are the transfers that address the underlying storage. [OLTP (Online transaction processing)](/azure/architecture/data-guide/relational-data/online-transaction-processing) applications need to drive higher IOPS in order to achieve optimal performance. Applications such as payment processing systems, online shopping, and retail point-of-sale systems are all examples of OLTP applications.
 
-[Throughput](../../../virtual-machines/premium-storage-performance.md#throughput) is the volume of data that is being sent to the underlying storage, often measured by megabytes per second. Measure throughput with the Performance Monitor counters `Disk read bytes/sec` and `Disk write bytes/sec`. [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing) are optimized around maximizing throughput over IOPS. Applications such as data stores for analysis, reporting, ETL workstreams, and other business intelligence targets are all examples of Data warehousing applications.
+[Throughput](../../../virtual-machines/premium-storage-performance.md#throughput) is the volume of data that is being sent to the underlying storage, often measured by megabytes per second. Measure throughput with the Performance Monitor counters `Disk read bytes/sec` and `Disk write bytes/sec`. [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing) is optimized around maximizing throughput over IOPS. Applications such as data stores for analysis, reporting, ETL workstreams, and other business intelligence targets are all examples of data warehousing applications.
 
 IO unit sizes influence IOPS and throughput capabilities as smaller IO sizes yield higher IOPS and larger IO sizes yield higher throughput. SQL Server chooses the optimal IO size automatically. For more information about, see [Optimize IOPS, throughput, and latency for your applications](../../../virtual-machines/premium-storage-performance.md#optimize-iops-throughput-and-latency-at-a-glance). 
 
 
-## Uncached vs. Cached throughput
+## Cache throughput
 
-Virtual machines combine premium disks to increase speed up to the virtual machine limits. Virtual machines that support premium disk caching can take advantage of an additional Azure blob cache store to extend the read IOPS and throughput capabilities of a virtual machine. Virtual machines that are enabled for both premium storage and premium storage caching have these two different storage bandwidth limits.
+Virtual machines combine premium disks to increase speed up to the virtual machine limits. Virtual machines that support premium storage caching can take advantage of an additional Azure blob cache store to extend the read IOPS and throughput capabilities of a virtual machine. Virtual machines that are enabled for both premium storage and premium storage caching have these two different storage bandwidth limits.
 
 Find a virtual machine that can handle your application workload via the virtual machine's maximum uncached disk throughput limits. The maximum cached limits provide an additional buffer for reads that helps address growth and unexpected peaks.
 
 Enable premium caching whenever the option is supported to significantly improve performance for reads against the data drive. . 
 
-Reads and writes to the Azure BLOB cache (cached IOPS and throughput) does not count against the limits of the uncached IOPS of the virtual machine.
+Reads and writes to the Azure BLOB cache (cached IOPS and throughput) do not count against the limits of the uncached IOPS of the virtual machine.
 
 ### Uncached IOPS
 
-The max uncached disk IOPS and throughput is the default storage maximum limit that the virtual machine can handle. It is important to understand that this limit is defined at the virtual machine level and is not a limit of the underlying disk storage.
+The max uncached disk IOPS and throughput is the default storage maximum limit that the virtual machine can handle. This limit is defined at the virtual machine level and is not a limit of the underlying disk storage.
 
 The amount of uncached IOPS and throughput that is available for a VM can be verified in the documentation for your virtual machine.
 
-Again, we will consider the [Standard_M128ms](../../../virtual-machines/m-series) virtual machine where in the documentation you can identify the uncached IOPS available as shown below.
+For example, the [M-series](../../../virtual-machines/m-series.md) documentation shows that the max uncached IOPS for the Standard_M8ms VM is 5000 IOPS and 125 MBps of uncached disk throughput. 
 
 ![M-series Uncached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table.png)
 
-We can see that the [Standard_M128ms](../../../virtual-machines/m-series) supports 80000 uncached disk IOPS and 2000 MBps uncached disk throughput. This limit is governed at the virtual machine level despite the speed of the underlying premium disk storage.
+Likewise, you can see that the Standard_M32ts supports 20000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level despite the speed of the underlying premium disk storage.
 
-**Reference:**
-Uncached Iops – What is it - https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-performance-linux#virtual-machine-uncached-vs-cached-limits
+For more information, see [uncached and cached limits](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
+
 
 ### Cached IOPS
 
-The max cached storage throughput limit is a separate limit available only when you enable host caching. In order to take advantage of premium storage caching your virtual machine must support both premium storage and premium storage caching which can be verified in the virtual machine documentation. When caching is enabled on premium storage, virtual machines can scale beyond the limitations of the VM uncached IOPS and throughput and beyond the limits of the underlying disk performance.
+The max cached storage throughput limit is a separate limit to the uncached IOPS limit on the virtual machine, and is available only when you enable host caching - also known as Premium Storage caching. Premium Storage caching utilizes the Azure Blob Cache, which consists of a combination of the host virtual machine's random-access memory and the VM's local SSD that is applied only for caching.
 
-The Azure Blob Cache consists of a combination of the host virtual machine's random-access memory and the VM's local SSD that is applied only for caching. This means that the cache is entirely local to the virtual machine so that the cache store can be read quickly. 
+When caching is enabled on premium storage, virtual machines can scale beyond the limitations of the uncached VM IOPS and throughput limits, or the underlying disk subsystem. Only certain virtual machines support both premium storage, and premium storage caching so if this is important to your business, choose your virtual machine carefully. 
 
-![M-Series Premium Storage Support](./media/performance-guidelines-best-practices/M-Series_table_premium_support.png
-)
+For example, the [M-series](../../../virtual-machines/m-series.md) documentation indicates that both premium storage, and premium storage caching is supported: 
 
-As we can see for the M-series, these virtual machines support both Premium Storage and Premium Storage caching. The limits of the cache will vary based on the virtual machine size.
+![M-Series Premium Storage Support](./media/performance-guidelines-best-practices/M-Series_table_premium_support.png)
 
-![M-series Cached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table_cached_temp.png
-)
+The limits of the cache will vary based on the virtual machine size. For example, the Standard_M8ms VM supports 10000 cached disk IOPS and 1000 MBps cached disk throughput with a total cache size of 793 Gib. Likewise, the Standard_M32ts VM supports 40000 cached disk IOPS and 400 MBps cached disk throughput with a total cache size of 3174 GiB. 
 
-The [Standard_M128ms](../../../virtual-machines/m-series) supports 160000 cached disk IOPS and 1600 MBps cached disk throughput with a total cache size of 12696 Gib. This limit is governed at the virtual machine level, but only becomes available to the virtual machine when host caching is enabled per disk.
+![M-series Cached Disk Throughput](./media/performance-guidelines-best-practices/M-Series_table_cached_temp.png)
 
-You can manually enable host caching on an existing VM though we always recommend stopping all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and re-attached after the settings are applied.
+You can manually enable host caching on an existing VM though you should stop all application workloads and the SQL Server services before any changes are made to your virtual machine's caching policy. Changing any of the virtual machine cache settings results in the target disk being detached and re-attached after the settings are applied.
 
-Note: The [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) experience helps guide you through the storage configuration process and implements storage best practices such as creating separate storage pools for your data and log files and targeting tempdb to the D:\ drive as well as enabling the optimal caching policy. 
-
-You should leverage the storage optimization process from the [SQL Server IaaS Agent extension](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration) whenever possible.
 
 ## Data files caching policies
 
