@@ -93,7 +93,7 @@ For a web application, you need to create an application secret. This secret wil
 1. Select **Keys** and then select **Generate key**.
 1. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
 
-
+* * *
 
 ## Enable ID token implicit grant
 
@@ -102,8 +102,6 @@ The defining characteristic of the implicit grant is that tokens, such as ID and
 1. In the left menu, under **Manage**, select **Authentication**.
 1. Under Implicit grant, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
-
-* * *
 
 ## Next steps
 

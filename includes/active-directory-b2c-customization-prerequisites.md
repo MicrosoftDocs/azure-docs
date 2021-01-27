@@ -2,7 +2,7 @@
 author: msmimart
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 12/10/2020
+ms.date: 01/27/2021
 ms.author: mimart
 ---
 ::: zone pivot="b2c-user-flow"
