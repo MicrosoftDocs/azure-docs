@@ -1,6 +1,5 @@
 ---
 title: Media Services architectures
-titleSuffix: Azure Media Services
 description: This article describes architectures for Media Services.
 services: media-services
 documentationcenter: ''
