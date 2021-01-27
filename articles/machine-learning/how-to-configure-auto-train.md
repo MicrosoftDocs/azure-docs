@@ -238,7 +238,7 @@ Metrics like `r2_score` and `spearman_correlation` can better represent the qual
 | r2_score | Airline delay, Salary estimation, Bug resolution time |
 | normalized_mean_absolute_error |  |
 
-#### Time series forecasting
+### Primary metrics for time series forecasting scenarios
 
 See regression notes, above.
 
