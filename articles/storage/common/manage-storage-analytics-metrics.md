@@ -28,13 +28,11 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 
 ## Enable metrics
 
-The [Azure portal](https://portal.azure.com) doesn't currently enable you to configure minute metrics in your storage account. You must enable minute metrics by using PowerShell or programmatically.
-
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
 
-2. Select **Diagnostics** in the **MONITORING** section of the menu blade.
+2. Select **Diagnostic settings (classic)** in the **Monitoring (classic)** section of the menu blade.
    
    ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
 
@@ -46,12 +44,13 @@ The [Azure portal](https://portal.azure.com) doesn't currently enable you to con
    To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
    > [!WARNING]
-   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
+   > Metics are stored as data in your account. Metric data can accumulate in your account over time which can increase the cost of storage. If you need metric data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale metrics data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the metrics data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
    >
 
 4. When you finish the monitoring configuration, select **Save**.
 
-A default set of metrics is displayed in charts on the storage account blade, as well as the individual service blades (blob, queue, table, and file). Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to configure which metrics are displayed in the chart.
+A default set of metrics is displayed in charts on the **Overview** blade, as well as the **Metrics (classic)** blade. 
+Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to configure which metrics are displayed in the chart.
 
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
@@ -101,9 +100,9 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
    - **ServiceType**: Possible values are **Blob**, **Queue**, **Table**, and **File**.
    - **MetricsType**: Possible values are **Hour** and **Minute**.  
    - **MetricsLevel**: Possible values are:
-   - **None**: Turns off monitoring.
-   - **Service**: Collects metrics such as ingress and egress, availability, latency, and success percentages, which are aggregated for the blob, queue, table, and file services.
-   - **ServiceAndApi**: In addition to the service metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
+      - **None**: Turns off monitoring.
+      - **Service**: Collects metrics such as ingress and egress, availability, latency, and success percentages, which are aggregated for the blob, queue, table, and file services.
+      - **ServiceAndApi**: In addition to the service metrics, collects the same set of metrics for each storage operation in the Azure Storage service API.
 
    The following command retrieves the current hourly metrics level and retention days for the blob service in your default storage account:  
 
@@ -148,7 +147,7 @@ After you configure Storage Analytics metrics to monitor your storage account, S
 
 Use the following procedure to choose which storage metrics to view in a metrics chart.
 
-1. Start by displaying a storage metric chart in the Azure portal. You can find charts on the **storage account blade** and in the **Metrics** blade for an individual service (blob, queue, table, file).
+1. Start by displaying a storage metric chart in the Azure portal. You can find charts on the **storage account blade** and in the **Metrics (classic)** blade.
 
    In this example, uses the following chart that appears on the **storage account blade**:
 
@@ -181,7 +180,7 @@ The metrics you selected in **Diagnostics** determines the resolution of the met
 
 ## Download metrics to archive or analyze locally
 
-If you want to download the metrics for long-term storage or to analyze them locally, you must use a tool or write some code to read the tables. You must download the minute metrics for analysis. The tables don't appear if you list all the tables in your storage account, but you can access them directly by name. Many storage-browsing tools are aware of these tables and enable you to view them directly. For a list of available tools, see [Azure Storage client tools](./storage-explorers.md).
+If you want to download the metrics for long-term storage or to analyze them locally, you must use a tool or write some code to read the tables. The tables don't appear if you list all the tables in your storage account, but you can access them directly by name. Many storage-browsing tools are aware of these tables and enable you to view them directly. For a list of available tools, see [Azure Storage client tools](./storage-explorers.md).
 
 |Metrics|Table names|Notes| 
 |-|-|-|  
@@ -253,20 +252,6 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
  return entityString;  
 }  
 ```  
-<a id="create-metric-alerts"></a>
-
-## Create metrics alerts
-
-You can create alerts to notify you when thresholds have been reached for storage resource metrics.
-
-1. To open the **Alert rules blade**, scroll down to the **MONITORING** section of the **Menu blade** and select **Alerts (classic)**.
-2. Select **Add metric alert (classic)** to open the **Add an alert rule** blade
-3. Enter a **Name** and **Description** for your new alert rule.
-4. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
-5. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../azure-monitor/platform/alerts-webhooks.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
-
-!['Add an alert rule' blade in the Azure portal](./media/manage-storage-analytics-metrics/add-alert-rule.png)
 
 <a id="add-metrics-to-dashboard"></a>
 
@@ -288,5 +273,5 @@ Once you've added charts to your dashboard, you can further customize them as de
 
 ## Next steps
 
-* Find more details about [metrics, logging, and billing](storage-analytics.md) for Storage Analytics.
+* To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
 * [Configure Storage Analytics logs](manage-storage-analytics-logs.md).
