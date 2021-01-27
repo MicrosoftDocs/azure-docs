@@ -4,8 +4,7 @@ ms.topic: reference-architecture
 author: kriation
 title: Azure Spring Cloud Reference Architecture
 ms.author: akaleshian
-ms.service: azure
-ms.subservice: spring-cloud
+ms.service: spring-cloud
 description: This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud.
 ---
 
