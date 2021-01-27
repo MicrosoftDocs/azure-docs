@@ -94,7 +94,7 @@ The default token validation code is configured to use a token issued by Azure A
 
 ### Use Postman to test endpoints
 
-After the SCIM endpoint is deployed, you can test to ensure its SCIM RFC compliant. This example provides a set of tests in **Postman** to validate CRUD operations on users and groups, filtering, updates to group membership, and disabling users.
+After the SCIM endpoint is deployed, you can test to ensure it is SCIM RFC compliant. This example provides a set of tests in **Postman** to validate CRUD operations on users and groups, filtering, updates to group membership, and disabling users.
 
 The endpoints are located in the `{host}/scim/` directory and can be interacted with using standard HTTP requests. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
 
