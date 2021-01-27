@@ -24,7 +24,7 @@ This step-by-step guide explains how to integrate a SharePoint on-premises farm 
 
 This process requires two Enterprise Applications. One is a SharePoint on-premises instance that you publish from the gallery to your list of managed SaaS apps. The second is an on-premises application (non-gallery application) you'll use to publish the first Enterprise Gallery Application.
 
-There are three primary advantages for this process. They are: 
+There are three primary advantages for this process: 
 
  - If the on-premises SharePoint instance is using Azure AD as single-sign on (SSO), you can extend the access and allow remote users to access SharePoint securely without VPN.
  - You can apply Azure AD security features like Conditional Access and multi-factor authorization (MFA) for external access.
@@ -55,9 +55,9 @@ Find the following values that you configured when you [integrated with Azure AD
  - External URL: https://<YourSharePointSiteURL>/
 
 > [!NOTE]
-> The values match the Sign On URL under the SAML Based Application configuration in Step 1.
+> The values match the Sign on URL under the SAML Based Application configuration in Step 1.
 
-   ![Need to verify this screenshot 1.](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
+   ![Screenshot that shows the Sign on URL value.](./media/application-proxy-integrate-with-sharepoint-server/sso-url-saml.png)
 
  1. Create the app as described and use following settings. For step-by-step instructions, see [Add an on-premises app to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad).
 
@@ -66,16 +66,15 @@ Find the following values that you configured when you [integrated with Azure AD
     - Translate URLs in Headers: No
     - Translate URLs in Application Body: No
 
-    ![Need to verify this screenshot 2.](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
+    ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
 
 2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that were assigned to the On-premises SharePoint Gallery Application.
 
 3. Optionally, you can prevent the visibility of two applications for the SharePoint on-premises. For **myapplications.microsoft.com**, go to the Properties section and set **Visible to users?** to **No** for one of your applications. 
 
-   ![Need to verify this screenshot 3.](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
-
-  
+   ![Screenshot that shows where to set the Visible to users? option.](./media/application-proxy-integrate-with-sharepoint-server/configure-properties.png)
+ 
 ## Step 3: Test your application
 1. Using a browser from a computer on an external network, navigate to the URL (https://portal.contoso.com/) that you configured during the publish step. Make sure you can sign in with the test account you set up.
 
