@@ -42,9 +42,10 @@ On macOS, use [Certificate Assistant](https://support.apple.com/guide/keychain-a
 1. Follow the instructions how to [Create self-signed certificates in Keychain Access on Mac](https://support.apple.com/guide/keychain-access/kyca8916/mac.)
 1. In the Keychain Access app on your Mac, select the certificate you created.
 1. Choose File > Export Items.
-1. Select a location to save your certificate.
+1. Select a file name to save your certificate. For example, **self-signed-certificate.p12**. 
 1. For the **File Format**, select **Personal Information Exchange (.p12)**.
 1. Select **Save**.
-1. Enter a **Password**, and then **Verify** it. 
+1. Enter a **Password**, and then **Verify** the password.
+1. Replace the file name extension to `.pfx`. For example , **self-signed-certificate.pfx**. 
 
 ---
