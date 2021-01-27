@@ -54,7 +54,7 @@ Prepare your environment for the Azure CLI.
 
 Start by creating an IoT hub with Azure CLI.
 
-![Diagram showing the step to create an IoT hub.](./media/quickstart/create-iot-hub.png)
+![Diagram showing the step to create an I o T hub.](./media/quickstart/create-iot-hub.png)
 
 The free level of Azure IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a hub created, you can use that IoT hub.
 
@@ -194,7 +194,7 @@ From the Command Shell in Windows Admin Center, confirm that the module you depl
      sudo iotedge list
      ```
 
-    :::image type="content" source="media/quickstart/iotedge-list-screen.png" alt-text="Screenshot showing the Command Shell iotedge list output.":::
+    :::image type="content" source="media/quickstart/iotedge-list-screen.png" alt-text="Screenshot showing the Command Shell I o T edge list output.":::
 
 1. View the messages being sent from the temperature sensor module to the cloud.
 
