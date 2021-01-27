@@ -1,6 +1,6 @@
 ---
 title: Protecting Microsoft 365 from on-premises attacks
-description: Guidance on how to ensure an on-premises attack does not impact Microsoft 365 
+description: Guidance about how to ensure an on-premises attack doesn't affect Microsoft 365.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -19,55 +19,60 @@ ms.collection: M365-identity-device-management
 
 Many customers connect their private corporate networks to Microsoft 365
 to benefit their users, devices, and applications. However, there are
-many well-documented ways these private networks can be compromised. Because Microsoft 365 acts as the "nervous system" for many organizations, it is critical to protect it from compromised on-premises infrastructure.
+many well-documented ways these private networks can be compromised. Because Microsoft 365 acts as the "nervous system" for many organizations, it's critical to protect it from compromised on-premises infrastructure.
 
 This article shows you how to configure your systems to protect
 your Microsoft 365 cloud environment from on-premises compromise. We
-primarily focus on Azure AD tenant configuration settings, the ways
-Azure AD tenants can be safely connected to on-premises systems, and the
-tradeoffs required to operate your systems in ways that protect your
+focus primarily on: 
+
+- Azure Active Directory (Azure AD) tenant configuration settings.
+- How Azure AD tenants can be safely connected to on-premises systems.
+- The tradeoffs required to operate your systems in ways that protect your
 cloud systems from on-premises compromise.
 
 We strongly recommend you implement this guidance to secure your
 Microsoft 365 cloud environment.
 > [!NOTE]
-> This article was initially published as a blog post. It has been moved here for longevity and maintenance. <br>
-To create an offline version of this article, use your browser's print to PDF functionality. Check back here frequently for updates.
+> This article was initially published as a blog post. It has been moved here for longevity and maintenance.
+>
+> To create an offline version of this article, use your browser's print-to-PDF functionality. Check back here frequently for updates.
 
-## Primary threat vectors from compromised on-premises environments
+## Threats from compromised on-premises environments
 
 
 Your Microsoft 365 cloud environment benefits from an extensive
 monitoring and security infrastructure. Using machine learning and human
-intelligence that looks across worldwide traffic can rapidly detect
-attacks and allow you to reconfigure in near-real-time. In hybrid
+intelligence, Microsoft 365 looks across worldwide traffic. It can rapidly detect
+attacks and allow you to reconfigure in close to real time. 
+
+In hybrid
 deployments that connect on-premises infrastructure to Microsoft 365,
 many organizations delegate trust to on-premises components for critical
-authentication and directory object state management decisions.
+authentication and directory object-state management decisions.
 Unfortunately, if the on-premises environment is compromised, these
-trust relationships result in attackers' opportunities to compromise
+trust relationships become an attacker's opportunities to compromise
 your Microsoft 365 environment.
 
-The two primary threat vectors are **federation trust relationships**
-and **account synchronization.** Both vectors can grant an attacker
+The two primary threat vectors are *federation trust relationships*
+and *account synchronization.* Both vectors can grant an attacker
 administrative access to your cloud.
 
 * **Federated trust relationships**, such as SAML authentication, are
-    used to authenticate to Microsoft 365 via your on-premises Identity
-    Infrastructure. If a SAML token signing certificate is compromised,
-    federation would allow anyone with that certificate to impersonate
-    any user in your cloud. **We recommend you disable federation trust
-    relationships for authentication to Microsoft 365 when possible.**
+    used to authenticate to Microsoft 365 through your on-premises identity
+    infrastructure. If a SAML token-signing certificate is compromised,
+    federation allows anyone who has that certificate to impersonate
+    any user in your cloud. *We recommend you disable federation trust
+    relationships for authentication to Microsoft 365 when possible.*
 
 * **Account synchronization** can be used to modify privileged users
-    (including their credentials) or groups granted administrative
-    privileges in Microsoft 365. **We recommend you ensure that
+    (including their credentials) or groups that have administrative
+    privileges in Microsoft 365. *We recommend you ensure that
     synchronized objects hold no privileges beyond a user in
-    Microsoft 365,** either directly or via inclusion in trusted roles
+    Microsoft 365,* either directly or through inclusion in trusted roles
     or groups. Ensure these objects have no direct or nested assignment
     in trusted cloud roles or groups.
 
-## Protecting Microsoft 365 from on-premises compromise
+## Protection from on-premises compromise
 
 
 To address the threat vectors outlined above, we recommend you adhere to
@@ -75,7 +80,7 @@ the principles illustrated below:
 
 ![Reference architecture for protecting Microsoft 365 ](media/protect-m365/protect-m365-principles.png)
 
-*  **Fully Isolate your Microsoft 365 administrator accounts.** They
+*  **Fully isolate your Microsoft 365 administrator accounts.** They
     should be
 
     * Mastered in Azure AD.
@@ -86,7 +91,7 @@ the principles illustrated below:
 
      *  Accessed only by using Azure Managed Workstations.
 
-These are restricted use accounts. **There should be no on-premises accounts with administrative privileges in Microsoft 365.** For more information, see this [overview of Microsoft 365 administrator roles](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+These accounts are restricted use. **There should be no on-premises accounts with administrative privileges in Microsoft 365.** For more information, see this [overview of Microsoft 365 administrator roles](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
 Also see [Roles for Microsoft 365 in Azure Active Directory](../roles/m365-workload-docs.md).
 
 *  **Manage devices from Microsoft 365.** Use Azure AD Join and
@@ -99,7 +104,7 @@ Also see [Roles for Microsoft 365 in Azure Active Directory](../roles/m365-workl
     or Kerberos authentication need an account in the organization's
     on-premises identity infrastructure. Ensure that these accounts,
     including service accounts, are not included in privileged cloud
-    roles or groups and that changes to these accounts cannot impact the
+    roles or groups and that changes to these accounts cannot affect the
     integrity of your cloud environment. Privileged on-premises software
     must not be capable of impacting Microsoft 365 privileged accounts
     or roles.
@@ -109,7 +114,7 @@ Also see [Roles for Microsoft 365 in Azure Active Directory](../roles/m365-workl
     such as Windows Hello, FIDO, the Microsoft Authenticator, or Azure
     AD MFA.
 
-## Specific Recommendations
+## Specific security recommendations
 
 
 The following sections provide specific guidance on how to implement the
@@ -118,7 +123,7 @@ principles described above.
 ### Isolate privileged identities
 
 
-In Azure AD, users with privileged roles such as administrators are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the impact of a compromise.
+In Azure AD, users with privileged roles such as administrators are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the effect of a compromise.
 
 * Use cloud-only accounts for Azure AD and Microsoft 365 privileged
     roles.d
@@ -161,7 +166,7 @@ practices to make credentials more secure.
 
 *  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md).
 
-## Provision User Access from the Cloud
+## Provisioning user access from the cloud
 
 Provisioning refers to the creation of user accounts and groups in applications or identity providers.
 
@@ -195,11 +200,11 @@ Provisioning refers to the creation of user accounts and groups in applications 
     Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
     broaden the impact of an on-premises breach. * 
  
-**Limitations and Tradeoffs:**
+**Limitations and tradeoffs:**
 
 * When used to provision hybrid accounts, the Azure AD from cloud HR systems relies on on-premises synchronization to complete the data flow from AD to Azure AD. If synchronization is interrupted, new employee records will not be available in Azure AD.
 
-## Use cloud groups for collaboration and access
+## Using cloud groups for collaboration and access
 
 Cloud groups allow you to decouple your collaboration and access from
 your on-premises infrastructure.
@@ -221,7 +226,7 @@ Take over includes direct manipulation of group membership on-premises
 or manipulation of on-premises attributes that can affect dynamic group
 membership in Microsoft 365.
 
-## Manage devices from the cloud
+## Managing devices from the cloud
 
 
 Use Azure AD capabilities to securely manage devices.
@@ -242,7 +247,7 @@ Use Azure AD capabilities to securely manage devices.
 -   [**Deploy privileged access devices**](https://docs.microsoft.com/security/compass/privileged-access-devices#device-roles-and-profiles)
     for privileged access to manage Microsoft 365 and Azure AD.
 
- ## Workloads, applications, and resources 
+## Workloads, applications, and resources 
 
 -   **On-premises SSO systems:** Deprecate any on-premises federation
     and Web Access Management infrastructure and configure applications
@@ -267,7 +272,7 @@ Use Azure AD capabilities to securely manage devices.
 
    * Follow the guidance of the [credential tiering](https://aka.ms/TierModel). Application Servers are typically considered Tier 1 assets.
 
- ## Conditional Access Policies
+## Conditional Access policies
 
 Use Azure AD Conditional Access to interpret signals and make
 authentication decisions based on them. For more information, see the
@@ -288,7 +293,7 @@ authentication decisions based on them. For more information, see the
 Once you have configured your environment to protect your Microsoft 365
 from an on-premises compromise, [proactively monitor](../reports-monitoring/overview-monitoring.md)
 the environment.
-### Scenarios to Monitor
+### Scenarios to monitor
 
 Monitor the following key scenarios, in addition to any scenarios
 specific to your organization. For example, you should proactively
@@ -334,7 +339,7 @@ monitor access to your business-critical applications and resources.
 
    * New custom roles created. 
 
-### Log Management
+### Log management
 
 Define a log storage and retention strategy, design, and implementation to facilitate a consistent toolset such as SIEM systems like Azure Sentinel, common queries, and investigation and forensics playbooks.
 
@@ -360,7 +365,7 @@ Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-acti
 
    * NPS that have the Azure MFA RADIUS extension 
 
-## Next Steps
+## Next steps
 * [Build resilience into identity and access management with Azure AD](resilience-overview.md)
 
 * [Secure external access to resources](secure-external-access-resources.md) 
