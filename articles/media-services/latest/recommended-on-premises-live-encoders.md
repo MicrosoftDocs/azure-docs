@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Live streaming encoders recommended by Media Services -  Azure | Microsoft Docs 
+title: Live streaming encoders recommended by Media Services -  Azure  
 description: Learn about live streaming on-premises encoders recommended by Media Services
 services: media-services
 keywords: encoding;encoders;media
