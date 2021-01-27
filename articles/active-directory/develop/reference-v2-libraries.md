@@ -13,13 +13,13 @@ ms.date: 01/29/2021
 ms.author: marsma
 # ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-# Customer intent: As a developer, I want to know whether there's a Microsoft identity platform-compatible authentication library available for
-# for the language/framework I'm using to build my application, and whether the library is supported by Microsoft.
+# Customer intent: As a developer, I want to know whether there's a Microsoft Authentication Library (MSAL) available for
+# the language/framework I'm using to build my application, and whether the library is GA or in preview.
 ---
 
 # Microsoft identity platform authentication libraries
 
-The following tables show the authentication and authorization scenarios that are supported by the Microsoft Authentication Library (MSAL) for several application types. Links to each library's open-source project on GitHub and where to get the package for your app's project are included.
+The following tables show the authentication and authorization scenarios that are supported by the Microsoft Authentication Library (MSAL) for several application types. They include links to each library's open-source project on GitHub and where to get the package for your app's project.
 
 The Microsoft identity platform has been certified by the OpenID Foundation as a [certified OpenID provider](https://openid.net/certification/). If you prefer to use a library other than MSAL, choose a library with a [certified OpenID Connect implementation](https://openid.net/developers/certified/).
 
@@ -54,11 +54,11 @@ Because a web application's code runs on the web server, it's considered a *conf
 |--|--|--|:-:|:-:|:-:|:-:|
 | .NET | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | -- | ![X indicating no.][n] | ![Green check mark.][y] | GA |
 | ASP.NET Core | [ASP.NET Security](/aspnet/core/security/) | [Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) | -- | ![Green check mark.][y] | ![X indicating no.][n] | GA |
-| ASP.NET Core | [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki) | [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
-| Java | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [msal4j](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | [Quickstart](quickstart-v2-java-webapp.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
-| Node.js | [MSAL.js for Node](quickstart-v2-nodejs-webapp-msal.md) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | [Quickstart](quickstart-v2-nodejs-webapp-msal.md) | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
+| ASP.NET Core | [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) | [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Java | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [msal4j](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | [Quickstart](quickstart-v2-java-webapp.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Node.js | [MSAL for Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [msal-node](https://www.npmjs.com/package/@azure/msal-node) | [Quickstart](quickstart-v2-nodejs-webapp-msal.md) | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
 | Node.js | [Azure AD Passport](https://github.com/AzureAD/passport-azure-ad) | [passport-azure-ad](https://www.npmjs.com/package/passport-azure-ad) | [Quickstart](quickstart-v2-nodejs-webapp.md) | ![Green check mark.][y] | ![X indicating no.][n] | GA |
-| Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [msal](https://pypi.org/project/msal) | [Quickstart](quickstart-v2-python-webapp.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [msal](https://pypi.org/project/msal) | [Quickstart](quickstart-v2-python-webapp.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 <!--
 | Java | [ScribeJava](https://github.com/scribejava/scribejava) | [ScribeJava 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | ![X indicating no.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
 | Java | [Gluu oxAuth](https://github.com/GluuFederation/oxAuth) | [oxAuth 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
@@ -77,9 +77,9 @@ Because a desktop application runs on the user's desktop, it's considered a *pub
 
 | Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
-| Electron | [MSAL Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | -- | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
-| Java | [MSAL4J](https://github.com/Azure-Samples/ms-identity-java-desktop/) | [Msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
-| macOS (Swift/Obj-C) | [MSAL for iOS and macOS](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html) | [MSAL](https://cocoapods.org/pods/MSAL) | [Tutorial](tutorial-v2-ios.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Electron | [MSAL for Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) | -- | ![Green check mark.][y] | ![Green check mark.][y] | Public preview |
+| Java | [MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Msal4j](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| macOS (Swift/Obj-C) | [MSAL for iOS and macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [MSAL](https://cocoapods.org/pods/MSAL) | [Tutorial](tutorial-v2-ios.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 | UWP | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | [Tutorial](tutorial-v2-windows-uwp.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 | WPF | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | [Tutorial](tutorial-v2-windows-desktop.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 <!--
@@ -95,12 +95,12 @@ A mobile application is typically binary (compiled) code that surfaces a user in
 
 Because a mobile application runs on the the user's mobile device, it's considered a *public client* that's unable to store secrets securely.
 
-|Platform | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
+| Platform | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
-| Android (Java) | [MSAL Android](https://github.com/Azure-Samples/ms-identity-android-java) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | [Quickstart](quickstart-v2-android.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
-| Android (Kotlin) | [MSAL](https://github.com/Azure-Samples/ms-identity-android-kotlin) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
-| iOS (Swift/Obj-C) | [MSAL for iOS and macOS](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html) | [MSAL](https://cocoapods.org/pods/MSAL) | [Tutorial](tutorial-v2-ios.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
-| Xamarin (.NET) |[MSAL.NET](https://github.com/azure-samples/active-directory-xamarin-native-v2) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Android (Java) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | [Quickstart](quickstart-v2-android.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Android (Kotlin) | [MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [MSAL](https://mvnrepository.com/artifact/com.microsoft.identity.client/msal) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| iOS (Swift/Obj-C) | [MSAL for iOS and macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [MSAL](https://cocoapods.org/pods/MSAL) | [Tutorial](tutorial-v2-ios.md) | ![Green check mark.][y] | ![Green check mark.][y] | GA |
+| Xamarin (.NET) | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) | -- | ![Green check mark.][y] | ![Green check mark.][y] | GA |
 <!--
 | React Native |[React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth/blob/main/docs/config-examples/azure-active-directory.md) | [react-native-app-auth](https://www.npmjs.com/package/react-native-app-auth) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
 -->
@@ -115,9 +115,9 @@ A service or daemon that runs on a server is considered a *confidential client* 
 
 | Language / framework | Library on<br/>GitHub | Package | Getting<br/>started | Sign in users | Access web APIs | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |--|--|--|:-:|:-:|:-:|:-:|
-|.NET| [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Quickstart](quickstart-v2-netcore-daemon.md) | ![X indicating no.][n] | ![Green check mark.][y] | Generally available (GA)|
-|Java| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [msal4j](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | -- | ![X indicating no.][n] | ![Green check mark.][y] | GA |
-|Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [msal-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Quickstart](quickstart-v2-python-daemon.md) | ![X indicating no.][n] | ![Green check mark.][y] | GA |
+| .NET | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Quickstart](quickstart-v2-netcore-daemon.md) | ![X indicating no.][n] | ![Green check mark.][y] | GA |
+| Java | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [msal4j](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | -- | ![X indicating no.][n] | ![Green check mark.][y] | GA |
+| Python | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [msal-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Quickstart](quickstart-v2-python-daemon.md) | ![X indicating no.][n] | ![Green check mark.][y] | GA |
 <!--
 |PHP| [The PHP League oauth2-client](https://oauth2-client.thephpleague.com/usage/) | [League\OAuth2](https://oauth2-client.thephpleague.com/) | ![Green check mark.][n] | ![X indicating no.][n] | ![Green check mark.][y] | -- |
 -->
