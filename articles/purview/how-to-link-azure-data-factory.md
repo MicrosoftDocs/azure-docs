@@ -67,7 +67,7 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
 When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
 
-1. The **Data Factory MSI** gets added to Purview RBAC role- **Purview Data Curator**.
+1. The **Data Factory MSI** gets added to Purview RBAC role: **Purview Data Curator**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
