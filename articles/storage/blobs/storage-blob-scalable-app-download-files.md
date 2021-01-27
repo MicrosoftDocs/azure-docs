@@ -41,8 +41,10 @@ In the previous tutorial, you only uploaded files to the storage account. Open `
 public static void Main(string[] args)
 {
     Console.WriteLine("Azure Blob storage performance and scalability sample");
-    // Set threading and default connection limit to 100 to ensure multiple threads and connections can be opened.
-    // This is in addition to parallelism with the storage client library that is defined in the functions below.
+    // Set threading and default connection limit to 100 to 
+    // ensure multiple threads and connections can be opened.
+    // This is in addition to parallelism with the storage 
+    // client library that is defined in the functions below.
     ThreadPool.SetMinThreads(100, 4);
     ServicePointManager.DefaultConnectionLimit = 100; // (Or More)
 
@@ -52,8 +54,9 @@ public static void Main(string[] args)
         // Call the UploadFilesAsync function.
         // await UploadFilesAsync();
 
-        // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files.
+        // Uncomment the following line to enable downloading of files from the storage account.
+        // This is commented out initially to support the tutorial at 
+        // https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
         await DownloadFilesAsync();
     }
     catch (Exception ex)
@@ -63,8 +66,10 @@ public static void Main(string[] args)
     }
     finally
     {
-        // The following function will delete the container and all files contained in them.  This is commented out initially
-        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files has you upload only for one tutorial and download for the other. 
+        // The following function will delete the container and all files contained in them.
+        // This is commented out initially as the tutorial at 
+        // https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
+        // has you upload only for one tutorial and download for the other.
         if (!exception)
         {
             // await DeleteExistingContainersAsync();
