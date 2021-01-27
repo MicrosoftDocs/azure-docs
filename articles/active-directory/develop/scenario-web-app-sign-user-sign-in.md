@@ -332,7 +332,7 @@ In previous versions of the ASP.NET core templates, the `Account` controller was
 - Calls `Signout()`, which lets the OpenID Connect middleware contact the Microsoft identity platform `logout` endpoint. The endpoint then:
 
   - Clears the session cookie from the browser.
-  - Calls back the front-channel logout URL. By default, the front-channel logout URL displays the signed-out view page [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). This page is also provided as part of MIcrosoft.Identity.Web.
+  - Calls back the post-logout redirect URI. By default, the post-logout redirect URI displays the signed-out view page [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). This page is also provided as part of Microsoft.Identity.Web.
 
 # [ASP.NET](#tab/aspnet)
 
