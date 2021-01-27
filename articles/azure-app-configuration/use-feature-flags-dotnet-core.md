@@ -116,7 +116,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
                 }).UseStartup<Startup>());
     ```
 
-    ### [.NET 3.x](#tab/core3x)
+    ### [.NET Core 3.x](#tab/core3x)
     
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -133,7 +133,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
             }).UseStartup<Startup>());
     ```
         
-    ### [.NET 2.x](#tab/core2x)
+    ### [.NET Core 2.x](#tab/core2x)
     
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -234,7 +234,7 @@ public class HomeController : Controller
 }
 ```
 
-### [.NET 3.x](#tab/core3x)
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -250,7 +250,7 @@ public class HomeController : Controller
 }
 ```
     
-### [.NET 2.x](#tab/core2x)
+### [.NET Core 2.x](#tab/core2x)
 
 ```csharp
 using Microsoft.FeatureManagement;
