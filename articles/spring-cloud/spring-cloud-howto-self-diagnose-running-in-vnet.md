@@ -9,7 +9,7 @@ ms.date: 01/25/2021
 ms.custom: devx-track-java
 ---
 
-# Self-diagnose for Running Azure Spring Cloud in VNET
+# Self-diagnose running Azure Spring Cloud in VNET
 Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
 ## Navigate to the diagnostics page
