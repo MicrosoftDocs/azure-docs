@@ -12,7 +12,7 @@ ms.date: 04/12/2020
 
 This article discusses common problems in ITSM Connector and how to troubleshoot them.
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see Overview of alerts in Microsoft Azure.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them.
 The customer can select how they want to be notified on the alert whether it is by mail, SMS, Webhook or even to automate a solution. Another option to be notified is using ITSM.
 ITSM gives you the option to send the alerts to external ticketing system such as ServiceNow.
 

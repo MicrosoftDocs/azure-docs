@@ -1,9 +1,6 @@
 ---
 title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
