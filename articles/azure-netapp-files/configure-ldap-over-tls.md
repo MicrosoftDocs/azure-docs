@@ -18,7 +18,11 @@ ms.author: b-juche
 ---
 # Configure LDAP over TLS for Azure NetApp Files
 
-You can use LDAP over TLS to secure communication between an Azure NetApp Files volume and the Active Directory LDAP server.  You can enable LDAP over TLS for NFS, SMB, and dual-protocol volumes of Azure NetApp Files. The LDAP over TLS feature is supported with the Active Directory Domain Services (AD DS) LDAP services only. 
+You can use LDAP over TLS to secure communication between an Azure NetApp Files volume and the Active Directory LDAP server.  You can enable LDAP over TLS for NFS, SMB, and dual-protocol volumes of Azure NetApp Files.  
+
+## Considerations
+
+The LDAP over TLS feature is supported with Active Directory Lightweight Directory Services (AD LDS) only. LDAP over TLS must not be enabled if you use Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).
 
 ## Register the LDAP over TLS feature 
 
