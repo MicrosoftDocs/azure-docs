@@ -34,7 +34,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 1. Enter a **Name** for your application, for example `MyWebApp`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
 
-    If there are more than one redirect URIs, you'll need to add these from the **Authentication** tab later after the app has been successfully created.
+    If there are more than one redirect URIs, add these from the **Authentication** tab later after the app has been successfully created.
 
 1. Select **Register** to create the app.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need this value to configure the application later in this project.

@@ -59,7 +59,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> For the code sample for this quickstart to work, you need to add reply URLs as `https://localhost:44321/` and `https://localhost:44321/signin-oidc`, add the **Front-channel logout URL** as `https://localhost:44321/signout-oidc`, and request ID tokens to be issued by the authorization endpoint.
+> This quickstart's sample code requires a **Redirect URI** of `https://localhost:44321/` and `https://localhost:44321/signin-oidc` and a **Front-channel logout URL** of `https://localhost:44321/signout-oidc`. Request ID tokens will be issued by the authorization endpoint.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
