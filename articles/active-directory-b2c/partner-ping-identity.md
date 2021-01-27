@@ -186,7 +186,7 @@ Follow these steps to create identity mapping:
 
 6. Select **Save**
 
-#### Step 4 - Create a site
+#### Step 4 – Create a site
 
 >[!NOTE]
 >In some configurations, it is possible that a site may contain more than one application. A site can be used with more than one application, where appropriate.
@@ -207,7 +207,7 @@ Follow these steps to create a site:
 
 7. Select **Save**
 
-#### Step 5 - Create an application
+#### Step 5 – Create an application
 
 Follow these steps to create an application in PingAccess for each application in Azure that you want to protect.
 
