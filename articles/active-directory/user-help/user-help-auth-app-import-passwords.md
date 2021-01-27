@@ -56,51 +56,32 @@ In **Settings**, open **Passwords**.
 
 &nbsp; | &nbsp;
 ---------- | --------
-Android | ![Google Chrome ellipsis menu location](./media/user-help-auth-app-import-passwords/android-passwords-location.png)
-iOS | ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/apple-passwords-location.png)
+Android | ![Andoid Chrome Passwords command location](./media/user-help-auth-app-import-passwords/android-passwords-location.png)
+iOS | ![Apple Chrome Passwords command location](./media/user-help-auth-app-import-passwords/apple-passwords-location.png)
 
 #### Export Passwords
 
-On Android devices, open the overflow menu (3-dots menu or Ellipsis, interface, mark, more, punctuation, shapes, three dots icon -Download on Iconfinder) on top right and tap on Export Passwords.
+On Android devices, open the menu by tapping on the ![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) menu at the top right for Android phones, or at bottom right for iOS devices, and then tap **Export passwords**.
 
-On iOS
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png) devices, scroll to the bottom on page and tap on Export Passwords.
-
-Android
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png)
-
-iOS
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png)
-
- 
-
- 
-
- 
+&nbsp; | &nbsp;
+---------- | --------
+Android | ![Android Chrome Export passwords location](./media/user-help-auth-app-import-passwords/android-export-passwords-location.png)
+iOS | ![Apple Chrome Export passwords location](./media/user-help-auth-app-import-passwords/apple-export-passwords-location.png)
 
 Chrome will confirm your identity by prompting you to provide PIN, Fingerprint or Face-Recognition. Please confirm your identity and tap on “Export Passwords” again for Chrome to complete the Export.
 
-Step 4: Import to Authenticator
+#### Import into Authenticator
 
-Once Export is complete, Chrome will prompt you to choose an app for starting the import. Select Authenticator to start the import.
+Once Export is complete, Chrome prompts you to choose an app for starting the import. Select ^^Authenticator^^ to start the import.
 
-Android
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png)
-
-iOS
-![Google Chrome ellipsis menu icon](./media/user-help-auth-app-import-passwords/ellipsis-chrome.png)
-
- 
-
- 
-
- 
+&nbsp; | &nbsp;
+---------- | --------
+Android | ![Android Chrome import passwords location](./media/user-help-auth-app-import-passwords/android-chrome-import.png)
+iOS | ![Apple Chrome import passwords location](./media/user-help-auth-app-import-passwords/apple-chrome-import.png)
 
 You’ll be notified about the result of import after it’s complete.
 
- 
-
-Import your passwords from Chrome on Desktop
+### Import your passwords from Chrome desktop browser
 
 Prerequisites:
 
@@ -112,15 +93,13 @@ Please navigated to URL passwords.google.com to open Google Password Manager on 
 
 Step 2: Open Password Settings Page
 
-Click on the Gear Icon to navigate to Password Settings page.
-
- 
+Click on the Gear Icon ![Desktop password manager gear icon](./media/user-help-auth-app-import-passwords/desktop-password-manager-gear.png) to navigate to Password Settings page.
 
 Step 3: Export your Passwords
 
 Click on Export button (highlighted in red below) that opens a confirmation dialog. Click on Export again to start exporting your passwords. Please provide your google password when prompted to confirm your identity. You’ll be notified about result of the export on the screen.
 
- 
+![Desktop export passwords command location](./media/user-help-auth-app-import-passwords/desktop-chrome-export-passwords-location.png)
 
 Although optional but, you may want to consider switching-off the toggles (highlighted in orange above) to stop Google from offering you to save passwords and signing you in automatically to website using stored credentials.
 
@@ -128,17 +107,17 @@ Step 4: Open Settings on Microsoft Autofill Chrome Extension
 
 Open the Microsoft Autofill Chrome Extension and click on Settings.
 
- 
+![Desktop Autofill Extension settings location](./media/user-help-auth-app-import-passwords/desktop-chrome-autofill-settings.png)
 
 Step 5: Import your Passwords
 
 Click on “Import Data” to open a dialog. Then, click on “Choose File” to locate and open the exported CSV.
 
- 
+![Desktop Import data CSV location](./media/user-help-auth-app-import-passwords/desktop-chrome-import-csv.png)
 
 That’s it! You’ll be notified about the result of import on the same screen.
 
-## Import passwords from Firefox 
+## Import passwords from Firefox
 
 Firefox allows exporting of passwords from desktop only, so please ensure you have access to a desktop before starting the import from Firefox. To access this help-page on desktop, navigate to this short url: aka.ms/ImportFireFox
 
@@ -148,7 +127,7 @@ You are signed-into latest version of Firefox on your desktop
 
 Step 1: Open “Logins and Passwords” from Firefox menu
 
-Open Firefox on your desktop and click on the menufrom the top right of screen.
+Open Firefox on your desktop and click on the menu from the top right of screen.
 
 Click on “Logins and Passwords” from the menu.
 
