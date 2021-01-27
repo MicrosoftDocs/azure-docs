@@ -1062,6 +1062,10 @@
     items:
     - name: Overview
       href: image-builder-overview.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy-vmimages.md
     - name: CLI
       items:
       - name: Linux
