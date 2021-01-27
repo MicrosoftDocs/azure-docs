@@ -155,7 +155,7 @@ Azure Data Share supports Impact Level 5 workloads in Azure Government with no e
 
 Azure Data Explorer supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](../data-explorer/security.md#data-encryption) at the storage level with your own keys.
+- Data in Azure Data Explorer clusters in Azure is secured and encrypted with Microsoft-managed keys by default. For extra control over encryption keys, you can supply customer-managed keys to use for data encryption and manage [encryption of your data](/azure/data-explorer/security#data-encryption) at the storage level with your own keys.
 
 ### [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
@@ -194,7 +194,7 @@ Azure HDInsight supports Impact Level 5 workloads in Azure Government with these
 
 ### [Power Automate](https://flow.microsoft.com/)
 
-Power Automate (formerly Microsoft Flow) supports Impact Level 5 workloads in Azure Government with no additional configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government regions.
+Power Automate (formerly Microsoft Flow) supports Impact Level 5 workloads in Azure Government with no extra configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government regions.
 
 ### [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
 
@@ -218,11 +218,11 @@ Azure Batch supports Impact Level 5 workloads in Azure Government with this conf
 
 ### [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
 
-Azure Cloud Services supports Impact Level 5 workloads in Azure Government with no additional configuration required.
+Azure Cloud Services supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 ### [Service Fabric](https://azure.microsoft.com/services/service-fabric/)
 
-Azure Service Fabric supports Impact Level 5 workloads in Azure Government with no additional configuration required.
+Azure Service Fabric supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 ### [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) and [virtual machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
@@ -367,7 +367,7 @@ For Identity services availability in Azure Government, see [Products available 
 
 ### [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-Azure Active Directory supports Impact Level 5 workloads in Azure Government with no additional configuration required.
+Azure Active Directory supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 ### [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
@@ -628,7 +628,7 @@ Azure Dedicated HSM supports Impact Level 5 workloads in Azure Government with n
 
 Azure Information Protection supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](../information-protection/byok-price-restrictions.md)
+- Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](/azure/information-protection/byok-price-restrictions)
 
 ### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
@@ -656,15 +656,15 @@ Microsoft Cloud App Security supports Impact Level 5 workloads in Azure Governme
 
 ### [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
-Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection, also known as Microsoft Defender ATP) supports Impact Level 5 workloads in Azure Government with no additional configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government and Azure Government for DoD regions.
+Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection, also known as Microsoft Defender ATP) supports Impact Level 5 workloads in Azure Government with no extra configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government and Azure Government for DoD regions.
 
 ### [Microsoft Defender for Identity](/defender-for-identity/what-is)
 
-Defender for Identity (formerly Azure Advanced Threat Protection, also known as Azure ATP) supports Impact Level 5 workloads in Azure Government with no additional configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government regions.
+Defender for Identity (formerly Azure Advanced Threat Protection, also known as Azure ATP) supports Impact Level 5 workloads in Azure Government with no extra configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government regions.
 
 ### [Microsoft Graph](/graph/overview)
 
-Microsoft Graph supports Impact Level 5 workloads in Azure Government with no additional configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government and Azure Government for DoD regions.
+Microsoft Graph supports Impact Level 5 workloads in Azure Government with no extra configuration required. It is available and [authorized at IL5](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope) in Azure Government and Azure Government for DoD regions.
 
 ## Storage
 
