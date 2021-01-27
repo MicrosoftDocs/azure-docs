@@ -22,10 +22,10 @@ Document Translation is a feature of the [Azure Translator](../translator-info-o
 
 ## Document translation overview
 
-Document translation is a batch process that is accomplished thorough several different steps and resources. First, you will need the following resources in the Azure portal:
+Document translation is a batch process that is accomplished with the following Azure portal resources:
 
-* A single-service Translator or multi-service Cognitive Services resource. _See_  [Create a Translator Resource](../translator-how-to-signup.md)
-* [An Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
+* A single-service Translator or multi-service Cognitive Services resource. _See_  [Create a Translator Resource](../translator-how-to-signup.md).
+* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
 * Two [Azure blob storage containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). You will need one to upload your document files, folders or  [translation memory file](dynamics365/fin-ops-core/dev-itpro/lifecycle-services/use-translation-service-tm) as a blob. Your second blob container will store your final translated documents.
 
 ## Custom document translation overview
