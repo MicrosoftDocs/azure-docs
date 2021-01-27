@@ -1,19 +1,11 @@
 ---
-title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
+title: 'Tutorial: Configure HTTPS on an Azure CDN custom domain'
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-
-ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/1/2019
+ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -113,27 +105,41 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 2. In PowerShell, run the following command:
 
      `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+    > [!NOTE]
+    > **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** is the service principal for **Microsoft.AzureFrontDoor-Cdn**.
 
-    ![Register Azure CDN in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
-              
+        New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
+
+        Secret                : 
+        ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8, 
+                                https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
+        ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
+        ObjectType            : ServicePrincipal
+        DisplayName           : Microsoft.AzureFrontDoor-Cdn
+        Id                    : c87be08f-686a-4d9f-8ef8-64707dbd413e
+        Type                  : 
 
 ### Grant Azure CDN access to your key vault
  
 Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
 
-1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
+1. In your key vault in the **Settings** section, select **Access policies**. In the right pane, select **+ Add Access Policy**:
 
-    ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Create keyvault access policy for CDN" border="true":::
 
-2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and choose **Microsoft.Azure.Cdn**. Click **Select**.
+2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**.  Select **Select**:
 
-    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Select **Select**.
 
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
+    
 3. Select **Certificate permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the certificates.
 
-4. Select **Secret permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the Secrets.
+4. Select **Secret permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the secrets:
 
-5. Select **OK**. 
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select service principal of Azure CDN" border="true":::
+
+5. Select **Add**. 
 
     Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
  
