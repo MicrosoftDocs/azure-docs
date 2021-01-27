@@ -229,7 +229,7 @@ Post thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `
 
 Metrics like `r2_score` and `spearman_correlation` can better represent the quality of model when the scale of the value-to-predict covers many orders of magnitude. For instance salary estimation, where many people have a salary of $20k to $100k, but the scale goes very high with some salaries in the $100M range. 
 
-`normalized_mean_absolute_error` and `normalized_root_mean_squared_error` would in this case treat a $20k prediction error the same for a worker with a $30k salary the same as a worker making $20M, while in reality predicting only $20k off from a $20M salary is very close, whereas $20k off from $30k is not close. `normalized_mean_absolute_error` and `normalized_root_mean_squared_error` are useful when the values to predict are in a similar scale.
+`normalized_mean_absolute_error` and `normalized_root_mean_squared_error` would in this case treat a $20k prediction error the same for a worker with a $30k salary as a worker making $20M. While in reality, predicting only $20k off from a $20M salary is very close (a small 0.1% relative difference), whereas $20k off from $30k is not close (a large 67% relative difference). `normalized_mean_absolute_error` and `normalized_root_mean_squared_error` are useful when the values to predict are in a similar scale.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
