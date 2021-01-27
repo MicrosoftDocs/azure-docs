@@ -42,7 +42,7 @@ Virtual machine disk traffic (including mount and unmount operations, and disk I
 
 Classic storage accounts do not support firewalls and virtual networks.
 
-You can use unmanaged disks in storage accounts with network rules applied to backup and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
+You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
 ## Change the default network access rule
 
@@ -59,11 +59,11 @@ You can manage default network access rules for storage accounts through the Azu
 
 1. Go to the storage account you want to secure.
 
-2. Click on the settings menu called **Networking**.
+2. Select on the settings menu called **Networking**.
 
 3. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
 
-4. Click **Save** to apply your changes.
+4. Select **Save** to apply your changes.
 
 <a id="powershell"></a>
 
@@ -146,20 +146,20 @@ You can manage virtual network rules for storage accounts through the Azure port
 
 1. Go to the storage account you want to secure.
 
-2. Click on the settings menu called **Networking**.
+2. Select on the settings menu called **Networking**.
 
 3. Check that you've selected to allow access from **Selected networks**.
 
-4. To grant access to a virtual network with a new network rule, under **Virtual networks**, click **Add existing virtual network**, select **Virtual networks** and **Subnets** options, and then click **Add**. To create a new virtual network and grant it access, click **Add new virtual network**. Provide the information necessary to create the new virtual network, and then click **Create**.
+4. To grant access to a virtual network with a new network rule, under **Virtual networks**, select **Add existing virtual network**, select **Virtual networks** and **Subnets** options, and then select **Add**. To create a new virtual network and grant it access, select **Add new virtual network**. Provide the information necessary to create the new virtual network, and then select **Create**.
 
     > [!NOTE]
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
     > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use Powershell, CLI or REST APIs.
 
-5. To remove a virtual network or subnet rule, click **...** to open the context menu for the virtual network or subnet, and click **Remove**.
+5. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
-6. Click **Save** to apply your changes.
+6. select **Save** to apply your changes.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -272,15 +272,15 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 1. Go to the storage account you want to secure.
 
-2. Click on the settings menu called **Networking**.
+2. Select on the settings menu called **Networking**.
 
 3. Check that you've selected to allow access from **Selected networks**.
 
 4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under **Firewall** > **Address Range**.
 
-5. To remove an IP network rule, click the trash can icon next to the address range.
+5. To remove an IP network rule, select the trash can icon next to the address range.
 
-6. Click **Save** to apply your changes.
+6. Select **Save** to apply your changes.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -383,11 +383,11 @@ You can add or remove resource network rules in the Azure portal.
 
 4. In the **Resource type** drop-down list, choose the resource type of your resource instance. 
 
-5. In the **Instance name** drop-down list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription or resource group.
+5. In the **Instance name** drop-down list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
 
-6. Click **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page. 
+6. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page. 
 
-To remove the resource instance, click the delete icon (:::image type="icon" source="media/storage-network-security/delete_icon.png":::) next to the resource instance.
+To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete_icon.png":::) next to the resource instance.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -404,7 +404,7 @@ Install the latest version of the PowershellGet module. Then, close and reopen t
 install-Module PowerShellGet –Repository PSGallery –Force  
 ```
 
-Install **Az.Storage** preview module.
+Install **Az. Storage** preview module.
 
 ```powershell
 Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
@@ -437,8 +437,6 @@ $accountName = "mystorageaccount"
 
 Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
 ```
-
-You can also choose to include all resource instances in the active tenant, subscription or resource group.  
 
 #### Remove access
 
@@ -482,7 +480,7 @@ You can use Azure CLI commands to add or remove resource network rules.
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Then, verify that the version of Azure CLI that have installed is `2.13.0` or higher by using the following command.
+2. Then, verify that the version of Azure CLI that you have installed is `2.13.0` or higher by using the following command.
 
    ```azurecli
    az --version
@@ -507,8 +505,6 @@ az storage account network-rule add \
     -g myResourceGroup \
     --account-name mystorageaccount
 ```
-
-You can also choose to include all resource instances in the active tenant, subscription or resource group.
 
 #### Remove access
 
@@ -608,13 +604,13 @@ You can manage network rule exceptions through the Azure portal, PowerShell, or 
 
 1. Go to the storage account you want to secure.
 
-2. Click on the settings menu called **Networking**.
+2. Select on the settings menu called **Networking**.
 
 3. Check that you've selected to allow access from **Selected networks**.
 
 4. Under **Exceptions**, select the exceptions you wish to grant.
 
-5. Click **Save** to apply your changes.
+5. Select **Save** to apply your changes.
 
 #### [PowerShell](#tab/azure-powershell)
 
