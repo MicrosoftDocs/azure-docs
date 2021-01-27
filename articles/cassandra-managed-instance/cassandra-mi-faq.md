@@ -29,10 +29,6 @@ The service will be available in a limited number regions during private preview
 
 These limits will be dictated by the Virtual Machine SKUs chosen. 
 
-### Are Direct and Gateway connectivity modes encrypted?
-
-Yes both modes are always fully encrypted.
-
 ### How much does Azure Managed Instance for Apache Cassandra cost?
 
 For details, refer to the [Azure Managed Instance for Apache Cassandra pricing details](https://azure.microsoft.com/pricing/details/cassandra-managed-instance/) page. Azure Managed Instance for Apache Cassandra charges are based on the underlying VM cost, with a small markup.
@@ -49,7 +45,7 @@ For details, refer to the [Azure Managed Instance for Apache Cassandra pricing d
 
 ### How can I migrate data from my existing Apache Cassandra cluster to Azure Managed Instance for Apache Cassandra?
 
-Azure Managed Instance for Apache Cassandra supports all of the capabilities baked into Apache Cassadra for replication and streaming data between data-centers. 
+Azure Managed Instance for Apache Cassandra supports all of the capabilities baked into Apache Cassandra for replication and streaming data between data-centers. 
 
 ### Can I pair an on-premises Apache Cassandra cluster with the Azure Managed Instance for Apache Cassandra?
 
