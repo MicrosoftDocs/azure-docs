@@ -50,7 +50,7 @@ Security alerts are triggered when there's:
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Alerts can be exported to Azure Sentinel or any other third-party SIEM or any other external tool.
 
 > [!TIP]
-> It's a best practice to [configure Azure Defender for Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
+> It's a best practice to [configure Azure Defender for Storage](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center) on the subscription level, but you may also [configure it on individual storage accounts](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal).
 
 
 ## What is hash reputation analysis for malware?
