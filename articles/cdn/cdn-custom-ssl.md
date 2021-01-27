@@ -59,7 +59,7 @@ To enable HTTPS on an Azure CDN custom domain, you use a TLS/SSL certificate. Yo
 
 Azure CDN handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. 
 
-If the custom domain is already mapped to the CDN endpoint, no further action is needed. Azure CDN will process the steps and complete your request automatically. I
+If the custom domain is already mapped to the CDN endpoint, no further action is needed. Azure CDN will process the steps and complete your request automatically.
 
 If your custom domain is mapped elsewhere, use email to validate your domain ownership.
 
@@ -183,8 +183,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 ## Validate the domain
 
-If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to  
-[Custom domain mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). 
+If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). 
 
 Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, continue to [Custom domain not mapped to your CDN endpoint](#custom-domain-isnt-mapped-to-your-cdn-endpoint).
 
