@@ -6,18 +6,13 @@ ms.reviewer: logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.date: 01/31/2021
+
+# Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles. 
 ---
 
 # Plan and manage costs for Azure Logic Apps
 
-<!-- Check out the following published examples:
-- [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs)
-- [https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs](https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs)
-- [https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost)
--->
-
-<!-- Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles.
--->
+[Prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 This article helps you plan and manage costs for Azure Logic Apps. Before you create or add any resources using this service, estimate your costs by using the Azure pricing calculator. After you start using Logic Apps resources, you can set budgets and monitor costs by using [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
 
@@ -25,13 +20,13 @@ Keep in mind that costs for Logic Apps are only part of the monthly costs in you
 
 ## Prerequisites
 
-<!--Note for Azure service writer: The section covers prereqs for the Cost Analysis feature. Add other prereqs needed for your service.  -->
+<!--Note for Azure service writer: This section covers prerequisites for the Cost Management's Cost Analysis feature. Add other prerequisites needed for your service after the Cost Management prerequisites. -->
 
 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) supports most Azure account types. To view all the supported account types, see [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account.
 
 For information about assigning access to Azure Cost Management data, see [Assign access to data](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-<!--Note for Azure service writer: If you have other prerequisites for your service, insert them here -->
+<!--Note for Azure service writer: If you have other prerequisites for your service, add them here -->
 
 <a name="understand-billing-model"></a>
 
@@ -42,8 +37,6 @@ Azure Logic Apps runs on Azure infrastructure that [accrues costs](https://azure
 <a name="typical-costs"></a>
 
 ### Costs that typically accrue with Azure Logic Apps
-
-<!--Note to Azure service writer: Include any costs that aren't obvious, hidden, or otherwise might not be present in the pricing calculator or resource creation experience in the Azure portal. You might need to sync with your product team to identify hidden costs. If you're certain that costs accrue only for your service and no others, then omit this section. -->
 
 The Logic Apps service applies different pricing models, based on the resources that you create and use:
 
@@ -59,7 +52,9 @@ Here are other resources that incur costs when you create them for use with logi
 
 * A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing) except when you use them in an ISE.
 
-In the multi-tenant Logic Apps service, [data retention and storage consumption](../logic-apps/logic-apps-pricing.md#data-retention) also accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). However, in an ISE, data retention and storage consumption don't incur costs.
+* In the multi-tenant Logic Apps service, [data retention and storage consumption](../logic-apps/logic-apps-pricing.md#data-retention) accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For example, inputs and outputs from run history are kept in behind-the-scenes storage, which differs from storage resources that you independently create, manage, and access from your logic app.
+
+  In an ISE, data retention and storage consumption don't incur costs.
 
 <a name="costs-after-resource-deletion"></a>
 
@@ -67,13 +62,17 @@ In the multi-tenant Logic Apps service, [data retention and storage consumption]
 
 <!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
 
-If you have these resources after deleting a logic app, these resources continue to exist and accrue costs until you delete them.
+After you delete a logic app, the Logic Apps service won't create or run new workflow instances. However, all in-progress and pending runs continue until they finish. Depending on the number of these runs, this process might take some time. For more information, see [Manage logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps).
 
-* Azure resources that had connections to your logic app, for example, Azure storage accounts and Azure function apps
+If you have these resources after deleting a logic app, these resources continue to exist and accrue costs until you delete them:
+
+* Azure resources that you create and manage independently from the logic app that connects to those resources, for example, Azure function apps, event hubs, event grids, and so on
 
 * Integration accounts
 
-* Integration service environments (ISEs). If you delete an ISE, the associated Azure virtual network and networking-related resources continue to exist.
+* Integration service environments (ISEs)
+
+  If you [delete an ISE](ise-manage-integration-service-environment.md#delete-ise), the associated Azure virtual network, subnets, and other related resources continue to exist. After you delete the ISE, you might have to wait up to a specific number of hours before you can try deleting the virtual network or subnets.
 
 ### Using Monetary Credit with Azure Logic Apps
 
@@ -206,16 +205,22 @@ When you need to do more data analysis on costs, you can [export cost data](http
 
 To help you contain costs on your Logic Apps and related resources, try these tips:
 
-<!-- Note to Azure service writer: This is an optional section. Other than using the Cost Management methods above, there are probably ways to minimize costs for your service that are specific to your service. Because customers only pay for what they use and when they use less of a resource, the result is a smaller bill. You might already have published cost-saving content. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here.
+* Disable logic apps that you don't need to run.
+
+https://docs.microsoft.com/en-us/azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-logic-apps
+
+<!-- Note to Azure service writer: This section is optional. Other than using the Cost Management methods above, your service probably has other specific ways to minimize costs. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here.
 
 Add a statement that discusses any recommended settings for your service that might help keep the charges minimal if a service isn't being actively used by the customer. For example: Will turning off a VM help to get no charges for the specific VM resource?
 
-If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
+Otherwise, if no other cost-saving recommendations or best practices exist to reduce costs, cut this section.
 -->
 
 ## Next steps
 
 * [Optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Manage costs by using Cost Analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course
+
+

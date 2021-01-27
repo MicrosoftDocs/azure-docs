@@ -1,6 +1,6 @@
 ---
 title: Billing & pricing models
-description: Overview about how pricing and billing work for Azure Logic Apps
+description: Overview about how pricing and billing models work in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
@@ -62,12 +62,12 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## ISE pricing
 
-A fixed pricing model applies to logic apps that run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is billed using the [Integration Service Environment price](https://azure.microsoft.com/pricing/details/logic-apps), which differs based on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you create.
+A fixed pricing model applies to logic apps that run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is billed using the [Integration Service Environment price](https://azure.microsoft.com/pricing/details/logic-apps), which depends on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you create. This pricing differs from multi-tenant pricing as you're paying for reserved capacity and dedicated resources whether or not you use them.
 
 | ISE SKU | Description |
 |---------|-------------|
-| **Premium** | The base unit has fixed capacity, but if you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) during ISE creation or afterwards. For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| **Developer** | No capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing. |
+| **Premium** | The base unit has fixed capacity and is [billed at an hourly rate for the Premium SKU](https://azure.microsoft.com/pricing/details/logic-apps). If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) when you create your ISE or afterwards. Each scale unit is billed at an [hourly rate that's roughly half the base unit rate](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| **Developer** | The base unit has fixed capacity and is [billed at an hourly rate for the Developer SKU](https://azure.microsoft.com/pricing/details/logic-apps). This SKU doesn't have scale up capability, a service-level agreement (SLA), or published limits. Use this SKU only for exploration, experiments, development, and testing, not production or performance testing. |
 |||
 
 ### Included at no extra cost
