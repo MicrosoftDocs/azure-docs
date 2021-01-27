@@ -93,11 +93,11 @@ The page is running as an Azure App Service web app.
 
 ## 4. Update and redeploy the app
 
-In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
+In the Cloud Shell, **type** `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
 
 ![Nano index.html](media/quickstart-html/nano-index-html.png)
 
-Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
+**Save** your changes and **exit** nano. Use the command `^O` to save and `^X` to exit.
 
 You'll now redeploy the app with the same `az webapp up` command.
 
@@ -105,7 +105,7 @@ You'll now redeploy the app with the same `az webapp up` command.
 az webapp up --location westeurope --name <app_name> --html
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and **refresh** the page.
 
 ![Updated sample app home page](media/quickstart-html/hello-azure-in-browser-az.png)
 
@@ -113,7 +113,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## 5. Manage your new Azure app
 
-To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
+To manage the web app you created, in the [Azure portal](https://portal.azure.com), **search** for and **select** **App Services**.
 
 ![Select App Services in the Azure portal](./media/quickstart-html/portal0.png)
 
