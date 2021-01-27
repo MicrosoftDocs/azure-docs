@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 01/26/2020
+ms.date: 01/27/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -345,7 +345,7 @@ You can delete old terms of use policies using the following procedure.
 
 User acceptance records are deleted:
 
-- When the admin explicitly deletes the ToU. When this happens all the acceptance records associated with that specific TOU are also deleted.
+- When the admin explicitly deletes the ToU. When this happens all the acceptance records associated with that specific ToU are also deleted.
 - When the tenant loses its AAD Premium license.
 - When the tenant is deleted.
 
