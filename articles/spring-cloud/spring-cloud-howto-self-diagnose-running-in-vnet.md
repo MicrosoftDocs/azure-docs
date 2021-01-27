@@ -52,7 +52,7 @@ In the drop-down **DNS Resolution Table Renderings** you will find the detail me
 Healthy applications show results such as the following:
     ![Endpoint healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-healthy.png)
 
-If any of your subnet is blocked by NSG or firewall rules, you will find the following failures if you have not blocked the log. You can check whether you overlooked any [Customer Responsibilities].(spring-cloud-vnet-customer-responsibilities.md).
+If any of your subnet is blocked by NSG or firewall rules, you will find the following failures if you have not blocked the log. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
     ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
 If there are no data in `Required Outbound Traffic Table Renderings` within 30 minutes, the result will be `health status unknown`. 
