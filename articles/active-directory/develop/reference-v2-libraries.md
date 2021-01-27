@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Microsoft identity platform authentication libraries
 
-The following tables show which authentication and authorization scenarios are supported by the Microsoft Authentication Library (MSAL) for different application types. Links to each library's open-source project on GitHub and where to get the package for your app's project are included.
+The following tables show the authentication and authorization scenarios that are supported by the Microsoft Authentication Library (MSAL) for several application types. Links to each library's open-source project on GitHub and where to get the package for your app's project are included.
 
 The Microsoft identity platform has been certified by the OpenID Foundation as a [certified OpenID provider](https://openid.net/certification/). If you prefer to use a library other than MSAL, choose a library with a [certified OpenID Connect implementation](https://openid.net/developers/certified/).
 
