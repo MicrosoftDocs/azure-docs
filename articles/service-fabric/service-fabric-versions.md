@@ -51,18 +51,19 @@ Upgrade to a supported Service Fabric version to prevent downtime or loss of fun
 
 ### Upgrade alert for versions later than 6.3
 
-To improve security and availability, Azure infrastructure has made a change that might affect Service Fabric customers. This change will affect all Service Fabric clusters that use [Open networking mode for containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) and run versions 6.3 to 7.0 or incompatible supported versions later than 7.0. An update to the Service Fabric runtime is available for all supported Service Fabric versions in all regions.
+To improve security and availability, Azure infrastructure has made a change that might affect Service Fabric customers. This change will affect all Service Fabric clusters that use [Open networking mode for containers](./service-fabric-networking-modes.md#set-up-open-networking-mode) and run versions 6.3 to 7.0 or incompatible supported versions later than 7.0. An update to the Service Fabric runtime is available for all supported Service Fabric versions in all regions.
 
 #### If you don't upgrade to a supported version
 
 Azure Service Fabric clusters that run on unchanged versions later than 6.3 will experience loss of functionality or service disruptions if they weren't upgraded to a supported version by January 19, 2021.
-
-Service disruptions might include the following:
-
-- Versions that *aren't* using **Open** mode: The cluster will stay up, but **Open** mode will stop functioning, which could cause service interruptions for your workloads.
-
-- Versions that *are* using **Open** mode: The cluster could become unavailable and will stop functioning, which could cause service interruptions for your workloads.
   
+  - **For clusters running a version of Service Fabric greater than 6.3 NOT using Open Networking feature**, the cluster will remain up.
+
+ - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
+ 
+ -   **For clusters running [Windows Versions between 7.0.457 and 7.0.466 (both versions included) ](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) and the Windows OS has the Windows Containers Feature enabled. NOTE: Linux versions 7.0.457, 7.0.464 and  7.0.465 are NOT  impacted**.
+    - **Impact**: The cluster will cease functioning which could cause service interruptions for your workloads.
+    
 #### Required action
 
 To prevent downtime or loss of functionality, ensure that your clusters are running one of the following versions.

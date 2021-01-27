@@ -21,7 +21,7 @@ This article shows how to use Azure Purview portal to register and scan a Power 
 To set up authentication, create a security group and add the catalog's managed identity to it.
 
 1. In the [Azure portal](https://portal.azure.com), search for **Azure Active Directory**.
-1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > You can skip this step if you already have a security group you want to use.

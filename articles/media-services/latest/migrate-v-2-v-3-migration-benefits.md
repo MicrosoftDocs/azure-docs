@@ -1,5 +1,5 @@
 ---
-title: Step 1 - Understand the benefits of migrating to Media Services API V3 | Microsoft Docs
+title: Step 1 - Understand the benefits of migrating to Media Services API V3 
 description: This article lists the benefits of migrating from Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
