@@ -11,7 +11,7 @@ ms.author: dasto
 ### Provider Limits & Quota
 
 The Azure Quantum Service supports both first and third-party service providers. 
-Third-party providers own their limits and quotas. Users can view offers and limits in the Azure Portal when configuring third-party providers in the provider blade. 
+Third-party providers own their limits and quotas. Users can view offers and limits in the Azure portal when configuring third-party providers in the provider blade. 
 
 You can find the published quota limits for Microsoft's first party Optimization Solutions provider below. 
 
@@ -37,4 +37,4 @@ If you are using the Learn & Develop SKU, you **cannot** request an increase on 
 If you need to request a limit increase, please reach out to Azure Support. 
 
 For more information, please review the [Azure Quantum pricing page](https://aka.ms/AQ/Pricing).
-For information on third-party offerings, please review the relevant provider page in the Azure Portal.
+For information on third-party offerings, please review the relevant provider page in the Azure portal.
