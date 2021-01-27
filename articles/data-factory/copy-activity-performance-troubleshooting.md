@@ -197,7 +197,6 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
 
-- **Resolution**: Refer to [Troubleshoot copy activity performance]().
 
 ### Timeout or slow performance when parsing large Excel file
 
