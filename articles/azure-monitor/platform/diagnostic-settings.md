@@ -13,7 +13,7 @@ ms.subservice: logs
 [Platform logs](platform-logs-overview.md) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](data-platform-metrics.md) are collected by default and typically stored in the Azure Monitor metrics database. This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations.
 
 > [!IMPORTANT]
-> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](activity-log.md#legacy-collection-methods) for details.
+> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](../essentials/activity-log.md#legacy-collection-methods) for details.
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 

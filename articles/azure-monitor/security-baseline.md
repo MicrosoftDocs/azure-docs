@@ -92,7 +92,7 @@ When using Azure Monitor with Private Link, you get access to network logging su
 **Guidance**: 
 Use the Azure Activity Log to monitor resource configurations and detect changes to your network resources related to Azure Monitor. Create alerts within Azure Monitor that will trigger when changes to those critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](./platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](./essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](platform/alerts-activity-log.md)
 

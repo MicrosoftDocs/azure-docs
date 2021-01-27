@@ -71,7 +71,7 @@ For more information, see the following article: [How to set log retention param
 For more information, see the following articles:
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/diagnostic-settings.md)
-- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring:** Not applicable
 

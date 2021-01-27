@@ -197,7 +197,7 @@ Create alerts within Azure Monitor that will trigger when changes to critical ne
 Use Azure Monitor logs to enable and query the logs from AKS the master components, kube-apiserver and kube-controller-manager. 
 Create and manage the nodes that run the kubelet with container runtime and deploy their applications through the managed Kubernetes API server. 
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -681,7 +681,7 @@ Use Azure Activity Log to monitor your AKS clusters and related resources at a h
 
 - [How to enable Azure Monitor for containers](../azure-monitor/insights/container-insights-onboard.md)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Yes
 

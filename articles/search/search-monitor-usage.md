@@ -55,7 +55,7 @@ You can use the following APIs to retrieve the same information found in the Mon
 
 ### Activity logs and service health
 
-The [**Activity log**](../azure-monitor/platform/activity-log.md#view-the-activity-log) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
+The [**Activity log**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
 Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
 

@@ -57,7 +57,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 - [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 

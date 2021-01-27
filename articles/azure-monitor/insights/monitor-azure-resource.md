@@ -107,7 +107,7 @@ Analyze metrics in the Azure portal using [metrics explorer](../platform/metrics
 ### Activity log 
 View entries in the activity log in the Azure portal with the initial filter set to the current resource. Copy the activity log to a Log Analytics workspace to access it to use it in log queries and workbooks. 
 
-- See [View and retrieve Azure Activity log events](../platform/activity-log.md#view-the-activity-log) for details on viewing the Activity log and retrieving entries using a variety of methods.
+- See [View and retrieve Azure Activity log events](../essentials/activity-log.md#view-the-activity-log) for details on viewing the Activity log and retrieving entries using a variety of methods.
 - See the documentation for your Azure service for the specific events that get logged.
 
 ![Activity Log](media/monitor-azure-resource/activity-log.png)

@@ -72,6 +72,6 @@ In this example, you create an alert for all administrative operations on a lab 
 
 ## Next steps
 - To learn more about creating action groups using different action types, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
-- To learn more about activity logs, see  [Azure Activity Log](../azure-monitor/platform/activity-log.md).
+- To learn more about activity logs, see  [Azure Activity Log](../azure-monitor/essentials/activity-log.md).
 - To learn about setting alerts on activity logs, see [Alerts on activity log](../azure-monitor/platform/activity-log-alerts.md).
 

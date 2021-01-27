@@ -129,7 +129,7 @@ Once you configure collection of monitoring data for a virtual machine, you have
 | Menu option | Description |
 |:---|:---|
 | Overview | Displays [platform metrics](../platform/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../platform/metrics-getting-started.md). |
-| Activity log | [Activity log](../platform/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
+| Activity log | [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
 | Insights | Opens [Azure Monitor for VMs](./vminsights-overview.md) with the map for the current virtual machine selected. |
 | Alerts | Views [alerts](../platform/alerts-overview.md) for the current virtual machine.  |
 | Metrics | Open [metrics explorer](../platform/metrics-getting-started.md) with the scope set to the current virtual machine. |

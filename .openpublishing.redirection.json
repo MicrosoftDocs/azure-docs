@@ -1,6 +1,5 @@
 {
   "redirections": [
-    
     {
       "source_path": "articles/virtual-machines/tutorial-azure-security.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/tutorial-azure-security",
@@ -27,8 +26,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/windows/tutorial-iis-sql.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-iis-sql",
       "source_path": "articles/virtual-machines/extensions/log-collector.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/extensions/log-collector",
       "redirect_document_id": false
@@ -13068,11 +13065,11 @@
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
-      "redirect_document_id": false
-    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
+      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/backup/backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",
@@ -16423,67 +16420,67 @@
       "redirect_url": "/azure/import-export/storage-import-export-contact-microsoft-support",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-data-from-blobs.md",
       "redirect_url": "/azure/import-export/storage-import-export-data-from-blobs",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-data-to-blobs.md",
       "redirect_url": "/azure/import-export/storage-import-export-data-to-blobs",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-data-to-files.md",
       "redirect_url": "/azure/import-export/storage-import-export-data-to-files",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-encryption-key-portal.md",
       "redirect_url": "/azure/import-export/storage-import-export-encryption-key-portal",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-requirements.md",
       "redirect_url": "/azure/import-export/storage-import-export-requirements",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-service.md",
       "redirect_url": "/azure/import-export/storage-import-export-service",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-service-faq.md",
       "redirect_url": "/azure/import-export/storage-import-export-service-faq",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-tool-repairing-an-export-job-v1.md",
       "redirect_url": "/azure/import-export/storage-import-export-tool-repairing-an-export-job-v1",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-tool-repairing-an-import-job-v1.md",
       "redirect_url": "/azure/import-export/storage-import-export-tool-repairing-an-import-job-v1",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-tool-reviewing-job-status-v1.md",
       "redirect_url": "/azure/import-export/storage-import-export-tool-reviewing-job-status-v1",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-tool-setup-v1.md",
       "redirect_url": "/azure/import-export/storage-import-export-tool-setup-v1",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-view-drive-status.md",
       "redirect_url": "/azure/import-export/storage-import-export-view-drive-status",
       "redirect_document_id": false
     },
-{
+    {
       "source_path_from_root": "/articles/databox-online/data-box-edge-connect-powershell-interface.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-connect-powershell-interface",
       "redirect_document_id": false
@@ -42487,7 +42484,7 @@
       "source_path_from_root": "/articles/legal/marketplace/participation-policy.md",
       "redirect_url": "/azure/marketplace/policies-terms",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/marketplace/marketplace-terms.md",
       "redirect_url": "/legal/marketplace/terms",
@@ -47367,12 +47364,12 @@
       "source_path_from_root": "/articles/cognitive-services/translator/transform-text.md",
       "redirect_url": "/azure/cognitive-services/Translator/migrate-to-v3",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/translator/v2-0-reference.md",
       "redirect_url": "/azure/cognitive-services/Translator/migrate-to-v3",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
       "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
@@ -48534,7 +48531,6 @@
       "redirect_document_id": false
     },
     {
-
       "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-connectors.md",
       "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
       "redirect_document_id": false
@@ -52034,17 +52030,16 @@
       "redirect_url": "/azure/active-directory/governance/review-your-access",
       "redirect_document_id": true
     },
-	{
+    {
       "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
       "redirect_url": "/azure/active-directory/cloud-sync/what-is-cloud-sync",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path_from_root": "/articles/active-directory/cloud-provisioning/how-to-sso.md",
       "redirect_url": "/azure/active-directory/cloud-sync/how-to-sso",
       "redirect_document_id": false
     },
-	
     {
       "source_path_from_root": "/articles/active-directory/cloud-provisioning/concept-attributes.md",
       "redirect_url": "/azure/active-directory/cloud-sync/concept-attributes",
@@ -55736,9 +55731,9 @@
       "redirect_document_id": true
     },
     {
-    "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
-    "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
-    "redirect_document_id": true
+      "source_path": "articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
+      "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-intralinks-tutorial.md",
@@ -61471,9 +61466,9 @@
       "redirect_document_id": true
     },
     {
-    "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
-    "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
-    "redirect_document_id": false
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-java.md",
@@ -61485,7 +61480,7 @@
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/storage/files/storage-files-deployment-guide.md",
       "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
       "redirect_document_id": false
@@ -61613,6 +61608,16 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/data-sources-syslog.md",
       "redirect_url": "/azure/azure-monitor/agents/data-sources-syslog",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/activity-log.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/activity-log-schema.md",
+      "redirect_url": "/azure/azure-monitor/essentials/activity-log-schema",
       "redirect_document_id": false
     }
   ]

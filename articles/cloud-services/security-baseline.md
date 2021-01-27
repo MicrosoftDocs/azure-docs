@@ -181,7 +181,7 @@ Gather insight from Activity log, a platform log in Azure, into subscription-lev
 
 Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Event Hubs to forward outside of Azure, or to Azure Storage for archival. Configure Azure Monitor for notification alerts when critical resources in your Azure Cloud Services are changed. 
 
-- [Azure Activity log](../azure-monitor/platform/activity-log.md)
+- [Azure Activity log](../azure-monitor/essentials/activity-log.md)
 
 - [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -239,7 +239,7 @@ Azure Cloud Services can be monitored by Application Insights for availability, 
 
 - [Turn on diagnostics in Visual Studio before deployment](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [View change history](../azure-monitor/platform/activity-log.md#view-change-history)
+- [View change history](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
