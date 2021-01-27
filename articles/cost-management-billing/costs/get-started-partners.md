@@ -52,6 +52,8 @@ For more information about enabling and assigning access to Azure Cost Managemen
 
 To access Azure Cost Management at the subscription scope, any user with Azure RBAC access to a subscription can view costs at retail (pay-as-you-go) rates. However the [cost visibility policy for the customer tenant](#enable-the-policy-to-view-azure-usage-charges) must be enabled. To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
 
+When transferring existing billing agreements to a new partner, cost management capabilities are only available for the current billing relationship with the partner. Historical costs before the transfer to the new partner don't move to the new billing account. However, the cost history does remain with the original associated billing account.
+
 ## How Cost Management uses scopes
 
 Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from scopes used for resource management, which use Azure RBAC. To clearly distinguish the intent of the separate scopes, including the access control differences, they are referred to as billing scopes and Azure RBAC scopes, respectively.
