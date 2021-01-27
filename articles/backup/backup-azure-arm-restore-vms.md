@@ -155,7 +155,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
 
-Currently, secondary region [RPO](azure-backup-glossary#rpo-recovery-point-objective) is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) replication is 15 minutes.
+Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) replication is 15 minutes.
 
 ![Choose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
