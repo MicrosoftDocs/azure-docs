@@ -237,19 +237,19 @@ public class HomeController : Controller
     
 #### [.NET 3.x](#tab/core3x)
     
-    ```csharp
-    using Microsoft.FeatureManagement;
-    
-    public class HomeController : Controller
+```csharp
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
+{
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
     {
-        private readonly IFeatureManager _featureManager;
-    
-        public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
+        _featureManager = featureManager;
     }
-    ```
+}
+```
     
 #### [.NET 2.x](#tab/core2x)
     
