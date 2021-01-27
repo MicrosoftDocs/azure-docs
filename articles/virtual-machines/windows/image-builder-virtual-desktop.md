@@ -1,11 +1,13 @@
 ---
 title: Image Builder - Create a Windows Virtual Desktop image
-description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Buider in PowerShell.
+description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
 author: danielsollondon
 ms.author: danis
+ms.reviewer: cynthn
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines-windows
+ms.collection: windows
 ms.subservice: imaging
 ---
 
@@ -14,7 +16,7 @@ ms.subservice: imaging
 This article shows you how to create a Windows Virtual Desktop image with these customizations:
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
-* Running a [WVD Optimzation script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the WVD Community repo.
+* Running a [WVD Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the WVD Community repo.
 * Installing a LOB App - [Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
 * [Restart](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
 * [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
@@ -24,7 +26,7 @@ We will show you how to automate this using the Azure VM Image Builder, and dist
 
 To simplify deploying an Image Builder configuration, this example uses an Azure Resource Manager template with the Image Builder template nested inside. This gives you some other benefits, like variables and parameter inputs. You can also pass parameters from the command line.
 
-This walk through is intended to be a copy and paste exercise.
+This article is intended to be a copy and paste exercise.
 
 > [!NOTE]
 > The scripts to install the apps are located on [GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD). They are for illustration and testing only, and not for production workloads. 
@@ -32,7 +34,7 @@ This walk through is intended to be a copy and paste exercise.
 ## Tips for building Windows images 
 
 1. VM Size - the default VM size is a `Standard_D1_v2`, which is not suitable for Windows. Use a `Standard_D2_v2` or greater.
-2. This example uses the [PowerShell customerizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will hang.
+2. This example uses the [PowerShell customizer scripts](../linux/image-builder-json.md). You need to use these settings or the build will hang.
 
     ```json
       "runElevated": true,
@@ -92,7 +94,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
-## Step 1: Set up environment and variables
+## Set up environment and variables
 
 ```azurepowershell-interactive
 # Step 1: Import module
@@ -120,7 +122,7 @@ $runOutputName="sigOutput"
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 ```
 
-## Step 2 : Permissions, create user idenity and role for AIB
+## Permissions, create user identity and role for AIB
 
 
  Create a user identity.
@@ -167,7 +169,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 
 
 
-## Step 3 : Create the Shared Image Gallery 
+## Create the Shared Image Gallery 
 
 If you don't already have a Shared Image Gallery, you need to create one.
 
@@ -184,14 +186,15 @@ New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $im
 ```
 
 ## Configure the Image Template
-For this example we have a template ready to that will download and update the template with the parameters specified earlier, it will install FsLogix, OS Optimizations, Teams and run Windows Update at the end.
+
+For this example, we have a template ready to that will download and update the template with the parameters specified earlier, it will install FsLogix, OS optimizations, Microsoft Teams, and run Windows Update at the end.
 
 If you open the template you can see in the source property the image that is being used, in this example it uses a Win 10 Multi session image. 
 
 ### Windows 10 images
 Two key types you should be aware of: multisession and single-session.
 
-Multi session images are intend for pooled usage. Here is an example of the image details in Azure:
+Multi session images are intended for pooled usage. Here is an example of the image details in Azure:
 
 ```json
 "publisher": "MicrosoftWindowsDesktop",
@@ -217,7 +220,7 @@ Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer
 
 ## Download template and configure
 
-Now you need to download the template and configure it for your use.
+Now, you need to download the template and configure it for your use.
 
 ```azurepowershell-interactive
 $templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json"
@@ -237,12 +240,12 @@ Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 ```
 
-Feel free to view the template, all the code is viewable.
+Feel free to view the [template](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/armTemplateWVD.json), all the code is viewable.
 
 
 ## Submit the template
 
-Your template must be submitted to the service, this will download any dependent artifacts (scripts etc), validate, check permissions, and store them in the staging Resource Group, prefixed, *IT_*.
+Your template must be submitted to the service, this will download any dependent artifacts (like scripts), validate, check permissions, and store them in the staging Resource Group, prefixed, *IT_*.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location
