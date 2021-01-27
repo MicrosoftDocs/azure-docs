@@ -539,12 +539,11 @@ az storage account network-rule list \
 
 ## Grant access to Azure services 
 
-Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. 
+Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your storage account. 
 
-You can grant access by creating a network rule exception that gives access to trusted Microsoft services. 
-For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article. 
+You can grant access to trusted Azure services by creating a network rule exception. For step-by-step guidance, see the [Manage exceptions](#manage-exceptions) section of this article. 
 
-When you create this network rule, you grant the following types of access:
+When you grant access to trusted Azure services, you grant the following types of access:
 
 - Trusted access for select operations to resources that are registered in your subscription.
 - Trusted access to resources based on system-assigned managed identity.
@@ -573,7 +572,7 @@ Resources of some services, **when registered in your subscription**, can access
 
 ### Trusted access based on system-assigned managed identity
 
-The following table lists services that can have access to your storage account data if given the appropriate permission. To grant permission, you must explicitly [assign an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity. 
+The following table lists services that can have access to your storage account data if the resource instances of those services are given the appropriate permission. To grant permission, you must explicitly [assign an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity. 
 
 > [!TIP]
 > The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.
