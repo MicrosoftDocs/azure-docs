@@ -139,13 +139,13 @@ jsmith
 
 ## Start a runbook with PowerShell
 
-You can use the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start a runbook with Windows PowerShell. The following sample code starts a runbook called **Test-Runbook**.
+You can use the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) to start a runbook with Windows PowerShell. The following sample code starts a runbook called **Test-Runbook**.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook` returns a job object that you can use to track status once the runbook is started. You can then use this job object with [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) to determine the status of the job and [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) to retrieve its output. The following example starts a runbook called **Test-Runbook**, waits until it has completed, and then displays its output.
+`Start-AzAutomationRunbook` returns a job object that you can use to track status once the runbook is started. You can then use this job object with [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) to determine the status of the job and [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) to retrieve its output. The following example starts a runbook called **Test-Runbook**, waits until it has completed, and then displays its output.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"

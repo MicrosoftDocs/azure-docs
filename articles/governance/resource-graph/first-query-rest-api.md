@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first REST API query"
 description: In this quickstart, you follow the steps to call the Resource Graph endpoint for REST API and run your first query.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using REST API

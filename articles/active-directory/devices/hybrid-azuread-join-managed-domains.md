@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -89,23 +89,21 @@ To configure a hybrid Azure AD join by using Azure AD Connect:
 
 1. Start Azure AD Connect, and then select **Configure**.
 
-   ![Welcome](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. In **Additional tasks**, select **Configure device options**, and then select **Next**.
 
    ![Additional tasks](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. In **Overview**, select **Next**.
 
-   ![Overview](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. In **Connect to Azure AD**, enter the credentials of a global administrator for your Azure AD tenant.  
-
-   ![Connect to Azure AD](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. In **Device options**, select **Configure Hybrid Azure AD join**, and then select **Next**.
 
    ![Device options](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. In **Device operating systems**, select the operating systems that devices in your Active Directory environment use, and then select **Next**.
+
+   ![Device operating system](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. In **SCP configuration**, for each forest where you want Azure AD Connect to configure the SCP, complete the following steps, and then select **Next**.
 
@@ -115,17 +113,9 @@ To configure a hybrid Azure AD join by using Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. In **Device operating systems**, select the operating systems that devices in your Active Directory environment use, and then select **Next**.
-
-   ![Device operating system](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. In **Ready to configure**, select **Configure**.
 
-   ![Ready to configure](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. In **Configuration complete**, select **Exit**.
-
-   ![Configuration complete](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## Enable Windows down-level devices
 
