@@ -2,14 +2,14 @@
 title: 'Quickstart: Send telemetry to Azure IoT Hub with Java'
 description: In this quickstart, you run two sample Java applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
-manager: philmea
+manager: lizross
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
-ms.date: 05/26/2020
+ms.date: 01/27/2021
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -23,7 +23,7 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **Long-term support**, select **Java 8**.
 
     You can verify the current version of Java on your development machine using the following command:
 
@@ -39,7 +39,7 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
     mvn --version
     ```
 
-* Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository. 
+* Download or clone the azure-iot-samples-java repository using the **Code** button on the [azure-iot-samples-java repository page](https://github.com/Azure-Samples/azure-iot-samples-java). 
 
     This article uses the [simulated-device](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/simulated-device) and [read-d2c-messages](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) samples from the repository.
 
