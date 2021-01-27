@@ -64,7 +64,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
-    1. For Event Hub and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your Azure Digital Twins instance. 
+    1. For Event Hub and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview) for your Azure Digital Twins instance. 
 
     :::row:::
         :::column:::
@@ -77,7 +77,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 1. Finish creating your endpoint by selecting _Save_.
 
 >[!IMPORTANT]
-> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events*](how-to-enable-managed-identities.md).
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events (preview)*](how-to-enable-managed-identities.md).
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 

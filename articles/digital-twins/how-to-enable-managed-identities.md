@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Enable a managed identity for routing Azure Digital Twins events (preview)
 
-This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources) (currently in preview), and use the identity when forwarding events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (currently in preview), and use the identity when forwarding events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
 Here are the steps that are covered in this article: 
 
