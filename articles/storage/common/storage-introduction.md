@@ -47,7 +47,7 @@ The following table compares Files, Blobs, Disks, Queues, and Tables, and shows 
 
 ## Blob storage
 
-Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
+Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
 
 Blob storage is ideal for:
 
