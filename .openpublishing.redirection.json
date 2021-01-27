@@ -16061,7 +16061,7 @@
     {
       "source_path_from_root": "/articles/billing/billing-usage-rate-card-overview.md",
       "redirect_url": "/azure/cost-management-billing/manage/consumption-api-overview#usage-details-api",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/billing-usage-rate-card-overview.md",
