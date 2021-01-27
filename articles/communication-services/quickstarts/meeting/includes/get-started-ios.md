@@ -144,7 +144,11 @@ You also can use the properties in `JoinOptions` to set the initial options for 
 
 You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Final look and feel of the quick start app":::
+:::image type="content" source="../media/ios/quick-start-join-meeting.png" alt-text="Final look and feel of the quick start app":::
+
+:::image type="content" source="../media/ios/quick-start-permission-ask.png" alt-text="Permission ask dialog":::
+
+:::image type="content" source="../media/ios/quick-start-meeting-joined.png" alt-text="Final look and feel once the meeting has been joined":::
 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
