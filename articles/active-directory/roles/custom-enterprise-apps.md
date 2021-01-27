@@ -2,14 +2,14 @@
 title: Custom role permissions for enterprise app access assignments - Azure Active Directory | Microsoft Docs
 description: Create and assign custom Azure AD roles for enterprise apps access in Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

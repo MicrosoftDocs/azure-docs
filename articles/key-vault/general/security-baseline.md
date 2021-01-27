@@ -396,7 +396,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) configured to log into and configure Key Vault enabled resources. 
 
-Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Privileged Access Workstations: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/ 
 
 Planning a cloud-based Azure AD Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 

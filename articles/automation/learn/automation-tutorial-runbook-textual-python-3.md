@@ -1,15 +1,15 @@
 ---
-title: Create a Python 3 runbook in Azure Automation
-description: This article teaches you to create, test, and publish a simple Python 3 runbook.
+title: Create a Python 3 runbook (preview) in Azure Automation
+description: This article teaches you to create, test, and publish a simple Python 3 runbook (preview).
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 12/22/2020
 ms.topic: tutorial
 ---
 
-# Tutorial: Create a Python 3 runbook
+# Tutorial: Create a Python 3 runbook (preview)
 
-This tutorial walks you through the creation of a [Python 3 runbook](../automation-runbook-types.md#python-runbooks) in Azure Automation. Python runbooks compile under Python 2 and 3. You can directly edit the code of the runbook using the text editor in the Azure portal.
+This tutorial walks you through the creation of a [Python 3 runbook](../automation-runbook-types.md#python-runbooks) (preview) in Azure Automation. Python runbooks compile under Python 2 and 3. You can directly edit the code of the runbook using the text editor in the Azure portal.
 
 > [!div class="checklist"]
 > * Create a simple Python runbook
@@ -113,7 +113,7 @@ The runbook that you created is still in draft mode. You need to publish it befo
 ## Add authentication to manage Azure resources
 
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources.
-To do this, the script has to authenticate using the credentials from your Automation account. 
+To do this, the script has to authenticate using the credentials from your Automation account.
 
 > [!NOTE]
 > The Automation account must have been created with the service principal feature for there to be a Run As certificate.
@@ -246,12 +246,8 @@ except Exception as detail:
 
 ## Next steps
 
-- To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-
-- To get started with Graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
-
 - To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
 
 - To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
 
-- To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- To view sample Python 3 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

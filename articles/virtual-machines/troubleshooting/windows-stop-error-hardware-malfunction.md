@@ -45,6 +45,9 @@ This screen will appear when the Guest OS wasn't set up correctly and a Non-Mask
 
 ### Process Overview 
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Set up the Non-Maskable Interrupt (NMI) Registry Key 
 2. Create and Access a Repair VM 
 3. Enable Serial Console and Memory Dump Collection 

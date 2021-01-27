@@ -73,6 +73,21 @@ dotnet new mvc --no-https --output TestFeatureFlags
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
+     #### [.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(connection).UseFeatureFlags());
+                }).UseStartup<Startup>());
+    ```
+
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -114,6 +129,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Update the `Startup.ConfigureServices` method to add feature flag support by calling the `AddFeatureManagement` method. Optionally, you can include any filter to be used with feature flags by calling `AddFeatureFilter<FilterType>()`:
 
+     #### [.NET 5.x](#tab/core5x)
+
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp    

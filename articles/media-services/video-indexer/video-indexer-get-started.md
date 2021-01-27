@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/30/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ---
 
@@ -53,7 +53,11 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Uploaded the upload":::
- 
+
+## Supported browsers
+
+For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
+
 ## See also
 
 See [Upload and index videos](upload-index-videos.md) for more details.

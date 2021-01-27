@@ -86,7 +86,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
 
-1. On the **Configure run** form, enter a unique experiment name.
+1. On the **Configure run** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
@@ -211,7 +211,7 @@ Automated ML helps you with deploying the model without writing code:
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
     Once deployment begins, the **Model summary** tab appears. See the deployment progress under the **Deploy status** section. 
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## Next steps
 

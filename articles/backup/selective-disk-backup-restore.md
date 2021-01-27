@@ -184,14 +184,25 @@ When you execute these commands, you'll see `"diskExclusionProperties": null`.
 
 Ensure you're using Azure PowerShell version 3.7.0 or higher.
 
+During the configure protection operation, you need to specify the disk list setting with an inclusion / exclusion parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+
 ### Enable backup with PowerShell
 
+For example:
+
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+$disks = ("0","1")
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Get-AzRecoveryServicesBackupProtectionPolicy
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList $disks -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList $disks -VaultId $targetVault.ID
 ```
 
 ### Backup only OS disk during configure backup with PowerShell
@@ -321,4 +332,4 @@ Selective disk backup feature is a capability provided on top of the Azure virtu
 ## Next steps
 
 - [Support matrix for Azure VM backup](backup-support-matrix-iaas.md)
-- [Frequently asked questions-Back up Azure VMs](backup-azure-vm-backup-faq.md)
+- [Frequently asked questions-Back up Azure VMs](backup-azure-vm-backup-faq.yml)

@@ -12,13 +12,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 01/26/2021
 ms.author: memildin
 
 ---
 # What is Azure Security Center?
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
@@ -70,7 +68,7 @@ Security Center helps you **identify Shadow IT subscriptions**. By looking at su
 
 ### Continuous assessments
 
-Security Center continuously discovers new resources that are being deployed across your workloads and assesses whether they are configured according to security best practices, if not, they're flagged and you get a prioritized list of recommendations for what you need to fix in order to protect your machines.
+Security Center continuously discovers new resources that are being deployed across your workloads and assesses whether they are configured according to security best practices, if not, they're flagged and you get a prioritized list of recommendations for what you need to fix in order to protect your machines. This list of recommendations is enabled and supported by [Azure Security Benchmark](../security/benchmarks/introduction.md), the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 To help you understand how important each recommendation is to your overall security posture, Security Center groups the recommendations into security controls and adds a **secure score** value to each control. This is crucial in enabling you to **prioritize your security work**.
 
@@ -103,9 +101,8 @@ Security Center's threat protection includes fusion kill-chain analysis, which a
 
 ### Integration with Microsoft Defender for Endpoint
 
-Security Center includes automatic, native integration with Microsoft Defender for Endpoint. This means that without any configuration, your Windows and Linux machines are fully integrated with Security Center's recommendations and assessments.
+Azure Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md)
 
-In addition, Security Center lets you automate application control policies on server environments. The adaptive application controls in Security Center enable end-to-end app approval listing across your Windows servers. You don't need to create the rules and check violations, it's all done automatically for you.
 
 ### Protect PaaS
 

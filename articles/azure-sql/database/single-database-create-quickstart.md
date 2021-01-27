@@ -135,7 +135,7 @@ az sql server firewall-rule create \
 ```
 
 
-## Create a single database
+## Create a single database with Azure CLI
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
 
@@ -224,7 +224,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
 ```
 
 
-## Create a single database
+## Create a single database with PowerShell
 
 Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 

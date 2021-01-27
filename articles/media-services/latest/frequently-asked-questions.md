@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 frequently asked questions| Microsoft Docs
+title: Azure Media Services v3 frequently asked questions
 description: This article gives answers to frequently asked questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -57,7 +57,7 @@ When you're using pagination, you should always use the next link to enumerate t
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [Feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [the Migration Guide](migrate-v-2-v-3-migration-introduction.md).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
@@ -166,7 +166,7 @@ For all other management tasks (for example, [Transforms and Jobs](transforms-jo
 
 The `AssetFile` concept was removed from the Media Services API to separate Media Services from Storage SDK dependency. Now Azure Storage, not Media Services, keeps the information that belongs in the Storage SDK. 
 
-For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+For more information, see [Migrate to Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### Where did client-side storage encryption go?
 

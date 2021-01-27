@@ -1,81 +1,69 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for November 1, 2020 through November 30, 2020. "
+description: "What's new in the Cognitive Services docs for December 1, 2020 - December 31, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 12/07/2020
+ms.date: 01/05/2021
 ---
 
-# Cognitive Services docs: What's new for November 1, 2020 - November 30, 2020
+# Cognitive Services docs: What's new for December 1, 2020 - December 31, 2020
 
-Welcome to what's new in the Cognitive Services docs from November 1, 2020 through November 30, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from December 1, 2020 through December 31, 2020. This article lists some of the major changes to docs during this period.
 
 ## Cognitive Services
 
+### New articles
+
+- [Plan and manage costs for Azure Cognitive Services](plan-manage-costs.md)
+
 ### Updated articles
 
-- [Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](cognitive-services-apis-create-account-cli.md)
-- [Cognitive Services development options](cognitive-services-development-options.md)
-- [Azure Cognitive Services support and help options](cognitive-services-support-options.md)
-- [Enable diagnostic logging for Azure Cognitive Services](diagnostic-logging.md)
-- [Natural language support for Azure Cognitive Services](language-support.md)
-- [Azure security baseline for Cognitive Services](security-baseline.md)
+- [Configure Azure Cognitive Services virtual networks](cognitive-services-virtual-networks.md)
+
+## Anomaly Detector
+
+### Updated articles
+
+- [Anomaly Detector REST API quickstart](./anomaly-detector/quickstarts/client-libraries.md?pivots=rest-api&tabs=windows)
+
+## Bing Visual Search
+
+### Updated articles
+
+- [Use an insights token to get insights for an image](./bing-visual-search/use-insights-token.md)
 
 ## Containers
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
+- [Deploy and run container on Azure Container Instance](./containers/azure-container-instance-recipe.md)
 
 ## Form Recognizer
 
-### New articles
-
-- [Form Recognizer prebuilt invoice model](/azure/cognitive-services/form-recognizer/concept-invoices)
-- [Form Recognizer Layout service](/azure/cognitive-services/form-recognizer/concept-layout)
-- [Quickstart: Extract invoice data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
-
 ### Updated articles
 
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new)
-
-## Metrics Advisor
-
-### New articles
-
-- [Metrics Advisor: what's new in the docs](/azure/cognitive-services/metrics-advisor/whats-new)
-
-### Updated articles
-
-- [Provide anomaly feedback](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
-- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq)
-- [Quickstart: Use the client libraries or REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
-
-## QnA Maker 
-
-### New articles 
-
-* [QnA Maker managed public preview announcement](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575)
-* [Create a new QnA Maker managed service](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
-* [Migrate your existing knowledge base to QnA Maker managed](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
+- [Form Recognizer landing page](./form-recognizer/index.yml)
+- [Quickstart: Use the Form Recognizer client library](./form-recognizer/quickstarts/client-library.md)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Data and rate limits for the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/data-limits)
-- [How to: Use Text Analytics for health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [How to: Sentiment analysis and Opinion Mining](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
-- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new)
-- [Example: Detect language with Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
+- [Text Analytics API v3 language support](./text-analytics/language-support.md)
+- [How to call the Text Analytics REST API](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [How to use Named Entity Recognition in Text Analytics](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Example: How to extract key phrases using Text Analytics](./text-analytics/how-tos/text-analytics-how-to-keyword-extraction.md)
+- [Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs](./text-analytics/index.yml)
+- [Quickstart: Use the Text Analytics client library and REST API](./text-analytics/quickstarts/client-libraries-rest-api.md)
+
+## Community contributors
+
+The following people contributed to the Cognitive Services docs during this period. Thank you!
+
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (1)
+- [pymia](https://github.com/pymia) - Mia // Huai-Wen Chang (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

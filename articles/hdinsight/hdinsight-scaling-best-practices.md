@@ -1,9 +1,7 @@
 ---
 title: Scale cluster sizes - Azure HDInsight
 description: Scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
-author: hrasheed-msft
 ms.author: ashish
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020

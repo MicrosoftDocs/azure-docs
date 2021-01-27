@@ -223,6 +223,9 @@ Supported customizations for `forecasting` tasks include:
 
 To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
 
+>[!NOTE]
+> The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
+
 ```python
 featurization_config = FeaturizationConfig()
 
@@ -318,7 +321,7 @@ When you have your `AutoMLConfig` object ready, you can submit the experiment. A
 
 ```python
 ws = Workspace.from_config()
-experiment = Experiment(ws, "forecasting_example")
+experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```

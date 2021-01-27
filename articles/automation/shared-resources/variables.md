@@ -20,7 +20,7 @@ Automation variables are useful for the following scenarios:
 
 Azure Automation persists variables and makes them available even if a runbook or DSC configuration fails. This behavior allows one runbook or DSC configuration to set a value that is then used by another runbook, or by the same runbook or DSC configuration the next time it runs.
 
-Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. If you have Automation account variables storing sensitive data that are not already encrypted, then you need to delete them and recreate them as encrypted variables. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-computeapp). If you have unencrypted variables that you want excluded from this security recommendation, see [Exempt a resource from recommendations and secure score](../../security-center/exempt-resource.md) to create an exemption rule.
+Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. If you have Automation account variables storing sensitive data that are not already encrypted, then you need to delete them and recreate them as encrypted variables. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-compute). If you have unencrypted variables that you want excluded from this security recommendation, see [Exempt a resource from recommendations and secure score](../../security-center/exempt-resource.md) to create an exemption rule.
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset.
@@ -76,7 +76,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 ## Python functions to access variables
 
-The functions in the following table are used to access variables in a Python 2 and 3 runbook.
+The functions in the following table are used to access variables in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
 |Python Functions|Description|
 |:---|:---|
@@ -175,7 +175,7 @@ except AutomationAssetNotFound:
 
 # [Python 3](#tab/python3)
 
-The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 3 runbook.
+The following sample shows how to get a variable, set a variable, and handle an exception for a nonexistent variable in a Python 3 runbook (preview).
 
 ```python
 import automationassets

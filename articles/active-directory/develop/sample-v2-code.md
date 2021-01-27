@@ -1,6 +1,6 @@
 ---
 title: Code samples for Microsoft identity platform
-description: Provides an index of available Microsoft identity platform (v2.0 endpoint) code samples, organized by scenario.
+description: Provides an index of available Microsoft identity platform code samples, organized by scenario.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -17,14 +17,14 @@ ms.custom: aaddev, identityplatformtop40
 
 # Microsoft identity platform code samples (v2.0 endpoint)
 
-You can use Microsoft identity platform to:
+You can use the Microsoft identity platform to:
 
 - Add authentication and authorization to your web applications and web APIs.
 - Require an access token to access a protected web API.
 
-This article briefly describes and provides you with links to samples for the Microsoft identity platform endpoint. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
+This article briefly describes and provides you with links to samples for the Microsoft identity platform. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
 
-To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform endpoint](v2-app-types.md).
+To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform](v2-app-types.md).
 
 You can also contribute to the samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -65,7 +65,7 @@ The following samples illustrate web applications that sign in users. Some sampl
 
 ## Desktop and mobile public client apps
 
-The following samples show public client applications (desktop or mobile applications) that access the Microsoft Graph API, or your own web API in the name of a user. Apart from the *Desktop (Console) with WAM* sample, all these client applications use Microsoft Authentication Library (MSAL).
+The following samples show public client applications (desktop or mobile applications) that access the Microsoft Graph API, or your own web API in the name of a user. Apart from the *Desktop (Console) with WAM* sample, all these client applications use the Microsoft Authentication Library (MSAL).
 
 | Client application | Platform | Flow/grant | Calls Microsoft Graph | Calls an ASP.NET Core web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
@@ -96,7 +96,7 @@ The following samples show an application that accesses the Microsoft Graph API 
 
 ## Headless applications
 
-The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, an app running on Linux or Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API, in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses Microsoft Authentication Library (MSAL).
+The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, an app running on Linux or Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API, in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses the Microsoft Authentication Library (MSAL).
 
 | Client application | Platform | Flow/Grant | Calls Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -117,7 +117,7 @@ The following samples show how to configure your application to accept sign-ins 
 
 ## Web APIs
 
-The following samples show how to protect a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the web API.
+The following samples show how to protect a web API with the Microsoft identity platform, and how to call a downstream API from the web API.
 
 | Platform | Sample |
 | -------- | ------------------- |
@@ -129,14 +129,14 @@ The following samples show how to protect a web API with the Microsoft identity 
 
 ## Azure Functions as web APIs
 
-The following samples show how to protect an Azure Function using HttpTrigger and exposing a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the web API.
+The following samples show how to protect an Azure Function using HttpTrigger and exposing a web API with the Microsoft identity platform, and how to call a downstream API from the web API.
 
 | Platform | Sample |
 | -------- | ------------------- |
 | ![This image shows the ASP.NET Core logo](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (service) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)</p>Python | Web API (service) of [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Web API (service) of [Node.js and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (service) of [NodeJS and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Web API (service) of [Node.js and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 ## Other Microsoft Graph samples
 

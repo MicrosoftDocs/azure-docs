@@ -1,9 +1,6 @@
 ---
 title: Overview of enterprise security in Azure HDInsight
 description: Learn the various methods to ensure enterprise security in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
