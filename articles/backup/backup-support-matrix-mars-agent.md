@@ -54,6 +54,7 @@ The MARS agent needs access to these URLs:
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+- `www.msftconnecttest.com`
 
 And to these IP addresses:
 
@@ -77,11 +78,16 @@ You can back up your data over Azure ExpressRoute with public peering (available
 
 With public peering: Ensure access to the following domains/addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 With Microsoft peering, select the following services/regions and relevant community values:
 
