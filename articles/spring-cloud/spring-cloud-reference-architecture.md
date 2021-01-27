@@ -10,7 +10,7 @@ description: This architecture reference is a foundation using a typical enterpr
 
 # Azure Spring Cloud Reference Architecture
 
-This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected framework. There are two typical uses of this architecture - for internal applications deployed in hybrid cloud environments and externally facing applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
+This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected Framework. There are two typical uses of this architecture - for internal applications deployed in hybrid cloud environments and externally facing applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
 
 ## Private applications
 The architecture for private applications builds on the traditional hub and spoke design. This design ensures the application components are segregated from the shared services hub. The infrastructure requirements for a private application are in the following list:
@@ -68,7 +68,7 @@ The architecture for public applications builds on the traditional hub and spoke
 * Data at rest must be encrypted
 * Data in transit must be encrypted
 * Azure DevOps self-hosted build agents must be used
-* Secrets and Credentials must be stored in Azure Key Vault
+* Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host DNS records must be stored in Azure Private DNS
 * Internet routable addresses must be stored in Azure Public DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
