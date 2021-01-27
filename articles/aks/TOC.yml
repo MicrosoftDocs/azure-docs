@@ -296,8 +296,8 @@
     - name: Azure Monitor for containers
       href: ../azure-monitor/insights/container-insights-overview.md
       maintainContext: true
-    - name: View the master component logs
-      href: view-master-logs.md
+    - name: View the control plane component logs
+      href: view-control-plane-logs.md
     - name: View the kubelet logs
       href: kubelet-logs.md
     - name: View container data real-time

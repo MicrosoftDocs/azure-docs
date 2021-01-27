@@ -39,7 +39,7 @@
   - name: Create a custom .NET deserializer
     href: custom-deserializer.md
   - name: Create an IoT Edge job
-    href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+    href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
     maintainContext: true
 - name: Samples
   items:

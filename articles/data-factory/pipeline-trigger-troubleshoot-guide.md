@@ -55,7 +55,7 @@ Error message:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Cause**: You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) for details.
+**Cause**: You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) for details.
 
 **Resolution**:
  
@@ -71,13 +71,13 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 **Resolution**
 
 1. Implement activity-level checks by following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-1. Use Azure Logic Apps to monitor pipelines in regular intervals following [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+1. Use Azure Logic Apps to monitor pipelines in regular intervals following [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
 
 ## Monitor pipeline failures in regular intervals
 
 You might need to monitor failed Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint. 
 
-Set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to our ticketing system.
+Set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to our ticketing system.
 
 For more information, go to [Send Notifications from Data Factory, Part 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 

@@ -3,14 +3,14 @@ title: Translator Languages Method
 titleSuffix: Azure Cognitive Services
 description: The Languages method gets the set of languages currently supported by other operations of the Translator.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Languages
