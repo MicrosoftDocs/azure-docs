@@ -1,7 +1,7 @@
 ---
-title: .NET samples
+title: REST samples
 titleSuffix: Azure Cognitive Search
-description: Find Azure Cognitive Search demo C# code samples that use the .NET client libraries.
+description: Find Azure Cognitive Search demo REST code samples that use the Search or Management REST APIs.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,9 +11,13 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ---
 
-# .NET (C#) code samples for Azure Cognitive Search
+# REST code samples for Azure Cognitive Search
 
-Learn about the C# code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
+/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+
+
+
+<!-- Learn about the C# code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
 
 | Repository | Description |
 |------------|-------------|
@@ -61,4 +65,4 @@ The following samples have an associated article in [Azure Cognitive Search docu
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
 | [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
 | [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
-| [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
+| [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). | -->

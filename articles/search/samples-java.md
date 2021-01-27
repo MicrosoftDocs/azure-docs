@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 01/27/2021
 ---
 
 # Java code samples for Azure Cognitive Search
