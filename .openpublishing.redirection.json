@@ -61537,7 +61537,7 @@
     },
     {
       "source_path": "articles/aks/view-master-logs.md",
-      "redirect_url": "articles/aks/view-control-plane-logs.md",
+      "redirect_url": "azure/aks/view-control-plane-logs",
       "redirect_document_id": false
     }
   ]
