@@ -218,55 +218,6 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 
 For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanage). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an of the interface when calling the constructor:
 
-
-### [.NET 5.x](#tab/core5x)
-    
-```csharp
-using Microsoft.FeatureManagement;
-
-public class HomeController : Controller
-{
-    private readonly IFeatureManager _featureManager;
-
-    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
-    {
-        _featureManager = featureManager;
-    }
-}
-```
-    
-### [.NET 3.x](#tab/core3x)
-    
-```csharp
-using Microsoft.FeatureManagement;
-
-public class HomeController : Controller
-{
-    private readonly IFeatureManager _featureManager;
-
-    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
-    {
-        _featureManager = featureManager;
-    }
-}
-```
-    
-### [.NET 2.x](#tab/core2x)
-    
-```csharp
-using Microsoft.FeatureManagement;
-
-public class HomeController : Controller
-{
-    private readonly IFeatureManager _featureManager;
-
-    public HomeController(IFeatureManager featureManager)
-    {
-        _featureManager = featureManager;
-    }
-}
-```
-
 ## Feature flag references
 
 Define feature flags as `enum` variables in order to reference them from code:
