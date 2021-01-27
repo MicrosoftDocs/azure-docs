@@ -27,7 +27,7 @@ conceptualContent:
         - url: ../governance/policy/concepts/regulatory-compliance.md
           itemType: concept
           text: Azure Policy Regulatory Compliance (preview)
-        - url: ./offerings/offering-cis-benchmarks.md
+        - url: /azure/compliance/offerings/offering-cis-benchmarks
           itemType: concept
           text: CIS benchmark
         - url: /microsoft-365/compliance/offering-csa-star-attestation
