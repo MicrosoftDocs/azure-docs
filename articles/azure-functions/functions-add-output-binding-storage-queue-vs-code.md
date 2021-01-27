@@ -154,19 +154,32 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
-1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
+1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
 
 1. With Core Tools running, navigate to the following URL to execute a GET request, which includes `?name=Functions` query string.
 
     `http://localhost:7071/api/HttpExample?name=Functions`
 
-1. After response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools and disconnect the debugger.
+1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 
-[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
+1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
+
+1. With Core Tools running, use the `Invoke-RestMethod` cmdlet in a second PowerShell command prompt to execute the request, as follows:
+
+    ```powershell
+    PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
+    Hello PowerShell
+    ```
+
+    You can also execute the GET request from a browser from the following URL:
+
+    `http://localhost:7071/api/HttpExample?name=PowerShell`
+
+1. After a response is returned, press **Ctrl + C** to stop Core Tools.
 
 ::: zone-end
 

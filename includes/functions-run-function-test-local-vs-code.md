@@ -20,11 +20,7 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
     `http://localhost:7071/api/HttpExample?name=Functions`
 
-1. A response is returned, which looks like the following in a browser:
-
-    ![Browser - localhost example output](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
-
-1. Information about the request is shown in **Terminal** panel.
+1. A response is returned, which includes the string submitted to the `name` query string. Information about the request is shown in **Terminal** panel.
 
     ![Task host start - VS Code terminal output](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
 
