@@ -19,7 +19,7 @@ The architecture for private applications builds on the traditional hub and spok
 * Egress traffic must travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall)
 * Data at rest must be encrypted
 * Data in transit must be encrypted
-* Self-hosted build agents must be used (e.g. Azure DevOps build agents)
+* Azure DevOps self-hosted build agents must be used
 * Secrets, Certificates, and Credentials must be stored in Azure Key Vault
 * Application host Domain Name Service (DNS) records must be stored in Azure Private DNS
 * Name resolution of hosts on-premises and in the Cloud must be bidirectional
@@ -93,7 +93,7 @@ The components that make up the design are in the following list:
 
 The Azure services that are used in this reference architecture are in the following list:
 
-* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java based Spring microservices, and .NET based [Steeltoe][9] microservices.
+* [Azure Spring Cloud][1]: provides a managed service that's designed and optimized specifically for Java-based Spring microservices, and .NET based [Steeltoe][9] microservices.
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources
 
@@ -170,9 +170,8 @@ From the CCM, EKM-02, and EKM-03 specifically address the need for policies and 
 | 8.1 | Ensure that the expiration date is set on all keys |
 | 8.2 | Ensure that the expiration date is set on all secrets |
 | 8.4 | Ensure the key vault is recoverable |
-| 8.5 | Enable the role-based access control within Azure Kubernetes Service |
 
-The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials to ensure rotation is enforced. CIS control 8.4 ensures the contents of the key vault can be restored to maintain business continuity. CIS control 8.5 ensures the permissions provided to the cluster are using least privilege.
+The CIS controls 8.1 and 8.2 recommend expiration dates are set for credentials to ensure rotation is enforced. CIS control 8.4 ensures the contents of the key vault can be restored to maintain business continuity.
 
 ## Appendix
 
