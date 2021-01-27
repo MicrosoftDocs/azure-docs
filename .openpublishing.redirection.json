@@ -61534,6 +61534,11 @@
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/view-master-logs.md",
+      "redirect_url": "articles/aks/view-control-plane-logs.md",
+      "redirect_document_id": false
     }
   ]
 }
