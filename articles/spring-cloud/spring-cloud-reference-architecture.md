@@ -133,7 +133,6 @@ The primary aspect of governance that this architecture addresses is segregation
 | :----------------- | :----------------------|
 | DCS-08 | Datacenter Security Unauthorized Persons Entry |
 
-
 #### Network
 The network design supporting this architecture is derived from the traditional hub and spoke model. This decision ensures network isolation is a foundational construct. CCM control IVS-06 recommends that traffic between networks and virtual machines are restricted and monitored between trusted and untrusted environments. This architecture adopts the control by implementation of the NSGs for east-west traffic, and the Azure Firewall for north-south traffic. CCM control IPY-04 recommends that the infrastructure should use secure network protocols for the exchange of data between services. The Azure services supporting this architecture all use standard secure protocols such as TLS for HTTP and SQL.
 
