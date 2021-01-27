@@ -133,45 +133,43 @@ In Azure AD, users who have privileged roles, such as administrators, are the ro
 
 *  Deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) for just-in-time (JIT) access to all human accounts that have privileged roles. Require strong authentication to activate roles.
 
-* Provide administrative roles at the [least privilege necessary to perform required tasks](../roles/delegate-by-task.md).
+* Provide administrative roles that allow the [least privilege necessary to perform required tasks](../roles/delegate-by-task.md).
 
-* To enable a richer role assignment experience that includes delegation and multiple roles at the same time, consider using Azure AD security groups or Microsoft 365 Groups (collectively called *cloud groups*). Also [enable role-based access control](../roles/groups-assign-role.md). You can also use [administrative units](../roles/administrative-units.md) to restrict the scope of roles to a portion of the organization.
+* To enable a richer role assignment experience that includes delegation and multiple roles at the same time, consider using Azure AD security groups or Microsoft 365 Groups (collectively called *cloud groups*). Also [enable role-based access control](../roles/groups-assign-role.md). You can use [administrative units](../roles/administrative-units.md) to restrict the scope of roles to a portion of the organization.
 
-* Deploy [Emergency Access Accounts](../roles/security-emergency-access.md) and do NOT use on-premises password vaults to store credentials.
+* Deploy [emergency access accounts](../roles/security-emergency-access.md). Do NOT use on-premises password vaults to store credentials.
 
-For more information, see [Securing privileged access](/security/compass/overview), which has detailed guidance on this topic. Also, see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
+For more information, see [Securing privileged access](/security/compass/overview). Also see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
 
 ### Use cloud authentication 
 
 Credentials are a primary attack vector. Implement the following
-practices to make credentials more secure.
+practices to make credentials more secure:
 
-* [Deploy passwordless authentication](../authentication/howto-authentication-passwordless-deployment.md): Reduce the use of passwords as much as possible by deploying passwordless credentials. These credentials are managed and
-    validated natively in the cloud. Choose from:
+* [Deploy passwordless authentication](../authentication/howto-authentication-passwordless-deployment.md). Reduce the use of passwords as much as possible by deploying passwordless credentials. These credentials are managed and
+    validated natively in the cloud. Choose from these resources:
 
    * [Windows Hello for business](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
 
-   * [Authenticator App](../authentication/howto-authentication-passwordless-phone.md)
+   * [The Microsoft Authenticator app](../authentication/howto-authentication-passwordless-phone.md)
 
    * [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
-* [Deploy Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md): Provision
-    [multiple strong credentials using Azure AD MFA](../fundamentals/resilience-in-credentials.md). That way, access to cloud resources will require a credential that is managed in Azure AD in addition to an on-premises password that can be manipulated.
+* [Deploy multifactor authentication](../authentication/howto-mfa-getstarted.md). Provision
+    [multiple strong credentials by using Azure AD multifactor authentication](../fundamentals/resilience-in-credentials.md). That way, access to cloud resources will require a credential that's managed in Azure AD in addition to an on-premises password that can be manipulated. For more information, see [Create a resilient access control management strategy by using Azure AD](./resilience-overview.md).
 
-   * For more information, see [Create a resilient access control management strategy with Azure active Directory](./resilience-overview.md).
+### Limitations and tradeoffs
 
-**Limitations and tradeoffs**
+* Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. This vulnerability won't
+    compromise your cloud infrastructure. But your cloud accounts won't protect these components from on-premises compromise.
 
-* Hybrid account password management requires hybrid components such as password protection agents and password writeback agents. If your on-premises infrastructure is compromised, attackers can control the machines on which these agents reside. While this will not
-    compromise your cloud infrastructure, your cloud accounts will not protect these components from on-premises compromise.
-
-*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD, based on the assumption that on-premises AD password policies will mitigate this. If your on-premises AD is compromised and synchronization from AD connect needs to be disabled, you must set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md).
+*  On-premises accounts synced from Active Directory are marked to never expire in Azure AD. This setup is based on the assumption that on-premises Active Directory password policies will mitigate this. If your on-premises instance of Active Directory is compromised and synchronization from Active Directory Connect needs to be disabled, set the option [EnforceCloudPasswordPolicyForPasswordSyncedUsers](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## Provisioning user access from the cloud
 
-Provisioning refers to the creation of user accounts and groups in applications or identity providers.
+*Provisioning* refers to the creation of user accounts and groups in applications or identity providers.
 
-![Diagram of provisioning architecture](media/protect-m365/protect-m365-provision.png)
+![Diagram of provisioning architecture.](media/protect-m365/protect-m365-provision.png)
 
 * **Provision from cloud HR apps to Azure AD:** This enables an on-premises compromise to be isolated without disrupting your Joiner-Mover-Leaver cycle from your cloud HR apps to Azure AD.
 
@@ -201,7 +199,7 @@ Provisioning refers to the creation of user accounts and groups in applications 
     Provisioning](../cloud-provisioning/what-is-cloud-provisioning.md). This enables you to connect to disconnected forests, eliminating the need to establish cross-forest connectivity or trusts, which can
     broaden the impact of an on-premises breach. * 
  
-**Limitations and tradeoffs:**
+### Limitations and tradeoffs
 
 * When used to provision hybrid accounts, the Azure AD from cloud HR systems relies on on-premises synchronization to complete the data flow from AD to Azure AD. If synchronization is interrupted, new employee records will not be available in Azure AD.
 
