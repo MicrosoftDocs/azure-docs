@@ -56,7 +56,7 @@ These are the parameters required by each of these spatial analysis operations.
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The RTSP url for the camera device (Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, http, or mp4. Video_URL can be provided as an obfuscated base64 string value using AES encryption, and if the video url is obfuscated then `KEY_ENV` and `IV_ENV` need to be provided as environment variables. Sample utility to generate keys and encryption can be found [here](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
+| VIDEO_URL| The RTSP url for the camera device (Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, http, or mp4. Video_URL can be provided as an obfuscated base64 string value using AES encryption, and if the video url is obfuscated then `KEY_ENV` and `IV_ENV` need to be provided as environment variables. Sample utility to generate keys and encryption can be found [here](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|

@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight highly available solution architecture case study
 description: This article is a fictional case study of a possible Azure HDInsight highly available solution architecture.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
