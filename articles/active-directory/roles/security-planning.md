@@ -146,6 +146,7 @@ Personal email accounts are regularly phished by cyber attackers, a risk that ma
 * Be sure to create separate accounts for users to do global admin tasks
 * Make sure that your global admins don't accidentally open emails or run programs with their admin accounts
 * Be sure those accounts have their email forwarded to a working mailbox
+* Global Administrator (and other privileged groups) accounts should be cloud only accounts with no ties to on-premises Active Directory
 
 #### Ensure the passwords of administrative accounts have recently changed
 
