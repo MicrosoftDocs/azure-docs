@@ -10,7 +10,7 @@ description: This architecture reference is a foundation using a typical enterpr
 
 # Azure Spring Cloud Reference Architecture
 
-This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected Framework. There are two typical uses of this architecture - for internal applications deployed in hybrid cloud environments and externally facing applications. These use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
+This architecture reference is a foundation using a typical enterprise hub and spoke enterprise design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke which is dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenants in the Well-Architected Framework.
 
 ## Private applications
 The architecture for private applications builds on the traditional hub and spoke design. This design ensures the application components are segregated from the shared services hub. The infrastructure requirements for a private application are in the following list:
