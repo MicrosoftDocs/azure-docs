@@ -186,7 +186,12 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 13. In Server Manager, select **Tools**, and then select **AD FS Management**.
 14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**.
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## Test your custom policy
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Under **Policies**, select **Identity Experience Framework**
 
 ## Troubleshooting AD FS service  
 

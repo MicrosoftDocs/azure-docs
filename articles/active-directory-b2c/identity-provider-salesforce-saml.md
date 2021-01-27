@@ -104,10 +104,10 @@ You can define a Salesforce account as a claims provider by adding it to the **C
 
     ```xml
     <ClaimsProvider>
-      <Domain>salesforce</Domain>
+      <Domain>salesforce.com</Domain>
       <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="salesforce">
+        <TechnicalProfile Id="Salesforce-SAML2">
           <DisplayName>Salesforce</DisplayName>
           <Description>Login with your Salesforce account</Description>
           <Protocol Name="SAML2"/>
@@ -126,7 +126,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="salesforce.com" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
@@ -167,7 +167,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
   <ClaimsProviderSelections>
     ...
-    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
+    <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
   </ClaimsProviderSelections>
   ...
 </OrchestrationStep>
@@ -175,7 +175,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
   <ClaimsExchanges>
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-SAML2" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```

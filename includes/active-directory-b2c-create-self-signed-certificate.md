@@ -46,6 +46,6 @@ On macOS, use [Certificate Assistant](https://support.apple.com/guide/keychain-a
 1. For the **File Format**, select **Personal Information Exchange (.p12)**.
 1. Select **Save**.
 1. Enter a **Password**, and then **Verify** the password.
-1. Replace the file name extension to `.pfx`. For example , **self-signed-certificate.pfx**. 
+1. Replace the file extension to `.pfx`. For example, **self-signed-certificate.pfx**. 
 
 ---
