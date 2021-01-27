@@ -41,6 +41,6 @@ This will establish a private endpoint connection between QnA maker service and 
 ![Managed Networking Service](../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking3.png)
 
 
-##Note
+## Note
  * We don't support change Azure Search Service once you enable private access to your QnAMaker service. If you change the Azure Search Service via 'Configuration' tab after you have enabled private access, the QnAMaker service will become unusable.
  * After establishing Private Endpoint Connection, if you switch Azure Search Service Networking to 'Public', you won't be able to use the QnAMaker service. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work
