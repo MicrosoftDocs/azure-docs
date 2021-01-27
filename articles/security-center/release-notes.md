@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: memildin
 
 ---
@@ -42,6 +42,7 @@ Updates in January include:
 - [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [CSV export of filtered list of recommendations](#csv-export-of-filtered-list-of-recommendations)
 - ["Not applicable" resources now reported as "Compliant" in Azure Policy assessments](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [Export weekly snapshots of secure score and regulatory compliance data with continuous export (preview)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### Azure Security Benchmark is now the default policy initiative for Azure Security Center
@@ -221,6 +222,18 @@ Previously, resources that were evaluated for a recommendation and found to be *
 The only impact will be seen in Azure Policy where the number of compliant resources will increase. There will be no impact to your secure score in Azure Security Center.
 
 
+### Export weekly snapshots of secure score and regulatory compliance data with continuous export (preview)
+
+We've added a new preview feature to the [continuous export](continuous-export.md) tools for exporting weekly snapshots of secure score and regulatory compliance data.
+
+When you define a continuous export, set the export frequency:
+
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Choosing the frequency of your continuous export":::
+
+- **Streaming** – assessments will be sent in real-time when a resource’s health state is updated (if no updates occur, no data will be sent).
+- **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
+
+Learn more about the full capabilities of this feature in [Continuously export Security Center data](continuous-export.md)
 
 ## December 2020
 

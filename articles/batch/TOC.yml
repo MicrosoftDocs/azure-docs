@@ -101,13 +101,11 @@
   items:
   - name: Manage Batch accounts
     items:
-    - name: Manage your account
-      href: batch-manage-account-basics.md
-    - name: Manage Batch accounts with the portal
+    - name: Manage Batch accounts in the Azure portal
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
-    - name: Cost analysis and budgets
+    - name: Get cost analysis and set budgets
       href: budget.md
     - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
