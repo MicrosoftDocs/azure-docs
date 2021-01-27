@@ -12,7 +12,7 @@ ms.date: 11/30/2020
 You can connect your Microsoft Endpoint Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
 
 > [!IMPORTANT]
-> Starting in Configuration Manager version 2010, this feature is deprecated.<!-- 8269855 --> For more information, see, [Removed and deprecated features for Configuration Manager](deprecated/removed-and-deprecated-cmfeatures.md).
+> Starting in Configuration Manager version 2010, this feature is deprecated.<!-- 8269855 --> For more information, see [Removed and deprecated features for Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## Prerequisites
 
