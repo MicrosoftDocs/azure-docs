@@ -76,7 +76,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your virtual network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources related to your VPN gateway take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 

@@ -36,7 +36,7 @@ You cannot associate a virtual network, subnet, or network security group direct
 
 - [How to enable auditing in Azure Sentinel](resources.md)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 

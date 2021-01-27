@@ -176,7 +176,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Virtual Machine Scale Set.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -238,7 +238,7 @@ For advanced visibility of the applications and services supported by the Azure 
 
 * [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-* [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
 

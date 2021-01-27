@@ -225,7 +225,7 @@ Azure Activity Log, which is part of Azure Monitor, is a subscription log that p
 |Resources|Link|
 |---|---|
 |Azure Activity Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs](../azure-monitor/platform/platform-logs-overview.md)|
-|Stream the Azure Activity Log to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs](../azure-monitor/platform/activity-log.md#legacy-collection-methods)|
+|Stream the Azure Activity Log to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs](../azure-monitor/essentials/activity-log.md#legacy-collection-methods)|
 |
 
 ### Azure Diagnostic Log
@@ -356,7 +356,7 @@ Activity Log Analytics is a Log Analytics Solution that helps analyse and search
 
 |Resources|Link|
 |---|---|
-|Collect and analyze Azure activity logs in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs](../azure-monitor/platform/activity-log.md)|
+|Collect and analyze Azure activity logs in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs](../azure-monitor/essentials/activity-log.md)|
 |
 
 ### Security Information and Event Management (SIEM)

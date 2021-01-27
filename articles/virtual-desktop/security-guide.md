@@ -75,7 +75,7 @@ Enabling [Conditional Access](../active-directory/conditional-access/overview.md
 
 Enabling audit log collection lets you view user and admin activity related to Windows Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/platform/activity-log.md)
+-   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)

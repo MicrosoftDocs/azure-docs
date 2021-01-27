@@ -208,7 +208,7 @@ Other solutions are available for monitoring different applications and services
 |:---|:---|
 | [Active Directory health check](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
 | [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
-| [Activity log analytics](platform/activity-log.md#activity-log-analytics-monitoring-solution) | View Activity Log entries. |
+| [Activity log analytics](essentials/activity-log.md#activity-log-analytics-monitoring-solution) | View Activity Log entries. |
 | [DNS Analytics (preview)](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collect, view, and analyze your Cloud Foundry system health and performance metrics, across multiple deployments. |
 | [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |

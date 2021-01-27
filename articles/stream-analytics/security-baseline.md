@@ -112,7 +112,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes for your Stream Analytics resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 

@@ -98,7 +98,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). You can find the schema and categories of resource logs collected for Azure IoT Hub in [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
 
-The [Activity log](../azure-monitor/platform/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 When routing IoT Hub platform metrics to Azure Monitor Logs, be aware that:
 

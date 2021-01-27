@@ -211,7 +211,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes to network resources associated with your Azure API Management deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -259,7 +259,7 @@ Optionally, enable, and on-board data to Azure Sentinel or a third-party Securit
 
 For data plane audit logging, diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable Diagnostic Settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -315,7 +315,7 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 

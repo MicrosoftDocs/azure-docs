@@ -26,7 +26,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -66,7 +66,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Logging and Monitoring for Private Link](private-link-overview.md#logging-and-monitoring)
 

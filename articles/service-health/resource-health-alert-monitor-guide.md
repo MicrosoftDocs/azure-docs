@@ -70,5 +70,5 @@ Learn more about Resource Health:
 Create Service Health Alerts:
 
 * [Configure Alerts for Service Health](./alerts-activity-log-service-notifications-portal.md) 
-* [Azure Activity Log event schema](../azure-monitor/platform/activity-log-schema.md)
+* [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md)
 * [Configure resource health alerts using Resource Manager templates](./resource-health-alert-arm-template-guide.md)

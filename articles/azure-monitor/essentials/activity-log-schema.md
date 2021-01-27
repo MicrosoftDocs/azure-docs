@@ -10,13 +10,13 @@ ms.author: bwren
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes Activity log categories and the schema for each. 
+The [Azure Activity log](../platform/platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes Activity log categories and the schema for each. 
 
 The schema will vary depending on how you access the log:
  
 - The schemas described in this article are when you access the Activity log from the [REST API](/rest/api/monitor/activitylogs). This is also the schema used when you select the **JSON** option when viewing an event in the Azure portal.
-- See the final section [Schema from storage account and event hubs](#schema-from-storage-account-and-event-hubs) for the schema when you use a [diagnostic setting](diagnostic-settings.md) to send the Activity log to Azure Storage or Azure Event Hubs.
-- See [Azure Monitor data reference](/azure/azure-monitor/reference/) for the schema when you use a [diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace.
+- See the final section [Schema from storage account and event hubs](#schema-from-storage-account-and-event-hubs) for the schema when you use a [diagnostic setting](../platform/diagnostic-settings.md) to send the Activity log to Azure Storage or Azure Event Hubs.
+- See [Azure Monitor data reference](/azure/azure-monitor/reference/) for the schema when you use a [diagnostic setting](../platform/diagnostic-settings.md) to send the Activity log to a Log Analytics workspace.
 
 ## Severity Level
 Each entry in the activity log has a severity level. Severity level can have one of the following values:  
@@ -892,5 +892,5 @@ Following is an example of an event using this schema..
 
 
 ## Next steps
-* [Learn more about the Activity Log](platform-logs-overview.md)
-* [Create a diagnostic setting to send Activity Log to Log Analytics workspace, Azure storage, or event hubs](diagnostic-settings.md)
+* [Learn more about the Activity Log](../platform/platform-logs-overview.md)
+* [Create a diagnostic setting to send Activity Log to Log Analytics workspace, Azure storage, or event hubs](../platform/diagnostic-settings.md)

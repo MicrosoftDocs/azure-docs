@@ -298,7 +298,7 @@
       displayName: Platform logs, Resource logs, Activity log
       href: platform/platform-logs-overview.md 
     - name: Activity log
-      href: platform/activity-log.md
+      href: essentials/activity-log.md
     - name: Resource logs
       href: platform/resource-logs.md
     - name: Diagnostic settings
@@ -1296,7 +1296,7 @@
   - name: Platform logs
     items:
     - name: Activity log schema
-      href: platform/activity-log-schema.md
+      href: essentials/activity-log-schema.md
     - name: Resource log schemas
       href: platform/resource-logs-schema.md
     - name: Supported resource log categories
@@ -1434,5 +1434,6 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
