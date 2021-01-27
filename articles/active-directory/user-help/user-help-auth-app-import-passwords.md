@@ -231,11 +231,11 @@ Bitwarden allows exporting of passwords from desktop only, so please ensure you 
 
 Sign in into https://vault.bitwarden.com/ and click on Tools and then, click on “Export Vault”. Choose the file format as CSV, provide your master password and then click on “Export Vault”
 
-![Bitwarden import passwords location](./media/user-help-auth-app-import-passwords/desktop-bitwarden-export-command-location.png)
+![Bitwarden Export vault location](./media/user-help-auth-app-import-passwords/desktop-bitwarden-export-command-location.png)
 
 Alternatively, export your passwords by opening & logging in to the Bitwarden Chrome extension and then, click on “Settings”, and then “Export Vault”. Provide your master password and change the format to CSV and hit Submit to export your passwords.
 
-![Bitwarden import passwords location](./media/user-help-auth-app-import-passwords/desktop-bitwarden-extension-export-command-location.png)
+![Bitwarden Export vault location in Chrome extension ](./media/user-help-auth-app-import-passwords/desktop-bitwarden-extension-export-command-location.png)
 
 ### Step 2: Import to Authenticator
 
@@ -296,7 +296,7 @@ Choose a safe location to save your exported file. Select “Logins” in data a
 
 At the pop-up message click Yes. The CSV file will be exported to the provided location.
 
-![Desktop Roboform export dialog box](./media/user-help-auth-app-import-passwords/desktop-roboform-confirmation.png)
+![Desktop Roboform export confirmation dialog box](./media/user-help-auth-app-import-passwords/desktop-roboform-confirmation.png)
 
 Step 2: Import to Authenticator
 
