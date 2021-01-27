@@ -16,7 +16,7 @@ ms.reviewer: tigorman
 ## Assumptions
 
 - You're planning to migrate an Oracle database from on-premises to Azure.
-- You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository (https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf)for the Oracle Database you're looking to migrate
+- You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) for the Oracle Database you're looking to migrate
 - You have an understanding of the various metrics in Oracle.
 - You have a baseline understanding of application performance and platform utilization.
 
