@@ -120,7 +120,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 1. When the extension is installed, select **Windows Admin Center** in the upper-left corner to go to the main dashboard page.
 
-     The **localhost** connection represents the PC where you are running Windows Admin Center.
+     The **localhost** connection represents the PC where you're running Windows Admin Center.
 
      :::image type="content" source="media/quickstart/windows-admin-center-start-page.png" alt-text="Screenshot of the Windows Admin Start page.":::
 
@@ -136,7 +136,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
      :::image type="content" source="media/quickstart/wizard-welcome-screen.png" alt-text="Screenshot showing selecting Next to continue through the installation wizard.":::
 
-1. Select the **Optional diagnostic data** to provide extended diagnostics data that helps Microsoft monitor and maintain quality of service, and then select **Next: Deploy**.
+1. Select **Optional diagnostic data**, and then select **Next: Deploy**. This selection provides extended diagnostics data that helps Microsoft monitor and maintain quality of service.
 
      :::image type="content" source="media/quickstart/diagnostic-data-screen.png" alt-text="Screenshot showing the Diagnostic data options.":::
 
@@ -144,7 +144,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
      :::image type="content" source="media/quickstart/wizard-select-target-device-screen.png" alt-text="Screenshot showing the Target device list.":::
 
-1. ​Select **Next** to accept the default settings. The deployment screen shows the process of downloading the package, installing the package, configuring the host and final setting up the Linux virtual machine (VM)​. A successful deployment looks like this:
+1. ​Select **Next** to accept the default settings. The deployment screen shows the process of downloading the package, installing the package, configuring the host, and final setting up the Linux virtual machine (VM)​. A successful deployment looks like this:
 
      :::image type="content" source="media/quickstart/wizard-deploy-success-screen.png" alt-text="Screenshot of a successful deployment.":::
 
@@ -182,7 +182,7 @@ From the Command Shell in Windows Admin Center, confirm that the module you depl
 
      :::image type="content" source="media/quickstart/connect-edge-screen.png" alt-text="Screenshot showing selecting Connect in Windows Admin Center.":::
 
-1. On the **Overview** page, you'll see the **IoT Edge Module List** and **IoT Edge Status**, where you can see the modules that have been deployed and the device status.  
+     On the **Overview** page, you'll see the **IoT Edge Module List** and **IoT Edge Status**. You can see the modules that have been deployed and the device status.  
 
 1. Under **Tools**, select **Command Shell**. The command shell is a PowerShell terminal that automatically uses Secure Shell (SSH) to connect to your Azure IoT Edge device's Linux VM on your Windows PC.
 
@@ -207,7 +207,7 @@ From the Command Shell in Windows Admin Center, confirm that the module you depl
 
     :::image type="content" source="media/quickstart/temperature-sensor-screen.png" alt-text="Screenshot showing the list of messages sent from the module to the cloud.":::
 
-You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+You can also use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to watch messages arrive at your IoT hub.
 
 ## Clean up resources
 
@@ -232,11 +232,11 @@ az group list
 
 ### Remove Azure IoT Edge for Linux on Windows
 
-You can uninstall Azure IoT Edge for Linux on Windows from your IoT Edge device through the dashboard extension in Windows Admin Center.
+Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge for Linux on Windows.
 
 1. Connect to the Azure IoT Edge for Linux on Windows device connection in Windows Admin Center. The Azure dashboard tool extension loads.
 
-1. Select **Uninstall**. After Azure IoT Edge for Linux on Windows is removed, Windows Admin Center goes to the start page and removes the Azure IoT Edge device connection entry from the list.
+1. Select **Uninstall**. After Azure IoT Edge is removed, Windows Admin Center removes the Azure IoT Edge device connection entry from the **Start** page.
 
 >[!Note]
 >Another way to remove Azure IoT Edge from your Windows system is to select **Start** > **Settings** > **Apps** > **Azure IoT Edge** > **Uninstall** on your IoT Edge device. This method removes Azure IoT Edge from your IoT Edge device, but leaves the connection behind in Windows Admin Center. To complete the removal, uninstall Windows Admin Center from the **Settings** menu as well.
