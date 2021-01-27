@@ -90,7 +90,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
 
-## Managed identity for accessing other resources
+## Managed identity for accessing other resources (preview)
 
 Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **managed identity** for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [*Managed identities for Azure resources*](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -100,7 +100,7 @@ You can use a system-assigned managed identity for your Azure Digital Instance t
 
 For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [*How-to: Enable a managed identity for routing events*](how-to-enable-managed-identities.md).
 
-## Private network access with Azure Private Link 
+## Private network access with Azure Private Link (preview)
 
 [Azure Private Link](../private-link/private-link-overview.md) is a service that enables you to access Azure resources (like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md), and [Azure Cosmos DB](../cosmos-db/introduction.md)) and Azure-hosted customer and partner services over a private endpoint in your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). 
 
@@ -119,6 +119,7 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [*Ho
 When working with Private Link for Azure Digital Twins, here are some factors you may want to consider:
 * **Pricing**: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
 * **Regional availability**: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
+* **Maximum number of private endpoints per Azure Digital Twins instance**: 10
 
 For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
 
